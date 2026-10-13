@@ -1,0 +1,14 @@
+# Archivos intermedios (siempre regenerables)
+.tmp/*
+!.tmp/.gitkeep
+
+# Secretos y credenciales
+.env
+credentials.json
+token.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
