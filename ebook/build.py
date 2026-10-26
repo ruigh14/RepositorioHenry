@@ -131,12 +131,7 @@ if ENT:
   <div class="pillar"><span class="pn">02</span><h3>Rutinas con video</h3><p>Tres rutinas en bloques y una extra de zona media.</p></div>
   <div class="pillar"><span class="pn">03</span><h3>Seguimiento</h3><p>Evaluación inicial y registro de cargas.</p></div>
 </div>
-<h2>Bonus incluidos</h2>
-<div class="pillars">
-  <div class="pillar"><span class="pn">+</span><h3>Recetario</h3><p>23 recetas fáciles.</p></div>
-  <div class="pillar"><span class="pn">+</span><h3>Dos talleres</h3><p>Descanso y organización de la heladera.</p></div>
-  <div class="pillar"><span class="pn">+</span><h3>Consulta con Nacho</h3><p>Para definir tus próximos pasos.</p></div>
-</div>
+{box("<b>Bonus incluidos:</b> recetario con 23 recetas, dos talleres (Descanso y Organización de la heladera) y una consulta con Nacho.", "soft")}
 <div class="firstweek">
   <h2>Tu primera semana</h2>
   <div class="fw">
@@ -227,7 +222,6 @@ if ENT:
 <p>Retomá en tu próximo día disponible. No hagas dos sesiones juntas.</p>
 <h3>6. Si se interrumpe una semana entera</h3>
 <p>Repetí la última semana que completaste antes de avanzar. No compenses con más ejercicio ni comiendo menos.</p>
-{box('<b>Importante.</b> Esta guía es orientativa. Si tenés una condición médica, una lesión o estás embarazada, consultá a un profesional antes de empezar.', "note")}
 </div>
 </div>
 ''', chapter="01 · Cómo usar esta guía", pid="cap1", toc="01 · Cómo usar esta guía")
@@ -285,7 +279,7 @@ if FULL:
 page(f'''
 {chap_head(NE, 'Entrenamiento de <span class="t">fuerza en casa</span>', "Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.")}
 <h2>Por qué entrenar fuerza</h2>
-<p>El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía. La Organización Mundial de la Salud recomienda para adultos actividades de fortalecimiento muscular al menos 2 días por semana, además de actividad aeróbica.</p>
+<p>El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía.</p>
 <h2>Cómo está organizado</h2>
 <div class="steps steps4">
   <div class="step"><span>1</span><b>Entrada en calor</b><p>5 a 10 min</p></div>
@@ -307,8 +301,7 @@ page(f'''
 <h3>Pausas</h3>
 {ul(["Entre ejercicios: 30 a 60 segundos.", "Entre vueltas: 1 minuto.", "Entre el bloque 1 y el bloque 2: 2 minutos.", "Si te falta el aire o perdés la técnica, alargá la pausa."])}
 <h3>Ejercicios por tiempo</h3><p>Las planchas y algunos ejercicios dinámicos se hacen por segundos (por ejemplo, 15–20 s) en lugar de repeticiones.</p>
-<h3>Videos de cada ejercicio</h3><p>En cada ejercicio vas a encontrar el botón <span class="vbtn-sm inline">{ICON_PLAY} VER VIDEO</span>. Tocalo para ver la demostración y revisar la técnica antes de empezar.</p>
-{box("<b>Consejo.</b> Las primeras veces, hacé cada ejercicio frente a un espejo o filmate con el celular para revisar la técnica.", "soft")}
+<h3>Videos de cada ejercicio</h3><p>En cada ejercicio vas a encontrar el botón <span class="vbtn-sm inline">{ICON_PLAY} VER VIDEO</span>. Tocalo para ver la demostración. Las primeras veces, mirate en un espejo o filmate con el celular para revisar la técnica.</p>
 ''', chapter=NE + " · Entrenamiento", pid="cap2b")
 
 page(f'''
@@ -437,12 +430,6 @@ CALOR = [
  ("calor_5.png","Elevación de cadera","10–12","Boca arriba con las rodillas flexionadas, apretá los glúteos y elevá la cadera hasta alinear rodillas, cadera y hombros. Bajá lento.","subí menos la cadera."),
  ("calor_6.png","Bird dog","10–12 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria, sostené un segundo y volvé. Mantené la espalda quieta.","mové solo el brazo o solo la pierna."),
 ]
-routine("ANTES DE CADA RUTINA", 'Entrada en <span class="t">calor</span>',
-        [("Vueltas","1 a 2"),("Repeticiones","10–12"),("Pausa","20–30 s entre ejercicios"),("Duración","5–10 min")],
-        "Hacé los ejercicios en orden, uno detrás de otro, antes de cualquiera de las tres rutinas.",
-        [ex_card(*c) for c in CALOR],
-        box('<b>Al terminar la entrada en calor</b>, pasá al bloque 1 de la rutina del día: <a href="#rutina1">Rutina 1</a> (página <span class="pref" data-ref="rutina1"></span>), <a href="#rutina2">Rutina 2</a> (página <span class="pref" data-ref="rutina2"></span>) o <a href="#rutina3">Rutina 3</a> (página <span class="pref" data-ref="rutina3"></span>).', "soft end"),
-        "calor")
 
 RUT = {
 "1": dict(title="Rutina 1", note="Las planchas: 15–20 s.", ex=[
@@ -481,17 +468,21 @@ for k, r in RUT.items():
     page(f"""
 {eyebrow("RUTINA EN CASA")}
 <h1 class="h1">{r["title"]}: <span class="t">cuerpo completo</span></h1>
-{block_head("ENTRADA EN CALOR", '1 vuelta · 10–12 repeticiones · detalle en la página <span class="pref" data-ref="calor"></span>')}
-<div class="warm">{"".join(warm_card(c[0], c[1], c[2]) for c in CALOR)}</div>
-{block_head("BLOQUE 1", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
-<div class="bgrid">{"".join(ex_card(*e, row=True) for e in r["ex"][:4])}</div>
+{block_head("ENTRADA EN CALOR", "1 o 2 vueltas · 10–12 rep. · 20–30 s de pausa")}
+{"".join(ex_card(*c[:4], row=True) for c in CALOR)}
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}")
     page(f"""
-{eyebrow(r["title"].upper() + " · CONTINUACIÓN")}
-{block_head("BLOQUE 2", "Descansá 2 minutos al terminar el bloque 1 · " + VUELTAS + " · 1 min entre vueltas · " + r["note"])}
-<div class="bgrid">{"".join(ex_card(*e, row=True) for e in r["ex"][4:])}</div>
-{box('<b>Al terminar el bloque 2</b>, hacé la <a href="#elong">rutina de elongación</a> (página <span class="pref" data-ref="elong"></span>).', "soft end")}
-""", chapter=NE + " · Entrenamiento", pid=f"rutina{k}b")
+<h2 class="bh">{r["title"]} · <span class="t">Bloque 1</span></h2>
+{block_head("BLOQUE 1", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
+{"".join(ex_card(*e, row=True) for e in r["ex"][:4])}
+<p class="small"><b>Al terminar las vueltas</b>, descansá 2 minutos y pasá al bloque 2.</p>
+""", chapter=NE + " · Entrenamiento", pid=f"rutina{k}b1")
+    page(f"""
+<h2 class="bh">{r["title"]} · <span class="t">Bloque 2</span></h2>
+{block_head("BLOQUE 2", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
+{"".join(ex_card(*e, row=True) for e in r["ex"][4:])}
+<p class="small"><b>Al terminar el bloque 2</b>, hacé la <a href="#elong">rutina de elongación</a> (página <span class="pref" data-ref="elong"></span>).</p>
+""", chapter=NE + " · Entrenamiento", pid=f"rutina{k}b2")
 
 ELONG = [
  ("elong_1.png","Isquiotibiales a una pierna","Sentada, una pierna estirada y la otra flexionada. Inclinate hacia adelante desde la cadera, con la espalda larga.","flexioná un poco la rodilla de la pierna estirada."),
@@ -503,12 +494,18 @@ ELONG = [
  ("elong_7.png","Hombros","Cruzá un brazo por delante del pecho y sostenelo con el otro, sin elevar el hombro.","menos presión con el brazo que sostiene."),
  ("elong_8.png","Cuello","Incliná la cabeza hacia un lado, ayudándote suavemente con la mano. Sin tirones.","sin ayudarte con la mano."),
 ]
-routine("AL TERMINAR CADA RUTINA", 'Rutina de <span class="t">elongación</span>',
-        [("Vueltas","1 a 2"),("Cada postura","15–30 s"),("Intensidad","Tensión suave, sin dolor"),("Duración","5–8 min")],
-        "Sostené cada postura sin rebotes y respirando con calma. Ayuda a volver a la calma.",
-        [ex_card(i,n,"15–30 s",h,e) for i,n,h,e in ELONG],
-        "",
-        "elong")
+page(f"""
+{eyebrow("AL TERMINAR CADA RUTINA")}
+<h1 class="h1">Rutina de <span class="t">elongación</span></h1>
+{params([("Vueltas","1 a 2"),("Cada postura","15–30 s"),("Intensidad","Suave, sin dolor"),("Duración","5–8 min")])}
+<p class="small">Sostené cada postura sin rebotes y respirando con calma.</p>
+{"".join(ex_card(i, n, "15–30 s", h, e, row=True) for i, n, h, e in ELONG[:4])}
+""", chapter=NE + " · Entrenamiento", pid="elong")
+page(f"""
+<h2 class="bh">Elongación · <span class="t">continuación</span></h2>
+{"".join(ex_card(i, n, "15–30 s", h, e, row=True) for i, n, h, e in ELONG[4:])}
+<p class="small"><b>¡Bien hecho!</b> Anotá la sesión en tu planilla de registro.</p>
+""", chapter=NE + " · Entrenamiento", pid="elong2")
 
 # ================================================================== CAP 3 ORGANIZACIÓN SEMANAL
 def cal_row(label, days):
@@ -612,11 +609,7 @@ DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</t
 if ENT:
     page(f'''
 {chap_head("04", 'Tu plan de <span class="t">8 semanas</span>', "Tres fases para pasar de aprender la técnica a entrenar con más carga. Cada semana te dice qué hacer y con qué esfuerzo.")}
-<div class="pillars">
-  <div class="pillar"><span class="pn">1–2</span><h3>Fase 1 · Base</h3><p>Aprendés la técnica y tu cuerpo se adapta. Dos vueltas y esfuerzo moderado.</p></div>
-  <div class="pillar"><span class="pn">3–6</span><h3>Fase 2 · Construcción</h3><p>Sumás vueltas, acortás pausas y agregás peso. La semana 6 es más liviana para recuperarte.</p></div>
-  <div class="pillar"><span class="pn">7–8</span><h3>Fase 3 · Consolidación</h3><p>Más exigencia, bajadas lentas y la evaluación final.</p></div>
-</div>
+<div class="phases"><span><b>Fase 1 · Base</b> semanas 1–2</span><span><b>Fase 2 · Construcción</b> semanas 3–6</span><span><b>Fase 3 · Consolidación</b> semanas 7–8</span></div>
 <h2>Semanas 1 a 4</h2>
 {plan8_table(PLAN8[:4])}
 <h3>Cómo progresar</h3>
@@ -696,7 +689,7 @@ if ENT:
 ''', chapter="05 · Semanas con poco tiempo", pid="cap5e", toc="05 · Semanas con poco tiempo")
 
     EXPRESS = {"Sentadilla en copa", "Flexiones de brazo", "Remo inclinado", "Plancha prona"}
-    exp_cards = [ex_card(e[0], e[1], "40 s", e[3]) for r in RUT.values() for e in r["ex"] if e[1] in EXPRESS]
+    exp_cards = [ex_card(e[0], e[1], "40 s", e[3], row=True) for r in RUT.values() for e in r["ex"] if e[1] in EXPRESS]
     page(f'''
 <h1 class="h1">Sesión express de <span class="t">15 minutos</span></h1>
 {params([("Vueltas","3"),("Trabajo","40 s por ejercicio"),("Pausa","20 s · 1 min entre vueltas"),("Duración","15 min")])}
@@ -779,8 +772,6 @@ if ENT:
 {ul(["Volvé en la próxima oportunidad, no “el lunes”.","Empezá con la mitad: 2 vueltas y un escalón menos.","No compenses con ejercicio extra ni comiendo menos."])}
 </div>
 <div>
-<h3>Semanas complicadas o viajes</h3>
-<p>Bajá el plan en lugar de suspenderlo: la sesión express se puede hacer hasta en un hotel.</p>
 <h3>Cuándo pedir ayuda</h3>
 <p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
 </div>

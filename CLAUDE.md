@@ -39,3 +39,4 @@ Debe imprimir `OVERFLOW []` (sin páginas con texto cortado).
 - Editar textos y contenido del ebook en `build.py`, no en `ebook.html` (se regenera).
 - Después de cada cambio: regenerar el PDF, commitear y pushear a `main`.
 - Idioma: español rioplatense (voseo).
+- Se lee en el celular: letra grande (cuerpo 15 pt). Si algo no entra en la hoja, acortar texto o separar en hojas, no achicar la letra.
