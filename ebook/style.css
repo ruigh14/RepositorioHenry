@@ -631,3 +631,8 @@ body{font-size:12.8pt}
 .wk8 td{height:8.5mm}
 .wk8 tbody th{font-size:8pt}
 .feel td{height:11mm}
+.tips10{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.tips10 div{border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm 4mm}
+.tips10 span{display:block;font-weight:900;font-size:16pt;line-height:1;color:var(--tq);margin-bottom:1.5mm}
+.tips10 h3{margin:0 0 1mm;font-size:11.4pt}
+.tips10 p{font-size:10pt;margin:0;color:var(--txt)}

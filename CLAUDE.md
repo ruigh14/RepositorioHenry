@@ -10,7 +10,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
     (recetario, 2 talleres: Descanso y Heladera, consulta con Nacho). → `entrena.html`, `Ebook_Entrena_desde_casa_RENOVA.pdf`.
   - **Programa RENOVA completo** (entrenamiento + alimentación + descanso, 64 páginas): base para los ebooks de upsell.
     → `ebook.html`, `Ebook_Programa_RENOVA.pdf`.
-  - `build.py`: todos los textos, recetas, menús, ejercicios, plan de 8 semanas (`PLAN8`) y links (`LINKS`, `VIDEOS`).
+  - `build.py`: todos los textos, recetas, menús, ejercicios, plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio).
   - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright.
   - `img/`: fotos, ilustraciones, recetas y testimonios. `fonts/`: tipografía Inter.
   - `Ebook_Programa_RENOVA.pdf`: versión final vigente. `Ebook_Programa_RENOVA.txt`: su texto extraído.

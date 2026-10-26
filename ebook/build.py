@@ -143,7 +143,7 @@ if ENT:
     <div><span>1</span><b>Evaluá</b><p>Hacé la evaluación inicial del capítulo 02.</p></div>
     <div><span>2</span><b>Agendá</b><p>Elegí 2 días para la fuerza y 2 para caminar.</p></div>
     <div><span>3</span><b>Prepará</b><p>Una colchoneta, una silla firme y un peso liviano.</p></div>
-    <div><span>4</span><b>Registrá</b><p>Anotá cada sesión en la planilla del capítulo 06.</p></div>
+    <div><span>4</span><b>Registrá</b><p>Anotá cada sesión en la planilla del capítulo 07.</p></div>
   </div>
 </div>
 ''', chapter="Bienvenida", pid="bienvenida")
@@ -222,7 +222,7 @@ if ENT:
 </div>
 <div>
 <h3>4. Registrá tus avances</h3>
-<p>Anotá en el capítulo 06 tus sesiones, las repeticiones y los pesos que usás. Es la mejor forma de ver que estás progresando.</p>
+<p>Anotá en el capítulo 07 tus sesiones, las repeticiones y los pesos que usás. Es la mejor forma de ver que estás progresando.</p>
 <h3>5. Si perdés una sesión</h3>
 <p>Retomá en tu próximo día disponible. No hagas dos sesiones juntas.</p>
 <h3>6. Si se interrumpe una semana entera</h3>
@@ -332,8 +332,60 @@ page(f'''
 ''', chapter=NE + " · Entrenamiento", pid="cap2c")
 
 # ---- tarjetas de ejercicios
-# VIDEOS: pegá acá el link de YouTube de cada ejercicio (por nombre). Vacío = botón visible sin link.
-VIDEOS = {}
+# VIDEOS: link de cada ejercicio (por nombre), tomados de la biblioteca de Harbiz de Nacho.
+# Vacío = botón visible sin link.
+VIDEOS = {
+ # entrada en calor
+ "Movilidad de brazos": "https://youtu.be/2LWFYoBjS5I",
+ "Abducción de pierna": "https://youtu.be/4C0pyUW9DaQ",
+ "Sentadilla lateral": "https://www.youtube.com/watch?v=AhPJmY4v3Z4",
+ "Movilidad de cadera acostada": "https://youtu.be/9ayi-DrA98o",
+ "Elevación de cadera": "https://youtu.be/YopfscyxtK0",
+ "Bird dog": "https://youtu.be/kyNrWqz1iqs",
+ # rutina 1
+ "Sentadilla en copa": "https://youtu.be/SYu43ORBDiM",
+ "Estocada split": "https://youtu.be/s7ewEzHwXgQ",
+ "Flexiones de brazo": "https://youtu.be/mBv-_kaIzME",
+ "Puente a una pierna": "https://youtu.be/xVvVhmIp7sM",
+ "Fondo en banco": "https://youtu.be/FqLq6-WRoqw",
+ "Jumping jack": "https://youtu.be/t-warTAW-QY",
+ "Plancha prona": "https://youtu.be/nd0qbgESlao",
+ "Crunch abdominal": "https://youtu.be/dCXP5MiZQNc",
+ # rutina 2
+ "Subida al banco": "https://youtu.be/CMlvRdB7dIk",
+ "Mountain climber": "https://youtu.be/k9_dNW743ng",
+ "Sentadilla con press de hombros": "https://youtu.be/2ZDHMjr2pkM",
+ "Abdominales bicicleta": "https://youtu.be/KURCyY_ctnI",
+ "Sentadilla búlgara": "https://youtu.be/rf1CvaGe5JU",
+ "Skipping en el lugar": "https://youtu.be/PyuFTClaUXE",
+ "Plancha alta dinámica": "https://youtu.be/LiKEC5Cbxrs",
+ "Remo inclinado": "https://youtu.be/6a1emLHfGYg",
+ # rutina 3
+ "Estocada cruzada": "https://youtu.be/5yYgxASNwZ8",          # catálogo Harbiz ("Zancada cruzada alterna sin peso")
+ "Plancha lateral dinámica": "https://www.youtube.com/watch?v=WtRo2-kOJ7A",
+ "Sentadilla sumo": "https://youtu.be/Ro3dhcOXiYw",
+ "Elevaciones de pierna": "https://www.youtube.com/watch?v=ozyvbTK9E5U",   # catálogo Harbiz
+ "Peso muerto a una pierna": "https://youtu.be/0KFZn0giQJQ",
+ "Bíceps con peso": "https://youtu.be/ToxLEnNgKXA",
+ "Plancha oso": "https://www.youtube.com/shorts/poQj12MCTJQ",  # no está en Harbiz: link del plan en Canva
+ "Vuelo posterior con peso": "https://youtu.be/Stpq0KwR5iQ",
+ # elongación
+ "Isquiotibiales a una pierna": "https://youtu.be/50BsrPx3-mU",
+ "Abdominales": "https://youtu.be/OZX2s2yAIU4",
+ "Espalda baja": "https://youtu.be/gswS7KoAjMc",
+ "Aductores": "https://youtu.be/RYs_nKnDzx4",
+ "Espalda e isquiotibiales": "https://youtu.be/7t7SIeQrmxY",
+ "Pectoral en pared": "https://youtu.be/5reQDGL1cA4",
+ "Hombros": "https://youtu.be/ecGClH49zxk",
+ "Cuello": "https://youtu.be/3kWdTdnKvVw",
+ # pausa activa en el trabajo
+ "Estiramiento de cuello": "https://youtu.be/3kWdTdnKvVw",
+ "Círculos de hombros": "https://youtu.be/2LWFYoBjS5I",
+ "Rotación de tronco sentada": "https://youtu.be/8ZhHlY4Aq_Y",
+ "Sentadilla a la silla": "https://www.youtube.com/watch?v=hd5OuSxMgcE",
+ "Elevación de talones": "https://youtu.be/XEmxAHBzMTg",
+ "Estiramiento de pecho en pared": "https://youtu.be/5reQDGL1cA4",
+}
 
 def ex_card(img, name, dose, how, easy=None):
     e = f'<p class="easy"><b>Más fácil:</b> {easy}</p>' if easy else ""
@@ -606,15 +658,53 @@ if ENT:
 {"".join(exp_cards)}
 ''', chapter="05 · Semanas con poco tiempo", pid="express")
 
+    # ---------------------------------------------------------- CAP 6 ACTIVA EN EL TRABAJO
+    PAUSA = [
+     ("elong_8.png","Estiramiento de cuello","15 s por lado","Sentada con la espalda derecha, incliná la cabeza hacia un hombro y ayudate suavemente con la mano. Sin tirones."),
+     ("calor_1.png","Círculos de hombros","10 + 10","De pie o sentada, hacé círculos amplios con los brazos: 10 hacia adelante y 10 hacia atrás."),
+     ("pausa_rotacion.png","Rotación de tronco sentada","8 por lado","Sentada en el borde de la silla, con los brazos cruzados sobre el pecho, girá el tronco hacia un lado y hacia el otro sin mover la cadera."),
+     ("pausa_sentadilla.png","Sentadilla a la silla","10","Parada delante de la silla, llevá la cadera hacia atrás hasta rozar el asiento y volvé a subir empujando el piso."),
+     ("pausa_talones.png","Elevación de talones","15","Con una mano en el respaldo de la silla, subí a puntas de pie y bajá lento."),
+     ("elong_6.png","Estiramiento de pecho en pared","20 s por lado","Apoyá el antebrazo en una pared o en el marco de una puerta y girá suavemente el cuerpo hacia el lado contrario."),
+    ]
+    page(f'''
+{chap_head("06", 'Activa en <span class="t">el trabajo</span>', "Pasar muchas horas sentada también cuenta. Una pausa activa de 5 minutos por día y algunos hábitos simples te ayudan a moverte más, aunque no sea día de entrenamiento.")}
+<h2>Rutina de pausa activa</h2>
+{params([("Cuándo","1 vez al día"),("Vueltas","1 o 2"),("Dónde","En tu lugar de trabajo"),("Duración","5 minutos")])}
+<p class="small">Hacé los ejercicios en orden, sin pausa entre ellos. No necesitás cambiarte de ropa: alcanza con una silla firme y una pared.</p>
+{"".join(ex_card(*e) for e in PAUSA)}
+''', chapter="06 · Activa en el trabajo", pid="pausa", toc="06 · Activa en el trabajo")
+
+    TIPS_DIA = [
+     ("Cada 2 horas, caminá", "Levantate y caminá 3 a 5 minutos: al baño más lejano, a buscar agua o por el pasillo."),
+     ("Elongá durante el día", "Dos minutos de cuello, hombros y espalda entre una tarea y otra."),
+     ("Pausa activa, 1 vez al día", "Hacé la rutina de esta página. Agendala como una reunión."),
+     ("Recordatorios para tomar agua", "Una botella a la vista y una alarma cada 2 horas. Un vaso con cada pausa."),
+     ("Desconectá una hora antes de dormir", "Sin pantallas ni mails de trabajo. Bajá la luz y prepará el día siguiente."),
+     ("Escaleras en vez de ascensor", "Cada tramo suma. Si son muchos pisos, subí una parte y tomá el ascensor el resto."),
+     ("Llamadas de pie o caminando", "Las llamadas y reuniones sin pantalla son una buena excusa para moverte."),
+     ("Caminata después de almorzar", "10 minutos alcanzan y ayudan a cortar la tarde sentada."),
+     ("Ordená tu puesto de trabajo", "Pantalla a la altura de los ojos, pies apoyados y la espalda contra el respaldo."),
+     ("Luz natural a la mañana", "Unos minutos de sol al empezar el día te ayudan a tener más energía y a dormir mejor."),
+    ]
+    page(f'''
+{eyebrow("ACTIVA EN EL TRABAJO")}
+<h1 class="h1">10 recomendaciones <span class="t">para tu día</span></h1>
+<p class="lead">No hace falta hacerlas todas desde el primer día: elegí 2 o 3, sostenelas una semana y sumá otra.</p>
+<div class="tips10">
+{"".join(f'<div><span>{i:02d}</span><h3>{t}</h3><p>{d}</p></div>' for i, (t, d) in enumerate(TIPS_DIA, 1))}
+</div>
+''', chapter="06 · Activa en el trabajo", pid="tips10")
+
     # ---------------------------------------------------------- CAP 6 REGISTRO
     def week_table(n):
         return (f'<h3 class="wk">Semana {n} · del ____ al ____</h3><table class="grid-t wk8">{DAYS_HEAD}'
                 f'<tbody>{blank_week()}</tbody></table>')
     page(f'''
-{chap_head("06", 'Registro de <span class="t">evolución</span>', "Anotá lo que hacés para ver tu progreso. No es para calificarte: una semana con casilleros vacíos también te da información.")}
+{chap_head("07", 'Registro de <span class="t">evolución</span>', "Anotá lo que hacés para ver tu progreso. No es para calificarte: una semana con casilleros vacíos también te da información.")}
 <p>Marcá en cada día la rutina que hiciste (R1, R2 o R3), los minutos de aeróbico y si elongaste. Imprimí estas planillas o usalas de modelo en tu agenda.</p>
 {"".join(week_table(n) for n in range(1, 9))}
-''', chapter="06 · Registro de evolución", pid="registro", toc="06 · Registro de evolución")
+''', chapter="07 · Registro de evolución", pid="registro", toc="07 · Registro de evolución")
 
     LOADS = ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto a una pierna","Bíceps con peso","Plancha prona (segundos)"]
     page(f'''
@@ -626,11 +716,11 @@ if ENT:
 <h3 class="wk">Cómo me sentí</h3>
 <table class="track feel"><thead><tr><th></th>{"".join(f"<th>S{n}</th>" for n in range(1, 9))}</tr></thead>
 <tbody>{"".join(f"<tr><th>{t}</th>" + "<td></td>"*8 + "</tr>" for t in ["Energía general (1 a 5)","Esfuerzo promedio (1 a 10)","Cómo dormí (1 a 5)"])}</tbody></table>
-''', chapter="06 · Registro de evolución", pid="cargas")
+''', chapter="07 · Registro de evolución", pid="cargas")
 
     # ---------------------------------------------------------- CAP 7 DESPUÉS DE LAS 8 SEMANAS
     page(f'''
-{chap_head("07", 'Después de las <span class="t">8 semanas</span>', "Terminar el plan no es el final: es el punto de partida para seguir, ahora con más fuerza y experiencia.")}
+{chap_head("08", 'Después de las <span class="t">8 semanas</span>', "Terminar el plan no es el final: es el punto de partida para seguir, ahora con más fuerza y experiencia.")}
 <h2>Tres caminos para seguir</h2>
 <div class="pillars">
   <div class="pillar"><span class="pn">01</span><h3>Subí la carga</h3><p>Repetí las semanas 7 y 8 con más peso o variantes más exigentes. Repetí la evaluación cada 4 semanas.</p></div>
@@ -650,7 +740,7 @@ if ENT:
 </div>
 </div>
 {box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus y, si querés un plan a tu medida, el equipo RENOVA te acompaña.", "soft")}
-''', chapter="07 · Después de las 8 semanas", pid="cap7e", toc="07 · Después de las 8 semanas")
+''', chapter="08 · Después de las 8 semanas", pid="cap7e", toc="08 · Después de las 8 semanas")
 
 # ================================================================== CAP 4 ALIMENTACIÓN
 if FULL:
