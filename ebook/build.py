@@ -128,7 +128,7 @@ if ENT:
 <h2>Qué incluye</h2>
 <div class="pillars">
   <div class="pillar"><span class="pn">01</span><h3>Plan de 8 semanas</h3><p>Tres fases con un calendario semana a semana.</p></div>
-  <div class="pillar"><span class="pn">02</span><h3>Rutinas con video</h3><p>Tres rutinas de cuerpo completo.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Rutinas con video</h3><p>Tres rutinas en bloques y una extra de zona media.</p></div>
   <div class="pillar"><span class="pn">03</span><h3>Seguimiento</h3><p>Evaluación inicial y registro de cargas.</p></div>
 </div>
 <h2>Bonus incluidos</h2>
@@ -287,10 +287,11 @@ page(f'''
 <h2>Por qué entrenar fuerza</h2>
 <p>El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía. La Organización Mundial de la Salud recomienda para adultos actividades de fortalecimiento muscular al menos 2 días por semana, además de actividad aeróbica.</p>
 <h2>Cómo está organizado</h2>
-<div class="steps">
-  <div class="step"><span>1</span><b>Entrada en calor</b><p>5 a 10 minutos para preparar articulaciones y músculos.</p></div>
-  <div class="step"><span>2</span><b>Rutina del día</b><p>Rutina 1, 2 o 3, según tu organización semanal.</p></div>
-  <div class="step"><span>3</span><b>Elongación</b><p>5 minutos para terminar y volver a la calma.</p></div>
+<div class="steps steps4">
+  <div class="step"><span>1</span><b>Entrada en calor</b><p>5 a 10 min</p></div>
+  <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
+  <div class="step"><span>3</span><b>Bloque 2</b><p>4 ejercicios</p></div>
+  <div class="step"><span>4</span><b>Elongación</b><p>5 min</p></div>
 </div>
 <h2>Qué necesitás y cuánto dura</h2>
 <p>Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga); si no tenés peso, usá tu propio cuerpo. Una sesión completa lleva entre 30 y 40 minutos.</p>
@@ -302,9 +303,9 @@ page(f'''
 <h1 class="h1">Series, repeticiones y <span class="t">pausas</span></h1>
 <h3>Repetición</h3><p>Es un movimiento completo. Por ejemplo, bajar y subir en una sentadilla.</p>
 <h3>Serie</h3><p>Es un conjunto de repeticiones. “3 series de 10–12” significa hacer el ejercicio 10 a 12 veces, tres veces.</p>
-<h3>Formato en circuito</h3><p>Hacé todos los ejercicios de la rutina uno detrás de otro, con la pausa indicada entre ejercicios. Al terminar la vuelta, descansá 2 minutos y empezá la siguiente. Completá 3 vueltas.</p>
+<h3>Formato en bloques</h3><p>Cada rutina tiene entrada en calor, bloque 1, bloque 2 y elongación. Dentro de cada bloque, hacé los 4 ejercicios uno detrás de otro: eso es una vuelta. Completá las vueltas del bloque 1, descansá 2 minutos y pasá al bloque 2.</p>
 <h3>Pausas</h3>
-{ul(["Entre ejercicios: 30 a 60 segundos.", "Entre vueltas: 2 minutos.", "Si te falta el aire o perdés la técnica, alargá la pausa."])}
+{ul(["Entre ejercicios: 30 a 60 segundos.", "Entre vueltas: 1 minuto.", "Entre el bloque 1 y el bloque 2: 2 minutos.", "Si te falta el aire o perdés la técnica, alargá la pausa."])}
 <h3>Ejercicios por tiempo</h3><p>Las planchas y algunos ejercicios dinámicos se hacen por segundos (por ejemplo, 15–20 s) en lugar de repeticiones.</p>
 <h3>Videos de cada ejercicio</h3><p>En cada ejercicio vas a encontrar el botón <span class="vbtn-sm inline">{ICON_PLAY} VER VIDEO</span>. Tocalo para ver la demostración y revisar la técnica antes de empezar.</p>
 {box("<b>Consejo.</b> Las primeras veces, hacé cada ejercicio frente a un espejo o filmate con el celular para revisar la técnica.", "soft")}
@@ -385,16 +386,35 @@ VIDEOS = {
  "Sentadilla a la silla": "https://www.youtube.com/watch?v=hd5OuSxMgcE",
  "Elevación de talones": "https://youtu.be/XEmxAHBzMTg",
  "Estiramiento de pecho en pared": "https://youtu.be/5reQDGL1cA4",
+ # extra: zona media
+ "Bicho muerto alternado": "https://youtu.be/kgG0lb4XfMQ",
+ "Plancha": "https://www.youtube.com/watch?v=qVnZtJGK4zY",
+ "Plancha lateral": "https://youtu.be/bxQgU1eK4dc",
+ "Abdominales cruzados": "https://youtu.be/25NgueIPUfo",
 }
 
-def ex_card(img, name, dose, how, easy=None):
-    e = f'<p class="easy"><b>Más fácil:</b> {easy}</p>' if easy else ""
+def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False):
+    e = f'<p class="easy"><b>{easy_label}:</b> {easy}</p>' if easy else ""
     url = VIDEOS.get(name, "")
     vb = (f'<a class="vbtn-sm" href="{esc(url)}">{ICON_PLAY} VER VIDEO</a>' if url
           else f'<span class="vbtn-sm">{ICON_PLAY} VER VIDEO</span>')
+    if row:   # tarjeta en fila: el botón de video va junto al título
+        return (f'<div class="ex exrow"><div class="exim"><img src="img/{img}" alt=""></div>'
+                f'<div class="extx"><div class="exh"><h4>{name}</h4><span class="dose">{dose}</span>{vb}</div>'
+                f'<p>{how}</p>{e}</div></div>')
     return (f'<div class="ex"><div class="exim"><img src="img/{img}" alt=""></div>'
             f'<div class="extx"><div class="exh"><h4>{name}</h4><span class="dose">{dose}</span></div>'
             f'<p>{how}</p>{e}{vb}</div></div>')
+
+def warm_card(img, name, dose):
+    url = VIDEOS.get(name, "")
+    vb = (f'<a class="vbtn-sm" href="{esc(url)}">{ICON_PLAY} VIDEO</a>' if url
+          else f'<span class="vbtn-sm">{ICON_PLAY} VIDEO</span>')
+    return (f'<div class="wc"><div class="wcim"><img src="img/{img}" alt=""></div>'
+            f'<b>{name}</b><span class="dose">{dose}</span>{vb}</div>')
+
+def block_head(label, info):
+    return f'<div class="blk"><span>{label}</span><p>{info}</p></div>'
 
 def params(items):
     return '<div class="params">' + "".join(f'<div><span>{k}</span><b>{v}</b></div>' for k, v in items) + '</div>'
@@ -421,7 +441,7 @@ routine("ANTES DE CADA RUTINA", 'Entrada en <span class="t">calor</span>',
         [("Vueltas","1 a 2"),("Repeticiones","10–12"),("Pausa","20–30 s entre ejercicios"),("Duración","5–10 min")],
         "Hacé los ejercicios en orden, uno detrás de otro, antes de cualquiera de las tres rutinas.",
         [ex_card(*c) for c in CALOR],
-        box('<b>Al terminar la entrada en calor</b>, pasá a la rutina del día: <a href="#rutina1">Rutina 1</a> (página <span class="pref" data-ref="rutina1"></span>), <a href="#rutina2">Rutina 2</a> (página <span class="pref" data-ref="rutina2"></span>) o <a href="#rutina3">Rutina 3</a> (página <span class="pref" data-ref="rutina3"></span>).', "soft end"),
+        box('<b>Al terminar la entrada en calor</b>, pasá al bloque 1 de la rutina del día: <a href="#rutina1">Rutina 1</a> (página <span class="pref" data-ref="rutina1"></span>), <a href="#rutina2">Rutina 2</a> (página <span class="pref" data-ref="rutina2"></span>) o <a href="#rutina3">Rutina 3</a> (página <span class="pref" data-ref="rutina3"></span>).', "soft end"),
         "calor")
 
 RUT = {
@@ -456,13 +476,22 @@ RUT = {
  ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados llevando los omóplatos hacia atrás.","sin peso o con botellas chicas."),
 ]),
 }
+VUELTAS = "3 vueltas (2 en la semana 1)" if FULL else "2 o 3 vueltas, según tu semana del plan"
 for k, r in RUT.items():
-    routine("RUTINA EN CASA", f'{r["title"]}: <span class="t">cuerpo completo</span>',
-            [("Vueltas","3 (2 en la semana 1)" if FULL else "2 o 3, según el plan"),("Repeticiones","10–12"),("Pausa","30–60 s entre ejercicios"),("Entre vueltas","2 min")],
-            f'{r["note"]} Hacé los ejercicios en orden. Al terminar, pasá a la <a href="#elong">elongación</a>.',
-            [ex_card(*e) for e in r["ex"]],
-            "",
-            f"rutina{k}")
+    page(f"""
+{eyebrow("RUTINA EN CASA")}
+<h1 class="h1">{r["title"]}: <span class="t">cuerpo completo</span></h1>
+{block_head("ENTRADA EN CALOR", '1 vuelta · 10–12 repeticiones · detalle en la página <span class="pref" data-ref="calor"></span>')}
+<div class="warm">{"".join(warm_card(c[0], c[1], c[2]) for c in CALOR)}</div>
+{block_head("BLOQUE 1", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
+<div class="bgrid">{"".join(ex_card(*e, row=True) for e in r["ex"][:4])}</div>
+""", chapter=NE + " · Entrenamiento", pid=f"rutina{k}")
+    page(f"""
+{eyebrow(r["title"].upper() + " · CONTINUACIÓN")}
+{block_head("BLOQUE 2", "Descansá 2 minutos al terminar el bloque 1 · " + VUELTAS + " · 1 min entre vueltas · " + r["note"])}
+<div class="bgrid">{"".join(ex_card(*e, row=True) for e in r["ex"][4:])}</div>
+{box('<b>Al terminar el bloque 2</b>, hacé la <a href="#elong">rutina de elongación</a> (página <span class="pref" data-ref="elong"></span>).', "soft end")}
+""", chapter=NE + " · Entrenamiento", pid=f"rutina{k}b")
 
 ELONG = [
  ("elong_1.png","Isquiotibiales a una pierna","Sentada, una pierna estirada y la otra flexionada. Inclinate hacia adelante desde la cadera, con la espalda larga.","flexioná un poco la rodilla de la pierna estirada."),
@@ -574,6 +603,10 @@ PLAN8_DAYS = {
  "8": ["1","A","2","A","3","A","D"],
 }
 LEGEND = '<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>'
+def plan8_table(rows):
+    return ('<table class="plan8"><thead><tr><th>Sem.</th><th>Fase</th><th>Fuerza</th><th>Vueltas por bloque</th><th>Repeticiones · planchas</th><th>Pausa</th><th>Esfuerzo</th><th>Aeróbico</th></tr></thead><tbody>'
+            + "".join(f'<tr class="{"dl" if f == "Descarga" else ""}"><th>{w}</th><td>{f}</td><td>{r}</td><td>{v}</td><td>{rp}</td><td>{pa}</td><td>{e}</td><td>{a}</td></tr>' for w, f, r, v, rp, pa, e, a in rows)
+            + '</tbody></table>')
 DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>"
 
 if ENT:
@@ -584,12 +617,25 @@ if ENT:
   <div class="pillar"><span class="pn">3–6</span><h3>Fase 2 · Construcción</h3><p>Sumás vueltas, acortás pausas y agregás peso. La semana 6 es más liviana para recuperarte.</p></div>
   <div class="pillar"><span class="pn">7–8</span><h3>Fase 3 · Consolidación</h3><p>Más exigencia, bajadas lentas y la evaluación final.</p></div>
 </div>
-<table class="plan8">
-<thead><tr><th>Sem.</th><th>Fase</th><th>Fuerza</th><th>Vueltas</th><th>Repeticiones · planchas</th><th>Pausa</th><th>Esfuerzo</th><th>Aeróbico</th></tr></thead>
-<tbody>{"".join(f'<tr class="{"dl" if f == "Descarga" else ""}"><th>{w}</th><td>{f}</td><td>{r}</td><td>{v}</td><td>{rp}</td><td>{pa}</td><td>{e}</td><td>{a}</td></tr>' for w, f, r, v, rp, pa, e, a in PLAN8)}</tbody>
-</table>
-<p class="small"><b>Pausa</b> entre ejercicios; entre vueltas, siempre 2 minutos. <b>Esfuerzo</b> según la escala del capítulo {NE}. En las semanas 4 y 8, repetí la <a href="#eval">evaluación inicial</a> en un día sin entrenar.</p>
+<h2>Semanas 1 a 4</h2>
+{plan8_table(PLAN8[:4])}
+<h3>Cómo progresar</h3>
+{ul(["<b>Semanas 1 y 2:</b> aprendé la técnica con 2 vueltas por bloque y esfuerzo moderado. Tenés que terminar con energía.",
+     "<b>Semana 3:</b> pasás a 3 vueltas por bloque, con el mismo peso.",
+     "<b>Semana 4:</b> bajá la pausa a 45 s y subí las planchas a 25 s. Al final de la semana, repetí la <a href=\"#eval\">evaluación inicial</a>."])}
 ''', chapter="04 · Plan de 8 semanas", pid="plan8", toc="04 · Plan de 8 semanas")
+
+    page(f'''
+{eyebrow("PLAN DE 8 SEMANAS")}
+<h1 class="h1">Semanas 5 a 8: <span class="t">más exigencia</span></h1>
+{plan8_table(PLAN8[4:])}
+<h3>Cómo progresar</h3>
+{ul(["<b>Semana 5:</b> sumá peso o pasá a la variante más difícil en los ejercicios donde ya llegás cómoda a 12 repeticiones.",
+     "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Recuperarte también es parte del plan.",
+     "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
+     "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá con la evaluación final."])}
+<p class="small"><b>Pausa</b> entre ejercicios; entre vueltas, 1 minuto, y entre bloques, 2 minutos. <b>Esfuerzo</b> según la escala del capítulo {NE}.</p>
+''', chapter="04 · Plan de 8 semanas", pid="plan8w2")
 
     page(f'''
 {eyebrow("PLAN DE 8 SEMANAS")}
@@ -741,6 +787,29 @@ if ENT:
 </div>
 {box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus y, si querés un plan a tu medida, el equipo RENOVA te acompaña.", "soft")}
 ''', chapter="08 · Después de las 8 semanas", pid="cap7e", toc="08 · Después de las 8 semanas")
+
+    # ---------------------------------------------------------- EXTRA: ZONA MEDIA
+    CORE = [
+     ("core_bicho.png","Bicho muerto alternado","6–10 por lado","Boca arriba, brazos hacia el techo y rodillas a 90°. Estirá un brazo hacia atrás y la pierna contraria hacia adelante sin despegar la zona lumbar del piso. Volvé y cambiá de lado.",
+      "<b>S1–2:</b> solo las piernas, 6 por lado. <b>S3–4:</b> brazo y pierna, 8 por lado. <b>S5–8:</b> 10 por lado, bajando lento."),
+     ("r1_7.png","Plancha","15–30 s","Antebrazos debajo de los hombros y el cuerpo en línea recta. Apretá abdomen y glúteos y respirá sin aguantar el aire.",
+      "<b>S1–2:</b> rodillas apoyadas, 15 s. <b>S3–4:</b> rodillas, 25 s. <b>S5–6:</b> plancha completa, 15–20 s. <b>S7–8:</b> completa, 30 s."),
+     ("r3_2.png","Plancha lateral","10–25 s por lado","De costado, apoyada en un antebrazo con el codo debajo del hombro. Elevá la cadera y sostené el cuerpo alineado.",
+      "<b>S1–2:</b> rodillas flexionadas, 10 s. <b>S3–4:</b> rodillas, 15 s. <b>S5–6:</b> piernas estiradas, 15 s. <b>S7–8:</b> piernas estiradas, 20–25 s."),
+     ("calor_6.png","Bird dog","6–10 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria sin mover la espalda. Sostené y volvé con control.",
+      "<b>S1–2:</b> 6 por lado. <b>S3–4:</b> 8 por lado, sosteniendo 2 s. <b>S5–8:</b> 10 por lado, sosteniendo 3 s."),
+     ("core_cruzados.png","Abdominales cruzados","6–12 por lado","Boca arriba con las rodillas flexionadas y las manos detrás de la cabeza. Despegá la espalda alta y llevá el codo hacia la rodilla contraria, sin tirar del cuello.",
+      "<b>S1–2:</b> 6 por lado. <b>S3–4:</b> 8 por lado. <b>S5–8:</b> 10–12 por lado, bajando lento."),
+    ]
+    page(f'''
+{eyebrow("EXTRA")}
+<h1 class="h1">Rutina de <span class="t">zona media</span></h1>
+<p class="lead">Cinco ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.</p>
+{params([("Cuándo","2 o 3 veces por semana"),("Vueltas","2 (3 desde la semana 5)"),("Pausa","30 s entre ejercicios"),("Duración","8–10 min")])}
+<p class="small">Hacela al terminar el bloque 2, antes de elongar, o en un día de aeróbico.</p>
+{"".join(ex_card(*c[:4], easy=c[4], easy_label="Cómo avanzar") for c in CORE)}
+{box("<b>Regla simple para variar:</b> cada 2 semanas, sumá 5 segundos o 2 repeticiones por ejercicio. Si sentís molestia en la zona lumbar o en el cuello, volvé al paso anterior.", "soft")}
+''', chapter="Extra · Zona media", pid="core", toc="Extra: Rutina de zona media")
 
 # ================================================================== CAP 4 ALIMENTACIÓN
 if FULL:
