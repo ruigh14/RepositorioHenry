@@ -735,3 +735,4 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .phases{display:flex;flex-wrap:wrap;gap:2mm;margin:1mm 0 2mm}
 .phases span{background:var(--tq-l);border-radius:99px;padding:1.6mm 4mm;font-size:12pt;color:var(--tq-dd)}
 .phases b{color:var(--ink)}
+#talleres .wcard p,#talleres .team-tx p{font-size:12.6pt}#talleres .wcard h3{font-size:14pt}
