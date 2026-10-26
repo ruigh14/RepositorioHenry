@@ -16,7 +16,7 @@ if EDITION not in ("completo", "entrena"):
     sys.exit("Edición desconocida: usá 'completo' o 'entrena'")
 FULL = EDITION == "completo"
 ENT = EDITION == "entrena"
-NE = "02" if FULL else "03"   # número del capítulo de entrenamiento en cada edición
+NE = "02" if FULL else "04"   # número del capítulo de entrenamiento en cada edición
 
 LINKS = {
     "talleres": "https://www.nachoportillo.com/",   # reemplazar por el link directo a los talleres
@@ -37,6 +37,9 @@ def esc(s):
 
 ICON_CHECK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>'
 ICON_ARROW = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
+ICON_HAND = ('<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/>'
+             '<path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/>'
+             '<path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg>')
 ICON_PLAY = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>'
 
 def button(text, key, marker, big=False, light=False):
@@ -209,11 +212,11 @@ if ENT:
 <div class="cols2">
 <div>
 <h3>1. Hacé la evaluación inicial</h3>
-<p>En 10 minutos medís tu punto de partida (capítulo 02). La repetís en la semana 4 y en la 8 para ver cuánto avanzaste.</p>
+<p>En 10 minutos medís tu punto de partida (capítulo 02). La repetís en la semana 4 y en la 8. Además, cada 3 semanas te pesás y medís tu cintura.</p>
 <h3>2. Elegí tus días de entrenamiento</h3>
 <p>Reservá 2 o 3 momentos de 30 a 40 minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
 <h3>3. Seguí el plan de 8 semanas</h3>
-<p>El capítulo 04 te dice qué rutinas hacer cada semana, cuántas vueltas y con qué esfuerzo. No te adelantes: la progresión está pensada para que llegues bien a la semana 8.</p>
+<p>El capítulo 03 te dice qué rutinas hacer cada semana, cuántas vueltas y con qué esfuerzo. No te adelantes: la progresión está pensada para que llegues bien a la semana 8.</p>
 </div>
 <div>
 <h3>4. Registrá tus avances</h3>
@@ -250,6 +253,31 @@ if ENT:
 {"".join(f'<div class="cb"><span class="sq"></span>{t}</div>' for t in ["Puedo entrenar fuerza 3 días por semana","Puedo entrenar fuerza 2 días por semana","Tengo colchoneta","Tengo una silla firme","Tengo peso: mancuernas, botellas o mochila","Puedo caminar 20–30 minutos 2 o 3 veces por semana"])}
 </div>
 ''', chapter="02 · Evaluación inicial", pid="eval", toc="02 · Evaluación inicial")
+
+    page(f'''
+{eyebrow("EVALUACIÓN INICIAL")}
+<h1 class="h1">Peso y <span class="t">perímetro de cintura</span></h1>
+<p class="lead">Registralos al empezar y cada 3 semanas. La cintura muestra cambios que la balanza a veces no refleja.</p>
+<div class="meas">
+<figure><img src="img/medir_cintura.png" alt="Cómo medir el perímetro de cintura"></figure>
+<div>
+<h3>Cómo medir la cintura</h3>
+<ol class="steps-ol">
+<li>Usá una cinta métrica flexible, de costura.</li>
+<li>Parate relajada, con los pies juntos y sin meter la panza.</li>
+<li>Ubicá el punto medio entre la última costilla y el borde de arriba del hueso de la cadera. Suele quedar a la altura del ombligo.</li>
+<li>Pasá la cinta alrededor, derecha y paralela al piso, apoyada sobre la piel sin apretar.</li>
+<li>Leé la medida al final de una exhalación normal. Medí dos veces y anotá el promedio.</li>
+</ol>
+</div>
+</div>
+<h3>Cómo pesarte</h3>
+{ul(["Siempre con la misma balanza y el mismo día de la semana.", "A la mañana, en ayunas y después de ir al baño, con poca ropa."])}
+<table class="grid-t meas-t"><thead><tr><th></th><th>Inicio</th><th>Semana 3</th><th>Semana 6</th><th>Semana 8</th></tr></thead><tbody>
+{"".join(f"<tr><th>{t}</th><td></td><td></td><td></td><td></td></tr>" for t in ["Fecha","Peso (kg)","Cintura (cm)"])}
+</tbody></table>
+<p class="small">El peso cambia de un día a otro por los líquidos, la sal o el ciclo. Mirá la tendencia entre una medición y otra, no un número aislado.</p>
+''', chapter="02 · Evaluación inicial", pid="medidas")
 
 if FULL:
     page(f'''
@@ -312,7 +340,7 @@ page(f'''
 <h3>Cómo progresar</h3>
 {ul((["<b>Semana 1:</b> 2 vueltas, aprendiendo la técnica.",
      "<b>Semana 2 en adelante:</b> 3 vueltas."] if FULL else
-    ['<b>Seguí el plan de 8 semanas</b> (<a href="#plan8">capítulo 04</a>): ahí está cuántas vueltas y qué esfuerzo corresponde a cada semana.']) + [
+    ['<b>Seguí el plan de 8 semanas</b> (<a href="#plan8">capítulo 03</a>): ahí está cuántas vueltas y qué esfuerzo corresponde a cada semana.']) + [
      "Cuando completes las 12 repeticiones con facilidad, sumá peso o pasá a una variante más exigente.",
      "En los ejercicios por tiempo, sumá 5 segundos por semana hasta llegar a 30–40 s."])}
 <h3>Si tenés poco tiempo: versión de 20 minutos</h3>
@@ -608,15 +636,15 @@ DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</t
 
 if ENT:
     page(f'''
-{chap_head("04", 'Tu plan de <span class="t">8 semanas</span>', "Tres fases para pasar de aprender la técnica a entrenar con más carga. Cada semana te dice qué hacer y con qué esfuerzo.")}
+{chap_head("03", 'Tu plan de <span class="t">8 semanas</span>', "Tres fases para pasar de aprender la técnica a entrenar con más carga. Cada semana te dice qué hacer y con qué esfuerzo.")}
 <div class="phases"><span><b>Fase 1 · Base</b> semanas 1–2</span><span><b>Fase 2 · Construcción</b> semanas 3–6</span><span><b>Fase 3 · Consolidación</b> semanas 7–8</span></div>
 <h2>Semanas 1 a 4</h2>
 {plan8_table(PLAN8[:4])}
 <h3>Cómo progresar</h3>
 {ul(["<b>Semanas 1 y 2:</b> aprendé la técnica con 2 vueltas por bloque y esfuerzo moderado. Tenés que terminar con energía.",
-     "<b>Semana 3:</b> pasás a 3 vueltas por bloque, con el mismo peso.",
+     "<b>Semana 3:</b> pasás a 3 vueltas por bloque, con el mismo peso. Al final de la semana, <a href=\"#medidas\">pesate y medí tu cintura</a>.",
      "<b>Semana 4:</b> bajá la pausa a 45 s y subí las planchas a 25 s. Al final de la semana, repetí la <a href=\"#eval\">evaluación inicial</a>."])}
-''', chapter="04 · Plan de 8 semanas", pid="plan8", toc="04 · Plan de 8 semanas")
+''', chapter="03 · Plan de 8 semanas", pid="plan8", toc="03 · Plan de 8 semanas")
 
     page(f'''
 {eyebrow("PLAN DE 8 SEMANAS")}
@@ -624,11 +652,11 @@ if ENT:
 {plan8_table(PLAN8[4:])}
 <h3>Cómo progresar</h3>
 {ul(["<b>Semana 5:</b> sumá peso o pasá a la variante más difícil en los ejercicios donde ya llegás cómoda a 12 repeticiones.",
-     "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Recuperarte también es parte del plan.",
+     "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Recuperarte también es parte del plan. Al final de la semana, pesate y medí tu cintura.",
      "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
-     "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá con la evaluación final."])}
+     "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá con la evaluación final, el peso y la cintura."])}
 <p class="small"><b>Pausa</b> entre ejercicios; entre vueltas, 1 minuto, y entre bloques, 2 minutos. <b>Esfuerzo</b> según la escala del capítulo {NE}.</p>
-''', chapter="04 · Plan de 8 semanas", pid="plan8w2")
+''', chapter="03 · Plan de 8 semanas", pid="plan8w2")
 
     page(f'''
 {eyebrow("PLAN DE 8 SEMANAS")}
@@ -645,7 +673,7 @@ if ENT:
      "Aeróbico: caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar.",
      "Si una semana te costó mucho (esfuerzo 9 o más, o no completaste las sesiones), repetila antes de avanzar.",
      "Si solo podés 2 días de fuerza, seguí la versión del capítulo 05."])}
-''', chapter="04 · Plan de 8 semanas", pid="plan8b")
+''', chapter="03 · Plan de 8 semanas", pid="plan8b")
 
     page(f'''
 {eyebrow("PLAN DE 8 SEMANAS")}
@@ -664,7 +692,7 @@ if ENT:
 <h3>Por qué la semana 6 es más liviana</h3>
 <p>Después de tres semanas de subir la exigencia, una semana de descarga ayuda a recuperarte y a llegar con energía a la fase final. No es perder tiempo: es parte del plan.</p>
 {box("<b>Si algo duele</b>, volvé al escalón anterior en ese ejercicio. Molestia muscular al día siguiente es normal; dolor articular o punzante, no: frená y consultá.", "note")}
-''', chapter="04 · Plan de 8 semanas", pid="plan8c")
+''', chapter="03 · Plan de 8 semanas", pid="plan8c")
 
     # ---------------------------------------------------------- CAP 5 SEMANAS CON POCO TIEMPO
     page(f'''
@@ -1466,6 +1494,13 @@ TITLE = "Programa RENOVA · Guía práctica" if FULL else "Entrená desde casa �
 OUT_HTML = "ebook.html" if FULL else "entrena.html"
 
 def render():
+    if ENT:
+        plan = [p for p in PAGES if p["id"].startswith("plan8")]
+        rest = [p for p in PAGES if not p["id"].startswith("plan8")]
+        at = next(i for i, p in enumerate(rest) if p["id"] == "cap2")
+        PAGES[:] = rest[:at] + plan + rest[at:]
+    order = {p["id"]: i for i, p in enumerate(PAGES)}
+    TOC.sort(key=lambda t: order[t[1]])
     num = {p["id"]: i + 1 for i, p in enumerate(PAGES)}
     toc_html = '<div class="tocl">' + "".join(
         f'<a class="tocr" href="#{pid}"><span class="tt">{esc(t)}</span><span class="dots"></span><span class="pg">{num[pid]}</span></a>'
@@ -1478,7 +1513,7 @@ def render():
         hdr = ""
         if p["header"]:
             hdr = (f'<div class="hdr"><span>{BRAND}</span><span>{esc(p["chapter"])}</span></div>'
-                   f'<div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div>')
+                   f'<div class="ftr"><a class="toidx" href="#indice">{ICON_HAND} Hacé clic y volvé al índice</a><span class="pgnum"></span></div>')
         out.append(f'<section class="page {p["cls"]}" id="{p["id"]}">{hdr}<div class="body">{body}</div></section>')
     return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>' + TITLE + '</title>'
             f'<style>{CSS}</style></head><body>' + "".join(out) + '<script src="paginate.js"></script></body></html>')

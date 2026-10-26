@@ -736,3 +736,16 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .phases span{background:var(--tq-l);border-radius:99px;padding:1.6mm 4mm;font-size:12pt;color:var(--tq-dd)}
 .phases b{color:var(--ink)}
 #talleres .wcard p,#talleres .team-tx p{font-size:12.6pt}#talleres .wcard h3{font-size:14pt}
+/* botón de índice al pie */
+.ftr{bottom:6mm;align-items:center}
+.ftr a.toidx{display:inline-flex;align-items:center;gap:1.8mm;font-size:10.4pt;font-weight:700;color:var(--tq-dd);background:var(--tq-l);border:.35mm solid var(--tq-b);border-radius:99px;padding:1.2mm 3.6mm 1.2mm 2.6mm}
+.ftr a.toidx .ic{width:4.6mm;height:4.6mm;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ftr span.pgnum{font-size:10.4pt}
+/* peso y cintura */
+.meas{display:grid;grid-template-columns:52mm 1fr;gap:6mm;align-items:center}
+.meas figure{margin:0;background:var(--bg2);border-radius:3mm;padding:2mm}
+.meas img{width:100%;display:block}
+.meas-t td{height:11mm}
+.meas{grid-template-columns:58mm 1fr}
+.meas .steps-ol{font-size:13.8pt;line-height:1.42}
+.meas .steps-ol li{margin-bottom:1.6mm}
