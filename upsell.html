@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RENOVA · Desbloqueá los talleres</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g></symbol>
+</svg>
+
+<!-- Progress bar -->
+<div class="progress">
+  <div class="container container--narrow">
+    <span class="logo">RENOVA</span>
+    <span class="progress__status">
+      <span class="progress__tick"><svg width="14" height="14" aria-hidden="true"><use href="#i-check"/></svg></span>
+      Compra confirmada<span class="progress__sep" aria-hidden="true">—</span><span class="progress__step">Paso 2 de 2: una última oferta</span>
+    </span>
+  </div>
+</div>
+
+<main>
+
+<!-- Hero -->
+<section class="container container--narrow upsell-hero">
+  <span class="eyebrow-pill">¡YA TENÉS TU EBOOK!</span>
+  <h1 class="display">Esperá: <span class="accent">destrabá todos los talleres</span> antes de empezar</h1>
+  <p class="lead">Ya tenés 2 talleres desbloqueados. Sumá el resto ahora, a un precio que solo ves en esta página.</p>
+</section>
+
+<!-- Unlocked vs locked -->
+<section class="container container--narrow" style="padding-bottom: 80px">
+  <div class="vault">
+    <div class="vault__head">
+      <span class="vault__title">Tu área de talleres</span>
+      <span class="vault__count">2 de 6 desbloqueados</span>
+    </div>
+    <div class="vault__bar" role="progressbar" aria-valuemin="0" aria-valuemax="6" aria-valuenow="2" aria-label="Talleres desbloqueados"><span></span></div>
+    <ul class="vault__list">
+      <li class="vault__row">
+        <span class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <span class="vault__name">Dormí mejor: estrategias para un descanso reparador</span>
+        <span class="status">DESBLOQUEADO</span>
+      </li>
+      <li class="vault__row">
+        <span class="icon-box"><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <span class="vault__name">Tu heladera en orden (premium)</span>
+        <span class="status">DESBLOQUEADO</span>
+      </li>
+      <li class="vault__row vault__row--locked">
+        <span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-lock"/></svg></span>
+        <span class="vault__name">Ansiedad por la comida</span>
+        <span class="status">BLOQUEADO</span>
+      </li>
+      <li class="vault__row vault__row--locked">
+        <span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-lock"/></svg></span>
+        <span class="vault__name">Comer afuera sin culpa</span>
+        <span class="status">BLOQUEADO</span>
+      </li>
+      <li class="vault__row vault__row--locked">
+        <span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-lock"/></svg></span>
+        <span class="vault__name">Entrenar en 20 minutos</span>
+        <span class="status">BLOQUEADO</span>
+      </li>
+      <li class="vault__row vault__row--locked">
+        <span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-lock"/></svg></span>
+        <span class="vault__name">Hormonas y energía después de los 35</span>
+        <span class="status">BLOQUEADO</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Offer -->
+<section class="band-dark">
+  <div class="container container--narrow offer">
+    <div class="offer__copy">
+      <span class="kicker kicker--cyan">OFERTA ÚNICA · SOLO EN ESTA PÁGINA</span>
+      <h2>Acceso total a los talleres RENOVA</h2>
+      <ul class="check-list">
+        <li><svg width="22" height="22" class="accent-cyan" aria-hidden="true"><use href="#i-check"/></svg>Los 4 talleres bloqueados, al instante</li>
+        <li><svg width="22" height="22" class="accent-cyan" aria-hidden="true"><use href="#i-check"/></svg>Cada taller nuevo que sumemos, sin costo extra</li>
+        <li><svg width="22" height="22" class="accent-cyan" aria-hidden="true"><use href="#i-check"/></svg>Material descargable de cada taller</li>
+        <li><svg width="22" height="22" class="accent-cyan" aria-hidden="true"><use href="#i-check"/></svg>[Bonus opcional: ej. sesión grupal de preguntas]</li>
+      </ul>
+    </div>
+    <div class="offer__card">
+      <span class="offer__was">Precio normal <s>[PRECIO NORMAL]</s></span>
+      <div class="offer__price-row">
+        <span class="offer__price">[PRECIO]</span>
+        <span class="offer__tag">Pago único</span>
+      </div>
+      <a href="#" class="btn btn--primary">Sí, quiero desbloquear todo</a>
+      <p class="offer__note">Se suma a tu compra con un clic. No tenés que volver a cargar tu tarjeta.</p>
+      <a href="#" class="offer__decline">No, gracias. Sigo con mis 2 talleres.</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container container--narrow" style="padding-top: 28px; padding-bottom: 28px; font-size: 14px">
+    <span class="logo">RENOVA</span>
+    <span>¿Dudas? <a href="#">Escribinos por WhatsApp</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
