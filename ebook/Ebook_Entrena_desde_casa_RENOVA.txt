@@ -178,13 +178,13 @@ Resultados reales                                  4
 
 Extra: Rutina de zona media                      37
 
-Bonus 1 · Recetario                             39
+Bonus 1 · Recetario                             40
 
-Bonus 2: Talleres RENOVA                        63
+Bonus 2: Talleres RENOVA                        64
 
-Bonus 3: Consulta con Nacho                     64
+Bonus 3: Consulta con Nacho                      65
 
-Quién soy y qué es RENOVA                        65
+Quién soy y qué es RENOVA                       66
 
 
 
@@ -1828,6 +1828,30 @@ Hacela al terminar el bloque 2, antes de elongar, o en un día de aeróbico.
 
 
        Hacé clic y volvé al índice                                                              38
+T E R M I N A S T E L A PA R T E D E E N T R E N A M I E N T O
+
+
+
+
+BONUS!
+     Nutrición y hábitos
+
+Herramientas para acompañar tu plan fuera del
+                    entrenamiento.
+
+
+
+ 1     Recetario fácil                              Página 40
+
+
+
+
+2      Dos talleres incluidos                       Página 64
+
+
+
+
+3      Consulta con Nacho                           Página 65
 E N T R E N Á D E S D E C A S A · R E N O VA                               B O N U S 1 · R E C E TA R I O
 
 
@@ -1879,7 +1903,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                   39
+       Hacé clic y volvé al índice                                                                  40
 E N T R E N Á D E S D E C A S A · R E N O VA                                           B O N U S 1 · R E C E TA R I O
 
 
@@ -1920,7 +1944,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                              40
+       Hacé clic y volvé al índice                                                                               41
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -1967,7 +1991,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 41
+       Hacé clic y volvé al índice                                                                                 42
 E N T R E N Á D E S D E C A S A · R E N O VA                                           B O N U S 1 · R E C E TA R I O
 
 
@@ -2006,7 +2030,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                               42
+       Hacé clic y volvé al índice                                                                               43
 E N T R E N Á D E S D E C A S A · R E N O VA                                              B O N U S 1 · R E C E TA R I O
 
 
@@ -2049,7 +2073,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                  43
+       Hacé clic y volvé al índice                                                                                  44
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2091,7 +2115,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 44
+       Hacé clic y volvé al índice                                                                                 45
 E N T R E N Á D E S D E C A S A · R E N O VA                                         B O N U S 1 · R E C E TA R I O
 
 
@@ -2137,7 +2161,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                             45
+       Hacé clic y volvé al índice                                                                             46
 E N T R E N Á D E S D E C A S A · R E N O VA                                            B O N U S 1 · R E C E TA R I O
 
 
@@ -2181,7 +2205,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                46
+       Hacé clic y volvé al índice                                                                                47
 E N T R E N Á D E S D E C A S A · R E N O VA                                               B O N U S 1 · R E C E TA R I O
 
 
@@ -2224,7 +2248,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                   47
+       Hacé clic y volvé al índice                                                                                   48
 E N T R E N Á D E S D E C A S A · R E N O VA                                        B O N U S 1 · R E C E TA R I O
 
 
@@ -2267,7 +2291,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                            48
+       Hacé clic y volvé al índice                                                                            49
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2311,7 +2335,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 49
+       Hacé clic y volvé al índice                                                                                 50
 E N T R E N Á D E S D E C A S A · R E N O VA                                                B O N U S 1 · R E C E TA R I O
 
 
@@ -2360,7 +2384,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                    50
+       Hacé clic y volvé al índice                                                                                    51
 E N T R E N Á D E S D E C A S A · R E N O VA                                            B O N U S 1 · R E C E TA R I O
 
 
@@ -2408,7 +2432,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                51
+       Hacé clic y volvé al índice                                                                                52
 E N T R E N Á D E S D E C A S A · R E N O VA                                                B O N U S 1 · R E C E TA R I O
 
 
@@ -2447,7 +2471,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                    52
+       Hacé clic y volvé al índice                                                                                    53
 E N T R E N Á D E S D E C A S A · R E N O VA                                                B O N U S 1 · R E C E TA R I O
 
 
@@ -2483,7 +2507,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                    53
+       Hacé clic y volvé al índice                                                                                    54
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2524,7 +2548,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 54
+       Hacé clic y volvé al índice                                                                                 55
 E N T R E N Á D E S D E C A S A · R E N O VA                                               B O N U S 1 · R E C E TA R I O
 
 
@@ -2566,7 +2590,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                   55
+       Hacé clic y volvé al índice                                                                                   56
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2611,7 +2635,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 56
+       Hacé clic y volvé al índice                                                                                 57
 E N T R E N Á D E S D E C A S A · R E N O VA                                               B O N U S 1 · R E C E TA R I O
 
 
@@ -2648,7 +2672,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                   57
+       Hacé clic y volvé al índice                                                                                   58
 E N T R E N Á D E S D E C A S A · R E N O VA                                              B O N U S 1 · R E C E TA R I O
 
 
@@ -2687,7 +2711,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                  58
+       Hacé clic y volvé al índice                                                                                  59
 E N T R E N Á D E S D E C A S A · R E N O VA                                                B O N U S 1 · R E C E TA R I O
 
 
@@ -2723,7 +2747,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                    59
+       Hacé clic y volvé al índice                                                                                    60
 E N T R E N Á D E S D E C A S A · R E N O VA                                          B O N U S 1 · R E C E TA R I O
 
 
@@ -2761,7 +2785,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                              60
+       Hacé clic y volvé al índice                                                                              61
 E N T R E N Á D E S D E C A S A · R E N O VA                                          B O N U S 1 · R E C E TA R I O
 
 
@@ -2801,7 +2825,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                              61
+       Hacé clic y volvé al índice                                                                              62
 E N T R E N Á D E S D E C A S A · R E N O VA                                          B O N U S 1 · R E C E TA R I O
 
 
@@ -2842,7 +2866,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                              62
+       Hacé clic y volvé al índice                                                                              63
 E N T R E N Á D E S D E C A S A · R E N O VA                                     B O N U S 2 · TA L L E R E S
 
 
@@ -2894,7 +2918,7 @@ el botón de cada uno para verlo.
 
 
 
-       Hacé clic y volvé al índice                                                                       63
+       Hacé clic y volvé al índice                                                                       64
 E N T R E N Á D E S D E C A S A · R E N O VA                                      B O N U S 3 · C O N S U LTA
 
 
@@ -2934,7 +2958,7 @@ Para aprovecharla
 
 
 
-       Hacé clic y volvé al índice                                                                       64
+       Hacé clic y volvé al índice                                                                       65
 E N T R E N Á D E S D E C A S A · R E N O VA                                                     QUIÉN SOY
 
 
@@ -2985,5 +3009,5 @@ Para aprovecharla
 
 
 
-       Hacé clic y volvé al índice                                                                     65
+       Hacé clic y volvé al índice                                                                     66
 

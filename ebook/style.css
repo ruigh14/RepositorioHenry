@@ -762,3 +762,16 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .ttx .wtag{font-size:9pt}
 .btn.tbtn{font-size:11pt;padding:2.4mm 5mm}
 .btn.tbtn .ic{width:4mm;height:4mm}
+/* carátula de los bonus (Ebook 1) */
+.divider{height:297mm;background:var(--ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20mm}
+.dv-logo{width:62mm;background:#fff;border-radius:4mm;padding:3mm 5mm;margin-bottom:14mm}
+.dv-kick{font-size:11pt;letter-spacing:.2em;font-weight:800;color:var(--tq);margin:0 0 4mm}
+.dv-title{font-size:96pt;font-weight:900;line-height:1;letter-spacing:-.02em;color:#fff;margin:0}
+.dv-sub{font-size:28pt;font-weight:800;color:var(--tq);margin:3mm 0 0}
+.dv-bar{width:30mm;height:1.6mm;background:#E8384F;border-radius:1mm;margin:8mm 0}
+.dv-desc{font-size:15pt;color:#C9D3D6;max-width:130mm;margin:0 0 10mm}
+.dv-list{display:flex;flex-direction:column;gap:4mm;width:130mm}
+.dv-list a{display:grid;grid-template-columns:12mm 1fr auto;align-items:center;gap:4mm;background:#1F2326;border:.4mm solid #33393D;border-radius:4mm;padding:4mm 5mm;color:#fff;text-decoration:none;text-align:left}
+.dv-list a > span{width:10mm;height:10mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:900;font-size:14pt;display:flex;align-items:center;justify-content:center}
+.dv-list b{font-size:16pt}
+.dv-list em{font-style:normal;font-size:12pt;color:#AEB8BC}

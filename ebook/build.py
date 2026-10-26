@@ -1244,6 +1244,23 @@ def recipe_html(r, n=0):
 REC_HEAD = (chap_head("06", 'Recetas <span class="t">fáciles</span>', "Recetas simples para resolver desayunos, meriendas, comidas y postres. La mayoría aparece en los menús del capítulo 5.") if FULL else
             eyebrow("BONUS 1 · INCLUIDO") + '<h1 class="h1">Recetario <span class="t">fácil</span></h1><p class="lead">' + str(len(R)) + ' recetas simples para resolver desayunos, meriendas, comidas y postres, con ingredientes de cualquier súper.</p>')
 REC_CH = "06 · Recetas" if FULL else "Bonus 1 · Recetario"
+if ENT:   # carátula que separa el entrenamiento de los bonus
+    page(f'''
+<div class="divider">
+  <img class="dv-logo" src="img/logo_renova.png" alt="RENOVA">
+  <p class="dv-kick">TERMINASTE LA PARTE DE ENTRENAMIENTO</p>
+  <h1 class="dv-title">BONUS!</h1>
+  <p class="dv-sub">Nutrición y hábitos</p>
+  <div class="dv-bar"></div>
+  <p class="dv-desc">Herramientas para acompañar tu plan fuera del entrenamiento.</p>
+  <div class="dv-list">
+    <a href="#cap6"><span>1</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>
+    <a href="#talleres"><span>2</span><b>Dos talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
+    <a href="#bonus"><span>3</span><b>Consulta con Nacho</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
+  </div>
+</div>
+''', pid="bonus-portada", cls="p-cover", header=False)
+
 page(f'''
 {REC_HEAD}
 <div class="cols2 keep">
