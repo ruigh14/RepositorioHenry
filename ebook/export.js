@@ -1,10 +1,17 @@
-// Exporta ebook.html a PDF A4 (la paginación la hace paginate.js dentro de la página).
+// Exporta el HTML de una edición a PDF A4 (la paginación la hace paginate.js dentro de la página).
+//   node export.js            → ebook.html   → Ebook_Programa_RENOVA.pdf
+//   node export.js entrena    → entrena.html → Ebook_Entrena_desde_casa_RENOVA.pdf
 const { chromium } = require('playwright');
 const path = require('path');
+const EDITIONS = {
+  completo: ['ebook.html', 'Ebook_Programa_RENOVA.pdf'],
+  entrena: ['entrena.html', 'Ebook_Entrena_desde_casa_RENOVA.pdf'],
+};
+const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  await page.goto('file://' + path.join(__dirname, 'ebook.html'), { waitUntil: 'load' });
+  await page.goto('file://' + path.join(__dirname, htmlFile), { waitUntil: 'load' });
   await page.waitForSelector('body[data-ready="1"]', { timeout: 30000 });
   const info = await page.evaluate(() => {
     const ps = [...document.querySelectorAll('section.page')];
@@ -12,8 +19,8 @@ const path = require('path');
     const free = ps.map((p, i) => { const b = p.querySelector('.body'); const r = b.getBoundingClientRect(); let m = r.top; b.querySelectorAll('*').forEach(e => { const q = e.getBoundingClientRect(); if (q.height && q.bottom > m) m = q.bottom; }); return (i + 1) + ':' + Math.round((r.bottom - m) / 3.78); }).join(' ');
     return { n: ps.length, over, free };
   });
-  console.log('PAGINAS', info.n, 'OVERFLOW', JSON.stringify(info.over));
+  console.log(pdfFile, 'PAGINAS', info.n, 'OVERFLOW', JSON.stringify(info.over));
   console.log('FREE', info.free);
-  await page.pdf({ path: path.join(__dirname, 'Ebook_Programa_RENOVA.pdf'), format: 'A4', printBackground: true, preferCSSPageSize: true });
+  await page.pdf({ path: path.join(__dirname, pdfFile), format: 'A4', printBackground: true, preferCSSPageSize: true });
   await browser.close();
 })();

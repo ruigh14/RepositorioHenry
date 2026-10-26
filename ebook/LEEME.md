@@ -4,8 +4,9 @@
 - `style.css`: diseño. `paginate.js`: paginación automática A4.
 - `img/`: fotos e ilustraciones. `fonts/`: tipografía Inter.
 
-Regenerar el PDF:
+Regenerar los PDF:
 
-    python3 build.py && node export.js
+    python3 build.py entrena && node export.js entrena   # Ebook 1 · Entrená desde casa
+    python3 build.py && node export.js                   # Programa RENOVA completo
 
 (`export.js` usa Playwright con Chromium.)

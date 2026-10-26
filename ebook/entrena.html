@@ -1,0 +1,993 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Entrená desde casa · RENOVA</title><style>@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("fonts/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("fonts/inter-latin-900-normal.woff2") format("woff2")}
+/* PROGRAMA RENOVA — estilos del ebook (A4) */
+:root{
+  --tq:#14B1C7;        /* turquesa de marca: rellenos, líneas */
+  --tq-t:#0E9DB2;      /* turquesa para títulos grandes */
+  --tq-d:#0A7F90;      /* turquesa oscuro: texto chico */
+  --tq-dd:#075E6B;
+  --tq-l:#E8F6F8;      /* fondo suave */
+  --tq-b:#CDEEF3;      /* bordes */
+  --ink:#141414;
+  --txt:#2A2F33;
+  --mut:#555C62;
+  --line:#E3ECEE;
+  --bg2:#F4FAFB;
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:"InterW",sans-serif;color:var(--txt);font-size:11.2pt;line-height:1.52;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;break-after:page;padding:21mm 17mm 17mm;background:#fff}
+.page:last-child{page-break-after:auto;break-after:auto}
+.body{height:259mm;overflow:hidden;position:relative}
+.hdr{position:absolute;top:8.5mm;left:17mm;right:17mm;display:flex;justify-content:space-between;align-items:center;font-size:7pt;letter-spacing:.18em;color:var(--mut);text-transform:uppercase;border-bottom:.3mm solid var(--tq-b);padding-bottom:2.2mm}
+.hdr b{color:var(--ink);font-weight:900}
+.ftr{position:absolute;bottom:7mm;left:17mm;right:17mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--mut)}
+.ftr a{color:var(--tq-d);text-decoration:none;font-weight:600}
+.ftr span{font-weight:700;color:var(--ink)}
+a{color:var(--tq-d)}
+
+h1,h2,h3,h4,h5{color:var(--ink);margin:0;font-family:"InterW",sans-serif}
+.h1{font-size:29pt;font-weight:900;line-height:1.06;letter-spacing:-.02em;margin:3mm 0 4mm}
+.h1.big{font-size:36pt}
+h2{font-size:15.5pt;font-weight:800;margin:5mm 0 2mm;letter-spacing:-.01em}
+h3{font-size:12.2pt;font-weight:800;margin:3.6mm 0 1.2mm}
+h3:first-child,h2:first-child{margin-top:0}
+p{margin:0 0 2.2mm}
+.t{color:var(--tq-t)}
+.lead{font-size:13pt;line-height:1.5;color:var(--mut);margin-bottom:4mm}
+.small{font-size:9.4pt;color:var(--mut)}
+.center{text-align:center}
+.pill{display:inline-block;padding:1.6mm 4.5mm;border:.45mm solid var(--tq-b);border-radius:99px;color:var(--tq-d);font-weight:800;font-size:7.6pt;letter-spacing:.16em;background:#fff}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em}
+
+.list{margin:0 0 2mm;padding-left:4.5mm}
+.list li{margin:0 0 1.2mm}
+.list li::marker{color:var(--tq)}
+.checks{list-style:none;padding:0;margin:0 0 2mm}
+.checks li{display:flex;gap:2.5mm;align-items:flex-start;margin-bottom:1.6mm}
+.checks .ic{flex:none;color:#fff;background:var(--tq);border-radius:50%;padding:.8mm;width:4.6mm;height:4.6mm;margin-top:.3mm}
+
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+.box{border-radius:3mm;padding:4mm 5mm;margin:3.5mm 0;font-size:10.2pt;line-height:1.45}
+.box.note{background:var(--bg2);border:.35mm solid var(--tq-b)}
+.box.soft{background:var(--tq-l)}
+
+/* capítulos */
+.chead{border-bottom:.4mm solid var(--tq-b);padding-bottom:4mm;margin-bottom:4mm}
+.cnum{display:block;font-family:"InterW";font-weight:900;font-size:46pt;line-height:1;color:var(--tq)}
+.chead h1{font-size:30pt;font-weight:900;line-height:1.05;letter-spacing:-.02em;margin:2mm 0 3mm}
+.chead .lead{margin:0}
+
+/* portada */
+.p-cover{padding:0}
+.p-cover .body{height:297mm}
+.cover{height:281mm;display:flex;flex-direction:column;padding:16mm 17mm 0;background-color:#fff;background-image:linear-gradient(#EEF4F5 .25mm,transparent .25mm),linear-gradient(90deg,#EEF4F5 .25mm,transparent .25mm);background-size:10mm 10mm}
+.brand{font-size:10pt;letter-spacing:.32em;color:var(--ink);margin-bottom:7mm}
+.brand b{font-weight:900}
+.cover-title{font-size:38pt;font-weight:900;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;margin:6mm 0 4mm}
+.cover-sub{font-size:13pt;color:var(--mut);max-width:150mm;margin:0}
+.cover-photo{flex:1;margin-top:9mm;border-radius:6mm 6mm 0 0;overflow:hidden;border:.5mm solid var(--tq-b);border-bottom:0;position:relative}
+.cover-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.cover-foot{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;padding:4mm 6mm;font-size:8.5pt;letter-spacing:.12em;border-radius:0}
+.cover-foot span:first-child{font-weight:800}
+.band{height:16mm;background:var(--tq);color:#fff;font-weight:800;letter-spacing:.42em;font-size:10pt;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+
+/* bienvenida */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:2mm}
+.pillar{border:.35mm solid var(--line);border-radius:3.5mm;padding:4mm}
+.pillar .pn{font-weight:900;font-size:18pt;color:var(--tq);line-height:1}
+.pillar h3{margin:2mm 0 1.5mm;font-size:11.6pt}
+.pillar p{font-size:10pt;color:var(--mut);margin:0}
+
+/* índice */
+.tocl{display:flex;flex-direction:column;gap:0;margin-top:4mm}
+.tocr{display:flex;align-items:baseline;gap:3mm;padding:4.6mm 0;border-bottom:.3mm solid var(--line);text-decoration:none;color:var(--ink);font-size:13.5pt;font-weight:700}
+.tocr .dots{flex:1}
+.tocr .pg{font-weight:900;color:var(--tq-d);min-width:9mm;text-align:right}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:2mm 0 1mm}
+.step{background:var(--bg2);border-radius:3mm;padding:3.5mm}
+.step span{display:inline-flex;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:800;align-items:center;justify-content:center;font-size:9pt;margin-bottom:1.5mm}
+.step b{display:block;color:var(--ink);font-size:11pt}
+.step p{font-size:10pt;color:var(--mut);margin:1mm 0 0}
+
+/* parámetros y ejercicios */
+.params{display:grid;grid-template-columns:repeat(4,1fr);border:.35mm solid var(--tq-b);border-radius:3mm;overflow:hidden;margin:1mm 0 3mm}
+.params div{padding:2.6mm 3.5mm;border-right:.3mm solid var(--tq-b)}
+.params div:last-child{border-right:0}
+.params span{display:block;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:var(--tq-d);font-weight:700}
+.params b{font-size:10pt;color:var(--ink)}
+.exlist{display:flex;flex-direction:column;gap:3.2mm}
+.ex{display:grid;grid-template-columns:42mm 1fr;gap:5mm;border:.35mm solid var(--line);border-radius:3.5mm;padding:3.5mm;align-items:center}
+.exim{height:40mm;display:flex;align-items:center;justify-content:center;background:var(--bg2);border-radius:2.5mm;padding:2mm}
+.exim img{max-width:100%;max-height:100%;object-fit:contain}
+.exh{display:flex;justify-content:space-between;align-items:baseline;gap:3mm;margin-bottom:1.2mm}
+.exh h4{font-size:12pt;font-weight:800}
+.dose{flex:none;background:var(--tq-l);color:var(--tq-dd);font-weight:700;font-size:8.4pt;padding:.8mm 2.6mm;border-radius:99px}
+.extx p{font-size:9.8pt;margin:0 0 1.2mm}
+.easy{color:var(--mut)}
+.easy b{color:var(--tq-d)}
+.exgrid{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.ex-c{grid-template-columns:30mm 1fr;gap:3.5mm;padding:3mm}
+.ex-c .exim{height:30mm}
+.ex-c .exh{flex-direction:column;align-items:flex-start;gap:.8mm}
+.ex-c .exh h4{font-size:10.4pt}
+.ex-c .extx p{font-size:9.4pt}
+.g4 .ex-c .exim{height:26mm}
+.g4 .ex-c{grid-template-columns:28mm 1fr}
+.rowend{display:flex;justify-content:flex-end;align-items:center;gap:3mm;margin-top:3mm}
+.endrow{display:grid;grid-template-columns:1fr auto;gap:5mm;align-items:center;margin-top:4mm}
+.endrow .box{margin:0}
+.vbtn{display:inline-flex;align-items:center;gap:2mm;background:var(--ink);color:#fff;font-weight:800;font-size:8.4pt;letter-spacing:.06em;padding:2.6mm 4.5mm;border-radius:2.5mm;text-decoration:none}
+.vbtn .ic{fill:currentColor;stroke:none}
+.marker{display:block;font-family:"DejaVu Sans Mono",monospace;font-size:7pt;color:#B4232A;margin-top:1.2mm}
+.box .vbtn{margin-top:2mm}
+
+/* calendario */
+.cal{width:100%;border-collapse:separate;border-spacing:1.6mm;margin:0 -1.6mm 1mm;table-layout:fixed}
+.cal th{font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:700;padding:1mm}
+.cal tbody th{text-align:left;color:var(--ink);font-size:8.6pt;letter-spacing:.04em;width:20mm}
+.cal td{height:15mm;border:.35mm solid var(--line);border-radius:2.5mm;text-align:center;vertical-align:middle}
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:9mm;height:7mm;border-radius:99px;font-weight:800;font-size:8.4pt;padding:0 2mm}
+.c1{background:var(--tq);color:#fff}
+.c2{background:var(--ink);color:#fff}
+.c3{background:var(--tq-dd);color:#fff}
+.ca{background:var(--tq-l);color:var(--tq-dd);border:.35mm solid var(--tq-b)}
+.cd{background:#F1F3F4;color:var(--mut);font-weight:600;font-size:7pt}
+.ce{color:#9AA3A8;font-weight:500;font-size:7pt}
+.legend{display:flex;flex-wrap:wrap;gap:5mm;font-size:9.6pt;color:var(--mut);margin:1mm 0 3mm}
+.legend>span{display:inline-flex;align-items:center;gap:1.5mm}
+.grid-t,.track{width:100%;border-collapse:collapse;table-layout:fixed;margin-bottom:2mm}
+.grid-t th,.grid-t td,.track th,.track td{border:.3mm solid #C9D6D9;padding:1.6mm}
+.grid-t thead th,.track thead th{background:var(--tq-l);color:var(--tq-dd);font-size:7.8pt;letter-spacing:.08em;text-transform:uppercase}
+.grid-t tbody th,.track tbody th{text-align:left;font-size:8.4pt;font-weight:700;color:var(--ink);width:38mm}
+.grid-t td{height:11mm}
+h3.wk{margin:4mm 0 1.5mm;font-size:9.6pt;color:var(--tq-dd)}
+.track tbody th{width:46mm}
+.track td{height:17mm}
+
+/* alimentación */
+.plate-wrap{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:center;margin:2mm 0 2mm}
+.plate{width:60mm;height:60mm;border-radius:50%;border:2mm solid var(--tq-b);position:relative;overflow:hidden;background:#fff}
+.plate div{position:absolute;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:8.6pt;text-align:center}
+.pl-veg{left:0;top:0;width:50%;height:100%;background:var(--tq);color:#fff}
+.pl-pro{right:0;top:0;width:50%;height:50%;background:var(--ink);color:#fff}
+.pl-car{right:0;bottom:0;width:50%;height:50%;background:var(--tq-l);color:var(--tq-dd)}
+.eq{width:100%;border-collapse:collapse;font-size:10pt;margin:1mm 0 3mm}
+.eq th{background:var(--tq-l);color:var(--tq-dd);text-align:left;padding:2mm 3mm;font-size:8pt;letter-spacing:.06em;text-transform:uppercase}
+.eq td{border-bottom:.3mm solid var(--line);padding:2mm 3mm}
+.eq td:first-child{font-weight:700;color:var(--ink);width:55mm}
+.menu{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8.4pt;line-height:1.35;margin-top:2mm}
+.menu thead th{background:var(--ink);color:#fff;padding:2.6mm 2mm;font-size:7.8pt;letter-spacing:.1em;text-transform:uppercase}
+.menu thead th:first-child{background:#fff;width:13mm}
+.menu tbody th{background:var(--tq);color:#fff;font-size:8pt;letter-spacing:.06em;text-transform:uppercase;width:13mm}
+.menu td{border:.3mm solid #D3E3E6;padding:2.4mm 2.2mm;vertical-align:middle;height:31mm;text-align:center;color:var(--ink)}
+.menu tbody tr:nth-child(even) td{background:var(--bg2)}
+.rmark{display:inline-flex;align-items:center;justify-content:center;width:3.8mm;height:3.8mm;border-radius:50%;background:var(--tq-l);color:var(--tq-dd);font-size:6.4pt;font-weight:800;vertical-align:.3mm;border:.25mm solid var(--tq-b)}
+
+/* recetas */
+.rindex{columns:1;margin:0;padding-left:6mm;font-size:10.4pt}
+.rindex li{margin-bottom:.9mm}
+.rindex li::marker{color:var(--tq-d);font-weight:700}
+.rindex a{color:var(--ink);text-decoration:none}
+.rec{border:.35mm solid var(--line);border-radius:4mm;overflow:hidden;margin-bottom:5mm}
+.rech{background:var(--bg2);padding:4mm 5mm 3.5mm;border-bottom:.35mm solid var(--line)}
+.rcat{font-size:7pt;letter-spacing:.16em;color:var(--tq-d);font-weight:800}
+.rech h2{margin:1mm 0 1.5mm;font-size:16pt}
+.rmeta{display:flex;gap:6mm;font-size:9.8pt;color:var(--mut)}
+.rmeta b{color:var(--ink)}
+.recb{display:grid;grid-template-columns:66mm 1fr;gap:6mm;padding:4mm 5mm}
+.recb h5{font-size:7.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-d);margin-bottom:1.5mm}
+.ing{margin:0;padding-left:4mm;font-size:10.2pt}
+.ing li{margin-bottom:.8mm}
+.ing li::marker{color:var(--tq)}
+.steps-ol{margin:0;padding-left:5mm;font-size:10.2pt}
+.steps-ol li{margin-bottom:1.2mm}
+.steps-ol li::marker{color:var(--tq-d);font-weight:800}
+.tip{background:var(--tq-l);border-radius:2mm;padding:2.4mm 3.4mm;font-size:9.6pt;margin-top:2mm}
+
+/* organización */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;margin-bottom:2mm}
+.tile{border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm 4mm}
+.tile h3{margin:0 0 1.2mm;font-size:11.4pt}
+.tile p{font-size:10pt;margin:0;color:var(--txt)}
+.cbox{display:grid;grid-template-columns:1fr 1fr;gap:1.6mm 6mm;border:.35mm solid var(--tq-b);border-radius:3mm;padding:4mm}
+.cb{display:flex;gap:2.5mm;align-items:flex-start;font-size:10.2pt;margin-bottom:.6mm}
+.sq{flex:none;width:3.8mm;height:3.8mm;border:.4mm solid var(--tq-d);border-radius:.8mm;margin-top:.5mm}
+.shopgrid{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.shop{margin-bottom:4mm}
+.shop h3{border-bottom:.4mm solid var(--tq);padding-bottom:1mm;margin:0 0 2mm;font-size:11.2pt}
+.shop .cb{font-size:9.8pt}
+
+/* seguimiento */
+.notes h3{font-size:9.6pt}
+.lines{height:48mm;background-image:linear-gradient(transparent 7.6mm,#C9D6D9 7.6mm,#C9D6D9 7.9mm,transparent 7.9mm);background-size:100% 8mm}
+
+/* cierre */
+.quote{margin-top:7mm;border-top:.4mm solid var(--tq-b);border-bottom:.4mm solid var(--tq-b);padding:6mm 0;font-family:"InterW";font-weight:900;font-size:19pt;line-height:1.15;color:var(--ink);letter-spacing:-.01em;text-align:center}
+.quote.dark{background:var(--ink);color:#fff;border:0;border-radius:4mm;padding:6mm 8mm;font-size:15pt}
+.t2{color:#4FD3E5}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:3mm;background:var(--tq-t);color:#fff;font-weight:800;letter-spacing:.04em;font-size:10pt;padding:4mm 7mm;border-radius:3.5mm;text-decoration:none;box-shadow:0 0 0 1.2mm var(--tq-b)}
+.btn-big{font-size:12.5pt;padding:5.5mm 10mm}
+.btnwrap{display:inline-flex;flex-direction:column;align-items:center}
+.btnwrap .marker{margin-top:3mm;font-size:7.6pt}
+.cta-center{display:flex;justify-content:center;margin:8mm 0 3mm}
+
+/* talleres */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:5mm 0 2mm}
+.wcard{border:.4mm solid var(--tq-b);border-radius:4mm;padding:5mm}
+.wtag{font-size:7pt;letter-spacing:.16em;color:var(--tq-d);font-weight:800}
+.wcard h3{margin:1.5mm 0 1.5mm;font-size:13.5pt}
+.wcard p{font-size:10.2pt;color:var(--mut);margin:0}
+.bonus .cols2{margin-top:4mm;background:var(--bg2);border-radius:4mm;padding:5mm}
+
+/* referencias */
+.refs{padding-left:5mm;font-size:10pt}
+.refs li{margin-bottom:2mm}
+
+/* bio */
+.bio-top{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:start}
+.bio-photo{height:80mm;border-radius:4mm;overflow:hidden;border:.5mm solid var(--tq-b)}
+.bio-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.role{font-weight:700;color:var(--tq-d);margin-top:-2mm}
+.what{margin-top:6mm;background:var(--bg2);border-radius:4mm;padding:5mm 6mm}
+.what h2{margin-top:0}
+.pills4{display:flex;gap:2.5mm;margin-top:2mm}
+.pills4 span{border:.4mm solid var(--tq-b);background:#fff;color:var(--tq-dd);font-weight:700;font-size:8.4pt;padding:1.2mm 4mm;border-radius:99px}
+.bio .quote{margin-top:6mm}
+.bio .cta-center{margin-top:6mm}
+
+/* agregados */
+.firstweek{margin-top:6mm;background:var(--ink);color:#fff;border-radius:4mm;padding:5mm 6mm}
+.firstweek h2{color:#fff;margin:0 0 3mm}
+.fw{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.fw span{display:inline-flex;width:7mm;height:7mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:800;align-items:center;justify-content:center;font-size:9.5pt}
+.fw b{display:block;margin:1.5mm 0 1mm;font-size:11pt}
+.fw p{font-size:9.6pt;color:#D5DDE0;margin:0}
+.dayex{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.dayex div{border:.35mm solid var(--tq-b);border-radius:3mm;padding:3.5mm 4mm}
+.dayex span{display:block;font-size:7.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-d);font-weight:800;margin-bottom:1mm}
+.dayex b{font-size:10.4pt;color:var(--ink);font-weight:600}
+.minplan{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.minplan div{background:var(--tq-l);border-radius:3mm;padding:3.5mm}
+.minplan span{display:block;font-size:7.6pt;letter-spacing:.12em;text-transform:uppercase;color:var(--tq-dd);font-weight:800;margin-bottom:1.2mm}
+.minplan p{font-size:9.8pt;margin:0;color:var(--ink)}
+.p-spread .body{display:flex;flex-direction:column}
+.p-spread .cta-center{margin-top:auto;margin-bottom:auto}
+.p-spread .wcard{min-height:40mm}
+.p-spread .bonus{display:flex;flex-direction:column;height:100%}
+.gloss{display:grid;grid-template-columns:48mm 1fr;gap:2mm 5mm;font-size:10pt;margin:0}
+.gloss dt{font-weight:800;color:var(--ink)}
+.gloss dd{margin:0;color:var(--txt)}
+
+.p-spread .pill{align-self:flex-start}
+.plate div{padding:0 2mm;hyphens:manual;line-height:1.15}
+.ctapanel{margin-top:auto;margin-bottom:auto;background:var(--tq-l);border:.4mm solid var(--tq-b);border-radius:5mm;padding:9mm 8mm;display:flex;flex-direction:column;align-items:center}
+.ctatitle{font-weight:900;font-size:17pt;color:var(--ink);margin:0 0 1mm}
+.ctapanel .btn{margin-top:4mm}
+.bio-photo{height:100mm}
+.bio-top{grid-template-columns:70mm 1fr}
+.bio-top p{font-size:11.2pt}
+.what{margin-top:9mm;padding:7mm}
+.what p{font-size:11pt}
+.bio .quote{margin-top:9mm;font-size:17pt;padding:8mm}
+.bio .cta-center{margin-top:10mm}
+
+/* v2: una sola columna para textos explicativos */
+.cols2{display:block}
+.cols2>div+div{margin-top:3mm}
+.cols2.keep{display:grid}
+.cols2.keep>div+div{margin-top:0}
+.rpe{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:2mm}
+.rpe div{border:.35mm solid var(--line);border-radius:3mm;padding:4mm}
+.rpe div.on{background:var(--tq);border-color:var(--tq);color:#fff}
+.rpe b{display:block;font-size:20pt;font-weight:900;line-height:1}
+.rpe span{display:block;font-weight:800;margin:1.5mm 0 1mm}
+.rpe p{font-size:9.8pt;margin:0}
+.rpe div.on p{color:#fff}
+/* imágenes de ejercicios: llenan el recuadro */
+.ex{grid-template-columns:38mm 1fr}
+.exim{width:38mm;height:38mm;padding:2mm;background:var(--bg2)}
+.exim img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;display:block}
+.endrow{grid-template-columns:1fr}
+/* portada: foto completa, sin recortar la cara */
+.cover-photo{background:#0B0D11}
+.cover-photo img{object-fit:cover;object-position:50% 30%}
+.bio-photo{background:#0B0D11}
+.bio-photo img{object-position:50% 20%}
+
+/* v3: lectura en celular — letra más grande y más aire */
+body{font-size:12.4pt;line-height:1.6}
+.lead{font-size:14pt;line-height:1.55}
+h2{font-size:17pt;margin:6mm 0 2.5mm}
+h3{font-size:13.6pt;margin:5mm 0 1.8mm}
+.small{font-size:10.4pt}
+.list li,.checks li{margin-bottom:2mm}
+.box{font-size:11.4pt;padding:5mm 6mm;margin:5mm 0}
+.h1{font-size:30pt;margin:3mm 0 5mm}
+.chead{margin-bottom:6mm}
+.ex{grid-template-columns:42mm 1fr;padding:4mm;gap:6mm;margin-bottom:4mm;break-inside:avoid}
+.exim{width:42mm;height:42mm}
+.exh h4{font-size:13.6pt}
+.dose{font-size:9.6pt}
+.extx p{font-size:11pt;line-height:1.5}
+.vbtn-sm{display:inline-flex;align-items:center;gap:1.6mm;margin-top:1.5mm;background:var(--tq-t);color:#fff;font-weight:800;font-size:8.6pt;letter-spacing:.08em;padding:1.8mm 3.6mm;border-radius:99px;text-decoration:none}
+.vbtn-sm .ic{fill:currentColor;stroke:none;width:.9em;height:.9em}
+.vbtn-sm.inline{margin:0 .5mm;vertical-align:.3mm;font-size:8pt;padding:1mm 2.8mm}
+.params b{font-size:11pt}
+.params span{font-size:7.6pt}
+.box.end{margin-top:2mm}
+.recw{margin-bottom:6mm}
+.rec{margin-bottom:0}
+.ing,.steps-ol{font-size:11pt;line-height:1.5}
+.steps-ol li{margin-bottom:1.8mm}
+.ing li{margin-bottom:1.2mm}
+.tip{font-size:10.4pt}
+.rech h2{font-size:18pt}
+.tile p{font-size:11pt}
+.tile h3{font-size:12.4pt}
+.tiles{gap:4.5mm}
+.tile{padding:4.5mm 5mm}
+.cb{font-size:11pt;margin-bottom:1.2mm}
+.shop .cb{font-size:10.6pt}
+.wcard p{font-size:11pt}
+.cal td{height:17mm}
+.chip{font-size:9.4pt;height:8mm;min-width:10mm}
+.legend{font-size:10.4pt}
+.dayex b{font-size:11.4pt}
+.dayex div{padding:4.5mm 5mm}
+.pillar p{font-size:10.8pt}
+.fw p{font-size:10.4pt}
+.minplan p{font-size:10.8pt}
+.eq{font-size:11pt}
+.eq td{padding:2.6mm 3mm}
+.tocr{font-size:14.5pt;padding:5mm 0}
+.rpe p{font-size:10.6pt}
+.step p{font-size:10.8pt}
+.bio-top p{font-size:11.6pt}
+.what p{font-size:11.6pt}
+.team{display:grid;grid-template-columns:70mm 1fr;gap:6mm;align-items:center;margin-top:4mm;border:.4mm solid var(--tq-b);border-radius:4mm;padding:4mm}
+.team img,.team-ph{width:70mm;height:46mm;border-radius:3mm;object-fit:cover}
+.team-ph{background:var(--tq-l);border:.5mm dashed var(--tq);color:var(--tq-dd);font-weight:800;font-size:9pt;letter-spacing:.12em;display:flex;align-items:center;justify-content:center;text-align:center}
+.team-tx p{font-size:11pt;margin:1.5mm 0 2mm}
+.p-spread .wcard{min-height:34mm}
+
+/* v3b: ajuste fino para evitar páginas casi vacías */
+body{font-size:11.8pt;line-height:1.58}
+.lead{font-size:13.4pt}
+h3{font-size:13pt;margin:4.5mm 0 1.6mm}
+h2{font-size:16pt}
+.box{font-size:11pt;padding:4.5mm 5.5mm;margin:4mm 0}
+.ex{grid-template-columns:36mm 1fr;padding:3mm 4mm;gap:5mm;margin-bottom:3.2mm}
+.exim{width:36mm;height:36mm;padding:1.5mm}
+.exh{margin-bottom:.8mm}
+.exh h4{font-size:12.6pt}
+.extx p{font-size:10.4pt;line-height:1.42;margin-bottom:1mm}
+.menu td{height:27mm;font-size:9pt}
+.grid-t td{height:9.5mm}
+h3.wk{margin:3mm 0 1.2mm}
+.list li,.checks li{margin-bottom:1.6mm}
+.tocr{font-size:13pt;padding:3.4mm 0}
+.tiles{gap:3mm}.tile{padding:3.5mm 4.5mm}.tile p{font-size:10.4pt;line-height:1.45}.tile h3{font-size:11.8pt}
+.cbox{padding:3.5mm 4mm;gap:1mm 6mm}.cbox .cb{font-size:10.4pt}
+.shop .cb{font-size:10pt;margin-bottom:.8mm;line-height:1.4}.shop{margin-bottom:3mm}
+.track td{height:15mm}
+.bio-photo{height:78mm}.bio-top{grid-template-columns:62mm 1fr}
+.what{margin-top:6mm;padding:5.5mm}.bio .quote{margin-top:6mm;padding:6mm;font-size:15pt}.bio .cta-center{margin-top:7mm}
+.bio-top p,.what p{font-size:11pt}
+.recimg{height:62mm;overflow:hidden;background:var(--tq-l)}
+.recimg img{width:100%;height:100%;object-fit:cover;display:block}
+.recimg.ph{display:flex;align-items:center;justify-content:center;border-bottom:.5mm dashed var(--tq)}
+.recimg.ph span{font-weight:800;font-size:9pt;letter-spacing:.12em;color:var(--tq-dd)}
+.recimg{height:88mm}
+.chimg{height:70mm;border-radius:4mm;overflow:hidden;margin:2mm 0 5mm}.chimg img{width:100%;height:100%;object-fit:cover;display:block}
+.chimg{height:48mm;margin:0 0 4mm}
+
+/* v4: portada nueva */
+.cv{height:297mm;display:flex;flex-direction:column;background-color:#fff;background-image:linear-gradient(#EEF4F5 .25mm,transparent .25mm),linear-gradient(90deg,#EEF4F5 .25mm,transparent .25mm);background-size:10mm 10mm}
+.cv-top{padding:12mm 15mm 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cv-logo{height:24mm;width:auto;margin-bottom:4mm}
+.cv-pill{display:inline-block;padding:1.5mm 4mm;border:.45mm solid var(--tq-b);border-radius:99px;color:var(--tq-d);font-weight:800;font-size:7pt;letter-spacing:.14em;background:#fff}
+.cv-title{font-size:33pt;font-weight:900;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;margin:4mm 0 3mm;color:var(--ink)}
+.cv-sub{font-size:12.6pt;line-height:1.45;color:var(--mut);max-width:165mm;margin:0}
+.cv-mid{display:grid;grid-template-columns:72mm 1fr;gap:7mm;padding:7mm 15mm 0;align-items:stretch}
+.cv-photo{position:relative;border-radius:4mm;overflow:hidden;background:#0B0D11;height:92mm;border:.5mm solid var(--tq-b)}
+.cv-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.cv-name{position:absolute;left:0;right:0;bottom:0;padding:3mm 4mm;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;display:flex;flex-direction:column}
+.cv-name b{font-size:10.5pt;letter-spacing:.1em}
+.cv-name span{font-size:8pt;color:#DCE4E6}
+.cv-why{display:flex;flex-direction:column;justify-content:center}
+.cv-k{font-size:8pt;letter-spacing:.16em;font-weight:800;color:var(--tq-d);margin-bottom:2.5mm}
+.cv-why .checks li{font-size:10.6pt;line-height:1.4;margin-bottom:2.2mm}
+.cv-for{margin:2mm 0 0;font-size:10pt;color:var(--ink);font-weight:600;border-left:1mm solid var(--tq);padding-left:3mm}
+.cv-team{position:relative;margin:7mm 0 0;flex:1;overflow:hidden;background:#fff}
+.cv-team img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block}
+.cv-team-tx{position:absolute;left:0;right:0;bottom:0;background:var(--tq);color:#fff;padding:3mm 15mm;display:flex;justify-content:space-between;align-items:center}
+.cv-team-tx b{font-size:11pt;letter-spacing:.2em}
+.cv-team-tx span{font-size:9.5pt}
+
+/* v5: portada editorial */
+.cv2{height:297mm;box-sizing:border-box;padding:14mm 16mm 12mm;display:flex;flex-direction:column;background:#fff;
+  --blue:#0033A0;--red:#E63333}
+.c2-top{display:flex;flex-direction:column;align-items:center;gap:5mm}
+.c2-logo{height:21mm;width:auto}
+.c2-kick{font-size:8pt;letter-spacing:.22em;font-weight:700;color:var(--blue)}
+.c2-title{margin:11mm 0 0;text-align:center;font-weight:900;font-size:37pt;line-height:1.03;letter-spacing:-.02em;color:var(--blue)}
+.c2-t{color:var(--tq-t)}
+.c2-r{color:var(--red)}
+.c2-bar{width:24mm;height:1.4mm;background:var(--red);border-radius:1mm;margin:7mm auto 6mm}
+.c2-sub{text-align:center;font-size:16pt;font-weight:800;color:var(--ink);margin:0}
+.c2-desc{text-align:center;font-size:11.4pt;line-height:1.5;color:var(--mut);max-width:150mm;margin:3mm auto 0}
+.c2-photos{margin-top:auto;display:grid;grid-template-columns:70mm 1fr;gap:6mm;align-items:end}
+.c2-photos figure{margin:0;display:flex;flex-direction:column;gap:2.5mm}
+.c2-img{border-radius:4mm;overflow:hidden;height:88mm;border:.4mm solid #DCE6E8}
+.c2-img img{width:100%;height:100%;object-fit:cover;display:block}
+.c2-me .c2-img{background:#0B0D11}
+.c2-me .c2-img img{object-position:50% 12%}
+.c2-team .c2-img img{object-position:50% 0%}
+.c2-photos figcaption{display:flex;flex-direction:column;border-left:1.2mm solid var(--tq);padding-left:3mm}
+.c2-team figcaption{border-left-color:var(--blue)}
+.c2-photos figcaption b{font-size:10pt;letter-spacing:.14em;color:var(--blue)}
+.c2-photos figcaption span{font-size:9pt;color:var(--mut)}
+.c2-title{font-size:42pt;margin-top:13mm}
+.c2-sub{font-size:17pt}
+.c2-desc{font-size:12pt}
+.c2-img{height:112mm}
+.c2-photos{grid-template-columns:74mm 1fr}
+.c2-title{font-size:39pt;white-space:nowrap;margin-top:16mm}
+.c2-bar{margin:9mm auto 7mm}
+.c2-img{height:94mm}
+.c2-photos{grid-template-columns:62mm 1fr}
+.c2-team .c2-img img{object-position:50% 30%}
+.c2-title{margin-top:24mm}
+.c2-bar{margin:11mm auto 9mm}
+.c2-desc{margin-top:4mm}
+.c2-sub{font-size:21pt}
+.c2-desc{font-size:14pt;line-height:1.45;max-width:165mm}
+.c2-title{margin-top:18mm}
+.c2-photos.one{display:flex;flex-direction:column;gap:3mm}
+.c2-photos.one .c2-img{height:118mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 0%}
+.c2-photos.one figcaption{flex-direction:row;align-items:baseline;gap:4mm}
+.c2-photos.one figcaption b{font-size:11pt}
+.c2-photos.one figcaption span{font-size:10pt}
+.c2-roles{display:flex;justify-content:space-between;gap:3mm}
+.c2-roles span{flex:1;text-align:center;background:var(--tq-l);color:var(--blue);font-weight:800;font-size:10pt;letter-spacing:.06em;padding:2.4mm 0;border-radius:99px;border:.35mm solid var(--tq-b)}
+.c2-photos.one{align-items:stretch}
+.c2-photos.one .c2-img{height:108mm}
+.c2-title{margin-top:14mm}
+.c2-bar{margin:9mm auto 7mm}
+.c2-photos.one .c2-img{height:119mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 50%}
+.c2-title{margin-top:11mm}
+.c2-top{gap:4mm}
+.c2-bar{margin:7mm auto 6mm}
+.c2-photos.one .c2-img{height:136mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 0%}
+.cv2{padding-top:11mm;padding-bottom:9mm}
+.c2-logo{height:18mm}
+.c2-title{margin-top:8mm;font-size:37pt}
+.c2-bar{margin:5mm auto 5mm}
+.c2-sub{font-size:19pt}
+.c2-desc{font-size:13pt;margin-top:2.5mm}
+.c2-photos.one{gap:2.5mm}
+.c2-photos.one .c2-img{height:140mm}
+.c2-photos.one .c2-team .c2-img img{object-fit:cover;object-position:50% 50%}
+
+/* v6: lectura en celular — todo más grande */
+body{font-size:13.2pt;line-height:1.55}
+.lead{font-size:15pt}
+.h1{font-size:32pt}
+h2{font-size:18.5pt}
+h3{font-size:15pt}
+.small{font-size:11.4pt}
+.box{font-size:12.6pt}
+.list li,.checks li{margin-bottom:2mm}
+.extx p{font-size:12pt;line-height:1.45}
+.exh h4{font-size:14.5pt}
+.dose{font-size:10.6pt}
+.vbtn-sm{font-size:9.6pt;padding:2.2mm 4mm}
+.params b{font-size:12.4pt}.params span{font-size:8.4pt}
+.ing,.steps-ol{font-size:12.4pt}
+.tip{font-size:11.6pt}
+.rech h2{font-size:20pt}.rmeta{font-size:11pt}.rcat{font-size:8.4pt}
+.menu{font-size:10.4pt}.menu thead th{font-size:9pt}.menu tbody th{font-size:9pt}
+.tile p{font-size:12pt}.tile h3{font-size:13.6pt}
+.cb,.cbox .cb{font-size:12pt}.shop .cb{font-size:11.6pt}.shop h3{font-size:13pt}
+.eq{font-size:12pt}
+.wcard p{font-size:12pt}.wcard h3{font-size:15pt}
+.dayex b{font-size:12.6pt}.minplan p{font-size:12pt}.minplan span{font-size:8.6pt}
+.pillar p{font-size:11.8pt}.pillar h3{font-size:13pt}
+.fw p{font-size:11.4pt}.fw b{font-size:12.4pt}
+.step p{font-size:11.8pt}.step b{font-size:12.4pt}
+.rpe p{font-size:11.6pt}
+.tocr{font-size:14.5pt}
+.legend{font-size:11pt}.chip{font-size:10pt}
+.grid-t tbody th,.track tbody th{font-size:9.8pt}
+.team-tx p{font-size:12pt}
+.bio-top p,.what p{font-size:12.4pt}
+.quote{font-size:21pt}
+.rindex{font-size:11.6pt}
+.gloss{font-size:11.6pt}
+/* portada */
+.c2-kick{font-size:9.4pt;letter-spacing:.16em}
+.c2-sub{font-size:21pt}
+.c2-desc{font-size:14.6pt}
+.c2-photos.one figcaption b{font-size:12.6pt}
+.c2-photos.one figcaption span{font-size:11.6pt}
+.c2-roles span{font-size:11.4pt}
+.recimg{height:76mm}
+.p-spread .wcard{min-height:0}
+.wgrid{margin:4mm 0 2mm}
+.bio-photo{height:70mm}
+.bio .quote{font-size:15pt;padding:5mm}
+.what{margin-top:5mm}
+body{font-size:12.8pt}
+.extx p{font-size:11.6pt}
+.ex{grid-template-columns:34mm 1fr;padding:3mm 4mm;margin-bottom:3mm}
+.exim{width:34mm;height:34mm}
+.grid-t td{height:9mm}
+.track td{height:14mm}
+.shop .cb{font-size:10.8pt;margin-bottom:.6mm;line-height:1.3}.shop h3{font-size:12pt}.shop{margin-bottom:2.5mm}
+.lines{height:36mm}
+#cap10 .quote{margin-top:4mm;padding:4mm 0;font-size:17pt}
+.claim{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:4mm 0 6mm}
+.claim div{background:var(--tq);color:#fff;border-radius:4mm;padding:6mm 4mm;text-align:center;display:flex;flex-direction:column}
+.claim b{font-size:24pt;font-weight:900;line-height:1.05}
+.claim span{font-size:11pt;opacity:.95}
+.tvids,.tba{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:4mm}
+.tvid{display:flex;flex-direction:column;align-items:center;gap:2.5mm}
+.tvid-ph{width:100%;height:62mm;border-radius:4mm;background:#141414;color:#C9D3D6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3mm;font-size:8.6pt;font-weight:800;letter-spacing:.1em}
+.tvid-ph .play{width:13mm;height:13mm;border-radius:50%;background:var(--tq);color:#fff;display:flex;align-items:center;justify-content:center}
+.tvid-ph .play .ic{fill:currentColor;stroke:none;width:6mm;height:6mm}
+.ba-ph{height:52mm;display:grid;grid-template-columns:1fr 1fr;gap:1.5mm}
+.ba-ph div{border-radius:3mm;background:var(--tq-l);border:.5mm dashed var(--tq);display:flex;align-items:center;justify-content:center;font-size:8pt;font-weight:800;letter-spacing:.12em;color:var(--tq-dd)}
+.ba p{font-size:10pt;text-align:center;color:var(--mut);margin:2mm 0 0}
+.keytips{margin:0 5mm 5mm;background:var(--tq-l);border-radius:3mm;padding:4mm 5mm;border-left:1.4mm solid var(--tq)}
+.keytips h5{font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-dd);margin:0 0 2mm}
+.keytips ul{margin:0;padding-left:5mm}
+.keytips li{font-size:12pt;line-height:1.45;margin-bottom:1.6mm}
+.keytips li::marker{color:var(--tq-d)}
+.recimg{height:56mm}
+.rech{padding:3mm 5mm 2.5mm}
+.recb{padding:3mm 5mm;gap:5mm}
+.ing,.steps-ol{font-size:11.6pt;line-height:1.42}
+.steps-ol li{margin-bottom:1.2mm}.ing li{margin-bottom:.8mm}
+.keytips{margin:0 5mm 4mm;padding:3mm 4.5mm}
+.keytips li{font-size:11.2pt;line-height:1.38;margin-bottom:1mm}
+.ba-img{position:relative;height:96mm;border-radius:3.5mm;overflow:hidden;background:#eee}
+.ba-img img{width:100%;height:100%;object-fit:cover;display:block}
+.ba-img span{position:absolute;top:2mm;background:rgba(20,20,20,.8);color:#fff;font-size:7pt;font-weight:800;letter-spacing:.12em;padding:1mm 2.2mm;border-radius:99px}
+.ba-img .bl{left:2mm}.ba-img .br{right:2mm;background:var(--tq)}
+.ba p{font-size:11pt;line-height:1.35;color:var(--ink);text-align:left;margin:2.2mm 0 0}
+.tvlinks{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.tvl{display:flex;align-items:center;gap:3mm;padding:4mm;border-radius:3.5mm;background:#141414;color:#fff;text-decoration:none}
+.tvl .play{flex:none;width:11mm;height:11mm;border-radius:50%;background:var(--tq);display:flex;align-items:center;justify-content:center}
+.tvl .play .ic{fill:#fff;stroke:none;width:5mm;height:5mm}
+.tvl span:last-child{display:flex;flex-direction:column;font-size:10pt;color:#C9D3D6}
+.tvl b{font-size:12.5pt;color:#fff}
+.tba2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:2mm}
+.tba2 .ba-img{height:92mm;background:#fff;border:.35mm solid var(--line)}
+.tba2 .ba-img img{object-fit:contain}
+.romi{display:grid;grid-template-columns:44mm 1fr;gap:5mm;align-items:center;margin:5mm 0 2mm;border:.35mm solid var(--line);border-radius:3.5mm;padding:3mm}
+.romi .ba-img{height:58mm}
+.romi .ba-img img{object-position:50% 45%}
+.romi p{font-size:13pt;margin:1.5mm 0 0}
+.res3{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:2mm 0 5mm}
+.rc{display:flex;flex-direction:column}
+.rc-img{position:relative;height:92mm;border-radius:3.5mm;overflow:hidden;background:#eee}
+.rc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.rc-img.two{display:grid;grid-template-columns:1fr 1fr;gap:.8mm;background:#fff}
+.rc-img.two>div{position:relative;overflow:hidden}
+.rc-img span{position:absolute;left:50%;transform:translateX(-50%);bottom:2mm;background:rgba(20,20,20,.82);color:#fff;font-size:6.6pt;font-weight:800;letter-spacing:.1em;padding:1mm 2mm;border-radius:99px;white-space:nowrap}
+.rc-img span.d{background:var(--tq)}
+.rc p{margin:2.5mm 0 0;font-size:11pt;line-height:1.35;color:var(--txt);display:flex;flex-direction:column;min-height:16mm}
+.rc p b{font-size:13pt;color:var(--ink)}
+.vc{display:flex;flex-direction:column;gap:2.5mm;text-decoration:none}
+.vc-img{height:52mm;border-radius:3.5mm;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm;color:#fff}
+.vc-img .play{width:15mm;height:15mm;border-radius:50%;background:var(--tq);display:flex;align-items:center;justify-content:center;margin-bottom:1mm}
+.vc-img .play .ic{fill:#fff;stroke:none;width:7mm;height:7mm}
+.vc-n{font-size:15pt;font-weight:900}
+.vc-t{font-size:9pt;color:#C9D3D6}
+.vc-btn{align-self:center;display:inline-flex;align-items:center;gap:1.6mm;background:var(--tq-t);color:#fff;font-weight:800;font-size:9pt;letter-spacing:.08em;padding:2mm 4mm;border-radius:99px}
+.vc-btn .ic{fill:#fff;stroke:none;width:.9em;height:.9em}
+.keytips{margin:5mm 0 0;padding:4.5mm 6mm;border-left:1.6mm solid var(--tq);border-radius:3.5mm}
+.keytips h5{font-size:10pt;margin-bottom:2.5mm}
+.keytips li{font-size:11.6pt;line-height:1.45;margin-bottom:1.8mm}
+.keytips li b{color:var(--ink)}
+.recimg{height:64mm}
+.recimg{height:48mm}
+.keytips{margin-top:4mm;padding:3.5mm 5mm}
+.keytips li{font-size:11pt;line-height:1.38;margin-bottom:1.2mm}
+.ing,.steps-ol{font-size:11.2pt;line-height:1.38}
+.c2-roles span{font-size:10.4pt;letter-spacing:.02em}.c2-roles span:nth-child(2){flex:1.5}.pills4{flex-wrap:wrap}
+.bio-photo{height:62mm}.what{padding:5mm 5.5mm}.what p{font-size:11.8pt}.bio .cta-center{margin-top:5mm}
+.bio .quote{margin-top:4mm;padding:4mm 6mm}
+
+/* Ebook 1 · Entrená desde casa: plan de 8 semanas */
+.plan8{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8.6pt;line-height:1.3;margin:4mm 0 2mm}
+.plan8 thead th{background:var(--ink);color:#fff;padding:2.2mm 1.6mm;font-size:7pt;letter-spacing:.08em;text-transform:uppercase;text-align:left}
+.plan8 thead th:first-child{width:11mm;text-align:center}
+.plan8 thead th:nth-child(2){width:25mm}
+.plan8 thead th:nth-child(4){width:16mm}
+.plan8 thead th:nth-child(6){width:15mm}
+.plan8 thead th:nth-child(7){width:16mm}
+.plan8 tbody th{background:var(--tq);color:#fff;font-size:11pt;font-weight:900;text-align:center}
+.plan8 td{border-bottom:.3mm solid #D3E3E6;padding:2.4mm 1.6mm;color:var(--ink);vertical-align:middle}
+.plan8 tbody tr:nth-child(even) td{background:var(--bg2)}
+.plan8 tbody tr.dl td{background:var(--tq-l);color:var(--tq-dd);font-weight:600}
+.cal8 td{height:11mm}
+.loads td{height:9mm}
+.wk8 thead th:first-child,.loads thead th:first-child,.feel thead th:first-child{width:42mm}
+.wk8 td{height:8.5mm}
+.wk8 tbody th{font-size:8pt}
+.feel td{height:11mm}
+</style></head><body><section class="page p-cover" id="portada"><div class="body">
+<div class="cv2">
+  <div class="c2-top">
+    <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
+    <span class="c2-kick">PLAN DE 8 SEMANAS · FUERZA EN CASA · CON VIDEOS</span>
+  </div>
+  <h1 class="c2-title">ENTRENÁ DESDE <span class="c2-t">CASA.</span><br>TRANSFORMÁ TU <span class="c2-r">CUERPO.</span></h1>
+  <div class="c2-bar"></div>
+  <p class="c2-sub">Ganá fuerza, energía y constancia en 8 semanas.</p>
+  <p class="c2-desc">Un plan progresivo de 20 a 40 minutos por sesión para mujeres con poco tiempo que quieren resultados sostenibles. Incluye de bonus el recetario, dos talleres y una consulta con Nacho.</p>
+  <div class="c2-photos one">
+    <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
+      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
+    <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
+  </div>
+</div>
+</div></section><section class="page " id="bienvenida"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Bienvenida</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">BIENVENIDA</span>
+<h1 class="h1">Te damos la bienvenida a <span class="t">Entrená desde casa</span></h1>
+<p class="lead">Un plan de 8 semanas para ganar fuerza en casa en una semana real: con trabajo, familia y poco tiempo libre. No es para hacerlo perfecto: es para entrenar con constancia y ver tu progreso.</p>
+<h2>Qué incluye</h2>
+<div class="pillars">
+  <div class="pillar"><span class="pn">01</span><h3>Plan de 8 semanas</h3><p>Tres fases con un calendario semana a semana.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Rutinas con video</h3><p>Tres rutinas de cuerpo completo.</p></div>
+  <div class="pillar"><span class="pn">03</span><h3>Seguimiento</h3><p>Evaluación inicial y registro de cargas.</p></div>
+</div>
+<h2>Bonus incluidos</h2>
+<div class="pillars">
+  <div class="pillar"><span class="pn">+</span><h3>Recetario</h3><p>23 recetas fáciles.</p></div>
+  <div class="pillar"><span class="pn">+</span><h3>Dos talleres</h3><p>Descanso y organización de la heladera.</p></div>
+  <div class="pillar"><span class="pn">+</span><h3>Consulta con Nacho</h3><p>Para definir tus próximos pasos.</p></div>
+</div>
+<div class="firstweek">
+  <h2>Tu primera semana</h2>
+  <div class="fw">
+    <div><span>1</span><b>Evaluá</b><p>Hacé la evaluación inicial del capítulo 02.</p></div>
+    <div><span>2</span><b>Agendá</b><p>Elegí 2 días para la fuerza y 2 para caminar.</p></div>
+    <div><span>3</span><b>Prepará</b><p>Una colchoneta, una silla firme y un peso liviano.</p></div>
+    <div><span>4</span><b>Registrá</b><p>Anotá cada sesión en la planilla del capítulo 06.</p></div>
+  </div>
+</div>
+</div></section><section class="page " id="base"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Bienvenida</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">ANTES DE EMPEZAR</span>
+<h1 class="h1">Esta es la base que usamos con <span class="t">decenas de clientes</span></h1>
+<p class="lead">Con esta rutina como base de entrenamiento, y orden en la alimentación, acompañamos a decenas de clientes a bajar de 6 a 10 kilos de grasa en 90 días.</p>
+<div class="claim">
+  <div><b>6 a 10 kg</b><span>de grasa</span></div>
+  <div><b>90 días</b><span>de proceso</span></div>
+  <div><b>30 min</b><span>por sesión</span></div>
+</div>
+<p>Estos pasos básicos te van a ayudar a lograrlo si los seguís de manera consciente: entrenar fuerza, ordenar tus comidas y cuidar tu descanso, semana a semana.</p>
+<div class="box soft"><b>Es una guía.</b> Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. Si necesitás un plan a tu medida, el equipo RENOVA te acompaña, con entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</div>
+</div></section><section class="page " id="testimonios"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Bienvenida</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">RESULTADOS REALES</span>
+<h1 class="h1">Ellas ya lo <span class="t">lograron</span></h1>
+<p class="lead">Personas que siguieron este método con el equipo RENOVA.</p>
+<div class="res3">
+  <div class="rc"><div class="rc-img two"><div><img src="img/mari_a.jpg" alt="" style="object-position:52% 50%"><span>ANTES</span></div><div><img src="img/mari_d.jpg" alt="" style="object-position:58% 50%"><span class="d">DESPUÉS</span></div></div>
+    <p><b>Mari</b>Bajó 8 kg de grasa y 10 cm de cintura.</p></div>
+  <div class="rc"><div class="rc-img two"><div><img src="img/moni_d.jpg" alt="" style="object-position:43% 50%"><span>ANTES</span></div><div><img src="img/moni_a.jpg" alt="" style="object-position:52% 50%"><span class="d">DESPUÉS</span></div></div>
+    <p><b>Moni</b>Bajó 6 kg y logró el hábito de entrenar.</p></div>
+  <div class="rc"><div class="rc-img"><img src="img/ba_romi.jpg" alt="" style="object-position:50% 45%"><span class="d">RESULTADO</span></div>
+    <p><b>Romi</b>Ganó masa muscular y volvió a correr sin dolores.</p></div>
+</div>
+<h3>Testimonios en video</h3>
+<div class="res3">
+  <a class="vc" href="https://drive.google.com/file/d/148OfnqomkPfmFo5MJvyK83iUPBGzrpzh/view?usp=drive_link"><div class="vc-img"><span class="play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span><span class="vc-n">Mari</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> TOCÁ PARA VER</span></a>
+  <a class="vc" href="https://drive.google.com/file/d/1GW01RADaj9Btfstkefd4ynRJqBtf-HTD/view?usp=drive_link"><div class="vc-img"><span class="play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span><span class="vc-n">Marina</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> TOCÁ PARA VER</span></a>
+  <a class="vc" href="https://drive.google.com/file/d/1pLl70FqmtkZ4GdpvcbpxJJ1E0wXcHBv6/view?usp=drive_link"><div class="vc-img"><span class="play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span><span class="vc-n">Sussy</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> TOCÁ PARA VER</span></a>
+</div>
+</div></section><section class="page " id="indice"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Índice</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body"><span class="pill">CONTENIDO</span><h1 class="h1">Índice</h1><div class="tocl"><a class="tocr" href="#testimonios"><span class="tt">Resultados reales</span><span class="dots"></span><span class="pg">4</span></a><a class="tocr" href="#cap1"><span class="tt">01 · Cómo usar esta guía</span><span class="dots"></span><span class="pg">6</span></a><a class="tocr" href="#eval"><span class="tt">02 · Evaluación inicial</span><span class="dots"></span><span class="pg">7</span></a><a class="tocr" href="#cap2"><span class="tt">03 · Entrenamiento</span><span class="dots"></span><span class="pg">8</span></a><a class="tocr" href="#plan8"><span class="tt">04 · Plan de 8 semanas</span><span class="dots"></span><span class="pg">16</span></a><a class="tocr" href="#cap5e"><span class="tt">05 · Semanas con poco tiempo</span><span class="dots"></span><span class="pg">19</span></a><a class="tocr" href="#registro"><span class="tt">06 · Registro de evolución</span><span class="dots"></span><span class="pg">21</span></a><a class="tocr" href="#cap7e"><span class="tt">07 · Después de las 8 semanas</span><span class="dots"></span><span class="pg">23</span></a><a class="tocr" href="#cap6"><span class="tt">Bonus 1 · Recetario</span><span class="dots"></span><span class="pg">24</span></a><a class="tocr" href="#talleres"><span class="tt">Bonus 2: Talleres RENOVA</span><span class="dots"></span><span class="pg">26</span></a><a class="tocr" href="#bonus"><span class="tt">Bonus 3: Consulta con Nacho</span><span class="dots"></span><span class="pg">27</span></a><a class="tocr" href="#bio"><span class="tt">Quién soy y qué es RENOVA</span><span class="dots"></span><span class="pg">28</span></a></div></div></section><section class="page " id="cap1"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>01 · Cómo usar esta guía</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">01</span><h1>Cómo usar <span class="t">esta guía</span></h1><p class="lead">Evaluá tu punto de partida, seguí el plan semana a semana y registrá lo que hacés. Con eso alcanza para arrancar.</p></div>
+<div class="cols2">
+<div>
+<h3>1. Hacé la evaluación inicial</h3>
+<p>En 10 minutos medís tu punto de partida (capítulo 02). La repetís en la semana 4 y en la 8 para ver cuánto avanzaste.</p>
+<h3>2. Elegí tus días de entrenamiento</h3>
+<p>Reservá 2 o 3 momentos de 30 a 40 minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
+<h3>3. Seguí el plan de 8 semanas</h3>
+<p>El capítulo 04 te dice qué rutinas hacer cada semana, cuántas vueltas y con qué esfuerzo. No te adelantes: la progresión está pensada para que llegues bien a la semana 8.</p>
+</div>
+<div>
+<h3>4. Registrá tus avances</h3>
+<p>Anotá en el capítulo 06 tus sesiones, las repeticiones y los pesos que usás. Es la mejor forma de ver que estás progresando.</p>
+<h3>5. Si perdés una sesión</h3>
+<p>Retomá en tu próximo día disponible. No hagas dos sesiones juntas.</p>
+<h3>6. Si se interrumpe una semana entera</h3>
+<p>Repetí la última semana que completaste antes de avanzar. No compenses con más ejercicio ni comiendo menos.</p>
+<div class="box note"><b>Importante.</b> Esta guía es orientativa. Si tenés una condición médica, una lesión o estás embarazada, consultá a un profesional antes de empezar.</div>
+</div>
+</div>
+</div></section><section class="page " id="eval"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>02 · Evaluación inicial</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">02</span><h1>Evaluación <span class="t">inicial</span></h1><p class="lead">Antes de empezar, medí tu punto de partida. No es un examen: es tu referencia para ver cuánto avanzás.</p></div>
+<h2>Tres pruebas simples</h2>
+<div class="steps">
+  <div class="step"><span>1</span><b>Sentarse y pararse</b><p>Sentada en una silla firme, con los brazos cruzados: contá cuántas veces te parás y te sentás en 30 segundos.</p></div>
+  <div class="step"><span>2</span><b>Flexiones</b><p>Contá cuántas hacés con buena técnica: contra la pared, en una mesa, con rodillas apoyadas o completas. Anotá la variante.</p></div>
+  <div class="step"><span>3</span><b>Plancha</b><p>Sostené la plancha prona (o con rodillas apoyadas) con buena técnica. Anotá los segundos, hasta 60.</p></div>
+</div>
+<p class="small">Hacé las pruebas después de la entrada en calor, en un día sin entrenar. Si sentís dolor, frená.</p>
+<h2>Mis resultados</h2>
+<table class="grid-t"><thead><tr><th>Prueba</th><th>Inicio</th><th>Semana 4</th><th>Semana 8</th></tr></thead><tbody>
+<tr><th>Sentarse y pararse (en 30 s)</th><td></td><td></td><td></td></tr><tr><th>Flexiones (variante: ________)</th><td></td><td></td><td></td></tr><tr><th>Plancha (segundos)</th><td></td><td></td><td></td></tr><tr><th>Energía general (1 a 5)</th><td></td><td></td><td></td></tr>
+</tbody></table>
+<h2>Con qué variante empezar</h2>
+<div class="tiles">
+<div class="tile"><h3>Si recién empezás</h3><p>Si hiciste menos de 12 repeticiones en la silla o no llegaste a 15 segundos de plancha, empezá con la variante más fácil de cada ejercicio y sin peso.</p></div>
+<div class="tile"><h3>Si ya entrenaste antes</h3><p>Si superaste esas marcas, usá la variante principal y un peso liviano desde la semana 1.</p></div>
+</div>
+<p class="small">Estas marcas son orientativas. Ante la duda, empezá por lo más fácil: subir un escalón es rápido; recuperarte de una molestia, no.</p>
+<h2>Mi punto de partida</h2>
+<div class="cbox">
+<div class="cb"><span class="sq"></span>Puedo entrenar fuerza 3 días por semana</div><div class="cb"><span class="sq"></span>Puedo entrenar fuerza 2 días por semana</div><div class="cb"><span class="sq"></span>Tengo colchoneta</div><div class="cb"><span class="sq"></span>Tengo una silla firme</div><div class="cb"><span class="sq"></span>Tengo peso: mancuernas, botellas o mochila</div><div class="cb"><span class="sq"></span>Puedo caminar 20–30 minutos 2 o 3 veces por semana</div>
+</div>
+</div></section><section class="page " id="cap2"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Entrenamiento</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">03</span><h1>Entrenamiento de <span class="t">fuerza en casa</span></h1><p class="lead">Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.</p></div>
+<h2>Por qué entrenar fuerza</h2>
+<p>El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía. La Organización Mundial de la Salud recomienda para adultos actividades de fortalecimiento muscular al menos 2 días por semana, además de actividad aeróbica.</p>
+<h2>Cómo está organizado</h2>
+<div class="steps">
+  <div class="step"><span>1</span><b>Entrada en calor</b><p>5 a 10 minutos para preparar articulaciones y músculos.</p></div>
+  <div class="step"><span>2</span><b>Rutina del día</b><p>Rutina 1, 2 o 3, según tu organización semanal.</p></div>
+  <div class="step"><span>3</span><b>Elongación</b><p>5 minutos para terminar y volver a la calma.</p></div>
+</div>
+<h2>Qué necesitás y cuánto dura</h2>
+<p>Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga); si no tenés peso, usá tu propio cuerpo. Una sesión completa lleva entre 30 y 40 minutos.</p>
+<div class="box note"><b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená el ejercicio. Si tenés una lesión, dolor persistente o una condición médica, consultá con un profesional antes de hacer los ejercicios que puedan agravarla.</div>
+</div></section><section class="page " id="cap2b"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Entrenamiento</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">CÓMO HACER CADA RUTINA</span>
+<h1 class="h1">Series, repeticiones y <span class="t">pausas</span></h1>
+<h3>Repetición</h3><p>Es un movimiento completo. Por ejemplo, bajar y subir en una sentadilla.</p>
+<h3>Serie</h3><p>Es un conjunto de repeticiones. “3 series de 10–12” significa hacer el ejercicio 10 a 12 veces, tres veces.</p>
+<h3>Formato en circuito</h3><p>Hacé todos los ejercicios de la rutina uno detrás de otro, con la pausa indicada entre ejercicios. Al terminar la vuelta, descansá 2 minutos y empezá la siguiente. Completá 3 vueltas.</p>
+<h3>Pausas</h3>
+<ul class="list"><li>Entre ejercicios: 30 a 60 segundos.</li><li>Entre vueltas: 2 minutos.</li><li>Si te falta el aire o perdés la técnica, alargá la pausa.</li></ul>
+<h3>Ejercicios por tiempo</h3><p>Las planchas y algunos ejercicios dinámicos se hacen por segundos (por ejemplo, 15–20 s) en lugar de repeticiones.</p>
+<h3>Videos de cada ejercicio</h3><p>En cada ejercicio vas a encontrar el botón <span class="vbtn-sm inline"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span>. Tocalo para ver la demostración y revisar la técnica antes de empezar.</p>
+<div class="box soft"><b>Consejo.</b> Las primeras veces, hacé cada ejercicio frente a un espejo o filmate con el celular para revisar la técnica.</div>
+</div></section><section class="page " id="cap2c"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Entrenamiento</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">CÓMO HACER CADA RUTINA</span>
+<h1 class="h1">Dificultad y <span class="t">progresión</span></h1>
+<h3>Cómo elegir la dificultad</h3>
+<p>Al terminar cada serie deberías sentir que podrías hacer 2 o 3 repeticiones más con buena técnica. En una escala de esfuerzo de 1 a 10, apuntá a un 7. Si terminás muy holgada, usá la variante más difícil o sumá peso; si no llegás a las repeticiones, usá la variante más simple.</p>
+<h3>Cómo progresar</h3>
+<ul class="list"><li><b>Seguí el plan de 8 semanas</b> (<a href="#plan8">capítulo 04</a>): ahí está cuántas vueltas y qué esfuerzo corresponde a cada semana.</li><li>Cuando completes las 12 repeticiones con facilidad, sumá peso o pasá a una variante más exigente.</li><li>En los ejercicios por tiempo, sumá 5 segundos por semana hasta llegar a 30–40 s.</li></ul>
+<h3>Si tenés poco tiempo: versión de 20 minutos</h3>
+<ul class="list"><li>Entrada en calor: 1 vuelta.</li><li>Rutina del día: 2 vueltas.</li><li>Elongación: 3 o 4 posturas.</li></ul>
+<h3>Escala de esfuerzo</h3>
+<div class="rpe">
+  <div><b>1–4</b><span>Muy fácil</span><p>Podrías seguir mucho tiempo.</p></div>
+  <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>
+  <div><b>9–10</b><span>Máximo</span><p>No podrías hacer una más.</p></div>
+</div>
+</div></section><section class="page " id="calor"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Entrenamiento</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">ANTES DE CADA RUTINA</span>
+<h1 class="h1">Entrada en <span class="t">calor</span></h1>
+<div class="params"><div><span>Vueltas</span><b>1 a 2</b></div><div><span>Repeticiones</span><b>10–12</b></div><div><span>Pausa</span><b>20–30 s entre ejercicios</b></div><div><span>Duración</span><b>5–10 min</b></div></div>
+<p class="small">Hacé los ejercicios en orden, uno detrás de otro, antes de cualquiera de las tres rutinas.</p>
+<div class="ex"><div class="exim"><img src="img/calor_1.png" alt=""></div><div class="extx"><div class="exh"><h4>Movilidad de brazos</h4><span class="dose">10–12</span></div><p>De pie, llevá los brazos hacia arriba y luego en círculos amplios, hacia adelante y hacia atrás. Podés sostener un bastón o un palo de escoba.</p><p class="easy"><b>Más fácil:</b> solo hacia adelante y con menor amplitud.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/calor_2.png" alt=""></div><div class="extx"><div class="exh"><h4>Abducción de pierna</h4><span class="dose">10–12 por lado</span></div><p>Apoyada en el respaldo de una silla, separá una pierna hacia el costado sin inclinar el tronco y volvé con control.</p><p class="easy"><b>Más fácil:</b> menor apertura, sin apuro.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/calor_3.png" alt=""></div><div class="extx"><div class="exh"><h4>Sentadilla lateral</h4><span class="dose">10–12 por lado</span></div><p>Con los pies bien separados, llevá el peso a una pierna flexionando la rodilla y dejá la otra estirada. Volvé al centro y cambiá de lado.</p><p class="easy"><b>Más fácil:</b> menos profundidad y con apoyo en una silla.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/calor_4.png" alt=""></div><div class="extx"><div class="exh"><h4>Movilidad de cadera acostada</h4><span class="dose">10–12 por lado</span></div><p>Acostada de costado con las rodillas flexionadas, abrí y cerrá la rodilla de arriba sin despegar los pies.</p><p class="easy"><b>Más fácil:</b> menor apertura de la rodilla.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/calor_5.png" alt=""></div><div class="extx"><div class="exh"><h4>Elevación de cadera</h4><span class="dose">10–12</span></div><p>Boca arriba con las rodillas flexionadas, apretá los glúteos y elevá la cadera hasta alinear rodillas, cadera y hombros. Bajá lento.</p><p class="easy"><b>Más fácil:</b> subí menos la cadera.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/calor_6.png" alt=""></div><div class="extx"><div class="exh"><h4>Bird dog</h4><span class="dose">10–12 por lado</span></div><p>En cuatro apoyos, estirá un brazo y la pierna contraria, sostené un segundo y volvé. Mantené la espalda quieta.</p><p class="easy"><b>Más fácil:</b> mové solo el brazo o solo la pierna.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div>
+<div class="box soft end"><b>Al terminar la entrada en calor</b>, pasá a la rutina del día: <a href="#rutina1">Rutina 1</a> (página <span class="pref" data-ref="rutina1"></span>), <a href="#rutina2">Rutina 2</a> (página <span class="pref" data-ref="rutina2"></span>) o <a href="#rutina3">Rutina 3</a> (página <span class="pref" data-ref="rutina3"></span>).</div>
+</div></section><section class="page " id="rutina1"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Entrenamiento</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">RUTINA EN CASA</span>
+<h1 class="h1">Rutina 1: <span class="t">cuerpo completo</span></h1>
+<div class="params"><div><span>Vueltas</span><b>2 o 3, según el plan</b></div><div><span>Repeticiones</span><b>10–12</b></div><div><span>Pausa</span><b>30–60 s entre ejercicios</b></div><div><span>Entre vueltas</span><b>2 min</b></div></div>
+<p class="small">Las planchas: 15–20 s. Hacé los ejercicios en orden. Al terminar, pasá a la <a href="#elong">elongación</a>.</p>
+<div class="ex"><div class="exim"><img src="img/r1_1.png" alt=""></div><div class="extx"><div class="exh"><h4>Sentadilla en copa</h4><span class="dose">10–12</span></div><p>Pies al ancho de los hombros y el peso sostenido contra el pecho. Llevá la cadera hacia atrás y abajo con el pecho alto; subí empujando el piso.</p><p class="easy"><b>Más fácil:</b> sentadilla hacia una silla: tocá el asiento y subí, sin peso.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_2.png" alt=""></div><div class="extx"><div class="exh"><h4>Estocada split</h4><span class="dose">10–12 por pierna</span></div><p>Un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen un ángulo cercano a 90° y volvé a subir.</p><p class="easy"><b>Más fácil:</b> menos recorrido y apoyando una mano en una pared o silla.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_3.png" alt=""></div><div class="extx"><div class="exh"><h4>Flexiones de brazo</h4><span class="dose">8–12</span></div><p>Manos debajo de los hombros y el cuerpo alineado. Bajá el pecho hacia el piso con los codos a unos 45° y empujá para subir.</p><p class="easy"><b>Más fácil:</b> con las rodillas apoyadas o con las manos sobre una mesa firme o una pared.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_4.png" alt=""></div><div class="extx"><div class="exh"><h4>Puente a una pierna</h4><span class="dose">10–12 por lado</span></div><p>Boca arriba, un pie apoyado y la otra pierna elevada. Subí la cadera apretando el glúteo y bajá lento.</p><p class="easy"><b>Más fácil:</b> puente con los dos pies apoyados.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_5.png" alt=""></div><div class="extx"><div class="exh"><h4>Fondo en banco</h4><span class="dose">8–12</span></div><p>Manos en el borde de una silla firme y los pies en el piso. Flexioná los codos hacia atrás hasta unos 90° y subí. Evitá si te molestan los hombros.</p><p class="easy"><b>Más fácil:</b> rodillas flexionadas y pies cerca de la silla, con menos recorrido.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_6.png" alt=""></div><div class="extx"><div class="exh"><h4>Jumping jack</h4><span class="dose">10–12</span></div><p>Saltá abriendo piernas y brazos a la vez y volvé a cerrar. Aterrizá suave.</p><p class="easy"><b>Más fácil:</b> sin salto: paso lateral alternado, abriendo los brazos.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_7.png" alt=""></div><div class="extx"><div class="exh"><h4>Plancha prona</h4><span class="dose">15–20 s</span></div><p>Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera.</p><p class="easy"><b>Más fácil:</b> con las rodillas apoyadas.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_8.png" alt=""></div><div class="extx"><div class="exh"><h4>Crunch abdominal</h4><span class="dose">10–12</span></div><p>Boca arriba con las rodillas flexionadas, despegá los hombros del piso llevando las costillas hacia la cadera. Sin tirar del cuello.</p><p class="easy"><b>Más fácil:</b> manos sobre los muslos y menor recorrido.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div>
+
+</div></section><section class="page " id="rutina2"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Entrenamiento</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">RUTINA EN CASA</span>
+<h1 class="h1">Rutina 2: <span class="t">cuerpo completo</span></h1>
+<div class="params"><div><span>Vueltas</span><b>2 o 3, según el plan</b></div><div><span>Repeticiones</span><b>10–12</b></div><div><span>Pausa</span><b>30–60 s entre ejercicios</b></div><div><span>Entre vueltas</span><b>2 min</b></div></div>
+<p class="small">Mountain climber, skipping y plancha: 15–20 s. Hacé los ejercicios en orden. Al terminar, pasá a la <a href="#elong">elongación</a>.</p>
+<div class="ex"><div class="exim"><img src="img/r2_1.png" alt=""></div><div class="extx"><div class="exh"><h4>Subida al banco</h4><span class="dose">10–12 por pierna</span></div><p>Apoyá un pie completo en un escalón o banco firme y subí empujando con esa pierna. Bajá con control.</p><p class="easy"><b>Más fácil:</b> escalón más bajo y sosteniéndote de una pared.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r2_2.png" alt=""></div><div class="extx"><div class="exh"><h4>Mountain climber</h4><span class="dose">15–20 s</span></div><p>En plancha alta, llevá las rodillas hacia el pecho de forma alternada, manteniendo la cadera estable.</p><p class="easy"><b>Más fácil:</b> lento, sin saltar, o con las manos sobre una silla firme.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r2_3.png" alt=""></div><div class="extx"><div class="exh"><h4>Sentadilla con press de hombros</h4><span class="dose">10–12</span></div><p>Con un peso en cada mano a la altura de los hombros, hacé una sentadilla y, al subir, empujá los pesos por encima de la cabeza.</p><p class="easy"><b>Más fácil:</b> sin peso o con botellas chicas; podés separar los dos movimientos.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r2_4.png" alt=""></div><div class="extx"><div class="exh"><h4>Abdominales bicicleta</h4><span class="dose">10–12 por lado</span></div><p>Boca arriba, acercá un codo a la rodilla contraria mientras estirás la otra pierna. Alterná sin apuro.</p><p class="easy"><b>Más fácil:</b> con los pies apoyados en el piso, alternando solo la rotación.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r2_5.png" alt=""></div><div class="extx"><div class="exh"><h4>Sentadilla búlgara</h4><span class="dose">10–12 por pierna</span></div><p>Pie de atrás apoyado sobre una silla. Bajá en vertical flexionando la pierna de adelante y subí empujando con el talón.</p><p class="easy"><b>Más fácil:</b> estocada split con los dos pies en el piso.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r2_6.png" alt=""></div><div class="extx"><div class="exh"><h4>Skipping en el lugar</h4><span class="dose">15–20 s</span></div><p>Corré en el lugar elevando las rodillas y acompañando con los brazos.</p><p class="easy"><b>Más fácil:</b> marcha en el lugar elevando las rodillas, sin salto.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r2_7.png" alt=""></div><div class="extx"><div class="exh"><h4>Plancha alta dinámica</h4><span class="dose">15–20 s</span></div><p>Desde plancha alta, tocá el hombro contrario con una mano y alterná, sin rotar la cadera.</p><p class="easy"><b>Más fácil:</b> con las rodillas apoyadas.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r2_8.png" alt=""></div><div class="extx"><div class="exh"><h4>Remo inclinado</h4><span class="dose">10–12 por brazo</span></div><p>Una mano y una rodilla sobre un banco o silla. Con la espalda recta, tirá del peso hacia la cadera y bajá lento.</p><p class="easy"><b>Más fácil:</b> peso más liviano o con una botella.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div>
+
+</div></section><section class="page " id="rutina3"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Entrenamiento</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">RUTINA EN CASA</span>
+<h1 class="h1">Rutina 3: <span class="t">cuerpo completo</span></h1>
+<div class="params"><div><span>Vueltas</span><b>2 o 3, según el plan</b></div><div><span>Repeticiones</span><b>10–12</b></div><div><span>Pausa</span><b>30–60 s entre ejercicios</b></div><div><span>Entre vueltas</span><b>2 min</b></div></div>
+<p class="small">Elevaciones de pierna y plancha oso: 15–20 s. Hacé los ejercicios en orden. Al terminar, pasá a la <a href="#elong">elongación</a>.</p>
+<div class="ex"><div class="exim"><img src="img/r3_1.png" alt=""></div><div class="extx"><div class="exh"><h4>Estocada cruzada</h4><span class="dose">10–12 por pierna</span></div><p>Llevá una pierna en diagonal hacia atrás, por detrás de la otra, y bajá con el tronco erguido. Volvé al centro.</p><p class="easy"><b>Más fácil:</b> menos recorrido y con apoyo en una silla.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r3_2.png" alt=""></div><div class="extx"><div class="exh"><h4>Plancha lateral dinámica</h4><span class="dose">10–12 por lado</span></div><p>Apoyada sobre un antebrazo, con el cuerpo de costado, bajá la cadera hacia el piso y subila apretando el lateral del abdomen.</p><p class="easy"><b>Más fácil:</b> con las rodillas flexionadas y apoyadas.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r3_3.png" alt=""></div><div class="extx"><div class="exh"><h4>Sentadilla sumo</h4><span class="dose">10–12</span></div><p>Pies bien separados y puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí apretando glúteos.</p><p class="easy"><b>Más fácil:</b> menor profundidad o hacia una silla.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r3_4.png" alt=""></div><div class="extx"><div class="exh"><h4>Elevaciones de pierna</h4><span class="dose">15–20 s</span></div><p>Boca arriba, con la zona lumbar apoyada, subí y bajá las piernas de forma controlada.</p><p class="easy"><b>Más fácil:</b> con las rodillas flexionadas o una pierna por vez.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r3_5.png" alt=""></div><div class="extx"><div class="exh"><h4>Peso muerto a una pierna</h4><span class="dose">10–12 por pierna</span></div><p>Inclinate hacia adelante desde la cadera mientras la pierna de atrás se eleva, con la espalda recta. Volvé apretando el glúteo.</p><p class="easy"><b>Más fácil:</b> punta del pie de atrás apoyada en el piso y una mano en la pared.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r3_6.png" alt=""></div><div class="extx"><div class="exh"><h4>Bíceps con peso</h4><span class="dose">10–12</span></div><p>De pie, codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.</p><p class="easy"><b>Más fácil:</b> peso más liviano.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r3_7.png" alt=""></div><div class="extx"><div class="exh"><h4>Plancha oso</h4><span class="dose">15–20 s</span></div><p>En cuatro apoyos, elevá las rodillas unos centímetros del piso y sostené con la espalda plana.</p><p class="easy"><b>Más fácil:</b> sostené menos tiempo y descansá en el medio.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r3_8.png" alt=""></div><div class="extx"><div class="exh"><h4>Vuelo posterior con peso</h4><span class="dose">10–12</span></div><p>Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados llevando los omóplatos hacia atrás.</p><p class="easy"><b>Más fácil:</b> sin peso o con botellas chicas.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div>
+
+</div></section><section class="page " id="elong"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Entrenamiento</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">AL TERMINAR CADA RUTINA</span>
+<h1 class="h1">Rutina de <span class="t">elongación</span></h1>
+<div class="params"><div><span>Vueltas</span><b>1 a 2</b></div><div><span>Cada postura</span><b>15–30 s</b></div><div><span>Intensidad</span><b>Tensión suave, sin dolor</b></div><div><span>Duración</span><b>5–8 min</b></div></div>
+<p class="small">Sostené cada postura sin rebotes y respirando con calma. Ayuda a volver a la calma.</p>
+<div class="ex"><div class="exim"><img src="img/elong_1.png" alt=""></div><div class="extx"><div class="exh"><h4>Isquiotibiales a una pierna</h4><span class="dose">15–30 s</span></div><p>Sentada, una pierna estirada y la otra flexionada. Inclinate hacia adelante desde la cadera, con la espalda larga.</p><p class="easy"><b>Más fácil:</b> flexioná un poco la rodilla de la pierna estirada.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/elong_2.png" alt=""></div><div class="extx"><div class="exh"><h4>Abdominales</h4><span class="dose">15–30 s</span></div><p>Boca abajo, apoyá las manos y elevá suavemente el pecho, sin forzar la zona lumbar.</p><p class="easy"><b>Más fácil:</b> apoyá los antebrazos en el piso.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/elong_3.png" alt=""></div><div class="extx"><div class="exh"><h4>Espalda baja</h4><span class="dose">15–30 s</span></div><p>Boca arriba, llevá una rodilla hacia el pecho y sostenela con las manos. Cambiá de lado.</p><p class="easy"><b>Más fácil:</b> sostené por detrás del muslo.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/elong_4.png" alt=""></div><div class="extx"><div class="exh"><h4>Aductores</h4><span class="dose">15–30 s</span></div><p>Sentada, juntá las plantas de los pies y dejá caer las rodillas hacia los costados.</p><p class="easy"><b>Más fácil:</b> alejá los pies del cuerpo.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/elong_5.png" alt=""></div><div class="extx"><div class="exh"><h4>Espalda e isquiotibiales</h4><span class="dose">15–30 s</span></div><p>Manos y pies en el piso, llevá la cadera hacia arriba y atrás formando una V invertida. Podés flexionar las rodillas.</p><p class="easy"><b>Más fácil:</b> rodillas flexionadas o manos sobre una silla.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/elong_6.png" alt=""></div><div class="extx"><div class="exh"><h4>Pectoral en pared</h4><span class="dose">15–30 s</span></div><p>Apoyá el antebrazo en una pared y girá suavemente el cuerpo hacia el lado contrario.</p><p class="easy"><b>Más fácil:</b> apoyá el brazo más bajo.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/elong_7.png" alt=""></div><div class="extx"><div class="exh"><h4>Hombros</h4><span class="dose">15–30 s</span></div><p>Cruzá un brazo por delante del pecho y sostenelo con el otro, sin elevar el hombro.</p><p class="easy"><b>Más fácil:</b> menos presión con el brazo que sostiene.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/elong_8.png" alt=""></div><div class="extx"><div class="exh"><h4>Cuello</h4><span class="dose">15–30 s</span></div><p>Incliná la cabeza hacia un lado, ayudándote suavemente con la mano. Sin tirones.</p><p class="easy"><b>Más fácil:</b> sin ayudarte con la mano.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div>
+
+</div></section><section class="page " id="plan8"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>04 · Plan de 8 semanas</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">04</span><h1>Tu plan de <span class="t">8 semanas</span></h1><p class="lead">Tres fases para pasar de aprender la técnica a entrenar con más carga. Cada semana te dice qué hacer y con qué esfuerzo.</p></div>
+<div class="pillars">
+  <div class="pillar"><span class="pn">1–2</span><h3>Fase 1 · Base</h3><p>Aprendés la técnica y tu cuerpo se adapta. Dos vueltas y esfuerzo moderado.</p></div>
+  <div class="pillar"><span class="pn">3–6</span><h3>Fase 2 · Construcción</h3><p>Sumás vueltas, acortás pausas y agregás peso. La semana 6 es más liviana para recuperarte.</p></div>
+  <div class="pillar"><span class="pn">7–8</span><h3>Fase 3 · Consolidación</h3><p>Más exigencia, bajadas lentas y la evaluación final.</p></div>
+</div>
+<table class="plan8">
+<thead><tr><th>Sem.</th><th>Fase</th><th>Fuerza</th><th>Vueltas</th><th>Repeticiones · planchas</th><th>Pausa</th><th>Esfuerzo</th><th>Aeróbico</th></tr></thead>
+<tbody><tr class=""><th>1</th><td>Base</td><td>R1 · R2</td><td>2</td><td>10 · 15 s</td><td>60 s</td><td>5–6</td><td>2 × 20 min</td></tr><tr class=""><th>2</th><td>Base</td><td>R1 · R2 · R3</td><td>2</td><td>10–12 · 15–20 s</td><td>60 s</td><td>6</td><td>2 × 30 min</td></tr><tr class=""><th>3</th><td>Construcción</td><td>R1 · R2 · R3</td><td>3</td><td>10–12 · 20 s</td><td>60 s</td><td>6–7</td><td>2 × 30 min</td></tr><tr class=""><th>4</th><td>Construcción</td><td>R1 · R2 · R3</td><td>3</td><td>12 · 25 s</td><td>45 s</td><td>7</td><td>3 × 30 min</td></tr><tr class=""><th>5</th><td>Construcción</td><td>R1 · R2 · R3</td><td>3</td><td>12 con más peso · 30 s</td><td>45 s</td><td>7–8</td><td>3 × 30–40 min</td></tr><tr class="dl"><th>6</th><td>Descarga</td><td>R1 · R2</td><td>2</td><td>10 · 20 s</td><td>60 s</td><td>6</td><td>2 × 30 min</td></tr><tr class=""><th>7</th><td>Consolidación</td><td>R1 · R2 · R3</td><td>3</td><td>10–12 bajando en 3 s · 30 s</td><td>30–45 s</td><td>7–8</td><td>3 × 40 min</td></tr><tr class=""><th>8</th><td>Consolidación</td><td>R1 · R2 · R3</td><td>3 (+1 opcional)</td><td>12 · 35–40 s</td><td>30–45 s</td><td>7–8</td><td>3 × 40 min</td></tr></tbody>
+</table>
+<p class="small"><b>Pausa</b> entre ejercicios; entre vueltas, siempre 2 minutos. <b>Esfuerzo</b> según la escala del capítulo 03. En las semanas 4 y 8, repetí la <a href="#eval">evaluación inicial</a> en un día sin entrenar.</p>
+</div></section><section class="page " id="plan8b"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>04 · Plan de 8 semanas</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">PLAN DE 8 SEMANAS</span>
+<h1 class="h1">Tu calendario <span class="t">semana a semana</span></h1>
+<p>Una propuesta para organizar los días. Movelos según tu agenda: lo importante es el total de la semana.</p>
+<table class="cal cal8">
+<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>
+<tbody>
+<tr><th>Semana 1</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr><tr><th>Semana 2</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr><tr><th>Semana 3</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr><tr><th>Semana 4</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ca">A</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr><tr><th>Semana 5</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ca">A</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr><tr><th>Semana 6</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr><tr><th>Semana 7</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ca">A</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr><tr><th>Semana 8</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ca">A</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr>
+</tbody></table>
+<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>
+<h3>Reglas simples</h3>
+<ul class="list"><li>Dejá al menos un día entre dos sesiones de fuerza.</li><li>Aeróbico: caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar.</li><li>Si una semana te costó mucho (esfuerzo 9 o más, o no completaste las sesiones), repetila antes de avanzar.</li><li>Si solo podés 2 días de fuerza, seguí la versión del capítulo 05.</li></ul>
+</div></section><section class="page " id="plan8c"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>04 · Plan de 8 semanas</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">PLAN DE 8 SEMANAS</span>
+<h1 class="h1">Cómo avanzar en <span class="t">cada ejercicio</span></h1>
+<p class="lead">El plan sube las vueltas y baja las pausas. Vos, además, subís de escalón en cada ejercicio cuando te resulta fácil.</p>
+<div class="minplan">
+<div><span>Escalón 1</span><p><b>Variante fácil.</b> La que figura como “Más fácil” en cada ejercicio.</p></div>
+<div><span>Escalón 2</span><p><b>Variante principal.</b> Sin peso o con tu propio cuerpo.</p></div>
+<div><span>Escalón 3</span><p><b>Con peso.</b> Mancuernas, botellas o una mochila con carga.</p></div>
+<div><span>Escalón 4</span><p><b>Más peso o más lento.</b> Sumá carga o bajá en 3 segundos.</p></div>
+</div>
+<h3>Cuándo subir un escalón</h3>
+<p>Cuando completes las 12 repeticiones en todas las vueltas con un esfuerzo de 7 o menos, dos sesiones seguidas. Subí de a un ejercicio por vez.</p>
+<h3>Qué significa “bajando en 3 segundos”</h3>
+<p>En la semana 7, hacé la parte de bajada de cada movimiento contando lento hasta 3 (por ejemplo, al bajar en la sentadilla) y subí a ritmo normal. Con el mismo peso, el ejercicio se vuelve más exigente.</p>
+<h3>Por qué la semana 6 es más liviana</h3>
+<p>Después de tres semanas de subir la exigencia, una semana de descarga ayuda a recuperarte y a llegar con energía a la fase final. No es perder tiempo: es parte del plan.</p>
+<div class="box note"><b>Si algo duele</b>, volvé al escalón anterior en ese ejercicio. Molestia muscular al día siguiente es normal; dolor articular o punzante, no: frená y consultá.</div>
+</div></section><section class="page " id="cap5e"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>05 · Semanas con poco tiempo</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">05</span><h1>Semanas con <span class="t">poco tiempo</span></h1><p class="lead">Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.</p></div>
+<table class="cal">
+<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>
+<tbody>
+<tr><th>2 días</th><td><span class="chip c1">R1</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr>
+<tr><th>3 días</th><td><span class="chip c1">R1</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr>
+</tbody></table>
+<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>
+<h3>Con 2 días de fuerza</h3>
+<p>Seguí las vueltas, repeticiones y esfuerzo de tu semana del plan, pero alterná las rutinas: R1 y R2 una semana, R3 y R1 la siguiente. El plan te va a llevar más de 8 semanas, y está bien.</p>
+<h2>Tu plan mínimo para semanas difíciles</h2>
+<div class="minplan">
+<div><span>Fuerza</span><p>1 o 2 sesiones express de 15 minutos.</p></div>
+<div><span>Movimiento</span><p>Caminatas de 10 minutos; 3 en el día también suman.</p></div>
+<div><span>Recuperación</span><p>Mismo horario para levantarte y 30 minutos sin pantallas.</p></div>
+<div><span>Registro</span><p>Un tilde por día en la planilla, aunque sea uno solo.</p></div>
+</div>
+<p class="small">Para los días con muy poco tiempo, usá la <a href="#express">sesión express de 15 minutos</a>.</p>
+</div></section><section class="page " id="express"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>05 · Semanas con poco tiempo</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<h1 class="h1">Sesión express de <span class="t">15 minutos</span></h1>
+<div class="params"><div><span>Vueltas</span><b>3</b></div><div><span>Trabajo</span><b>40 s por ejercicio</b></div><div><span>Pausa</span><b>20 s · 1 min entre vueltas</b></div><div><span>Duración</span><b>15 min</b></div></div>
+<p class="small">Antes, 2 minutos de movilidad de brazos y sentadilla lateral. Usá la variante y el peso de tu semana del plan.</p>
+<div class="ex"><div class="exim"><img src="img/r1_1.png" alt=""></div><div class="extx"><div class="exh"><h4>Sentadilla en copa</h4><span class="dose">40 s</span></div><p>Pies al ancho de los hombros y el peso sostenido contra el pecho. Llevá la cadera hacia atrás y abajo con el pecho alto; subí empujando el piso.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_3.png" alt=""></div><div class="extx"><div class="exh"><h4>Flexiones de brazo</h4><span class="dose">40 s</span></div><p>Manos debajo de los hombros y el cuerpo alineado. Bajá el pecho hacia el piso con los codos a unos 45° y empujá para subir.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r1_7.png" alt=""></div><div class="extx"><div class="exh"><h4>Plancha prona</h4><span class="dose">40 s</span></div><p>Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div><div class="ex"><div class="exim"><img src="img/r2_8.png" alt=""></div><div class="extx"><div class="exh"><h4>Remo inclinado</h4><span class="dose">40 s</span></div><p>Una mano y una rodilla sobre un banco o silla. Con la espalda recta, tirá del peso hacia la cadera y bajá lento.</p><span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</span></div></div>
+</div></section><section class="page " id="registro"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>06 · Registro de evolución</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">06</span><h1>Registro de <span class="t">evolución</span></h1><p class="lead">Anotá lo que hacés para ver tu progreso. No es para calificarte: una semana con casilleros vacíos también te da información.</p></div>
+<p>Marcá en cada día la rutina que hiciste (R1, R2 o R3), los minutos de aeróbico y si elongaste. Imprimí estas planillas o usalas de modelo en tu agenda.</p>
+<h3 class="wk">Semana 1 · del ____ al ____</h3><table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 class="wk">Semana 2 · del ____ al ____</h3><table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 class="wk">Semana 3 · del ____ al ____</h3><table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 class="wk">Semana 4 · del ____ al ____</h3><table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 class="wk">Semana 5 · del ____ al ____</h3><table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 class="wk">Semana 6 · del ____ al ____</h3><table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 class="wk">Semana 7 · del ____ al ____</h3><table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table><h3 class="wk">Semana 8 · del ____ al ____</h3><table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+</div></section><section class="page " id="cargas"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>06 · Registro de evolución</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">REGISTRO DE EVOLUCIÓN</span>
+<h1 class="h1">Mis cargas y <span class="t">repeticiones</span></h1>
+<p>Una vez por semana, anotá el peso y las repeticiones de la última vuelta. Por ejemplo: <b>4 kg × 12</b>. Si usaste una variante, agregá F (fácil) o P (principal).</p>
+<table class="grid-t loads"><thead><tr><th>Ejercicio</th><th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th><th>S6</th><th>S7</th><th>S8</th></tr></thead>
+<tbody><tr><th>Sentadilla en copa</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Estocada split</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Flexiones de brazo</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Sentadilla con press de hombros</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Sentadilla búlgara</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Remo inclinado</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Sentadilla sumo</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Peso muerto a una pierna</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Bíceps con peso</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Plancha prona (segundos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<h3 class="wk">Cómo me sentí</h3>
+<table class="track feel"><thead><tr><th></th><th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th><th>S6</th><th>S7</th><th>S8</th></tr></thead>
+<tbody><tr><th>Energía general (1 a 5)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Esfuerzo promedio (1 a 10)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Cómo dormí (1 a 5)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+</div></section><section class="page " id="cap7e"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>07 · Después de las 8 semanas</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">07</span><h1>Después de las <span class="t">8 semanas</span></h1><p class="lead">Terminar el plan no es el final: es el punto de partida para seguir, ahora con más fuerza y experiencia.</p></div>
+<h2>Tres caminos para seguir</h2>
+<div class="pillars">
+  <div class="pillar"><span class="pn">01</span><h3>Subí la carga</h3><p>Repetí las semanas 7 y 8 con más peso o variantes más exigentes. Repetí la evaluación cada 4 semanas.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Nuevo ciclo</h3><p>Volvé a la semana 1 con el peso que usás hoy. Vas a notar que todo te cuesta menos.</p></div>
+  <div class="pillar"><span class="pn">03</span><h3>Mantené</h3><p>Si tu agenda está cargada, 2 sesiones por semana alcanzan para sostener lo que ganaste.</p></div>
+</div>
+<div class="cols2 keep">
+<div>
+<h3>Cómo retomar</h3>
+<ul class="list"><li>Volvé en la próxima oportunidad, no “el lunes”.</li><li>Empezá con la mitad: 2 vueltas y un escalón menos.</li><li>No compenses con ejercicio extra ni comiendo menos.</li></ul>
+</div>
+<div>
+<h3>Semanas complicadas o viajes</h3>
+<p>Bajá el plan en lugar de suspenderlo: la sesión express se puede hacer hasta en un hotel.</p>
+<h3>Cuándo pedir ayuda</h3>
+<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
+</div>
+</div>
+<div class="box soft"><b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus y, si querés un plan a tu medida, el equipo RENOVA te acompaña.</div>
+</div></section><section class="page " id="cap6"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Bonus 1 · Recetario</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">BONUS 1 · INCLUIDO</span><h1 class="h1">Recetario <span class="t">fácil</span></h1><p class="lead">23 recetas simples para resolver desayunos, meriendas, comidas y postres, con ingredientes de cualquier súper.</p>
+<div class="cols2 keep">
+<div>
+<h3>Abreviaturas y medidas</h3>
+<ul class="list"><li><b>cda:</b> cucharada sopera.</li><li><b>cdita:</b> cucharadita de té.</li><li><b>taza:</b> taza de desayuno, aprox. 240 ml.</li><li><b>Horno medio:</b> 180 °C · <b>alto:</b> 200–220 °C.</li></ul>
+<h3>Seguridad en la cocina</h3>
+<ul class="list"><li>El pollo y la carne picada deben quedar bien cocidos, sin partes rosadas.</li><li>Enfriá las preparaciones antes de guardarlas y refrigeralas dentro de las 2 horas.</li><li>Los tiempos de horno y microondas son orientativos: cada equipo es distinto.</li></ul>
+</div>
+<div>
+<h3>Índice de recetas</h3>
+<ol class="rindex"><li><a href="#rec0">Pancake individual</a></li><li><a href="#rec1">Cookies de avena y fruta</a></li><li><a href="#rec2">Porridge de avena</a></li><li><a href="#rec3">Pancakes de banana y coco</a></li><li><a href="#rec4">Barritas de cereal caseras</a></li><li><a href="#rec5">Budín de banana y chocolate</a></li><li><a href="#rec6">Granola casera</a></li><li><a href="#rec7">Muffins de manzana y nuez</a></li><li><a href="#rec8">Talitas de garbanzos</a></li><li><a href="#rec9">Hummus de garbanzos</a></li><li><a href="#rec10">Ensalada tibia de vegetales, legumbres y pollo</a></li><li><a href="#rec11">Tarta de verduras con masa de avena</a></li><li><a href="#rec12">Budín de brócoli</a></li><li><a href="#rec13">Puré de coliflor</a></li><li><a href="#rec14">Wok de verduras con arroz y pollo</a></li><li><a href="#rec15">Croquetas de zucchini</a></li><li><a href="#rec16">Pastel veggie de lentejas</a></li><li><a href="#rec17">Milanesas de berenjena</a></li><li><a href="#rec18">Heladitos de banana y chocolate</a></li><li><a href="#rec19">Brownie de banana</a></li><li><a href="#rec20">Flancito en taza</a></li><li><a href="#rec21">Mug cake de limón</a></li><li><a href="#rec22">Cheesecake en taza</a></li></ol>
+</div>
+</div>
+</div></section><section class="page " id="recetas"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Bonus 1 · Recetario</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body"><div class="recw" id="rec0"><article class="rec"><div class="recimg"><img src="img/food/01.jpg" alt="Pancake individual"></div><div class="rech"><span class="rcat">DESAYUNOS Y MERIENDAS</span><h2>Pancake individual</h2><div class="rmeta"><span>Rinde: <b>1 porción</b></span><span>Tiempo: <b>10 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 huevo</li><li>3 cdas de avena o harina de avena</li><li>1 cda de leche descremada o bebida vegetal</li><li>Unas gotas de esencia de vainilla</li><li>1 cdita de polvo de hornear</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Mezclá todos los ingredientes en un bowl.</li><li>Calentá una sartén antiadherente a fuego mínimo y volcá la mezcla.</li><li>Cuando aparezcan las primeras burbujas en la superficie, dalo vuelta y cociná del otro lado.</li><li>Serví con el topping que prefieras: fruta, frutos secos, semillas, canela, cacao amargo, coco rallado o pasta de maní.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Antes de empezar:</b> mezclá primero el huevo con la leche y recién después sumá la avena y el polvo de hornear. Así no quedan grumos.</li><li><b>Reposo:</b> dejá la mezcla 2 o 3 minutos para que la avena se hidrate. El pancake queda más esponjoso y no se rompe al darlo vuelta.</li><li><b>La sartén:</b> calentala bien, untala apenas con aceite usando un papel y bajá a fuego mínimo antes de volcar. Con fuego alto se quema afuera y queda crudo adentro.</li><li><b>El momento justo:</b> dalo vuelta cuando aparezcan burbujas en toda la superficie y los bordes se vean secos. Usá una espátula ancha y un movimiento rápido.</li><li><b>Variantes:</b> endulzá con gotas de stevia o sumá fruta a la mezcla (pera o manzana rallada, banana pisada). Los toppings agregalos recién al servir.</li></ul></div></div><div class="recw" id="rec1"><article class="rec"><div class="recimg"><img src="img/food/02.jpg" alt="Cookies de avena y fruta"></div><div class="rech"><span class="rcat">DESAYUNOS Y MERIENDAS</span><h2>Cookies de avena y fruta</h2><div class="rmeta"><span>Rinde: <b>10–12 cookies</b></span><span>Tiempo: <b>30 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 banana madura pisada, 1 manzana rallada o 1 pera en cubos</li><li>1 taza de avena o harina integral (o una mezcla)</li><li>2 huevos</li><li>2 a 4 cdas de miel o azúcar, a gusto</li><li>1 cda de aceite</li><li>Esencia de vainilla</li><li>Opcional: semillas, frutos secos, granola o 1 cda de pasta de maní</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Precalentá el horno a temperatura media.</li><li>Mezclá todos los ingredientes hasta integrar.</li><li>Con una cuchara, formá las cookies sobre una placa aceitada o con papel manteca.</li><li>Horneá unos 20 minutos, hasta que estén doradas.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>La fruta:</b> usá banana bien madura, con pintitas negras. Endulza más, une mejor la masa y te permite usar menos miel o azúcar.</li><li><b>La textura de la masa:</b> tiene que quedar húmeda pero que se pueda tomar con cuchara. Si está muy líquida, agregá una cucharada más de avena.</li><li><b>Al armarlas:</b> dejá 2 cm entre cookie y cookie y aplastalas apenas con el dorso de la cuchara, porque se expanden un poco en el horno.</li><li><b>Punto de cocción:</b> sacalas cuando los bordes estén dorados aunque el centro siga blando. Terminan de endurecer al enfriarse sobre la placa.</li><li><b>Conservación:</b> guardalas frías en un recipiente hermético hasta 4 días, o congelalas y sacá de a una cuando las necesites.</li></ul></div></div><div class="recw" id="rec2"><article class="rec"><div class="recimg"><img src="img/food/03.jpg" alt="Porridge de avena"></div><div class="rech"><span class="rcat">DESAYUNOS Y MERIENDAS</span><h2>Porridge de avena</h2><div class="rmeta"><span>Rinde: <b>1 porción</b></span><span>Tiempo: <b>10 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>¼ taza de avena tradicional</li><li>1 taza de leche o bebida vegetal</li><li>Canela y esencia de vainilla</li><li>Toppings a gusto: fruta, pasta de maní, cacao, almendras, semillas de zapallo</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Poné la avena, la leche y la canela en una olla a fuego medio.</li><li>Revolvé suavemente hasta que espese, entre 5 y 10 minutos.</li><li>Agregá la vainilla y serví con los toppings.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>La avena correcta:</b> usá avena tradicional (arrollada). La instantánea se cocina más rápido pero queda más pastosa.</li><li><b>A fuego bajo:</b> cociná a fuego medio-bajo y revolvé seguido, sobre todo al final, para que la avena no se pegue al fondo de la olla.</li><li><b>La textura:</b> sacalo un poco antes de que esté como te gusta: sigue espesando unos minutos fuera del fuego.</li><li><b>Si se espesa de más:</b> agregá un chorrito de leche caliente, no fría, y revolvé hasta que vuelva a quedar cremoso.</li><li><b>Al servir:</b> sumá la vainilla y los toppings fuera del fuego. Una cucharada de pasta de maní o unas semillas suman proteína y saciedad.</li></ul></div></div><div class="recw" id="rec3"><article class="rec"><div class="recimg"><img src="img/food/04.jpg" alt="Pancakes de banana y coco"></div><div class="rech"><span class="rcat">DESAYUNOS Y MERIENDAS</span><h2>Pancakes de banana y coco</h2><div class="rmeta"><span>Rinde: <b>4 pancakes chicos</b></span><span>Tiempo: <b>15 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>¼ taza de harina de garbanzos</li><li>1 huevo + 1 clara (o 3 cditas de chía hidratadas 20 min en ¼ vaso de agua)</li><li>¼ taza de puré de banana</li><li>2 cditas de coco rallado</li><li>1 cdita de cacao amargo</li><li>¼ cdita de polvo de hornear (solo si usás chía)</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Mixeá o batí todos los ingredientes.</li><li>Calentá una sartén y volcá la preparación de a partes, dándole forma redonda.</li><li>Cociná a fuego bajo y con la sartén tapada.</li><li>Cuando aparezcan burbujas arriba, dalos vuelta y volvé a tapar hasta que estén cocidos.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Antes de empezar:</b> si reemplazás el huevo por chía, hidratala 20 minutos antes en el agua hasta que quede gelatinosa.</li><li><b>Reposo:</b> dejá la mezcla 5 minutos. La harina de garbanzos absorbe líquido y la masa toma más cuerpo.</li><li><b>Tamaño:</b> hacelos chicos, de una cucharada sopera cada uno. Con harina de garbanzos son más frágiles y así se dan vuelta sin romperse.</li><li><b>Cocción:</b> fuego bajo y sartén tapada, para que se cocinen por dentro sin quemarse por fuera.</li><li><b>Sabor:</b> la harina de garbanzos cruda tiene sabor fuerte; cocinalos bien de los dos lados para que desaparezca.</li></ul></div></div><div class="recw" id="rec4"><article class="rec"><div class="recimg"><img src="img/food/05.jpg" alt="Barritas de cereal caseras"></div><div class="rech"><span class="rcat">DESAYUNOS Y MERIENDAS</span><h2>Barritas de cereal caseras</h2><div class="rmeta"><span>Rinde: <b>8 barritas</b></span><span>Tiempo: <b>35 min + enfriado</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>⅓ taza de quinoa cocida</li><li>¾ taza de mezcla de semillas y frutos secos (girasol, zapallo, sésamo, chía, lino, nueces, almendras, maní)</li><li>3 cdas de miel o azúcar</li><li>Opcional: coco rallado, cacao o canela</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Picá los frutos secos en trozos bien chiquitos.</li><li>Integrá con la quinoa, las semillas y la miel.</li><li>Volcá en un molde forrado con papel manteca y aplastá hasta que quede compacto, de 1 cm de espesor.</li><li>Horneá a temperatura media hasta que esté dorado en los costados y en la superficie.</li><li>Dejá enfriar por completo antes de cortar.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>La quinoa:</b> lavala bien antes de cocinarla para quitarle el amargor y escurrila muy bien. Si queda húmeda, las barritas se desarman.</li><li><b>Los frutos secos:</b> picalos bien chiquitos. Los trozos grandes hacen que la barrita se quiebre al cortarla.</li><li><b>El molde:</b> forralo con papel manteca que sobresalga de los bordes: así después la levantás entera sin romperla.</li><li><b>Compactar:</b> presioná la mezcla con fuerza, con el dorso de una cuchara o la base de un vaso, hasta que quede bien pareja.</li><li><b>El corte:</b> esperá a que esté totalmente fría y cortá con un cuchillo bien filoso. Caliente se desarma.</li></ul></div></div><div class="recw" id="rec5"><article class="rec"><div class="recimg"><img src="img/food/06.jpg" alt="Budín de banana y chocolate"></div><div class="rech"><span class="rcat">DESAYUNOS Y MERIENDAS</span><h2>Budín de banana y chocolate</h2><div class="rmeta"><span>Rinde: <b>1 budín (10–12 porciones)</b></span><span>Tiempo: <b>50 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>2 tazas de harina de avena o integral</li><li>½ taza de azúcar mascabo</li><li>2 huevos</li><li>2 bananas maduras pisadas</li><li>6 cdas de aceite</li><li>2 cdas de cacao amargo</li><li>1 cda de polvo de hornear</li><li>Esencia de vainilla</li><li>Agua, leche o bebida vegetal, cantidad necesaria</li><li>Opcional: chips de chocolate o frutos secos</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Batí los huevos con el azúcar.</li><li>Incorporá el resto de los ingredientes y mezclá de forma suave y envolvente, agregando líquido hasta lograr una masa espesa.</li><li>Volcá en un molde de budín grande o de torta de 24 cm.</li><li>Horneá a temperatura media entre 30 y 40 minutos, hasta que un palillo salga limpio.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Antes de empezar:</b> precalentá el horno al menos 10 minutos y aceitá y enharinalá el molde.</li><li><b>Las bananas:</b> cuanto más maduras, más dulce y húmedo queda el budín. Pisalas bien para que no queden trozos grandes.</li><li><b>El mezclado:</b> después de sumar la harina, mezclá suave y solo hasta integrar. Si batís de más, queda duro y con túneles.</li><li><b>Punto de cocción:</b> pinchá el centro con un palillo: tiene que salir seco o con migas, no con masa líquida.</li><li><b>Desmolde y conservación:</b> dejalo 10 minutos en el molde antes de desmoldar. Se puede congelar en porciones: sacá una la noche anterior.</li></ul></div></div><div class="recw" id="rec6"><article class="rec"><div class="recimg"><img src="img/food/07.jpg" alt="Granola casera"></div><div class="rech"><span class="rcat">DESAYUNOS Y MERIENDAS</span><h2>Granola casera</h2><div class="rmeta"><span>Rinde: <b>Aprox. 450 g</b></span><span>Tiempo: <b>30 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>150 g de avena en hojuelas</li><li>100 g de copos de maíz sin azúcar</li><li>100 g de quinoa inflada</li><li>50 g de frutos secos</li><li>Semillas de zapallo, lino y sésamo</li><li>3 cdas de miel</li><li>Opcional: coco rallado, chips de chocolate, arándanos deshidratados</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Mezclá todos los ingredientes en un bowl hasta que quede pegajoso.</li><li>Esparcí sobre una placa con papel manteca.</li><li>Horneá a temperatura moderada unos 25 minutos, revolviendo cada tanto, hasta que esté crocante.</li><li>Dejá enfriar antes de guardar (los agregados como chips o frutas secas, sumalos al final).</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>La mezcla:</b> integrá bien la miel con todos los ingredientes secos hasta que todo quede apenas pegajoso. Si queda seca, no se forman los clusters.</li><li><b>Capa fina:</b> esparcila en una sola capa sobre la placa. Si queda amontonada, se cocina al vapor y no se pone crocante.</li><li><b>Revolver:</b> movela cada 8 a 10 minutos para que se dore pareja y no se queme en los bordes de la placa.</li><li><b>Engaña al sacarla:</b> recién salida del horno parece blanda. Se vuelve crocante al enfriarse, así que no la cocines de más.</li><li><b>Agregados:</b> sumá chips de chocolate o frutas secas recién cuando esté fría, para que no se derritan ni se quemen.</li></ul></div></div><div class="recw" id="rec7"><article class="rec"><div class="recimg"><img src="img/food/08.jpg" alt="Muffins de manzana y nuez"></div><div class="rech"><span class="rcat">DESAYUNOS Y MERIENDAS</span><h2>Muffins de manzana y nuez</h2><div class="rmeta"><span>Rinde: <b>6–8 muffins</b></span><span>Tiempo: <b>40 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>½ taza de harina de avena</li><li>½ taza de harina de trigo</li><li>¼ taza de azúcar</li><li>1 huevo</li><li>3 cdas de aceite</li><li>1 manzana rallada</li><li>½ manzana en cubos chiquitos</li><li>10 mariposas de nuez picadas</li><li>1 cdita de polvo de hornear</li><li>1 cdita de canela (opcional)</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Batí el huevo con el azúcar hasta formar una crema.</li><li>Incorporá el aceite y batí unos segundos.</li><li>Agregá las harinas tamizadas de a poco.</li><li>Sumá el resto de los ingredientes y mezclá.</li><li>Distribuí en un molde con pirotines y horneá a temperatura media entre 20 y 30 minutos, hasta que un palillo salga limpio.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Antes de empezar:</b> precalentá el horno y prepará los pirotines. Los muffins crecen mejor si entran al horno apenas mezclada la masa.</li><li><b>La manzana:</b> si la manzana rallada suelta mucho jugo, escurrila un poco con la mano para que la masa no quede aguada.</li><li><b>No batir de más:</b> integrá las harinas de a poco y mezclá solo hasta que no se vea harina seca.</li><li><b>Llenado:</b> completá los pirotines hasta 3/4: necesitan espacio para crecer y formar el copete.</li><li><b>El horno:</b> no lo abras los primeros 15 minutos porque se pueden bajar. Probá con un palillo antes de sacarlos.</li></ul></div></div><div class="recw" id="rec8"><article class="rec"><div class="recimg"><img src="img/food/09.jpg" alt="Talitas de garbanzos"></div><div class="rech"><span class="rcat">SALADOS</span><h2>Talitas de garbanzos</h2><div class="rmeta"><span>Rinde: <b>1 placa</b></span><span>Tiempo: <b>35 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>300 g de harina de garbanzos</li><li>Sal a gusto</li><li>Orégano, provenzal o condimento para pizza</li><li>2 cdas de queso crema light</li><li>Agua, cantidad necesaria (aprox. ½ taza)</li><li>3 puñados de semillas (chía, sésamo, girasol, lino)</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Mezclá todos los ingredientes en un bowl hasta formar una masa que se pueda amasar; agregá el agua de a poco.</li><li>Dejá reposar unos minutos.</li><li>Estirá sobre la mesada enharinada y cortá tiras.</li><li>Acomodalas en una placa con rocío vegetal y pincelalas con agua; si querés, espolvoreá semillas o condimentos.</li><li>Horneá a 200 °C unos 15 minutos, hasta que estén doradas.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>El agua:</b> sumala de a poco. La masa tiene que quedar suave, que se pueda amasar y no se pegue en las manos.</li><li><b>Reposo:</b> dejala descansar unos minutos tapada: se hidrata la harina y se estira mucho más fácil.</li><li><b>Estirado parejo:</b> estirala fina y del mismo espesor en toda la superficie, así se cocinan todas al mismo tiempo.</li><li><b>Las semillas:</b> pincelá con agua antes de espolvorearlas para que se peguen y no se caigan al hornear.</li><li><b>Ojo al final:</b> los últimos minutos pasan rápido de doradas a quemadas. Mirá el horno y sacalas cuando estén doradas y firmes.</li></ul></div></div><div class="recw" id="rec9"><article class="rec"><div class="recimg"><img src="img/food/10.jpg" alt="Hummus de garbanzos"></div><div class="rech"><span class="rcat">SALADOS</span><h2>Hummus de garbanzos</h2><div class="rmeta"><span>Rinde: <b>4 porciones</b></span><span>Tiempo: <b>15 min (con garbanzos cocidos)</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 taza de garbanzos cocidos (en lata o hidratados y hervidos)</li><li>Jugo de ½ limón o más, a gusto</li><li>2 cdas de aceite de oliva</li><li>Sal, ajo, pimienta y pimentón</li><li>Agua de cocción de los garbanzos</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Si usás garbanzos secos: hidratalos 12 horas o más, colalos y hervilos con ajo y laurel unos 40 minutos, hasta que se deshagan al apretarlos. Guardá el agua de cocción.</li><li>Procesá los garbanzos con los condimentos y el jugo de limón.</li><li>Agregá de a poco agua de cocción hasta lograr una consistencia cremosa.</li><li>Por último, sumá el aceite de oliva y procesá un poco más.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Garbanzos secos:</b> remojalos al menos 12 horas y cambiales el agua. Se cocinan más rápido y caen mejor.</li><li><b>Cocción completa:</b> tienen que deshacerse al apretarlos con los dedos. Si quedan firmes, el hummus sale granulado.</li><li><b>Más cremoso:</b> procesalos todavía tibios y, si lo querés extra suave, quitales la piel frotándolos entre las manos.</li><li><b>La textura:</b> ajustala con el agua de cocción de a una cucharada, no toda junta. Siempre podés agregar, no sacar.</li><li><b>Conservación:</b> guardalo tapado en la heladera 3 a 4 días, con un hilo de aceite de oliva arriba para que no se seque.</li></ul></div></div><div class="recw" id="rec10"><article class="rec"><div class="recimg"><img src="img/food/11.jpg" alt="Ensalada tibia de vegetales, legumbres y pollo"></div><div class="rech"><span class="rcat">ALMUERZOS Y CENAS</span><h2>Ensalada tibia de vegetales, legumbres y pollo</h2><div class="rmeta"><span>Rinde: <b>2 porciones</b></span><span>Tiempo: <b>25 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 pechuga de pollo en cubos</li><li>1 taza de brócoli en ramilletes</li><li>1 zanahoria en rodajas</li><li>½ zucchini en medias lunas</li><li>½ morrón rojo en tiras</li><li>1 taza de garbanzos cocidos (o fideos o arroz)</li><li>1 cda de aceite de oliva</li><li>Jugo de ½ limón</li><li>Sal, pimienta, pimentón o comino</li><li>Perejil o cilantro (opcional)</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Saltá el pollo con un chorrito de aceite hasta que esté dorado y bien cocido por dentro. Condimentá y reservá.</li><li>En la misma sartén, cociná el brócoli, la zanahoria, el zucchini y el morrón 5 a 7 minutos, hasta que estén tiernos pero firmes.</li><li>Sumá los garbanzos y el pollo y cociná 2 minutos más.</li><li>Rociá con limón, agregá perejil o cilantro y serví tibio.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Organizá todo antes:</b> cortá el pollo y las verduras antes de prender el fuego; la cocción es rápida.</li><li><b>Cortes parejos:</b> cubos de pollo del mismo tamaño se cocinan al mismo tiempo y no quedan partes crudas.</li><li><b>No llenes la sartén:</b> si está muy cargada, el pollo larga agua y se hierve en vez de dorarse. Cociná en dos tandas si hace falta.</li><li><b>El orden de las verduras:</b> sumalas de la más dura a la más blanda (brócoli y zanahoria primero, zucchini al final) y dejalas al dente.</li><li><b>Como vianda:</b> llevala en un recipiente hermético y refrigerada. El limón agregalo al momento de comer para que no se ablanden las verduras.</li></ul></div></div><div class="recw" id="rec11"><article class="rec"><div class="recimg"><img src="img/food/12.jpg" alt="Tarta de verduras con masa de avena"></div><div class="rech"><span class="rcat">ALMUERZOS Y CENAS</span><h2>Tarta de verduras con masa de avena</h2><div class="rmeta"><span>Rinde: <b>1 tarta (4 porciones)</b></span><span>Tiempo: <b>50 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li><b>Masa:</b> 2 tazas de harina de avena</li><li>2 huevos</li><li>2 cdas de aceite de oliva</li><li>Semillas a gusto</li><li>Sal y pimienta</li><li><b>Relleno:</b> 2 cebollas</li><li>2 tazas de acelga cocida al vapor</li><li>2 cdas de harina de garbanzos</li><li>Sal y pimienta</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Mezclá los ingredientes de la masa en un bowl y llevá a la heladera mientras preparás lo demás.</li><li>Picá las cebollas y rehogalas con un poco de aceite de oliva.</li><li>Estirá la masa en un molde antiadherente o aceitado ayudándote con la punta de los dedos.</li><li>Horneá la masa unos 15 minutos, hasta que se dore.</li><li>Mientras tanto, picá la acelga y mezclala con la cebolla y la harina de garbanzos.</li><li>Rellená la masa y horneá unos 20 minutos más.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>La masa:</b> dejala al menos 15 minutos en la heladera. Fría se maneja mucho mejor y se estira fácil con la punta de los dedos.</li><li><b>Base precocida:</b> horneala sola antes de rellenar. Es el secreto para que no quede cruda o húmeda abajo.</li><li><b>La acelga:</b> después de cocinarla, apretala bien con las manos para sacarle toda el agua. El exceso de líquido arruina la masa.</li><li><b>La cebolla:</b> rehogala a fuego bajo hasta que esté transparente y dulce; le da mucho sabor al relleno.</li><li><b>Variantes:</b> cambiá la acelga por espinaca, zapallitos o brócoli. Dejala reposar 10 minutos antes de cortar.</li></ul></div></div><div class="recw" id="rec12"><article class="rec"><div class="recimg"><img src="img/food/13.jpg" alt="Budín de brócoli"></div><div class="rech"><span class="rcat">ALMUERZOS Y CENAS</span><h2>Budín de brócoli</h2><div class="rmeta"><span>Rinde: <b>3–4 porciones</b></span><span>Tiempo: <b>45 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 planta grande de brócoli</li><li>2 huevos</li><li>Cubos de queso (o un queso vegetal)</li><li>Verduras salteadas: zanahoria, cebolla y morrón</li><li>Sal y pimienta</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Herví o cociná al vapor el brócoli.</li><li>Salteá el resto de las verduras en una sartén.</li><li>Batí los huevos y agregá los cubos de queso.</li><li>Mezclá todo; si queda muy seco, agregá un poco de agua.</li><li>Volcá en una budinera y horneá unos 25 minutos, hasta que esté firme.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>El brócoli:</b> cocinalo al vapor o hervido solo hasta que esté tierno, y escurrilo muy bien para que el budín no quede aguado.</li><li><b>Las verduras salteadas:</b> cocinalas hasta que pierdan el agua; así suman sabor y no humedad.</li><li><b>El molde:</b> aceitá y enharinalá la budinera, o forrala con papel manteca, para desmoldar sin que se rompa.</li><li><b>Punto de cocción:</b> está listo cuando el centro está firme y al pincharlo no sale líquido.</li><li><b>Reposo:</b> dejalo 10 minutos antes de cortar: se asienta y las porciones salen enteras.</li></ul></div></div><div class="recw" id="rec13"><article class="rec"><div class="recimg"><img src="img/food/14.jpg" alt="Puré de coliflor"></div><div class="rech"><span class="rcat">ALMUERZOS Y CENAS</span><h2>Puré de coliflor</h2><div class="rmeta"><span>Rinde: <b>3–4 porciones</b></span><span>Tiempo: <b>25 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 coliflor</li><li>1 cda de queso untable descremado</li><li>Nuez moscada, sal y pimienta a gusto</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Cortá la coliflor y hervila o cocinala al vapor hasta que esté tierna.</li><li>Colala bien.</li><li>Procesá con el queso untable y los condimentos hasta lograr un puré.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>El corte:</b> separá la coliflor en ramilletes del mismo tamaño para que se cocinen parejo.</li><li><b>Cocción:</b> cocinala hasta que esté bien tierna al pincharla, pero sin que se deshaga en el agua.</li><li><b>Escurrido:</b> dejala unos minutos en el colador para que largue el vapor. Es la clave para que el puré no quede aguado.</li><li><b>Procesado:</b> procesala caliente: queda más lisa y cremosa que si la pisás fría.</li><li><b>Sabor:</b> probá y ajustá la sal y la nuez moscada al final. Podés mezclarlo mitad y mitad con puré de papa o calabaza.</li></ul></div></div><div class="recw" id="rec14"><article class="rec"><div class="recimg"><img src="img/food/15.jpg" alt="Wok de verduras con arroz y pollo"></div><div class="rech"><span class="rcat">ALMUERZOS Y CENAS</span><h2>Wok de verduras con arroz y pollo</h2><div class="rmeta"><span>Rinde: <b>2–3 porciones</b></span><span>Tiempo: <b>40 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>½ taza de arroz integral crudo</li><li>2 pechugas de pollo en cubos</li><li>1 cebolla</li><li>1 zanahoria</li><li>½ morrón verde y ½ morrón rojo</li><li>1 planta de brócoli cocido</li><li>2 cdas de aceite de oliva</li><li>1 cda de agua</li><li>Sal y pimienta negra</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Herví el arroz.</li><li>En el wok, con un poco de agua y aceite, salteá primero la cebolla y después la zanahoria.</li><li>Agregá los morrones y luego el brócoli cocido.</li><li>Sumá el pollo y cociná unos 10 minutos, hasta que esté bien cocido, sin partes rosadas.</li><li>Incorporá el arroz y mezclá. Si querés, sumá una cucharada de queso untable para que quede más cremoso.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Todo listo antes:</b> tené el arroz cocido y todas las verduras cortadas antes de prender el fuego: en el wok todo pasa rápido.</li><li><b>El arroz:</b> el arroz cocido del día anterior se saltea mejor y no se empasta.</li><li><b>Fuego fuerte:</b> usá fuego alto y revolvé sin parar para que las verduras queden crocantes y con color.</li><li><b>El pollo:</b> cocinalo hasta que no tenga partes rosadas por dentro; cortalo en cubos chicos para que se haga rápido.</li><li><b>Versión vegetariana:</b> cambiá el pollo por tofu o huevo. Una cucharada de queso untable al final lo hace más cremoso.</li></ul></div></div><div class="recw" id="rec15"><article class="rec"><div class="recimg"><img src="img/food/16.jpg" alt="Croquetas de zucchini"></div><div class="rech"><span class="rcat">ALMUERZOS Y CENAS</span><h2>Croquetas de zucchini</h2><div class="rmeta"><span>Rinde: <b>2–3 porciones</b></span><span>Tiempo: <b>35 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>2 zucchinis medianos</li><li>1 cebolla chica y 1 diente de ajo</li><li>1 taza de avena (aprox. 90 g)</li><li>1 huevo</li><li>1 cdita de polvo de hornear</li><li>Sal y pimienta</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Precalentá el horno a temperatura alta.</li><li>Rallá los zucchinis y escurrí bien el líquido con las manos o un repasador.</li><li>Mezclá con la cebolla y el ajo picados y el resto de los ingredientes.</li><li>Formá bolitas o medallones y colocalos en una placa con rocío vegetal.</li><li>Horneá unos 15 minutos, hasta que estén dorados.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>El paso más importante:</b> rallá el zucchini, salalo apenas, esperá 10 minutos y escurrilo con un repasador. Sin este paso se desarman.</li><li><b>La mezcla:</b> si queda muy húmeda, agregá una cucharada más de avena hasta que se pueda formar con las manos.</li><li><b>Al formarlas:</b> mojate apenas las manos para que no se peguen y hacelas del mismo tamaño.</li><li><b>El horno:</b> precalentalo bien fuerte y usá rocío vegetal en la placa para que se doren abajo.</li><li><b>Dorado parejo:</b> dalas vuelta a mitad de cocción para que queden doradas de los dos lados.</li></ul></div></div><div class="recw" id="rec16"><article class="rec"><div class="recimg"><img src="img/food/17.jpg" alt="Pastel veggie de lentejas"></div><div class="rech"><span class="rcat">ALMUERZOS Y CENAS</span><h2>Pastel veggie de lentejas</h2><div class="rmeta"><span>Rinde: <b>4 porciones</b></span><span>Tiempo: <b>1 h 15 min + remojo</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 calabaza grande</li><li>1 taza de lentejas cocidas</li><li>2 cebollas medianas</li><li>1 cdita de cúrcuma</li><li>1 cda de pimentón</li><li>Ajo en polvo, sal y pimienta</li><li>Aceite de oliva</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Remojá las lentejas al menos 12 horas, descartá el agua y hervilas en agua abundante hasta que estén tiernas.</li><li>Horneá la calabaza con un poco de aceite, sal y pimienta. Hacé un puré y sumá la cúrcuma.</li><li>Rehogá la cebolla picada con aceite de oliva.</li><li>Mezclá las lentejas con la cebolla y condimentá con pimentón, ajo, sal y pimienta.</li><li>Armá el pastel: lentejas abajo y puré de calabaza arriba. Gratiná en horno fuerte.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Las lentejas:</b> remojalas, descartá esa agua y cocinalas hasta que estén tiernas pero enteras, no pasadas. Con lentejas en lata ahorrás tiempo.</li><li><b>La calabaza:</b> horneada tiene más sabor que hervida y queda más seca, ideal para un puré espeso.</li><li><b>Un puré firme:</b> si el puré queda líquido se hunde en las lentejas. Tiene que quedar espeso, que se sostenga con la cuchara.</li><li><b>El armado:</b> esparcí las lentejas parejas y cubrí con el puré de los bordes hacia el centro, así queda sellado.</li><li><b>Gratinado:</b> los últimos minutos, horno bien fuerte para dorar la superficie. Dejalo reposar antes de servir.</li></ul></div></div><div class="recw" id="rec17"><article class="rec"><div class="recimg"><img src="img/food/18.jpg" alt="Milanesas de berenjena"></div><div class="rech"><span class="rcat">ALMUERZOS Y CENAS</span><h2>Milanesas de berenjena</h2><div class="rmeta"><span>Rinde: <b>2 porciones</b></span><span>Tiempo: <b>30 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 berenjena grande</li><li>1 huevo batido con un chorrito de agua</li><li>Rebozador: pan rallado, avena o una mezcla</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Cortá la berenjena en rodajas de ½ cm.</li><li>Pasalas por el huevo y luego por el rebozador.</li><li>Cocinalas en una placa para horno o en una sartén antiadherente a fuego medio, dándolas vuelta, hasta que estén tiernas y doradas.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Cortes parejos:</b> cortá rodajas del mismo espesor, de medio centímetro, para que se cocinen todas igual.</li><li><b>Quitar el amargor:</b> salalas y dejalas 15 minutos. Después secalas con papel: pierden agua y amargor.</li><li><b>Rebozado firme:</b> presioná bien el rebozador con la mano para que se adhiera y no se despegue al cocinar.</li><li><b>Cocción:</b> en placa con rocío vegetal o en sartén antiadherente; dalas vuelta una sola vez para que queden crocantes.</li><li><b>A la napolitana:</b> al final sumá salsa de tomate y queso y gratiná unos minutos.</li></ul></div></div><div class="recw" id="rec18"><article class="rec"><div class="recimg"><img src="img/food/19.jpg" alt="Heladitos de banana y chocolate"></div><div class="rech"><span class="rcat">POSTRES</span><h2>Heladitos de banana y chocolate</h2><div class="rmeta"><span>Rinde: <b>4 porciones</b></span><span>Tiempo: <b>10 min + 3 h de freezer</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>2 bananas maduras</li><li>1 cda de cacao amargo</li><li>2 sobres de edulcorante (opcional)</li><li>½ taza de leche</li><li>Para arriba: frutos secos o chips de chocolate</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Procesá todos los ingredientes, menos los de arriba.</li><li>Distribuí en vasitos o potecitos y agregá los frutos secos o chips.</li><li>Llevá al freezer hasta que estén firmes.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Las bananas:</b> cuanto más maduras, más dulce y cremoso queda el helado, sin necesidad de agregar azúcar.</li><li><b>El procesado:</b> procesá hasta que no quede ningún grumo; la textura final depende de este paso.</li><li><b>Los recipientes:</b> usá vasitos chicos o moldes de silicona: se congelan más rápido y salen porciones justas.</li><li><b>El freezer:</b> dejalos al menos 3 horas, o mejor toda la noche.</li><li><b>Al servir:</b> sacalos 5 minutos antes de comerlos para que estén cremosos y no duros como piedra.</li></ul></div></div><div class="recw" id="rec19"><article class="rec"><div class="recimg"><img src="img/food/20.jpg" alt="Brownie de banana"></div><div class="rech"><span class="rcat">POSTRES</span><h2>Brownie de banana</h2><div class="rmeta"><span>Rinde: <b>6 cuadrados</b></span><span>Tiempo: <b>30 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>3 bananas maduras</li><li>3 cdas de pasta de maní</li><li>3 cdas de cacao amargo</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Pisá muy bien las bananas con un tenedor o procesalas.</li><li>Integrá la pasta de maní y el cacao.</li><li>Volcá en una fuente y horneá a temperatura media unos 20 minutos.</li><li>Dejá enfriar antes de cortar.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>Las bananas:</b> usá bananas muy maduras: son las que dan el dulzor y la humedad.</li><li><b>El pisado:</b> pisalas muy bien o procesalas para que la mezcla quede lisa y sin trozos.</li><li><b>El molde:</b> forralo con papel manteca para desmoldar fácil y cortar prolijo.</li><li><b>No lo cocines de más:</b> el centro tiene que quedar apenas húmedo; así queda húmedo y no seco.</li><li><b>El corte:</b> dejalo enfriar por completo antes de cortar para que salgan cuadrados prolijos.</li></ul></div></div><div class="recw" id="rec20"><article class="rec"><div class="recimg"><img src="img/food/21.jpg" alt="Flancito en taza"></div><div class="rech"><span class="rcat">POSTRES</span><h2>Flancito en taza</h2><div class="rmeta"><span>Rinde: <b>1 porción</b></span><span>Tiempo: <b>5 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 huevo</li><li>½ taza de leche descremada</li><li>Esencia de vainilla</li><li>Edulcorante a gusto</li><li>1 cda de coco rallado</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Mezclá todo en una taza apta para microondas.</li><li>Tapala y cociná en el microondas entre 2 y 3 minutos, controlando desde el primer minuto: el tiempo depende de cada equipo.</li><li>Está listo cuando el centro está firme. Dejá entibiar antes de comer.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>La taza:</b> usá una taza apta para microondas, de cerámica o vidrio, y tapala para que no salpique.</li><li><b>La mezcla:</b> batí bien el huevo con la leche hasta que esté totalmente integrado, así el flan queda liso.</li><li><b>De a poco:</b> cociná de a 30 a 60 segundos y controlá: cada microondas es distinto y se pasa rápido.</li><li><b>Punto justo:</b> está listo cuando el centro está firme y apenas tiembla al mover la taza.</li><li><b>Reposo:</b> dejalo un minuto antes de comer: sigue cocinándose con el calor y toma mejor textura.</li></ul></div></div><div class="recw" id="rec21"><article class="rec"><div class="recimg"><img src="img/food/22.jpg" alt="Mug cake de limón"></div><div class="rech"><span class="rcat">POSTRES</span><h2>Mug cake de limón</h2><div class="rmeta"><span>Rinde: <b>1 porción</b></span><span>Tiempo: <b>5 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li>1 huevo</li><li>Jugo y ralladura de ½ limón</li><li>Esencia de vainilla</li><li>Edulcorante a gusto</li><li>1 cda de coco rallado</li><li>1 cda de harina de avena o avena</li><li>2 cdas de yogur natural</li><li>1 cdita de polvo de hornear</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>Mezclá todo en una taza apta para microondas.</li><li>Tapala y cociná entre 2 y 3 minutos, controlando desde el primer minuto.</li><li>Está listo cuando al pincharlo sale seco.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>La taza:</b> usá una taza grande y no la llenes más de la mitad: crece mucho en el microondas.</li><li><b>La ralladura:</b> rallá solo la parte amarilla del limón. La parte blanca da amargor.</li><li><b>Mezcla pareja:</b> integrá bien todo dentro de la taza, raspando el fondo para que no quede harina seca.</li><li><b>El tiempo:</b> controlá desde el primer minuto. Está listo cuando al pincharlo sale seco.</li><li><b>No te pases:</b> si lo cocinás de más, se seca y queda gomoso. Mejor sacarlo un poco antes.</li></ul></div></div><div class="recw" id="rec22"><article class="rec"><div class="recimg"><img src="img/food/23.jpg" alt="Cheesecake en taza"></div><div class="rech"><span class="rcat">POSTRES</span><h2>Cheesecake en taza</h2><div class="rmeta"><span>Rinde: <b>1 porción</b></span><span>Tiempo: <b>5 min</b></span></div></div><div class="recb"><div><h5>Ingredientes</h5><ul class="ing"><li><b>Base:</b> 1 cda de avena o granola</li><li>1 cda de pasta de maní</li><li><b>Relleno:</b> 100 g de queso untable descremado (4 a 5 cdas)</li><li>1 huevo</li><li>Esencia de vainilla</li><li>1 sobre de edulcorante</li><li><b>Arriba:</b> 1 cda de mermelada sin azúcar</li></ul></div><div><h5>Preparación</h5><ol class="steps-ol"><li>En una taza, mezclá la avena o granola con la pasta de maní y presioná para formar la base.</li><li>Aparte, mezclá los ingredientes del relleno y volcalos sobre la base.</li><li>Cociná en el microondas unos 2 minutos, hasta que esté firme.</li><li>Serví con la mermelada arriba.</li></ol></div></div></article><div class="keytips"><h5>Consejos clave de preparación</h5><ul><li><b>La base:</b> presioná bien la avena con la pasta de maní en el fondo de la taza para que no se mezcle con el relleno.</li><li><b>El queso:</b> usalo a temperatura ambiente: se integra mejor y el relleno queda liso, sin grumos.</li><li><b>El batido:</b> mezclá el relleno hasta que esté homogéneo antes de volcarlo sobre la base.</li><li><b>Cocción:</b> está listo cuando el relleno está firme y apenas tiembla en el centro.</li><li><b>El toque final:</b> dejalo enfriar y llevalo 1 hora a la heladera antes de sumar la mermelada: toma textura de cheesecake.</li></ul></div></div></div></section><section class="page p-spread" id="talleres"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Bonus 2 · Talleres</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">BONUS 2 · INCLUIDO</span>
+<h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
+<p class="lead">Con este ebook accedés a dos talleres del equipo RENOVA para sumar herramientas a tu entrenamiento y a tu semana.</p>
+<div class="wgrid">
+  <div class="wcard"><span class="wtag">TALLER INCLUIDO</span><h3>Descanso</h3><p>Estrategias para mejorar tu descanso y tu recuperación entre entrenamientos.</p></div>
+  <div class="wcard"><span class="wtag">TALLER INCLUIDO</span><h3>Organización de alimentos en la heladera</h3><p>Cómo guardar, porcionar y ordenar para tener siempre opciones listas.</p></div>
+</div>
+<p class="small">Además, en RENOVA vas a encontrar más talleres, como <b>Fines de semana</b> y <b>Mindfulness</b>, para seguir avanzando.</p>
+<div class="team">
+  <img src="img/equipo2.jpg" alt="Equipo RENOVA">
+  <div class="team-tx">
+    <span class="wtag">EQUIPO RENOVA</span>
+    <p>Los talleres están a cargo del equipo RENOVA: entrenadores, médico deportólogo, psicólogo y nutricionista. Abordan los hábitos clave que sostienen el cambio en la vida real.</p>
+    <span class="vbtn-sm"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO DE LOS TALLERES</span>
+  </div>
+</div>
+<div class="cta-center"><a class="btn btn-big" href="https://www.nachoportillo.com/">ACCEDER A MIS TALLERES <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div></section><section class="page p-spread" id="bonus"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Bonus 3 · Consulta</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="bonus">
+<span class="pill">BONUS 3 · INCLUIDO</span>
+<h1 class="h1 big">Consulta personalizada <span class="t">con Nacho</span></h1>
+<p class="lead">Como complemento de esta guía, podés acceder a una consulta personalizada con Nacho para conversar sobre tus objetivos, revisar tus principales dificultades y orientar tus próximos pasos.</p>
+<div class="cols2">
+<div><h3>En la consulta vas a poder</h3>
+<ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Contar tus objetivos y tu situación actual.</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Revisar qué te está costando sostener.</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Definir los próximos pasos con más claridad.</span></li></ul>
+</div>
+<div><h3>Para aprovecharla</h3>
+<ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Completá antes un par de semanas de la planilla de seguimiento.</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Anotá tus preguntas.</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tené a mano tu agenda semanal.</span></li></ul>
+</div>
+</div>
+<div class="ctapanel">
+  <p class="ctatitle">Reservá tu lugar</p>
+  <p class="small center">Elegí el día y el horario que mejor te queden.</p>
+  <a class="btn btn-big" href="https://www.nachoportillo.com/">RESERVAR MI CONSULTA CON NACHO <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</div>
+</div></section><section class="page " id="bio"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Quién soy</span></div><div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div><div class="body">
+<div class="bio">
+  <div class="bio-top">
+    <div class="bio-photo"><img src="img/nacho_full.jpg" alt="Nacho Portillo"></div>
+    <div>
+      <span class="pill">QUIÉN SOY</span>
+      <h1 class="h1">Soy <span class="t">Nacho Portillo</span></h1>
+      <p class="role">Licenciado en Alto Rendimiento Deportivo</p>
+      <p>Hace más de 15 años trabajo en entrenamiento, rendimiento físico y transformación de hábitos. Mi experiencia en el ámbito deportivo y acompañando a personas con distintos objetivos me enseñó algo fundamental: no alcanza con tener un plan; necesitás un sistema que puedas sostener.</p>
+      <p>Por eso, en RENOVA trabajamos sobre los pilares que influyen en tu progreso: entrenamiento de fuerza, nutrición, medicina deportiva, descanso y hábitos. El objetivo es ayudarte a organizar un método realista, adaptado a tus posibilidades y compatible con tu vida cotidiana.</p>
+    </div>
+  </div>
+  <div class="what">
+    <h2>¿Qué es <span class="t">Programa RENOVA</span>?</h2>
+    <p>PROGRAMA RENOVA es un programa de acompañamiento que integra entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, descanso y gestión de hábitos para ayudarte a mejorar tu composición corporal y construir una rutina sostenible.</p>
+    <p>No se trata de seguir una dieta extrema ni de entrenar sin estrategia. Se trata de organizar un proceso, aprender a tomar mejores decisiones y contar con herramientas que puedas mantener en el tiempo.</p>
+    <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Descanso</span><span>Hábitos</span></div>
+  </div>
+  <div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>
+  <div class="cta-center"><a class="btn btn-big" href="https://www.nachoportillo.com/">CONOCÉ PROGRAMA RENOVA <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</div></section><script src="paginate.js"></script></body></html>

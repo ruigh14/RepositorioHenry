@@ -5,8 +5,12 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 
 ## Estructura
 
-- `ebook/`: ebook "Programa RENOVA · Guía práctica" (64 páginas A4).
-  - `build.py`: todos los textos, recetas, menús, ejercicios y links (`LINKS`, `VIDEOS`). Genera `ebook.html`.
+- `ebook/`: los ebooks RENOVA, generados desde un mismo `build.py` en dos ediciones:
+  - **Ebook 1 · "Entrená desde casa"** (producto de entrada): plan de fuerza de 8 semanas + bonus
+    (recetario, 2 talleres: Descanso y Heladera, consulta con Nacho). → `entrena.html`, `Ebook_Entrena_desde_casa_RENOVA.pdf`.
+  - **Programa RENOVA completo** (entrenamiento + alimentación + descanso, 64 páginas): base para los ebooks de upsell.
+    → `ebook.html`, `Ebook_Programa_RENOVA.pdf`.
+  - `build.py`: todos los textos, recetas, menús, ejercicios, plan de 8 semanas (`PLAN8`) y links (`LINKS`, `VIDEOS`).
   - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright.
   - `img/`: fotos, ilustraciones, recetas y testimonios. `fonts/`: tipografía Inter.
   - `Ebook_Programa_RENOVA.pdf`: versión final vigente. `Ebook_Programa_RENOVA.txt`: su texto extraído.
@@ -18,10 +22,17 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 ## Regenerar el PDF del ebook
 
 ```
-cd ebook && python3 build.py && node export.js
+cd ebook && python3 build.py entrena && node export.js entrena   # Ebook 1 · Entrená desde casa
+cd ebook && python3 build.py && node export.js                   # Programa RENOVA completo
 ```
 
-Debe imprimir `PAGINAS 64 OVERFLOW []` (o la cantidad de páginas que corresponda) sin páginas con overflow.
+Debe imprimir `OVERFLOW []` (sin páginas con texto cortado).
+
+## Estrategia de producto
+
+- Ebook 1 (solo entrenamiento) es el producto de entrada; alimentación (menús, compras) y descanso quedan para ebooks de upsell.
+- El equipo incluye **médico deportólogo** (medicina deportiva): mantenerlo en ambas ediciones.
+- Investigación de mercado de referencia: Google Doc "RENOVA_investigacion_ebooks_entrenamiento_mujeres_40_plus".
 
 ## Forma de trabajo
 

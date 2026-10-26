@@ -1,10 +1,22 @@
 # -*- coding: utf-8 -*-
-"""Ebook PROGRAMA RENOVA — genera ebook.html (fuente editable) y lo exporta a PDF A4.
+"""Ebooks RENOVA — genera el HTML (fuente editable) que export.js pasa a PDF A4.
 
-Para editar textos: modificá este archivo y volvé a correr  python3 build.py
+Dos ediciones salen de este mismo archivo:
+  python3 build.py            → Programa RENOVA completo (ebook.html)
+  python3 build.py entrena    → Ebook 1 "Entrená desde casa" (entrena.html):
+                                plan de 8 semanas + bonus recetario, talleres y consulta.
+
+Para editar textos: modificá este archivo y volvé a correr build.py.
 Para cambiar links: completá el diccionario LINKS (dejá "" si todavía no lo tenés).
 """
 import html, os, sys
+
+EDITION = sys.argv[1] if len(sys.argv) > 1 else "completo"
+if EDITION not in ("completo", "entrena"):
+    sys.exit("Edición desconocida: usá 'completo' o 'entrena'")
+FULL = EDITION == "completo"
+ENT = EDITION == "entrena"
+NE = "02" if FULL else "03"   # número del capítulo de entrenamiento en cada edición
 
 LINKS = {
     "talleres": "https://www.nachoportillo.com/",   # reemplazar por el link directo a los talleres
@@ -69,7 +81,27 @@ def box(content, kind=""):
     return f'<div class="box {kind}">{content}</div>'
 
 # ================================================================== PORTADA
-page(f'''
+if ENT:
+    page(f'''
+<div class="cv2">
+  <div class="c2-top">
+    <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
+    <span class="c2-kick">PLAN DE 8 SEMANAS · FUERZA EN CASA · CON VIDEOS</span>
+  </div>
+  <h1 class="c2-title">ENTRENÁ DESDE <span class="c2-t">CASA.</span><br>TRANSFORMÁ TU <span class="c2-r">CUERPO.</span></h1>
+  <div class="c2-bar"></div>
+  <p class="c2-sub">Ganá fuerza, energía y constancia en 8 semanas.</p>
+  <p class="c2-desc">Un plan progresivo de 20 a 40 minutos por sesión para mujeres con poco tiempo que quieren resultados sostenibles. Incluye de bonus el recetario, dos talleres y una consulta con Nacho.</p>
+  <div class="c2-photos one">
+    <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
+      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
+    <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
+  </div>
+</div>
+''', pid="portada", cls="p-cover", header=False)
+
+if FULL:
+    page(f'''
 <div class="cv2">
   <div class="c2-top">
     <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
@@ -88,7 +120,36 @@ page(f'''
 ''', pid="portada", cls="p-cover", header=False)
 
 # ================================================================== BIENVENIDA
-page(f'''
+if ENT:
+    page(f'''
+{eyebrow("BIENVENIDA")}
+<h1 class="h1">Te damos la bienvenida a <span class="t">Entrená desde casa</span></h1>
+<p class="lead">Un plan de 8 semanas para ganar fuerza en casa en una semana real: con trabajo, familia y poco tiempo libre. No es para hacerlo perfecto: es para entrenar con constancia y ver tu progreso.</p>
+<h2>Qué incluye</h2>
+<div class="pillars">
+  <div class="pillar"><span class="pn">01</span><h3>Plan de 8 semanas</h3><p>Tres fases con un calendario semana a semana.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Rutinas con video</h3><p>Tres rutinas de cuerpo completo.</p></div>
+  <div class="pillar"><span class="pn">03</span><h3>Seguimiento</h3><p>Evaluación inicial y registro de cargas.</p></div>
+</div>
+<h2>Bonus incluidos</h2>
+<div class="pillars">
+  <div class="pillar"><span class="pn">+</span><h3>Recetario</h3><p>23 recetas fáciles.</p></div>
+  <div class="pillar"><span class="pn">+</span><h3>Dos talleres</h3><p>Descanso y organización de la heladera.</p></div>
+  <div class="pillar"><span class="pn">+</span><h3>Consulta con Nacho</h3><p>Para definir tus próximos pasos.</p></div>
+</div>
+<div class="firstweek">
+  <h2>Tu primera semana</h2>
+  <div class="fw">
+    <div><span>1</span><b>Evaluá</b><p>Hacé la evaluación inicial del capítulo 02.</p></div>
+    <div><span>2</span><b>Agendá</b><p>Elegí 2 días para la fuerza y 2 para caminar.</p></div>
+    <div><span>3</span><b>Prepará</b><p>Una colchoneta, una silla firme y un peso liviano.</p></div>
+    <div><span>4</span><b>Registrá</b><p>Anotá cada sesión en la planilla del capítulo 06.</p></div>
+  </div>
+</div>
+''', chapter="Bienvenida", pid="bienvenida")
+
+if FULL:
+    page(f'''
 {eyebrow("BIENVENIDA")}
 <h1 class="h1">Te damos la bienvenida a <span class="t">RENOVA</span></h1>
 <p class="lead">Esta guía reúne lo esencial para organizar tu entrenamiento, tu alimentación y tu descanso en una semana real: con trabajo, reuniones, familia y poco tiempo libre.</p>
@@ -147,7 +208,57 @@ page(f'''
 page("__TOC__", chapter="Índice", pid="indice")
 
 # ================================================================== CAP 1
-page(f'''
+if ENT:
+    page(f'''
+{chap_head("01", 'Cómo usar <span class="t">esta guía</span>', "Evaluá tu punto de partida, seguí el plan semana a semana y registrá lo que hacés. Con eso alcanza para arrancar.")}
+<div class="cols2">
+<div>
+<h3>1. Hacé la evaluación inicial</h3>
+<p>En 10 minutos medís tu punto de partida (capítulo 02). La repetís en la semana 4 y en la 8 para ver cuánto avanzaste.</p>
+<h3>2. Elegí tus días de entrenamiento</h3>
+<p>Reservá 2 o 3 momentos de 30 a 40 minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
+<h3>3. Seguí el plan de 8 semanas</h3>
+<p>El capítulo 04 te dice qué rutinas hacer cada semana, cuántas vueltas y con qué esfuerzo. No te adelantes: la progresión está pensada para que llegues bien a la semana 8.</p>
+</div>
+<div>
+<h3>4. Registrá tus avances</h3>
+<p>Anotá en el capítulo 06 tus sesiones, las repeticiones y los pesos que usás. Es la mejor forma de ver que estás progresando.</p>
+<h3>5. Si perdés una sesión</h3>
+<p>Retomá en tu próximo día disponible. No hagas dos sesiones juntas.</p>
+<h3>6. Si se interrumpe una semana entera</h3>
+<p>Repetí la última semana que completaste antes de avanzar. No compenses con más ejercicio ni comiendo menos.</p>
+{box('<b>Importante.</b> Esta guía es orientativa. Si tenés una condición médica, una lesión o estás embarazada, consultá a un profesional antes de empezar.', "note")}
+</div>
+</div>
+''', chapter="01 · Cómo usar esta guía", pid="cap1", toc="01 · Cómo usar esta guía")
+
+    page(f'''
+{chap_head("02", 'Evaluación <span class="t">inicial</span>', "Antes de empezar, medí tu punto de partida. No es un examen: es tu referencia para ver cuánto avanzás.")}
+<h2>Tres pruebas simples</h2>
+<div class="steps">
+  <div class="step"><span>1</span><b>Sentarse y pararse</b><p>Sentada en una silla firme, con los brazos cruzados: contá cuántas veces te parás y te sentás en 30 segundos.</p></div>
+  <div class="step"><span>2</span><b>Flexiones</b><p>Contá cuántas hacés con buena técnica: contra la pared, en una mesa, con rodillas apoyadas o completas. Anotá la variante.</p></div>
+  <div class="step"><span>3</span><b>Plancha</b><p>Sostené la plancha prona (o con rodillas apoyadas) con buena técnica. Anotá los segundos, hasta 60.</p></div>
+</div>
+<p class="small">Hacé las pruebas después de la entrada en calor, en un día sin entrenar. Si sentís dolor, frená.</p>
+<h2>Mis resultados</h2>
+<table class="grid-t"><thead><tr><th>Prueba</th><th>Inicio</th><th>Semana 4</th><th>Semana 8</th></tr></thead><tbody>
+{"".join(f"<tr><th>{t}</th><td></td><td></td><td></td></tr>" for t in ["Sentarse y pararse (en 30 s)","Flexiones (variante: ________)","Plancha (segundos)","Energía general (1 a 5)"])}
+</tbody></table>
+<h2>Con qué variante empezar</h2>
+<div class="tiles">
+<div class="tile"><h3>Si recién empezás</h3><p>Si hiciste menos de 12 repeticiones en la silla o no llegaste a 15 segundos de plancha, empezá con la variante más fácil de cada ejercicio y sin peso.</p></div>
+<div class="tile"><h3>Si ya entrenaste antes</h3><p>Si superaste esas marcas, usá la variante principal y un peso liviano desde la semana 1.</p></div>
+</div>
+<p class="small">Estas marcas son orientativas. Ante la duda, empezá por lo más fácil: subir un escalón es rápido; recuperarte de una molestia, no.</p>
+<h2>Mi punto de partida</h2>
+<div class="cbox">
+{"".join(f'<div class="cb"><span class="sq"></span>{t}</div>' for t in ["Puedo entrenar fuerza 3 días por semana","Puedo entrenar fuerza 2 días por semana","Tengo colchoneta","Tengo una silla firme","Tengo peso: mancuernas, botellas o mochila","Puedo caminar 20–30 minutos 2 o 3 veces por semana"])}
+</div>
+''', chapter="02 · Evaluación inicial", pid="eval", toc="02 · Evaluación inicial")
+
+if FULL:
+    page(f'''
 {chap_head("01", 'Cómo usar <span class="t">esta guía</span>', "Definí cuándo entrenar, qué comer y qué registrar. Con eso alcanza para arrancar.")}
 <div class="cols2">
 <div>
@@ -172,7 +283,7 @@ page(f'''
 
 # ================================================================== CAP 2 ENTRENAMIENTO
 page(f'''
-{chap_head("02", 'Entrenamiento de <span class="t">fuerza en casa</span>', "Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.")}
+{chap_head(NE, 'Entrenamiento de <span class="t">fuerza en casa</span>', "Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.")}
 <h2>Por qué entrenar fuerza</h2>
 <p>El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía. La Organización Mundial de la Salud recomienda para adultos actividades de fortalecimiento muscular al menos 2 días por semana, además de actividad aeróbica.</p>
 <h2>Cómo está organizado</h2>
@@ -184,7 +295,7 @@ page(f'''
 <h2>Qué necesitás y cuánto dura</h2>
 <p>Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga); si no tenés peso, usá tu propio cuerpo. Una sesión completa lleva entre 30 y 40 minutos.</p>
 {box('<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená el ejercicio. Si tenés una lesión, dolor persistente o una condición médica, consultá con un profesional antes de hacer los ejercicios que puedan agravarla.', "note")}
-''', chapter="02 · Entrenamiento", pid="cap2", toc="02 · Entrenamiento")
+''', chapter=NE + " · Entrenamiento", pid="cap2", toc=NE + " · Entrenamiento")
 
 page(f'''
 {eyebrow("CÓMO HACER CADA RUTINA")}
@@ -197,7 +308,7 @@ page(f'''
 <h3>Ejercicios por tiempo</h3><p>Las planchas y algunos ejercicios dinámicos se hacen por segundos (por ejemplo, 15–20 s) en lugar de repeticiones.</p>
 <h3>Videos de cada ejercicio</h3><p>En cada ejercicio vas a encontrar el botón <span class="vbtn-sm inline">{ICON_PLAY} VER VIDEO</span>. Tocalo para ver la demostración y revisar la técnica antes de empezar.</p>
 {box("<b>Consejo.</b> Las primeras veces, hacé cada ejercicio frente a un espejo o filmate con el celular para revisar la técnica.", "soft")}
-''', chapter="02 · Entrenamiento", pid="cap2b")
+''', chapter=NE + " · Entrenamiento", pid="cap2b")
 
 page(f'''
 {eyebrow("CÓMO HACER CADA RUTINA")}
@@ -205,8 +316,9 @@ page(f'''
 <h3>Cómo elegir la dificultad</h3>
 <p>Al terminar cada serie deberías sentir que podrías hacer 2 o 3 repeticiones más con buena técnica. En una escala de esfuerzo de 1 a 10, apuntá a un 7. Si terminás muy holgada, usá la variante más difícil o sumá peso; si no llegás a las repeticiones, usá la variante más simple.</p>
 <h3>Cómo progresar</h3>
-{ul(["<b>Semana 1:</b> 2 vueltas, aprendiendo la técnica.",
-     "<b>Semana 2 en adelante:</b> 3 vueltas.",
+{ul((["<b>Semana 1:</b> 2 vueltas, aprendiendo la técnica.",
+     "<b>Semana 2 en adelante:</b> 3 vueltas."] if FULL else
+    ['<b>Seguí el plan de 8 semanas</b> (<a href="#plan8">capítulo 04</a>): ahí está cuántas vueltas y qué esfuerzo corresponde a cada semana.']) + [
      "Cuando completes las 12 repeticiones con facilidad, sumá peso o pasá a una variante más exigente.",
      "En los ejercicios por tiempo, sumá 5 segundos por semana hasta llegar a 30–40 s."])}
 <h3>Si tenés poco tiempo: versión de 20 minutos</h3>
@@ -217,7 +329,7 @@ page(f'''
   <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>
   <div><b>9–10</b><span>Máximo</span><p>No podrías hacer una más.</p></div>
 </div>
-''', chapter="02 · Entrenamiento", pid="cap2c")
+''', chapter=NE + " · Entrenamiento", pid="cap2c")
 
 # ---- tarjetas de ejercicios
 # VIDEOS: pegá acá el link de YouTube de cada ejercicio (por nombre). Vacío = botón visible sin link.
@@ -243,7 +355,7 @@ def routine(eyebrow_t, title_html, prm, note, cards, end_box, pid):
 <p class="small">{note}</p>
 {"".join(cards)}
 {end_box}
-""", chapter="02 · Entrenamiento", pid=pid)
+""", chapter=NE + " · Entrenamiento", pid=pid)
 
 CALOR = [
  ("calor_1.png","Movilidad de brazos","10–12","De pie, llevá los brazos hacia arriba y luego en círculos amplios, hacia adelante y hacia atrás. Podés sostener un bastón o un palo de escoba.","solo hacia adelante y con menor amplitud."),
@@ -294,7 +406,7 @@ RUT = {
 }
 for k, r in RUT.items():
     routine("RUTINA EN CASA", f'{r["title"]}: <span class="t">cuerpo completo</span>',
-            [("Vueltas","3 (2 en la semana 1)"),("Repeticiones","10–12"),("Pausa","30–60 s entre ejercicios"),("Entre vueltas","2 min")],
+            [("Vueltas","3 (2 en la semana 1)" if FULL else "2 o 3, según el plan"),("Repeticiones","10–12"),("Pausa","30–60 s entre ejercicios"),("Entre vueltas","2 min")],
             f'{r["note"]} Hacé los ejercicios en orden. Al terminar, pasá a la <a href="#elong">elongación</a>.',
             [ex_card(*e) for e in r["ex"]],
             "",
@@ -331,7 +443,8 @@ def cal_row(label, days):
             cells += '<td><span class="chip ce">Libre</span></td>'
     return f"<tr><th>{label}</th>{cells}</tr>"
 
-page(f'''
+if FULL:
+    page(f'''
 {chap_head("03", 'Organización <span class="t">semanal</span>', "Una propuesta progresiva de cuatro semanas que combina fuerza, actividad aeróbica y descanso. Tomala como guía y movela según tu agenda.")}
 <table class="cal">
 <thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>
@@ -352,7 +465,8 @@ page(f'''
 </div>
 ''', chapter="03 · Organización semanal", pid="cap3", toc="03 · Organización semanal")
 
-page(f'''
+if FULL:
+    page(f'''
 {eyebrow("ORGANIZACIÓN SEMANAL")}
 <h1 class="h1">Semanas con <span class="t">menos tiempo</span></h1>
 <p class="lead">Si tu agenda no permite la propuesta completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.</p>
@@ -377,15 +491,170 @@ def blank_week():
         rows += f"<tr><th>{lab}</th>" + "<td></td>"*7 + "</tr>"
     return rows
 
-page(f'''
+if FULL:
+    page(f'''
 {eyebrow("PLANILLA IMPRIMIBLE")}
 <h1 class="h1">Mi semana de <span class="t">entrenamiento</span></h1>
 <p>Completá los días que elegís para entrenar y marcá lo que hiciste. Imprimí una planilla por semana o usala como modelo en tu agenda.</p>
 {"".join(f'<h3 class="wk">Semana {n} · del ____ al ____</h3><table class="grid-t"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody>{blank_week()}</tbody></table>' for n in (1,2,3))}
 ''', chapter="03 · Organización semanal", pid="cap3b")
 
+# ================================================================== EBOOK 1: PLAN DE 8 SEMANAS
+# Semana, fase, rutinas, vueltas, repeticiones · tiempo, pausa entre ejercicios, esfuerzo (1–10), aeróbico.
+PLAN8 = [
+ ("1", "Base",          "R1 · R2",         "2",          "10 · 15 s",                    "60 s",    "5–6", "2 × 20 min"),
+ ("2", "Base",          "R1 · R2 · R3",    "2",          "10–12 · 15–20 s",              "60 s",    "6",   "2 × 30 min"),
+ ("3", "Construcción",  "R1 · R2 · R3",    "3",          "10–12 · 20 s",                 "60 s",    "6–7", "2 × 30 min"),
+ ("4", "Construcción",  "R1 · R2 · R3",    "3",          "12 · 25 s",                    "45 s",    "7",   "3 × 30 min"),
+ ("5", "Construcción",  "R1 · R2 · R3",    "3",          "12 con más peso · 30 s",       "45 s",    "7–8", "3 × 30–40 min"),
+ ("6", "Descarga",      "R1 · R2",         "2",          "10 · 20 s",                    "60 s",    "6",   "2 × 30 min"),
+ ("7", "Consolidación", "R1 · R2 · R3",    "3",          "10–12 bajando en 3 s · 30 s",  "30–45 s", "7–8", "3 × 40 min"),
+ ("8", "Consolidación", "R1 · R2 · R3",    "3 (+1 opcional)", "12 · 35–40 s",            "30–45 s", "7–8", "3 × 40 min"),
+]
+PLAN8_DAYS = {
+ "1": ["1","A","-","2","-","A","D"],
+ "2": ["1","A","2","-","3","A","D"],
+ "3": ["1","A","2","-","3","A","D"],
+ "4": ["1","A","2","A","3","A","D"],
+ "5": ["1","A","2","A","3","A","D"],
+ "6": ["1","A","-","2","-","A","D"],
+ "7": ["1","A","2","A","3","A","D"],
+ "8": ["1","A","2","A","3","A","D"],
+}
+LEGEND = '<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>'
+DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>"
+
+if ENT:
+    page(f'''
+{chap_head("04", 'Tu plan de <span class="t">8 semanas</span>', "Tres fases para pasar de aprender la técnica a entrenar con más carga. Cada semana te dice qué hacer y con qué esfuerzo.")}
+<div class="pillars">
+  <div class="pillar"><span class="pn">1–2</span><h3>Fase 1 · Base</h3><p>Aprendés la técnica y tu cuerpo se adapta. Dos vueltas y esfuerzo moderado.</p></div>
+  <div class="pillar"><span class="pn">3–6</span><h3>Fase 2 · Construcción</h3><p>Sumás vueltas, acortás pausas y agregás peso. La semana 6 es más liviana para recuperarte.</p></div>
+  <div class="pillar"><span class="pn">7–8</span><h3>Fase 3 · Consolidación</h3><p>Más exigencia, bajadas lentas y la evaluación final.</p></div>
+</div>
+<table class="plan8">
+<thead><tr><th>Sem.</th><th>Fase</th><th>Fuerza</th><th>Vueltas</th><th>Repeticiones · planchas</th><th>Pausa</th><th>Esfuerzo</th><th>Aeróbico</th></tr></thead>
+<tbody>{"".join(f'<tr class="{"dl" if f == "Descarga" else ""}"><th>{w}</th><td>{f}</td><td>{r}</td><td>{v}</td><td>{rp}</td><td>{pa}</td><td>{e}</td><td>{a}</td></tr>' for w, f, r, v, rp, pa, e, a in PLAN8)}</tbody>
+</table>
+<p class="small"><b>Pausa</b> entre ejercicios; entre vueltas, siempre 2 minutos. <b>Esfuerzo</b> según la escala del capítulo {NE}. En las semanas 4 y 8, repetí la <a href="#eval">evaluación inicial</a> en un día sin entrenar.</p>
+''', chapter="04 · Plan de 8 semanas", pid="plan8", toc="04 · Plan de 8 semanas")
+
+    page(f'''
+{eyebrow("PLAN DE 8 SEMANAS")}
+<h1 class="h1">Tu calendario <span class="t">semana a semana</span></h1>
+<p>Una propuesta para organizar los días. Movelos según tu agenda: lo importante es el total de la semana.</p>
+<table class="cal cal8">
+{DAYS_HEAD}
+<tbody>
+{"".join(cal_row(f"Semana {w}", PLAN8_DAYS[w]) for w in PLAN8_DAYS)}
+</tbody></table>
+{LEGEND}
+<h3>Reglas simples</h3>
+{ul(["Dejá al menos un día entre dos sesiones de fuerza.",
+     "Aeróbico: caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar.",
+     "Si una semana te costó mucho (esfuerzo 9 o más, o no completaste las sesiones), repetila antes de avanzar.",
+     "Si solo podés 2 días de fuerza, seguí la versión del capítulo 05."])}
+''', chapter="04 · Plan de 8 semanas", pid="plan8b")
+
+    page(f'''
+{eyebrow("PLAN DE 8 SEMANAS")}
+<h1 class="h1">Cómo avanzar en <span class="t">cada ejercicio</span></h1>
+<p class="lead">El plan sube las vueltas y baja las pausas. Vos, además, subís de escalón en cada ejercicio cuando te resulta fácil.</p>
+<div class="minplan">
+<div><span>Escalón 1</span><p><b>Variante fácil.</b> La que figura como “Más fácil” en cada ejercicio.</p></div>
+<div><span>Escalón 2</span><p><b>Variante principal.</b> Sin peso o con tu propio cuerpo.</p></div>
+<div><span>Escalón 3</span><p><b>Con peso.</b> Mancuernas, botellas o una mochila con carga.</p></div>
+<div><span>Escalón 4</span><p><b>Más peso o más lento.</b> Sumá carga o bajá en 3 segundos.</p></div>
+</div>
+<h3>Cuándo subir un escalón</h3>
+<p>Cuando completes las 12 repeticiones en todas las vueltas con un esfuerzo de 7 o menos, dos sesiones seguidas. Subí de a un ejercicio por vez.</p>
+<h3>Qué significa “bajando en 3 segundos”</h3>
+<p>En la semana 7, hacé la parte de bajada de cada movimiento contando lento hasta 3 (por ejemplo, al bajar en la sentadilla) y subí a ritmo normal. Con el mismo peso, el ejercicio se vuelve más exigente.</p>
+<h3>Por qué la semana 6 es más liviana</h3>
+<p>Después de tres semanas de subir la exigencia, una semana de descarga ayuda a recuperarte y a llegar con energía a la fase final. No es perder tiempo: es parte del plan.</p>
+{box("<b>Si algo duele</b>, volvé al escalón anterior en ese ejercicio. Molestia muscular al día siguiente es normal; dolor articular o punzante, no: frená y consultá.", "note")}
+''', chapter="04 · Plan de 8 semanas", pid="plan8c")
+
+    # ---------------------------------------------------------- CAP 5 SEMANAS CON POCO TIEMPO
+    page(f'''
+{chap_head("05", 'Semanas con <span class="t">poco tiempo</span>', "Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.")}
+<table class="cal">
+{DAYS_HEAD}
+<tbody>
+{cal_row("2 días", ["1","-","-","2","-","A","D"])}
+{cal_row("3 días", ["1","-","2","-","3","A","D"])}
+</tbody></table>
+{LEGEND}
+<h3>Con 2 días de fuerza</h3>
+<p>Seguí las vueltas, repeticiones y esfuerzo de tu semana del plan, pero alterná las rutinas: R1 y R2 una semana, R3 y R1 la siguiente. El plan te va a llevar más de 8 semanas, y está bien.</p>
+<h2>Tu plan mínimo para semanas difíciles</h2>
+<div class="minplan">
+<div><span>Fuerza</span><p>1 o 2 sesiones express de 15 minutos.</p></div>
+<div><span>Movimiento</span><p>Caminatas de 10 minutos; 3 en el día también suman.</p></div>
+<div><span>Recuperación</span><p>Mismo horario para levantarte y 30 minutos sin pantallas.</p></div>
+<div><span>Registro</span><p>Un tilde por día en la planilla, aunque sea uno solo.</p></div>
+</div>
+<p class="small">Para los días con muy poco tiempo, usá la <a href="#express">sesión express de 15 minutos</a>.</p>
+''', chapter="05 · Semanas con poco tiempo", pid="cap5e", toc="05 · Semanas con poco tiempo")
+
+    EXPRESS = {"Sentadilla en copa", "Flexiones de brazo", "Remo inclinado", "Plancha prona"}
+    exp_cards = [ex_card(e[0], e[1], "40 s", e[3]) for r in RUT.values() for e in r["ex"] if e[1] in EXPRESS]
+    page(f'''
+<h1 class="h1">Sesión express de <span class="t">15 minutos</span></h1>
+{params([("Vueltas","3"),("Trabajo","40 s por ejercicio"),("Pausa","20 s · 1 min entre vueltas"),("Duración","15 min")])}
+<p class="small">Antes, 2 minutos de movilidad de brazos y sentadilla lateral. Usá la variante y el peso de tu semana del plan.</p>
+{"".join(exp_cards)}
+''', chapter="05 · Semanas con poco tiempo", pid="express")
+
+    # ---------------------------------------------------------- CAP 6 REGISTRO
+    def week_table(n):
+        return (f'<h3 class="wk">Semana {n} · del ____ al ____</h3><table class="grid-t wk8">{DAYS_HEAD}'
+                f'<tbody>{blank_week()}</tbody></table>')
+    page(f'''
+{chap_head("06", 'Registro de <span class="t">evolución</span>', "Anotá lo que hacés para ver tu progreso. No es para calificarte: una semana con casilleros vacíos también te da información.")}
+<p>Marcá en cada día la rutina que hiciste (R1, R2 o R3), los minutos de aeróbico y si elongaste. Imprimí estas planillas o usalas de modelo en tu agenda.</p>
+{"".join(week_table(n) for n in range(1, 9))}
+''', chapter="06 · Registro de evolución", pid="registro", toc="06 · Registro de evolución")
+
+    LOADS = ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto a una pierna","Bíceps con peso","Plancha prona (segundos)"]
+    page(f'''
+{eyebrow("REGISTRO DE EVOLUCIÓN")}
+<h1 class="h1">Mis cargas y <span class="t">repeticiones</span></h1>
+<p>Una vez por semana, anotá el peso y las repeticiones de la última vuelta. Por ejemplo: <b>4 kg × 12</b>. Si usaste una variante, agregá F (fácil) o P (principal).</p>
+<table class="grid-t loads"><thead><tr><th>Ejercicio</th>{"".join(f"<th>S{n}</th>" for n in range(1, 9))}</tr></thead>
+<tbody>{"".join(f"<tr><th>{e}</th>" + "<td></td>"*8 + "</tr>" for e in LOADS)}</tbody></table>
+<h3 class="wk">Cómo me sentí</h3>
+<table class="track feel"><thead><tr><th></th>{"".join(f"<th>S{n}</th>" for n in range(1, 9))}</tr></thead>
+<tbody>{"".join(f"<tr><th>{t}</th>" + "<td></td>"*8 + "</tr>" for t in ["Energía general (1 a 5)","Esfuerzo promedio (1 a 10)","Cómo dormí (1 a 5)"])}</tbody></table>
+''', chapter="06 · Registro de evolución", pid="cargas")
+
+    # ---------------------------------------------------------- CAP 7 DESPUÉS DE LAS 8 SEMANAS
+    page(f'''
+{chap_head("07", 'Después de las <span class="t">8 semanas</span>', "Terminar el plan no es el final: es el punto de partida para seguir, ahora con más fuerza y experiencia.")}
+<h2>Tres caminos para seguir</h2>
+<div class="pillars">
+  <div class="pillar"><span class="pn">01</span><h3>Subí la carga</h3><p>Repetí las semanas 7 y 8 con más peso o variantes más exigentes. Repetí la evaluación cada 4 semanas.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Nuevo ciclo</h3><p>Volvé a la semana 1 con el peso que usás hoy. Vas a notar que todo te cuesta menos.</p></div>
+  <div class="pillar"><span class="pn">03</span><h3>Mantené</h3><p>Si tu agenda está cargada, 2 sesiones por semana alcanzan para sostener lo que ganaste.</p></div>
+</div>
+<div class="cols2 keep">
+<div>
+<h3>Cómo retomar</h3>
+{ul(["Volvé en la próxima oportunidad, no “el lunes”.","Empezá con la mitad: 2 vueltas y un escalón menos.","No compenses con ejercicio extra ni comiendo menos."])}
+</div>
+<div>
+<h3>Semanas complicadas o viajes</h3>
+<p>Bajá el plan en lugar de suspenderlo: la sesión express se puede hacer hasta en un hotel.</p>
+<h3>Cuándo pedir ayuda</h3>
+<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
+</div>
+</div>
+{box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus y, si querés un plan a tu medida, el equipo RENOVA te acompaña.", "soft")}
+''', chapter="07 · Después de las 8 semanas", pid="cap7e", toc="07 · Después de las 8 semanas")
+
 # ================================================================== CAP 4 ALIMENTACIÓN
-page(f'''
+if FULL:
+    page(f'''
 {chap_head("04", 'Alimentación <span class="t">práctica</span>', "Comer bien con poco tiempo no depende de recetas complicadas, sino de tener un criterio simple y algunas opciones resueltas.")}
 <div class="plate-wrap">
   <div class="plate" aria-hidden="true">
@@ -414,7 +683,8 @@ page(f'''
 </div>
 ''', chapter="04 · Alimentación práctica", pid="cap4", toc="04 · Alimentación práctica")
 
-page(f'''
+if FULL:
+    page(f'''
 {eyebrow("ALIMENTACIÓN EN LA VIDA REAL")}
 <h1 class="h1">Días de trabajo, comidas afuera y <span class="t">poco tiempo</span></h1>
 <div class="cols2">
@@ -440,7 +710,8 @@ page(f'''
 </div>
 ''', chapter="04 · Alimentación práctica", pid="cap4b")
 
-page(f'''
+if FULL:
+    page(f'''
 {eyebrow("ALIMENTACIÓN EN LA VIDA REAL")}
 <h1 class="h1">Cambios de etapa y un <span class="t">día organizado</span></h1>
 <h3>Perimenopausia, menopausia y metabolismo</h3>
@@ -496,7 +767,8 @@ MENUS = {
 ],
 }
 
-page(f'''
+if FULL:
+    page(f'''
 {chap_head("05", 'Menús <span class="t">semanales</span>', "Tres menús semanales y un menú vegetariano como punto de partida. Usalos tal cual o como ideas para armar tu propia semana.")}
 <h2>Cómo usar los menús</h2>
 {ul(["Elegí un menú por semana y armá tu lista de compras a partir de él (capítulo 7).",
@@ -523,7 +795,7 @@ def mark(t):
             return t + ' <span class="rmark">R</span>'
     return t
 
-for name, rows in MENUS.items():
+for name, rows in (MENUS.items() if FULL else []):
     body = "".join(f'<tr><th>{d}</th>' + "".join(f"<td>{mark(c)}</td>" for c in cs) + "</tr>" for d, *cs in rows)
     page(f'''
 {eyebrow("MENÚS")}
@@ -788,8 +1060,11 @@ def recipe_html(r, n=0):
             f'<div><h5>Preparación</h5><ol class="steps-ol">{pasos}</ol></div></div></article>'
             + f'<div class="keytips"><h5>Consejos clave de preparación</h5><ul>' + "".join(f"<li>{t}</li>" for t in TIPS[r["t"]]) + '</ul></div>')
 
+REC_HEAD = (chap_head("06", 'Recetas <span class="t">fáciles</span>', "Recetas simples para resolver desayunos, meriendas, comidas y postres. La mayoría aparece en los menús del capítulo 5.") if FULL else
+            eyebrow("BONUS 1 · INCLUIDO") + '<h1 class="h1">Recetario <span class="t">fácil</span></h1><p class="lead">' + str(len(R)) + ' recetas simples para resolver desayunos, meriendas, comidas y postres, con ingredientes de cualquier súper.</p>')
+REC_CH = "06 · Recetas" if FULL else "Bonus 1 · Recetario"
 page(f'''
-{chap_head("06", 'Recetas <span class="t">fáciles</span>', "Recetas simples para resolver desayunos, meriendas, comidas y postres. La mayoría aparece en los menús del capítulo 5.")}
+{REC_HEAD}
 <div class="cols2 keep">
 <div>
 <h3>Abreviaturas y medidas</h3>
@@ -802,13 +1077,14 @@ page(f'''
 <ol class="rindex">{"".join(f'<li><a href="#rec{i}">{r["t"]}</a></li>' for i, r in enumerate(R))}</ol>
 </div>
 </div>
-''', chapter="06 · Recetas", pid="cap6", toc="06 · Recetas")
+''', chapter=REC_CH, pid="cap6", toc="06 · Recetas" if FULL else "Bonus 1 · Recetario")
 
 # agrupación de recetas por página (ajustada para que entren sin cortar)
-page("".join(f'<div class="recw" id="rec{i}">{recipe_html(r, i+1)}</div>' for i, r in enumerate(R)), chapter="06 · Recetas", pid="recetas")
+page("".join(f'<div class="recw" id="rec{i}">{recipe_html(r, i+1)}</div>' for i, r in enumerate(R)), chapter=REC_CH, pid="recetas")
 
 # ================================================================== CAP 7 ORGANIZACIÓN Y COMPRAS
-page(f'''
+if FULL:
+    page(f'''
 {chap_head("07", 'Organización y <span class="t">lista de compras</span>', "Un poco de organización al principio de la semana te ahorra decisiones, tiempo y compras de urgencia.")}
 <div class="tiles">
 <div class="tile"><h3>Planificación semanal</h3><p>Elegí el menú un día fijo. Los días más cargados, comidas simples o ya listas.</p></div>
@@ -835,7 +1111,8 @@ SHOP = [
 def shop_block(t, items):
     return f'<div class="shop"><h3>{t}</h3>' + "".join(f'<div class="cb"><span class="sq"></span>{i}</div>' for i in items) + "</div>"
 
-page(f'''
+if FULL:
+    page(f'''
 {eyebrow("LISTA DE COMPRAS IMPRIMIBLE")}
 <h1 class="h1">Lista de <span class="t">compras</span></h1>
 <p>Una base con los alimentos que aparecen en los menús y recetas. Las cantidades dependen del menú elegido y de cuántas personas comen en tu casa: marcá lo que necesitás esta semana.</p>
@@ -846,7 +1123,8 @@ page(f'''
 ''', chapter="07 · Organización y compras", pid="cap7b")
 
 # ================================================================== CAP 8 DESCANSO
-page(f'''
+if FULL:
+    page(f'''
 {chap_head("08", 'Descanso y <span class="t">recuperación</span>', "Dormir bien influye en tu energía, tu humor, tu apetito y en cómo te recuperás del entrenamiento. Estos hábitos ayudan; ninguno es una garantía.")}
 <div class="cols2">
 <div>
@@ -874,7 +1152,8 @@ page(f'''
 </div>
 ''', chapter="08 · Descanso y recuperación", pid="cap8", toc="08 · Descanso y recuperación")
 
-page(f'''
+if FULL:
+    page(f'''
 {eyebrow("DESCANSO")}
 <h1 class="h1">Rutina nocturna y <span class="t">cuándo consultar</span></h1>
 <div class="cols2">
@@ -894,7 +1173,8 @@ page(f'''
 
 # ================================================================== CAP 9 SEGUIMIENTO
 TRACK = ["Sesión de fuerza","Actividad física / aeróbico","Comidas organizadas","Preparación anticipada","Hora de acostarme","Hora de levantarme","Energía percibida (1 a 5)"]
-page(f'''
+if FULL:
+    page(f'''
 {chap_head("09", 'Seguimiento de <span class="t">hábitos</span>', "Una planilla para detectar patrones y tomar mejores decisiones. No es para calificarte: una semana con casilleros vacíos también te da información.")}
 <p class="small">Marcá con un tilde lo que hiciste. Energía: 1 = muy baja, 5 = muy buena.</p>
 <h3 class="wk">Semana del ____ / ____ al ____ / ____</h3>
@@ -907,7 +1187,8 @@ page(f'''
 ''', chapter="09 · Seguimiento de hábitos", pid="cap9", toc="09 · Seguimiento de hábitos")
 
 # ================================================================== CAP 10 SOSTENER
-page(f'''
+if FULL:
+    page(f'''
 {chap_head("10", 'Cómo sostener <span class="t">los resultados</span>', "Ser constante no es no fallar: es volver rápido cuando algo se desordena.")}
 <div class="cols2">
 <div>
@@ -933,7 +1214,32 @@ page(f'''
 ''', chapter="10 · Cómo sostener los resultados", pid="cap10", toc="10 · Cómo sostener los resultados")
 
 # ================================================================== TALLERES
-page(f'''
+TEAM_IMG = ('<img src="' + LINKS["foto_equipo"] + '" alt="Equipo RENOVA">') if LINKS["foto_equipo"] else '<div class="team-ph">FOTO DEL EQUIPO RENOVA</div>'
+TEAM_VIDEO = (('<a class="vbtn-sm" href="' + esc(LINKS["video_talleres"]) + '">' + ICON_PLAY + ' VER VIDEO DE LOS TALLERES</a>') if LINKS["video_talleres"]
+              else ('<span class="vbtn-sm">' + ICON_PLAY + ' VER VIDEO DE LOS TALLERES</span>'))
+if ENT:
+    page(f'''
+{eyebrow("BONUS 2 · INCLUIDO")}
+<h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
+<p class="lead">Con este ebook accedés a dos talleres del equipo RENOVA para sumar herramientas a tu entrenamiento y a tu semana.</p>
+<div class="wgrid">
+  <div class="wcard"><span class="wtag">TALLER INCLUIDO</span><h3>Descanso</h3><p>Estrategias para mejorar tu descanso y tu recuperación entre entrenamientos.</p></div>
+  <div class="wcard"><span class="wtag">TALLER INCLUIDO</span><h3>Organización de alimentos en la heladera</h3><p>Cómo guardar, porcionar y ordenar para tener siempre opciones listas.</p></div>
+</div>
+<p class="small">Además, en RENOVA vas a encontrar más talleres, como <b>Fines de semana</b> y <b>Mindfulness</b>, para seguir avanzando.</p>
+<div class="team">
+  {TEAM_IMG}
+  <div class="team-tx">
+    <span class="wtag">EQUIPO RENOVA</span>
+    <p>Los talleres están a cargo del equipo RENOVA: entrenadores, médico deportólogo, psicólogo y nutricionista. Abordan los hábitos clave que sostienen el cambio en la vida real.</p>
+    {TEAM_VIDEO}
+  </div>
+</div>
+<div class="cta-center">{button("ACCEDER A MIS TALLERES", "talleres", "[INSERTAR LINK REAL DE ACCESO A TALLERES]", big=True)}</div>
+''', chapter="Bonus 2 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 2: Talleres RENOVA")
+
+if FULL:
+    page(f'''
 {eyebrow("TALLERES RENOVA")}
 <h1 class="h1 big">Seguí avanzando <span class="t">con RENOVA</span></h1>
 <p class="lead">Accedé a los talleres para profundizar en entrenamiento, nutrición, descanso y hábitos. Encontrá herramientas prácticas para aplicar lo aprendido a tu vida cotidiana.</p>
@@ -956,7 +1262,7 @@ page(f'''
 
 page(f'''
 <div class="bonus">
-{eyebrow("BONUS EXCLUSIVO")}
+{eyebrow("BONUS EXCLUSIVO" if FULL else "BONUS 3 · INCLUIDO")}
 <h1 class="h1 big">Consulta personalizada <span class="t">con Nacho</span></h1>
 <p class="lead">Como complemento de esta guía, podés acceder a una consulta personalizada con Nacho para conversar sobre tus objetivos, revisar tus principales dificultades y orientar tus próximos pasos.</p>
 <div class="cols2">
@@ -973,7 +1279,7 @@ page(f'''
   {button("RESERVAR MI CONSULTA CON NACHO", "consulta", "[INSERTAR LINK REAL DE RESERVA DE CONSULTA]", big=True)}
 </div>
 </div>
-''', chapter="Bonus", pid="bonus", cls="p-spread", toc="Bonus: consulta con Nacho")
+''', chapter="Bonus" if FULL else "Bonus 3 · Consulta", pid="bonus", cls="p-spread", toc="Bonus: consulta con Nacho" if FULL else "Bonus 3: Consulta con Nacho")
 
 # ================================================================== FUENTES
 
@@ -1005,6 +1311,10 @@ page(f'''
 # ------------------------------------------------------------------ ENSAMBLADO
 CSS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "style.css"), encoding="utf-8").read()
 
+BRAND = "PROGRAMA <b>RENOVA</b>" if FULL else "ENTRENÁ DESDE CASA · <b>RENOVA</b>"
+TITLE = "Programa RENOVA · Guía práctica" if FULL else "Entrená desde casa · RENOVA"
+OUT_HTML = "ebook.html" if FULL else "entrena.html"
+
 def render():
     num = {p["id"]: i + 1 for i, p in enumerate(PAGES)}
     toc_html = '<div class="tocl">' + "".join(
@@ -1017,14 +1327,14 @@ def render():
             body = f'{eyebrow("CONTENIDO")}<h1 class="h1">Índice</h1>{toc_html}'
         hdr = ""
         if p["header"]:
-            hdr = (f'<div class="hdr"><span>PROGRAMA <b>RENOVA</b></span><span>{esc(p["chapter"])}</span></div>'
+            hdr = (f'<div class="hdr"><span>{BRAND}</span><span>{esc(p["chapter"])}</span></div>'
                    f'<div class="ftr"><a href="#indice">Índice</a><span class="pgnum"></span></div>')
         out.append(f'<section class="page {p["cls"]}" id="{p["id"]}">{hdr}<div class="body">{body}</div></section>')
-    return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Programa RENOVA · Guía práctica</title>'
+    return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>' + TITLE + '</title>'
             f'<style>{CSS}</style></head><body>' + "".join(out) + '<script src="paginate.js"></script></body></html>')
 
 if __name__ == "__main__":
     here = os.path.dirname(os.path.abspath(__file__))
-    with open(os.path.join(here, "ebook.html"), "w", encoding="utf-8") as f:
+    with open(os.path.join(here, OUT_HTML), "w", encoding="utf-8") as f:
         f.write(render())
-    print(len(PAGES), "páginas")
+    print(OUT_HTML, "·", len(PAGES), "páginas antes de paginar")
