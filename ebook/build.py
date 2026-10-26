@@ -20,6 +20,9 @@ NE = "02" if FULL else "04"   # número del capítulo de entrenamiento en cada e
 
 LINKS = {
     "talleres": "https://www.nachoportillo.com/",   # reemplazar por el link directo a los talleres
+    "taller_heladera": "https://youtu.be/bLRL_0--zwU",   # taller incluido: Organizar la heladera
+    "taller_ansiedad": "https://youtu.be/t6jTfVukNa4",   # taller incluido: Gestión de la ansiedad
+    "talleres_todos": "https://www.nachoportillo.com/",  # "consultá": resto de los talleres (reemplazar por WhatsApp o página)
     "consulta": "https://www.nachoportillo.com/",   # reemplazar por el link directo de reserva
     "renova": "https://www.nachoportillo.com/",
     "video_talleres": "",     # link del video de presentación de los talleres
@@ -134,7 +137,7 @@ if ENT:
   <div class="pillar"><span class="pn">02</span><h3>Rutinas con video</h3><p>Tres rutinas en bloques y una extra de zona media.</p></div>
   <div class="pillar"><span class="pn">03</span><h3>Seguimiento</h3><p>Evaluación inicial y registro de cargas.</p></div>
 </div>
-{box("<b>Bonus incluidos:</b> recetario con 23 recetas, dos talleres (Descanso y Organización de la heladera) y una consulta con Nacho.", "soft")}
+{box("<b>Bonus incluidos:</b> recetario con 23 recetas, dos talleres (Organizar la heladera y Gestión de la ansiedad) y una consulta con Nacho.", "soft")}
 <div class="firstweek">
   <h2>Tu primera semana</h2>
   <div class="fw">
@@ -197,7 +200,7 @@ page(f'''
 <h3>Testimonios en video</h3>
 <div class="res3">
   <a class="vc" href="https://drive.google.com/file/d/148OfnqomkPfmFo5MJvyK83iUPBGzrpzh/view?usp=drive_link"><div class="vc-img"><span class="play">{ICON_PLAY}</span><span class="vc-n">Mari</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn">{ICON_PLAY} TOCÁ PARA VER</span></a>
-  <a class="vc" href="https://drive.google.com/file/d/1GW01RADaj9Btfstkefd4ynRJqBtf-HTD/view?usp=drive_link"><div class="vc-img"><span class="play">{ICON_PLAY}</span><span class="vc-n">Marina</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn">{ICON_PLAY} TOCÁ PARA VER</span></a>
+  <a class="vc" href="https://youtu.be/KfI35eFGagY"><div class="vc-img"><span class="play">{ICON_PLAY}</span><span class="vc-n">Marina</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn">{ICON_PLAY} TOCÁ PARA VER</span></a>
   <a class="vc" href="https://drive.google.com/file/d/1pLl70FqmtkZ4GdpvcbpxJJ1E0wXcHBv6/view?usp=drive_link"><div class="vc-img"><span class="play">{ICON_PLAY}</span><span class="vc-n">Sussy</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn">{ICON_PLAY} TOCÁ PARA VER</span></a>
 </div>
 ''', chapter="Bienvenida", pid="testimonios", toc="Resultados reales")
@@ -1392,6 +1395,16 @@ if FULL:
 ''', chapter="10 · Cómo sostener los resultados", pid="cap10", toc="10 · Cómo sostener los resultados")
 
 # ================================================================== TALLERES
+ICON_LOCK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>'
+
+def taller_card(img, tag, title, text, cta, key, icon, locked=False):
+    url = LINKS.get(key, "")
+    btn = (f'<a class="btn tbtn" href="{esc(url)}">{icon} {cta}</a>' if url
+           else f'<span class="btn tbtn">{icon} {cta}</span>')
+    lock = f'<span class="tlock">{ICON_LOCK}</span>' if locked else ""
+    return (f'<div class="tcard{" locked" if locked else ""}"><div class="tim"><img src="img/{img}" alt="">{lock}</div>'
+            f'<div class="ttx"><span class="wtag">{tag}</span><h3>{title}</h3><p>{text}</p>{btn}</div></div>')
+
 TEAM_IMG = ('<img src="' + LINKS["foto_equipo"] + '" alt="Equipo RENOVA">') if LINKS["foto_equipo"] else '<div class="team-ph">FOTO DEL EQUIPO RENOVA</div>'
 TEAM_VIDEO = (('<a class="vbtn-sm" href="' + esc(LINKS["video_talleres"]) + '">' + ICON_PLAY + ' VER VIDEO DE LOS TALLERES</a>') if LINKS["video_talleres"]
               else ('<span class="vbtn-sm">' + ICON_PLAY + ' VER VIDEO DE LOS TALLERES</span>'))
@@ -1399,21 +1412,10 @@ if ENT:
     page(f'''
 {eyebrow("BONUS 2 · INCLUIDO")}
 <h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
-<p class="lead">Con este ebook accedés a dos talleres del equipo RENOVA para sumar herramientas a tu entrenamiento y a tu semana.</p>
-<div class="wgrid">
-  <div class="wcard"><span class="wtag">TALLER INCLUIDO</span><h3>Descanso</h3><p>Estrategias para mejorar tu descanso y tu recuperación entre entrenamientos.</p></div>
-  <div class="wcard"><span class="wtag">TALLER INCLUIDO</span><h3>Organización de alimentos en la heladera</h3><p>Cómo guardar, porcionar y ordenar para tener siempre opciones listas.</p></div>
-</div>
-<p class="small">Además, en RENOVA vas a encontrar más talleres, como <b>Fines de semana</b> y <b>Mindfulness</b>, para seguir avanzando.</p>
-<div class="team">
-  {TEAM_IMG}
-  <div class="team-tx">
-    <span class="wtag">EQUIPO RENOVA</span>
-    <p>Los talleres están a cargo del equipo RENOVA: entrenadores, médico deportólogo, psicólogo y nutricionista. Abordan los hábitos clave que sostienen el cambio en la vida real.</p>
-    {TEAM_VIDEO}
-  </div>
-</div>
-<div class="cta-center">{button("ACCEDER A MIS TALLERES", "talleres", "[INSERTAR LINK REAL DE ACCESO A TALLERES]", big=True)}</div>
+<p class="lead">Con este ebook accedés a dos talleres del equipo RENOVA. Tocá el botón de cada uno para verlo.</p>
+{taller_card("taller_heladera.png", "TALLER INCLUIDO", "Organizar la heladera", "Cómo guardar, porcionar y ordenar para tener siempre opciones listas y sanas a mano.", "VER TALLER", "taller_heladera", ICON_PLAY)}
+{taller_card("taller_ansiedad.png", "TALLER INCLUIDO", "Gestión de la ansiedad", "Herramientas para reconocer la ansiedad y manejarla en el día a día, sin que maneje tus comidas.", "VER TALLER", "taller_ansiedad", ICON_PLAY)}
+{taller_card("taller_mas.png", "MÁS TALLERES RENOVA", "Hábitos, meditación, estrategias de nutrición y mucho más", "Consultá para ver todos los talleres del equipo RENOVA: entrenadores, médico deportólogo, psicólogo y nutricionista.", "CONSULTAR", "talleres_todos", ICON_ARROW, locked=True)}
 ''', chapter="Bonus 2 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 2: Talleres RENOVA")
 
 if FULL:

@@ -749,3 +749,16 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .meas{grid-template-columns:58mm 1fr}
 .meas .steps-ol{font-size:13.8pt;line-height:1.42}
 .meas .steps-ol li{margin-bottom:1.6mm}
+/* talleres (Ebook 1) */
+.tcard{display:grid;grid-template-columns:62mm 1fr;gap:5mm;align-items:center;border:.4mm solid var(--tq-b);border-radius:4mm;padding:3.5mm;margin-bottom:4mm}
+.tim{position:relative;width:62mm;height:46mm;border-radius:3mm;overflow:hidden;background:var(--bg2)}
+.tim img{width:100%;height:100%;object-fit:cover;display:block}
+.tcard.locked{background:var(--bg2)}
+.tcard.locked .tim img{filter:grayscale(1) blur(1.2px);opacity:.55}
+.tlock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.tlock .ic{width:20mm;height:20mm;padding:4.5mm;border-radius:50%;background:var(--ink);color:#fff;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ttx h3{margin:1.2mm 0 1.4mm;font-size:16pt;line-height:1.2}
+.ttx p{font-size:13pt;line-height:1.4;color:var(--txt);margin:0 0 3mm}
+.ttx .wtag{font-size:9pt}
+.btn.tbtn{font-size:11pt;padding:2.4mm 5mm}
+.btn.tbtn .ic{width:4mm;height:4mm}

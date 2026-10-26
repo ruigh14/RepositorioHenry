@@ -7,7 +7,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 
 - `ebook/`: los ebooks RENOVA, generados desde un mismo `build.py` en dos ediciones:
   - **Ebook 1 · "Entrená desde casa"** (producto de entrada): plan de fuerza de 8 semanas + bonus
-    (recetario, 2 talleres: Descanso y Heladera, consulta con Nacho). → `entrena.html`, `Ebook_Entrena_desde_casa_RENOVA.pdf`.
+    (recetario, 2 talleres: Organizar la heladera y Gestión de la ansiedad, consulta con Nacho). → `entrena.html`, `Ebook_Entrena_desde_casa_RENOVA.pdf`.
   - **Programa RENOVA completo** (entrenamiento + alimentación + descanso): base para los ebooks de upsell.
     → `ebook.html`, `Ebook_Programa_RENOVA.pdf`.
   - `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio).
