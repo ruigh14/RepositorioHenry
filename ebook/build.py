@@ -367,11 +367,11 @@ VIDEOS = {
  "Plancha alta dinámica": "https://youtu.be/LiKEC5Cbxrs",
  "Remo inclinado": "https://youtu.be/6a1emLHfGYg",
  # rutina 3
- "Estocada cruzada": "https://youtu.be/5yYgxASNwZ8",          # catálogo Harbiz ("Zancada cruzada alterna sin peso")
+ "Estocada cruzada": "https://www.youtube.com/watch?v=CZA0mGgCZ4c",   # video del plan de Nacho en Canva
  "Plancha lateral dinámica": "https://www.youtube.com/watch?v=WtRo2-kOJ7A",
  "Sentadilla sumo": "https://youtu.be/Ro3dhcOXiYw",
- "Elevaciones de pierna": "https://www.youtube.com/watch?v=ozyvbTK9E5U",   # catálogo Harbiz
- "Peso muerto con mancuernas": "https://youtu.be/W5FS9E0Lib4",   # catálogo Harbiz
+ "Abdominales tijera": "https://youtu.be/Wxfb7e4e1tk",
+ "Peso muerto con mancuernas": "https://youtu.be/MeXBpLzezlw",   # video propio "Peso muerto con barra": misma técnica
  # entradas en calor de las rutinas 2 y 3
  "Gato-vaca": "https://youtu.be/rEosL__rD5k",
  "Apertura de tren superior": "https://youtu.be/S9S-1-3E4rE",
@@ -410,7 +410,7 @@ EASY_VIDEO = {
  "Estocada split": "https://www.youtube.com/watch?v=E3T7W-n8PRg",
  "Flexiones de brazo": "https://youtu.be/mBv-_kaIzME",
  "Puente a una pierna": "https://youtu.be/YopfscyxtK0",
- "Fondo en banco": "https://youtu.be/18aJcFlgk6A",
+ "Fondo en banco": "https://www.youtube.com/shorts/nxo0LnzJNi0",
  "Jumping jack": "https://youtu.be/x5MT-e2LWs8",
  "Plancha prona": "https://www.youtube.com/watch?v=qVnZtJGK4zY",
  "Crunch abdominal": "https://youtu.be/kgG0lb4XfMQ",
@@ -425,7 +425,7 @@ EASY_VIDEO = {
  "Estocada cruzada": "https://youtu.be/s7ewEzHwXgQ",
  "Plancha lateral dinámica": "https://youtu.be/bxQgU1eK4dc",
  "Sentadilla sumo": "https://www.youtube.com/watch?v=GAppZ0-rdYE",
- "Elevaciones de pierna": "https://youtu.be/kgG0lb4XfMQ",
+ "Abdominales tijera": "https://youtu.be/kgG0lb4XfMQ",
  "Peso muerto con mancuernas": "https://youtu.be/tuwL8r6nCCo",
  "Bíceps con peso": "https://youtu.be/5dFutcWE3AA",
  "Plancha oso": "https://youtu.be/kyNrWqz1iqs",
@@ -528,11 +528,11 @@ RUT = {
  ("r2_7.png","Plancha alta dinámica","15–20 s","Desde plancha alta, tocá el hombro contrario con una mano y alterná, sin rotar la cadera.","plancha alta quieta, sin tocar los hombros."),
  ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre un banco o silla. Con la espalda recta, tirá del peso hacia la cadera y bajá lento.","nados: boca abajo, elevá brazos y pecho, sin peso."),
 ]),
-"3": dict(title="Rutina 3", note="Elevaciones de pierna y plancha oso: 15–20 s.", ex=[
+"3": dict(title="Rutina 3", note="Abdominales tijera y plancha oso: 15–20 s.", ex=[
  ("r3_1.png","Estocada cruzada","10–12 por pierna","Llevá una pierna en diagonal hacia atrás, por detrás de la otra, y bajá con el tronco erguido. Volvé al centro.","estocada split, sin cruzar la pierna."),
  ("r3_2.png","Plancha lateral dinámica","10–12 por lado","Apoyada sobre un antebrazo, con el cuerpo de costado, bajá la cadera hacia el piso y subila apretando el lateral del abdomen.","plancha lateral quieta, con las rodillas apoyadas."),
  ("r3_3.png","Sentadilla sumo","10–12","Pies bien separados y puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí apretando glúteos.","sin peso y con menos profundidad."),
- ("r3_4.png","Elevaciones de pierna","15–20 s","Boca arriba, con la zona lumbar apoyada, subí y bajá las piernas de forma controlada.","bicho muerto, moviendo solo las piernas."),
+ ("r3_4.png","Abdominales tijera","15–20 s","Boca arriba, con las manos debajo de los glúteos y las piernas estiradas a unos 15 cm del piso. Cruzá los pies en movimientos cortos, con la zona lumbar pegada al piso.","bicho muerto, moviendo solo las piernas."),
  ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y una mancuerna en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas por delante de las piernas y volvé apretando los glúteos.","con un palo de escoba, sin peso, para aprender el movimiento."),
  ("r3_6.png","Bíceps con peso","10–12","De pie, codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","con botellas de agua."),
  ("r3_7.png","Plancha oso","15–20 s","En cuatro apoyos, elevá las rodillas unos centímetros del piso y sostené con la espalda plana.","bird dog: en cuatro apoyos, sin despegar las rodillas."),
