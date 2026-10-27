@@ -110,7 +110,7 @@ if ENT:
     <div><b>4</b><span>semanas</span><p>Más fuerza</p></div>
     <div class="on"><b>8</b><span>semanas</span><p>Resultados visibles y el hábito logrado</p></div>
   </div>
-  <p class="c2-desc">{G("Sesiones de 20 a 40 minutos", "Sesiones de 45 a 60 minutos, desde cero,")} para mujeres con poco tiempo. Bonus: recetario, dos talleres y 50% off en tu plan personalizado.</p>
+  <p class="c2-desc">{G("Sesiones de 20 a 40 minutos", "Sesiones de 45 a 60 minutos, desde cero,")} para mujeres con poco tiempo. Bonus: dos talleres, recetario y 50% off en tu plan personalizado.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
       <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
@@ -150,7 +150,7 @@ if ENT:
   <div class="pillar"><span class="pn">02</span><h3>Rutinas detalladas</h3><p>Con videos e imágenes de referencia.</p></div>
   <div class="pillar"><span class="pn">03</span><h3>Evaluación</h3><p>Formas simples de medir tu progreso.</p></div>
 </div>
-{box("<b>Bonus incluidos:</b> recetario con 23 recetas, dos talleres (Organizar la heladera y Gestión de la ansiedad) y 50% de descuento en tu plan personalizado.", "soft")}
+{box("<b>Bonus incluidos:</b> dos talleres (Organizar la heladera y Gestión de la ansiedad), recetario con 23 recetas y 50% de descuento en tu plan personalizado.", "soft")}
 <div class="firstweek">
   <h2>Tu primera semana</h2>
   <div class="fw">
@@ -774,8 +774,8 @@ def plan8_table(rows):
     def card(w, f, r, v, rp, pa, e, a):
         items = [("Fuerza", r), ("Vueltas por bloque", v), ("Repeticiones · planchas", rp),
                  ("Pausa", pa), ("Esfuerzo (1–10)", e), ("Aeróbico", a)]
-        return (f'<div class="wk8{" dl" if f == "Descarga" else ""}"><div class="wk8h"><small>SEMANA</small><b>{w}</b><span>{f}</span></div>'
-                f'<div class="wk8g">' + "".join(f'<div><span>{k}</span><b>{x}</b></div>' for k, x in items) + '</div></div>')
+        return (f'<div class="p8c{" dl" if f == "Descarga" else ""}"><div class="p8ch"><small>SEMANA</small><b>{w}</b><span>{f}</span></div>'
+                f'<div class="p8cg">' + "".join(f'<div><span>{k}</span><b>{x}</b></div>' for k, x in items) + '</div></div>')
     return "".join(card(*row) for row in rows)
 DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>"
 
@@ -1397,8 +1397,8 @@ def recipe_html(r, n=0):
             + f'<div class="keytips"><h5>Consejos clave de preparación</h5><ul>' + "".join(f"<li>{t}</li>" for t in TIPS[r["t"]]) + '</ul></div>')
 
 REC_HEAD = (chap_head("06", 'Recetas <span class="t">fáciles</span>', "Recetas simples para resolver desayunos, meriendas, comidas y postres. La mayoría aparece en los menús del capítulo 5.") if FULL else
-            eyebrow("BONUS 1 · INCLUIDO") + '<h1 class="h1">Recetario <span class="t">fácil</span></h1><p class="lead">' + str(len(R)) + ' recetas simples para resolver desayunos, meriendas, comidas y postres, con ingredientes de cualquier súper.</p>')
-REC_CH = "06 · Recetas" if FULL else "Bonus 1 · Recetario"
+            eyebrow("BONUS 2 · INCLUIDO") + '<h1 class="h1">Recetario <span class="t">fácil</span></h1><p class="lead">' + str(len(R)) + ' recetas simples para resolver desayunos, meriendas, comidas y postres, con ingredientes de cualquier súper.</p>')
+REC_CH = "06 · Recetas" if FULL else "Bonus 2 · Recetario"
 if ENT:   # carátula que separa el entrenamiento de los bonus
     page(f'''
 <div class="divider">
@@ -1409,13 +1409,31 @@ if ENT:   # carátula que separa el entrenamiento de los bonus
   <div class="dv-bar"></div>
   <p class="dv-desc">Herramientas para acompañar tu plan fuera del entrenamiento.</p>
   <div class="dv-list">
-    <a href="#cap6"><span>1</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>
-    <a href="#talleres"><span>2</span><b>Dos talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
+    <a href="#talleres"><span>1</span><b>Dos talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
+    <a href="#cap6"><span>2</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>
     <a href="{esc(LINKS["wa_nutricion"])}"><span>3</span><b>Consulta con Nacho</b><em>WhatsApp</em></a>
   </div>
   <a class="btn btn-big dv-btn" href="{esc(LINKS["wa_nutricion"])}">CONSULTÁ POR PLANES NUTRICIONALES A MEDIDA {ICON_ARROW}</a>
 </div>
 ''', pid="bonus-portada", cls="p-cover", header=False)
+
+# talleres primero (acceso a Skool), después el recetario
+if ENT:
+    page(f'''
+{eyebrow("BONUS 1 · INCLUIDO")}
+<h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
+<p class="lead">Los talleres se ven en la plataforma de RENOVA, en Skool. Ahí tenés estos dos y todos los talleres del equipo.</p>
+<div class="tk2">
+  <div><img src="img/taller_heladera.png" alt=""><span class="wtag">INCLUIDO</span><h3>Organizar la heladera</h3><p>Guardar, porcionar y ordenar para tener siempre opciones sanas a mano.</p></div>
+  <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
+</div>
+<a class="skool" href="{esc(LINKS["talleres"])}">
+  <img src="img/equipo_cover.jpg" alt="Equipo RENOVA">
+  <div class="skx"><span class="wtag">PLATAFORMA RENOVA · SKOOL</span><h3>Entrá y mirá todos los talleres</h3>
+  <p>Tocá el botón: se abre la plataforma de RENOVA en Skool, con todos los talleres del equipo.</p>
+  <span class="btn btn-big">{ICON_ARROW} IR A LOS TALLERES</span></div>
+</a>
+''', chapter="Bonus 1 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 1: Talleres RENOVA")
 
 page(f'''
 {REC_HEAD}
@@ -1431,7 +1449,7 @@ page(f'''
 <ol class="rindex">{"".join(f'<li><a href="#rec{i}">{r["t"]}</a></li>' for i, r in enumerate(R))}</ol>
 </div>
 </div>
-''', chapter=REC_CH, pid="cap6", toc="06 · Recetas" if FULL else "Bonus 1 · Recetario")
+''', chapter=REC_CH, pid="cap6", toc="06 · Recetas" if FULL else "Bonus 2: Recetario")
 
 # agrupación de recetas por página (ajustada para que entren sin cortar)
 page("".join(f'<div class="recw" id="rec{i}">{recipe_html(r, i+1)}</div>' for i, r in enumerate(R)), chapter=REC_CH, pid="recetas")
@@ -1581,22 +1599,6 @@ def taller_card(img, tag, title, text, cta, key, icon, locked=False):
 TEAM_IMG = ('<img src="' + LINKS["foto_equipo"] + '" alt="Equipo RENOVA">') if LINKS["foto_equipo"] else '<div class="team-ph">FOTO DEL EQUIPO RENOVA</div>'
 TEAM_VIDEO = (('<a class="vbtn-sm" href="' + esc(LINKS["video_talleres"]) + '">' + ICON_PLAY + ' VER VIDEO DE LOS TALLERES</a>') if LINKS["video_talleres"]
               else ('<span class="vbtn-sm">' + ICON_PLAY + ' VER VIDEO DE LOS TALLERES</span>'))
-if ENT:
-    page(f'''
-{eyebrow("BONUS 2 · INCLUIDO")}
-<h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
-<p class="lead">Los talleres se ven en la plataforma de RENOVA, en Skool. Ahí tenés estos dos y todos los talleres del equipo.</p>
-<div class="tk2">
-  <div><img src="img/taller_heladera.png" alt=""><span class="wtag">INCLUIDO</span><h3>Organizar la heladera</h3><p>Guardar, porcionar y ordenar para tener siempre opciones sanas a mano.</p></div>
-  <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
-</div>
-<a class="skool" href="{esc(LINKS["talleres"])}">
-  <img src="img/equipo_cover.jpg" alt="Equipo RENOVA">
-  <div class="skx"><span class="wtag">PLATAFORMA RENOVA · SKOOL</span><h3>Entrá y mirá todos los talleres</h3>
-  <p>Tocá el botón: se abre la plataforma de RENOVA en Skool, con todos los talleres del equipo.</p>
-  <span class="btn btn-big">{ICON_ARROW} IR A LOS TALLERES</span></div>
-</a>
-''', chapter="Bonus 2 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 2: Talleres RENOVA")
 
 if FULL:
     page(f'''
