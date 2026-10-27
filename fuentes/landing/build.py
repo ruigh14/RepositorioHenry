@@ -1,12 +1,12 @@
-"""Genera la landing para pegar en Impultienda (HTML propio) de cada producto.
+"""Genera la landing de la tienda (renova.impultienda.ar), donde se venden los dos ebooks.
 
 - Encierra todo en <div id="rnv"> y antepone #rnv a cada selector, para que el CSS
   de la tienda no pise la landing ni la landing pise la tienda.
 - Mueve el <style> dentro del <body> (por si la tienda descarta el <head>).
 - Cambia img/... por la URL pública de GitHub (fijada al último commit de img/), así las imágenes cargan desde cualquier lado.
 
-Uso:  cd fuentes/landing && python3 build.py            casa.html     → entrena-desde-casa/landing-impultienda.html
-      cd fuentes/landing && python3 build.py gimnasio   gimnasio.html → entrena-en-el-gimnasio/landing-impultienda.html
+Uso:  cd fuentes/landing && python3 build.py      tienda.html → tienda/landing-impultienda.html
+Se pega en Impultienda: Diseño de tienda → HTML propio.
 """
 import re
 import subprocess
@@ -80,8 +80,7 @@ def scope(css):
     return out
 
 
-SRC, OUT = (("gimnasio.html", "entrena-en-el-gimnasio") if sys.argv[1:] == ["gimnasio"] else ("casa.html", "entrena-desde-casa"))
-OUT = Path(OUT) / "landing-impultienda.html"
+SRC, OUT = "tienda.html", Path("tienda") / "landing-impultienda.html"
 src = (HERE / SRC).read_text()
 css = re.search(r"<style>(.*?)</style>", src, re.S).group(1)
 css = ds_css(str(HERE), fuentes=False) + css

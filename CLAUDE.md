@@ -5,27 +5,27 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 
 ## Estructura
 
-Cada producto tiene su carpeta con lo que se entrega (PDF y landing). El código que los genera está en `fuentes/` y es uno solo para todos: no duplicarlo por producto.
+Hay **una sola landing**, la de la tienda (renova.impultienda.ar), donde se venden los **dos ebooks** (casa + gimnasio en una misma compra). Cada ebook tiene su carpeta. El código que los genera está en `fuentes/` y es uno solo para todos: no duplicarlo por producto.
 
 ```
-entrena-desde-casa/          Ebook 1 (producto de entrada)
+tienda/
+  landing-impultienda.html   → la landing de renova.impultienda.ar (se pega en Diseño de tienda → HTML propio)
+entrena-desde-casa/          Ebook 1
   Ebook_Entrena_desde_casa_RENOVA.pdf
-  landing-impultienda.html   → se pega en Impultienda (HTML propio)
-entrena-en-el-gimnasio/      Misma lógica, rutinas de gimnasio nivel inicial
+entrena-en-el-gimnasio/      Ebook 2: misma lógica, rutinas de gimnasio nivel inicial
   Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
-  landing-impultienda.html
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
   Ebook_Programa_RENOVA.pdf
 investigacion/               material de referencia (VSL del competidor, etc.)
 fuentes/
   design-system/             tokens, tipografías, componentes y plantillas de creativos (ver su README.md)
   ebook/                     genera los 3 PDF
-  landing/                   genera las 2 landings
+  landing/                   genera la landing de la tienda
 ```
 
-Cada producto que se vende tiene además `creativos/` (imágenes, carrusel y videos para Instagram y Facebook), generados desde `fuentes/design-system/creativos/`.
+Cada ebook tiene además `creativos/` (imágenes, carrusel y videos para Instagram y Facebook), generados desde `fuentes/design-system/creativos/`.
 
-**No editar a mano** los PDF ni las `landing-impultienda.html`: se regeneran desde `fuentes/`.
+**No editar a mano** los PDF ni `tienda/landing-impultienda.html`: se regeneran desde `fuentes/`.
 
 ### `fuentes/design-system/`
 Una sola marca para todo: **los colores son los del ebook** y landings, creativos y videos usan exactamente esa paleta (nada de colores sueltos: si hace falta uno, se agrega como token). `tokens.css` es la fuente única; el ebook y las landings usan alias que apuntan a los tokens. `design_system.py` tiene `css()`, los íconos, los componentes del ebook y las reglas de venta (`DESCARGO`, `GARANTIA = None` hasta que Nacho la defina). `creativos/datos.py` tiene los textos de los creativos de cada producto. Todo está explicado en `fuentes/design-system/README.md`; la muestra visual es `muestra.pdf`.
@@ -39,7 +39,7 @@ Una sola marca para todo: **los colores son los del ebook** y landings, creativo
 - Talleres: están en Skool (https://www.skool.com/renova-entrenamiento-y-salud-1617/about); el bonus de talleres de los ebooks tiene un botón grande que lleva ahí. No hay ebook de talleres ni página de upsell.
 
 ### `fuentes/landing/`
-- `casa.html` y `gimnasio.html`: fuente de cada landing. `build.py` encierra el CSS en `#rnv` (para que no choque con la tienda) y cambia `img/...` por links de GitHub a `fuentes/landing/img/`, fijados al último commit de esa carpeta: **commitear y pushear las imágenes nuevas antes de regenerar**.
+- `tienda.html`: fuente de la única landing (vende los 2 ebooks juntos, con un solo `/checkout`; el producto de Impultienda tiene que entregar los 2 PDF). `build.py` encierra el CSS en `#rnv` (para que no choque con la tienda) y cambia `img/...` por links de GitHub a `fuentes/landing/img/`, fijados al último commit de esa carpeta: **commitear y pushear las imágenes nuevas antes de regenerar**.
 - Impultienda: compra con `<a href="/checkout">`, precios con `{{price}}`, `{{original_price}}`, `{{savings}}` y upsell 1 con `{{upsell_1_*}}` + `data-upsell-toggle="1"`.
 
 ## Regenerar
@@ -48,7 +48,7 @@ Una sola marca para todo: **los colores son los del ebook** y landings, creativo
 cd fuentes/ebook && python3 build.py entrena && node export.js entrena     # Entrená desde casa
 cd fuentes/ebook && python3 build.py gimnasio && node export.js gimnasio   # Entrená en el gimnasio
 cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
-cd fuentes/landing && python3 build.py && python3 build.py gimnasio        # las 2 landings
+cd fuentes/landing && python3 build.py                                     # la landing de la tienda
 cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
 cd fuentes/design-system && python3 muestra.py && node muestra.js           # muestra.pdf del design system
 ```
@@ -78,7 +78,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 ## Pendientes
 
 - Ebook gimnasio: que Nacho revise las rutinas y diga si cambia algún ejercicio.
-- Landings (casa y gimnasio): pegarlas en Impultienda y revisar que reemplace precios y que el upsell sume al carrito.
+- Landing de la tienda: pegarla en Impultienda, revisar que reemplace precios y que el upsell sume al carrito, y cargar los 2 PDF en el producto (casa + gimnasio). Si Nacho prefiere vender el de gimnasio como upsell, cambiar en `tienda.html`.
 - Garantía: Nacho tiene que definir si hay (y cuál). Cuando la defina, completar `GARANTIA` en `fuentes/design-system/design_system.py` y sumarla a la landing.
 - Creativos: que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.
 - Actualizar el perfil de la skill carrusel-studio (dice "rojo vino + azul oscuro") a la paleta turquesa del ebook.

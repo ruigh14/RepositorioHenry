@@ -19,7 +19,7 @@ fuentes/design-system/
 
 Quién lo usa:
 - **Ebooks:** `fuentes/ebook/build.py` carga `css()` y los componentes. En `style.css`, los alias cortos (`--tq`, `--ink`, …) apuntan a los tokens.
-- **Landings:** `fuentes/landing/build.py` suma los tokens al CSS de cada landing. Sus alias (`--br`, `--grad`, …) apuntan a los tokens.
+- **Landing de la tienda:** `fuentes/landing/build.py` suma los tokens al CSS de `tienda.html`. Sus alias (`--br`, `--grad`, …) apuntan a los tokens.
 - **Creativos:** `creativos/creativos.css` usa solo tokens.
 
 Si cambiás un token, cambia en todo. Después regenerá lo que corresponda (ver CLAUDE.md).
@@ -108,7 +108,7 @@ Salida, en la carpeta de cada producto (`entrena-desde-casa/creativos/`, `entren
 ## Cómo hacer algo nuevo
 
 - **Ebook nuevo:** agregá una edición en `fuentes/ebook/build.py` (como `gimnasio`, con `G(casa, gym)` para los textos que cambian) y su salida en `export.js`.
-- **Landing nueva:** copiá `fuentes/landing/casa.html`, cambiá textos e imágenes y sumala en `fuentes/landing/build.py`.
+- **Landing:** hay una sola, `fuentes/landing/tienda.html`, que vende los dos ebooks. Si se suma un ebook, va como sección y tarjeta nueva en esa misma landing.
 - **Creativos de un producto nuevo:** agregá un bloque en `creativos/datos.py`.
 
 ## Decisiones tomadas al unificar
@@ -119,6 +119,6 @@ Salida, en la carpeta de cada producto (`entrena-desde-casa/creativos/`, `entren
 | La landing usaba otros negros y grises (`#111`, `#3A3F44`, `#62696F`, `#111418`) | `#141414`, `#2A2F33`, `#555C62` del ebook |
 | Tildes verdes y sello dorado en la landing | Turquesa del ebook |
 | Las tipografías estaban dentro de `fuentes/ebook/` | `fuentes/design-system/fonts/`, compartidas |
-| Los colores estaban repetidos en `style.css`, `casa.html` y `gimnasio.html` | Un solo `tokens.css`; los demás usan alias |
+| Los colores estaban repetidos en `style.css` y en el HTML de cada landing | Un solo `tokens.css`; los demás usan alias |
 
 El perfil de carruseles de la skill *carrusel-studio* habla de "rojo vino + azul oscuro". **En este proyecto de venta manda la paleta turquesa del ebook.** Conviene actualizar ese perfil para que no aparezcan dos estilos distintos.

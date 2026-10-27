@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Entrená desde Casa | Método RENOVA</title>
-<meta name="description" content="Plan de fuerza de 8 semanas para mujeres de 40+ con poco tiempo. Sesiones de 20 a 40 minutos en casa, con video de cada ejercicio."/>
+<title>Entrená en casa o en el gimnasio | Método RENOVA</title>
+<meta name="description" content="Dos planes de fuerza de 8 semanas para mujeres de 40+ con poco tiempo: uno para entrenar en casa y otro para el gimnasio, con video de cada ejercicio."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -350,6 +350,16 @@ html{scroll-behavior:smooth}
 #rnv .tot{display:flex;justify-content:space-between;align-items:center;background:var(--gray);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-weight:800;color:var(--ink)}
 #rnv .tot b{font-family:"Inter Tight",Inter,sans-serif;font-size:22px}
 #rnv .pill-ey{display:inline-block;background:#fff;color:var(--br2);border:1px solid rgba(20,177,199,.35);border-radius:999px;padding:9px 18px;font-weight:800;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 22px rgba(0,0,0,.12);margin-bottom:18px}
+#rnv .dos{display:inline-block;margin:0 0 20px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:7px 16px;font-size:15px;font-weight:600}
+#rnv .dos b{font-weight:800}
+#rnv .planes{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:960px;margin:0 auto}
+#rnv .plan{position:relative;background:#fff;border-radius:18px;box-shadow:var(--sh2);padding:28px 26px 26px;border-top:5px solid var(--br);transition:transform .25s,box-shadow .25s}
+#rnv .plan:hover{transform:translateY(-4px)}
+#rnv .plan .tapa{width:170px;margin:-6px auto 18px;border-radius:4px 10px 10px 4px;box-shadow:12px 16px 30px rgba(20,20,20,.22)}
+#rnv .tag-plan{display:inline-block;background:var(--grad);color:#fff;font-weight:800;font-size:12px;letter-spacing:.12em;padding:4px 12px;border-radius:999px;margin-bottom:8px}
+#rnv .plan h3{font-size:28px;text-transform:uppercase;margin-bottom:12px}
+#rnv .plan ul{list-style:none;display:grid;gap:10px}
+#rnv .plan li{display:flex;gap:10px;font-size:16px;line-height:1.5}
 #rnv .vbox .vh{position:absolute;left:0;right:0;top:0;z-index:2;background:#fff;color:var(--ink);text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:9px 6px;border-bottom:1px solid var(--line)}
 
 
@@ -364,7 +374,7 @@ html{scroll-behavior:smooth}
   #rnv .hero{background-position:70% 20%}
   #rnv .hero::before{background:linear-gradient(180deg,rgba(20,177,199,.5) 0%,#14B1C7 42%,#0E9DB2 100%)}
   #rnv .hero .wrap{padding-top:180px}
-  #rnv .pillar,#rnv .inc,#rnv .coach,#rnv .bonus .bb{grid-template-columns:1fr}
+  #rnv .pillar,#rnv .inc,#rnv .coach,#rnv .bonus .bb,#rnv .planes{grid-template-columns:1fr}
   #rnv .inc.rev .media{order:0}
   #rnv .posts{columns:1;max-width:520px}
   #rnv .promise{background-size:0 0}
@@ -440,8 +450,9 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="hero-in">
       <span class="pill-ey">Exclusivo para mujeres de 40+</span>
-      <h1>Entrená<br/>desde casa</h1>
+      <h1>Entrená<br/>donde quieras</h1>
       <p class="sub">Tu cuerpo cambió después de los 40. <b>Tus resultados</b> no tienen por qué frenarse.</p>
+      <p class="dos">2 ebooks en una compra: <b>en casa</b> y <b>en el gimnasio</b></p>
       <a class="vbox" href="https://youtu.be/KfI35eFGagY" target="_blank" rel="noopener">
         <span class="vh">Mirá este testimonio completo</span>
         <img src="https://img.youtube.com/vi/KfI35eFGagY/hqdefault.jpg" alt="Testimonio de Marina"/>
@@ -514,20 +525,50 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
+<!-- LOS 2 EBOOKS -->
+<div class="sec" id="planes">
+  <div class="wrap">
+    <h2 class="h2 rv">Elegí dónde entrenar: <span class="b">te llevás los dos</span></h2>
+    <p class="lead rv">Dos planes de fuerza de 8 semanas con la misma lógica. Usá el que mejor te quede, o alternalos según tu semana.</p>
+    <div class="planes">
+      <div class="plan rv">
+        <img class="tapa" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/pag_1.jpg" alt="Ebook Entrená desde casa"/>
+        <span class="tag-plan">EBOOK 1</span>
+        <h3>Entrená <span class="b">desde casa</span></h3>
+        <ul>
+          <li><span class="ck">✓</span><span><b>20 a 40 minutos</b>, 2 o 3 veces por semana.</span></li>
+          <li><span class="ck">✓</span><span>Solo necesitás <b>una colchoneta, una silla y un peso liviano</b>.</span></li>
+          <li><span class="ck">✓</span><span>Sesión express de 15 minutos y <b>pausa activa</b> para el trabajo.</span></li>
+        </ul>
+      </div>
+      <div class="plan rv">
+        <img class="tapa" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gpag_1.jpg" alt="Ebook Entrená en el gimnasio"/>
+        <span class="tag-plan">EBOOK 2</span>
+        <h3>Entrená <span class="b">en el gimnasio</span></h3>
+        <ul>
+          <li><span class="ck">✓</span><span><b>Nivel inicial:</b> aunque nunca hayas ido a un gimnasio.</span></li>
+          <li><span class="ck">✓</span><span><b>Máquinas, mancuernas y poleas</b>, paso a paso.</span></li>
+          <li><span class="ck">✓</span><span><b>45 a 60 minutos</b>, 2 o 3 veces por semana.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PILARES -->
 <div class="sec">
   <div class="wrap">
-    <h2 class="h2 rv">Resultados así son la razón por la que creé<br/><span class="b">ENTRENÁ DESDE CASA</span> para vos…</h2>
+    <h2 class="h2 rv">Resultados así son la razón por la que creé<br/><span class="b">ESTOS DOS PLANES</span> para vos…</h2>
     <div class="pillar rv">
       <div class="tx">
-        <h3>Fuerza en casa, sin gimnasio<small>Pensada para tu cuerpo después de los 40.</small></h3>
+        <h3>Fuerza en casa o en el gimnasio<small>Pensada para tu cuerpo después de los 40.</small></h3>
         <ul>
           <li><span class="ck">✓</span><span><b>3 rutinas de cuerpo completo:</b> entrada en calor, bloque 1, bloque 2 y elongación.</span></li>
           <li><span class="ck">✓</span><span><b>Video de cada ejercicio:</b> lo tocás desde el celular y ves cómo se hace.</span></li>
           <li><span class="ck">✓</span><span><b>Variante más fácil:</b> cada ejercicio tiene una opción para empezar sin miedo.</span></li>
         </ul>
       </div>
-      <div class="gr"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_3.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r2_4.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r3_7.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_6.jpg" alt=""/></div>
+      <div class="gr"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_3.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gym_prensa.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gym_jalon.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_6.jpg" alt=""/></div>
     </div>
     <div class="pillar rv">
       <div class="tx">
@@ -544,7 +585,7 @@ html{scroll-behavior:smooth}
       <div class="tx">
         <h3>Hecho para tu agenda real<small>Para los días en que el tiempo no alcanza.</small></h3>
         <ul>
-          <li><span class="ck">✓</span><span><b>Sesiones de 20 a 40 minutos</b>, 2 o 3 veces por semana.</span></li>
+          <li><span class="ck">✓</span><span><b>Sesiones de 20 a 40 minutos en casa</b> o de 45 a 60 en el gimnasio, 2 o 3 veces por semana.</span></li>
           <li><span class="ck">✓</span><span><b>Sesión express de 15 minutos</b> para los días complicados.</span></li>
           <li><span class="ck">✓</span><span><b>Pausa activa:</b> 6 ejercicios para moverte en el trabajo.</span></li>
         </ul>
@@ -554,7 +595,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<div class="wrap"><div class="curve rv"><h2><span class="b">Entrená desde casa</span> te da todo lo que necesitás para ganar fuerza, cuidar tus huesos y sostener el hábito.</h2></div></div>
+<div class="wrap"><div class="curve rv"><h2><span class="b">RENOVA</span> te da todo lo que necesitás para ganar fuerza, cuidar tus huesos y sostener el hábito.</h2></div></div>
 
 <!-- INCLUIDO -->
 <div class="sec tint notch" id="incluido" style="padding-top:50px">
@@ -562,14 +603,14 @@ html{scroll-behavior:smooth}
     <h2 class="h2 rv">Esto es lo que incluye:</h2>
     <div class="inc rv">
       <div class="media">
-        <div class="pills"><span>3 rutinas</span><span>Con video</span><span>Más fácil</span></div>
-        <div class="tiles"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_3.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r2_4.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r3_7.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_6.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_core_bicho.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_8.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_calor_1.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_elong_3.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r2_9.jpg" alt=""/></div>
+        <div class="pills"><span>En casa</span><span>En el gimnasio</span><span>Con video</span></div>
+        <div class="tiles"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_3.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gym_prensa.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r2_4.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gym_jalon.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r3_7.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gym_hipthrust.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_r1_6.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gym_presspecho.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/ej_core_bicho.jpg" alt=""/></div>
       </div>
       <div>
-        <div class="row"><h3>Plan de 8 semanas</h3><span class="val">INCLUIDO</span></div>
-        <p>Tu programa completo de fuerza en casa, con el paso a paso de cada semana para que sepas exactamente qué hacer.</p>
+        <div class="row"><h3>2 planes de 8 semanas</h3><span class="val">INCLUIDOS</span></div>
+        <p>Dos ebooks: uno para entrenar en casa y otro para el gimnasio, con el paso a paso de cada semana para que sepas exactamente qué hacer.</p>
         <ul>
-          <li><span class="ck">✓</span><span><b>3 rutinas de cuerpo completo</b>: cada una en entrada en calor, bloque 1, bloque 2 y elongación.</span></li>
+          <li><span class="ck">✓</span><span><b>3 rutinas de cuerpo completo en cada ebook</b>: entrada en calor, bloque 1, bloque 2 y elongación.</span></li>
           <li><span class="ck">✓</span><span><b>Video de cada ejercicio</b> y una variante más fácil.</span></li>
           <li><span class="ck">✓</span><span><b>Cuadro de las 8 semanas</b> con vueltas, repeticiones y esfuerzo.</span></li>
           <li><span class="ck">✓</span><span><b>Rutina de zona media</b> para tu abdomen y tu postura.</span></li>
@@ -608,7 +649,7 @@ html{scroll-behavior:smooth}
       <div class="bt"><i>BONUS #2</i>2 talleres grabados</div>
       <div class="bb">
         <div class="two"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/taller_heladera.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/taller_ansiedad.jpg" alt=""/></div>
-        <p><b>"Organizar la heladera" y "Gestión de la ansiedad"</b>, dictados por el equipo RENOVA. Herramientas concretas para comer mejor sin vivir a dieta.</p>
+        <p><b>"Organizar la heladera" y "Gestión de la ansiedad"</b>, dictados por el equipo RENOVA. Los ves en la plataforma de RENOVA. Herramientas concretas para comer mejor sin vivir a dieta.</p>
       </div>
     </div>
     <div class="bonus rv">
@@ -643,13 +684,13 @@ html{scroll-behavior:smooth}
     <p class="lead rv" style="margin:0 auto 26px">Tu plan de fuerza para después de los 40. Más fuerte, con más energía y con el hábito instalado.</p>
     <div class="bundle rv">
       <img class="l1" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/pag_41.jpg" alt=""/><img class="l2" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/pag_16.jpg" alt=""/>
-      <img class="r1" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/pag_31.jpg" alt=""/><img class="r2" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/pag_9.jpg" alt=""/>
+      <img class="r1" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gpag_17.jpg" alt=""/><img class="r2" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/gpag_1.jpg" alt=""/>
       <img class="c" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/89119624b85bb8dae2e9bef83ca2bc4f3d11bed4/fuentes/landing/img/pag_1.jpg" alt="Ebook Entrená desde casa"/>
     </div>
-    <p class="sum rv">Plan de 8 semanas <span>+ videos de cada ejercicio</span> + 3 bonus <span>de regalo</span></p>
+    <p class="sum rv">2 ebooks: casa y gimnasio <span>+ videos de cada ejercicio</span> + 3 bonus <span>de regalo</span></p>
     <div class="card rv">
-      <h3>Entrená desde casa</h3>
-      <p class="cc">Ebook + videos de cada ejercicio + 3 bonus. <b>Empezá hoy.</b></p>
+      <h3>Entrená en casa + en el gimnasio</h3>
+      <p class="cc">2 ebooks + videos de cada ejercicio + 3 bonus. <b>Empezá hoy.</b></p>
       <div class="reg">Precio normal <s>{{original_price}}</s><i></i>HOY <em>{{price}}</em></div>
       <p class="save">Ahorrás {{savings}}</p>
 
@@ -668,7 +709,7 @@ html{scroll-behavior:smooth}
 
       <div class="tot"><span>Total</span><b data-cart-total>{{price}}</b></div>
       <a class="btn big" href="/checkout">Comprar ahora <svg><use href="#i-arrow"/></svg></a>
-      <p class="secure"><b>Pago seguro.</b> Recibís el acceso al ebook y los bonus apenas se aprueba el pago, en el correo que uses al comprar. Es 100% digital.</p>
+      <p class="secure"><b>Pago seguro.</b> Recibís los 2 ebooks y los bonus apenas se aprueba el pago, en el correo que uses al comprar. Es 100% digital.</p>
     </div>
   </div>
 </div>
@@ -693,14 +734,15 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <h2 class="h2 rv">Preguntas <span class="b">frecuentes</span></h2>
     <div class="faq rv">
-      <details><summary>¿Qué incluye Entrená desde casa?</summary><p>El ebook con el plan de 8 semanas, 3 rutinas de cuerpo completo con video de cada ejercicio, zona media, elongación, sesión express de 15 minutos, pausa activa y registro de evolución. Además, 3 bonus: recetario de 23 recetas, 2 talleres grabados y 50% off en tu plan personalizado.</p></details>
+      <details><summary>¿Qué incluye?</summary><p>Dos ebooks, uno para entrenar en casa y otro para el gimnasio, cada uno con su plan de 8 semanas, 3 rutinas de cuerpo completo con video de cada ejercicio, zona media, elongación, sesión express de 15 minutos, pausa activa y registro de evolución. Además, 3 bonus: recetario de 23 recetas, 2 talleres grabados y 50% off en tu plan personalizado.</p></details>
+      <details><summary>¿Cuál me conviene, casa o gimnasio?</summary><p>Te llevás los dos. Si tenés poco tiempo o no querés salir de casa, empezá por el de casa. Si ya vas o querés ir al gimnasio, usá el otro. También podés alternarlos según tu semana.</p></details>
       <details><summary>¿Sirve si hace años que no entreno?</summary><p>Sí. Las semanas 1 y 2 son de adaptación: aprendés la técnica sin sobrecargas, y cada ejercicio tiene una variante más fácil para empezar.</p></details>
-      <details><summary>¿Cuánto duran los entrenamientos?</summary><p>Entre 20 y 40 minutos, 2 o 3 veces por semana. Para los días con muy poco tiempo tenés una sesión express de 15 minutos.</p></details>
-      <details><summary>¿Qué necesito para entrenar?</summary><p>Una colchoneta (o una manta), una silla firme y un peso liviano: mancuernas, botellas de agua o una mochila con carga. Si no tenés peso, empezás con tu propio cuerpo.</p></details>
+      <details><summary>¿Cuánto duran los entrenamientos?</summary><p>En casa, entre 20 y 40 minutos; en el gimnasio, entre 45 y 60 con la entrada en calor incluida. Siempre 2 o 3 veces por semana. Para los días con muy poco tiempo tenés una sesión express de 15 minutos.</p></details>
+      <details><summary>¿Qué necesito para entrenar?</summary><p>En casa: una colchoneta (o una manta), una silla firme y un peso liviano, como mancuernas, botellas de agua o una mochila con carga. En el gimnasio: las máquinas básicas, mancuernas y poleas; es nivel inicial, aunque nunca hayas ido.</p></details>
       <details><summary>¿Sirve si estoy en la perimenopausia o la menopausia?</summary><p>Sí. El plan está pensado para mujeres de 40+ y para los cambios de esta etapa. El entrenamiento de fuerza es justamente una de las herramientas más recomendadas.</p></details>
       <details><summary>¿Tengo dolor de rodilla o espalda, puedo hacerlo?</summary><p>El plan cuida tus articulaciones, sin saltos ni impacto. Si tenés una lesión o una condición de salud, consultá antes con tu médico. Si necesitás un plan a tu medida, el equipo RENOVA tiene médico deportólogo.</p></details>
       <details><summary>¿Cómo veo los videos?</summary><p>Cada ejercicio tiene un botón de video dentro del ebook. Lo tocás desde el celular y se abre la demostración.</p></details>
-      <details><summary>¿Cómo y cuándo recibo el ebook?</summary><p>Apenas se aprueba el pago te llega un correo con el PDF para descargar en tu celular, tablet o computadora, y los accesos a los talleres.</p></details>
+      <details><summary>¿Cómo y cuándo recibo el ebook?</summary><p>Apenas se aprueba el pago te llega un correo con los 2 PDF para descargar en tu celular, tablet o computadora, y los accesos a los talleres.</p></details>
       <details><summary>¿Y si necesito ayuda?</summary><p>Escribinos por WhatsApp y te respondemos. El bonus 3 incluye una consulta con Nacho para tu próximo paso.</p></details>
     </div>
   </div>
