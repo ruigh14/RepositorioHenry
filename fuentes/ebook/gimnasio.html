@@ -1,22 +1,98 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Entrená en el gimnasio · RENOVA</title><style>@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("fonts/inter-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("fonts/inter-latin-500-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("fonts/inter-latin-600-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("fonts/inter-latin-700-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("fonts/inter-latin-800-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("fonts/inter-latin-900-normal.woff2") format("woff2")}
-/* PROGRAMA RENOVA — estilos del ebook (A4) */
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Entrená en el gimnasio · RENOVA</title><style>/* RENOVA · design system — tipografías locales.
+   ../design-system/fonts/ se reemplaza por la ruta a fuentes/design-system/fonts/ (lo hace design_system.css()). */
+@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("../design-system/fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("../design-system/fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("../design-system/fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("../design-system/fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("../design-system/fonts/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("../design-system/fonts/inter-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"InterTightW";font-weight:100 900;font-style:normal;src:url("../design-system/fonts/inter-tight-latin-var.woff2") format("woff2")}
+
+/* RENOVA · design system — tokens
+   Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
+   Los valores salen de lo que ya usaban los ebooks (medidos en el PDF) y se unificaron con la landing.
+   Ver README.md para el uso de cada uno. */
 :root{
-  --tq:#14B1C7;        /* turquesa de marca: rellenos, líneas */
-  --tq-t:#0E9DB2;      /* turquesa para títulos grandes */
-  --tq-d:#0A7F90;      /* turquesa oscuro: texto chico */
-  --tq-dd:#075E6B;
-  --tq-l:#E8F6F8;      /* fondo suave */
-  --tq-b:#CDEEF3;      /* bordes */
-  --ink:#141414;
-  --txt:#2A2F33;
-  --mut:#555C62;
-  --line:#E3ECEE;
-  --bg2:#F4FAFB;
+  /* ---- Color: turquesa de marca (el de nachoportillo.com) */
+  --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
+  --rnv-turquesa-claro:#31C7DB;    /* inicio de los degradés (solo web y redes) */
+  --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
+  --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
+  --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
+  --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
+  --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  /* ---- Color: logo (solo portada y logo, no para texto corrido) */
+  --rnv-azul:#0033A0;
+  --rnv-rojo:#E63333;
+  /* ---- Color: neutros */
+  --rnv-tinta:#141414;             /* títulos */
+  --rnv-texto:#2A2F33;             /* cuerpo */
+  --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
+  --rnv-linea:#E3ECEE;             /* separadores */
+  --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
+  --rnv-fondo-gris:#F2F4F5;        /* fondo gris de secciones web */
+  --rnv-oscuro:#111418;            /* barras y pie oscuros (web) */
+  --rnv-blanco:#FFFFFF;
+
+  /* ---- Degradés y sombras */
+  --rnv-degrade:linear-gradient(135deg,#31C7DB 0%,#14B1C7 55%,#0E9DB2 100%);
+  --rnv-sombra:0 10px 30px rgba(17,20,24,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(17,20,24,.16);
+  --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
+
+  /* ---- Tipografía */
+  --rnv-fuente:"InterW","Inter",system-ui,sans-serif;            /* todo el texto */
+  --rnv-fuente-display:"InterTightW","Inter Tight","InterW",sans-serif; /* titulares de web y redes */
+
+  /* Escala del ebook (A4, se lee en el celular: cuerpo mínimo 15 pt) */
+  --rnv-pdf-portada:37pt;
+  --rnv-pdf-h1:26pt;
+  --rnv-pdf-h2:18pt;
+  --rnv-pdf-h3:16pt;
+  --rnv-pdf-cuerpo:16pt;
+  --rnv-pdf-chico:13pt;
+  --rnv-pdf-etiqueta:7.6pt;
+
+  /* Escala web (landing) */
+  --rnv-web-h1:clamp(46px,7vw,80px);
+  --rnv-web-h2:clamp(28px,3.6vw,42px);
+  --rnv-web-cuerpo:17px;
+  --rnv-web-chico:14px;
+
+  /* Escala redes (lienzo de 1080 px de ancho: se ve a ~36% en el celular) */
+  --rnv-red-gancho:104px;   /* titular principal */
+  --rnv-red-titulo:72px;
+  --rnv-red-subtitulo:48px;
+  --rnv-red-cuerpo:40px;    /* mínimo para que se lea en el celular */
+  --rnv-red-etiqueta:28px;
+
+  /* ---- Espacios y radios */
+  --rnv-esp-1:8px; --rnv-esp-2:16px; --rnv-esp-3:24px; --rnv-esp-4:40px; --rnv-esp-5:64px;
+  --rnv-radio:14px;
+  --rnv-radio-grande:24px;
+  --rnv-radio-pill:999px;
+
+  /* ---- Página A4 del ebook */
+  --rnv-a4-margen:21mm 17mm 17mm;
+
+  /* ---- Zonas seguras de Instagram y Facebook en 1080×1920 (historias y reels) */
+  --rnv-zona-arriba:250px;
+  --rnv-zona-abajo:340px;
+}
+
+/* PROGRAMA RENOVA — estilos del ebook (A4) */
+:root{   /* alias cortos de los tokens del design system (fuentes/design-system/tokens.css) */
+  --tq:var(--rnv-turquesa);
+  --tq-t:var(--rnv-turquesa-titulo);
+  --tq-d:var(--rnv-turquesa-oscuro);
+  --tq-dd:var(--rnv-turquesa-profundo);
+  --tq-l:var(--rnv-turquesa-fondo);
+  --tq-b:var(--rnv-turquesa-borde);
+  --ink:var(--rnv-tinta);
+  --txt:var(--rnv-texto);
+  --mut:var(--rnv-gris);
+  --line:var(--rnv-linea);
+  --bg2:var(--rnv-fondo);
 }
 @page{size:A4;margin:0}
 *{box-sizing:border-box}
@@ -417,7 +493,7 @@ h3.wk{margin:3mm 0 1.2mm}
 
 /* v5: portada editorial */
 .cv2{height:297mm;box-sizing:border-box;padding:14mm 16mm 12mm;display:flex;flex-direction:column;background:#fff;
-  --blue:#0033A0;--red:#E63333}
+  --blue:var(--rnv-azul);--red:var(--rnv-rojo)}
 .c2-top{display:flex;flex-direction:column;align-items:center;gap:5mm}
 .c2-logo{height:21mm;width:auto}
 .c2-kick{font-size:8pt;letter-spacing:.22em;font-weight:700;color:var(--blue)}

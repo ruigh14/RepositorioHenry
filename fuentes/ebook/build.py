@@ -13,6 +13,12 @@ Para cambiar links: completá el diccionario LINKS (dejá "" si todavía no lo t
 """
 import html, os, sys
 
+# Design system compartido (tokens, tipografías y componentes): fuentes/design-system/
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, "..", "design-system"))
+from design_system import (css as ds_css, esc, ICON_CHECK, ICON_ARROW, ICON_HAND, ICON_PLAY, ICON_LOCK,
+                           eyebrow, chap_head, ul, checks, box, block_head, params)
+
 EDITION = sys.argv[1] if len(sys.argv) > 1 else "completo"
 if EDITION not in ("completo", "entrena", "gimnasio"):
     sys.exit("Edición desconocida: usá 'completo', 'entrena' o 'gimnasio'")
@@ -43,16 +49,6 @@ LINKS = {
     "videos_elong": "",
 }
 
-def esc(s):
-    return html.escape(s, quote=True)
-
-ICON_CHECK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>'
-ICON_ARROW = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
-ICON_HAND = ('<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/>'
-             '<path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/>'
-             '<path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg>')
-ICON_PLAY = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>'
-
 def button(text, key, marker, big=False, light=False):
     url = LINKS.get(key, "")
     cls = "btn" + (" btn-big" if big else "") + (" btn-light" if light else "")
@@ -77,22 +73,6 @@ def page(body, chapter="", pid=None, cls="", toc=None, header=True):
     if toc:
         TOC.append((toc, pid))
     return pid
-
-def eyebrow(t):
-    return f'<span class="pill">{t}</span>'
-
-def chap_head(num, title_html, lead):
-    return (f'<div class="chead"><span class="cnum">{num}</span>'
-            f'<h1>{title_html}</h1><p class="lead">{lead}</p></div>')
-
-def ul(items, cls="list"):
-    return f'<ul class="{cls}">' + "".join(f"<li>{i}</li>" for i in items) + "</ul>"
-
-def checks(items):
-    return '<ul class="checks">' + "".join(f"<li>{ICON_CHECK}<span>{i}</span></li>" for i in items) + "</ul>"
-
-def box(content, kind=""):
-    return f'<div class="box {kind}">{content}</div>'
 
 # ================================================================== PORTADA
 if ENT:
@@ -473,12 +453,6 @@ def warm_card(img, name, dose):
           else f'<span class="vbtn-sm">{ICON_PLAY} VIDEO</span>')
     return (f'<div class="wc"><div class="wcim"><img src="img/{img}" alt=""></div>'
             f'<b>{name}</b><span class="dose">{dose}</span>{vb}</div>')
-
-def block_head(label, info):
-    return f'<div class="blk"><span>{label}</span><p>{info}</p></div>'
-
-def params(items):
-    return '<div class="params">' + "".join(f'<div><span>{k}</span><b>{v}</b></div>' for k, v in items) + '</div>'
 
 def routine(eyebrow_t, title_html, prm, note, cards, end_box, pid):
     page(f"""
@@ -1586,7 +1560,6 @@ if FULL:
 ''', chapter="10 · Cómo sostener los resultados", pid="cap10", toc="10 · Cómo sostener los resultados")
 
 # ================================================================== TALLERES
-ICON_LOCK = '<svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>'
 
 def taller_card(img, tag, title, text, cta, key, icon, locked=False):
     url = LINKS.get(key, "")
@@ -1706,7 +1679,7 @@ if FULL:
 ''', chapter="Quién soy", pid="bio", toc="Quién soy y qué es RENOVA")
 
 # ------------------------------------------------------------------ ENSAMBLADO
-CSS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "style.css"), encoding="utf-8").read()
+CSS = ds_css(HERE) + "\n" + open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
 
 BRAND = "PROGRAMA <b>RENOVA</b>" if FULL else G("ENTRENÁ DESDE CASA", "ENTRENÁ EN EL GIMNASIO") + " · <b>RENOVA</b>"
 TITLE = "Programa RENOVA · Guía práctica" if FULL else G("Entrená desde casa", "Entrená en el gimnasio") + " · RENOVA"

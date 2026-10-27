@@ -1,0 +1,71 @@
+/* RENOVA · design system — tokens
+   Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
+   Los valores salen de lo que ya usaban los ebooks (medidos en el PDF) y se unificaron con la landing.
+   Ver README.md para el uso de cada uno. */
+:root{
+  /* ---- Color: turquesa de marca (el de nachoportillo.com) */
+  --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
+  --rnv-turquesa-claro:#31C7DB;    /* inicio de los degradés (solo web y redes) */
+  --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
+  --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
+  --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
+  --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
+  --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  /* ---- Color: logo (solo portada y logo, no para texto corrido) */
+  --rnv-azul:#0033A0;
+  --rnv-rojo:#E63333;
+  /* ---- Color: neutros */
+  --rnv-tinta:#141414;             /* títulos */
+  --rnv-texto:#2A2F33;             /* cuerpo */
+  --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
+  --rnv-linea:#E3ECEE;             /* separadores */
+  --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
+  --rnv-fondo-gris:#F2F4F5;        /* fondo gris de secciones web */
+  --rnv-oscuro:#111418;            /* barras y pie oscuros (web) */
+  --rnv-blanco:#FFFFFF;
+
+  /* ---- Degradés y sombras */
+  --rnv-degrade:linear-gradient(135deg,#31C7DB 0%,#14B1C7 55%,#0E9DB2 100%);
+  --rnv-sombra:0 10px 30px rgba(17,20,24,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(17,20,24,.16);
+  --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
+
+  /* ---- Tipografía */
+  --rnv-fuente:"InterW","Inter",system-ui,sans-serif;            /* todo el texto */
+  --rnv-fuente-display:"InterTightW","Inter Tight","InterW",sans-serif; /* titulares de web y redes */
+
+  /* Escala del ebook (A4, se lee en el celular: cuerpo mínimo 15 pt) */
+  --rnv-pdf-portada:37pt;
+  --rnv-pdf-h1:26pt;
+  --rnv-pdf-h2:18pt;
+  --rnv-pdf-h3:16pt;
+  --rnv-pdf-cuerpo:16pt;
+  --rnv-pdf-chico:13pt;
+  --rnv-pdf-etiqueta:7.6pt;
+
+  /* Escala web (landing) */
+  --rnv-web-h1:clamp(46px,7vw,80px);
+  --rnv-web-h2:clamp(28px,3.6vw,42px);
+  --rnv-web-cuerpo:17px;
+  --rnv-web-chico:14px;
+
+  /* Escala redes (lienzo de 1080 px de ancho: se ve a ~36% en el celular) */
+  --rnv-red-gancho:104px;   /* titular principal */
+  --rnv-red-titulo:72px;
+  --rnv-red-subtitulo:48px;
+  --rnv-red-cuerpo:40px;    /* mínimo para que se lea en el celular */
+  --rnv-red-etiqueta:28px;
+
+  /* ---- Espacios y radios */
+  --rnv-esp-1:8px; --rnv-esp-2:16px; --rnv-esp-3:24px; --rnv-esp-4:40px; --rnv-esp-5:64px;
+  --rnv-radio:14px;
+  --rnv-radio-grande:24px;
+  --rnv-radio-pill:999px;
+
+  /* ---- Página A4 del ebook */
+  --rnv-a4-margen:21mm 17mm 17mm;
+
+  /* ---- Zonas seguras de Instagram y Facebook en 1080×1920 (historias y reels) */
+  --rnv-zona-arriba:250px;
+  --rnv-zona-abajo:340px;
+}

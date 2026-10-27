@@ -1,22 +1,16 @@
-@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("fonts/inter-latin-400-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("fonts/inter-latin-500-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("fonts/inter-latin-600-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("fonts/inter-latin-700-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("fonts/inter-latin-800-normal.woff2") format("woff2")}
-@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("fonts/inter-latin-900-normal.woff2") format("woff2")}
 /* PROGRAMA RENOVA — estilos del ebook (A4) */
-:root{
-  --tq:#14B1C7;        /* turquesa de marca: rellenos, líneas */
-  --tq-t:#0E9DB2;      /* turquesa para títulos grandes */
-  --tq-d:#0A7F90;      /* turquesa oscuro: texto chico */
-  --tq-dd:#075E6B;
-  --tq-l:#E8F6F8;      /* fondo suave */
-  --tq-b:#CDEEF3;      /* bordes */
-  --ink:#141414;
-  --txt:#2A2F33;
-  --mut:#555C62;
-  --line:#E3ECEE;
-  --bg2:#F4FAFB;
+:root{   /* alias cortos de los tokens del design system (fuentes/design-system/tokens.css) */
+  --tq:var(--rnv-turquesa);
+  --tq-t:var(--rnv-turquesa-titulo);
+  --tq-d:var(--rnv-turquesa-oscuro);
+  --tq-dd:var(--rnv-turquesa-profundo);
+  --tq-l:var(--rnv-turquesa-fondo);
+  --tq-b:var(--rnv-turquesa-borde);
+  --ink:var(--rnv-tinta);
+  --txt:var(--rnv-texto);
+  --mut:var(--rnv-gris);
+  --line:var(--rnv-linea);
+  --bg2:var(--rnv-fondo);
 }
 @page{size:A4;margin:0}
 *{box-sizing:border-box}
@@ -417,7 +411,7 @@ h3.wk{margin:3mm 0 1.2mm}
 
 /* v5: portada editorial */
 .cv2{height:297mm;box-sizing:border-box;padding:14mm 16mm 12mm;display:flex;flex-direction:column;background:#fff;
-  --blue:#0033A0;--red:#E63333}
+  --blue:var(--rnv-azul);--red:var(--rnv-rojo)}
 .c2-top{display:flex;flex-direction:column;align-items:center;gap:5mm}
 .c2-logo{height:21mm;width:auto}
 .c2-kick{font-size:8pt;letter-spacing:.22em;font-weight:700;color:var(--blue)}

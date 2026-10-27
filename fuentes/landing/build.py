@@ -13,6 +13,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).parent.parent / "design-system"))
+from design_system import css as ds_css   # tokens compartidos con los ebooks y los creativos
+
 HERE = Path(__file__).parent
 # Commit fijo de la última versión de landing/img (evita la caché de GitHub con archivos nuevos).
 # Antes de correr esto, commitear y pushear las imágenes nuevas.
@@ -81,6 +84,7 @@ SRC, OUT = (("gimnasio.html", "entrena-en-el-gimnasio") if sys.argv[1:] == ["gim
 OUT = Path(OUT) / "landing-impultienda.html"
 src = (HERE / SRC).read_text()
 css = re.search(r"<style>(.*?)</style>", src, re.S).group(1)
+css = ds_css(str(HERE), fuentes=False) + css
 css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
 head = re.sub(r"<style>.*?</style>\s*", "", src.split("<body>")[0], flags=re.S)
 body = src.split("<body>", 1)[1].split("</body>")[0]
