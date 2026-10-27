@@ -1,12 +1,12 @@
-"""Genera ../index.html (landing para pegar en Impultienda) desde landing.html.
+"""Genera la landing para pegar en Impultienda (HTML propio) de cada producto.
 
 - Encierra todo en <div id="rnv"> y antepone #rnv a cada selector, para que el CSS
   de la tienda no pise la landing ni la landing pise la tienda.
 - Mueve el <style> dentro del <body> (por si la tienda descarta el <head>).
 - Cambia img/... por la URL pública de GitHub (fijada al último commit de img/), así las imágenes cargan desde cualquier lado.
 
-Uso:  cd landing && python3 build.py                 → ../index.html     (Entrená desde casa)
-      cd landing && python3 build.py gimnasio        → ../gimnasio.html  (Entrená en el gimnasio)
+Uso:  cd fuentes/landing && python3 build.py            casa.html     → entrena-desde-casa/landing-impultienda.html
+      cd fuentes/landing && python3 build.py gimnasio   gimnasio.html → entrena-en-el-gimnasio/landing-impultienda.html
 """
 import re
 import subprocess
@@ -17,7 +17,7 @@ HERE = Path(__file__).parent
 # Commit fijo de la última versión de landing/img (evita la caché de GitHub con archivos nuevos).
 # Antes de correr esto, commitear y pushear las imágenes nuevas.
 SHA = subprocess.check_output(["git", "log", "-1", "--format=%H", "--", "img"], cwd=HERE, text=True).strip()
-IMG = f"https://raw.githubusercontent.com/ruigh14/RepositorioHenry/{SHA}/landing/img/"
+IMG = f"https://raw.githubusercontent.com/ruigh14/RepositorioHenry/{SHA}/fuentes/landing/img/"
 FONTS = "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
 
 
@@ -77,7 +77,8 @@ def scope(css):
     return out
 
 
-SRC, OUT = ("gimnasio.html", "gimnasio.html") if sys.argv[1:] == ["gimnasio"] else ("landing.html", "index.html")
+SRC, OUT = (("gimnasio.html", "entrena-en-el-gimnasio") if sys.argv[1:] == ["gimnasio"] else ("casa.html", "entrena-desde-casa"))
+OUT = Path(OUT) / "landing-impultienda.html"
 src = (HERE / SRC).read_text()
 css = re.search(r"<style>(.*?)</style>", src, re.S).group(1)
 css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
@@ -87,5 +88,5 @@ html = (head + "<body>\n<div id=\"rnv\">\n<style>@import url(\"" + FONTS + "\");
         + scope(css).strip() + "\n</style>\n" + body.strip() + "\n</div>\n</body>\n</html>\n")
 html = re.sub(r'(src|href)="img/', r'\1="' + IMG, html)
 html = html.replace("url('img/", "url('" + IMG)
-(HERE.parent / OUT).write_text(html)
+(HERE.parent.parent / OUT).write_text(html)
 print(OUT, len(html) // 1024, "KB")

@@ -5,31 +5,46 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 
 ## Estructura
 
-- `ebook/`: los ebooks RENOVA, generados desde un mismo `build.py` en dos ediciones:
-  - **Ebook 1 · "Entrená desde casa"** (producto de entrada): plan de fuerza de 8 semanas + bonus
-    (recetario, 2 talleres: Organizar la heladera y Gestión de la ansiedad, que se ven en Skool, consulta con Nacho). → `entrena.html`, `Ebook_Entrena_desde_casa_RENOVA.pdf`.
-  - **Ebook "Entrená en el gimnasio"**: misma lógica y bonus que el Ebook 1, con 3 rutinas de gimnasio de nivel inicial (armadas a partir de las rutinas de gimnasio de Nacho en Harbiz; ilustraciones `img/gym_*.png` de Canva). Sale de `build.py` con la edición `gimnasio` (`GYM`; los textos que cambian usan `G(casa, gym)`). → `gimnasio.html`, `Ebook_Entrena_en_el_gimnasio_RENOVA.pdf`.
-  - **Programa RENOVA completo** (entrenamiento + alimentación + descanso): base para los ebooks de upsell.
-    → `ebook.html`, `Ebook_Programa_RENOVA.pdf`.
-  - Los talleres están en Skool (https://www.skool.com/renova-entrenamiento-y-salud-1617/about): el bonus de talleres del ebook tiene un botón grande que lleva ahí. Ya no hay ebook de talleres ni página de upsell.
-  - `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio).
-  - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright.
-  - `img/`: fotos, ilustraciones, recetas y testimonios. `fonts/`: tipografía Inter.
-  - `Ebook_Programa_RENOVA.pdf`: versión final vigente. `Ebook_Programa_RENOVA.txt`: su texto extraído.
-  - `version-anterior_7_1.pdf`: exportación anterior (solo referencia, no editar).
-- `index.html`: landing de venta del Ebook 1 para pegar en Impultienda (HTML propio). **No editar a mano**: se genera con `cd landing && python3 build.py` desde `landing/landing.html` (encierra el CSS en `#rnv` e imágenes desde GitHub en `landing/img/`, fijadas al último commit de esa carpeta: commitear y pushear las imágenes nuevas antes de regenerar). Compra con `<a href="/checkout">`, precios con `{{price}}`, `{{original_price}}`, `{{savings}}` y upsell 1 con `{{upsell_1_*}}` + `data-upsell-toggle="1"` (tokens de Impultienda).
-- `gimnasio.html`: landing de "Entrená en el gimnasio", misma estructura que `index.html`. Se genera con `cd landing && python3 build.py gimnasio` desde `landing/gimnasio.html`.
-- `css/styles.css`: estilos compartidos.
-
-## Regenerar el PDF del ebook
+Cada producto tiene su carpeta con lo que se entrega (PDF y landing). El código que los genera está en `fuentes/` y es uno solo para todos: no duplicarlo por producto.
 
 ```
-cd ebook && python3 build.py entrena && node export.js entrena   # Ebook 1 · Entrená desde casa
-cd ebook && python3 build.py gimnasio && node export.js gimnasio # Entrená en el gimnasio
-cd ebook && python3 build.py && node export.js                   # Programa RENOVA completo
+entrena-desde-casa/          Ebook 1 (producto de entrada)
+  Ebook_Entrena_desde_casa_RENOVA.pdf
+  landing-impultienda.html   → se pega en Impultienda (HTML propio)
+entrena-en-el-gimnasio/      Misma lógica, rutinas de gimnasio nivel inicial
+  Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
+  landing-impultienda.html
+programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
+  Ebook_Programa_RENOVA.pdf
+fuentes/
+  ebook/                     genera los 3 PDF
+  landing/                   genera las 2 landings
 ```
 
-Debe imprimir `OVERFLOW []` (sin páginas con texto cortado).
+**No editar a mano** los PDF ni las `landing-impultienda.html`: se regeneran desde `fuentes/`.
+
+### `fuentes/ebook/`
+- `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio). Tres ediciones: `completo`, `entrena` (casa) y `gimnasio` (`GYM`; los textos que cambian entre casa y gimnasio usan `G(casa, gym)`; rutinas armadas a partir de las de gimnasio de Nacho en Harbiz, ilustraciones `img/gym_*.png` de Canva).
+- `ebook.html`, `entrena.html`, `gimnasio.html`: HTML intermedio que genera `build.py` (no editar).
+- `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright a la carpeta del producto.
+- `img/`: fotos, ilustraciones, recetas y testimonios. `fonts/`: tipografía Inter.
+- `archivo/version-anterior_7_1.pdf`: exportación vieja, solo referencia.
+- Talleres: están en Skool (https://www.skool.com/renova-entrenamiento-y-salud-1617/about); el bonus de talleres de los ebooks tiene un botón grande que lleva ahí. No hay ebook de talleres ni página de upsell.
+
+### `fuentes/landing/`
+- `casa.html` y `gimnasio.html`: fuente de cada landing. `build.py` encierra el CSS en `#rnv` (para que no choque con la tienda) y cambia `img/...` por links de GitHub a `fuentes/landing/img/`, fijados al último commit de esa carpeta: **commitear y pushear las imágenes nuevas antes de regenerar**.
+- Impultienda: compra con `<a href="/checkout">`, precios con `{{price}}`, `{{original_price}}`, `{{savings}}` y upsell 1 con `{{upsell_1_*}}` + `data-upsell-toggle="1"`.
+
+## Regenerar
+
+```
+cd fuentes/ebook && python3 build.py entrena && node export.js entrena     # Entrená desde casa
+cd fuentes/ebook && python3 build.py gimnasio && node export.js gimnasio   # Entrená en el gimnasio
+cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
+cd fuentes/landing && python3 build.py && python3 build.py gimnasio        # las 2 landings
+```
+
+El ebook debe imprimir `OVERFLOW []` (sin páginas con texto cortado). Para revisar el texto de un PDF: `pdftotext -layout <pdf> /tmp/x.txt`.
 
 ## Estrategia de producto
 
@@ -39,8 +54,8 @@ Debe imprimir `OVERFLOW []` (sin páginas con texto cortado).
 
 ## Forma de trabajo
 
-- Editar textos y contenido del ebook en `build.py`, no en `ebook.html` (se regenera).
-- Después de cada cambio: regenerar el PDF, commitear y pushear a `main`.
+- Editar textos y contenido del ebook en `fuentes/ebook/build.py`, no en los `.html` (se regeneran).
+- Después de cada cambio: regenerar el PDF (o la landing), commitear y pushear a `main`.
 - Idioma: español rioplatense (voseo).
 - Se lee en el celular: letra grande (cuerpo 15 pt). Si algo no entra en la hoja, acortar texto o separar en hojas, no achicar la letra.
 

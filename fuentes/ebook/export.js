@@ -1,13 +1,14 @@
 // Exporta el HTML de una edición a PDF A4 (la paginación la hace paginate.js dentro de la página).
-//   node export.js            → ebook.html   → Ebook_Programa_RENOVA.pdf
-//   node export.js entrena    → entrena.html → Ebook_Entrena_desde_casa_RENOVA.pdf
-//   node export.js gimnasio   → gimnasio.html → Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
+// Cada PDF se guarda en la carpeta de su producto, en la raíz del repositorio:
+//   node export.js            → ebook.html    → programa-renova-completo/Ebook_Programa_RENOVA.pdf
+//   node export.js entrena    → entrena.html  → entrena-desde-casa/Ebook_Entrena_desde_casa_RENOVA.pdf
+//   node export.js gimnasio   → gimnasio.html → entrena-en-el-gimnasio/Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
 const { chromium } = require('playwright');
 const path = require('path');
 const EDITIONS = {
-  completo: ['ebook.html', 'Ebook_Programa_RENOVA.pdf'],
-  entrena: ['entrena.html', 'Ebook_Entrena_desde_casa_RENOVA.pdf'],
-  gimnasio: ['gimnasio.html', 'Ebook_Entrena_en_el_gimnasio_RENOVA.pdf'],
+  completo: ['ebook.html', 'programa-renova-completo/Ebook_Programa_RENOVA.pdf'],
+  entrena: ['entrena.html', 'entrena-desde-casa/Ebook_Entrena_desde_casa_RENOVA.pdf'],
+  gimnasio: ['gimnasio.html', 'entrena-en-el-gimnasio/Ebook_Entrena_en_el_gimnasio_RENOVA.pdf'],
 };
 const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {
@@ -23,6 +24,6 @@ const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.
   });
   console.log(pdfFile, 'PAGINAS', info.n, 'OVERFLOW', JSON.stringify(info.over));
   console.log('FREE', info.free);
-  await page.pdf({ path: path.join(__dirname, pdfFile), format: 'A4', printBackground: true, preferCSSPageSize: true });
+  await page.pdf({ path: path.join(__dirname, '..', '..', pdfFile), format: 'A4', printBackground: true, preferCSSPageSize: true });
   await browser.close();
 })();
