@@ -827,6 +827,20 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .cv-ent .c2-photos.one .c2-img{height:96mm}
 .cv-ent .c2-photos.one .c2-img{height:112mm}.cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 8%}
 .cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 28%}
+/* bio: la foto ocupa todo el alto de la columna de texto */
+.bio-top{align-items:stretch}
+.bio-photo{height:auto;min-height:62mm}
+.bio-photo img{object-position:50% 30%}
+.bio-ent .bio-top{grid-template-columns:82mm 1fr;gap:6mm}
+.bio-ent .bio-photo{min-height:105mm}
+.bio-ent .what{margin-top:7mm}
+.bio-ent .quote{margin-top:7mm}
+/* glosario: un concepto debajo del otro */
+.glosr{display:grid;grid-template-columns:44mm 1fr;align-items:stretch;border:.4mm solid var(--tq-b);border-radius:3mm;overflow:hidden;margin-bottom:2.4mm}
+.glosr b{display:flex;align-items:center;background:var(--tq-t);color:#fff;font-size:13.6pt;font-weight:800;line-height:1.2;padding:3mm 3.6mm}
+.glosr p{margin:0;padding:3mm 4mm;font-size:13pt;line-height:1.4;background:#fff}
+.glosr{margin-bottom:1.8mm}
+.glosr b,.glosr p{padding-top:2.2mm;padding-bottom:2.2mm}
 </style></head><body><section class="page p-cover" id="portada"><div class="body">
 <div class="cv2 cv-ent">
   <div class="c2-top">
@@ -849,7 +863,7 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
   </div>
 </div>
 </div></section><section class="page " id="bio"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>Quién soy</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
-<div class="bio">
+<div class="bio bio-ent">
   <div class="bio-top">
     <div class="bio-photo"><img src="img/nacho_full.jpg" alt="Nacho Portillo"></div>
     <div>
@@ -956,11 +970,8 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 </tbody></table>
 <p class="small">El peso cambia de un día a otro por los líquidos, la sal o el ciclo. Mirá la tendencia entre una medición y otra, no un número aislado.</p>
 </div></section><section class="page " id="plan8"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Plan de 8 semanas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
-<div class="chead"><span class="cnum">03</span><h1>Tu plan de <span class="t">8 semanas</span></h1><p class="lead">Tres fases para pasar de aprender la técnica a entrenar con más carga. Antes de ver los cuadros, conocé qué significa cada cosa.</p></div>
-<h2>Conceptos clave</h2>
-<div class="glos">
-<div><b>R1, R2, R3</b><p>Rutina 1, Rutina 2 y Rutina 3. Están en el capítulo 04, con imagen y video de cada ejercicio.</p></div><div><b>Bloque</b><p>Grupo de 4 ejercicios que se hacen seguidos. Cada rutina tiene entrada en calor, bloque 1, bloque 2 y elongación.</p></div><div><b>Repetición</b><p>Un movimiento completo. Por ejemplo, bajar y subir en una sentadilla.</p></div><div><b>Vuelta</b><p>Hacer una vez todos los ejercicios del bloque. “3 vueltas por bloque” es repetir el bloque 3 veces.</p></div><div><b>Segundos (planchas)</b><p>Los ejercicios que se sostienen, como las planchas, se miden en segundos en vez de repeticiones.</p></div><div><b>Pausa</b><p>Descanso entre un ejercicio y otro. Entre vueltas, 1 minuto; entre el bloque 1 y el 2, 2 minutos.</p></div><div><b>Esfuerzo</b><p>Es tu sensación de esfuerzo: qué tan difícil sentís el ejercicio, de 1 (muy fácil) a 10 (no podrías hacer ni una repetición más). Un 7 es terminar sintiendo que podrías hacer 2 o 3 repeticiones más con buena técnica.</p></div><div><b>Aeróbico (A)</b><p>Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez.</p></div><div><b>Fase y descarga</b><p>El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte.</p></div>
-</div>
+<div class="chead"><span class="cnum">03</span><h1>Tu plan de <span class="t">8 semanas</span></h1><p class="lead">Conceptos clave: antes de ver los cuadros, conocé qué significa cada cosa.</p></div>
+<div class="glosr"><b>R1, R2, R3</b><p>Rutina 1, Rutina 2 y Rutina 3. Están en el capítulo 04, con imagen y video de cada ejercicio.</p></div><div class="glosr"><b>Bloque</b><p>Grupo de 4 ejercicios que se hacen seguidos. Cada rutina tiene entrada en calor, bloque 1, bloque 2 y elongación.</p></div><div class="glosr"><b>Repetición</b><p>Un movimiento completo. Por ejemplo, bajar y subir en una sentadilla.</p></div><div class="glosr"><b>Vuelta</b><p>Hacer una vez todos los ejercicios del bloque. “3 vueltas por bloque” es repetir el bloque 3 veces.</p></div><div class="glosr"><b>Segundos</b><p>Los ejercicios que se sostienen, como las planchas, se miden en segundos en vez de repeticiones.</p></div><div class="glosr"><b>Pausa</b><p>Descanso entre un ejercicio y otro. Entre vueltas, 1 minuto; entre el bloque 1 y el 2, 2 minutos.</p></div><div class="glosr"><b>Esfuerzo</b><p>Tu sensación de esfuerzo, de 1 (muy fácil) a 10 (no podrías hacer ni una repetición más). Un 7 es terminar sintiendo que podrías hacer 2 o 3 más.</p></div><div class="glosr"><b>Aeróbico (A)</b><p>Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez.</p></div><div class="glosr"><b>Fase y descarga</b><p>El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte.</p></div>
 </div></section><section class="page " id="cap2c"><div class="hdr"><span>ENTRENÁ DESDE CASA · <b>RENOVA</b></span><span>03 · Plan de 8 semanas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
 <span class="pill">CONCEPTOS CLAVE</span>
 <h1 class="h1">Esfuerzo y <span class="t">progresión</span></h1>

@@ -678,9 +678,9 @@ GLOSARIO = [
  ("Bloque", "Grupo de 4 ejercicios que se hacen seguidos. Cada rutina tiene entrada en calor, bloque 1, bloque 2 y elongación."),
  ("Repetición", "Un movimiento completo. Por ejemplo, bajar y subir en una sentadilla."),
  ("Vuelta", "Hacer una vez todos los ejercicios del bloque. “3 vueltas por bloque” es repetir el bloque 3 veces."),
- ("Segundos (planchas)", "Los ejercicios que se sostienen, como las planchas, se miden en segundos en vez de repeticiones."),
+ ("Segundos", "Los ejercicios que se sostienen, como las planchas, se miden en segundos en vez de repeticiones."),
  ("Pausa", "Descanso entre un ejercicio y otro. Entre vueltas, 1 minuto; entre el bloque 1 y el 2, 2 minutos."),
- ("Esfuerzo", "Es tu sensación de esfuerzo: qué tan difícil sentís el ejercicio, de 1 (muy fácil) a 10 (no podrías hacer ni una repetición más). Un 7 es terminar sintiendo que podrías hacer 2 o 3 repeticiones más con buena técnica."),
+ ("Esfuerzo", "Tu sensación de esfuerzo, de 1 (muy fácil) a 10 (no podrías hacer ni una repetición más). Un 7 es terminar sintiendo que podrías hacer 2 o 3 más."),
  ("Aeróbico (A)", "Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez."),
  ("Fase y descarga", "El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte."),
 ]
@@ -693,11 +693,8 @@ DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</t
 
 if ENT:
     page(f'''
-{chap_head("03", 'Tu plan de <span class="t">8 semanas</span>', "Tres fases para pasar de aprender la técnica a entrenar con más carga. Antes de ver los cuadros, conocé qué significa cada cosa.")}
-<h2>Conceptos clave</h2>
-<div class="glos">
-{"".join(f'<div><b>{t}</b><p>{d}</p></div>' for t, d in GLOSARIO)}
-</div>
+{chap_head("03", 'Tu plan de <span class="t">8 semanas</span>', "Conceptos clave: antes de ver los cuadros, conocé qué significa cada cosa.")}
+{"".join(f'<div class="glosr"><b>{t}</b><p>{d}</p></div>' for t, d in GLOSARIO)}
 ''', chapter="03 · Plan de 8 semanas", pid="plan8", toc="03 · Plan de 8 semanas")
 
     page(f'''
@@ -1554,7 +1551,7 @@ page(f'''
 # ================================================================== QUIÉN SOY
 if ENT:
     page(f'''
-<div class="bio">
+<div class="bio bio-ent">
   <div class="bio-top">
     <div class="bio-photo"><img src="img/nacho_full.jpg" alt="Nacho Portillo"></div>
     <div>

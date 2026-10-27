@@ -827,3 +827,17 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .cv-ent .c2-photos.one .c2-img{height:96mm}
 .cv-ent .c2-photos.one .c2-img{height:112mm}.cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 8%}
 .cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 28%}
+/* bio: la foto ocupa todo el alto de la columna de texto */
+.bio-top{align-items:stretch}
+.bio-photo{height:auto;min-height:62mm}
+.bio-photo img{object-position:50% 30%}
+.bio-ent .bio-top{grid-template-columns:82mm 1fr;gap:6mm}
+.bio-ent .bio-photo{min-height:105mm}
+.bio-ent .what{margin-top:7mm}
+.bio-ent .quote{margin-top:7mm}
+/* glosario: un concepto debajo del otro */
+.glosr{display:grid;grid-template-columns:44mm 1fr;align-items:stretch;border:.4mm solid var(--tq-b);border-radius:3mm;overflow:hidden;margin-bottom:2.4mm}
+.glosr b{display:flex;align-items:center;background:var(--tq-t);color:#fff;font-size:13.6pt;font-weight:800;line-height:1.2;padding:3mm 3.6mm}
+.glosr p{margin:0;padding:3mm 4mm;font-size:13pt;line-height:1.4;background:#fff}
+.glosr{margin-bottom:1.8mm}
+.glosr b,.glosr p{padding-top:2.2mm;padding-bottom:2.2mm}
