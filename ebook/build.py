@@ -394,7 +394,7 @@ VIDEOS = {
  "Estiramiento de cuello": "https://youtu.be/3kWdTdnKvVw",
  "Círculos de hombros": "https://youtu.be/2LWFYoBjS5I",
  "Rotación de tronco sentada": "https://youtu.be/8ZhHlY4Aq_Y",
- "Sentadilla a la silla": "https://www.youtube.com/watch?v=hd5OuSxMgcE",
+ "Sentadilla a la silla": "https://youtu.be/gFTgLpn08Xc",
  "Elevación de talones": "https://youtu.be/XEmxAHBzMTg",
  "Estiramiento de pecho en pared": "https://youtu.be/5reQDGL1cA4",
  # extra: zona media
@@ -406,7 +406,7 @@ VIDEOS = {
 
 # Video de la variante más fácil de cada ejercicio de las rutinas (Harbiz). Tienen que estar todas o ninguna.
 EASY_VIDEO = {
- "Sentadilla en copa": "https://www.youtube.com/watch?v=hd5OuSxMgcE",
+ "Sentadilla en copa": "https://youtu.be/gFTgLpn08Xc",
  "Estocada split": "https://www.youtube.com/watch?v=E3T7W-n8PRg",
  "Flexiones de brazo": "https://youtu.be/mBv-_kaIzME",
  "Puente a una pierna": "https://youtu.be/YopfscyxtK0",
@@ -429,7 +429,7 @@ EASY_VIDEO = {
  "Peso muerto con mancuernas": "https://youtu.be/tuwL8r6nCCo",
  "Bíceps con peso": "https://youtu.be/5dFutcWE3AA",
  "Plancha oso": "https://youtu.be/kyNrWqz1iqs",
- "Vuelo posterior con peso": "https://www.youtube.com/shorts/vdhpZqN5dYo",
+ "Vuelo posterior con peso": "https://youtu.be/jmWK7wv-mPY",
 }
 # Material de cada ejercicio (vacío = no se muestra)
 MATERIAL = {
@@ -536,7 +536,7 @@ RUT = {
  ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y una mancuerna en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas por delante de las piernas y volvé apretando los glúteos.","con un palo de escoba, sin peso, para aprender el movimiento."),
  ("r3_6.png","Bíceps con peso","10–12","De pie, codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","con botellas de agua."),
  ("r3_7.png","Plancha oso","15–20 s","En cuatro apoyos, elevá las rodillas unos centímetros del piso y sostené con la espalda plana.","bird dog: en cuatro apoyos, sin despegar las rodillas."),
- ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados llevando los omóplatos hacia atrás.","boca abajo y sin peso: elevá los brazos juntando los omóplatos."),
+ ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados llevando los omóplatos hacia atrás.","nados: boca abajo y sin peso, elevá brazos y pecho juntando los omóplatos."),
 ]),
 }
 VUELTAS = "3 vueltas (2 en la semana 1)" if FULL else "2 o 3 vueltas, según tu semana"
