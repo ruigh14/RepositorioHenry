@@ -18,6 +18,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
   - `Ebook_Programa_RENOVA.pdf`: versión final vigente. `Ebook_Programa_RENOVA.txt`: su texto extraído.
   - `version-anterior_7_1.pdf`: exportación anterior (solo referencia, no editar).
 - `index.html`: landing de venta del Ebook 1 para pegar en Impultienda (HTML propio). **No editar a mano**: se genera con `cd landing && python3 build.py` desde `landing/landing.html` (encierra el CSS en `#rnv` e imágenes desde GitHub en `landing/img/`, fijadas al último commit de esa carpeta: commitear y pushear las imágenes nuevas antes de regenerar). Compra con `<a href="/checkout">`, precios con `{{price}}`, `{{original_price}}`, `{{savings}}` y upsell 1 con `{{upsell_1_*}}` + `data-upsell-toggle="1"` (tokens de Impultienda).
+- `gimnasio.html`: landing de "Entrená en el gimnasio", misma estructura que `index.html`. Se genera con `cd landing && python3 build.py gimnasio` desde `landing/gimnasio.html`.
 - `upsell.html`: página de upsell post-compra ("desbloqueá todos los talleres").
 - `css/styles.css`: estilos compartidos de la landing y el upsell.
 

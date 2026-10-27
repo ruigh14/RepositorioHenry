@@ -5,10 +5,12 @@
 - Mueve el <style> dentro del <body> (por si la tienda descarta el <head>).
 - Cambia img/... por la URL pública de GitHub (fijada al último commit de img/), así las imágenes cargan desde cualquier lado.
 
-Uso:  cd landing && python3 build.py
+Uso:  cd landing && python3 build.py                 → ../index.html     (Entrená desde casa)
+      cd landing && python3 build.py gimnasio        → ../gimnasio.html  (Entrená en el gimnasio)
 """
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).parent
@@ -75,7 +77,8 @@ def scope(css):
     return out
 
 
-src = (HERE / "landing.html").read_text()
+SRC, OUT = ("gimnasio.html", "gimnasio.html") if sys.argv[1:] == ["gimnasio"] else ("landing.html", "index.html")
+src = (HERE / SRC).read_text()
 css = re.search(r"<style>(.*?)</style>", src, re.S).group(1)
 css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
 head = re.sub(r"<style>.*?</style>\s*", "", src.split("<body>")[0], flags=re.S)
@@ -84,5 +87,5 @@ html = (head + "<body>\n<div id=\"rnv\">\n<style>@import url(\"" + FONTS + "\");
         + scope(css).strip() + "\n</style>\n" + body.strip() + "\n</div>\n</body>\n</html>\n")
 html = re.sub(r'(src|href)="img/', r'\1="' + IMG, html)
 html = html.replace("url('img/", "url('" + IMG)
-(HERE.parent / "index.html").write_text(html)
-print("index.html", len(html) // 1024, "KB")
+(HERE.parent / OUT).write_text(html)
+print(OUT, len(html) // 1024, "KB")
