@@ -1,356 +1,411 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="es-AR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RENOVA · Ebook y talleres</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Entrená desde Casa | Método RENOVA</title>
+<style>
+:root{
+  --navy: #0e2038;
+  --navy-dark: #081424;
+  --terracotta: #b3263e;
+  --terracotta-hover: #8f1b2f;
+  --rose-bg: #fdf2f4;
+  --rose-border: #f8ccd3;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --paper: #f8fafc;
+  --white: #ffffff;
+  --line: #e2e8f0;
+  --radius: 18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+.wrap{width:min(1120px,calc(100% - 36px));margin-inline:auto}
+
+/* CABECERA */
+.topbar{background:var(--terracotta);color:#fff;text-align:center;padding:9px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.98);border-bottom:1px solid var(--line)}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:24px;font-weight:900;letter-spacing:-1px;color:var(--navy);text-decoration:none}
+.brand span{color:var(--terracotta)}
+.brand small{display:block;font-size:9px;letter-spacing:2px;color:var(--muted);font-weight:700}
+.nav-cta{background:var(--navy);color:#fff;padding:10px 20px;border-radius:50px;text-decoration:none;font-size:13px;font-weight:700;transition:.2s}
+.nav-cta:hover{background:var(--terracotta)}
+
+/* HERO */
+.hero{background:var(--navy-dark);color:#fff;padding:60px 0 80px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center}
+.pill{display:inline-block;background:rgba(179,38,62,.2);color:#fca5b3;padding:5px 14px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.1;margin-bottom:18px}
+.hero h1 em{font-style:italic;color:#fca5b3}
+.hero p{font-size:16px;line-height:1.6;color:#cbd5e1;margin-bottom:24px}
+.hero-points{list-style:none;display:grid;gap:12px;margin-bottom:30px}
+.hero-points li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:#e2e8f0}
+.tick{color:#fca5b3;font-weight:900}
+.cta-btn{display:inline-block;background:var(--terracotta);color:#fff;padding:16px 32px;border-radius:50px;font-size:15px;font-weight:800;text-decoration:none;border:none;cursor:pointer;box-shadow:0 10px 25px rgba(179,38,62,.4);transition:.2s}
+.cta-btn:hover{background:var(--terracotta-hover);transform:translateY(-2px)}
+
+/* MOCKUP VISUAL */
+.book-visual{background:linear-gradient(135deg,#132845,#0e1e33);border:6px solid #fff;border-radius:14px;box-shadow:0 25px 50px rgba(0,0,0,.5);padding:35px 25px;position:relative;text-align:center}
+.book-visual .book-kicker{font-size:10px;font-weight:800;letter-spacing:2px;color:#fca5b3;text-transform:uppercase}
+.book-visual h3{font-size:24px;color:#fff;margin:12px 0 8px}
+.book-visual p{font-size:13px;color:#94a3b8;line-height:1.5}
+.book-features{margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-around;font-size:12px;color:#cbd5e1}
+
+/* BARRA DE DATOS */
+.statbar{margin-top:-30px;position:relative;z-index:10}
+.stats-box{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:var(--radius);border:1px solid var(--line);box-shadow:0 10px 30px rgba(0,0,0,.05)}
+.stat-item{padding:20px;text-align:center;border-right:1px solid var(--line)}
+.stat-item:last-child{border:0}
+.stat-item strong{display:block;font-size:24px;color:var(--navy);font-weight:800}
+.stat-item span{font-size:12px;color:var(--muted);font-weight:600}
+
+/* SECCIONES COMUNES */
+.section{padding:80px 0}
+.section.white{background:#fff}
+.section.soft{background:linear-gradient(180deg,#f8fafc,#f1f5f9)}
+.section.dark{background:var(--navy);color:#fff}
+.sec-title{text-align:center;max-width:700px;margin:0 auto 45px}
+.sec-title span{color:var(--terracotta);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.sec-title h2{font-size:clamp(26px,4vw,38px);color:var(--navy);margin:8px 0 12px;line-height:1.2}
+.section.dark .sec-title h2{color:#fff}
+.sec-title p{color:var(--muted);font-size:15px}
+.section.dark .sec-title p{color:#cbd5e1}
+
+/* FASES */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.phase-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px}
+.phase-card span{font-size:11px;color:#fca5b3;font-weight:800;text-transform:uppercase}
+.phase-card h3{font-size:20px;color:#fff;margin:10px 0}
+.phase-card p{font-size:14px;color:#cbd5e1;line-height:1.5}
+
+/* CHECKOUT / COMPRA */
+.checkout-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
+.item-feature{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.item-badge{width:40px;height:40px;flex:0 0 40px;border-radius:10px;background:var(--rose-bg);color:var(--terracotta);display:grid;place-items:center;font-weight:800;font-size:14px}
+.item-feature h4{font-size:15px;color:var(--navy);margin-bottom:4px}
+.item-feature p{font-size:13px;color:var(--muted);line-height:1.4}
+
+.buy-card{background:#fff;border:1px solid #cbd5e1;border-radius:20px;padding:26px;box-shadow:0 15px 40px rgba(0,0,0,.08);position:sticky;top:90px}
+.buy-card h3{font-size:22px;color:var(--navy);margin-bottom:6px}
+.price-tag{display:flex;align-items:baseline;gap:10px;margin:12px 0 4px}
+.price-num{font-size:36px;font-weight:900;color:var(--navy)}
+.old-num{font-size:16px;color:#94a3b8;text-decoration:line-through}
+.save-msg{color:var(--terracotta);font-size:13px;font-weight:800;margin-bottom:18px}
+
+/* UPSELL CAJA */
+.upsell-box{background:var(--rose-bg);border:2px dashed var(--rose-border);border-radius:14px;padding:16px;margin:18px 0}
+.upsell-box h5{font-size:14px;color:var(--navy);margin-bottom:4px}
+.upsell-box p{font-size:12px;color:var(--muted);line-height:1.4}
+.upsell-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:10px;border-top:1px solid rgba(0,0,0,.06)}
+.btn-toggle{border:2px solid var(--terracotta);background:#fff;border-radius:50px;padding:8px 16px;font-weight:800;color:var(--terracotta);font-size:12px;cursor:pointer;transition:.2s}
+.btn-toggle.active{background:var(--terracotta);color:#fff}
+
+.total-calc{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px}
+.total-calc-row{display:flex;justify-content:space-between;margin-bottom:4px;color:var(--muted)}
+.total-calc-row.total{border-top:1px solid var(--line);padding-top:6px;font-weight:800;font-size:16px;color:var(--navy);margin-top:6px}
+
+/* PREGUNTAS FRECUENTES */
+.faq-list{max-width:760px;margin:0 auto;display:grid;gap:10px}
+.faq-list details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.faq-list summary{font-weight:700;color:var(--navy);font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";font-size:18px;color:var(--terracotta)}
+.faq-list details[open] summary::after{content:"−"}
+.faq-list p{font-size:13px;color:var(--muted);margin-top:10px;line-height:1.6}
+
+/* FOOTER */
+footer{background:var(--navy-dark);color:#94a3b8;padding:24px 0;font-size:12px}
+.foot-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .hero-grid,.checkout-layout{grid-template-columns:1fr;gap:35px}
+  .phases{grid-template-columns:1fr}
+  .stats-box{grid-template-columns:1fr 1fr}
+  .stat-item:nth-child(2){border-right:0}
+  .stat-item:nth-child(1),.stat-item:nth-child(2){border-bottom:1px solid var(--line)}
+  .buy-card{position:relative;top:auto}
+}
+</style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position: absolute" aria-hidden="true">
-  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-</svg>
+<div class="topbar">Método RENOVA · Plan de 8 Semanas para Mujeres 40+</div>
 
-<!-- NAV -->
-<header class="site-header">
-  <div class="container">
-    <a href="#inicio" class="logo">RENOVA</a>
-    <nav class="site-nav" aria-label="Principal">
-      <a href="#incluye">Qué incluye</a>
-      <a href="#talleres">Talleres</a>
-      <a href="#historias">Historias</a>
-      <a href="#precio">Precio</a>
-      <a href="#preguntas">Preguntas</a>
-    </nav>
-    <a href="#precio" class="header-cta">QUIERO MI EBOOK</a>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#">RE<span>N</span>OVA<small>FUERZA · HÁBITOS · CONSTANCIA</small></a>
+    <a class="nav-cta" href="#comprar">Comprar ($15.000 ARS)</a>
   </div>
 </header>
 
 <main>
-
-<!-- HERO -->
-<section id="inicio" class="container hero">
-  <div class="hero__copy">
-    <span class="eyebrow-pill">EXCLUSIVO PARA MUJERES PROFESIONALES</span>
-    <h1 class="display">30 días para <span class="accent">entrenar, comer y dormir mejor</span> desde tu casa</h1>
-    <p class="lead">No es falta de voluntad. Es que nadie te dio un plan simple que entre en tu agenda. El ebook RENOVA une rutinas en casa, menús, recetas y descanso, y te abre la puerta a los talleres.</p>
-    <div class="chips">
-      <span class="chip"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Taller de descanso incluido</span>
-      <span class="chip"><svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>Taller premium de heladera incluido</span>
-    </div>
-    <a href="#precio" class="btn btn--primary btn--hero">¡Quiero mi ebook y los talleres!</a>
-    <p class="fineprint">Descarga inmediata en PDF · Acceso a talleres desde tu celular</p>
-  </div>
-
-  <div class="hero__visual">
-    <div class="mockup">
-      <div class="mockup__title">TU ACCESO RENOVA</div>
-      <div class="mockup__stage">
-        <div class="book book--main">
-          <span class="book__brand">RENOVA</span>
-          <div style="display: flex; flex-direction: column; gap: 8px">
-            <span class="book__title">Plan<br><span class="accent-cyan">30 días</span></span>
-            <span class="book__sub">Entrenamiento · Alimentación · Descanso</span>
-          </div>
-          <span class="book__author">NACHO PORTILLO</span>
-        </div>
-        <div class="book book--side">
-          <span class="book__brand">RENOVA</span>
-          <span class="book__title">Recetario</span>
-          <span class="book__sub">+20 recetas y postres</span>
-        </div>
-      </div>
-      <div class="mockup__footer">
-        <div>
-          <span class="mockup__label">TALLER</span>
-          <span class="mockup__name">Dormí mejor</span>
-        </div>
-        <div>
-          <span class="mockup__label">TALLER PREMIUM</span>
-          <span class="mockup__name">Tu heladera en orden</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track">
-    <span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span><span>RENOVA</span>
-  </div>
-</div>
-
-<!-- PARA VOS SI -->
-<section class="container section">
-  <span class="eyebrow-pill">ESTO ES PARA VOS SI…</span>
-  <h2 class="h2">Querés cuidarte, pero <span class="accent">tu agenda no te deja</span></h2>
-  <div class="grid grid--300">
-    <div class="pain-card"><span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg></span><p>Trabajás muchas horas y no tenés tiempo de ir al gimnasio.</p></div>
-    <div class="pain-card"><span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg></span><p>Empezaste mil dietas y ninguna se sostuvo en tu vida real.</p></div>
-    <div class="pain-card"><span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg></span><p>Abrís la heladera a las 21 h y no sabés qué cocinar.</p></div>
-    <div class="pain-card"><span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg></span><p>Dormís mal y te levantás cansada, dependiendo del café.</p></div>
-    <div class="pain-card"><span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg></span><p>Querés un plan claro, con videos, que puedas seguir sola.</p></div>
-    <div class="pain-card"><span class="icon-box"><svg width="20" height="20" aria-hidden="true"><use href="#i-check"/></svg></span><p>Buscás volver a sentirte con energía y a gusto con tu cuerpo.</p></div>
-  </div>
-</section>
-
-<!-- QUE INCLUYE -->
-<section id="incluye" class="band">
-  <div class="container section">
-    <span class="eyebrow-pill">QUÉ INCLUYE EL EBOOK</span>
-    <h2 class="h2">Un plan completo, <span class="accent">en un solo lugar</span></h2>
-    <div class="grid grid--260">
-      <div class="feature-card">
-        <span class="feature-card__num">01</span>
-        <h3>Entrenamiento en casa</h3>
-        <ul>
-          <li>Entrada en calor y elongación</li>
-          <li>3 rutinas de cuerpo completo</li>
-          <li>Video de cada ejercicio</li>
-          <li>Organización semanal con aeróbico</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <span class="feature-card__num">02</span>
-        <h3>Alimentación</h3>
-        <ul>
-          <li>3 menús semanales + menú veggie</li>
-          <li>Listas de compras listas para usar</li>
-          <li>Planilla de seguimiento de comidas</li>
-          <li>Tips para planificar y comprar</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <span class="feature-card__num">03</span>
-        <h3>Recetario</h3>
-        <ul>
-          <li>Más de 20 recetas simples</li>
-          <li>Desayunos, almuerzos y cenas</li>
-          <li>Postres saludables en minutos</li>
-          <li>Ingredientes de cualquier súper</li>
-        </ul>
-      </div>
-      <div class="feature-card">
-        <span class="feature-card__num">04</span>
-        <h3>Descanso</h3>
-        <ul>
-          <li>Cómo saber si dormís bien</li>
-          <li>Alimentos que ayudan a dormir</li>
-          <li>8 consejos para tu rutina nocturna</li>
-          <li>Cómo influye el ejercicio en tu sueño</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TALLERES -->
-<section id="talleres" class="container section">
-  <span class="eyebrow-pill">TU ACCESO INCLUYE TALLERES</span>
-  <h2 class="h2" style="max-width: 940px">El ebook te da el plan. <span class="accent">Los talleres te dan las estrategias.</span></h2>
-  <p class="lead" style="max-width: 720px; text-align: center; font-size: 19px">Al comprar el ebook entrás a tu área de talleres con dos ya desbloqueados. Los mirás cuando quieras, desde el celular.</p>
-
-  <div class="grid grid--340">
-    <article class="workshop">
-      <div class="workshop__media">
-        <span>[FOTO O VIDEO DEL TALLER]</span>
-        <span class="workshop__badge">INCLUIDO</span>
-      </div>
-      <div class="workshop__body">
-        <span class="kicker">TALLER 1 · DESCANSO</span>
-        <h3>Dormí mejor: estrategias para un descanso reparador</h3>
-        <p>Rutina nocturna, manejo de pantallas y cafeína, y cómo ordenar tus horarios para levantarte con energía sin depender del café.</p>
-      </div>
-    </article>
-    <article class="workshop workshop--premium">
-      <div class="workshop__media">
-        <span>[FOTO O VIDEO DEL TALLER]</span>
-        <span class="workshop__badge">PREMIUM · INCLUIDO</span>
-      </div>
-      <div class="workshop__body">
-        <span class="kicker">TALLER 2 · ORGANIZACIÓN</span>
-        <h3>Tu heladera en orden: organizá tus alimentos</h3>
-        <p>Cómo guardar, porcionar y congelar para tener siempre algo sano a mano. Menos desperdicio, menos compras de urgencia, más tiempo para vos.</p>
-      </div>
-    </article>
-  </div>
-
-  <!-- Locked workshops / upsell -->
-  <div class="locked">
-    <div class="locked__head">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
       <div>
-        <span class="kicker kicker--cyan">PRÓXIMOS TALLERES</span>
-        <h3>Destrabá todos los talleres y seguí subiendo de nivel</h3>
-      </div>
-      <a href="upsell.html" class="btn btn--cyan locked__cta">Desbloquear todos<svg width="20" height="20" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="grid grid--240">
-      <div class="locked-card">
-        <span class="icon-box icon-box--lock"><svg width="20" height="20" aria-hidden="true"><use href="#i-lock"/></svg></span>
-        <span class="locked-card__title">Ansiedad por la comida</span>
-        <span class="locked-card__desc">[Descripción breve del taller]</span>
-      </div>
-      <div class="locked-card">
-        <span class="icon-box icon-box--lock"><svg width="20" height="20" aria-hidden="true"><use href="#i-lock"/></svg></span>
-        <span class="locked-card__title">Comer afuera sin culpa</span>
-        <span class="locked-card__desc">[Descripción breve del taller]</span>
-      </div>
-      <div class="locked-card">
-        <span class="icon-box icon-box--lock"><svg width="20" height="20" aria-hidden="true"><use href="#i-lock"/></svg></span>
-        <span class="locked-card__title">Entrenar en 20 minutos</span>
-        <span class="locked-card__desc">[Descripción breve del taller]</span>
-      </div>
-      <div class="locked-card">
-        <span class="icon-box icon-box--lock"><svg width="20" height="20" aria-hidden="true"><use href="#i-lock"/></svg></span>
-        <span class="locked-card__title">Hormonas y energía después de los 35</span>
-        <span class="locked-card__desc">[Descripción breve del taller]</span>
-      </div>
-    </div>
-  </div>
-</section>
+        <span class="pill">Entrenamiento en Casa</span>
+        <h1>Entrená desde casa.<br/><em>Transformá tu fuerza.</em></h1>
+        <p>Un plan estructurado de 8 semanas para mujeres con poco tiempo. Dejá de improvisar y empezá a ganar masa muscular y energía con sesiones cortas y cuidando tus articulaciones.</p>
 
-<!-- SOBRE MI -->
-<section class="band">
-  <div class="container about">
-    <div class="about__photo">[FOTO DE NACHO]</div>
-    <div class="about__copy">
-      <span class="eyebrow-pill">QUIÉN TE ACOMPAÑA</span>
-      <h2>Hola, soy <span class="accent">Nacho Portillo</span></h2>
-      <p>[Tu historia en 2 o 3 frases: formación, años de experiencia y por qué creaste RENOVA para mujeres profesionales.]</p>
-      <p>Armé este ebook para que tengas lo esencial del método en tus manos: entrenar, comer y descansar mejor, sin excesos y a tu ritmo.</p>
-    </div>
-  </div>
-</section>
-
-<!-- HISTORIAS -->
-<section id="historias" class="container section">
-  <span class="eyebrow-pill">HISTORIAS</span>
-  <h2 class="h2" style="font-size: clamp(34px, 4.6vw, 64px); line-height: 1.05">Ellas también <span class="accent">lo lograron</span></h2>
-  <div class="grid grid--320">
-    <article class="story">
-      <div class="story__media">[VIDEO TESTIMONIO]</div>
-      <div class="story__body">
-        <span class="story__bar"></span>
-        <h3>[Resultado de la alumna]</h3>
-        <p>[Testimonio real en sus palabras]</p>
-      </div>
-    </article>
-    <article class="story">
-      <div class="story__media">[VIDEO TESTIMONIO]</div>
-      <div class="story__body">
-        <span class="story__bar"></span>
-        <h3>[Resultado de la alumna]</h3>
-        <p>[Testimonio real en sus palabras]</p>
-      </div>
-    </article>
-    <article class="story">
-      <div class="story__media">[VIDEO TESTIMONIO]</div>
-      <div class="story__body">
-        <span class="story__bar"></span>
-        <h3>[Resultado de la alumna]</h3>
-        <p>[Testimonio real en sus palabras]</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- PRECIO -->
-<section id="precio" class="band">
-  <div class="container section">
-    <span class="eyebrow-pill">ELEGÍ TU ACCESO</span>
-    <h2 class="h2">Empezá hoy. <span class="accent">Subí de nivel cuando quieras.</span></h2>
-    <div class="grid grid--340">
-      <div class="plan">
-        <div class="plan__head">
-          <span class="plan__label">EBOOK RENOVA</span>
-          <h3>Plan 30 días + 2 talleres</h3>
-        </div>
-        <span class="plan__price">[PRECIO]</span>
-        <ul class="check-list">
-          <li><svg width="22" height="22" style="color: var(--teal-dark)" aria-hidden="true"><use href="#i-check"/></svg>Ebook: entrenamiento, alimentación y descanso</li>
-          <li><svg width="22" height="22" style="color: var(--teal-dark)" aria-hidden="true"><use href="#i-check"/></svg>Recetario con más de 20 recetas</li>
-          <li><svg width="22" height="22" style="color: var(--teal-dark)" aria-hidden="true"><use href="#i-check"/></svg>Taller: Dormí mejor</li>
-          <li><svg width="22" height="22" style="color: var(--teal-dark)" aria-hidden="true"><use href="#i-check"/></svg>Taller premium: Tu heladera en orden</li>
+        <ul class="hero-points">
+          <li><span class="tick">✓</span><span>Sesiones guiadas de <strong>20 a 40 minutos</strong>.</span></li>
+          <li><span class="tick">✓</span><span><strong>Video de cada ejercicio</strong>, a un toque desde tu celular.</span></li>
+          <li><span class="tick">✓</span><span><strong>Sesión express de 15 minutos</strong> para días complicados.</span></li>
+          <li><span class="tick">✓</span><span>23 recetas prácticas, 2 talleres de regalo y 50% off en tu plan personalizado.</span></li>
         </ul>
-        <a href="#" class="btn btn--outline btn--plan">Quiero el ebook</a>
+
+        <a class="cta-btn" href="#comprar">QUIERO ACCEDER AL PLAN →</a>
       </div>
 
-      <div class="plan plan--featured">
-        <span class="plan__ribbon">MÁS ELEGIDO</span>
-        <div class="plan__head">
-          <span class="plan__label">ACCESO TOTAL</span>
-          <h3>Ebook + todos los talleres</h3>
+      <div class="book-visual">
+        <div class="book-kicker">Guía Práctica Oficial</div>
+        <h3>ENTRENÁ DESDE CASA</h3>
+        <p>El sistema progresivo para construir fuerza y sostener el hábito a partir de los 40 años.</p>
+        <div class="book-features">
+          <span>8 Semanas</span>
+          <span>Videos de cada ejercicio</span>
+          <span>Full Body</span>
         </div>
-        <span class="plan__price">[PRECIO]</span>
-        <ul class="check-list">
-          <li><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg>Todo lo del ebook RENOVA</li>
-          <li><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg>Los 2 talleres incluidos</li>
-          <li><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg>Todos los talleres desbloqueados</li>
-          <li><svg width="22" height="22" aria-hidden="true"><use href="#i-check"/></svg>Cada taller nuevo, sin costo extra</li>
-        </ul>
-        <a href="upsell.html" class="btn btn--white btn--plan">Quiero el acceso total</a>
       </div>
     </div>
-    <p class="fineprint" style="text-align: center">Pago seguro · Descarga inmediata · [Tu garantía]</p>
-  </div>
-</section>
+  </section>
 
-<!-- PREGUNTAS -->
-<section id="preguntas" class="container section faq">
-  <span class="eyebrow-pill">PREGUNTAS FRECUENTES</span>
-  <div class="faq__list">
-    <details>
-      <summary>¿Necesito equipamiento para entrenar?<span class="faq__plus" aria-hidden="true">+</span></summary>
-      <p>No. Las rutinas están pensadas para hacer en casa, con tu peso corporal y elementos que ya tenés, como un banco o una silla.</p>
-    </details>
-    <details>
-      <summary>¿Sirve si nunca entrené?<span class="faq__plus" aria-hidden="true">+</span></summary>
-      <p>Sí. Cada ejercicio tiene su video y las series son orientativas: avanzás de forma gradual, escuchando a tu cuerpo.</p>
-    </details>
-    <details>
-      <summary>¿Cómo accedo a los talleres?<span class="faq__plus" aria-hidden="true">+</span></summary>
-      <p>[Explicá cómo llega el acceso: email, plataforma o link privado.]</p>
-    </details>
-    <details>
-      <summary>¿Hay opción vegetariana?<span class="faq__plus" aria-hidden="true">+</span></summary>
-      <p>Sí. Además de los 3 menús semanales, el ebook incluye un menú veggie completo.</p>
-    </details>
-    <details>
-      <summary>¿Puedo pasar después al acceso total?<span class="faq__plus" aria-hidden="true">+</span></summary>
-      <p>Sí. Desde tu área de talleres podés desbloquear el resto cuando quieras.</p>
-    </details>
+  <!-- STATS -->
+  <div class="wrap statbar">
+    <div class="stats-box">
+      <div class="stat-item">
+        <strong>8 semanas</strong>
+        <span>Plan Progresivo</span>
+      </div>
+      <div class="stat-item">
+        <strong>20-40 min</strong>
+        <span>Por sesión</span>
+      </div>
+      <div class="stat-item">
+        <strong>3 rutinas</strong>
+        <span>Cuerpo completo</span>
+      </div>
+      <div class="stat-item">
+        <strong>23 recetas</strong>
+        <span>Ideas proteicas</span>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- CTA FINAL -->
-<section class="band-dark">
-  <div class="container final-cta">
-    <h2>Tu próximo nivel <span class="accent-cyan">empieza hoy</span></h2>
-    <p>Ebook, recetario y dos talleres para que entrenar, comer y descansar bien deje de ser una lucha.</p>
-    <a href="#precio" class="btn btn--cyan">¡Quiero empezar ahora!</a>
-  </div>
-</section>
+  <!-- FASES -->
+  <section class="section dark">
+    <div class="wrap">
+      <div class="sec-title">
+        <span>El Recorrido</span>
+        <h2>Ocho semanas en tres fases</h2>
+        <p>El programa te acompaña sin apuros para proteger tu espalda y articulaciones.</p>
+      </div>
+      <div class="phases">
+        <div class="phase-card">
+          <span>Semanas 1 y 2</span>
+          <h3>Fase 1: Base</h3>
+          <p>Dominá la técnica de los movimientos básicos, aprendé la respiración correcta y adaptá tu cuerpo sin sobrecargas.</p>
+        </div>
+        <div class="phase-card">
+          <span>Semanas 3 a 6</span>
+          <h3>Fase 2: Construcción</h3>
+          <p>Aumentamos el estímulo para ganar tono muscular. La semana 6 incluye una descarga para asimilar el esfuerzo.</p>
+        </div>
+        <div class="phase-card">
+          <span>Semanas 7 y 8</span>
+          <h3>Fase 3: Consolidación</h3>
+          <p>Fijás el hábito y comprobás tu progreso de fuerza. Te damos las pautas para seguir entrenando sola.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- OFERTA Y CHECKOUT -->
+  <section class="section soft" id="comprar">
+    <div class="wrap checkout-layout">
+      <div>
+        <div class="sec-title" style="text-align:left;margin-bottom:24px">
+          <span>Tu Pack Completo</span>
+          <h2>Todo lo que incluye el Ebook</h2>
+        </div>
+
+        <div class="item-feature">
+          <div class="item-badge">8S</div>
+          <div>
+            <h4>Ebook Oficial RENOVA (PDF)</h4>
+            <p>Guía de 8 semanas con rutinas explicadas, series, repeticiones y descansos recomendados.</p>
+          </div>
+        </div>
+
+        <div class="item-feature">
+          <div class="item-badge">▶</div>
+          <div>
+            <h4>Videos de Ejecución Técnica</h4>
+            <p>Cada ejercicio tiene su botón de video: lo tocás desde el celular y ves cómo hacerlo bien.</p>
+          </div>
+        </div>
+
+        <div class="item-feature">
+          <div class="item-badge">🥗</div>
+          <div>
+            <h4>Recetario Práctico (23 opciones)</h4>
+            <p>Platos ricos en proteína y con ingredientes del súper para alimentar tu masa muscular.</p>
+          </div>
+        </div>
+
+        <div class="item-feature">
+          <div class="item-badge">🎁</div>
+          <div>
+            <h4>2 Talleres Grabados de Regalo</h4>
+            <p>Talleres "Organizar la heladera" y "Gestión de la ansiedad con la comida".</p>
+          </div>
+        </div>
+
+        <div class="item-feature">
+          <div class="item-badge">50%</div>
+          <div>
+            <h4>Consulta con Nacho y 50% off</h4>
+            <p>Escribile a Nacho por WhatsApp y accedé con 50% de descuento a tu plan personalizado con el equipo RENOVA.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TARJETA DE COMPRA -->
+      <aside class="buy-card">
+        <span class="pill" style="margin-bottom:8px">Acceso Inmediato</span>
+        <h3>Ebook Método RENOVA</h3>
+        <p style="font-size:13px;color:var(--muted)">Plan de entrenamiento en casa para mujeres +40.</p>
+
+        <div class="price-tag">
+          <span class="price-num">$15.000</span>
+          <span class="old-num">$30.000</span>
+          <span style="font-size:14px;font-weight:700;color:var(--muted)">ARS</span>
+        </div>
+        <p class="save-msg">Ahorrás $15.000 ARS (50% de descuento)</p>
+
+        <!-- CAJA DE UPSELL -->
+        <div class="upsell-box">
+          <h5>¿Querés sumar todos los Talleres RENOVA?</h5>
+          <p>Sumá la biblioteca completa con todas las clases sobre metabolismo, sueño y hábitos.</p>
+          <div class="upsell-footer">
+            <div>
+              <strong style="color:var(--navy)">+ $9.900 ARS</strong>
+              <div style="font-size:10px;color:var(--terracotta)">(Normal: $25.000 · Ahorro 60%)</div>
+            </div>
+            <button type="button" class="btn-toggle" id="btnUpsell">＋ Agregar</button>
+          </div>
+        </div>
+
+        <!-- RESUMEN DE PAGO -->
+        <div class="total-calc">
+          <div class="total-calc-row">
+            <span>Ebook RENOVA:</span>
+            <span>$15.000 ARS</span>
+          </div>
+          <div class="total-calc-row" id="filaUpsell" style="display:none">
+            <span>Biblioteca de Talleres:</span>
+            <span>+ $9.900 ARS</span>
+          </div>
+          <div class="total-calc-row total">
+            <span>Total a pagar:</span>
+            <span id="txtTotal">$15.000 ARS</span>
+          </div>
+        </div>
+
+        <button type="button" class="cta-btn" id="btnPagar" style="width:100%;text-align:center">
+          COMPRAR AHORA ($15.000 ARS) →
+        </button>
+
+        <p style="font-size:11px;color:#94a3b8;text-align:center;margin-top:12px">
+          Pago seguro · Recibís el acceso en tu correo de inmediato.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQS -->
+  <section class="section white">
+    <div class="wrap">
+      <div class="sec-title">
+        <span>Preguntas Frecuentes</span>
+        <h2>Todo lo que necesitás saber</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>¿Qué equipo necesito para empezar?</summary>
+          <p>Solo una colchoneta (o manta en el piso), una silla firme y algo de peso progresivo (dos botellas de agua, un par de mancuernas livianas o una mochila con peso). Si no tenés peso, empezás con tu propio cuerpo.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto dura cada sesión?</summary>
+          <p>Las sesiones duran entre 20 y 40 minutos. Además contás con una sesión express de 15 minutos para los días en que no tengas tiempo.</p>
+        </details>
+        <details>
+          <summary>¿Cómo accedo al material?</summary>
+          <p>Apenas se aprueba el pago, te llega un correo con el archivo PDF para descargarlo en tu teléfono, tablet o computadora, y los accesos a los videos y talleres.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si hace años que no hago actividad física?</summary>
+          <p>El programa empieza con una fase de adaptación diseñada especialmente para reeducar el movimiento sin impacto brusco ni saltos.</p>
+        </details>
+        <details>
+          <summary>¿Quién armó el programa?</summary>
+          <p>Nacho Portillo junto al equipo RENOVA: entrenadores, médico deportólogo, psicólogo y nutricionista, que trabajan con mujeres de más de 40 años.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <span class="logo">RENOVA</span>
-    <span>© Nacho Portillo · RENOVA</span>
-    <div class="site-footer__links">
-      <a href="https://www.nachoportillo.com/">nachoportillo.com</a>
-      <a href="#">Instagram</a>
-      <a href="#">WhatsApp</a>
-    </div>
+<footer>
+  <div class="wrap foot-content">
+    <div><strong>RE<span>N</span>OVA</strong> — Fuerza, hábitos y constancia.</div>
+    <div>Material educativo general. No sustituye la consulta médica.</div>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var basePrice = 15000;
+    var upsellPrice = 9900;
+    var conUpsell = false;
+
+    var btnUpsell = document.getElementById('btnUpsell');
+    var filaUpsell = document.getElementById('filaUpsell');
+    var txtTotal = document.getElementById('txtTotal');
+    var btnPagar = document.getElementById('btnPagar');
+
+    // Cambia aquí por tus links de pago reales (Mercado Pago, Hotmart, etc.)
+    var linkSoloEbook = "https://tu-link-de-pago.com/ebook";
+    var linkCombo = "https://tu-link-de-pago.com/ebook-mas-talleres";
+
+    btnUpsell.addEventListener('click', function(){
+      conUpsell = !conUpsell;
+      if(conUpsell){
+        btnUpsell.classList.add('active');
+        btnUpsell.textContent = '✓ Agregado';
+        filaUpsell.style.display = 'flex';
+        var tot = basePrice + upsellPrice;
+        txtTotal.textContent = '$' + tot.toLocaleString('es-AR') + ' ARS';
+        btnPagar.textContent = 'COMPRAR COMBO ($' + tot.toLocaleString('es-AR') + ' ARS) →';
+      } else {
+        btnUpsell.classList.remove('active');
+        btnUpsell.textContent = '＋ Agregar';
+        filaUpsell.style.display = 'none';
+        txtTotal.textContent = '$' + basePrice.toLocaleString('es-AR') + ' ARS';
+        btnPagar.textContent = 'COMPRAR AHORA ($' + basePrice.toLocaleString('es-AR') + ' ARS) →';
+      }
+    });
+
+    btnPagar.addEventListener('click', function(){
+      var destino = conUpsell ? linkCombo : linkSoloEbook;
+      window.location.href = destino;
+    });
+  })();
+</script>
 
 </body>
 </html>
