@@ -1591,7 +1591,7 @@ if ENT:
   <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
 </div>
 <a class="skool" href="{esc(LINKS["talleres"])}">
-  <img src="img/equipo_strip.jpg" alt="Equipo RENOVA">
+  <img src="img/equipo_cover.jpg" alt="Equipo RENOVA">
   <div class="skx"><span class="wtag">PLATAFORMA RENOVA · SKOOL</span><h3>Entrá y mirá todos los talleres</h3>
   <p>Tocá el botón: se abre la plataforma de RENOVA en Skool, con todos los talleres del equipo.</p>
   <span class="btn btn-big">{ICON_ARROW} IR A LOS TALLERES</span></div>
