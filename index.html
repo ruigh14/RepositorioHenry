@@ -7,647 +7,675 @@
 <meta name="description" content="Plan de fuerza de 8 semanas para mujeres de 40+ con poco tiempo. Sesiones de 20 a 40 minutos en casa, con video de cada ejercicio."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
 <div id="rnv">
-<style>@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Inter:wght@400;500;600;700&display=swap");
-
+<style>@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap");
 #rnv{
-  --tq:#14B1C7; --tq-d:#0A7F90; --tq-dd:#075E6B; --tq-l:#E8F6F8; --tq-b:#CDEEF3;
-  --navy:#0B1B2E; --navy2:#12283F;
-  --red:#E63333; --red-d:#C42525; --blue:#0033A0;
-  --ink:#141414; --txt:#2A2F33; --mut:#5B646B; --line:#E3ECEE; --bg2:#F4FAFB;
-  --r:20px;
-  --shadow:0 18px 50px rgba(11,27,46,.12);
+  --br:#16AEC6; --br2:#0E93A8; --br3:#2CC4D8; --brl:#E9F8FA; --brll:#F5FCFD;
+  --grad:linear-gradient(135deg,#31C7DB 0%,#16AEC6 55%,#0F9FB5 100%);
+  --navy:#111418; --ink:#111111; --txt:#3A3F44; --mut:#62696F;
+  --red:#E63333; --red2:#C42525; --gold:#FFE873;
+  --gray:#F2F4F5; --line:#E1E8EA;
+  --sh:0 10px 30px rgba(17,20,24,.08); --sh2:0 24px 54px rgba(17,20,24,.16);
 }
 #rnv,#rnv *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-#rnv{background:#fff;color:var(--txt);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#rnv{background:#fff linear-gradient(rgba(17,20,24,.035) 1px,transparent 1px) 0 0/56px 56px,#fff linear-gradient(90deg,rgba(17,20,24,.035) 1px,transparent 1px) 0 0/56px 56px;color:var(--txt);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 #rnv img{max-width:100%;display:block}
-#rnv a{color:inherit}
-#rnv h1,#rnv h2,#rnv h3,#rnv h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);line-height:1.08;letter-spacing:-.02em}
-#rnv .wrap{width:min(1160px,calc(100% - 32px));margin-inline:auto}
-#rnv .t{color:var(--tq-d)}
-#rnv .hl{background:linear-gradient(transparent 62%,rgba(20,177,199,.28) 62%);padding:0 .08em}
+#rnv a{color:inherit;text-decoration:none}
+#rnv h1,#rnv h2,#rnv h3,#rnv h4,#rnv .osw{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-weight:800;line-height:1.12;letter-spacing:-.02em}
+#rnv .b{color:var(--br)}
+#rnv .wrap{width:min(1100px,calc(100% - 32px));margin-inline:auto}
+#rnv .narrow{width:min(860px,calc(100% - 32px));margin-inline:auto}
 
-/* BOTONES */
-#rnv .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;font-family:"Inter Tight",sans-serif;font-weight:800;font-size:17px;letter-spacing:.01em;padding:18px 30px;border-radius:999px;text-decoration:none;border:0;cursor:pointer;box-shadow:0 12px 28px rgba(230,51,51,.35);transition:transform .2s,background .2s,box-shadow .2s}
-#rnv .btn:hover{background:var(--red-d);transform:translateY(-2px);box-shadow:0 16px 34px rgba(230,51,51,.42)}
-#rnv .btn svg{width:20px;height:20px}
-#rnv .btn-sub{display:block;font-size:13px;color:var(--mut);margin-top:10px}
-#rnv .pulse{animation:pulse 2.4s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 12px 28px rgba(230,51,51,.35),0 0 0 0 rgba(230,51,51,.35)}60%{box-shadow:0 12px 28px rgba(230,51,51,.35),0 0 0 14px rgba(230,51,51,0)}}
 
-/* BARRA SUPERIOR */
-#rnv .topbar{background:var(--navy);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:9px 12px}
-#rnv .topbar b{color:var(--tq)}
-#rnv .rnv-head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-#rnv .nav{height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-#rnv .nav img{height:30px;width:auto}
-#rnv .nav-cta{background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;white-space:nowrap;transition:background .2s}
-#rnv .nav-cta:hover{background:var(--tq-d)}
+#rnv .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:20px;letter-spacing:.01em;text-transform:uppercase;color:#fff;background:var(--grad);padding:17px 40px;border-radius:14px;border:0;cursor:pointer;box-shadow:0 14px 30px rgba(22,174,198,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .2s,box-shadow .2s,filter .2s}
+#rnv .btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite}
+#rnv .btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(22,174,198,.5),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);filter:saturate(1.1)}
+#rnv .btn:active{transform:translateY(0)}
+#rnv .btn svg{width:20px;height:20px;transition:transform .2s}
+#rnv .btn:hover svg{transform:translateX(4px)}
+#rnv .btn.white{background:#fff;color:var(--br2);box-shadow:0 14px 30px rgba(0,0,0,.22),inset 0 -4px 0 rgba(22,174,198,.18)}
+#rnv .btn.white::after{background:linear-gradient(110deg,transparent,rgba(22,174,198,.2),transparent)}
+#rnv .btn.big{font-size:23px;padding:18px 54px}
+@keyframes shine{0%,55%{left:-80%}100%{left:130%}}
 
-/* HERO */
-#rnv .hero{position:relative;padding:56px 0 72px;background:radial-gradient(900px 500px at 85% 10%,var(--tq-l),transparent 60%),radial-gradient(700px 400px at 0% 100%,#FDEDED,transparent 60%)}
-#rnv .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
-#rnv .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--tq-b);color:var(--tq-dd);font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:18px}
-#rnv .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--red);display:inline-block}
-#rnv .hero h1{font-size:clamp(40px,6vw,68px);font-weight:900;margin-bottom:20px}
-#rnv .hero h1 em{font-style:normal;color:var(--tq-d)}
-#rnv .hero .lead{font-size:19px;color:var(--mut);max-width:560px;margin-bottom:26px}
-#rnv .checks{list-style:none;display:grid;gap:12px;margin-bottom:30px}
-#rnv .checks li{display:flex;gap:12px;align-items:flex-start;font-size:17px}
-#rnv .checks li b{color:var(--ink)}
-#rnv .ck{flex:0 0 26px;height:26px;border-radius:50%;background:var(--tq);color:#fff;display:grid;place-items:center;margin-top:1px}
-#rnv .ck svg{width:15px;height:15px}
-#rnv .trust{display:flex;align-items:center;gap:14px;margin-top:26px}
-#rnv .avatars{display:flex}
-#rnv .avatars img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:3px solid #fff;margin-left:-12px;box-shadow:0 4px 10px rgba(0,0,0,.12)}
-#rnv .avatars img:first-child{margin-left:0}
-#rnv .trust p{font-size:14px;color:var(--mut);line-height:1.4}
-#rnv .trust b{color:var(--ink)}
 
-#rnv .mock{position:relative;display:flex;justify-content:center;perspective:1600px;padding:10px 0}
-#rnv .mock .book{width:min(380px,82%);border-radius:6px 14px 14px 6px;overflow:hidden;transform:rotateY(-14deg) rotateX(3deg);box-shadow:-2px 0 0 #d9e3e6,-6px 0 0 #fff,-8px 2px 0 #d9e3e6,30px 40px 60px rgba(11,27,46,.28);transition:transform .5s}
-#rnv .mock:hover .book{transform:rotateY(-6deg) rotateX(1deg)}
-#rnv .float{position:absolute;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:12px 16px;display:flex;align-items:center;gap:12px;font-size:14px;line-height:1.25;animation:bob 5s ease-in-out infinite}
-#rnv .float b{display:block;font-family:"Inter Tight";font-size:18px;color:var(--ink)}
-#rnv .float span{color:var(--mut)}
-#rnv .float .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--tq-l);color:var(--tq-d)}
-#rnv .float .ic svg{width:22px;height:22px}
-#rnv .f1{top:8%;left:-2%}
-#rnv .f2{bottom:12%;right:-2%;animation-delay:-2.5s}
-#rnv .f2 .ic{background:#FDEDED;color:var(--red)}
-@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+#rnv .util{background:#111418;color:#cfd8de;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+#rnv .util .wrap{display:flex;justify-content:space-between;align-items:center;height:34px;gap:12px}
+#rnv .util nav a{margin-right:16px;opacity:.85;transition:opacity .2s}
+#rnv .util nav a:hover{opacity:1;color:#fff}
+#rnv .util .ship{border:1px solid var(--br3);color:#fff;padding:2px 10px;border-radius:3px}
+#rnv .navbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--line),0 6px 18px rgba(11,27,46,.05)}
+#rnv .navbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+#rnv .navbar img{height:30px;width:auto}
+#rnv .menu{display:flex;gap:26px;font-family:"Inter Tight",Inter,sans-serif;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink)}
+#rnv .menu a{position:relative;padding:4px 0}
+#rnv .menu a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--br);transform:scaleX(0);transition:transform .25s}
+#rnv .menu a:hover::after{transform:scaleX(1)}
+#rnv .nav-btn{font-family:"Inter Tight",Inter,sans-serif;font-size:15px;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--grad);padding:9px 18px;border-radius:6px;box-shadow:0 6px 16px rgba(22,174,198,.35);transition:transform .2s,box-shadow .2s}
+#rnv .nav-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(22,174,198,.45)}
 
-/* FRANJA EQUIPO */
-#rnv .strip{background:var(--navy);color:#fff;padding:18px 0}
-#rnv .strip .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 28px;font-weight:600;font-size:15px}
-#rnv .strip span{display:inline-flex;align-items:center;gap:8px;opacity:.92}
-#rnv .strip span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--tq)}
-#rnv .strip em{font-style:normal;color:var(--tq);font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:13px}
 
-/* SECCIONES */
-#rnv .sec{padding:96px 0}
-#rnv .sec.alt{background:var(--bg2)}
-#rnv .sec.dark{background:var(--navy);color:#cfdbe3}
-#rnv .sec.dark h2,#rnv .sec.dark h3{color:#fff}
-#rnv .head{text-align:center;max-width:760px;margin:0 auto 52px}
-#rnv .kick{display:inline-block;color:var(--tq-d);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
-#rnv .sec.dark .kick{color:var(--tq)}
-#rnv .head h2{font-size:clamp(32px,4.4vw,50px);font-weight:900;margin-bottom:14px}
-#rnv .head p{font-size:18px;color:var(--mut)}
-#rnv .sec.dark .head p{color:#a9bccb}
+#rnv .hero{position:relative;background:#0d1a20 url('https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/hero.jpg') 78% 30%/cover no-repeat;color:#fff;overflow:hidden}
+#rnv .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#14A9C1 0%,rgba(20,169,193,.95) 34%,rgba(17,150,172,.55) 56%,rgba(17,150,172,0) 76%)}
+#rnv .hero .wrap{position:relative;padding:54px 0 64px;max-width:1100px}
+#rnv .hero-in{max-width:560px}
+#rnv .hero h1{font-family:"Inter Tight",Inter,sans-serif;color:#fff;font-size:clamp(46px,7vw,80px);font-weight:900;letter-spacing:-.03em;line-height:.98;text-transform:uppercase;text-shadow:0 4px 18px rgba(0,0,0,.18)}
+#rnv .hero .sub{font-family:"Inter Tight",Inter,sans-serif;font-weight:500;font-size:clamp(20px,2.4vw,27px);margin:12px 0 22px;line-height:1.25}
+#rnv .hero .sub b{font-weight:800;color:#fff;border-bottom:3px solid #fff}
+#rnv .vbox{position:relative;display:block;border:4px solid #fff;border-radius:16px;overflow:hidden;box-shadow:0 22px 50px rgba(0,0,0,.35);aspect-ratio:16/9;background:#0b1820;transition:transform .3s}
+#rnv .vbox:hover{transform:scale(1.015)}
+#rnv .vbox img{width:100%;height:100%;object-fit:cover;opacity:.85}
+#rnv .vbox .play{position:absolute;top:50%;left:50%;width:76px;height:76px;margin:-48px 0 0 -38px;border-radius:50%;background:var(--br);box-shadow:0 10px 26px rgba(22,174,198,.55);display:grid;place-items:center;transition:transform .25s,background .25s}
+#rnv .vbox:hover .play{transform:scale(1.1)}
+#rnv .vbox .play svg{width:32px;height:32px;margin-left:5px;color:#fff}
+#rnv .vbox .cap{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-family:"Inter Tight",Inter,sans-serif;font-weight:600;font-size:clamp(15px,2vw,20px);text-transform:uppercase;letter-spacing:.03em;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+#rnv .vbox .cap span{background:var(--br);padding:0 6px;text-shadow:none}
+#rnv .hero .btn{margin-top:26px}
+#rnv .hero-notch{position:relative;height:0}
+#rnv .hero-notch::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);border:22px solid transparent;border-top-color:#14A9C1;border-bottom:0}
 
-/* DOLORES */
-#rnv .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-#rnv .pain{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:transform .2s,box-shadow .2s}
-#rnv .pain:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-#rnv .pain .em{font-size:30px;margin-bottom:10px}
-#rnv .pain h3{font-size:20px;margin-bottom:6px}
-#rnv .pain p{font-size:15.5px;color:var(--mut)}
-#rnv .bridge{margin:44px auto 0;max-width:780px;text-align:center;background:var(--navy);color:#fff;border-radius:var(--r);padding:30px 28px;font-size:19px;line-height:1.5}
-#rnv .bridge b{color:var(--tq)}
 
-/* POR QUÉ FUERZA */
-#rnv .why{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
-#rnv .why-img{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow)}
-#rnv .why-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
-#rnv .why-img .tag{position:absolute;left:16px;bottom:16px;right:16px;background:rgba(255,255,255,.95);border-radius:14px;padding:14px 16px;font-size:14px;color:var(--mut)}
-#rnv .why-img .tag b{display:block;color:var(--ink);font-family:"Inter Tight";font-size:17px}
-#rnv .why h2{font-size:clamp(30px,4vw,46px);font-weight:900;margin-bottom:16px}
-#rnv .why .lead{font-size:18px;color:var(--mut);margin-bottom:26px}
-#rnv .benefits{display:grid;gap:14px}
-#rnv .benefit{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
-#rnv .benefit .n{flex:0 0 46px;height:46px;border-radius:14px;background:var(--tq-l);color:var(--tq-d);display:grid;place-items:center;font-family:"Inter Tight";font-weight:900;font-size:18px}
-#rnv .benefit h4{font-size:18px;margin-bottom:3px}
-#rnv .benefit p{font-size:15px;color:var(--mut)}
+#rnv .tabs{display:grid;grid-template-columns:repeat(4,1fr);margin:30px auto 0;background:var(--gray);border-bottom:3px solid var(--br);box-shadow:var(--sh)}
+#rnv .tabs a{text-align:center;padding:16px 8px;font-family:"Inter Tight",Inter,sans-serif;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);border-right:1px solid var(--line);transition:background .2s,color .2s}
+#rnv .tabs a:last-child{border:0}
+#rnv .tabs a:hover{background:var(--br);color:#fff}
 
-/* ADENTRO DEL EBOOK */
-#rnv .peek{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-#rnv .pg{background:#fff;border-radius:16px;padding:10px;box-shadow:0 10px 30px rgba(11,27,46,.08);border:1px solid var(--line);transition:transform .25s}
-#rnv .pg:hover{transform:translateY(-6px) rotate(-.6deg)}
-#rnv .pg img{border-radius:8px;border:1px solid var(--line);aspect-ratio:210/297;object-fit:cover;object-position:top}
-#rnv .pg p{font-size:14px;font-weight:700;color:var(--ink);padding:10px 4px 2px}
-#rnv .pg span{display:block;font-weight:500;color:var(--mut);font-size:13px}
-#rnv .feat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
-#rnv .feat div{text-align:center;padding:20px 14px;border-radius:16px;background:var(--tq-l)}
-#rnv .feat b{display:block;font-family:"Inter Tight";font-size:30px;font-weight:900;color:var(--tq-dd);line-height:1.1}
-#rnv .feat span{font-size:14px;color:var(--tq-dd);font-weight:600}
 
-/* PASOS */
-#rnv .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
-#rnv .step{position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:28px 22px}
-#rnv .step::before{counter-increment:s;content:"0" counter(s);font-family:"Inter Tight";font-weight:900;font-size:44px;color:var(--tq);line-height:1;display:block;margin-bottom:14px}
-#rnv .step h3{font-size:20px;margin-bottom:6px}
-#rnv .step p{font-size:15px;color:#a9bccb}
+#rnv .sec{padding:80px 0}
+#rnv .sec.gray{background:var(--gray)}
+#rnv .sec.tint{background:var(--brll)}
+#rnv .h2{font-size:clamp(28px,3.6vw,42px);text-align:center;margin-bottom:30px;text-transform:uppercase;letter-spacing:-.025em}
+#rnv .h2.up{text-transform:uppercase}
+#rnv .lead{text-align:center;color:var(--mut);font-size:18px;max-width:720px;margin:-14px auto 34px}
+#rnv .notch{position:relative}
+#rnv .notch::after{content:"";position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);border:20px solid transparent;border-top-color:inherit;border-bottom:0;z-index:2}
+#rnv .gray.notch::after{border-top-color:var(--gray)}
+#rnv .tint.notch::after{border-top-color:var(--brll)}
 
-/* FASES */
-#rnv .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;margin-top:64px}
-#rnv .phases::before{content:"";position:absolute;top:22px;left:16%;right:16%;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--tq),var(--blue),var(--red))}
-#rnv .phase{text-align:center;padding:0 16px;position:relative}
-#rnv .dot{width:48px;height:48px;border-radius:50%;margin:0 auto 18px;background:var(--navy);border:4px solid var(--tq);color:#fff;display:grid;place-items:center;font-family:"Inter Tight";font-weight:900;position:relative;z-index:1}
-#rnv .phase:nth-child(2) .dot{border-color:var(--blue)}
-#rnv .phase:nth-child(3) .dot{border-color:var(--red)}
-#rnv .phase small{color:var(--tq);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:12px}
-#rnv .phase h3{font-size:22px;margin:6px 0 8px}
-#rnv .phase p{font-size:15px;color:#a9bccb;max-width:300px;margin:0 auto}
 
-/* RESULTADOS */
-#rnv .results{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-#rnv .res{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
-#rnv .res .ph{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line)}
-#rnv .res .ph.one{grid-template-columns:1fr}
-#rnv .res .ph div{position:relative}
-#rnv .res .ph img{width:100%;aspect-ratio:3/4;object-fit:cover}
-#rnv .res .ph.one img{aspect-ratio:3/2}
-#rnv .lbl{position:absolute;left:10px;top:10px;background:rgba(11,27,46,.85);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 9px;border-radius:999px}
-#rnv .lbl.d{background:var(--tq)}
-#rnv .res .tx{padding:20px 22px}
-#rnv .stars{color:#F5B301;letter-spacing:2px;font-size:15px}
-#rnv .res h3{font-size:20px;margin:4px 0}
-#rnv .res p{font-size:15.5px;color:var(--mut)}
-#rnv .videos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:28px}
-#rnv .vid{position:relative;display:flex;align-items:flex-end;min-height:190px;border-radius:var(--r);overflow:hidden;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--tq-dd),var(--navy));padding:20px;transition:transform .2s}
-#rnv .vid:hover{transform:translateY(-4px)}
-#rnv .vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
-#rnv .vid .pl{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:64px;height:64px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 10px 26px rgba(230,51,51,.5)}
-#rnv .vid .pl svg{width:26px;height:26px;margin-left:4px}
-#rnv .vid b{position:relative;font-family:"Inter Tight";font-size:20px;display:block}
-#rnv .vid span{position:relative;font-size:14px;opacity:.85}
-#rnv .disc{text-align:center;font-size:13.5px;color:var(--mut);max-width:720px;margin:26px auto 0}
+#rnv .know{max-width:780px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--sh2)}
+#rnv .know h3{background:var(--grad);color:#fff;text-align:center;font-size:26px;padding:14px}
+#rnv .know ul{list-style:none;background:var(--brl);padding:22px 28px;display:grid;gap:14px}
+#rnv .know li{display:flex;gap:12px;font-size:16.5px;align-items:flex-start}
+#rnv .know li b{color:var(--ink)}
+#rnv .know li em{font-style:normal;font-weight:900;color:var(--br)}
+#rnv .ix{flex:0 0 22px;height:22px;border-radius:4px;display:grid;place-items:center;font-weight:900;font-size:14px;margin-top:2px}
+#rnv .ix.no{color:var(--red)}
+#rnv .ix.si{background:#22A447;color:#fff}
 
-/* NACHO */
-#rnv .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
-#rnv .about-ph{position:relative}
-#rnv .about-ph img{border-radius:24px;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;box-shadow:var(--shadow)}
-#rnv .about-ph .badge{position:absolute;right:-14px;bottom:28px;background:var(--red);color:#fff;border-radius:18px;padding:16px 20px;text-align:center;box-shadow:0 14px 30px rgba(230,51,51,.4)}
-#rnv .about-ph .badge b{display:block;font-family:"Inter Tight";font-size:36px;line-height:1}
-#rnv .about-ph .badge span{font-size:13px;font-weight:600}
-#rnv .about h2{font-size:clamp(30px,4vw,46px);font-weight:900;margin-bottom:16px}
-#rnv .about p{font-size:17px;color:var(--mut);margin-bottom:14px}
-#rnv .team{margin-top:22px;border-radius:18px;overflow:hidden;border:1px solid var(--line)}
-#rnv .team img{width:100%}
-#rnv .roles{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-#rnv .roles span{background:var(--tq-l);color:var(--tq-dd);font-weight:700;font-size:14px;padding:7px 14px;border-radius:999px}
 
-/* OFERTA */
-#rnv .offer{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
-#rnv .stack{display:grid;gap:14px}
-#rnv .item{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
-#rnv .item .th{flex:0 0 74px;height:74px;border-radius:12px;overflow:hidden;background:var(--tq-l);display:grid;place-items:center;font-size:30px}
-#rnv .item .th img{width:100%;height:100%;object-fit:cover;object-position:top}
-#rnv .item h4{font-size:18px;margin-bottom:2px}
-#rnv .item p{font-size:14.5px;color:var(--mut);line-height:1.45}
-#rnv .bonus{display:inline-block;background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;padding:3px 9px;border-radius:999px;margin-bottom:5px}
-#rnv .inc{display:inline-block;background:var(--tq-l);color:var(--tq-dd);font-size:11px;font-weight:800;letter-spacing:.1em;padding:3px 9px;border-radius:999px;margin-bottom:5px}
+#rnv .posts{columns:2;column-gap:22px;max-width:820px;margin:0 auto}
+#rnv .post{break-inside:avoid;background:#fff;border-radius:8px;box-shadow:var(--sh);padding:16px;margin-bottom:22px;transition:transform .25s,box-shadow .25s}
+#rnv .post:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+#rnv .post .who{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+#rnv .post .who img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+#rnv .post .who b{font-size:15px;color:var(--ink);display:block;line-height:1.2}
+#rnv .post .who span{font-size:12.5px;color:var(--mut)}
+#rnv .post .dots{margin-left:auto;color:#9aa;font-weight:900;letter-spacing:2px}
+#rnv .post p{font-size:17px;color:var(--ink);line-height:1.5}
+#rnv .post .ba{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:12px 0 4px}
+#rnv .post .ba div{position:relative}
+#rnv .post .ba img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:3px}
+#rnv .post .one img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 60%;border-radius:3px;margin:12px 0 4px}
+#rnv .post .tag{position:absolute;left:8px;top:8px;background:rgba(11,27,46,.85);color:#fff;font-size:11px;font-weight:900;letter-spacing:.08em;padding:3px 8px;border-radius:3px}
+#rnv .post .tag.d{background:var(--br)}
+#rnv .post .vid{position:relative;display:block;margin-top:12px;border-radius:6px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,var(--br2),var(--navy))}
+#rnv .post .vid img{width:100%;height:100%;object-fit:cover;opacity:.8}
+#rnv .post .vid i{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--br);display:grid;place-items:center;box-shadow:0 8px 20px rgba(22,174,198,.5);transition:transform .25s}
+#rnv .post .vid:hover i{transform:scale(1.12)}
+#rnv .post .vid em{position:absolute;left:14px;bottom:12px;color:#fff;font-style:normal;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:20px;z-index:1}
+#rnv .post .vid i svg{width:24px;height:24px;color:#fff;margin-left:4px}
+#rnv .disc{text-align:center;font-size:13.5px;color:var(--mut);max-width:680px;margin:6px auto 0;font-style:italic}
 
-#rnv .buy{position:sticky;top:90px;background:#fff;border-radius:24px;border:2px solid var(--tq);box-shadow:0 24px 60px rgba(11,27,46,.16);overflow:hidden}
-#rnv .buy-top{background:var(--navy);color:#fff;text-align:center;padding:14px;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
-#rnv .buy-top b{color:var(--tq)}
-#rnv .buy-in{padding:26px}
-#rnv .buy-cover{display:flex;gap:16px;align-items:center;margin-bottom:16px}
-#rnv .buy-cover img{width:84px;border-radius:4px 8px 8px 4px;box-shadow:6px 8px 18px rgba(0,0,0,.18)}
-#rnv .buy-cover h3{font-size:22px}
-#rnv .buy-cover p{font-size:14px;color:var(--mut)}
-#rnv .price{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:6px 0 2px}
-#rnv .price .now{font-family:"Inter Tight";font-weight:900;font-size:52px;color:var(--ink);line-height:1}
-#rnv .price .cur{font-weight:700;color:var(--mut)}
-#rnv .price s{color:#9aa6ae;font-size:20px}
-#rnv .save{display:inline-block;background:#FDEDED;color:var(--red-d);font-weight:800;font-size:13.5px;padding:5px 12px;border-radius:999px;margin:8px 0 18px}
-#rnv .ups{background:var(--tq-l);border:2px dashed var(--tq);border-radius:16px;padding:16px;margin-bottom:16px}
-#rnv .ups h5{font-family:"Inter Tight";font-size:16px;color:var(--ink);margin-bottom:3px}
-#rnv .ups p{font-size:13.5px;color:var(--mut);line-height:1.45}
-#rnv .ups-f{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}
-#rnv .ups-f strong{color:var(--ink);font-size:17px}
-#rnv .ups-f small{display:block;color:var(--red-d);font-size:12px;font-weight:700}
-#rnv .tog{border:2px solid var(--tq-d);background:#fff;color:var(--tq-d);border-radius:999px;padding:9px 16px;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;transition:.2s}
-#rnv .tog.on{background:var(--tq-d);color:#fff}
-#rnv .tot{display:grid;gap:4px;background:var(--bg2);border-radius:12px;padding:12px 14px;margin-bottom:16px;font-size:14px;color:var(--mut)}
-#rnv .tot div{display:flex;justify-content:space-between}
-#rnv .tot .t2{border-top:1px solid var(--line);padding-top:8px;margin-top:4px;color:var(--ink);font-weight:800;font-size:17px}
-#rnv .buy .btn{width:100%}
-#rnv .safe{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 16px;margin-top:14px;font-size:13px;color:var(--mut)}
-#rnv .safe span{display:inline-flex;align-items:center;gap:6px}
-#rnv .safe svg{width:15px;height:15px;color:var(--tq-d)}
 
-/* FAQ */
-#rnv .faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
-#rnv .faq details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;transition:box-shadow .2s}
-#rnv .faq details[open]{box-shadow:var(--shadow);border-color:var(--tq-b)}
-#rnv .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-family:"Inter Tight";font-weight:800;font-size:18px;color:var(--ink)}
+#rnv .pillar{display:grid;grid-template-columns:1.25fr .75fr;background:var(--brl);border-radius:14px;overflow:hidden;margin:0 auto 24px;max-width:900px;box-shadow:var(--sh);transition:transform .25s,box-shadow .25s}
+#rnv .pillar:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+#rnv .pillar .hd{grid-column:1/-1;display:none}
+#rnv .pillar .tx h3{background:var(--grad);color:#fff;font-size:23px;text-transform:uppercase;letter-spacing:-.01em;padding:14px 22px 2px}
+#rnv .pillar .tx h3 small{display:block;text-transform:none;letter-spacing:0;font-family:Inter,sans-serif;font-size:14.5px;font-weight:400;opacity:.92;padding:2px 0 12px}
+#rnv .pillar ul{list-style:none;padding:18px 22px 22px;display:grid;gap:11px}
+#rnv .pillar li{display:flex;gap:10px;font-size:15.5px;line-height:1.5}
+#rnv .pillar li b{color:var(--br)}
+#rnv .ck{flex:0 0 18px;color:var(--br);font-weight:900;font-size:18px;line-height:1.3}
+#rnv .pillar .gr{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:12px;background:#fff;align-content:center}
+#rnv .pillar .gr img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+
+
+#rnv .curve{background:var(--brl);border-top:3px solid var(--br);border-radius:120px 120px 0 0;padding:40px 24px 46px;text-align:center}
+#rnv .curve h2{font-size:clamp(22px,3vw,34px);max-width:900px;margin:0 auto;text-transform:uppercase;letter-spacing:-.02em}
+
+
+#rnv .inc{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start;padding:34px 0;border-bottom:1px dashed #c9d5d8}
+#rnv .inc:last-child{border:0}
+#rnv .inc.rev .media{order:2}
+#rnv .inc .row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+#rnv .inc h3{color:var(--br);font-size:24px;text-transform:uppercase}
+#rnv .val{background:var(--brl);color:var(--br2)!important;border:1px solid var(--br);font-weight:700!important;color:var(--ink);font-family:"Inter Tight",Inter,sans-serif;font-weight:500;font-size:15px;padding:3px 10px;border-radius:2px;white-space:nowrap}
+#rnv .inc p{font-size:16.5px;margin-bottom:14px}
+#rnv .inc ul{list-style:none;display:grid;gap:10px}
+#rnv .inc li{display:flex;gap:10px;font-size:15.5px}
+#rnv .inc li b{color:var(--br)}
+#rnv .pills{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+#rnv .pills span{border:2px solid var(--br);color:var(--br);text-align:center;font-family:"Inter Tight",Inter,sans-serif;font-weight:600;font-size:13.5px;letter-spacing:.05em;padding:4px;border-radius:3px;text-transform:uppercase;background:#fff}
+#rnv .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#rnv .tiles img{width:100%;aspect-ratio:1;object-fit:contain;padding:4px;border-radius:12px;border:3px solid #111418;background:#fff;box-shadow:0 8px 18px rgba(17,20,24,.15);transition:transform .25s}
+#rnv .tiles img:hover{transform:scale(1.05)}
+#rnv .pages{position:relative;height:330px}
+#rnv .pages img{position:absolute;width:52%;border-radius:4px;box-shadow:0 14px 30px rgba(0,0,0,.2);transition:transform .3s}
+#rnv .pages img:nth-child(1){left:2%;top:18px;transform:rotate(-7deg)}
+#rnv .pages img:nth-child(2){left:24%;top:0;z-index:2}
+#rnv .pages img:nth-child(3){left:46%;top:24px;transform:rotate(7deg)}
+#rnv .pages:hover img:nth-child(1){transform:rotate(-10deg) translateX(-8px)}
+#rnv .pages:hover img:nth-child(3){transform:rotate(10deg) translateX(8px)}
+
+
+#rnv .bhead{display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto 26px}
+#rnv .bhead h2{font-size:clamp(30px,4vw,42px);text-transform:uppercase}
+#rnv .bhead .val{font-size:22px;padding:6px 14px}
+#rnv .bonus{max-width:900px;margin:0 auto 26px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);overflow:hidden;transition:transform .25s,box-shadow .25s}
+#rnv .bonus:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
+#rnv .bonus .bt{position:relative;background:var(--brl);padding:20px 20px 20px 150px;font-family:"Inter Tight",Inter,sans-serif;font-weight:600;font-size:20px;text-transform:uppercase;color:var(--ink);text-align:center}
+#rnv .bonus .bt i{position:absolute;left:-1px;top:50%;transform:translateY(-50%);background:var(--grad);color:#fff;font-style:normal;font-size:15px;padding:5px 18px;border-radius:0 4px 4px 0;box-shadow:0 4px 12px rgba(22,174,198,.35)}
+#rnv .bonus .bb{display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:center;padding:24px 30px}
+#rnv .bonus .bb img{max-height:190px;margin:0 auto;border-radius:6px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+#rnv .bonus .bb p{font-size:16.5px}
+#rnv .bonus .bb p b{color:var(--br)}
+#rnv .bonus .two{display:flex;gap:10px;justify-content:center}
+#rnv .bonus .two img{width:48%;max-height:none}
+
+
+#rnv .coach{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;max-width:920px;margin:0 auto}
+#rnv .ring{width:min(320px,100%);aspect-ratio:1;border-radius:50%;border:5px solid var(--br);padding:6px;margin:0 auto;box-shadow:var(--sh2)}
+#rnv .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 25%}
+#rnv .coach .nm{text-align:center;font-weight:900;margin-top:12px;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+#rnv .coach .nm span{color:var(--br)}
+#rnv .coach h2{font-size:clamp(32px,4vw,44px);text-transform:uppercase;margin-bottom:12px}
+#rnv .coach p{font-size:16.5px;margin-bottom:12px}
+#rnv .roles{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+#rnv .roles span{background:var(--brl);color:var(--br2);font-weight:900;font-size:13.5px;padding:6px 12px;border-radius:999px}
+
+
+#rnv .bundle{position:relative;height:340px;max-width:720px;margin:0 auto 26px}
+#rnv .bundle img{position:absolute;border-radius:6px;box-shadow:0 18px 40px rgba(0,0,0,.25);transition:transform .35s}
+#rnv .bundle .c{left:50%;top:0;width:220px;margin-left:-110px;z-index:5;border-radius:4px 10px 10px 4px}
+#rnv .bundle .l1{left:8%;top:40px;width:170px;transform:rotate(-9deg);z-index:2}
+#rnv .bundle .l2{left:22%;top:80px;width:150px;transform:rotate(-3deg);z-index:3}
+#rnv .bundle .r1{right:8%;top:40px;width:170px;transform:rotate(9deg);z-index:2}
+#rnv .bundle .r2{right:22%;top:80px;width:150px;transform:rotate(3deg);z-index:3}
+#rnv .bundle:hover .l1{transform:rotate(-12deg) translateX(-10px)}
+#rnv .bundle:hover .r1{transform:rotate(12deg) translateX(10px)}
+#rnv .bundle:hover .c{transform:translateY(-6px)}
+#rnv .sum{text-align:center;font-family:"Inter Tight",Inter,sans-serif;font-weight:600;font-size:clamp(20px,2.6vw,28px);color:var(--ink);border-top:1px solid #d5dde0;padding-top:24px;max-width:900px;margin:0 auto 26px}
+#rnv .sum span{color:var(--br);font-weight:500}
+#rnv .card{max-width:560px;margin:0 auto;background:#fff;border-radius:18px;border:2px solid var(--brl);box-shadow:var(--sh2);padding:26px 24px;text-align:center}
+#rnv .card h3{color:var(--br);font-size:34px}
+#rnv .card .cc{font-size:15px;margin:2px 0 14px}
+#rnv .reg{display:inline-flex;gap:14px;align-items:center;background:var(--brl);border-radius:999px;padding:6px 18px;font-size:13px;font-weight:900;color:var(--ink);margin-bottom:16px}
+#rnv .reg s{font-weight:400;color:#888;font-size:16px}
+#rnv .reg em{font-style:normal;color:var(--br);font-size:18px}
+#rnv .reg i{width:1px;height:18px;background:#c9d5d8}
+#rnv .opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;text-align:left}
+#rnv .opt{border:2px solid var(--line);border-radius:8px;padding:12px;cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s;background:#fff}
+#rnv .opt:hover{transform:translateY(-2px);box-shadow:var(--sh)}
+#rnv .opt.on,#rnv .opt.is-selected{border-color:var(--br);box-shadow:0 0 0 3px rgba(22,174,198,.18)}
+#rnv .opt .t{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--ink);line-height:1.25}
+#rnv .box{flex:0 0 20px;height:20px;border:2px solid #b8c4c8;border-radius:4px;display:grid;place-items:center;color:#fff;font-size:13px;transition:.2s}
+#rnv .opt.on .box,#rnv .opt.is-selected .box{background:var(--br);border-color:var(--br)}
+#rnv .opt .p{margin:8px 0 6px;font-size:13px;color:#999}
+#rnv .opt .p b{font-family:"Inter Tight",Inter,sans-serif;font-size:24px;color:var(--br);font-weight:600;margin-left:6px}
+#rnv .opt .s{background:var(--gray);text-align:center;font-size:12.5px;padding:4px;border-radius:3px;color:var(--ink)}
+#rnv .secure{font-size:12.5px;color:var(--mut);margin-top:16px}
+#rnv .secure b{color:var(--ink)}
+
+
+#rnv .promise{position:relative;max-width:900px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:var(--sh2);background:var(--br2) url('https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/nacho.jpg') right 25%/auto 125% no-repeat;color:#fff}
+#rnv .promise::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#16AEC6 0%,#119DB3 52%,rgba(17,157,179,.25) 80%,rgba(17,157,179,0) 100%)}
+#rnv .promise .in{position:relative;padding:40px 40px 40px 150px;max-width:690px}
+#rnv .seal{position:absolute;left:30px;top:36px;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFF3B0,#E8B923 60%,#B88A0E);display:grid;place-items:center;text-align:center;font-family:"Inter Tight",Inter,sans-serif;color:#5a4300;font-size:11px;line-height:1.1;box-shadow:0 8px 20px rgba(0,0,0,.25);z-index:3}
+#rnv .seal b{display:block;font-size:22px}
+#rnv .promise h3{color:#fff;font-size:30px;margin-bottom:12px}
+#rnv .promise p{font-size:15.5px;margin-bottom:12px;color:#effafc}
+#rnv .promise .sig{font-weight:900;color:#fff}
+
+
+#rnv .faq{max-width:700px;margin:0 auto;display:grid;gap:10px}
+#rnv .faq details{border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(11,27,46,.08)}
+#rnv .faq summary{list-style:none;cursor:pointer;background:var(--grad);color:#fff;font-weight:700;font-size:16.5px;padding:15px 54px 15px 18px;position:relative;transition:filter .2s}
+#rnv .faq summary:hover{filter:brightness(1.08)}
 #rnv .faq summary::-webkit-details-marker{display:none}
-#rnv .faq summary::after{content:"+";flex:0 0 30px;height:30px;border-radius:50%;background:var(--tq-l);color:var(--tq-d);display:grid;place-items:center;font-size:20px;line-height:1}
-#rnv .faq details[open] summary::after{content:"−";background:var(--tq);color:#fff}
-#rnv .faq p{font-size:16px;color:var(--mut);margin-top:12px}
+#rnv .faq summary::after{content:"";position:absolute;right:18px;top:50%;width:20px;height:20px;margin-top:-10px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%230E93A8' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat;transition:transform .25s}
+#rnv .faq details[open] summary::after{transform:rotate(180deg)}
+#rnv .faq details p{background:#fff;padding:16px 18px;font-size:16px}
 
-/* CTA FINAL */
-#rnv .final{background:linear-gradient(135deg,var(--navy),var(--tq-dd));color:#fff;text-align:center;padding:90px 0;position:relative;overflow:hidden}
-#rnv .final::before,#rnv .final::after{content:"";position:absolute;border-radius:50%;background:rgba(20,177,199,.18)}
-#rnv .final::before{width:420px;height:420px;top:-160px;left:-120px}
-#rnv .final::after{width:320px;height:320px;bottom:-140px;right:-80px;background:rgba(230,51,51,.15)}
-#rnv .final .wrap{position:relative;z-index:1}
-#rnv .final h2{color:#fff;font-size:clamp(32px,4.6vw,54px);font-weight:900;max-width:820px;margin:0 auto 16px}
-#rnv .final p{font-size:19px;color:#cde7ee;max-width:640px;margin:0 auto 30px}
-#rnv .final .btn-sub{color:#a9cbd5}
 
-#rnv .rnv-foot{background:#081424;color:#8ea3b3;font-size:13.5px;padding:30px 0}
-#rnv .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
-#rnv .foot img{height:24px;width:auto;filter:brightness(0) invert(1);opacity:.9}
-#rnv .foot a{color:#cfe3ea}
+#rnv .foot{background:#111418;color:#c3cdd3;padding:44px 0 26px;font-size:14px}
+#rnv .foot .cols{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:28px;margin-bottom:20px}
+#rnv .foot .cols>div{padding:0 16px;border-right:1px solid rgba(255,255,255,.12);display:grid;gap:8px;align-content:start;justify-items:center}
+#rnv .foot .cols>div:last-child{border:0}
+#rnv .foot h4{color:#fff;font-size:17px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+#rnv .foot a{transition:color .2s}
+#rnv .foot a:hover{color:#fff}
+#rnv .foot img{height:26px;width:auto;filter:brightness(0) invert(1)}
+#rnv .foot .mini{display:inline-block;margin-top:6px;background:var(--grad);color:#fff;font-family:"Inter Tight",Inter,sans-serif;text-transform:uppercase;padding:9px 18px;border-radius:4px;transition:transform .2s}
+#rnv .foot .mini:hover{transform:translateY(-2px)}
+#rnv .foot .legal{text-align:center;font-size:12.5px;color:#8b98a1}
 
-/* BARRA FIJA CELULAR */
+#rnv .save{display:inline-block;background:var(--brl);color:var(--br2);font-weight:800;font-size:14px;padding:4px 12px;border-radius:999px;margin:-6px 0 18px}
+#rnv .ups{display:grid;grid-template-columns:86px 1fr;gap:14px;text-align:left;background:var(--brll);border:2px dashed var(--br);border-radius:14px;padding:14px;margin-bottom:16px}
+#rnv .ups-img{width:86px;height:86px;object-fit:cover;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,.12);background:#fff}
+#rnv .ups-tag{display:inline-block;background:var(--grad);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:6px}
+#rnv .ups-tx{min-width:0}
+#rnv .ups h4{font-size:17px;margin-bottom:3px;letter-spacing:-.01em}
+#rnv .ups p{font-size:13.5px;color:var(--mut);line-height:1.45}
+#rnv .ups-f{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px}
+#rnv .ups-f s{color:#999;font-size:13px}
+#rnv .ups-f b{font-family:"Inter Tight",Inter,sans-serif;font-size:20px;color:var(--ink)}
+#rnv .ups-btn{border:2px solid var(--br);background:#fff;color:var(--br2);border-radius:999px;padding:9px 16px;font-family:Inter,sans-serif;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;box-shadow:0 6px 14px rgba(22,174,198,.18);transition:transform .2s,background .2s,color .2s,box-shadow .2s}
+#rnv .ups-btn:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(22,174,198,.28)}
+#rnv .ups-btn .ok{display:none}
+#rnv .ups-btn.is-selected{background:var(--grad);color:#fff;border-color:transparent}
+#rnv .ups-btn.is-selected .add{display:none}
+#rnv .ups-btn.is-selected .ok{display:inline}
+#rnv .tot{display:flex;justify-content:space-between;align-items:center;background:var(--gray);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-weight:800;color:var(--ink)}
+#rnv .tot b{font-family:"Inter Tight",Inter,sans-serif;font-size:22px}
+#rnv .pill-ey{display:inline-block;background:#fff;color:var(--br2);border:1px solid rgba(22,174,198,.35);border-radius:999px;padding:9px 18px;font-weight:800;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 22px rgba(0,0,0,.12);margin-bottom:18px}
+#rnv .vbox .vh{position:absolute;left:0;right:0;top:0;z-index:2;background:#fff;color:var(--ink);text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:9px 6px;border-bottom:1px solid var(--line)}
+
+
 #rnv .mbar{display:none}
 
-/* APARICIÓN */
-#rnv.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+
+#rnv.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 #rnv.js .rv.in{opacity:1;transform:none}
 
-@media (max-width:960px){
-  #rnv .hero-grid,#rnv .why,#rnv .about,#rnv .offer{grid-template-columns:1fr;gap:36px}
-  #rnv .hero{padding:36px 0 56px}
-  #rnv .mock{order:-1}
-  #rnv .mock .book{width:min(300px,70%)}
-  #rnv .pains,#rnv .results,#rnv .videos{grid-template-columns:1fr 1fr}
-  #rnv .peek,#rnv .steps,#rnv .feat{grid-template-columns:1fr 1fr}
-  #rnv .buy{position:relative;top:auto}
-  #rnv .about-ph{max-width:460px;margin:0 auto}
+@media (max-width:900px){
+  #rnv .menu{display:none}
+  #rnv .hero{background-position:70% 20%}
+  #rnv .hero::before{background:linear-gradient(180deg,rgba(20,169,193,.5) 0%,#14A9C1 42%,#0F9FB5 100%)}
+  #rnv .hero .wrap{padding-top:180px}
+  #rnv .pillar,#rnv .inc,#rnv .coach,#rnv .bonus .bb{grid-template-columns:1fr}
+  #rnv .inc.rev .media{order:0}
+  #rnv .posts{columns:1;max-width:520px}
+  #rnv .promise{background-size:0 0}
+  #rnv .promise::before{background:var(--grad)}
 }
 @media (max-width:640px){
   #rnv{font-size:16px}
-  #rnv .sec{padding:70px 0}
-  #rnv .head{margin-bottom:36px}
-  #rnv .hero .lead{font-size:17px}
-  #rnv .pains,#rnv .results,#rnv .videos,#rnv .steps{grid-template-columns:1fr}
-  #rnv .pains{gap:10px}
-  #rnv .pain{display:grid;grid-template-columns:40px 1fr;column-gap:12px;padding:16px 18px}
-  #rnv .pain .em{grid-row:span 2;font-size:28px;margin:0}
-  #rnv .pain h3{font-size:18px;margin-bottom:2px}
-  #rnv .vid{min-height:120px}
-  #rnv .vid .pl{width:52px;height:52px;left:auto;right:20px;top:50%;transform:translateY(-50%)}
-  #rnv .peek{grid-template-columns:1fr 1fr;gap:12px}
-  #rnv .feat{gap:10px}
-  #rnv .feat b{font-size:24px}
-  #rnv .phases{grid-template-columns:1fr;gap:34px;margin-top:20px}
-  #rnv .phases::before{top:0;bottom:0;left:23px;right:auto;width:4px;height:auto;background:linear-gradient(180deg,var(--tq),var(--blue),var(--red))}
-  #rnv .phase{text-align:left;padding-left:72px}
-  #rnv .dot{position:absolute;left:0;top:0;margin:0}
-  #rnv .phase p{margin:0}
-  #rnv .f1{left:0;top:2%}
-  #rnv .f2{right:0;bottom:4%}
-  #rnv .float{padding:9px 12px;font-size:12px}
-  #rnv .float b{font-size:15px}
-  #rnv .float .ic{width:32px;height:32px}
-  #rnv .nav-cta{font-size:13px;padding:9px 14px}
-  #rnv .btn{width:100%;padding:17px 20px}
-  #rnv .about-ph .badge{right:8px}
-  #rnv .price .now{font-size:44px}
-  #rnv .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(0,0,0,.08);padding:10px 16px;align-items:center;gap:12px;transform:translateY(110%);transition:transform .3s}
+  #rnv .util nav{display:none}
+  #rnv .util .wrap{justify-content:center}
+  #rnv .sec{padding:60px 0}
+  #rnv .tabs{grid-template-columns:1fr 1fr;margin-top:24px}
+  #rnv .tabs a:nth-child(2){border-right:0}
+  #rnv .tabs a:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  #rnv .btn{width:100%;padding:16px 18px;font-size:19px}
+  #rnv .btn.big{font-size:20px;padding:17px 18px}
+  #rnv .know ul{padding:18px}
+  #rnv .curve{border-radius:60px 60px 0 0}
+  #rnv .bonus .bt{padding:48px 16px 16px;font-size:18px}
+  #rnv .bonus .bt i{top:12px;transform:none}
+  #rnv .bonus .bb{padding:20px}
+  #rnv .bhead .val{font-size:16px}
+  #rnv .pages{height:250px}
+  #rnv .bundle{height:250px}
+  #rnv .bundle .c{width:150px;margin-left:-75px}
+  #rnv .bundle .l1,#rnv .bundle .r1{width:120px}
+  #rnv .bundle .l2,#rnv .bundle .r2{width:105px}
+  #rnv .bundle .l1{left:0}#rnv .bundle .r1{right:0}
+  #rnv .bundle .l2{left:12%}#rnv .bundle .r2{right:12%}
+  #rnv .opts{grid-template-columns:1fr}
+  #rnv .ups{grid-template-columns:64px 1fr;gap:12px;padding:12px}
+  #rnv .ups-img{width:64px;height:64px}
+  #rnv .ups-f{flex-wrap:wrap}
+  #rnv .ups-btn{width:100%}
+  #rnv .reg{flex-wrap:wrap;justify-content:center;gap:4px 12px}
+  #rnv .promise .in{padding:104px 22px 28px}
+  #rnv .seal{left:12px;top:12px;width:72px;height:72px;font-size:9px}
+  #rnv .seal b{font-size:17px}
+  #rnv .foot .cols{grid-template-columns:1fr;gap:22px}
+  #rnv .foot .cols>div{border:0}
+  #rnv .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;box-shadow:0 -8px 24px rgba(0,0,0,.12);padding:10px 14px;align-items:center;gap:12px;transform:translateY(110%);transition:transform .3s}
   #rnv .mbar.show{transform:none}
-  #rnv .mbar div{line-height:1.15}
-  #rnv .mbar b{font-family:"Inter Tight";font-size:22px;color:var(--ink)}
-  #rnv .mbar s{font-size:13px;color:#9aa6ae;margin-left:4px}
-  #rnv .mbar small{display:block;font-size:12px;color:var(--red-d);font-weight:700}
-  #rnv .mbar .btn{flex:1;padding:14px 12px;font-size:15px}
-  #rnv .rnv-foot{padding-bottom:96px}
+  #rnv .mbar div{line-height:1.1;font-family:"Inter Tight",Inter,sans-serif}
+  #rnv .mbar b{font-size:22px;color:var(--ink)}
+  #rnv .mbar s{font-size:13px;color:#999;margin-left:4px}
+  #rnv .mbar small{display:block;font-family:Inter,sans-serif;font-size:12px;color:var(--br2);font-weight:800}
+  #rnv .mbar .btn{flex:1;width:auto;padding:13px 10px;font-size:17px}
+  #rnv .foot{padding-bottom:96px}
 }
-@media (prefers-reduced-motion:reduce){#rnv,#rnv *{animation:none!important;transition:none!important}#rnv .rv{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#rnv,#rnv *{animation:none!important;transition:none!important}#rnv.js .rv{opacity:1;transform:none}}
 </style>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-ck" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></symbol>
-  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
-  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></g></symbol>
-  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></g></symbol>
 </svg>
 
-<div class="topbar">Precio de lanzamiento: <b>50% OFF</b> · Acceso inmediato a tu ebook</div>
-
-<div class="rnv-head">
-  <div class="wrap nav">
-    <a href="#"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/logo.png" alt="RENOVA"/></a>
-    <a class="nav-cta" href="#comprar">Quiero el plan</a>
+<div class="util">
+  <div class="wrap">
+    <nav><a href="#preguntas">Preguntas</a><a href="https://wa.link/hewha8" target="_blank" rel="noopener">Contacto</a><a href="https://www.nachoportillo.com/" target="_blank" rel="noopener">nachoportillo.com</a></nav>
+    <span class="ship">Acceso inmediato · 100% digital</span>
   </div>
 </div>
 
-<div class="rnv-main">
+<div class="navbar">
+  <div class="wrap">
+    <a href="#"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/logo.png" alt="RENOVA"/></a>
+    <div class="menu"><a href="#programa">Programa</a><a href="#resultados">Resultados</a><a href="#incluido">Qué incluye</a><a href="#preguntas">Preguntas</a></div>
+    <a class="nav-btn" href="#comprar">Empezar</a>
+  </div>
+</div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow"><i></i>Para mujeres de 40+ con poco tiempo</span>
-      <h1>Entrená desde casa. <em>Transformá tu cuerpo.</em></h1>
-      <p class="lead">El plan de fuerza de 8 semanas que te dice exactamente qué hacer cada día, en 20 a 40 minutos, sin gimnasio y cuidando tus articulaciones.</p>
-      <ul class="checks">
-        <li><span class="ck"><svg><use href="#i-ck"/></svg></span><span><b>Plan día por día:</b> 3 rutinas de cuerpo completo que progresan semana a semana.</span></li>
-        <li><span class="ck"><svg><use href="#i-ck"/></svg></span><span><b>Video de cada ejercicio</b>, a un toque desde tu celular.</span></li>
-        <li><span class="ck"><svg><use href="#i-ck"/></svg></span><span><b>Sesión express de 15 minutos</b> para los días complicados.</span></li>
-      </ul>
-      <a class="btn pulse" href="#comprar">QUIERO EMPEZAR HOY <svg><use href="#i-arrow"/></svg></a>
-      <span class="btn-sub">Pago único de $15.000 ARS · Antes $30.000</span>
-      <div class="trust">
-        <div class="avatars">
-          <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/mari_d.jpg" alt=""/>
-          <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/moni_a.jpg" alt=""/>
-          <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ba_romi.jpg" alt=""/>
-          <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/nacho.jpg" alt=""/>
-        </div>
-        <p><b>Más de 15 años</b> acompañando a mujeres<br/>en cada etapa de la vida.</p>
-      </div>
-    </div>
-    <div class="mock">
-      <img class="book" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_1.jpg" alt="Ebook Entrená desde casa · RENOVA"/>
-      <div class="float f1"><span class="ic"><svg><use href="#i-cal"/></svg></span><div><b>8 semanas</b><span>plan progresivo</span></div></div>
-      <div class="float f2"><span class="ic"><svg><use href="#i-play"/></svg></span><div><b>+50 videos</b><span>de cada ejercicio</span></div></div>
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-in">
+      <span class="pill-ey">Exclusivo para mujeres de 40+</span>
+      <h1>Entrená<br/>desde casa</h1>
+      <p class="sub">Tu cuerpo cambió después de los 40. <b>Tus resultados</b> no tienen por qué frenarse.</p>
+      <a class="vbox" href="https://youtu.be/KfI35eFGagY" target="_blank" rel="noopener">
+        <span class="vh">Mirá este testimonio completo</span>
+        <img src="https://img.youtube.com/vi/KfI35eFGagY/hqdefault.jpg" alt="Testimonio de Marina"/>
+        <span class="play"><svg><use href="#i-play"/></svg></span>
+        <span class="cap">Mirá lo que logró <span>Marina</span></span>
+      </a>
+      <a class="btn white" href="#comprar">Empezar ahora <svg><use href="#i-arrow"/></svg></a>
     </div>
   </div>
-</section>
+</div>
+<div class="hero-notch"></div>
 
-<div class="strip">
+<div class="wrap">
+  <nav class="tabs">
+    <a href="#incluido">Qué incluye</a><a href="#bonus">Bonus</a><a href="#preguntas">Preguntas</a><a href="#comprar">Empezar</a>
+  </nav>
+</div>
+
+<!-- SABÍAS QUE -->
+<div class="sec" id="programa">
   <div class="wrap">
-    <em>Equipo RENOVA</em>
-    <span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span>
+    <h2 class="h2 rv">Lo que hacés hoy construye a la mujer que vas a ser.<br/>Hagámosla <span class="b">fuerte</span>.</h2>
+    <div class="know rv">
+      <h3>¿Sabías que…?</h3>
+      <ul>
+        <li><span class="ix no">✕</span><span>A partir de los 30 perdemos <b>masa muscular cada década</b>, y en la menopausia ese proceso <b>se acelera</b>.</span></li>
+        <li><span class="ix si">✓</span><span>Las mujeres que <em>entrenan fuerza</em> mantienen su músculo y cuidan su <em>densidad ósea</em> en esta etapa.</span></li>
+        <li><span class="ix no">✕</span><span>Con menos estrógeno, los huesos <b>pierden densidad más rápido</b> y aumenta el riesgo de fracturas.</span></li>
+        <li><span class="ix si">✓</span><span>El <em>entrenamiento de fuerza</em> mejora el equilibrio y <em>reduce el riesgo de caídas</em>.</span></li>
+        <li><span class="ix no">✕</span><span>Con menos músculo, el cuerpo <b>gasta menos energía</b> y la grasa se acumula más en la cintura.</span></li>
+        <li><span class="ix si">✓</span><span>Combinar <em>fuerza y caminatas</em> ayuda a <em>reducir la grasa abdominal</em>.</span></li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<!-- DOLORES -->
-<section class="sec">
+<!-- TESTIMONIOS -->
+<div class="sec gray notch" id="resultados">
   <div class="wrap">
-    <div class="head rv">
-      <span class="kick">¿Te pasa esto?</span>
-      <h2>No es falta de voluntad. <span class="t">Es falta de un plan.</span></h2>
-      <p>Si te sentís identificada con alguna de estas, este ebook es para vos.</p>
+    <h2 class="h2 rv">Después de los 40, entrenar fuerza <span class="b">no es opcional</span>: te protege.</h2>
+    <p class="lead rv">Mujeres reales que siguieron el método con el equipo RENOVA.</p>
+    <div class="posts">
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/mari_d.jpg" alt=""/><div><b>Mari</b><span>Alumna RENOVA</span></div><span class="dots">···</span></div>
+        <p>Bajó <b>8 kg de grasa</b> y <b>10 cm de cintura</b>.</p>
+        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/mari_a.jpg" alt="Mari antes" style="object-position:52% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/mari_d.jpg" alt="Mari después" style="object-position:58% 50%"/><span class="tag d">DESPUÉS</span></div></div>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/nacho.jpg" alt=""/><div><b>Marina</b><span>Testimonio en video</span></div><span class="dots">···</span></div>
+        <p>Escuchá en primera persona cómo fue su proceso con RENOVA.</p>
+        <a class="vid" href="https://youtu.be/KfI35eFGagY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/KfI35eFGagY/hqdefault.jpg" alt=""/><i><svg><use href="#i-play"/></svg></i></a>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ba_romi.jpg" alt=""/><div><b>Romi</b><span>Alumna RENOVA</span></div><span class="dots">···</span></div>
+        <p>Ganó <b>masa muscular</b> y volvió a <b>correr sin dolores</b>.</p>
+        <div class="one"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ba_romi.jpg" alt="Romi"/></div>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/moni_a.jpg" alt=""/><div><b>Moni</b><span>Alumna RENOVA</span></div><span class="dots">···</span></div>
+        <p>Bajó <b>6 kg</b> y logró algo que nunca había podido: <b>el hábito de entrenar</b>.</p>
+        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/moni_d.jpg" alt="Moni antes" style="object-position:43% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/moni_a.jpg" alt="Moni después" style="object-position:52% 50%"/><span class="tag d">DESPUÉS</span></div></div>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/logo.png" alt="" style="object-fit:contain;background:#fff"/><div><b>Mari y Sussy</b><span>Testimonios en video</span></div><span class="dots">···</span></div>
+        <a class="vid" href="https://drive.google.com/file/d/148OfnqomkPfmFo5MJvyK83iUPBGzrpzh/view?usp=drive_link" target="_blank" rel="noopener"><em>Mari</em><i><svg><use href="#i-play"/></svg></i></a>
+        <a class="vid" href="https://drive.google.com/file/d/1pLl70FqmtkZ4GdpvcbpxJJ1E0wXcHBv6/view?usp=drive_link" target="_blank" rel="noopener"><em>Sussy</em><i><svg><use href="#i-play"/></svg></i></a>
+      </div>
     </div>
-    <div class="pains">
-      <div class="pain rv"><div class="em">⏰</div><h3>No tenés tiempo</h3><p>Entre el trabajo, la casa y la familia, ir al gimnasio es imposible.</p></div>
-      <div class="pain rv"><div class="em">🔁</div><h3>Empezaste mil veces</h3><p>Arrancás con todo el lunes y a las dos semanas lo dejás.</p></div>
-      <div class="pain rv"><div class="em">🤷‍♀️</div><h3>No sabés qué hacer</h3><p>Ves rutinas sueltas en redes y no sabés cuál te sirve a vos.</p></div>
-      <div class="pain rv"><div class="em">🔋</div><h3>Menos energía y fuerza</h3><p>Notás que te cansás más y que tu cuerpo no responde como antes.</p></div>
-      <div class="pain rv"><div class="em">🌡️</div><h3>Tu cuerpo cambió</h3><p>Los cambios hormonales se notan en la cintura y en cómo te sentís.</p></div>
-      <div class="pain rv"><div class="em">🦴</div><h3>Miedo a lastimarte</h3><p>Te preocupan las rodillas, la espalda o hacer mal un ejercicio.</p></div>
-    </div>
-    <p class="bridge rv">Por eso armamos <b>Entrená desde casa</b>: un sistema simple, con un orden claro y progresivo, pensado para tu edad, tu tiempo y tu cuerpo.</p>
+    <p class="disc">Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud.</p>
   </div>
-</section>
+</div>
 
-<!-- POR QUÉ FUERZA -->
-<section class="sec alt">
-  <div class="wrap why">
-    <div class="why-img rv">
-      <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ba_romi.jpg" alt="Romi, alumna de RENOVA"/>
-      <div class="tag"><b>Romi</b>Ganó masa muscular y volvió a correr sin dolores.</div>
+<!-- PILARES -->
+<div class="sec">
+  <div class="wrap">
+    <h2 class="h2 rv">Resultados así son la razón por la que creé<br/><span class="b">ENTRENÁ DESDE CASA</span> para vos…</h2>
+    <div class="pillar rv">
+      <div class="tx">
+        <h3>Fuerza en casa, sin gimnasio<small>Pensada para tu cuerpo después de los 40.</small></h3>
+        <ul>
+          <li><span class="ck">✓</span><span><b>3 rutinas de cuerpo completo:</b> entrada en calor, bloque 1, bloque 2 y elongación.</span></li>
+          <li><span class="ck">✓</span><span><b>Video de cada ejercicio:</b> lo tocás desde el celular y ves cómo se hace.</span></li>
+          <li><span class="ck">✓</span><span><b>Variante más fácil:</b> cada ejercicio tiene una opción para empezar sin miedo.</span></li>
+        </ul>
+      </div>
+      <div class="gr"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r1_3.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r2_4.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r3_7.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r1_6.jpg" alt=""/></div>
     </div>
+    <div class="pillar rv">
+      <div class="tx">
+        <h3>Un plan que progresa con vos<small>8 semanas en 3 fases, sin improvisar.</small></h3>
+        <ul>
+          <li><span class="ck">✓</span><span><b>Fase base (semanas 1 y 2):</b> aprendés la técnica sin sobrecargas.</span></li>
+          <li><span class="ck">✓</span><span><b>Construcción (semanas 3 a 6):</b> sube el estímulo; la semana 6 es de descarga.</span></li>
+          <li><span class="ck">✓</span><span><b>Consolidación (semanas 7 y 8):</b> fijás el hábito y medís tu progreso cada 3 semanas.</span></li>
+        </ul>
+      </div>
+      <div class="gr"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_9.jpg" alt="" style="object-position:top"/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_7.jpg" alt="" style="object-position:top"/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_calor_1.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_elong_3.jpg" alt=""/></div>
+    </div>
+    <div class="pillar rv">
+      <div class="tx">
+        <h3>Hecho para tu agenda real<small>Para los días en que el tiempo no alcanza.</small></h3>
+        <ul>
+          <li><span class="ck">✓</span><span><b>Sesiones de 20 a 40 minutos</b>, 2 o 3 veces por semana.</span></li>
+          <li><span class="ck">✓</span><span><b>Sesión express de 15 minutos</b> para los días complicados.</span></li>
+          <li><span class="ck">✓</span><span><b>Pausa activa:</b> 6 ejercicios para moverte en el trabajo.</span></li>
+        </ul>
+      </div>
+      <div class="gr"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_pausa_rotacion.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_core_bicho.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r1_8.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r2_9.jpg" alt=""/></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap"><div class="curve rv"><h2><span class="b">Entrená desde casa</span> te da todo lo que necesitás para ganar fuerza, cuidar tus huesos y sostener el hábito.</h2></div></div>
+
+<!-- INCLUIDO -->
+<div class="sec tint notch" id="incluido" style="padding-top:50px">
+  <div class="wrap">
+    <h2 class="h2 rv">Esto es lo que incluye:</h2>
+    <div class="inc rv">
+      <div class="media">
+        <div class="pills"><span>3 rutinas</span><span>Con video</span><span>Más fácil</span></div>
+        <div class="tiles"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r1_3.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r2_4.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r3_7.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r1_6.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_core_bicho.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r1_8.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_calor_1.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_elong_3.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ej_r2_9.jpg" alt=""/></div>
+      </div>
+      <div>
+        <div class="row"><h3>Plan de 8 semanas</h3><span class="val">INCLUIDO</span></div>
+        <p>Tu programa completo de fuerza en casa, con el paso a paso de cada semana para que sepas exactamente qué hacer.</p>
+        <ul>
+          <li><span class="ck">✓</span><span><b>3 rutinas de cuerpo completo</b>: cada una en entrada en calor, bloque 1, bloque 2 y elongación.</span></li>
+          <li><span class="ck">✓</span><span><b>Video de cada ejercicio</b> y una variante más fácil.</span></li>
+          <li><span class="ck">✓</span><span><b>Cuadro de las 8 semanas</b> con vueltas, repeticiones y esfuerzo.</span></li>
+          <li><span class="ck">✓</span><span><b>Rutina de zona media</b> para tu abdomen y tu postura.</span></li>
+          <li><span class="ck">✓</span><span><b>Registro de evolución</b>: peso, cintura y cargas cada 3 semanas.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="inc rev rv">
+      <div class="media"><div class="pages"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_16.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_9.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_31.jpg" alt=""/></div></div>
+      <div>
+        <div class="row"><h3>Para tus días reales</h3><span class="val">INCLUIDO</span></div>
+        <p>Porque hay semanas en las que todo se complica. El plan se adapta para que no cortes la racha.</p>
+        <ul>
+          <li><span class="ck">✓</span><span><b>Sesión express de 15 minutos</b> para los días con muy poco tiempo.</span></li>
+          <li><span class="ck">✓</span><span><b>Semanas con poco tiempo</b>: cómo seguir sin perder lo logrado.</span></li>
+          <li><span class="ck">✓</span><span><b>Pausa activa en el trabajo</b>: 6 ejercicios en tu escritorio.</span></li>
+          <li><span class="ck">✓</span><span><b>10 recomendaciones para tu día</b> que suman movimiento sin esfuerzo.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BONUS -->
+<div class="sec" id="bonus">
+  <div class="wrap">
+    <div class="bhead rv"><h2>Bonus de regalo</h2><span class="val">3 BONUS INCLUIDOS</span></div>
+    <div class="bonus rv">
+      <div class="bt"><i>BONUS #1</i>Recetario fácil: 23 recetas</div>
+      <div class="bb">
+        <div class="two"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/receta_42.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/receta_43.jpg" alt=""/></div>
+        <p><b>Recetas ricas en proteína y fáciles de hacer</b>, con ingredientes del súper: desayunos, meriendas, almuerzos, cenas y algo dulce. Para alimentar tu músculo sin complicarte.</p>
+      </div>
+    </div>
+    <div class="bonus rv">
+      <div class="bt"><i>BONUS #2</i>2 talleres grabados</div>
+      <div class="bb">
+        <div class="two"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/taller_heladera.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/taller_ansiedad.jpg" alt=""/></div>
+        <p><b>"Organizar la heladera" y "Gestión de la ansiedad"</b>, dictados por el equipo RENOVA. Herramientas concretas para comer mejor sin vivir a dieta.</p>
+      </div>
+    </div>
+    <div class="bonus rv">
+      <div class="bt"><i>BONUS #3</i>Consulta con Nacho + 50% off</div>
+      <div class="bb">
+        <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/nacho.jpg" alt="" style="width:170px;aspect-ratio:1;object-fit:cover;object-position:50% 25%;border-radius:50%"/>
+        <p><b>Escribile a Nacho por WhatsApp</b> y accedé con <b>50% de descuento</b> a tu plan personalizado con el equipo RENOVA, cuando quieras dar el siguiente paso.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap"><div class="curve rv"><h2>La guía correcta hace <span class="b">TODA la diferencia</span> después de los 40. Por fin, un plan que pone todo en orden para que lo logres.</h2></div></div>
+
+<!-- COACH -->
+<div class="sec tint" style="padding-top:50px">
+  <div class="coach">
+    <div class="rv"><div class="ring"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/nacho.jpg" alt="Nacho Portillo"/></div><p class="nm">Coach <span>Nacho Portillo</span></p></div>
     <div class="rv">
-      <span class="kick">Por qué fuerza</span>
-      <h2>Después de los 40, <span class="hl">el músculo es tu mejor aliado</span></h2>
-      <p class="lead">Con los años perdemos masa muscular de forma natural, y en la perimenopausia ese proceso se acelera. El entrenamiento de fuerza es la herramienta más efectiva para frenarlo.</p>
-      <div class="benefits">
-        <div class="benefit"><span class="n">01</span><div><h4>Más fuerza y energía</h4><p>Subís escaleras, cargás bolsas y llegás al final del día con resto.</p></div></div>
-        <div class="benefit"><span class="n">02</span><div><h4>Huesos y articulaciones protegidos</h4><p>La fuerza ayuda a cuidar tu densidad ósea y a sostener tu postura.</p></div></div>
-        <div class="benefit"><span class="n">03</span><div><h4>Un metabolismo más activo</h4><p>Más músculo te ayuda a cambiar tu composición corporal y tu cintura.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ADENTRO DEL EBOOK -->
-<section class="sec">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="kick">Mirá por dentro</span>
-      <h2>Todo explicado, <span class="t">paso a paso</span></h2>
-      <p>66 páginas diseñadas para leer cómodas en el celular, con letra grande y un botón de video en cada ejercicio.</p>
-    </div>
-    <div class="peek">
-      <div class="pg rv"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_9.jpg" alt=""/><p>Tu plan de 8 semanas<span>Qué hacer cada semana</span></p></div>
-      <div class="pg rv"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_16.jpg" alt=""/><p>3 rutinas completas<span>Con video y variante más fácil</span></p></div>
-      <div class="pg rv"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_25.jpg" alt=""/><p>Zona media y elongación<span>Extra para tu postura</span></p></div>
-      <div class="pg rv"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_31.jpg" alt=""/><p>Pausa activa en el trabajo<span>6 ejercicios en tu escritorio</span></p></div>
-    </div>
-    <div class="feat rv">
-      <div><b>8</b><span>semanas de plan</span></div>
-      <div><b>3</b><span>rutinas de cuerpo completo</span></div>
-      <div><b>20-40'</b><span>por sesión</span></div>
-      <div><b>23</b><span>recetas de regalo</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- CÓMO FUNCIONA -->
-<section class="sec dark">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="kick">Cómo funciona</span>
-      <h2>Empezás hoy, en 4 pasos</h2>
-      <p>Sin equipamiento caro: una colchoneta, una silla firme y un peso liviano (o botellas de agua).</p>
-    </div>
-    <div class="steps">
-      <div class="step rv"><h3>Medite</h3><p>Pesate y medí tu cintura antes de empezar, para ver tu progreso real.</p></div>
-      <div class="step rv"><h3>Elegí tus días</h3><p>Reservá 2 o 3 momentos por semana. El plan se adapta a tu agenda.</p></div>
-      <div class="step rv"><h3>Entrená con video</h3><p>Abrís la rutina del día y tocás el video de cada ejercicio.</p></div>
-      <div class="step rv"><h3>Registrá y progresá</h3><p>Anotás tus cargas y cada 3 semanas volvés a medirte.</p></div>
-    </div>
-    <div class="phases">
-      <div class="phase rv"><div class="dot">1</div><small>Semanas 1 y 2</small><h3>Base</h3><p>Aprendés la técnica y adaptás tu cuerpo, sin sobrecargas.</p></div>
-      <div class="phase rv"><div class="dot">2</div><small>Semanas 3 a 6</small><h3>Construcción</h3><p>Sube el estímulo para ganar fuerza. La semana 6 es de descarga.</p></div>
-      <div class="phase rv"><div class="dot">3</div><small>Semanas 7 y 8</small><h3>Consolidación</h3><p>Fijás el hábito, comprobás tu progreso y sabés cómo seguir.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- RESULTADOS -->
-<section class="sec alt">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="kick">Resultados reales</span>
-      <h2>Ellas ya lo <span class="t">lograron</span></h2>
-      <p>Mujeres que siguieron este método con el equipo RENOVA.</p>
-    </div>
-    <div class="results">
-      <div class="res rv">
-        <div class="ph"><div><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/mari_a.jpg" alt="Mari antes" style="object-position:52% 50%"/><span class="lbl">ANTES</span></div><div><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/mari_d.jpg" alt="Mari después" style="object-position:58% 50%"/><span class="lbl d">DESPUÉS</span></div></div>
-        <div class="tx"><div class="stars">★★★★★</div><h3>Mari</h3><p>Bajó 8 kg de grasa y 10 cm de cintura.</p></div>
-      </div>
-      <div class="res rv">
-        <div class="ph"><div><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/moni_d.jpg" alt="Moni antes" style="object-position:43% 50%"/><span class="lbl">ANTES</span></div><div><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/moni_a.jpg" alt="Moni después" style="object-position:52% 50%"/><span class="lbl d">DESPUÉS</span></div></div>
-        <div class="tx"><div class="stars">★★★★★</div><h3>Moni</h3><p>Bajó 6 kg y logró el hábito de entrenar.</p></div>
-      </div>
-      <div class="res rv">
-        <div class="ph one"><div><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/ba_romi.jpg" alt="Romi" style="object-position:50% 60%"/><span class="lbl d">RESULTADO</span></div></div>
-        <div class="tx"><div class="stars">★★★★★</div><h3>Romi</h3><p>Ganó masa muscular y volvió a correr sin dolores.</p></div>
-      </div>
-    </div>
-    <div class="videos">
-      <a class="vid rv" href="https://youtu.be/KfI35eFGagY" target="_blank" rel="noopener"><img loading="lazy" src="https://img.youtube.com/vi/KfI35eFGagY/hqdefault.jpg" alt=""/><span class="pl"><svg><use href="#i-play"/></svg></span><div><b>Marina</b><span>Testimonio en video</span></div></a>
-      <a class="vid rv" href="https://drive.google.com/file/d/148OfnqomkPfmFo5MJvyK83iUPBGzrpzh/view?usp=drive_link" target="_blank" rel="noopener"><span class="pl"><svg><use href="#i-play"/></svg></span><div><b>Mari</b><span>Testimonio en video</span></div></a>
-      <a class="vid rv" href="https://drive.google.com/file/d/1pLl70FqmtkZ4GdpvcbpxJJ1E0wXcHBv6/view?usp=drive_link" target="_blank" rel="noopener"><span class="pl"><svg><use href="#i-play"/></svg></span><div><b>Sussy</b><span>Testimonio en video</span></div></a>
-    </div>
-    <p class="disc">Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. Estos casos fueron acompañados por el equipo RENOVA.</p>
-  </div>
-</section>
-
-<!-- NACHO -->
-<section class="sec">
-  <div class="wrap about">
-    <div class="about-ph rv">
-      <img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/nacho.jpg" alt="Nacho Portillo"/>
-      <div class="badge"><b>+15</b><span>años de experiencia</span></div>
-    </div>
-    <div class="rv">
-      <span class="kick">Quién te acompaña</span>
-      <h2>Soy Nacho Portillo, <span class="t">creador de RENOVA</span></h2>
-      <p>Hace más de 15 años trabajo con mujeres en distintas etapas de la vida: cambios hormonales, perimenopausia y menopausia, y también con deportistas.</p>
-      <p>Aprendí algo fundamental: no alcanza con tener un plan; necesitás un sistema que puedas sostener. Eso es este ebook.</p>
+      <h2>Conocé a tu <span class="b">coach</span></h2>
+      <p>Soy Nacho Portillo, creador de RENOVA. Hace más de 15 años trabajo con mujeres en distintas etapas de la vida: cambios hormonales, perimenopausia y menopausia, y también con deportistas.</p>
+      <p>Aprendí algo fundamental: no alcanza con tener un plan; necesitás un sistema que puedas sostener. Por eso trabajo con un equipo completo:</p>
       <div class="roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
-      <div class="team"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/equipo.jpg" alt="Equipo RENOVA"/></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- OFERTA -->
-<section class="sec alt" id="comprar">
+<!-- COMPRA -->
+<div class="sec gray" id="comprar">
   <div class="wrap">
-    <div class="head rv">
-      <span class="kick">Tu pack completo</span>
-      <h2>Todo lo que recibís <span class="t">hoy</span></h2>
+    <h2 class="h2 rv" style="margin-bottom:8px">¡Empecemos <span class="b">hoy</span>!</h2>
+    <p class="lead rv" style="margin:0 auto 26px">Tu plan de fuerza para después de los 40. Más fuerte, con más energía y con el hábito instalado.</p>
+    <div class="bundle rv">
+      <img class="l1" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_41.jpg" alt=""/><img class="l2" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_16.jpg" alt=""/>
+      <img class="r1" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_31.jpg" alt=""/><img class="r2" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_9.jpg" alt=""/>
+      <img class="c" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_1.jpg" alt="Ebook Entrená desde casa"/>
     </div>
-    <div class="offer">
-      <div class="stack">
-        <div class="item rv"><div class="th"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_1.jpg" alt=""/></div><div><span class="inc">INCLUIDO</span><h4>Ebook Entrená desde casa</h4><p>Plan de fuerza de 8 semanas, 3 rutinas de cuerpo completo, zona media, elongación y registro de progreso.</p></div></div>
-        <div class="item rv"><div class="th"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_16.jpg" alt=""/></div><div><span class="inc">INCLUIDO</span><h4>Video de cada ejercicio</h4><p>Tocás el botón y ves cómo se hace. Con variante más fácil para empezar.</p></div></div>
-        <div class="item rv"><div class="th"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_31.jpg" alt=""/></div><div><span class="inc">INCLUIDO</span><h4>Sesión express y pausa activa</h4><p>15 minutos para días complicados y 6 ejercicios para moverte en el trabajo.</p></div></div>
-        <div class="item rv"><div class="th"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_41.jpg" alt=""/></div><div><span class="bonus">BONUS 1</span><h4>Recetario fácil: 23 recetas</h4><p>Opciones ricas en proteína, con ingredientes del súper.</p></div></div>
-        <div class="item rv"><div class="th"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/taller_heladera.jpg" alt=""/></div><div><span class="bonus">BONUS 2</span><h4>2 talleres grabados</h4><p>"Organizar la heladera" y "Gestión de la ansiedad", con el equipo RENOVA.</p></div></div>
-        <div class="item rv"><div class="th"><img loading="lazy" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/nacho.jpg" alt="" style="object-position:50% 20%"/></div><div><span class="bonus">BONUS 3</span><h4>Consulta con Nacho + 50% off</h4><p>Escribile por WhatsApp y accedé con 50% de descuento a tu plan personalizado.</p></div></div>
-      </div>
+    <p class="sum rv">Plan de 8 semanas <span>+ videos de cada ejercicio</span> + 3 bonus <span>de regalo</span></p>
+    <div class="card rv">
+      <h3>Entrená desde casa</h3>
+      <p class="cc">Ebook + videos de cada ejercicio + 3 bonus. <b>Empezá hoy.</b></p>
+      <div class="reg">Precio normal <s>{{original_price}}</s><i></i>HOY <em>{{price}}</em></div>
+      <p class="save">Ahorrás {{savings}}</p>
 
-      <aside class="buy rv">
-        <div class="buy-top">Precio de lanzamiento · <b>50% OFF</b></div>
-        <div class="buy-in">
-          <div class="buy-cover">
-            <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/pag_1.jpg" alt=""/>
-            <div><h3>Entrená desde casa</h3><p>Ebook + 3 bonus · Acceso inmediato</p></div>
-          </div>
-          <div class="price"><span class="now">$15.000</span><span class="cur">ARS</span><s>$30.000</s></div>
-          <span class="save">Ahorrás $15.000 (50%)</span>
-
-          <div class="ups">
-            <h5>¿Sumás todos los talleres RENOVA?</h5>
-            <p>La biblioteca completa de clases sobre metabolismo, sueño y hábitos, solo en esta compra.</p>
-            <div class="ups-f">
-              <div><strong>+ $9.900</strong><small>Normal $25.000 · Ahorrás 60%</small></div>
-              <button type="button" class="tog" id="btnUpsell">＋ Agregar</button>
-            </div>
-          </div>
-
-          <div class="tot">
-            <div><span>Ebook + bonus</span><span>$15.000</span></div>
-            <div id="filaUpsell" style="display:none"><span>Biblioteca de talleres</span><span>+ $9.900</span></div>
-            <div class="t2"><span>Total</span><span id="txtTotal">$15.000 ARS</span></div>
-          </div>
-
-          <button type="button" class="btn pulse" id="btnPagar">COMPRAR AHORA <svg><use href="#i-arrow"/></svg></button>
-          <div class="safe">
-            <span><svg><use href="#i-lock"/></svg>Pago seguro</span>
-            <span><svg><use href="#i-bolt"/></svg>Acceso inmediato</span>
-            <span><svg><use href="#i-phone"/></svg>Leelo en el celular</span>
+      <div class="ups">
+        <img class="ups-img" src="{{upsell_1_image}}" alt=""/>
+        <div class="ups-tx">
+          <span class="ups-tag">Sumalo a tu compra · {{upsell_1_discount}} OFF</span>
+          <h4>{{upsell_1_title}}</h4>
+          <p>{{upsell_1_description}}</p>
+          <div class="ups-f">
+            <div><s>{{upsell_1_original_price}}</s> <b>{{upsell_1_price}}</b></div>
+            <button type="button" class="ups-btn" data-upsell-toggle="1"><span class="add">＋ Agregar</span><span class="ok">✓ Agregado</span></button>
           </div>
         </div>
-      </aside>
+      </div>
+
+      <div class="tot"><span>Total</span><b data-cart-total>{{price}}</b></div>
+      <a class="btn big" href="/checkout">Comprar ahora <svg><use href="#i-arrow"/></svg></a>
+      <p class="secure"><b>Pago seguro.</b> Recibís el acceso al ebook y los bonus apenas se aprueba el pago, en el correo que uses al comprar. Es 100% digital.</p>
     </div>
   </div>
-</section>
+</div>
+
+<!-- COMPROMISO -->
+<div class="sec">
+  <div class="wrap">
+    <div class="promise rv">
+      <div class="seal"><div><b>100%</b>RENOVA<br/>COMPROMISO</div></div>
+      <div class="in">
+        <h3>Mi compromiso con vos</h3>
+        <p>Sé el impacto que este plan puede tener en tu vida, porque lo veo todos los días en las mujeres que acompañamos con el equipo RENOVA.</p>
+        <p>Si en el camino te surge una duda o no sabés cómo adaptar un ejercicio, escribime. No vas a estar sola: el plan está pensado para que lo sostengas.</p>
+        <p class="sig">Nacho Portillo<br/>Creador de RENOVA</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- FAQ -->
-<section class="sec">
+<div class="sec" id="preguntas" style="padding-top:10px">
   <div class="wrap">
-    <div class="head rv">
-      <span class="kick">Preguntas frecuentes</span>
-      <h2>Lo que más nos preguntan</h2>
-    </div>
-    <div class="faq">
-      <details open><summary>¿Sirve si hace años que no entreno?</summary><p>Sí. Las semanas 1 y 2 son de adaptación: aprendés la técnica sin sobrecargas, y cada ejercicio tiene una variante más fácil para empezar.</p></details>
+    <h2 class="h2 rv">Preguntas <span class="b">frecuentes</span></h2>
+    <div class="faq rv">
+      <details><summary>¿Qué incluye Entrená desde casa?</summary><p>El ebook con el plan de 8 semanas, 3 rutinas de cuerpo completo con video de cada ejercicio, zona media, elongación, sesión express de 15 minutos, pausa activa y registro de evolución. Además, 3 bonus: recetario de 23 recetas, 2 talleres grabados y 50% off en tu plan personalizado.</p></details>
+      <details><summary>¿Sirve si hace años que no entreno?</summary><p>Sí. Las semanas 1 y 2 son de adaptación: aprendés la técnica sin sobrecargas, y cada ejercicio tiene una variante más fácil para empezar.</p></details>
+      <details><summary>¿Cuánto duran los entrenamientos?</summary><p>Entre 20 y 40 minutos, 2 o 3 veces por semana. Para los días con muy poco tiempo tenés una sesión express de 15 minutos.</p></details>
       <details><summary>¿Qué necesito para entrenar?</summary><p>Una colchoneta (o una manta), una silla firme y un peso liviano: mancuernas, botellas de agua o una mochila con carga. Si no tenés peso, empezás con tu propio cuerpo.</p></details>
-      <details><summary>¿Cuánto dura cada sesión?</summary><p>Entre 20 y 40 minutos, 2 o 3 veces por semana. Para los días con muy poco tiempo tenés una sesión express de 15 minutos.</p></details>
+      <details><summary>¿Sirve si estoy en la perimenopausia o la menopausia?</summary><p>Sí. El plan está pensado para mujeres de 40+ y para los cambios de esta etapa. El entrenamiento de fuerza es justamente una de las herramientas más recomendadas.</p></details>
+      <details><summary>¿Tengo dolor de rodilla o espalda, puedo hacerlo?</summary><p>El plan cuida tus articulaciones, sin saltos ni impacto. Si tenés una lesión o una condición de salud, consultá antes con tu médico. Si necesitás un plan a tu medida, el equipo RENOVA tiene médico deportólogo.</p></details>
       <details><summary>¿Cómo veo los videos?</summary><p>Cada ejercicio tiene un botón de video dentro del ebook. Lo tocás desde el celular y se abre la demostración.</p></details>
-      <details><summary>¿Cómo recibo el ebook?</summary><p>Apenas se aprueba el pago te llega un correo con el PDF para descargar en tu celular, tablet o computadora, y los accesos a los talleres.</p></details>
-      <details><summary>¿Tengo dolor de rodilla o espalda, puedo hacerlo?</summary><p>El plan está pensado para cuidar tus articulaciones, sin saltos ni impacto. Si tenés una lesión o una condición de salud, consultá antes con tu médico. Y si necesitás un plan a tu medida, el equipo RENOVA tiene médico deportólogo.</p></details>
-      <details><summary>¿Quién armó el programa?</summary><p>Nacho Portillo junto al equipo RENOVA: entrenadores, médico deportólogo, psicólogo y nutricionista.</p></details>
+      <details><summary>¿Cómo y cuándo recibo el ebook?</summary><p>Apenas se aprueba el pago te llega un correo con el PDF para descargar en tu celular, tablet o computadora, y los accesos a los talleres.</p></details>
+      <details><summary>¿Y si necesito ayuda?</summary><p>Escribinos por WhatsApp y te respondemos. El bonus 3 incluye una consulta con Nacho para tu próximo paso.</p></details>
     </div>
   </div>
-</section>
-
-<!-- CTA FINAL -->
-<section class="final">
-  <div class="wrap">
-    <h2>Dentro de 8 semanas vas a agradecer haber empezado hoy</h2>
-    <p>Tu plan, tus videos y tus bonus te esperan en tu correo apenas confirmes la compra.</p>
-    <a class="btn pulse" href="#comprar">QUIERO MI PLAN POR $15.000 <svg><use href="#i-arrow"/></svg></a>
-    <span class="btn-sub">Pago único · Antes $30.000</span>
-  </div>
-</section>
-
 </div>
 
-<div class="rnv-foot">
-  <div class="wrap foot">
-    <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/logo.png" alt="RENOVA"/>
-    <span>Material educativo general. No sustituye la consulta médica.</span>
-    <a href="https://www.nachoportillo.com/" target="_blank" rel="noopener">nachoportillo.com</a>
+<!-- PIE -->
+<div class="foot">
+  <div class="wrap">
+    <div class="cols">
+      <div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/logo.png" alt="RENOVA"/><span>Fuerza, hábitos y constancia<br/>para mujeres de 40+.</span></div>
+      <div><h4>Programa</h4><a href="#incluido">Qué incluye</a><a href="#bonus">Bonus</a><a href="#preguntas">Preguntas</a></div>
+      <div><h4>¿Tenés dudas?</h4><span>Escribinos, te respondemos.</span><a class="mini" href="https://wa.link/hewha8" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+    <p class="legal">© RENOVA · Nacho Portillo · <a href="https://www.nachoportillo.com/" target="_blank" rel="noopener">nachoportillo.com</a><br/>Material educativo general. No sustituye la consulta médica.</p>
   </div>
 </div>
 
 <div class="mbar" id="mbar">
-  <div><b>$15.000</b><s>$30.000</s><small>50% OFF hoy</small></div>
-  <a class="btn" href="#comprar">QUIERO EL PLAN</a>
+  <div><b>{{price}}</b><s>{{original_price}}</s><small>Ahorrás {{savings}}</small></div>
+  <a class="btn" href="/checkout">Comprar</a>
 </div>
 
 <script>
 (function(){
-  document.getElementById('rnv').classList.add('js');
-  // Links de pago: reemplazar por los reales de Impultienda
-  var linkSoloEbook = "https://tu-link-de-pago.com/ebook";
-  var linkCombo = "https://tu-link-de-pago.com/ebook-mas-talleres";
+  var root = document.getElementById('rnv') || document.body;
+  root.classList.add('js');
 
-  var base = 15000, extra = 9900, combo = false;
-  var fmt = function(n){ return '$' + n.toLocaleString('es-AR') + ' ARS'; };
-  var bU = document.getElementById('btnUpsell'), fila = document.getElementById('filaUpsell'), tot = document.getElementById('txtTotal');
-
-  bU.addEventListener('click', function(){
-    combo = !combo;
-    bU.classList.toggle('on', combo);
-    bU.textContent = combo ? '✓ Agregado' : '＋ Agregar';
-    fila.style.display = combo ? 'flex' : 'none';
-    tot.textContent = fmt(combo ? base + extra : base);
-  });
-  document.getElementById('btnPagar').addEventListener('click', function(){
-    window.location.href = combo ? linkCombo : linkSoloEbook;
-  });
-
-  // Aparición al hacer scroll
-  var els = document.querySelectorAll('.rv');
+  var els = root.querySelectorAll('.rv');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(es){
       es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .12 });
+    }, { threshold: .1 });
     els.forEach(function(el){ io.observe(el); });
   } else { els.forEach(function(el){ el.classList.add('in'); }); }
 
-  // Barra fija en celular: aparece después del hero y se oculta en la compra
-  var bar = document.getElementById('mbar'), hero = document.querySelector('.hero'), buy = document.getElementById('comprar');
+  var bar = document.getElementById('mbar'), hero = root.querySelector('.hero'), buy = document.getElementById('comprar');
   window.addEventListener('scroll', function(){
-    var y = window.scrollY, h = hero.offsetHeight, b = buy.getBoundingClientRect();
-    bar.classList.toggle('show', y > h && !(b.top < window.innerHeight && b.bottom > 0));
+    var b = buy.getBoundingClientRect();
+    bar.classList.toggle('show', window.scrollY > hero.offsetHeight && !(b.top < window.innerHeight && b.bottom > 0));
   }, { passive: true });
 })();
 </script>
-
 </div>
 </body>
 </html>
