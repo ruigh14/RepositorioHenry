@@ -367,7 +367,7 @@ VIDEOS = {
  "Plancha alta dinámica": "https://youtu.be/LiKEC5Cbxrs",
  "Remo inclinado": "https://youtu.be/6a1emLHfGYg",
  # rutina 3
- "Estocada cruzada": "https://www.youtube.com/watch?v=CZA0mGgCZ4c",   # video del plan de Nacho en Canva
+ "Estocada cruzada": "https://youtu.be/5yYgxASNwZ8",   # Harbiz: zancada cruzada alterna
  "Plancha lateral dinámica": "https://www.youtube.com/watch?v=WtRo2-kOJ7A",
  "Sentadilla sumo": "https://youtu.be/Ro3dhcOXiYw",
  "Abdominales tijera": "https://youtu.be/Wxfb7e4e1tk",
@@ -407,15 +407,15 @@ VIDEOS = {
 # Video de la variante más fácil de cada ejercicio de las rutinas (Harbiz). Tienen que estar todas o ninguna.
 EASY_VIDEO = {
  "Sentadilla en copa": "https://youtu.be/gFTgLpn08Xc",
- "Estocada split": "https://www.youtube.com/watch?v=E3T7W-n8PRg",
+ "Estocada split": "https://youtu.be/eSoDn_TtSC4",
  "Flexiones de brazo": "https://youtu.be/mBv-_kaIzME",
  "Puente a una pierna": "https://youtu.be/YopfscyxtK0",
- "Fondo en banco": "https://www.youtube.com/shorts/nxo0LnzJNi0",
+ "Fondo en banco": "https://youtu.be/18aJcFlgk6A",
  "Jumping jack": "https://youtu.be/x5MT-e2LWs8",
  "Plancha prona": "https://www.youtube.com/watch?v=qVnZtJGK4zY",
  "Crunch abdominal": "https://youtu.be/kgG0lb4XfMQ",
- "Subida al banco": "https://www.youtube.com/watch?v=E3T7W-n8PRg",
- "Mountain climber": "https://www.youtube.com/watch?v=Kq1TbK_gRCc",
+ "Subida al banco": "https://youtu.be/eSoDn_TtSC4",
+ "Mountain climber": "https://youtu.be/9ASgCkSmWkM",
  "Sentadilla con press de hombros": "https://youtu.be/1opazBLgByI",
  "Abdominales bicicleta": "https://youtu.be/25NgueIPUfo",
  "Sentadilla búlgara": "https://youtu.be/s7ewEzHwXgQ",
@@ -520,7 +520,7 @@ RUT = {
 ]),
 "2": dict(title="Rutina 2", note="Mountain climber, skipping y plancha: 15–20 s.", ex=[
  ("r2_1.png","Subida al banco","10–12 por pierna","Apoyá un pie completo en un escalón o banco firme y subí empujando con esa pierna. Bajá con control.","escalón más bajo y sosteniéndote de una pared."),
- ("r2_2.png","Mountain climber","15–20 s","En plancha alta, llevá las rodillas hacia el pecho de forma alternada, manteniendo la cadera estable.","lento y con las manos sobre un banco o una silla firme."),
+ ("r2_2.png","Mountain climber","15–20 s","En plancha alta, llevá las rodillas hacia el pecho de forma alternada, manteniendo la cadera estable.","lento y sin saltar: llevá una rodilla por vez."),
  ("r2_3.png","Sentadilla con press de hombros","10–12","Con un peso en cada mano a la altura de los hombros, hacé una sentadilla y, al subir, empujá los pesos por encima de la cabeza.","sentadilla con botellas, sin el press."),
  ("r2_4.png","Abdominales bicicleta","10–12 por lado","Boca arriba, acercá un codo a la rodilla contraria mientras estirás la otra pierna. Alterná sin apuro.","abdominales cruzados, con los pies apoyados en el piso."),
  ("r2_5.png","Sentadilla búlgara","10–12 por pierna","Pie de atrás apoyado sobre una silla. Bajá en vertical flexionando la pierna de adelante y subí empujando con el talón.","estocada split con los dos pies en el piso."),
