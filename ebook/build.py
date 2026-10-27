@@ -22,9 +22,11 @@ LINKS = {
     "talleres": "https://www.nachoportillo.com/",   # reemplazar por el link directo a los talleres
     "taller_heladera": "https://youtu.be/bLRL_0--zwU",   # taller incluido: Organizar la heladera
     "taller_ansiedad": "https://youtu.be/t6jTfVukNa4",   # taller incluido: Gestión de la ansiedad
-    "talleres_todos": "https://www.nachoportillo.com/",  # "consultá": resto de los talleres (reemplazar por WhatsApp o página)
+    "talleres_todos": "https://wa.link/d9hfrd",          # desbloquear el resto de los talleres (WhatsApp)
+    "wa_plan": "https://wa.link/hewha8",                 # WhatsApp: consulta directa con Nacho por el próximo plan
+    "wa_nutricion": "https://wa.link/1asjt1",            # WhatsApp: planes nutricionales a medida / consulta con Nacho
     "consulta": "https://www.nachoportillo.com/",   # reemplazar por el link directo de reserva
-    "renova": "https://www.nachoportillo.com/",
+    "renova": "https://wa.link/1asjt1",   # botón "Quiero" de la última página (WhatsApp)
     "video_talleres": "",     # link del video de presentación de los talleres
     "foto_equipo": "img/equipo2.jpg",        # ruta de la foto del equipo, por ejemplo "img/equipo.jpg"
     "video_explicacion": "",  # [INSERTAR LINK DEL VIDEO EXPLICATIVO]
@@ -130,18 +132,18 @@ if ENT:
     page(f'''
 {eyebrow("BIENVENIDA")}
 <h1 class="h1">Te damos la bienvenida a <span class="t">Entrená desde casa</span></h1>
-<p class="lead">Un plan de 8 semanas para ganar fuerza en casa en una semana real: con trabajo, familia y poco tiempo libre. No es para hacerlo perfecto: es para entrenar con constancia y ver tu progreso.</p>
+<p class="lead">Un plan de 8 semanas para entrenar desde casa si tenés poco tiempo. En las dos primeras semanas vas a tener más energía; a las cuatro semanas, más fuerza; y al terminar la octava, vas a ver resultados visibles y habrás logrado el hábito.</p>
 <h2>Qué incluye</h2>
 <div class="pillars">
   <div class="pillar"><span class="pn">01</span><h3>Plan de 8 semanas</h3><p>Tres fases con un calendario semana a semana.</p></div>
-  <div class="pillar"><span class="pn">02</span><h3>Rutinas con video</h3><p>Tres rutinas en bloques y una extra de zona media.</p></div>
-  <div class="pillar"><span class="pn">03</span><h3>Seguimiento</h3><p>Evaluación inicial y registro de cargas.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Rutinas detalladas</h3><p>Con videos e imágenes de referencia.</p></div>
+  <div class="pillar"><span class="pn">03</span><h3>Evaluación</h3><p>Formas simples de medir tu progreso.</p></div>
 </div>
-{box("<b>Bonus incluidos:</b> recetario con 23 recetas, dos talleres (Organizar la heladera y Gestión de la ansiedad) y una consulta con Nacho.", "soft")}
+{box("<b>Bonus incluidos:</b> recetario con 23 recetas, dos talleres (Organizar la heladera y Gestión de la ansiedad) y 50% de descuento en tu plan personalizado.", "soft")}
 <div class="firstweek">
   <h2>Tu primera semana</h2>
   <div class="fw">
-    <div><span>1</span><b>Evaluá</b><p>Hacé la evaluación inicial del capítulo 02.</p></div>
+    <div><span>1</span><b>Medite</b><p>Pesate y medí tu cintura (capítulo 02).</p></div>
     <div><span>2</span><b>Agendá</b><p>Elegí 2 días para la fuerza y 2 para caminar.</p></div>
     <div><span>3</span><b>Prepará</b><p>Una colchoneta, una silla firme y un peso liviano.</p></div>
     <div><span>4</span><b>Registrá</b><p>Anotá cada sesión en la planilla del capítulo 07.</p></div>
@@ -174,14 +176,13 @@ if FULL:
 
 page(f'''
 {eyebrow("ANTES DE EMPEZAR")}
-<h1 class="h1">Esta es la base que usamos con <span class="t">decenas de clientes</span></h1>
-<p class="lead">Con esta rutina como base de entrenamiento, y orden en la alimentación, acompañamos a decenas de clientes a bajar de 6 a 10 kilos de grasa en 90 días.</p>
+<h1 class="h1">Esta es la base que usamos con <span class="t">{"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"}</span></h1>
+<p class="lead">Con esta rutina como base de entrenamiento, y orden en la alimentación, acompañamos a {"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"} a bajar de 6 a 10 kilos de grasa en 90 días.</p>
 <div class="claim">
   <div><b>6 a 10 kg</b><span>de grasa</span></div>
   <div><b>90 días</b><span>de proceso</span></div>
   <div><b>30 min</b><span>por sesión</span></div>
 </div>
-<p>Estos pasos básicos te van a ayudar a lograrlo si los seguís de manera consciente: entrenar fuerza, ordenar tus comidas y cuidar tu descanso, semana a semana.</p>
 {box("<b>Es una guía.</b> Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. Si necesitás un plan a tu medida, el equipo RENOVA te acompaña, con entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.", "soft")}
 ''', chapter="Bienvenida", pid="base")
 
@@ -211,11 +212,11 @@ page("__TOC__", chapter="Índice", pid="indice")
 # ================================================================== CAP 1
 if ENT:
     page(f'''
-{chap_head("01", 'Cómo usar <span class="t">esta guía</span>', "Evaluá tu punto de partida, seguí el plan semana a semana y registrá lo que hacés. Con eso alcanza para arrancar.")}
+{chap_head("01", 'Cómo usar <span class="t">esta guía</span>', "Medí tu punto de partida, seguí el plan semana a semana y registrá lo que hacés.")}
 <div class="cols2">
 <div>
-<h3>1. Hacé la evaluación inicial</h3>
-<p>En 10 minutos medís tu punto de partida (capítulo 02). La repetís en la semana 4 y en la 8. Además, cada 3 semanas te pesás y medís tu cintura.</p>
+<h3>1. Medí tu punto de partida</h3>
+<p>Pesate y medí tu cintura antes de empezar (capítulo 02). Repetilo cada 3 semanas para ver cuánto avanzás.</p>
 <h3>2. Elegí tus días de entrenamiento</h3>
 <p>Reservá 2 o 3 momentos de 30 a 40 minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
 <h3>3. Seguí el plan de 8 semanas</h3>
@@ -232,35 +233,9 @@ if ENT:
 </div>
 ''', chapter="01 · Cómo usar esta guía", pid="cap1", toc="01 · Cómo usar esta guía")
 
-    page(f'''
-{chap_head("02", 'Evaluación <span class="t">inicial</span>', "Antes de empezar, medí tu punto de partida. No es un examen: es tu referencia para ver cuánto avanzás.")}
-<h2>Tres pruebas simples</h2>
-<div class="steps">
-  <div class="step"><span>1</span><b>Sentarse y pararse</b><p>Sentada en una silla firme, con los brazos cruzados: contá cuántas veces te parás y te sentás en 30 segundos.</p></div>
-  <div class="step"><span>2</span><b>Flexiones</b><p>Contá cuántas hacés con buena técnica: contra la pared, en una mesa, con rodillas apoyadas o completas. Anotá la variante.</p></div>
-  <div class="step"><span>3</span><b>Plancha</b><p>Sostené la plancha prona (o con rodillas apoyadas) con buena técnica. Anotá los segundos, hasta 60.</p></div>
-</div>
-<p class="small">Hacé las pruebas después de la entrada en calor, en un día sin entrenar. Si sentís dolor, frená.</p>
-<h2>Mis resultados</h2>
-<table class="grid-t"><thead><tr><th>Prueba</th><th>Inicio</th><th>Semana 4</th><th>Semana 8</th></tr></thead><tbody>
-{"".join(f"<tr><th>{t}</th><td></td><td></td><td></td></tr>" for t in ["Sentarse y pararse (en 30 s)","Flexiones (variante: ________)","Plancha (segundos)","Energía general (1 a 5)"])}
-</tbody></table>
-<h2>Con qué variante empezar</h2>
-<div class="tiles">
-<div class="tile"><h3>Si recién empezás</h3><p>Si hiciste menos de 12 repeticiones en la silla o no llegaste a 15 segundos de plancha, empezá con la variante más fácil de cada ejercicio y sin peso.</p></div>
-<div class="tile"><h3>Si ya entrenaste antes</h3><p>Si superaste esas marcas, usá la variante principal y un peso liviano desde la semana 1.</p></div>
-</div>
-<p class="small">Estas marcas son orientativas. Ante la duda, empezá por lo más fácil: subir un escalón es rápido; recuperarte de una molestia, no.</p>
-<h2>Mi punto de partida</h2>
-<div class="cbox">
-{"".join(f'<div class="cb"><span class="sq"></span>{t}</div>' for t in ["Puedo entrenar fuerza 3 días por semana","Puedo entrenar fuerza 2 días por semana","Tengo colchoneta","Tengo una silla firme","Tengo peso: mancuernas, botellas o mochila","Puedo caminar 20–30 minutos 2 o 3 veces por semana"])}
-</div>
-''', chapter="02 · Evaluación inicial", pid="eval", toc="02 · Evaluación inicial")
 
     page(f'''
-{eyebrow("EVALUACIÓN INICIAL")}
-<h1 class="h1">Peso y <span class="t">perímetro de cintura</span></h1>
-<p class="lead">Registralos al empezar y cada 3 semanas. La cintura muestra cambios que la balanza a veces no refleja.</p>
+{chap_head("02", 'Evaluación <span class="t">inicial</span>', "Antes de empezar, registrá tu peso y tu perímetro de cintura. Repetilo cada 3 semanas: la cintura muestra cambios que la balanza a veces no refleja.")}
 <div class="meas">
 <figure><img src="img/medir_cintura.png" alt="Cómo medir el perímetro de cintura"></figure>
 <div>
@@ -280,7 +255,7 @@ if ENT:
 {"".join(f"<tr><th>{t}</th><td></td><td></td><td></td><td></td></tr>" for t in ["Fecha","Peso (kg)","Cintura (cm)"])}
 </tbody></table>
 <p class="small">El peso cambia de un día a otro por los líquidos, la sal o el ciclo. Mirá la tendencia entre una medición y otra, no un número aislado.</p>
-''', chapter="02 · Evaluación inicial", pid="medidas")
+''', chapter="02 · Evaluación inicial", pid="eval", toc="02 · Evaluación inicial")
 
 if FULL:
     page(f'''
@@ -323,7 +298,8 @@ page(f'''
 {box('<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená el ejercicio. Si tenés una lesión, dolor persistente o una condición médica, consultá con un profesional antes de hacer los ejercicios que puedan agravarla.', "note")}
 ''', chapter=NE + " · Entrenamiento", pid="cap2", toc=NE + " · Entrenamiento")
 
-page(f'''
+if FULL:
+    page(f'''
 {eyebrow("CÓMO HACER CADA RUTINA")}
 <h1 class="h1">Series, repeticiones y <span class="t">pausas</span></h1>
 <h3>Repetición</h3><p>Es un movimiento completo. Por ejemplo, bajar y subir en una sentadilla.</p>
@@ -336,14 +312,14 @@ page(f'''
 ''', chapter=NE + " · Entrenamiento", pid="cap2b")
 
 page(f'''
-{eyebrow("CÓMO HACER CADA RUTINA")}
-<h1 class="h1">Dificultad y <span class="t">progresión</span></h1>
+{eyebrow("CÓMO HACER CADA RUTINA" if FULL else "CONCEPTOS CLAVE")}
+<h1 class="h1">{"Dificultad y" if FULL else "Esfuerzo y"} <span class="t">progresión</span></h1>
 <h3>Cómo elegir la dificultad</h3>
 <p>Al terminar cada serie deberías sentir que podrías hacer 2 o 3 repeticiones más con buena técnica. En una escala de esfuerzo de 1 a 10, apuntá a un 7. Si terminás muy holgada, usá la variante más difícil o sumá peso; si no llegás a las repeticiones, usá la variante más simple.</p>
 <h3>Cómo progresar</h3>
 {ul((["<b>Semana 1:</b> 2 vueltas, aprendiendo la técnica.",
      "<b>Semana 2 en adelante:</b> 3 vueltas."] if FULL else
-    ['<b>Seguí el plan de 8 semanas</b> (<a href="#plan8">capítulo 03</a>): ahí está cuántas vueltas y qué esfuerzo corresponde a cada semana.']) + [
+    ['<b>Seguí el plan de 8 semanas:</b> en los cuadros de las páginas siguientes está cuántas vueltas y qué esfuerzo corresponde a cada semana.']) + [
      "Cuando completes las 12 repeticiones con facilidad, sumá peso o pasá a una variante más exigente.",
      "En los ejercicios por tiempo, sumá 5 segundos por semana hasta llegar a 30–40 s."])}
 <h3>Si tenés poco tiempo: versión de 20 minutos</h3>
@@ -354,7 +330,7 @@ page(f'''
   <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>
   <div><b>9–10</b><span>Máximo</span><p>No podrías hacer una más.</p></div>
 </div>
-''', chapter=NE + " · Entrenamiento", pid="cap2c")
+''', chapter=NE + " · Entrenamiento" if FULL else "03 · Plan de 8 semanas", pid="cap2c")
 
 # ---- tarjetas de ejercicios
 # VIDEOS: link de cada ejercicio (por nombre), tomados de la biblioteca de Harbiz de Nacho.
@@ -370,7 +346,7 @@ VIDEOS = {
  # rutina 1
  "Sentadilla en copa": "https://youtu.be/SYu43ORBDiM",
  "Estocada split": "https://youtu.be/s7ewEzHwXgQ",
- "Flexiones de brazo": "https://youtu.be/mBv-_kaIzME",
+ "Flexiones de brazo": "https://youtu.be/P5_xMDhaVHs",
  "Puente a una pierna": "https://youtu.be/xVvVhmIp7sM",
  "Fondo en banco": "https://youtu.be/FqLq6-WRoqw",
  "Jumping jack": "https://youtu.be/t-warTAW-QY",
@@ -390,7 +366,13 @@ VIDEOS = {
  "Plancha lateral dinámica": "https://www.youtube.com/watch?v=WtRo2-kOJ7A",
  "Sentadilla sumo": "https://youtu.be/Ro3dhcOXiYw",
  "Elevaciones de pierna": "https://www.youtube.com/watch?v=ozyvbTK9E5U",   # catálogo Harbiz
- "Peso muerto a una pierna": "https://youtu.be/0KFZn0giQJQ",
+ "Peso muerto con mancuernas": "https://youtu.be/W5FS9E0Lib4",   # catálogo Harbiz
+ # entradas en calor de las rutinas 2 y 3
+ "Gato-vaca": "https://youtu.be/rEosL__rD5k",
+ "Apertura de tren superior": "https://youtu.be/S9S-1-3E4rE",
+ "Psoas dinámico": "https://youtu.be/s85XuGH1uk4",
+ "Circunducción de cadera": "https://youtu.be/T-v_pylMgfk",
+ "Balanceo de pierna": "https://www.youtube.com/watch?v=LuC5h8PdEwk",
  "Bíceps con peso": "https://youtu.be/ToxLEnNgKXA",
  "Plancha oso": "https://www.youtube.com/shorts/poQj12MCTJQ",  # no está en Harbiz: link del plan en Canva
  "Vuelo posterior con peso": "https://youtu.be/Stpq0KwR5iQ",
@@ -417,16 +399,60 @@ VIDEOS = {
  "Abdominales cruzados": "https://youtu.be/25NgueIPUfo",
 }
 
+# Video de la variante más fácil de cada ejercicio de las rutinas (Harbiz). Tienen que estar todas o ninguna.
+EASY_VIDEO = {
+ "Sentadilla en copa": "https://www.youtube.com/watch?v=hd5OuSxMgcE",
+ "Estocada split": "https://www.youtube.com/watch?v=E3T7W-n8PRg",
+ "Flexiones de brazo": "https://youtu.be/mBv-_kaIzME",
+ "Puente a una pierna": "https://youtu.be/YopfscyxtK0",
+ "Fondo en banco": "https://youtu.be/18aJcFlgk6A",
+ "Jumping jack": "https://youtu.be/x5MT-e2LWs8",
+ "Plancha prona": "https://www.youtube.com/watch?v=qVnZtJGK4zY",
+ "Crunch abdominal": "https://youtu.be/kgG0lb4XfMQ",
+ "Subida al banco": "https://www.youtube.com/watch?v=E3T7W-n8PRg",
+ "Mountain climber": "https://www.youtube.com/watch?v=Kq1TbK_gRCc",
+ "Sentadilla con press de hombros": "https://youtu.be/1opazBLgByI",
+ "Abdominales bicicleta": "https://youtu.be/25NgueIPUfo",
+ "Sentadilla búlgara": "https://youtu.be/s7ewEzHwXgQ",
+ "Skipping en el lugar": "https://youtu.be/Zsygt0rh8FQ",
+ "Plancha alta dinámica": "https://youtu.be/OsO8HdLap-o",
+ "Remo inclinado": "https://youtu.be/jmWK7wv-mPY",
+ "Estocada cruzada": "https://youtu.be/s7ewEzHwXgQ",
+ "Plancha lateral dinámica": "https://youtu.be/bxQgU1eK4dc",
+ "Sentadilla sumo": "https://www.youtube.com/watch?v=GAppZ0-rdYE",
+ "Elevaciones de pierna": "https://youtu.be/kgG0lb4XfMQ",
+ "Peso muerto con mancuernas": "https://youtu.be/tuwL8r6nCCo",
+ "Bíceps con peso": "https://youtu.be/5dFutcWE3AA",
+ "Plancha oso": "https://youtu.be/kyNrWqz1iqs",
+ "Vuelo posterior con peso": "https://www.youtube.com/shorts/vdhpZqN5dYo",
+}
+# Material de cada ejercicio (vacío = no se muestra)
+MATERIAL = {
+ "Sentadilla en copa": "1 mancuerna", "Fondo en banco": "Silla", "Subida al banco": "Escalón o silla",
+ "Sentadilla con press de hombros": "2 mancuernas", "Sentadilla búlgara": "Silla", "Remo inclinado": "Mancuerna y silla",
+ "Peso muerto con mancuernas": "2 mancuernas", "Bíceps con peso": "2 mancuernas", "Vuelo posterior con peso": "2 mancuernas",
+ "Abducción de pierna": "Silla", "Circunducción de cadera": "Silla", "Balanceo de pierna": "Pared",
+ "Pectoral en pared": "Pared", "Estiramiento de pecho en pared": "Pared", "Rotación de tronco sentada": "Silla",
+ "Sentadilla a la silla": "Silla", "Elevación de talones": "Silla", "Movilidad de brazos": "Propio cuerpo",
+}
+# Ejercicios que en las semanas 7 y 8 suman dos mancuernas (solo Ebook 1)
+PLUS2 = {"Sentadilla en copa", "Estocada split", "Subida al banco", "Sentadilla búlgara", "Estocada cruzada", "Sentadilla sumo"}
+
 def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False):
-    e = f'<p class="easy"><b>{easy_label}:</b> {easy}</p>' if easy else ""
+    ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" else ""
+    evb = f' <a class="vbtn-xs" href="{esc(ev)}">{ICON_PLAY} VER VARIANTE</a>' if ev else ""
+    e = f'<p class="easy"><b>{easy_label}:</b> {easy}{evb}</p>' if easy else ""
+    if ENT and name in PLUS2:
+        e += '<p class="plus"><b>Semanas 7 y 8:</b> sumá dos mancuernas.</p>'
+    mat = f'<span class="mat">{MATERIAL.get(name, "Propio cuerpo")}</span>'
     url = VIDEOS.get(name, "")
     vb = (f'<a class="vbtn-sm" href="{esc(url)}">{ICON_PLAY} VER VIDEO</a>' if url
           else f'<span class="vbtn-sm">{ICON_PLAY} VER VIDEO</span>')
     if row:   # tarjeta en fila: el botón de video va junto al título
-        return (f'<div class="ex exrow"><div class="exim"><img src="img/{img}" alt=""></div>'
+        return (f'<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/{img}" alt=""></div>{mat}</div>'
                 f'<div class="extx"><div class="exh"><h4>{name}</h4><span class="dose">{dose}</span>{vb}</div>'
                 f'<p>{how}</p>{e}</div></div>')
-    return (f'<div class="ex"><div class="exim"><img src="img/{img}" alt=""></div>'
+    return (f'<div class="ex"><div class="exl"><div class="exim"><img src="img/{img}" alt=""></div>{mat}</div>'
             f'<div class="extx"><div class="exh"><h4>{name}</h4><span class="dose">{dose}</span></div>'
             f'<p>{how}</p>{e}{vb}</div></div>')
 
@@ -462,57 +488,68 @@ CALOR = [
  ("calor_6.png","Bird dog","10–12 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria, sostené un segundo y volvé. Mantené la espalda quieta.","mové solo el brazo o solo la pierna."),
 ]
 
+CALOR_EXTRA = {
+ "gato": ("calor_gatovaca.png","Gato-vaca","8–10","En cuatro apoyos, redondeá la espalda al exhalar llevando el mentón al pecho y arqueala suavemente al inhalar."),
+ "apertura": ("calor_apertura.png","Apertura de tren superior","8 por lado","En cuatro apoyos, con una mano detrás de la cabeza. Llevá el codo hacia abajo y después girá abriendo el pecho hacia el techo."),
+ "psoas": ("calor_psoas.png","Psoas dinámico","8 por lado","Con una rodilla en el piso y la otra pierna adelante, llevá la cadera hacia adelante. Podés subir los brazos."),
+ "circ": ("calor_circcadera.png","Circunducción de cadera","8 por lado","De pie y tomada de una silla, subí una rodilla al frente y dibujá un círculo hacia afuera abriendo la cadera, sin mover el tronco."),
+ "balanceo": ("calor_balanceo.png","Balanceo de pierna","10 por lado","De pie y tomada de una pared, balanceá una pierna estirada hacia adelante y hacia atrás, con la espalda derecha y sin forzar."),
+}
+C = {c[1]: c[:4] for c in CALOR}
+CALOR_R = {
+ "1": [c[:4] for c in CALOR],
+ "2": [C["Movilidad de brazos"], CALOR_EXTRA["gato"], C["Sentadilla lateral"], CALOR_EXTRA["apertura"], CALOR_EXTRA["psoas"], C["Bird dog"]],
+ "3": [CALOR_EXTRA["circ"], CALOR_EXTRA["balanceo"], CALOR_EXTRA["gato"], C["Abducción de pierna"], C["Elevación de cadera"], C["Bird dog"]],
+}
+
 RUT = {
 "1": dict(title="Rutina 1", note="Las planchas: 15–20 s.", ex=[
  ("r1_1.png","Sentadilla en copa","10–12","Pies al ancho de los hombros y el peso sostenido contra el pecho. Llevá la cadera hacia atrás y abajo con el pecho alto; subí empujando el piso.","sentadilla hacia una silla: tocá el asiento y subí, sin peso."),
- ("r1_2.png","Estocada split","10–12 por pierna","Un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen un ángulo cercano a 90° y volvé a subir.","menos recorrido y apoyando una mano en una pared o silla."),
+ ("r1_2.png","Estocada split","10–12 por pierna","Un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen un ángulo cercano a 90° y volvé a subir.","subida a un escalón bajo, sosteniéndote de una pared."),
  ("r1_3.png","Flexiones de brazo","8–12","Manos debajo de los hombros y el cuerpo alineado. Bajá el pecho hacia el piso con los codos a unos 45° y empujá para subir.","con las rodillas apoyadas o con las manos sobre una mesa firme o una pared."),
  ("r1_4.png","Puente a una pierna","10–12 por lado","Boca arriba, un pie apoyado y la otra pierna elevada. Subí la cadera apretando el glúteo y bajá lento.","puente con los dos pies apoyados."),
  ("r1_5.png","Fondo en banco","8–12","Manos en el borde de una silla firme y los pies en el piso. Flexioná los codos hacia atrás hasta unos 90° y subí. Evitá si te molestan los hombros.","rodillas flexionadas y pies cerca de la silla, con menos recorrido."),
  ("r1_6.png","Jumping jack","10–12","Saltá abriendo piernas y brazos a la vez y volvé a cerrar. Aterrizá suave.","sin salto: paso lateral alternado, abriendo los brazos."),
  ("r1_7.png","Plancha prona","15–20 s","Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera.","con las rodillas apoyadas."),
- ("r1_8.png","Crunch abdominal","10–12","Boca arriba con las rodillas flexionadas, despegá los hombros del piso llevando las costillas hacia la cadera. Sin tirar del cuello.","manos sobre los muslos y menor recorrido."),
+ ("r1_8.png","Crunch abdominal","10–12","Boca arriba con las rodillas flexionadas, despegá los hombros del piso llevando las costillas hacia la cadera. Sin tirar del cuello.","bicho muerto: boca arriba, moviendo brazos y piernas sin despegar la espalda del piso."),
 ]),
 "2": dict(title="Rutina 2", note="Mountain climber, skipping y plancha: 15–20 s.", ex=[
  ("r2_1.png","Subida al banco","10–12 por pierna","Apoyá un pie completo en un escalón o banco firme y subí empujando con esa pierna. Bajá con control.","escalón más bajo y sosteniéndote de una pared."),
- ("r2_2.png","Mountain climber","15–20 s","En plancha alta, llevá las rodillas hacia el pecho de forma alternada, manteniendo la cadera estable.","lento, sin saltar, o con las manos sobre una silla firme."),
- ("r2_3.png","Sentadilla con press de hombros","10–12","Con un peso en cada mano a la altura de los hombros, hacé una sentadilla y, al subir, empujá los pesos por encima de la cabeza.","sin peso o con botellas chicas; podés separar los dos movimientos."),
- ("r2_4.png","Abdominales bicicleta","10–12 por lado","Boca arriba, acercá un codo a la rodilla contraria mientras estirás la otra pierna. Alterná sin apuro.","con los pies apoyados en el piso, alternando solo la rotación."),
+ ("r2_2.png","Mountain climber","15–20 s","En plancha alta, llevá las rodillas hacia el pecho de forma alternada, manteniendo la cadera estable.","lento y con las manos sobre un banco o una silla firme."),
+ ("r2_3.png","Sentadilla con press de hombros","10–12","Con un peso en cada mano a la altura de los hombros, hacé una sentadilla y, al subir, empujá los pesos por encima de la cabeza.","sentadilla con botellas, sin el press."),
+ ("r2_4.png","Abdominales bicicleta","10–12 por lado","Boca arriba, acercá un codo a la rodilla contraria mientras estirás la otra pierna. Alterná sin apuro.","abdominales cruzados, con los pies apoyados en el piso."),
  ("r2_5.png","Sentadilla búlgara","10–12 por pierna","Pie de atrás apoyado sobre una silla. Bajá en vertical flexionando la pierna de adelante y subí empujando con el talón.","estocada split con los dos pies en el piso."),
  ("r2_6.png","Skipping en el lugar","15–20 s","Corré en el lugar elevando las rodillas y acompañando con los brazos.","marcha en el lugar elevando las rodillas, sin salto."),
- ("r2_7.png","Plancha alta dinámica","15–20 s","Desde plancha alta, tocá el hombro contrario con una mano y alterná, sin rotar la cadera.","con las rodillas apoyadas."),
- ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre un banco o silla. Con la espalda recta, tirá del peso hacia la cadera y bajá lento.","peso más liviano o con una botella."),
+ ("r2_7.png","Plancha alta dinámica","15–20 s","Desde plancha alta, tocá el hombro contrario con una mano y alterná, sin rotar la cadera.","plancha alta quieta, sin tocar los hombros."),
+ ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre un banco o silla. Con la espalda recta, tirá del peso hacia la cadera y bajá lento.","nados: boca abajo, elevá brazos y pecho, sin peso."),
 ]),
 "3": dict(title="Rutina 3", note="Elevaciones de pierna y plancha oso: 15–20 s.", ex=[
- ("r3_1.png","Estocada cruzada","10–12 por pierna","Llevá una pierna en diagonal hacia atrás, por detrás de la otra, y bajá con el tronco erguido. Volvé al centro.","menos recorrido y con apoyo en una silla."),
- ("r3_2.png","Plancha lateral dinámica","10–12 por lado","Apoyada sobre un antebrazo, con el cuerpo de costado, bajá la cadera hacia el piso y subila apretando el lateral del abdomen.","con las rodillas flexionadas y apoyadas."),
- ("r3_3.png","Sentadilla sumo","10–12","Pies bien separados y puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí apretando glúteos.","menor profundidad o hacia una silla."),
- ("r3_4.png","Elevaciones de pierna","15–20 s","Boca arriba, con la zona lumbar apoyada, subí y bajá las piernas de forma controlada.","con las rodillas flexionadas o una pierna por vez."),
- ("r3_5.png","Peso muerto a una pierna","10–12 por pierna","Inclinate hacia adelante desde la cadera mientras la pierna de atrás se eleva, con la espalda recta. Volvé apretando el glúteo.","punta del pie de atrás apoyada en el piso y una mano en la pared."),
- ("r3_6.png","Bíceps con peso","10–12","De pie, codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","peso más liviano."),
- ("r3_7.png","Plancha oso","15–20 s","En cuatro apoyos, elevá las rodillas unos centímetros del piso y sostené con la espalda plana.","sostené menos tiempo y descansá en el medio."),
- ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados llevando los omóplatos hacia atrás.","sin peso o con botellas chicas."),
+ ("r3_1.png","Estocada cruzada","10–12 por pierna","Llevá una pierna en diagonal hacia atrás, por detrás de la otra, y bajá con el tronco erguido. Volvé al centro.","estocada split, sin cruzar la pierna."),
+ ("r3_2.png","Plancha lateral dinámica","10–12 por lado","Apoyada sobre un antebrazo, con el cuerpo de costado, bajá la cadera hacia el piso y subila apretando el lateral del abdomen.","plancha lateral quieta, con las rodillas apoyadas."),
+ ("r3_3.png","Sentadilla sumo","10–12","Pies bien separados y puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí apretando glúteos.","sin peso y con menos profundidad."),
+ ("r3_4.png","Elevaciones de pierna","15–20 s","Boca arriba, con la zona lumbar apoyada, subí y bajá las piernas de forma controlada.","bicho muerto, moviendo solo las piernas."),
+ ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y una mancuerna en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas por delante de las piernas y volvé apretando los glúteos.","con un palo de escoba, sin peso, para aprender el movimiento."),
+ ("r3_6.png","Bíceps con peso","10–12","De pie, codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","con botellas de agua."),
+ ("r3_7.png","Plancha oso","15–20 s","En cuatro apoyos, elevá las rodillas unos centímetros del piso y sostené con la espalda plana.","bird dog: en cuatro apoyos, sin despegar las rodillas."),
+ ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados llevando los omóplatos hacia atrás.","boca abajo y sin peso: elevá los brazos juntando los omóplatos."),
 ]),
 }
-VUELTAS = "3 vueltas (2 en la semana 1)" if FULL else "2 o 3 vueltas, según tu semana del plan"
+VUELTAS = "3 vueltas (2 en la semana 1)" if FULL else "2 o 3 vueltas, según tu semana"
 for k, r in RUT.items():
     page(f"""
-{eyebrow("RUTINA EN CASA")}
-<h1 class="h1">{r["title"]}: <span class="t">cuerpo completo</span></h1>
+<h1 class="h1 rt">{r["title"]}: <span class="t">cuerpo completo</span></h1>
 {block_head("ENTRADA EN CALOR", "1 o 2 vueltas · 10–12 rep. · 20–30 s de pausa")}
-{"".join(ex_card(*c[:4], row=True) for c in CALOR)}
+{"".join(ex_card(*c, row=True) for c in CALOR_R[k])}
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}")
     page(f"""
-<h2 class="bh">{r["title"]} · <span class="t">Bloque 1</span></h2>
-{block_head("BLOQUE 1", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
+{block_head(r["title"].upper() + " · BLOQUE 1", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
 {"".join(ex_card(*e, row=True) for e in r["ex"][:4])}
 <p class="small"><b>Al terminar las vueltas</b>, descansá 2 minutos y pasá al bloque 2.</p>
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}b1")
     page(f"""
-<h2 class="bh">{r["title"]} · <span class="t">Bloque 2</span></h2>
-{block_head("BLOQUE 2", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
+{block_head(r["title"].upper() + " · BLOQUE 2", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
 {"".join(ex_card(*e, row=True) for e in r["ex"][4:])}
-<p class="small"><b>Al terminar el bloque 2</b>, hacé la <a href="#elong">rutina de elongación</a> (página <span class="pref" data-ref="elong"></span>).</p>
+<p class="small"><b>Al terminar el bloque 2</b>, {'hacé la <a href="#core">rutina de zona media</a> (página <span class="pref" data-ref="core"></span>) y después ' if ENT and k == "3" else 'hacé '}la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p>
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}b2")
 
 ELONG = [
@@ -530,11 +567,11 @@ page(f"""
 <h1 class="h1">Rutina de <span class="t">elongación</span></h1>
 {params([("Vueltas","1 a 2"),("Cada postura","15–30 s"),("Intensidad","Suave, sin dolor"),("Duración","5–8 min")])}
 <p class="small">Sostené cada postura sin rebotes y respirando con calma.</p>
-{"".join(ex_card(i, n, "15–30 s", h, e, row=True) for i, n, h, e in ELONG[:4])}
+{"".join(ex_card(i, n, "15–30 s", h, row=True) for i, n, h, e in ELONG[:4])}
 """, chapter=NE + " · Entrenamiento", pid="elong")
 page(f"""
 <h2 class="bh">Elongación · <span class="t">continuación</span></h2>
-{"".join(ex_card(i, n, "15–30 s", h, e, row=True) for i, n, h, e in ELONG[4:])}
+{"".join(ex_card(i, n, "15–30 s", h, row=True) for i, n, h, e in ELONG[4:])}
 <p class="small"><b>¡Bien hecho!</b> Anotá la sesión en tu planilla de registro.</p>
 """, chapter=NE + " · Entrenamiento", pid="elong2")
 
@@ -631,23 +668,43 @@ PLAN8_DAYS = {
  "8": ["1","A","2","A","3","A","D"],
 }
 LEGEND = '<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>'
+GLOSARIO = [
+ ("R1, R2, R3", "Rutina 1, Rutina 2 y Rutina 3. Están en el capítulo 04, con imagen y video de cada ejercicio."),
+ ("Bloque", "Grupo de 4 ejercicios que se hacen seguidos. Cada rutina tiene entrada en calor, bloque 1, bloque 2 y elongación."),
+ ("Repetición", "Un movimiento completo. Por ejemplo, bajar y subir en una sentadilla."),
+ ("Vuelta", "Hacer una vez todos los ejercicios del bloque. “3 vueltas por bloque” es repetir el bloque 3 veces."),
+ ("Segundos (planchas)", "Los ejercicios que se sostienen, como las planchas, se miden en segundos en vez de repeticiones."),
+ ("Pausa", "Descanso entre un ejercicio y otro. Entre vueltas, 1 minuto; entre el bloque 1 y el 2, 2 minutos."),
+ ("Esfuerzo", "Es tu sensación de esfuerzo: qué tan difícil sentís el ejercicio, de 1 (muy fácil) a 10 (no podrías hacer ni una repetición más). Un 7 es terminar sintiendo que podrías hacer 2 o 3 repeticiones más con buena técnica."),
+ ("Aeróbico (A)", "Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez."),
+ ("Fase y descarga", "El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte."),
+]
+
 def plan8_table(rows):
-    return ('<table class="plan8"><thead><tr><th>Sem.</th><th>Fase</th><th>Fuerza</th><th>Vueltas por bloque</th><th>Repeticiones · planchas</th><th>Pausa</th><th>Esfuerzo</th><th>Aeróbico</th></tr></thead><tbody>'
+    return ('<table class="plan8"><thead><tr><th>Sem.</th><th>Fase</th><th>Fuerza</th><th>Vueltas por bloque</th><th>Repeticiones · planchas</th><th>Pausa</th><th>Esfuerzo (1–10)</th><th>Aeróbico</th></tr></thead><tbody>'
             + "".join(f'<tr class="{"dl" if f == "Descarga" else ""}"><th>{w}</th><td>{f}</td><td>{r}</td><td>{v}</td><td>{rp}</td><td>{pa}</td><td>{e}</td><td>{a}</td></tr>' for w, f, r, v, rp, pa, e, a in rows)
             + '</tbody></table>')
 DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>"
 
 if ENT:
     page(f'''
-{chap_head("03", 'Tu plan de <span class="t">8 semanas</span>', "Tres fases para pasar de aprender la técnica a entrenar con más carga. Cada semana te dice qué hacer y con qué esfuerzo.")}
+{chap_head("03", 'Tu plan de <span class="t">8 semanas</span>', "Tres fases para pasar de aprender la técnica a entrenar con más carga. Antes de ver los cuadros, conocé qué significa cada cosa.")}
+<h2>Conceptos clave</h2>
+<div class="glos">
+{"".join(f'<div><b>{t}</b><p>{d}</p></div>' for t, d in GLOSARIO)}
+</div>
+''', chapter="03 · Plan de 8 semanas", pid="plan8", toc="03 · Plan de 8 semanas")
+
+    page(f'''
+{eyebrow("PLAN DE 8 SEMANAS")}
+<h1 class="h1">Semanas 1 a 4: <span class="t">base y construcción</span></h1>
 <div class="phases"><span><b>Fase 1 · Base</b> semanas 1–2</span><span><b>Fase 2 · Construcción</b> semanas 3–6</span><span><b>Fase 3 · Consolidación</b> semanas 7–8</span></div>
-<h2>Semanas 1 a 4</h2>
 {plan8_table(PLAN8[:4])}
 <h3>Cómo progresar</h3>
 {ul(["<b>Semanas 1 y 2:</b> aprendé la técnica con 2 vueltas por bloque y esfuerzo moderado. Tenés que terminar con energía.",
-     "<b>Semana 3:</b> pasás a 3 vueltas por bloque, con el mismo peso. Al final de la semana, <a href=\"#medidas\">pesate y medí tu cintura</a>.",
-     "<b>Semana 4:</b> bajá la pausa a 45 s y subí las planchas a 25 s. Al final de la semana, repetí la <a href=\"#eval\">evaluación inicial</a>."])}
-''', chapter="03 · Plan de 8 semanas", pid="plan8", toc="03 · Plan de 8 semanas")
+     "<b>Semana 3:</b> pasás a 3 vueltas por bloque, con el mismo peso. Al final de la semana, <a href=\"#eval\">pesate y medí tu cintura</a>.",
+     "<b>Semana 4:</b> bajá la pausa a 45 s y subí las planchas a 25 s."])}
+''', chapter="03 · Plan de 8 semanas", pid="plan8t1")
 
     page(f'''
 {eyebrow("PLAN DE 8 SEMANAS")}
@@ -656,8 +713,8 @@ if ENT:
 <h3>Cómo progresar</h3>
 {ul(["<b>Semana 5:</b> sumá peso o pasá a la variante más difícil en los ejercicios donde ya llegás cómoda a 12 repeticiones.",
      "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Recuperarte también es parte del plan. Al final de la semana, pesate y medí tu cintura.",
-     "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
-     "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá con la evaluación final, el peso y la cintura."])}
+     "<b>Semanas 7 y 8:</b> en los ejercicios que lo indican, sumá dos mancuernas, una en cada mano. Los demás se hacen igual.", "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
+     "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá pesándote y midiendo tu cintura."])}
 <p class="small"><b>Pausa</b> entre ejercicios; entre vueltas, 1 minuto, y entre bloques, 2 minutos. <b>Esfuerzo</b> según la escala del capítulo {NE}.</p>
 ''', chapter="03 · Plan de 8 semanas", pid="plan8w2")
 
@@ -776,7 +833,7 @@ if ENT:
 {"".join(week_table(n) for n in range(1, 9))}
 ''', chapter="07 · Registro de evolución", pid="registro", toc="07 · Registro de evolución")
 
-    LOADS = ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto a una pierna","Bíceps con peso","Plancha prona (segundos)"]
+    LOADS = ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto con mancuernas","Bíceps con peso","Plancha prona (segundos)"]
     page(f'''
 {eyebrow("REGISTRO DE EVOLUCIÓN")}
 <h1 class="h1">Mis cargas y <span class="t">repeticiones</span></h1>
@@ -793,7 +850,7 @@ if ENT:
 {chap_head("08", 'Después de las <span class="t">8 semanas</span>', "Terminar el plan no es el final: es el punto de partida para seguir, ahora con más fuerza y experiencia.")}
 <h2>Tres caminos para seguir</h2>
 <div class="pillars">
-  <div class="pillar"><span class="pn">01</span><h3>Subí la carga</h3><p>Repetí las semanas 7 y 8 con más peso o variantes más exigentes. Repetí la evaluación cada 4 semanas.</p></div>
+  <div class="pillar"><span class="pn">01</span><h3>Subí la carga</h3><p>Repetí las semanas 7 y 8 con más peso o variantes más exigentes. Seguí midiendo peso y cintura cada 3 semanas.</p></div>
   <div class="pillar"><span class="pn">02</span><h3>Nuevo ciclo</h3><p>Volvé a la semana 1 con el peso que usás hoy. Vas a notar que todo te cuesta menos.</p></div>
   <div class="pillar"><span class="pn">03</span><h3>Mantené</h3><p>Si tu agenda está cargada, 2 sesiones por semana alcanzan para sostener lo que ganaste.</p></div>
 </div>
@@ -807,7 +864,14 @@ if ENT:
 <p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
 </div>
 </div>
-{box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus y, si querés un plan a tu medida, el equipo RENOVA te acompaña.", "soft")}
+<div class="ctapanel cta-plan">
+  <p class="ctatitle">Seguí avanzando con un plan a tu medida</p>
+  <p class="center">Consultanos para avanzar de manera personalizada y seguir potenciando tus resultados. ¡Hacé clic y consultá por tu próximo plan!</p>
+  {button("CONSULTÁ DIRECTO CON NACHO", "wa_plan", "", big=True)}
+  <p class="off">Recordá: todos los que vienen del ebook tienen <b>50% off</b> en sus rutinas personalizadas.</p>
+</div>
+{box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus.", "soft")}
+<div class="cta-center">{button("CONSULTÁ POR UN PLAN NUTRICIONAL A MEDIDA", "wa_nutricion", "")}</div>
 ''', chapter="08 · Después de las 8 semanas", pid="cap7e", toc="08 · Después de las 8 semanas")
 
     # ---------------------------------------------------------- EXTRA: ZONA MEDIA
@@ -1256,8 +1320,9 @@ if ENT:   # carátula que separa el entrenamiento de los bonus
   <div class="dv-list">
     <a href="#cap6"><span>1</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>
     <a href="#talleres"><span>2</span><b>Dos talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
-    <a href="#bonus"><span>3</span><b>Consulta con Nacho</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
+    <a href="{esc(LINKS["wa_nutricion"])}"><span>3</span><b>Consulta con Nacho</b><em>WhatsApp</em></a>
   </div>
+  <a class="btn btn-big dv-btn" href="{esc(LINKS["wa_nutricion"])}">CONSULTÁ POR PLANES NUTRICIONALES A MEDIDA {ICON_ARROW}</a>
 </div>
 ''', pid="bonus-portada", cls="p-cover", header=False)
 
@@ -1461,7 +1526,7 @@ page(f'''
 <div class="bonus">
 {eyebrow("BONUS EXCLUSIVO" if FULL else "BONUS 3 · INCLUIDO")}
 <h1 class="h1 big">Consulta personalizada <span class="t">con Nacho</span></h1>
-<p class="lead">Como complemento de esta guía, podés acceder a una consulta personalizada con Nacho para conversar sobre tus objetivos, revisar tus principales dificultades y orientar tus próximos pasos.</p>
+<p class="lead">Como complemento de esta guía, podés acceder a una consulta personalizada con Nacho para conversar sobre tus objetivos, revisar tus principales dificultades y orientar tus próximos pasos.{" Y si seguís con un plan personalizado, por venir del ebook tenés 50% off." if ENT else ""}</p>
 <div class="cols2">
 <div><h3>En la consulta vas a poder</h3>
 {checks(["Contar tus objetivos y tu situación actual.","Revisar qué te está costando sostener.","Definir los próximos pasos con más claridad."])}
@@ -1482,7 +1547,42 @@ page(f'''
 
 
 # ================================================================== QUIÉN SOY
-page(f'''
+if ENT:
+    page(f'''
+<div class="bio">
+  <div class="bio-top">
+    <div class="bio-photo"><img src="img/nacho_full.jpg" alt="Nacho Portillo"></div>
+    <div>
+      {eyebrow("QUIÉN SOY")}
+      <h1 class="h1">Soy <span class="t">Nacho Portillo</span></h1>
+      <p class="role">Licenciado en Alto Rendimiento Deportivo</p>
+      <p>Hace más de 15 años trabajo con mujeres en distintas etapas de la vida: cambios hormonales, perimenopausia y menopausia, y también con deportistas.</p>
+      <p>Hoy me enfoco en mujeres con poco tiempo, con trabajo, familia y mil responsabilidades, que quieren sentirse fuertes y con energía sin vivir a dieta ni pasar horas entrenando.</p>
+    </div>
+  </div>
+  <div class="what">
+    <h2>¿Qué es <span class="t">Programa RENOVA</span>?</h2>
+    <p>Es el programa de acompañamiento que creamos con el equipo para mujeres: entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, psicología y hábitos, con un enfoque en el ámbito hormonal.</p>
+  </div>
+  <div class="quote dark">En este ebook vamos a trabajar el pilar del entrenamiento, con bonus incluidos. <span class="t2">¡Seguimos!</span></div>
+</div>
+''', chapter="Quién soy", pid="bio", toc="Quién soy")
+
+    page(f'''
+<div class="bio metodo">
+  {eyebrow("MÉTODO RENOVA")}
+  <h1 class="h1 big">Método <span class="t">RENOVA</span></h1>
+  <div class="team-big"><img src="{LINKS["foto_equipo"]}" alt="Equipo RENOVA"></div>
+  <p>En RENOVA acompañamos a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
+  <p>Un equipo completo trabaja con vos: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
+  <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Hábitos</span><span>Salud hormonal</span></div>
+  <div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>
+  <div class="cta-center">{button("QUIERO SUMARME A RENOVA", "renova", "", big=True)}</div>
+</div>
+''', chapter="Método RENOVA", pid="metodo", toc="Método RENOVA")
+
+if FULL:
+    page(f'''
 <div class="bio">
   <div class="bio-top">
     <div class="bio-photo"><img src="img/nacho_full.jpg" alt="Nacho Portillo"></div>
@@ -1514,10 +1614,15 @@ OUT_HTML = "ebook.html" if FULL else "entrena.html"
 
 def render():
     if ENT:
-        plan = [p for p in PAGES if p["id"].startswith("plan8")]
-        rest = [p for p in PAGES if not p["id"].startswith("plan8")]
-        at = next(i for i, p in enumerate(rest) if p["id"] == "cap2")
-        PAGES[:] = rest[:at] + plan + rest[at:]
+        by = {p["id"]: p for p in PAGES}
+        def move(ids, before):
+            blk = [by[i] for i in ids]
+            rest = [p for p in PAGES if p["id"] not in ids]
+            at = next(i for i, p in enumerate(rest) if p["id"] == before)
+            PAGES[:] = rest[:at] + blk + rest[at:]
+        move(["plan8", "cap2c", "plan8t1", "plan8w2", "plan8b", "plan8c"], "cap2")   # plan antes de las rutinas
+        move(["core"], "elong")                                                     # zona media después de la rutina 3
+        move(["bio"], "bienvenida")                                                 # "Quién soy", segunda página
     order = {p["id"]: i for i, p in enumerate(PAGES)}
     TOC.sort(key=lambda t: order[t[1]])
     num = {p["id"]: i + 1 for i, p in enumerate(PAGES)}
@@ -1528,7 +1633,8 @@ def render():
     for i, p in enumerate(PAGES, 1):
         body = p["body"]
         if body == "__TOC__":
-            body = f'{eyebrow("CONTENIDO")}<h1 class="h1">Índice</h1>{toc_html}'
+            body = (f'{eyebrow("CONTENIDO")}<div class="idxhead"><h1 class="h1">Índice</h1>'
+                        f'<p class="idxtip">{ICON_HAND} Hacé clic donde quieras ir. Para volver al índice, abajo de cada página tenés el botón.</p></div>{toc_html}')
         hdr = ""
         if p["header"]:
             hdr = (f'<div class="hdr"><span>{BRAND}</span><span>{esc(p["chapter"])}</span></div>'
