@@ -8,6 +8,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 - `ebook/`: los ebooks RENOVA, generados desde un mismo `build.py` en dos ediciones:
   - **Ebook 1 · "Entrená desde casa"** (producto de entrada): plan de fuerza de 8 semanas + bonus
     (recetario, 2 talleres: Organizar la heladera y Gestión de la ansiedad, consulta con Nacho). → `entrena.html`, `Ebook_Entrena_desde_casa_RENOVA.pdf`.
+  - **Ebook "Entrená en el gimnasio"**: misma lógica y bonus que el Ebook 1, con 3 rutinas de gimnasio de nivel inicial (armadas a partir de las rutinas de gimnasio de Nacho en Harbiz; ilustraciones `img/gym_*.png` de Canva). Sale de `build.py` con la edición `gimnasio` (`GYM`; los textos que cambian usan `G(casa, gym)`). → `gimnasio.html`, `Ebook_Entrena_en_el_gimnasio_RENOVA.pdf`.
   - **Programa RENOVA completo** (entrenamiento + alimentación + descanso): base para los ebooks de upsell.
     → `ebook.html`, `Ebook_Programa_RENOVA.pdf`.
   - **Ebook Talleres RENOVA** (upsell, 3 hojas: portada, talleres con quién los da y qué se dicta, CTA rutinas personalizadas / plan integral al WhatsApp de Nacho). Sale de `talleres.py` (no de `build.py`); datos de cada taller en `TALLERES`. → `talleres.html`, `Ebook_Talleres_RENOVA.pdf`.
@@ -24,6 +25,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 
 ```
 cd ebook && python3 build.py entrena && node export.js entrena   # Ebook 1 · Entrená desde casa
+cd ebook && python3 build.py gimnasio && node export.js gimnasio # Entrená en el gimnasio
 cd ebook && python3 build.py && node export.js                   # Programa RENOVA completo
 cd ebook && python3 talleres.py && node export.js talleres       # Ebook Talleres RENOVA (3 hojas)
 ```

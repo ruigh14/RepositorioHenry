@@ -5,6 +5,8 @@ Dos ediciones salen de este mismo archivo:
   python3 build.py            → Programa RENOVA completo (ebook.html)
   python3 build.py entrena    → Ebook 1 "Entrená desde casa" (entrena.html):
                                 plan de 8 semanas + bonus recetario, talleres y consulta.
+  python3 build.py gimnasio   → "Entrená en el gimnasio" (gimnasio.html): misma lógica que el
+                                Ebook 1, con rutinas de gimnasio para nivel inicial.
 
 Para editar textos: modificá este archivo y volvé a correr build.py.
 Para cambiar links: completá el diccionario LINKS (dejá "" si todavía no lo tenés).
@@ -12,10 +14,14 @@ Para cambiar links: completá el diccionario LINKS (dejá "" si todavía no lo t
 import html, os, sys
 
 EDITION = sys.argv[1] if len(sys.argv) > 1 else "completo"
-if EDITION not in ("completo", "entrena"):
-    sys.exit("Edición desconocida: usá 'completo' o 'entrena'")
+if EDITION not in ("completo", "entrena", "gimnasio"):
+    sys.exit("Edición desconocida: usá 'completo', 'entrena' o 'gimnasio'")
 FULL = EDITION == "completo"
-ENT = EDITION == "entrena"
+GYM = EDITION == "gimnasio"                 # versión gimnasio del Ebook 1: comparte todo salvo las rutinas y algunos textos
+ENT = EDITION in ("entrena", "gimnasio")
+def G(casa, gym):
+    """Texto de la edición en casa o de la edición gimnasio."""
+    return gym if GYM else casa
 NE = "02" if FULL else "04"   # número del capítulo de entrenamiento en cada edición
 
 LINKS = {
@@ -94,9 +100,9 @@ if ENT:
 <div class="cv2 cv-ent">
   <div class="c2-top">
     <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
-    <span class="c2-kick">PLAN DE 8 SEMANAS · FUERZA EN CASA · CON VIDEOS</span>
+    <span class="c2-kick">PLAN DE 8 SEMANAS · {G("FUERZA EN CASA", "FUERZA EN EL GIMNASIO · NIVEL INICIAL")} · CON VIDEOS</span>
   </div>
-  <h1 class="c2-title">ENTRENÁ DESDE <span class="c2-t">CASA.</span><br>TRANSFORMÁ TU <span class="c2-r">CUERPO.</span></h1>
+  <h1 class="c2-title">{G('ENTRENÁ DESDE <span class="c2-t">CASA.</span>', 'ENTRENÁ EN EL <span class="c2-t">GIMNASIO.</span>')}<br>TRANSFORMÁ TU <span class="c2-r">CUERPO.</span></h1>
   <div class="c2-bar"></div>
   <p class="c2-sub">Resultados visibles en 8 semanas.</p>
   <div class="c2-res">
@@ -104,7 +110,7 @@ if ENT:
     <div><b>4</b><span>semanas</span><p>Más fuerza</p></div>
     <div class="on"><b>8</b><span>semanas</span><p>Resultados visibles y el hábito logrado</p></div>
   </div>
-  <p class="c2-desc">Sesiones de 20 a 40 minutos para mujeres con poco tiempo. Bonus: recetario, dos talleres y 50% off en tu plan personalizado.</p>
+  <p class="c2-desc">{G("Sesiones de 20 a 40 minutos", "Sesiones de 45 a 60 minutos, desde cero,")} para mujeres con poco tiempo. Bonus: recetario, dos talleres y 50% off en tu plan personalizado.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
       <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
@@ -136,8 +142,8 @@ if FULL:
 if ENT:
     page(f'''
 {eyebrow("BIENVENIDA")}
-<h1 class="h1">Te damos la bienvenida a <span class="t">Entrená desde casa</span></h1>
-<p class="lead">Un plan de 8 semanas para entrenar desde casa si tenés poco tiempo. En las dos primeras semanas vas a tener más energía; a las cuatro semanas, más fuerza; y al terminar la octava, vas a ver resultados visibles y habrás logrado el hábito.</p>
+<h1 class="h1">Te damos la bienvenida a <span class="t">{G("Entrená desde casa", "Entrená en el gimnasio")}</span></h1>
+<p class="lead">Un plan de 8 semanas para entrenar {G("desde casa", "en el gimnasio desde cero")} si tenés poco tiempo. En las dos primeras semanas vas a tener más energía; a las cuatro semanas, más fuerza; y al terminar la octava, vas a ver resultados visibles y habrás logrado el hábito.</p>
 <h2>Qué incluye</h2>
 <div class="pillars">
   <div class="pillar"><span class="pn">01</span><h3>Plan de 8 semanas</h3><p>Tres fases con un calendario semana a semana.</p></div>
@@ -150,7 +156,7 @@ if ENT:
   <div class="fw">
     <div><span>1</span><b>Medite</b><p>Pesate y medí tu cintura (capítulo 02).</p></div>
     <div><span>2</span><b>Agendá</b><p>Elegí 2 días para la fuerza y 2 para caminar.</p></div>
-    <div><span>3</span><b>Prepará</b><p>Una colchoneta, una silla firme y un peso liviano.</p></div>
+    <div><span>3</span><b>{G("Prepará", "Conocé")}</b><p>{G("Una colchoneta, una silla firme y un peso liviano.", "Ubicá las máquinas y pedí ayuda para usarlas.")}</p></div>
     <div><span>4</span><b>Registrá</b><p>Anotá cada sesión en la planilla del capítulo 07.</p></div>
   </div>
 </div>
@@ -186,7 +192,7 @@ page(f'''
 <div class="claim">
   <div><b>6 a 10 kg</b><span>de grasa</span></div>
   <div><b>90 días</b><span>de proceso</span></div>
-  <div><b>30 min</b><span>por sesión</span></div>
+  <div><b>{G("30 min", "45 min")}</b><span>por sesión</span></div>
 </div>
 {box("<b>Es una guía.</b> Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. Si necesitás un plan a tu medida, el equipo RENOVA te acompaña, con entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.", "soft")}
 ''', chapter="Bienvenida", pid="base")
@@ -223,7 +229,7 @@ if ENT:
 <h3>1. Medí tu punto de partida</h3>
 <p>Pesate y medí tu cintura antes de empezar (capítulo 02). Repetilo cada 3 semanas para ver cuánto avanzás.</p>
 <h3>2. Elegí tus días de entrenamiento</h3>
-<p>Reservá 2 o 3 momentos de 30 a 40 minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
+<p>Reservá 2 o 3 momentos de {G("30 a 40", "45 a 60")} minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
 <h3>3. Seguí el plan de 8 semanas</h3>
 <p>El capítulo 03 te dice qué rutinas hacer cada semana, cuántas vueltas y con qué esfuerzo. No te adelantes: la progresión está pensada para que llegues bien a la semana 8.</p>
 </div>
@@ -288,18 +294,18 @@ if FULL:
 
 # ================================================================== CAP 2 ENTRENAMIENTO
 page(f'''
-{chap_head(NE, 'Entrenamiento de <span class="t">fuerza en casa</span>', "Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.")}
+{chap_head(NE, G('Entrenamiento de <span class="t">fuerza en casa</span>', 'Entrenamiento de <span class="t">fuerza en el gimnasio</span>'), G("Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.", "Tres rutinas de cuerpo completo con máquinas, mancuernas y poleas, pensadas para empezar desde cero."))}
 <h2>Por qué entrenar fuerza</h2>
 <p>El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía.</p>
 <h2>Cómo está organizado</h2>
 <div class="steps steps4">
-  <div class="step"><span>1</span><b>Entrada en calor</b><p>5 a 10 min</p></div>
+  <div class="step"><span>1</span><b>Entrada en calor</b><p>{G("5 a 10 min", "10 a 15 min")}</p></div>
   <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
   <div class="step"><span>3</span><b>Bloque 2</b><p>4 ejercicios</p></div>
   <div class="step"><span>4</span><b>Elongación</b><p>5 min</p></div>
 </div>
 <h2>Qué necesitás y cuánto dura</h2>
-<p>Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga); si no tenés peso, usá tu propio cuerpo. Una sesión completa lleva entre 30 y 40 minutos.</p>
+<p>{G("Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga); si no tenés peso, usá tu propio cuerpo. Una sesión completa lleva entre 30 y 40 minutos.", "Un gimnasio con máquinas básicas, mancuernas y poleas, ropa cómoda, una toalla y agua. Las primeras veces pedile al profesor de sala que te ayude a regular cada máquina. Una sesión completa lleva entre 45 y 60 minutos.")}</p>
 {box('<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená el ejercicio. Si tenés una lesión, dolor persistente o una condición médica, consultá con un profesional antes de hacer los ejercicios que puedan agravarla.', "note")}
 ''', chapter=NE + " · Entrenamiento", pid="cap2", toc=NE + " · Entrenamiento")
 
@@ -444,10 +450,10 @@ MATERIAL = {
 PLUS2 = {"Sentadilla en copa", "Estocada split", "Subida al banco", "Sentadilla búlgara", "Estocada cruzada", "Sentadilla sumo"}
 
 def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False):
-    ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" else ""
+    ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" and not GYM else ""
     evb = f' <a class="vbtn-xs" href="{esc(ev)}">{ICON_PLAY} VER VARIANTE</a>' if ev else ""
     e = f'<p class="easy"><b>{easy_label}:</b> {easy}{evb}</p>' if easy else ""
-    if ENT and name in PLUS2:
+    if ENT and not GYM and name in PLUS2:
         e += '<p class="plus"><b>Semanas 7 y 8:</b> sumá dos mancuernas.</p>'
     mat = f'<span class="mat">{MATERIAL.get(name, "Propio cuerpo")}</span>'
     url = VIDEOS.get(name, "")
@@ -539,11 +545,89 @@ RUT = {
  ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados llevando los omóplatos hacia atrás.","nados: boca abajo y sin peso, elevá brazos y pecho juntando los omóplatos."),
 ]),
 }
+
+# ---- Edición gimnasio: rutinas de nivel inicial armadas a partir de las rutinas de gimnasio de Nacho en Harbiz
+# (aeróbico + movilidad, circuitos de máquinas, mancuernas y poleas, zona media dentro de los bloques, elongación).
+if GYM:
+    VIDEOS.update({
+     "Cinta, bici o elíptica": "https://youtu.be/ccHvlKNkCME",
+     "Prensa": "https://youtu.be/ddfmGBWmB88",
+     "Press de pecho en máquina": "https://youtu.be/NwxHu5BSiKQ",
+     "Extensión de cuádriceps": "https://youtu.be/xxGUzhNzyh4",
+     "Remo en máquina": "https://youtu.be/2ybm7nnYbyg",
+     "Curl de isquiotibiales sentada": "https://youtu.be/8I7lYLxvAf0",
+     "Elevaciones laterales sentada": "https://youtu.be/rHJ7gBaCdDY",
+     "Bicho muerto con disco": "https://youtu.be/fKAKLkzfhvQ",
+     "Jalón al pecho": "https://youtu.be/Vfeh314bQX4",
+     "Aductores en máquina": "https://youtu.be/Zjn_nxVnNTc",
+     "Estocada split con mancuernas": "https://youtu.be/JOQYcHKf83I",
+     "Apertura de pecho en máquina": "https://youtu.be/rgNk2xhbHa4",
+     "Extensión de tríceps con soga": "https://youtu.be/E5-R8s44Ix4",
+     "Remo bajo en polea": "https://youtu.be/hkFC0uc7G6A",
+     "Hip thrust": "https://youtu.be/dLX0Uob8y4k",
+     "Press de hombros en máquina": "https://youtu.be/epNNDB486H4",
+     "Abducción en máquina": "https://youtu.be/fyVNH7X5wv4",
+     "Bíceps con mancuernas": "https://youtu.be/ToxLEnNgKXA",
+     "Face pull": "https://youtu.be/R1FeK4isaHE",
+    })
+    MATERIAL.update({
+     "Cinta, bici o elíptica": "Cinta o bici", "Prensa": "Máquina", "Press de pecho en máquina": "Máquina",
+     "Extensión de cuádriceps": "Máquina", "Remo en máquina": "Máquina", "Curl de isquiotibiales sentada": "Máquina",
+     "Elevaciones laterales sentada": "2 mancuernas y banco", "Bicho muerto con disco": "Disco y colchoneta",
+     "Jalón al pecho": "Polea alta", "Aductores en máquina": "Máquina", "Estocada split con mancuernas": "2 mancuernas",
+     "Apertura de pecho en máquina": "Máquina", "Extensión de tríceps con soga": "Polea y soga",
+     "Remo bajo en polea": "Polea baja", "Hip thrust": "Banco y barra o disco", "Press de hombros en máquina": "Máquina",
+     "Abducción en máquina": "Máquina", "Bíceps con mancuernas": "2 mancuernas", "Face pull": "Polea y soga",
+     "Sentadilla en copa": "1 mancuerna", "Plancha prona": "Colchoneta", "Plancha lateral": "Colchoneta",
+     "Crunch abdominal": "Colchoneta", "Bird dog": "Colchoneta", "Movilidad de brazos": "Propio cuerpo",
+     "Circunducción de cadera": "Máquina o pared",
+    })
+    CINTA = ("gym_cinta.png","Cinta, bici o elíptica","5–10 min","Empezá con aeróbico suave: caminata rápida en la cinta, bicicleta o elíptica. Tenés que poder hablar sin agitarte.")
+    CALOR_R = {
+     "1": [CINTA, C["Movilidad de brazos"], CALOR_EXTRA["apertura"], C["Movilidad de cadera acostada"], CALOR_EXTRA["psoas"]],
+     "2": [CINTA, CALOR_EXTRA["gato"], C["Movilidad de cadera acostada"], CALOR_EXTRA["psoas"], C["Elevación de cadera"]],
+     "3": [CINTA, C["Movilidad de brazos"], CALOR_EXTRA["gato"],
+           CALOR_EXTRA["circ"][:3] + ("De pie y tomada de una máquina o una pared, subí una rodilla al frente y dibujá un círculo hacia afuera abriendo la cadera, sin mover el tronco.",),
+           C["Sentadilla lateral"]],
+    }
+    RUT = {
+    "1": dict(title="Rutina 1", note="La plancha: 15–20 s.", ex=[
+     ("gym_prensa.png","Prensa","10–12","Sentada con la espalda bien apoyada y los pies al ancho de la cadera en la plataforma. Bajá flexionando las rodillas hasta unos 90° y empujá sin bloquear las rodillas.","menos peso y menos recorrido."),
+     ("gym_presspecho.png","Press de pecho en máquina","10–12","Regulá el asiento para que las manijas queden a la altura del pecho. Empujá hacia adelante sin bloquear los codos y volvé lento.","menos peso y recorrido más corto."),
+     ("gym_extcuad.png","Extensión de cuádriceps","12","Sentada con la espalda apoyada y el rodillo sobre los tobillos. Estirá las piernas, sostené un segundo arriba y bajá lento.","menos peso, sin sostener arriba."),
+     ("r1_7.png","Plancha prona","15–20 s","Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera.","con las rodillas apoyadas."),
+     ("gym_remomaq.png","Remo en máquina","10–12","Pecho apoyado en el respaldo y manijas con agarre neutro. Tirá llevando los codos hacia atrás, pegados al cuerpo, juntá los omóplatos y volvé lento.","menos peso y recorrido más corto."),
+     ("gym_curlisq.png","Curl de isquiotibiales sentada","12","Regulá la máquina para que las rodillas queden al borde del asiento. Flexioná las rodillas llevando el rodillo hacia abajo y volvé lento.","menos peso, o puente de glúteos en la colchoneta."),
+     ("gym_vuelolat.png","Elevaciones laterales sentada","10–12","Sentada en un banco, con una mancuerna en cada mano. Elevá los brazos hacia los costados hasta la altura de los hombros, con los codos apenas flexionados, y bajá lento.","mancuernas de 1 kg o sin peso."),
+     ("gym_bichodisco.png","Bicho muerto con disco","8–10","Boca arriba, con un disco sostenido con los brazos estirados hacia el techo y las rodillas a 90°. Bajá brazos y piernas hacia el piso sin despegar la zona lumbar y volvé.","sin disco, alternando un brazo y la pierna contraria."),
+    ]),
+    "2": dict(title="Rutina 2", note="Plancha lateral: 15–20 s por lado.", ex=[
+     ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y una mancuerna en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas por delante de las piernas y volvé apretando los glúteos.","con una barra sin peso o un palo, para aprender el movimiento."),
+     ("gym_jalon.png","Jalón al pecho","10–12","Sentada, con las piernas trabadas debajo del apoyo. Tomá la barra más ancha que los hombros y bajala hacia la parte alta del pecho con la espalda recta. Subí lento.","menos peso y agarre más cerrado."),
+     ("gym_aductores.png","Aductores en máquina","12","Espalda apoyada y piernas abiertas en los apoyos. Cerrá las piernas apretando el interior de los muslos, sostené un segundo y abrí lento.","menos peso y menos apertura."),
+     ("r3_2.png","Plancha lateral","15–20 s por lado","De costado, apoyada en el antebrazo con el codo debajo del hombro. Elevá la cadera y sostené el cuerpo alineado.","con las rodillas flexionadas y apoyadas."),
+     ("r1_2.png","Estocada split con mancuernas","10 por pierna","Una mancuerna en cada mano, un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen unos 90° y subí empujando con la pierna de adelante.","sin mancuernas y sosteniéndote de una máquina."),
+     ("gym_apertura.png","Apertura de pecho en máquina","12","Sentada con la espalda apoyada y los brazos abiertos en las manijas. Juntá los brazos por delante del pecho, con los codos apenas flexionados, y abrí lento.","menos peso y menos apertura."),
+     ("gym_triceps.png","Extensión de tríceps con soga","12","De frente a la polea alta, con los codos pegados al cuerpo. Empujá la soga hacia abajo hasta estirar los brazos y volvé lento sin despegar los codos.","menos peso y menos recorrido."),
+     ("r1_8.png","Crunch abdominal","10–12","Boca arriba con las rodillas flexionadas, despegá los hombros del piso llevando las costillas hacia la cadera. Sin tirar del cuello.","bicho muerto: boca arriba, moviendo brazos y piernas sin despegar la espalda del piso."),
+    ]),
+    "3": dict(title="Rutina 3", note="Bird dog: sostené 2 s en cada repetición.", ex=[
+     ("r1_1.png","Sentadilla en copa","10–12","Pies al ancho de los hombros y la mancuerna sostenida contra el pecho. Llevá la cadera hacia atrás y abajo con el pecho alto; subí empujando el piso.","sentadilla a un banco: tocá el asiento y subí, sin peso."),
+     ("gym_remopolea.png","Remo bajo en polea","10–12","Sentada con los pies en la plataforma y las rodillas apenas flexionadas. Con la espalda recta, tirá del agarre hacia el abdomen llevando los codos hacia atrás y volvé lento.","menos peso y sin inclinar el tronco."),
+     ("gym_hipthrust.png","Hip thrust","10–12","Espalda alta apoyada en un banco y una barra o un disco sobre la cadera, con una colchoneta para proteger. Empujá con los talones hasta alinear cadera y tronco; apretá los glúteos y bajá lento.","puente de glúteos en la colchoneta, sin peso."),
+     ("calor_6.png","Bird dog","8–10 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria, sostené y volvé. Mantené la espalda quieta.","mové solo el brazo o solo la pierna."),
+     ("gym_presshombro.png","Press de hombros en máquina","10–12","Sentada con la espalda apoyada y las manijas a la altura de los hombros. Empujá hacia arriba sin bloquear los codos y bajá lento hasta unos 90°.","menos peso y menos recorrido."),
+     ("gym_abduccion.png","Abducción en máquina","12","Sentada, con el tronco apenas inclinado hacia adelante y las piernas en los apoyos. Abrí las piernas con control y cerrá lento.","menos peso y menos apertura."),
+     ("r3_6.png","Bíceps con mancuernas","10–12","De pie, una mancuerna en cada mano y los codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","mancuernas más livianas, de a un brazo."),
+     ("gym_facepull.png","Face pull","12","Polea a la altura de la cara y la soga con las dos manos. Tirá hacia la cara separando las manos, con los codos altos, y volvé lento.","menos peso y recorrido más corto."),
+    ]),
+    }
+
 VUELTAS = "3 vueltas (2 en la semana 1)" if FULL else "2 o 3 vueltas, según tu semana"
 for k, r in RUT.items():
     page(f"""
 <h1 class="h1 rt">{r["title"]}: <span class="t">cuerpo completo</span></h1>
-{block_head("ENTRADA EN CALOR", "1 o 2 vueltas · 10–12 rep. · 20–30 s de pausa")}
+{block_head("ENTRADA EN CALOR", G("1 o 2 vueltas · 10–12 rep. · 20–30 s de pausa", "5–10 min de aeróbico y después 1 o 2 vueltas de movilidad · 20–30 s de pausa"))}
 {"".join(ex_card(*c, row=True) for c in CALOR_R[k])}
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}")
     page(f"""
@@ -715,7 +799,7 @@ if ENT:
 <h3>Cómo progresar</h3>
 {ul(["<b>Semana 5:</b> sumá peso o pasá a la variante más difícil en los ejercicios donde ya llegás cómoda a 12 repeticiones.",
      "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Recuperarte también es parte del plan. Al final de la semana, pesate y medí tu cintura.",
-     "<b>Semanas 7 y 8:</b> en los ejercicios que lo indican, sumá dos mancuernas, una en cada mano. Los demás se hacen igual.", "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
+     G("<b>Semanas 7 y 8:</b> en los ejercicios que lo indican, sumá dos mancuernas, una en cada mano. Los demás se hacen igual.", "<b>Semanas 7 y 8:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones."), "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
      "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá pesándote y midiendo tu cintura."])}
 <p class="small"><b>Pausa</b> entre ejercicios; entre vueltas, 1 minuto, y entre bloques, 2 minutos. <b>Esfuerzo</b> según la escala del capítulo {NE}.</p>
 ''', chapter="03 · Plan de 8 semanas", pid="plan8w2")
@@ -743,8 +827,8 @@ if ENT:
 <p class="lead">El plan sube las vueltas y baja las pausas. Vos, además, subís de escalón en cada ejercicio cuando te resulta fácil.</p>
 <div class="minplan">
 <div><span>Escalón 1</span><p><b>Variante fácil.</b> La que figura como “Más fácil” en cada ejercicio.</p></div>
-<div><span>Escalón 2</span><p><b>Variante principal.</b> Sin peso o con tu propio cuerpo.</p></div>
-<div><span>Escalón 3</span><p><b>Con peso.</b> Mancuernas, botellas o una mochila con carga.</p></div>
+<div><span>Escalón 2</span><p><b>Variante principal.</b> {G("Sin peso o con tu propio cuerpo.", "Con poco peso, cuidando la técnica.")}</p></div>
+<div><span>Escalón 3</span><p><b>{G("Con peso.", "Más peso.")}</b> {G("Mancuernas, botellas o una mochila con carga.", "Subí una placa en la máquina o 1 kg en las mancuernas.")}</p></div>
 <div><span>Escalón 4</span><p><b>Más peso o más lento.</b> Sumá carga o bajá en 3 segundos.</p></div>
 </div>
 <h3>Cuándo subir un escalón</h3>
@@ -778,12 +862,13 @@ if ENT:
 <p class="small">Para los días con muy poco tiempo, usá la <a href="#express">sesión express de 15 minutos</a>.</p>
 ''', chapter="05 · Semanas con poco tiempo", pid="cap5e", toc="05 · Semanas con poco tiempo")
 
-    EXPRESS = {"Sentadilla en copa", "Flexiones de brazo", "Remo inclinado", "Plancha prona"}
+    EXPRESS = ({"Prensa", "Press de pecho en máquina", "Remo en máquina", "Plancha prona"} if GYM else
+               {"Sentadilla en copa", "Flexiones de brazo", "Remo inclinado", "Plancha prona"})
     exp_cards = [ex_card(e[0], e[1], "40 s", e[3], row=True) for r in RUT.values() for e in r["ex"] if e[1] in EXPRESS]
     page(f'''
 <h1 class="h1">Sesión express de <span class="t">15 minutos</span></h1>
 {params([("Vueltas","3"),("Trabajo","40 s por ejercicio"),("Pausa","20 s · 1 min entre vueltas"),("Duración","15 min")])}
-<p class="small">Antes, 2 minutos de movilidad de brazos y sentadilla lateral. Usá la variante y el peso de tu semana del plan.</p>
+<p class="small">Antes, {G("2 minutos de movilidad de brazos y sentadilla lateral", "3 minutos de cinta o bici y movilidad de brazos")}. Usá la variante y el peso de tu semana del plan.</p>
 {"".join(exp_cards)}
 ''', chapter="05 · Semanas con poco tiempo", pid="express")
 
@@ -835,7 +920,8 @@ if ENT:
 {"".join(week_table(n) for n in range(1, 9))}
 ''', chapter="07 · Registro de evolución", pid="registro", toc="07 · Registro de evolución")
 
-    LOADS = ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto con mancuernas","Bíceps con peso","Plancha prona (segundos)"]
+    LOADS = (["Prensa","Press de pecho en máquina","Remo en máquina","Jalón al pecho","Peso muerto con mancuernas","Estocada split con mancuernas","Sentadilla en copa","Hip thrust","Press de hombros en máquina","Plancha prona (segundos)"] if GYM else
+             ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto con mancuernas","Bíceps con peso","Plancha prona (segundos)"])
     page(f'''
 {eyebrow("REGISTRO DE EVOLUCIÓN")}
 <h1 class="h1">Mis cargas y <span class="t">repeticiones</span></h1>
@@ -1610,9 +1696,9 @@ if FULL:
 # ------------------------------------------------------------------ ENSAMBLADO
 CSS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "style.css"), encoding="utf-8").read()
 
-BRAND = "PROGRAMA <b>RENOVA</b>" if FULL else "ENTRENÁ DESDE CASA · <b>RENOVA</b>"
-TITLE = "Programa RENOVA · Guía práctica" if FULL else "Entrená desde casa · RENOVA"
-OUT_HTML = "ebook.html" if FULL else "entrena.html"
+BRAND = "PROGRAMA <b>RENOVA</b>" if FULL else G("ENTRENÁ DESDE CASA", "ENTRENÁ EN EL GIMNASIO") + " · <b>RENOVA</b>"
+TITLE = "Programa RENOVA · Guía práctica" if FULL else G("Entrená desde casa", "Entrená en el gimnasio") + " · RENOVA"
+OUT_HTML = "ebook.html" if FULL else G("entrena.html", "gimnasio.html")
 
 def render():
     if ENT:
