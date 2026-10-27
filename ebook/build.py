@@ -768,7 +768,7 @@ TIPS = {
  "<b>Las bananas:</b> usá bananas muy maduras: son las que dan el dulzor y la humedad.",
  "<b>El pisado:</b> pisalas muy bien o procesalas para que la mezcla quede lisa y sin trozos.",
  "<b>El molde:</b> forralo con papel manteca para desmoldar fácil y cortar prolijo.",
- "<b>No lo cocines de más:</b> el centro tiene que quedar apenas húmedo; así queda húmedo y no seco.",
+ "<b>No lo cocines de más:</b> el centro tiene que quedar apenas húmedo. Si se pasa, queda seco.",
  "<b>El corte:</b> dejalo enfriar por completo antes de cortar para que salgan cuadrados prolijos."],
 }
 
