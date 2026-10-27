@@ -1585,10 +1585,17 @@ if ENT:
     page(f'''
 {eyebrow("BONUS 2 · INCLUIDO")}
 <h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
-<p class="lead">Con este ebook accedés a dos talleres del equipo RENOVA, en nuestra comunidad de Skool. Tocá el botón de cada uno para entrar.</p>
-{taller_card("taller_heladera.png", "TALLER INCLUIDO", "Organizar la heladera", "Cómo guardar, porcionar y ordenar para tener siempre opciones listas y sanas a mano.", "VER TALLER", "taller_heladera", ICON_PLAY)}
-{taller_card("taller_ansiedad.png", "TALLER INCLUIDO", "Gestión de la ansiedad", "Herramientas para reconocer la ansiedad y manejarla en el día a día, sin que maneje tus comidas.", "VER TALLER", "taller_ansiedad", ICON_PLAY)}
-{taller_card("taller_mas.png", "MÁS TALLERES RENOVA", "Hábitos, meditación, estrategias de nutrición y mucho más", "Consultá para ver todos los talleres del equipo RENOVA: entrenadores, médico deportólogo, psicólogo y nutricionista.", "CONSULTAR", "talleres_todos", ICON_ARROW, locked=True)}
+<p class="lead">Los talleres se ven en la plataforma de RENOVA, en Skool. Ahí tenés estos dos y todos los talleres del equipo.</p>
+<div class="tk2">
+  <div><img src="img/taller_heladera.png" alt=""><span class="wtag">INCLUIDO</span><h3>Organizar la heladera</h3><p>Guardar, porcionar y ordenar para tener siempre opciones sanas a mano.</p></div>
+  <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
+</div>
+<a class="skool" href="{esc(LINKS["talleres"])}">
+  <img src="img/equipo_strip.jpg" alt="Equipo RENOVA">
+  <div class="skx"><span class="wtag">PLATAFORMA RENOVA · SKOOL</span><h3>Entrá y mirá todos los talleres</h3>
+  <p>Tocá el botón: se abre la plataforma de RENOVA en Skool, con todos los talleres del equipo.</p>
+  <span class="btn btn-big">{ICON_ARROW} IR A LOS TALLERES</span></div>
+</a>
 ''', chapter="Bonus 2 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 2: Talleres RENOVA")
 
 if FULL:

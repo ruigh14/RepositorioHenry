@@ -11,7 +11,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
   - **Ebook "Entrená en el gimnasio"**: misma lógica y bonus que el Ebook 1, con 3 rutinas de gimnasio de nivel inicial (armadas a partir de las rutinas de gimnasio de Nacho en Harbiz; ilustraciones `img/gym_*.png` de Canva). Sale de `build.py` con la edición `gimnasio` (`GYM`; los textos que cambian usan `G(casa, gym)`). → `gimnasio.html`, `Ebook_Entrena_en_el_gimnasio_RENOVA.pdf`.
   - **Programa RENOVA completo** (entrenamiento + alimentación + descanso): base para los ebooks de upsell.
     → `ebook.html`, `Ebook_Programa_RENOVA.pdf`.
-  - Los talleres están en Skool (https://www.skool.com/renova-entrenamiento-y-salud-1617/about): los botones de los talleres del ebook llevan ahí. Ya no hay ebook de talleres.
+  - Los talleres están en Skool (https://www.skool.com/renova-entrenamiento-y-salud-1617/about): el bonus de talleres del ebook tiene un botón grande que lleva ahí. Ya no hay ebook de talleres ni página de upsell.
   - `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio).
   - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright.
   - `img/`: fotos, ilustraciones, recetas y testimonios. `fonts/`: tipografía Inter.
@@ -19,8 +19,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
   - `version-anterior_7_1.pdf`: exportación anterior (solo referencia, no editar).
 - `index.html`: landing de venta del Ebook 1 para pegar en Impultienda (HTML propio). **No editar a mano**: se genera con `cd landing && python3 build.py` desde `landing/landing.html` (encierra el CSS en `#rnv` e imágenes desde GitHub en `landing/img/`, fijadas al último commit de esa carpeta: commitear y pushear las imágenes nuevas antes de regenerar). Compra con `<a href="/checkout">`, precios con `{{price}}`, `{{original_price}}`, `{{savings}}` y upsell 1 con `{{upsell_1_*}}` + `data-upsell-toggle="1"` (tokens de Impultienda).
 - `gimnasio.html`: landing de "Entrená en el gimnasio", misma estructura que `index.html`. Se genera con `cd landing && python3 build.py gimnasio` desde `landing/gimnasio.html`.
-- `upsell.html`: página de upsell post-compra ("desbloqueá todos los talleres").
-- `css/styles.css`: estilos compartidos de la landing y el upsell.
+- `css/styles.css`: estilos compartidos.
 
 ## Regenerar el PDF del ebook
 
