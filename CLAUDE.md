@@ -16,6 +16,7 @@ entrena-en-el-gimnasio/      Misma lógica, rutinas de gimnasio nivel inicial
   landing-impultienda.html
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
   Ebook_Programa_RENOVA.pdf
+investigacion/               material de referencia (VSL del competidor, etc.)
 fuentes/
   design-system/             tokens, tipografías, componentes y plantillas de creativos (ver su README.md)
   ebook/                     genera los 3 PDF
@@ -81,5 +82,5 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 - Garantía: Nacho tiene que definir si hay (y cuál). Cuando la defina, completar `GARANTIA` en `fuentes/design-system/design_system.py` y sumarla a la landing.
 - Creativos: que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.
 - Actualizar el perfil de la skill carrusel-studio (dice "rojo vino + azul oscuro") a la paleta turquesa del ebook.
-- VSL del competidor directo: Nacho tiene el audio. Transcribirlo y traducirlo al español rioplatense, y analizar su estructura (gancho, problema, mecanismo, prueba, oferta, CTA) para escribir un guion de VSL propio de RENOVA. No copiar el texto: usarlo como referencia. Para transcribir hace falta una de estas opciones: el link de YouTube del video (se usa la herramienta de transcripción de vidIQ), habilitar `huggingface.co` en la red del entorno (modelo Whisper local) o que Nacho pase la transcripción.
+- VSL del competidor directo: el audio (3:51 min) está en `investigacion/vsl-competidor/audio-vsl-competidor.ogg`. Transcribirlo y traducirlo al español rioplatense, y analizar su estructura (gancho, problema, mecanismo, prueba, oferta, CTA) para escribir un guion de VSL propio de RENOVA. No copiar el texto: usarlo como referencia. Para transcribir hace falta una de estas opciones: el link de YouTube del video (se usa la herramienta de transcripción de vidIQ), habilitar `huggingface.co` en la red del entorno (modelo Whisper local) o que Nacho pase la transcripción.
 - 5 videos sin equivalente en Harbiz (plancha oso, plancha lateral dinámica, balanceo de pierna, sentadilla sumo sin peso, plancha con rodillas): grabarlos si se quieren todos propios.
