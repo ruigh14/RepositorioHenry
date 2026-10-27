@@ -57,21 +57,25 @@ h1,h2,h3,h4,.osw{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);fon
 .nav-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(20,177,199,.45)}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;background:#141414 url('img/hero.jpg') 78% 30%/cover no-repeat;color:#fff;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#14B1C7 0%,rgba(20,177,199,.95) 34%,rgba(14,157,178,.55) 56%,rgba(14,157,178,0) 76%)}
-.hero .wrap{position:relative;padding:54px 0 64px;max-width:1100px}
+.hero{position:relative;background:var(--grad);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(255,255,255,.18),transparent 55%)}
+.hero .wrap{position:relative;padding:54px 0 64px;max-width:1100px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .hero-in{max-width:560px}
 .hero h1{font-family:"Inter Tight",Inter,sans-serif;color:#fff;font-size:clamp(46px,7vw,80px);font-weight:900;letter-spacing:-.03em;line-height:.98;text-transform:uppercase;text-shadow:0 4px 18px rgba(0,0,0,.18)}
 .hero .sub{font-family:"Inter Tight",Inter,sans-serif;font-weight:500;font-size:clamp(20px,2.4vw,27px);margin:12px 0 22px;line-height:1.25}
 .hero .sub b{font-weight:800;color:#fff;border-bottom:3px solid #fff}
-.vbox{position:relative;display:block;border:4px solid #fff;border-radius:16px;overflow:hidden;box-shadow:0 22px 50px rgba(0,0,0,.35);aspect-ratio:16/9;background:#141414;transition:transform .3s}
-.vbox:hover{transform:scale(1.015)}
-.vbox img{width:100%;height:100%;object-fit:cover;opacity:.85}
-.vbox .play{position:absolute;top:50%;left:50%;width:76px;height:76px;margin:-48px 0 0 -38px;border-radius:50%;background:var(--br);box-shadow:0 10px 26px rgba(20,177,199,.55);display:grid;place-items:center;transition:transform .25s,background .25s}
-.vbox:hover .play{transform:scale(1.1)}
-.vbox .play svg{width:32px;height:32px;margin-left:5px;color:#fff}
-.vbox .cap{position:absolute;left:0;right:0;bottom:14px;text-align:center;font-family:"Inter Tight",Inter,sans-serif;font-weight:600;font-size:clamp(15px,2vw,20px);text-transform:uppercase;letter-spacing:.03em;text-shadow:0 2px 8px rgba(0,0,0,.6)}
-.vbox .cap span{background:var(--br);padding:0 6px;text-shadow:none}
+.hero-vis{position:relative;padding-right:90px}
+.stage{position:relative;aspect-ratio:3/4;max-height:560px;margin-left:auto;border:5px solid #fff;border-radius:22px;overflow:hidden;background:#141414;box-shadow:0 26px 60px rgba(0,0,0,.35)}
+.stage>*{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}
+.stage>.on{opacity:1}
+.stage .col{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:4px;background:#fff}
+.stage .col img{width:100%;height:100%;min-height:0;object-fit:cover;object-position:50% 30%}
+.stage .lg{position:absolute;left:12px;bottom:12px;top:auto;right:auto;width:auto;height:auto;z-index:3;background:rgba(20,20,20,.8);color:#fff;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;opacity:0;transition:opacity .45s}
+.stage .lg.on{opacity:1}
+.nacho-fijo{position:absolute;right:0;bottom:-18px;width:170px;margin:0;background:#fff;border-radius:18px;padding:6px 6px 10px;box-shadow:0 20px 44px rgba(0,0,0,.3);text-align:center;color:var(--ink);z-index:4}
+.nacho-fijo img{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 30%;border-radius:13px}
+.nacho-fijo b{display:block;font-size:14px;margin-top:6px}
+.nacho-fijo span{display:block;font-size:12px;color:var(--mut)}
 .hero .btn{margin-top:26px}
 .hero-notch{position:relative;height:0}
 .hero-notch::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);border:22px solid transparent;border-top-color:#14B1C7;border-bottom:0}
@@ -106,27 +110,33 @@ h1,h2,h3,h4,.osw{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);fon
 .ix.si{background:var(--rnv-turquesa);color:#fff}
 
 /* TESTIMONIOS TIPO POST */
-.posts{columns:2;column-gap:22px;max-width:820px;margin:0 auto}
-.post{break-inside:avoid;background:#fff;border-radius:8px;box-shadow:var(--sh);padding:16px;margin-bottom:22px;transition:transform .25s,box-shadow .25s}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1040px;margin:0 auto;align-items:stretch}
+.post{display:flex;flex-direction:column;background:#fff;border-radius:8px;box-shadow:var(--sh);padding:16px;transition:transform .25s,box-shadow .25s}
 .post:hover{transform:translateY(-4px);box-shadow:var(--sh2)}
 .post .who{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .post .who img{width:38px;height:38px;border-radius:50%;object-fit:cover}
 .post .who b{font-size:15px;color:var(--ink);display:block;line-height:1.2}
 .post .who span{font-size:12.5px;color:var(--mut)}
 .post .dots{margin-left:auto;color:var(--rnv-gris);font-weight:900;letter-spacing:2px}
-.post p{font-size:17px;color:var(--ink);line-height:1.5}
-.post .ba{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin:12px 0 4px}
+.post p{font-size:17px;color:var(--ink);line-height:1.5;min-height:3em;margin-bottom:12px}
+.post .ba,.post .one{position:relative;margin:auto 0 0;aspect-ratio:4/5}
+
+.post .ba{display:grid;grid-template-columns:1fr 1fr;gap:4px}
 .post .ba div{position:relative}
-.post .ba img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:3px}
-.post .one img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 60%;border-radius:3px;margin:12px 0 4px}
+.post .ba img,.post .one img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:3px;display:block}
+.post .one img{object-position:50% 60%}
 .post .tag{position:absolute;left:8px;top:8px;background:rgba(20,20,20,.85);color:#fff;font-size:11px;font-weight:900;letter-spacing:.08em;padding:3px 8px;border-radius:3px}
 .post .tag.d{background:var(--br)}
-.post .vid{position:relative;display:block;margin-top:12px;border-radius:6px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,var(--br2),var(--navy))}
-.post .vid img{width:100%;height:100%;object-fit:cover;opacity:.8}
-.post .vid i{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:var(--br);display:grid;place-items:center;box-shadow:0 8px 20px rgba(20,177,199,.5);transition:transform .25s}
-.post .vid:hover i{transform:scale(1.12)}
-.post .vid em{position:absolute;left:14px;bottom:12px;color:#fff;font-style:normal;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:20px;z-index:1}
-.post .vid i svg{width:24px;height:24px;color:#fff;margin-left:4px}
+.msgs-t{text-align:center;font-size:clamp(24px,3vw,32px);text-transform:uppercase;margin:56px 0 20px}
+.msgs{position:relative;max-width:1040px;margin:0 auto}
+.msgs-track{display:flex;align-items:center;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 4px 18px;scrollbar-width:none}
+.msgs-track::-webkit-scrollbar{display:none}
+.msg{flex:0 0 min(420px,82%);scroll-snap-align:center;margin:0;background:#fff;border-radius:18px;box-shadow:var(--sh2);padding:12px;display:flex;flex-direction:column;justify-content:center}
+.msg img{width:100%;border-radius:12px;display:block}
+.msg figcaption{font-size:13px;font-weight:700;color:var(--mut);text-align:center;margin-top:10px;letter-spacing:.04em}
+.msgs-dots{display:flex;justify-content:center;gap:8px}
+.msgs-dots button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer}
+.msgs-dots button.on{background:var(--br);width:26px;border-radius:6px}
 .disc{text-align:center;font-size:13.5px;color:var(--mut);max-width:680px;margin:6px auto 0;font-style:italic}
 
 /* PILARES */
@@ -291,7 +301,6 @@ h1,h2,h3,h4,.osw{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);fon
 .plan h3{font-size:28px;text-transform:uppercase;margin-bottom:12px}
 .plan ul{list-style:none;display:grid;gap:10px}
 .plan li{display:flex;gap:10px;font-size:16px;line-height:1.5}
-.vbox .vh{position:absolute;left:0;right:0;top:0;z-index:2;background:#fff;color:var(--ink);text-align:center;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:9px 6px;border-bottom:1px solid var(--line)}
 
 /* BARRA FIJA CELULAR */
 .mbar{display:none}
@@ -302,12 +311,12 @@ h1,h2,h3,h4,.osw{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);fon
 
 @media (max-width:900px){
   .menu{display:none}
-  .hero{background-position:70% 20%}
-  .hero::before{background:linear-gradient(180deg,rgba(20,177,199,.5) 0%,#14B1C7 42%,#0E9DB2 100%)}
-  .hero .wrap{padding-top:180px}
+  .hero .wrap{grid-template-columns:1fr;padding-top:36px;gap:34px}
+  .hero-vis{max-width:420px;width:100%;margin:0 auto;padding-right:70px}
+  .nacho-fijo{width:130px}
   .pillar,.inc,.coach,.bonus .bb,.planes{grid-template-columns:1fr}
   .inc.rev .media{order:0}
-  .posts{columns:1;max-width:520px}
+  .posts{grid-template-columns:1fr;max-width:460px}
   .promise{background-size:0 0}
   .promise::before{background:var(--grad)}
 }
@@ -387,13 +396,20 @@ h1,h2,h3,h4,.osw{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);fon
       <h1>Entrená<br/>donde quieras</h1>
       <p class="sub">Tu cuerpo cambió después de los 40. <b>Tus resultados</b> no tienen por qué frenarse.</p>
       <p class="dos">2 ebooks en una compra: <b>en casa</b> y <b>en el gimnasio</b></p>
-      <a class="vbox" href="https://youtu.be/KfI35eFGagY" target="_blank" rel="noopener">
-        <span class="vh">Mirá este testimonio completo</span>
-        <img src="https://img.youtube.com/vi/KfI35eFGagY/hqdefault.jpg" alt="Testimonio de Marina"/>
-        <span class="play"><svg><use href="#i-play"/></svg></span>
-        <span class="cap">Mirá lo que logró <span>Marina</span></span>
-      </a>
       <a class="btn white" href="#comprar">Empezar ahora <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="hero-vis">
+      <!-- Secuencia: videos de alumnas entrenando (2 s c/u) → logros (1,5 s c/u) → collage final, que queda fijo.
+           Para sumar fotos de logros: otra <img data-t="1500"> antes del collage. -->
+      <div class="stage" id="stage">
+        <video data-t="6000" muted playsinline preload="auto" poster="img/hero_entrenan.jpg"><source src="img/hero_entrenan.mp4" type="video/mp4"/></video>
+        <img data-t="1500" src="img/mari_d.jpg" alt="Mari, alumna RENOVA" style="object-position:58% 40%"/>
+        <img data-t="1500" src="img/ba_romi.jpg" alt="Romi, alumna RENOVA" style="object-position:50% 35%"/>
+        <img data-t="1500" src="img/moni_a.jpg" alt="Moni, alumna RENOVA" style="object-position:52% 40%"/>
+        <div class="col on"><img src="img/hero_entrenan.jpg" alt=""/><img src="img/mari_d.jpg" alt=""/><img src="img/ba_romi.jpg" alt=""/><img src="img/moni_a.jpg" alt=""/></div>
+        <span class="lg on">Alumnas RENOVA</span>
+      </div>
+      <figure class="nacho-fijo"><img src="img/nacho.jpg" alt="Nacho Portillo"/><b>Nacho Portillo</b><span>Tu entrenador</span></figure>
     </div>
   </div>
 </div>
@@ -435,25 +451,24 @@ h1,h2,h3,h4,.osw{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);fon
         <div class="ba"><div><img src="img/mari_a.jpg" alt="Mari antes" style="object-position:52% 50%"/><span class="tag">ANTES</span></div><div><img src="img/mari_d.jpg" alt="Mari después" style="object-position:58% 50%"/><span class="tag d">DESPUÉS</span></div></div>
       </div>
       <div class="post rv">
-        <div class="who"><img src="img/nacho.jpg" alt=""/><div><b>Marina</b><span>Testimonio en video</span></div><span class="dots">···</span></div>
-        <p>Escuchá en primera persona cómo fue su proceso con RENOVA.</p>
-        <a class="vid" href="https://youtu.be/KfI35eFGagY" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/KfI35eFGagY/hqdefault.jpg" alt=""/><i><svg><use href="#i-play"/></svg></i></a>
-      </div>
-      <div class="post rv">
         <div class="who"><img src="img/ba_romi.jpg" alt=""/><div><b>Romi</b><span>Alumna RENOVA</span></div><span class="dots">···</span></div>
         <p>Ganó <b>masa muscular</b> y volvió a <b>correr sin dolores</b>.</p>
         <div class="one"><img src="img/ba_romi.jpg" alt="Romi"/></div>
       </div>
       <div class="post rv">
         <div class="who"><img src="img/moni_a.jpg" alt=""/><div><b>Moni</b><span>Alumna RENOVA</span></div><span class="dots">···</span></div>
-        <p>Bajó <b>6 kg</b> y logró algo que nunca había podido: <b>el hábito de entrenar</b>.</p>
+        <p>Bajó <b>6 kg</b> y logró <b>el hábito de entrenar</b>.</p>
         <div class="ba"><div><img src="img/moni_d.jpg" alt="Moni antes" style="object-position:43% 50%"/><span class="tag">ANTES</span></div><div><img src="img/moni_a.jpg" alt="Moni después" style="object-position:52% 50%"/><span class="tag d">DESPUÉS</span></div></div>
       </div>
-      <div class="post rv">
-        <div class="who"><img src="img/logo.png" alt="" style="object-fit:contain;background:#fff"/><div><b>Mari y Sussy</b><span>Testimonios en video</span></div><span class="dots">···</span></div>
-        <a class="vid" href="https://drive.google.com/file/d/148OfnqomkPfmFo5MJvyK83iUPBGzrpzh/view?usp=drive_link" target="_blank" rel="noopener"><em>Mari</em><i><svg><use href="#i-play"/></svg></i></a>
-        <a class="vid" href="https://drive.google.com/file/d/1pLl70FqmtkZ4GdpvcbpxJJ1E0wXcHBv6/view?usp=drive_link" target="_blank" rel="noopener"><em>Sussy</em><i><svg><use href="#i-play"/></svg></i></a>
+    </div>
+    <h3 class="msgs-t rv">Lo que nos escriben</h3>
+    <!-- Mensajes de clientas: para sumar uno, agregá otra <figure class="msg"> con la captura en img/. -->
+    <div class="msgs rv">
+      <div class="msgs-track" id="msgs">
+        <figure class="msg"><img src="img/msg_1.jpg" alt="Mensaje de Romi: comencé el gym hace 2 semanas y me siento bárbara en todos los deportes"/><figcaption>Romi · por WhatsApp</figcaption></figure>
+        <figure class="msg"><img src="img/msg_2.jpg" alt="Mensaje de una alumna: el ebook me resultó muy fácil de seguir y adaptar a mi rutina"/><figcaption>Alumna RENOVA · por WhatsApp</figcaption></figure>
       </div>
+      <div class="msgs-dots" id="msgs-dots"></div>
     </div>
     <p class="disc">Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud.</p>
   </div>
@@ -711,6 +726,47 @@ h1,h2,h3,h4,.osw{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);fon
     }, { threshold: .1 });
     els.forEach(function(el){ io.observe(el); });
   } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  // Portada: secuencia y collage final
+  var st = document.getElementById('stage');
+  if (st) {
+    var it = [].slice.call(st.querySelectorAll('[data-t]')), last = st.querySelector('.col'), lg = st.querySelector('.lg');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce && it.length) {
+      last.classList.remove('on'); lg.classList.remove('on');
+      var i = 0;
+      var show = function(){
+        it.forEach(function(e){ e.classList.remove('on'); });
+        if (i >= it.length) { last.classList.add('on'); lg.classList.add('on'); return; }
+        var e = it[i], t = +e.getAttribute('data-t');
+        e.classList.add('on');
+        if (e.tagName === 'VIDEO') {
+          var done = false, next = function(){ if (!done) { done = true; i++; show(); } };
+          e.currentTime = 0; var p = e.play(); if (p && p.catch) p.catch(next);
+          e.onended = next; setTimeout(next, t + 1500);
+        } else { i++; setTimeout(show, t); }
+      };
+      show();
+    }
+  }
+
+  // Mensajes de clientas: pasan solos cada 4 s
+  var tr = document.getElementById('msgs'), dw = document.getElementById('msgs-dots');
+  if (tr) {
+    var ms = tr.children, k = 0, timer;
+    for (var j = 0; j < ms.length; j++) (function(j){
+      var d = document.createElement('button'); d.setAttribute('aria-label', 'Mensaje ' + (j + 1));
+      d.onclick = function(){ go(j); restart(); }; dw.appendChild(d);
+    })(j);
+    var go = function(n){
+      k = (n + ms.length) % ms.length;
+      tr.scrollTo({ left: ms[k].offsetLeft - (tr.clientWidth - ms[k].offsetWidth) / 2, behavior: 'smooth' });
+      [].forEach.call(dw.children, function(d, x){ d.classList.toggle('on', x === k); });
+    };
+    var restart = function(){ clearInterval(timer); timer = setInterval(function(){ go(k + 1); }, 4000); };
+    go(0); restart();
+    tr.addEventListener('touchstart', restart, { passive: true });
+  }
 
   var bar = document.getElementById('mbar'), hero = root.querySelector('.hero'), buy = document.getElementById('comprar');
   window.addEventListener('scroll', function(){

@@ -21,6 +21,8 @@ HERE = Path(__file__).parent
 # Antes de correr esto, commitear y pushear las imágenes nuevas.
 SHA = subprocess.check_output(["git", "log", "-1", "--format=%H", "--", "img"], cwd=HERE, text=True).strip()
 IMG = f"https://raw.githubusercontent.com/ruigh14/RepositorioHenry/{SHA}/fuentes/landing/img/"
+# Los videos salen primero de jsDelivr (manda el tipo video/mp4, que Safari necesita) y, si falla, de GitHub.
+CDN = f"https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@{SHA}/fuentes/landing/img/"
 FONTS = "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
 
 
@@ -89,6 +91,8 @@ head = re.sub(r"<style>.*?</style>\s*", "", src.split("<body>")[0], flags=re.S)
 body = src.split("<body>", 1)[1].split("</body>")[0]
 html = (head + "<body>\n<div id=\"rnv\">\n<style>@import url(\"" + FONTS + "\");\n"
         + scope(css).strip() + "\n</style>\n" + body.strip() + "\n</div>\n</body>\n</html>\n")
+html = re.sub(r'<source src="img/([^"]+)" type="video/mp4"/>',
+              lambda m: f'<source src="{CDN}{m[1]}" type="video/mp4"/><source src="{IMG}{m[1]}" type="video/mp4"/>', html)
 html = re.sub(r'(src|href)="img/', r'\1="' + IMG, html)
 html = html.replace("url('img/", "url('" + IMG)
 (HERE.parent.parent / OUT).write_text(html)
