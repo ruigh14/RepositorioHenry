@@ -25,9 +25,9 @@ def G(casa, gym):
 NE = "02" if FULL else "04"   # número del capítulo de entrenamiento en cada edición
 
 LINKS = {
-    "talleres": "https://www.nachoportillo.com/",   # reemplazar por el link directo a los talleres
-    "taller_heladera": "https://youtu.be/bLRL_0--zwU",   # taller incluido: Organizar la heladera
-    "taller_ansiedad": "https://youtu.be/t6jTfVukNa4",   # taller incluido: Gestión de la ansiedad
+    "talleres": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",   # Skool RENOVA: acceso a los talleres
+    "taller_heladera": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",   # taller incluido: Organizar la heladera (Skool)
+    "taller_ansiedad": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",   # taller incluido: Gestión de la ansiedad (Skool)
     "talleres_todos": "https://wa.link/d9hfrd",          # desbloquear el resto de los talleres (WhatsApp)
     "wa_plan": "https://wa.link/hewha8",                 # WhatsApp: consulta directa con Nacho por el próximo plan
     "wa_nutricion": "https://wa.link/1asjt1",            # WhatsApp: planes nutricionales a medida / consulta con Nacho
@@ -1585,7 +1585,7 @@ if ENT:
     page(f'''
 {eyebrow("BONUS 2 · INCLUIDO")}
 <h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
-<p class="lead">Con este ebook accedés a dos talleres del equipo RENOVA. Tocá el botón de cada uno para verlo.</p>
+<p class="lead">Con este ebook accedés a dos talleres del equipo RENOVA, en nuestra comunidad de Skool. Tocá el botón de cada uno para entrar.</p>
 {taller_card("taller_heladera.png", "TALLER INCLUIDO", "Organizar la heladera", "Cómo guardar, porcionar y ordenar para tener siempre opciones listas y sanas a mano.", "VER TALLER", "taller_heladera", ICON_PLAY)}
 {taller_card("taller_ansiedad.png", "TALLER INCLUIDO", "Gestión de la ansiedad", "Herramientas para reconocer la ansiedad y manejarla en el día a día, sin que maneje tus comidas.", "VER TALLER", "taller_ansiedad", ICON_PLAY)}
 {taller_card("taller_mas.png", "MÁS TALLERES RENOVA", "Hábitos, meditación, estrategias de nutrición y mucho más", "Consultá para ver todos los talleres del equipo RENOVA: entrenadores, médico deportólogo, psicólogo y nutricionista.", "CONSULTAR", "talleres_todos", ICON_ARROW, locked=True)}
