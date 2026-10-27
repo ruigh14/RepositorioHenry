@@ -45,3 +45,17 @@ Debe imprimir `OVERFLOW []` (sin páginas con texto cortado).
 - Después de cada cambio: regenerar el PDF, commitear y pushear a `main`.
 - Idioma: español rioplatense (voseo).
 - Se lee en el celular: letra grande (cuerpo 15 pt). Si algo no entra en la hoja, acortar texto o separar en hojas, no achicar la letra.
+
+## Frase para retomar: "RENOVA, seguimos"
+
+Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nueva), antes de hacer nada:
+1. Leer este archivo y `git log --oneline -15` para ver lo último que se hizo.
+2. Responder con un resumen corto: en qué quedó cada proyecto y qué está pendiente (sección siguiente).
+3. Preguntar con qué sigue.
+
+## Pendientes
+
+- Ebook de talleres: nombre y foto de quien da cada taller (¿heladera = nutricionista, ansiedad = psicólogo?) y links de otros talleres si hay.
+- Ebook gimnasio: que Nacho revise las rutinas y diga si cambia algún ejercicio.
+- Landings (casa y gimnasio): pegarlas en Impultienda y revisar que reemplace precios y que el upsell sume al carrito; definir si hay garantía.
+- 5 videos sin equivalente en Harbiz (plancha oso, plancha lateral dinámica, balanceo de pierna, sentadilla sumo sin peso, plancha con rodillas): grabarlos si se quieren todos propios.
