@@ -17,17 +17,23 @@ entrena-en-el-gimnasio/      Misma lógica, rutinas de gimnasio nivel inicial
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
   Ebook_Programa_RENOVA.pdf
 fuentes/
+  design-system/             tokens, tipografías, componentes y plantillas de creativos (ver su README.md)
   ebook/                     genera los 3 PDF
   landing/                   genera las 2 landings
 ```
 
+Cada producto que se vende tiene además `creativos/` (imágenes, carrusel y videos para Instagram y Facebook), generados desde `fuentes/design-system/creativos/`.
+
 **No editar a mano** los PDF ni las `landing-impultienda.html`: se regeneran desde `fuentes/`.
+
+### `fuentes/design-system/`
+Una sola marca para todo: **los colores son los del ebook** y landings, creativos y videos usan exactamente esa paleta (nada de colores sueltos: si hace falta uno, se agrega como token). `tokens.css` es la fuente única; el ebook y las landings usan alias que apuntan a los tokens. `design_system.py` tiene `css()`, los íconos, los componentes del ebook y las reglas de venta (`DESCARGO`, `GARANTIA = None` hasta que Nacho la defina). `creativos/datos.py` tiene los textos de los creativos de cada producto. Todo está explicado en `fuentes/design-system/README.md`; la muestra visual es `muestra.pdf`.
 
 ### `fuentes/ebook/`
 - `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio). Tres ediciones: `completo`, `entrena` (casa) y `gimnasio` (`GYM`; los textos que cambian entre casa y gimnasio usan `G(casa, gym)`; rutinas armadas a partir de las de gimnasio de Nacho en Harbiz, ilustraciones `img/gym_*.png` de Canva).
 - `ebook.html`, `entrena.html`, `gimnasio.html`: HTML intermedio que genera `build.py` (no editar).
 - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright a la carpeta del producto.
-- `img/`: fotos, ilustraciones, recetas y testimonios. `fonts/`: tipografía Inter.
+- `img/`: fotos, ilustraciones, recetas y testimonios. Las tipografías están en `fuentes/design-system/fonts/`.
 - `archivo/version-anterior_7_1.pdf`: exportación vieja, solo referencia.
 - Talleres: están en Skool (https://www.skool.com/renova-entrenamiento-y-salud-1617/about); el bonus de talleres de los ebooks tiene un botón grande que lleva ahí. No hay ebook de talleres ni página de upsell.
 
@@ -42,6 +48,8 @@ cd fuentes/ebook && python3 build.py entrena && node export.js entrena     # Ent
 cd fuentes/ebook && python3 build.py gimnasio && node export.js gimnasio   # Entrená en el gimnasio
 cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
 cd fuentes/landing && python3 build.py && python3 build.py gimnasio        # las 2 landings
+cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
+cd fuentes/design-system && python3 muestra.py && node muestra.js           # muestra.pdf del design system
 ```
 
 El ebook debe imprimir `OVERFLOW []` (sin páginas con texto cortado). Para revisar el texto de un PDF: `pdftotext -layout <pdf> /tmp/x.txt`.
@@ -69,5 +77,8 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 ## Pendientes
 
 - Ebook gimnasio: que Nacho revise las rutinas y diga si cambia algún ejercicio.
-- Landings (casa y gimnasio): pegarlas en Impultienda y revisar que reemplace precios y que el upsell sume al carrito; definir si hay garantía.
+- Landings (casa y gimnasio): pegarlas en Impultienda y revisar que reemplace precios y que el upsell sume al carrito.
+- Garantía: Nacho tiene que definir si hay (y cuál). Cuando la defina, completar `GARANTIA` en `fuentes/design-system/design_system.py` y sumarla a la landing.
+- Creativos: que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.
+- Actualizar el perfil de la skill carrusel-studio (dice "rojo vino + azul oscuro") a la paleta turquesa del ebook.
 - 5 videos sin equivalente en Harbiz (plancha oso, plancha lateral dinámica, balanceo de pierna, sentadilla sumo sin peso, plancha con rodillas): grabarlos si se quieren todos propios.
