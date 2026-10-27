@@ -3,15 +3,19 @@
 - Encierra todo en <div id="rnv"> y antepone #rnv a cada selector, para que el CSS
   de la tienda no pise la landing ni la landing pise la tienda.
 - Mueve el <style> dentro del <body> (por si la tienda descarta el <head>).
-- Cambia img/... por la URL pública de GitHub, así las imágenes cargan desde cualquier lado.
+- Cambia img/... por la URL pública de GitHub (fijada al último commit de img/), así las imágenes cargan desde cualquier lado.
 
 Uso:  cd landing && python3 build.py
 """
 import re
+import subprocess
 from pathlib import Path
 
 HERE = Path(__file__).parent
-IMG = "https://raw.githubusercontent.com/ruigh14/RepositorioHenry/main/landing/img/"
+# Commit fijo de la última versión de landing/img (evita la caché de GitHub con archivos nuevos).
+# Antes de correr esto, commitear y pushear las imágenes nuevas.
+SHA = subprocess.check_output(["git", "log", "-1", "--format=%H", "--", "img"], cwd=HERE, text=True).strip()
+IMG = f"https://raw.githubusercontent.com/ruigh14/RepositorioHenry/{SHA}/landing/img/"
 FONTS = "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
 
 
