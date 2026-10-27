@@ -211,25 +211,25 @@ Resultados reales                                                               
 
 03 · Plan de 8 semanas                                                                                   9
 
-04 · Entrenamiento                                                                                       15
+04 · Entrenamiento                                                                                       16
 
-Extra: Rutina de zona media                                                                          25
+Extra: Rutina de zona media                                                                          26
 
-05 · Semanas con poco tiempo                                                                         29
+05 · Semanas con poco tiempo                                                                         30
 
-06 · Activa en el trabajo                                                                                31
+06 · Activa en el trabajo                                                                            32
 
-07 · Registro de evolución                                                                           34
+07 · Registro de evolución                                                                           35
 
-08 · Después de las 8 semanas                                                                        37
+08 · Después de las 8 semanas                                                                        38
 
-Bonus 1 · Recetario                                                                                  40
+Bonus 1 · Recetario                                                                                      41
 
-Bonus 2: Talleres RENOVA                                                                             64
+Bonus 2: Talleres RENOVA                                                                             65
 
-Bonus 3: Consulta con Nacho                                                                          65
+Bonus 3: Consulta con Nacho                                                                          66
 
-Método RENOVA                                                                                        66
+Método RENOVA                                                                                        67
 
        Hacé clic y volvé al índice                                                                        6
 E N T R E N Á D E S D E C A S A · R E N O VA         0 1 · C Ó M O U S A R E S TA G U Í A
@@ -408,7 +408,7 @@ Escala de esfuerzo
 
 
        Hacé clic y volvé al índice                                                      10
-E N T R E N Á D E S D E C A S A · R E N O VA                                                03 · PLAN DE 8 SEMANAS
+E N T R E N Á D E S D E C A S A · R E N O VA                                  03 · PLAN DE 8 SEMANAS
 
 
 
@@ -419,30 +419,41 @@ Escala de esfuerzo
 
 
 Semanas 1 a 4: base y construcción
-   Fase 1 · Base semanas 1–2                       Fase 2 · Construcción semanas 3–6
+   Fase 1 · Base semanas 1–2                   Fase 2 · Construcción semanas 3–6
 
    Fase 3 · Consolidación semanas 7–8
 
+                         FUERZA                     VUELTAS POR BLOQUE    REPETICIONES · PLANCHAS
+     SEMANA
+                         R1 · R2                    2                     10 · 15 s
+         1               PAUSA                      ESFUERZO (1–10)       AERÓBICO
+       Base
+                         60 s                       5–6                   2 × 20 min
 
+                         FUERZA                     VUELTAS POR BLOQUE    REPETICIONES · PLANCHAS
+     SEMANA
+                         R1 · R2 · R3               2                     10–12 · 15–20 s
+         2               PAUSA                      ESFUERZO (1–10)       AERÓBICO
+       Base
+                         60 s                       6                     2 × 30 min
 
-                                               VUELTAS
-                                               POR                                         ESFUERZO
- SEM.    FASE                  FUERZA          BLOQUE    REPETICIONES · PLANCHAS   PAUSA   (1–10)     AERÓBICO
+                         FUERZA                     VUELTAS POR BLOQUE    REPETICIONES · PLANCHAS
+     SEMANA
+                         R1 · R2 · R3               3                     10–12 · 20 s
+         3               PAUSA                      ESFUERZO (1–10)       AERÓBICO
+  Construcción
+                         60 s                       6–7                   2 × 30 min
 
-
-   1     Base                  R1 · R2         2         10 · 15 s                 60 s    5–6        2 × 20 min
-
-   2     Base                  R1 · R2 · R3 2            10–12 · 15–20 s           60 s    6          2 × 30 min
-
-   3     Construcción R1 · R2 · R3 3                     10–12 · 20 s              60 s    6–7        2 × 30 min
-
-   4     Construcción R1 · R2 · R3 3                     12 · 25 s                 45 s    7          3 × 30 min
-
+                         FUERZA                     VUELTAS POR BLOQUE    REPETICIONES · PLANCHAS
+     SEMANA
+                         R1 · R2 · R3               3                     12 · 25 s
+        4                PAUSA                      ESFUERZO (1–10)       AERÓBICO
+  Construcción
+                         45 s                       7                     3 × 30 min
 
 
 
 Cómo progresar
-
    Semanas 1 y 2: aprendé la técnica con 2 vueltas por bloque y
    esfuerzo moderado. Tenés que terminar con energía.
    Semana 3: pasás a 3 vueltas por bloque, con el mismo peso. Al final
@@ -452,8 +463,8 @@ Cómo progresar
 
 
 
-        Hacé clic y volvé al índice                                                                                11
-E N T R E N Á D E S D E C A S A · R E N O VA                                                03 · PLAN DE 8 SEMANAS
+       Hacé clic y volvé al índice                                                                  11
+E N T R E N Á D E S D E C A S A · R E N O VA                            03 · PLAN DE 8 SEMANAS
 
 
 
@@ -464,24 +475,50 @@ Cómo progresar
 
 
 Semanas 5 a 8: más exigencia
-                                               VUELTAS
-                                               POR                                         ESFUERZO
- SEM.    FASE                  FUERZA          BLOQUE    REPETICIONES · PLANCHAS   PAUSA   (1–10)     AERÓBICO
+                         FUERZA                VUELTAS POR BLOQUE   REPETICIONES · PLANCHAS
 
 
-                                                                                                      3 × 30–40
-   5     Construcción R1 · R2 · R3 3                     12 con más peso · 30 s 45 s       7–8
-                                                                                                      min
+     SEMANA
+                         R1 · R2 · R3          3                    12 con más peso · 30
 
-   6     Descarga              R1 · R2         2         10 · 20 s                 60 s    6          2 × 30 min
+         5                                                          s
+  Construcción           PAUSA                 ESFUERZO (1–10)      AERÓBICO
 
-                                                         10–12 bajando en 3 s ·    30–45
-   7     Consolidación R1 · R2 · R3 3                                                      7–8        3 × 40 min
-                                                         30 s                      s
+                         45 s                  7–8                  3 × 30–40 min
 
-                                               3 (+1                               30–45
-   8     Consolidación R1 · R2 · R3                      12 · 35–40 s                      7–8        3 × 40 min
-                                               opcional)                           s
+
+                         FUERZA                VUELTAS POR BLOQUE   REPETICIONES · PLANCHAS
+     SEMANA
+                         R1 · R2               2                    10 · 20 s
+         6               PAUSA                 ESFUERZO (1–10)      AERÓBICO
+    Descarga
+                         60 s                  6                    2 × 30 min
+
+
+                         FUERZA                VUELTAS POR BLOQUE   REPETICIONES · PLANCHAS
+
+
+     SEMANA
+                         R1 · R2 · R3          3                    10–12 bajando en 3 s ·
+
+         7                                                          30 s
+ Consolidación           PAUSA                 ESFUERZO (1–10)      AERÓBICO
+
+                         30–45 s               7–8                  3 × 40 min
+
+
+                         FUERZA                VUELTAS POR BLOQUE   REPETICIONES · PLANCHAS
+     SEMANA
+                         R1 · R2 · R3          3 (+1 opcional)      12 · 35–40 s
+        8                PAUSA                 ESFUERZO (1–10)      AERÓBICO
+ Consolidación
+                         30–45 s               7–8                  3 × 40 min
+
+
+
+
+       Hacé clic y volvé al índice                                                            12
+E N T R E N Á D E S D E C A S A · R E N O VA            03 · PLAN DE 8 SEMANAS
 
 
 
@@ -490,9 +527,8 @@ Cómo progresar
 
    Semana 5: sumá peso o pasá a la variante más difícil en los
    ejercicios donde ya llegás cómoda a 12 repeticiones.
-   Semana 6, de descarga: 2 vueltas por bloque y esfuerzo 6.
-   Recuperarte también es parte del plan. Al final de la semana, pesate
-   y medí tu cintura.
+   Semana 6, de descarga: 2 vueltas por bloque y esfuerzo 6. Al final,
+   pesate y medí tu cintura.
    Semanas 7 y 8: en los ejercicios que lo indican, sumá dos
    mancuernas, una en cada mano. Los demás se hacen igual.
    Semana 7: bajá en 3 segundos en cada repetición y acortá la pausa
@@ -500,13 +536,10 @@ Cómo progresar
    Semana 8: si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá
    pesándote y midiendo tu cintura.
 
-Pausa entre ejercicios; entre vueltas, 1 minuto, y entre bloques, 2 minutos.
-Esfuerzo según la escala del capítulo 04.
 
 
 
-
-        Hacé clic y volvé al índice                                                                                12
+       Hacé clic y volvé al índice                                         13
 E N T R E N Á D E S D E C A S A · R E N O VA                                           03 · PLAN DE 8 SEMANAS
 
 
@@ -563,7 +596,7 @@ Reglas simples
 
 
 
-       Hacé clic y volvé al índice                                                                        13
+       Hacé clic y volvé al índice                                                                        14
 E N T R E N Á D E S D E C A S A · R E N O VA                               03 · PLAN DE 8 SEMANAS
 
 
@@ -609,7 +642,7 @@ es perder tiempo: es parte del plan.
 
 
 
-       Hacé clic y volvé al índice                                                            14
+       Hacé clic y volvé al índice                                                            15
 E N T R E N Á D E S D E C A S A · R E N O VA                            04 · ENTRENAMIENTO
 
 
@@ -652,7 +685,7 @@ propio cuerpo. Una sesión completa lleva entre 30 y 40 minutos.
 
 
 
-         Hacé clic y volvé al índice                                                    15
+         Hacé clic y volvé al índice                                                   16
 E N T R E N Á D E S D E C A S A · R E N O VA                                               04 · ENTRENAMIENTO
 
 
@@ -707,7 +740,7 @@ Rutina 1: cuerpo completo
 
 
 
-       Hacé clic y volvé al índice                                                                         16
+       Hacé clic y volvé al índice                                                                         17
 E N T R E N Á D E S D E C A S A · R E N O VA                                    04 · ENTRENAMIENTO
 
 
@@ -769,7 +802,7 @@ Al terminar las vueltas, descansá 2 minutos y pasá al bloque 2.
 
 
 
-       Hacé clic y volvé al índice                                                              17
+       Hacé clic y volvé al índice                                                             18
 E N T R E N Á D E S D E C A S A · R E N O VA                                   04 · ENTRENAMIENTO
 
 
@@ -825,12 +858,12 @@ planchas: 15–20 s.
 
 
 
-Al terminar el bloque 2, hacé la elongación (página 27).
+Al terminar el bloque 2, hacé la elongación (página 28).
 
 
 
 
-       Hacé clic y volvé al índice                                                            18
+       Hacé clic y volvé al índice                                                            19
 E N T R E N Á D E S D E C A S A · R E N O VA                                               04 · ENTRENAMIENTO
 
 
@@ -888,7 +921,7 @@ Rutina 2: cuerpo completo
 
 
 
-       Hacé clic y volvé al índice                                                                         19
+       Hacé clic y volvé al índice                                                                         20
 E N T R E N Á D E S D E C A S A · R E N O VA                                     04 · ENTRENAMIENTO
 
 
@@ -950,7 +983,7 @@ Al terminar las vueltas, descansá 2 minutos y pasá al bloque 2.
 
 
 
-       Hacé clic y volvé al índice                                                              20
+       Hacé clic y volvé al índice                                                               21
 E N T R E N Á D E S D E C A S A · R E N O VA                                   04 · ENTRENAMIENTO
 
 
@@ -1010,12 +1043,12 @@ Mountain climber, skipping y plancha: 15–20 s.
 
 
 
-Al terminar el bloque 2, hacé la elongación (página 27).
+Al terminar el bloque 2, hacé la elongación (página 28).
 
 
 
 
-       Hacé clic y volvé al índice                                                             21
+       Hacé clic y volvé al índice                                                             22
 E N T R E N Á D E S D E C A S A · R E N O VA                                               04 · ENTRENAMIENTO
 
 
@@ -1073,7 +1106,7 @@ Rutina 3: cuerpo completo
 
 
 
-       Hacé clic y volvé al índice                                                                         22
+       Hacé clic y volvé al índice                                                                         23
 E N T R E N Á D E S D E C A S A · R E N O VA                                    04 · ENTRENAMIENTO
 
 
@@ -1132,7 +1165,7 @@ Al terminar las vueltas, descansá 2 minutos y pasá al bloque 2.
 
 
 
-       Hacé clic y volvé al índice                                                             23
+       Hacé clic y volvé al índice                                                             24
 E N T R E N Á D E S D E C A S A · R E N O VA                                    04 · ENTRENAMIENTO
 
 
@@ -1190,13 +1223,13 @@ Abdominales tijera y plancha oso: 15–20 s.
 
 
 
-Al terminar el bloque 2, hacé la rutina de zona media (página 25) y después la
-elongación (página 27).
+Al terminar el bloque 2, hacé la rutina de zona media (página 26) y después la
+elongación (página 28).
 
 
 
 
-       Hacé clic y volvé al índice                                                             24
+       Hacé clic y volvé al índice                                                             25
 E N T R E N Á D E S D E C A S A · R E N O VA                                    EXTRA · ZONA MEDIA
 
 
@@ -1248,7 +1281,7 @@ Hacela al terminar el bloque 2, antes de elongar, o en un día de aeróbico.
 
 
 
-       Hacé clic y volvé al índice                                                                25
+       Hacé clic y volvé al índice                                                                26
 E N T R E N Á D E S D E C A S A · R E N O VA                                   EXTRA · ZONA MEDIA
 
 
@@ -1301,7 +1334,7 @@ Hacela al terminar el bloque 2, antes de elongar, o en un día de aeróbico.
 
 
 
-       Hacé clic y volvé al índice                                                              26
+       Hacé clic y volvé al índice                                                              27
 E N T R E N Á D E S D E C A S A · R E N O VA                                                      04 · ENTRENAMIENTO
 
 
@@ -1358,7 +1391,7 @@ Sostené cada postura sin rebotes y respirando con calma.
 
 
 
-       Hacé clic y volvé al índice                                                                                27
+       Hacé clic y volvé al índice                                                                                28
 E N T R E N Á D E S D E C A S A · R E N O VA                                  04 · ENTRENAMIENTO
 
 
@@ -1407,7 +1440,7 @@ Elongación · continuación
 
 
 
-       Hacé clic y volvé al índice                                                           28
+       Hacé clic y volvé al índice                                                           29
 E N T R E N Á D E S D E C A S A · R E N O VA                                                   05 · SEMANAS CON POCO TIEMPO
 
 
@@ -1458,7 +1491,7 @@ Para los días con muy poco tiempo, usá la sesión express de 15 minutos.
 
 
 
-       Hacé clic y volvé al índice                                                                                       29
+       Hacé clic y volvé al índice                                                                                       30
 E N T R E N Á D E S D E C A S A · R E N O VA                           05 · SEMANAS CON POCO TIEMPO
 
 
@@ -1510,7 +1543,7 @@ peso de tu semana del plan.
 
 
 
-        Hacé clic y volvé al índice                                                                 30
+        Hacé clic y volvé al índice                                                                 31
 E N T R E N Á D E S D E C A S A · R E N O VA                                0 6 · AC T I VA E N E L T R A B A J O
 
 
@@ -1558,7 +1591,7 @@ ropa: alcanza con una silla firme y una pared.
 
 
 
-       Hacé clic y volvé al índice                                                                           31
+       Hacé clic y volvé al índice                                                                           32
 E N T R E N Á D E S D E C A S A · R E N O VA                               0 6 · AC T I VA E N E L T R A B A J O
 
 
@@ -1608,7 +1641,7 @@ ropa: alcanza con una silla firme y una pared.
 
 
 
-       Hacé clic y volvé al índice                                                                          32
+       Hacé clic y volvé al índice                                                                          33
 E N T R E N Á D E S D E C A S A · R E N O VA                     0 6 · AC T I VA E N E L T R A B A J O
 
 
@@ -1658,8 +1691,8 @@ sostenelas una semana y sumá otra.
 
 
 
-       Hacé clic y volvé al índice                                                                33
-E N T R E N Á D E S D E C A S A · R E N O VA                      07 · REGISTRO DE EVOLUCIÓN
+       Hacé clic y volvé al índice                                                                34
+E N T R E N Á D E S D E C A S A · R E N O VA         07 · REGISTRO DE EVOLUCIÓN
 
 
 
@@ -1673,115 +1706,129 @@ una semana con casilleros vacíos también te da información.
 Marcá en cada día la rutina que hiciste (R1, R2 o R3), los minutos de
 aeróbico y si elongaste. Imprimí estas planillas o usalas de modelo en
 tu agenda.
+
 Semana 1 · del ____ al ____
 
-                                         LUN   MAR   MIÉ   JUE   VIE      SÁB       DOM
 
+    LUN      MAR     MIÉ JUE (R1,
+                      Fuerza  VIE R2,
+                                   SÁB         DOM
 
- Fuerza (R1, R2, R3)
+                       R3)
 
- Aeróbico (minutos)
+                       Aeróbico
+                       (minutos)
 
- Elongación
+                       Elongación
+
 
 Semana 2 · del ____ al ____
 
-                                         LUN   MAR   MIÉ   JUE   VIE      SÁB       DOM
 
+    LUN      MAR     MIÉ JUE (R1,
+                      Fuerza  VIE R2,
+                                   SÁB         DOM
 
- Fuerza (R1, R2, R3)
+                       R3)
 
- Aeróbico (minutos)
+                       Aeróbico
+                       (minutos)
 
- Elongación
+                       Elongación
+
 
 Semana 3 · del ____ al ____
 
-                                         LUN   MAR   MIÉ   JUE   VIE      SÁB       DOM
+
+    LUN      MAR     MIÉ JUE (R1,
+                      Fuerza  VIE R2,
+                                   SÁB         DOM
+
+                       R3)
+
+                       Aeróbico
+                       (minutos)
+
+                       Elongación
 
 
- Fuerza (R1, R2, R3)
 
- Aeróbico (minutos)
 
- Elongación
+       Hacé clic y volvé al índice                                          35
+E N T R E N Á D E S D E C A S A · R E N O VA         07 · REGISTRO DE EVOLUCIÓN
+
+
+
 
 Semana 4 · del ____ al ____
 
-                                         LUN   MAR   MIÉ   JUE   VIE      SÁB       DOM
+    LUN      MAR     MIÉ JUE (R1,
+                      Fuerza  VIE R2,
+                                   SÁB         DOM
 
+                       R3)
 
- Fuerza (R1, R2, R3)
+                       Aeróbico
+                       (minutos)
 
- Aeróbico (minutos)
-
- Elongación
-
-
-       Hacé clic y volvé al índice                                                        34
-E N T R E N Á D E S D E C A S A · R E N O VA                      07 · REGISTRO DE EVOLUCIÓN
-
-
-
+                       Elongación
 
 Semana 5 · del ____ al ____
 
+    LUN      MAR     MIÉ JUE (R1,
+                      Fuerza  VIE R2,
+                                   SÁB         DOM
 
-                                         LUN   MAR   MIÉ   JUE   VIE      SÁB       DOM
+                       R3)
 
+                       Aeróbico
+                       (minutos)
 
- Fuerza (R1, R2, R3)
-
- Aeróbico (minutos)
-
- Elongación
-
-
+                       Elongación
 
 Semana 6 · del ____ al ____
 
+    LUN      MAR     MIÉ JUE (R1,
+                      Fuerza  VIE R2,
+                                   SÁB         DOM
 
-                                         LUN   MAR   MIÉ   JUE   VIE      SÁB       DOM
+                       R3)
 
+                       Aeróbico
+                       (minutos)
 
- Fuerza (R1, R2, R3)
-
- Aeróbico (minutos)
-
- Elongación
-
-
+                       Elongación
 
 Semana 7 · del ____ al ____
 
+    LUN      MAR     MIÉ JUE (R1,
+                      Fuerza  VIE R2,
+                                   SÁB         DOM
 
-                                         LUN   MAR   MIÉ   JUE   VIE      SÁB       DOM
+                       R3)
 
+                       Aeróbico
+                       (minutos)
 
- Fuerza (R1, R2, R3)
-
- Aeróbico (minutos)
-
- Elongación
-
-
+                       Elongación
 
 Semana 8 · del ____ al ____
 
+    LUN      MAR     MIÉ JUE (R1,
+                      Fuerza  VIE R2,
+                                   SÁB         DOM
 
-                                         LUN   MAR   MIÉ   JUE   VIE      SÁB       DOM
+                       R3)
 
+                       Aeróbico
+                       (minutos)
 
- Fuerza (R1, R2, R3)
-
- Aeróbico (minutos)
-
- Elongación
+                       Elongación
 
 
 
 
-       Hacé clic y volvé al índice                                                        35
+       Hacé clic y volvé al índice                                          36
 E N T R E N Á D E S D E C A S A · R E N O VA                        07 · REGISTRO DE EVOLUCIÓN
 
 
@@ -1841,7 +1888,7 @@ Cómo me sentí
 
 
 
-       Hacé clic y volvé al índice                                                           36
+       Hacé clic y volvé al índice                                                           37
 E N T R E N Á D E S D E C A S A · R E N O VA                          08 · DESPUÉS DE LAS 8 SEMANAS
 
 
@@ -1879,7 +1926,7 @@ Cómo retomar                                              Cuándo pedir ayuda
 
 
 
-       Hacé clic y volvé al índice                                                              37
+       Hacé clic y volvé al índice                                                              38
 E N T R E N Á D E S D E C A S A · R E N O VA                         08 · DESPUÉS DE LAS 8 SEMANAS
 
 
@@ -1912,7 +1959,7 @@ Cómo retomar                                              Cuándo pedir ayuda
 
 
 
-       Hacé clic y volvé al índice                                                             38
+       Hacé clic y volvé al índice                                                             39
 T E R M I N A S T E L A PA R T E D E E N T R E N A M I E N T O
 
 
@@ -1926,12 +1973,12 @@ Herramientas para acompañar tu plan fuera del
 
 
 
- 1     Recetario fácil                              Página 40
+ 1     Recetario fácil                               Página 41
 
 
 
 
-2      Dos talleres incluidos                       Página 64
+2      Dos talleres incluidos                       Página 65
 
 
 
@@ -1993,7 +2040,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                  40
+       Hacé clic y volvé al índice                                                                   41
 E N T R E N Á D E S D E C A S A · R E N O VA                                           B O N U S 1 · R E C E TA R I O
 
 
@@ -2034,7 +2081,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                               41
+       Hacé clic y volvé al índice                                                                               42
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2081,7 +2128,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 42
+       Hacé clic y volvé al índice                                                                                 43
 E N T R E N Á D E S D E C A S A · R E N O VA                                           B O N U S 1 · R E C E TA R I O
 
 
@@ -2120,7 +2167,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                               43
+       Hacé clic y volvé al índice                                                                               44
 E N T R E N Á D E S D E C A S A · R E N O VA                                              B O N U S 1 · R E C E TA R I O
 
 
@@ -2163,7 +2210,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                  44
+       Hacé clic y volvé al índice                                                                                  45
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2205,7 +2252,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 45
+       Hacé clic y volvé al índice                                                                                 46
 E N T R E N Á D E S D E C A S A · R E N O VA                                         B O N U S 1 · R E C E TA R I O
 
 
@@ -2251,7 +2298,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                             46
+       Hacé clic y volvé al índice                                                                             47
 E N T R E N Á D E S D E C A S A · R E N O VA                                            B O N U S 1 · R E C E TA R I O
 
 
@@ -2295,7 +2342,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                47
+       Hacé clic y volvé al índice                                                                                48
 E N T R E N Á D E S D E C A S A · R E N O VA                                               B O N U S 1 · R E C E TA R I O
 
 
@@ -2338,7 +2385,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                   48
+       Hacé clic y volvé al índice                                                                                   49
 E N T R E N Á D E S D E C A S A · R E N O VA                                        B O N U S 1 · R E C E TA R I O
 
 
@@ -2381,7 +2428,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                            49
+       Hacé clic y volvé al índice                                                                            50
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2425,7 +2472,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 50
+       Hacé clic y volvé al índice                                                                                 51
 E N T R E N Á D E S D E C A S A · R E N O VA                                                B O N U S 1 · R E C E TA R I O
 
 
@@ -2474,7 +2521,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                    51
+       Hacé clic y volvé al índice                                                                                    52
 E N T R E N Á D E S D E C A S A · R E N O VA                                            B O N U S 1 · R E C E TA R I O
 
 
@@ -2522,7 +2569,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                52
+       Hacé clic y volvé al índice                                                                                53
 E N T R E N Á D E S D E C A S A · R E N O VA                                                B O N U S 1 · R E C E TA R I O
 
 
@@ -2561,7 +2608,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                    53
+       Hacé clic y volvé al índice                                                                                    54
 E N T R E N Á D E S D E C A S A · R E N O VA                                                B O N U S 1 · R E C E TA R I O
 
 
@@ -2597,7 +2644,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                    54
+       Hacé clic y volvé al índice                                                                                    55
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2638,7 +2685,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 55
+       Hacé clic y volvé al índice                                                                                 56
 E N T R E N Á D E S D E C A S A · R E N O VA                                               B O N U S 1 · R E C E TA R I O
 
 
@@ -2680,7 +2727,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                   56
+       Hacé clic y volvé al índice                                                                                   57
 E N T R E N Á D E S D E C A S A · R E N O VA                                             B O N U S 1 · R E C E TA R I O
 
 
@@ -2725,7 +2772,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                 57
+       Hacé clic y volvé al índice                                                                                 58
 E N T R E N Á D E S D E C A S A · R E N O VA                                               B O N U S 1 · R E C E TA R I O
 
 
@@ -2762,7 +2809,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                   58
+       Hacé clic y volvé al índice                                                                                   59
 E N T R E N Á D E S D E C A S A · R E N O VA                                              B O N U S 1 · R E C E TA R I O
 
 
@@ -2801,7 +2848,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                  59
+       Hacé clic y volvé al índice                                                                                  60
 E N T R E N Á D E S D E C A S A · R E N O VA                                                B O N U S 1 · R E C E TA R I O
 
 
@@ -2837,7 +2884,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                                    60
+       Hacé clic y volvé al índice                                                                                    61
 E N T R E N Á D E S D E C A S A · R E N O VA                                          B O N U S 1 · R E C E TA R I O
 
 
@@ -2875,7 +2922,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                              61
+       Hacé clic y volvé al índice                                                                              62
 E N T R E N Á D E S D E C A S A · R E N O VA                                          B O N U S 1 · R E C E TA R I O
 
 
@@ -2915,7 +2962,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                              62
+       Hacé clic y volvé al índice                                                                              63
 E N T R E N Á D E S D E C A S A · R E N O VA                                          B O N U S 1 · R E C E TA R I O
 
 
@@ -2956,7 +3003,7 @@ Seguridad en la cocina
 
 
 
-       Hacé clic y volvé al índice                                                                              63
+       Hacé clic y volvé al índice                                                                              64
 E N T R E N Á D E S D E C A S A · R E N O VA                                     B O N U S 2 · TA L L E R E S
 
 
@@ -3008,7 +3055,7 @@ el botón de cada uno para verlo.
 
 
 
-       Hacé clic y volvé al índice                                                                       64
+       Hacé clic y volvé al índice                                                                       65
 E N T R E N Á D E S D E C A S A · R E N O VA                                      B O N U S 3 · C O N S U LTA
 
 
@@ -3050,7 +3097,7 @@ Para aprovecharla
 
 
 
-       Hacé clic y volvé al índice                                                                       65
+       Hacé clic y volvé al índice                                                                       66
 E N T R E N Á D E S D E C A S A · R E N O VA                                              M É TO D O R E N OVA
 
 
@@ -3085,5 +3132,5 @@ medicina deportiva a cargo de nuestro médico deportólogo.
 
 
 
-       Hacé clic y volvé al índice                                                                        66
+       Hacé clic y volvé al índice                                                                        67
 

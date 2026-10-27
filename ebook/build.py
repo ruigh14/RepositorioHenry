@@ -355,7 +355,7 @@ VIDEOS = {
  "Elevación de cadera": "https://youtu.be/YopfscyxtK0",
  "Bird dog": "https://youtu.be/kyNrWqz1iqs",
  # rutina 1
- "Sentadilla en copa": "https://youtu.be/SYu43ORBDiM",
+ "Sentadilla en copa": "https://youtu.be/4vdE4BQJdIM",   # video propio "Sentadilla en copa"
  "Estocada split": "https://youtu.be/s7ewEzHwXgQ",
  "Flexiones de brazo": "https://youtu.be/P5_xMDhaVHs",
  "Puente a una pierna": "https://youtu.be/xVvVhmIp7sM",
@@ -405,7 +405,7 @@ VIDEOS = {
  "Estiramiento de pecho en pared": "https://youtu.be/5reQDGL1cA4",
  # extra: zona media
  "Bicho muerto alternado": "https://youtu.be/kgG0lb4XfMQ",
- "Plancha": "https://www.youtube.com/watch?v=qVnZtJGK4zY",
+ "Plancha": "https://youtu.be/nd0qbgESlao",   # video propio "Plancha frontal"
  "Plancha lateral": "https://youtu.be/bxQgU1eK4dc",
  "Abdominales cruzados": "https://youtu.be/25NgueIPUfo",
 }
@@ -770,9 +770,13 @@ GLOSARIO = [
 ]
 
 def plan8_table(rows):
-    return ('<table class="plan8"><thead><tr><th>Sem.</th><th>Fase</th><th>Fuerza</th><th>Vueltas por bloque</th><th>Repeticiones · planchas</th><th>Pausa</th><th>Esfuerzo (1–10)</th><th>Aeróbico</th></tr></thead><tbody>'
-            + "".join(f'<tr class="{"dl" if f == "Descarga" else ""}"><th>{w}</th><td>{f}</td><td>{r}</td><td>{v}</td><td>{rp}</td><td>{pa}</td><td>{e}</td><td>{a}</td></tr>' for w, f, r, v, rp, pa, e, a in rows)
-            + '</tbody></table>')
+    # una tarjeta por semana (se lee mejor en el celular que una tabla de 8 columnas)
+    def card(w, f, r, v, rp, pa, e, a):
+        items = [("Fuerza", r), ("Vueltas por bloque", v), ("Repeticiones · planchas", rp),
+                 ("Pausa", pa), ("Esfuerzo (1–10)", e), ("Aeróbico", a)]
+        return (f'<div class="wk8{" dl" if f == "Descarga" else ""}"><div class="wk8h"><small>SEMANA</small><b>{w}</b><span>{f}</span></div>'
+                f'<div class="wk8g">' + "".join(f'<div><span>{k}</span><b>{x}</b></div>' for k, x in items) + '</div></div>')
+    return "".join(card(*row) for row in rows)
 DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>"
 
 if ENT:
@@ -798,10 +802,9 @@ if ENT:
 {plan8_table(PLAN8[4:])}
 <h3>Cómo progresar</h3>
 {ul(["<b>Semana 5:</b> sumá peso o pasá a la variante más difícil en los ejercicios donde ya llegás cómoda a 12 repeticiones.",
-     "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Recuperarte también es parte del plan. Al final de la semana, pesate y medí tu cintura.",
+     "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Al final, pesate y medí tu cintura.",
      G("<b>Semanas 7 y 8:</b> en los ejercicios que lo indican, sumá dos mancuernas, una en cada mano. Los demás se hacen igual.", "<b>Semanas 7 y 8:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones."), "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
      "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá pesándote y midiendo tu cintura."])}
-<p class="small"><b>Pausa</b> entre ejercicios; entre vueltas, 1 minuto, y entre bloques, 2 minutos. <b>Esfuerzo</b> según la escala del capítulo {NE}.</p>
 ''', chapter="03 · Plan de 8 semanas", pid="plan8w2")
 
     page(f'''
