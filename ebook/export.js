@@ -1,11 +1,13 @@
 // Exporta el HTML de una edición a PDF A4 (la paginación la hace paginate.js dentro de la página).
 //   node export.js            → ebook.html   → Ebook_Programa_RENOVA.pdf
 //   node export.js entrena    → entrena.html → Ebook_Entrena_desde_casa_RENOVA.pdf
+//   node export.js talleres   → talleres.html → Ebook_Talleres_RENOVA.pdf
 const { chromium } = require('playwright');
 const path = require('path');
 const EDITIONS = {
   completo: ['ebook.html', 'Ebook_Programa_RENOVA.pdf'],
   entrena: ['entrena.html', 'Ebook_Entrena_desde_casa_RENOVA.pdf'],
+  talleres: ['talleres.html', 'Ebook_Talleres_RENOVA.pdf'],
 };
 const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {

@@ -10,6 +10,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
     (recetario, 2 talleres: Organizar la heladera y Gestión de la ansiedad, consulta con Nacho). → `entrena.html`, `Ebook_Entrena_desde_casa_RENOVA.pdf`.
   - **Programa RENOVA completo** (entrenamiento + alimentación + descanso): base para los ebooks de upsell.
     → `ebook.html`, `Ebook_Programa_RENOVA.pdf`.
+  - **Ebook Talleres RENOVA** (upsell, 3 hojas: portada, talleres con quién los da y qué se dicta, CTA rutinas personalizadas / plan integral al WhatsApp de Nacho). Sale de `talleres.py` (no de `build.py`); datos de cada taller en `TALLERES`. → `talleres.html`, `Ebook_Talleres_RENOVA.pdf`.
   - `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio).
   - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright.
   - `img/`: fotos, ilustraciones, recetas y testimonios. `fonts/`: tipografía Inter.
@@ -24,6 +25,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 ```
 cd ebook && python3 build.py entrena && node export.js entrena   # Ebook 1 · Entrená desde casa
 cd ebook && python3 build.py && node export.js                   # Programa RENOVA completo
+cd ebook && python3 talleres.py && node export.js talleres       # Ebook Talleres RENOVA (3 hojas)
 ```
 
 Debe imprimir `OVERFLOW []` (sin páginas con texto cortado).
