@@ -25,7 +25,7 @@ LINKS = {
     "talleres_todos": "https://wa.link/d9hfrd",          # desbloquear el resto de los talleres (WhatsApp)
     "wa_plan": "https://wa.link/hewha8",                 # WhatsApp: consulta directa con Nacho por el próximo plan
     "wa_nutricion": "https://wa.link/1asjt1",            # WhatsApp: planes nutricionales a medida / consulta con Nacho
-    "consulta": "https://www.nachoportillo.com/",   # reemplazar por el link directo de reserva
+    "consulta": "https://calendly.com/nachoportillo-renova/30min",   # Calendly: reserva de la consulta con Nacho
     "renova": "https://wa.link/1asjt1",   # botón "Quiero" de la última página (WhatsApp)
     "video_talleres": "",     # link del video de presentación de los talleres
     "foto_equipo": "img/equipo2.jpg",        # ruta de la foto del equipo, por ejemplo "img/equipo.jpg"
