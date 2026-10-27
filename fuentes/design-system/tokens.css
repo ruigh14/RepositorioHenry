@@ -1,11 +1,10 @@
 /* RENOVA · design system — tokens
    Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
-   Los valores salen de lo que ya usaban los ebooks (medidos en el PDF) y se unificaron con la landing.
+   Paleta = la del ebook (medida en el PDF). Landings, creativos y videos usan exactamente estos colores.
    Ver README.md para el uso de cada uno. */
 :root{
   /* ---- Color: turquesa de marca (el de nachoportillo.com) */
   --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
-  --rnv-turquesa-claro:#31C7DB;    /* inicio de los degradés (solo web y redes) */
   --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
   --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
   --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
@@ -20,14 +19,14 @@
   --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
   --rnv-linea:#E3ECEE;             /* separadores */
   --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
-  --rnv-fondo-gris:#F2F4F5;        /* fondo gris de secciones web */
-  --rnv-oscuro:#111418;            /* barras y pie oscuros (web) */
+  --rnv-fondo-gris:#F4FAFB;        /* fondo de secciones web (mismo que el ebook) */
+  --rnv-oscuro:#141414;            /* barras, pie y recuadros oscuros (el negro del ebook) */
   --rnv-blanco:#FFFFFF;
 
   /* ---- Degradés y sombras */
-  --rnv-degrade:linear-gradient(135deg,#31C7DB 0%,#14B1C7 55%,#0E9DB2 100%);
-  --rnv-sombra:0 10px 30px rgba(17,20,24,.08);
-  --rnv-sombra-fuerte:0 24px 54px rgba(17,20,24,.16);
+  --rnv-degrade:linear-gradient(135deg,#14B1C7 0%,#0E9DB2 100%);   /* solo turquesas del ebook */
+  --rnv-sombra:0 10px 30px rgba(20,20,20,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(20,20,20,.16);
   --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
 
   /* ---- Tipografía */
