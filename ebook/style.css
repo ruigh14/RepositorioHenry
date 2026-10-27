@@ -816,3 +816,14 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .mat{white-space:nowrap;font-size:8.2pt;padding:.5mm 2mm}
 .ex.exrow{grid-template-columns:27mm 1fr;gap:3.4mm}
 .ex.exrow .exim{width:27mm;height:21mm}
+/* portada Ebook 1: resultado visible */
+.c2-res{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:3mm;margin:4mm 0 0}
+.c2-res div{border:.5mm solid var(--tq-b);border-radius:3.5mm;padding:2.6mm 3mm;text-align:center;background:#fff}
+.c2-res b{display:block;font-size:24pt;font-weight:900;line-height:1;color:var(--tq-t)}
+.c2-res span{display:block;font-size:8.6pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-dd)}
+.c2-res p{margin:1.2mm 0 0;font-size:11.8pt;font-weight:800;line-height:1.2;color:var(--ink)}
+.c2-res .on{background:var(--ink);border-color:var(--ink)}
+.c2-res .on b{color:#3FD0E3}.c2-res .on span{color:#C9D3D6}.c2-res .on p{color:#fff}
+.cv-ent .c2-photos.one .c2-img{height:96mm}
+.cv-ent .c2-photos.one .c2-img{height:112mm}.cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 8%}
+.cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 28%}

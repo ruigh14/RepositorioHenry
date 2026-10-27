@@ -91,15 +91,20 @@ def box(content, kind=""):
 # ================================================================== PORTADA
 if ENT:
     page(f'''
-<div class="cv2">
+<div class="cv2 cv-ent">
   <div class="c2-top">
     <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
     <span class="c2-kick">PLAN DE 8 SEMANAS · FUERZA EN CASA · CON VIDEOS</span>
   </div>
   <h1 class="c2-title">ENTRENÁ DESDE <span class="c2-t">CASA.</span><br>TRANSFORMÁ TU <span class="c2-r">CUERPO.</span></h1>
   <div class="c2-bar"></div>
-  <p class="c2-sub">Ganá fuerza, energía y constancia en 8 semanas.</p>
-  <p class="c2-desc">Un plan progresivo de 20 a 40 minutos por sesión para mujeres con poco tiempo que quieren resultados sostenibles. Incluye de bonus el recetario, dos talleres y una consulta con Nacho.</p>
+  <p class="c2-sub">Resultados visibles en 8 semanas.</p>
+  <div class="c2-res">
+    <div><b>2</b><span>semanas</span><p>Más energía</p></div>
+    <div><b>4</b><span>semanas</span><p>Más fuerza</p></div>
+    <div class="on"><b>8</b><span>semanas</span><p>Resultados visibles y el hábito logrado</p></div>
+  </div>
+  <p class="c2-desc">Sesiones de 20 a 40 minutos para mujeres con poco tiempo. Bonus: recetario, dos talleres y 50% off en tu plan personalizado.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
       <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
