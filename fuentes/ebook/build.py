@@ -134,7 +134,7 @@ if ENT:
   <div class="pillar"><span class="pn">02</span><h3>Rutinas detalladas</h3><p>{G("Con videos e imágenes de referencia.", "Con videos e imágenes de referencia.", "Sin saltos, con videos e imágenes de referencia.")}</p></div>
   <div class="pillar"><span class="pn">03</span><h3>{G("Evaluación", "Evaluación", "Pausa activa")}</h3><p>{G("Formas simples de medir tu progreso.", "Formas simples de medir tu progreso.", "5 minutos por día para tu espalda y tu postura.")}</p></div>
 </div>
-{box("<b>Bonus incluidos:</b> dos talleres (Organizar la heladera y Gestión de la ansiedad), recetario con 8 recetas y acceso a la comunidad RENOVA.", "soft")}
+{box("<b>Bonus incluidos:</b> dos talleres (Organizar la heladera y Gestión de la ansiedad), recetario con 10 recetas y acceso a la comunidad RENOVA.", "soft")}
 <div class="firstweek">
   <h2>Tu primera semana</h2>
   <div class="fw">
@@ -1364,10 +1364,11 @@ dict(t="Brownie de banana", cat="Postres", rinde="6 cuadrados", tiempo="30 min",
 ]
 
 R = R[:19] + [R[22]] + R[19:22]   # el brownie va junto a los otros postres de horno/freezer
-# Ebooks de entrenamiento: recetario corto de muestra (8 recetas con proteína). Las 23 quedan en la edición completa
+# Ebooks de entrenamiento: recetario corto con las 10 recetas más proteicas. Las 23 quedan en la edición completa
 # y en la futura guía de alimentación.
-RECETAS_BONUS = ["Pancake individual", "Porridge de avena", "Hummus de garbanzos", "Ensalada tibia de vegetales, legumbres y pollo",
-                 "Wok de verduras con arroz y pollo", "Tarta de verduras con masa de avena", "Pastel veggie de lentejas", "Cheesecake en taza"]
+RECETAS_BONUS = ["Pancake individual", "Pancakes de banana y coco", "Hummus de garbanzos", "Ensalada tibia de vegetales, legumbres y pollo",
+                 "Wok de verduras con arroz y pollo", "Budín de brócoli", "Tarta de verduras con masa de avena", "Pastel veggie de lentejas",
+                 "Cheesecake en taza", "Mug cake de limón"]
 if ENT:
     R = [r for r in R if r["t"] in RECETAS_BONUS]
     assert len(R) == len(RECETAS_BONUS), "falta alguna receta de RECETAS_BONUS"

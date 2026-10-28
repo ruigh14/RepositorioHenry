@@ -37,7 +37,7 @@ Hormozi propone listar todo lo que frena a la clienta y que cada obstáculo teng
 | "Me duele la rodilla o la espalda." | Variante más fácil en cada ejercicio, sin impacto. | Una hoja de **adaptaciones** (rodilla, espalda baja, hombro) en el ebook. |
 | "Arranco y lo dejo." | Registro, plan para semanas difíciles, "cómo retomar", comunidad. | Un **reto o check-in** en la comunidad (ej.: "contá tu semana 1"). |
 | "Estoy sola, me falta motivación." | Comunidad RENOVA en Skool (bonus 3). | Explicar mejor qué pasa en la comunidad. |
-| "No sé qué comer." | Recetario de 8 recetas (bonus 1), taller de la heladera. | **Guía práctica de alimentación** (con la nutricionista): es el upsell natural. |
+| "No sé qué comer." | Recetario de 10 recetas (bonus 1), taller de la heladera. | **Guía práctica de alimentación** (con la nutricionista): es el upsell natural. |
 | "Ya probé de todo y no me funcionó." | Explicación de por qué fuerza después de los 40 ("¿Sabías que…?"). | Garantía + casos reales parecidos a ella. |
 | "¿Y si no me sirve?" | — | **Garantía.** Es el hueco más grande. |
 
@@ -45,7 +45,7 @@ Hormozi propone listar todo lo que frena a la clienta y que cada obstáculo teng
 
 ## 3. La oferta hoy y cómo armarla mejor
 
-**Hoy:** 2 ebooks (casa + gimnasio) + 3 bonus (8 recetas, 2 talleres, comunidad) + upsell 1 en Impultienda ("Recetas para entrenar mejor").
+**Hoy:** 2 ebooks (casa + gimnasio) + 3 bonus (10 recetas, 2 talleres, comunidad) + upsell 1 en Impultienda ("Recetas para entrenar mejor").
 
 **Propuesta, con lo mismo que ya existe:**
 
@@ -54,7 +54,7 @@ Hormozi propone listar todo lo que frena a la clienta y que cada obstáculo teng
 | Ebook 1 | **Plan de 8 semanas en casa** | No tengo tiempo ni gimnasio |
 | Ebook 2 | **Plan de 8 semanas en el gimnasio (nivel inicial)** | Me da vergüenza o no sé usar las máquinas |
 | Incluido | **Sesión express de 15 minutos + plan para semanas difíciles** | Arranco y lo dejo |
-| Bonus 1 | **Recetario "Comidas que rinden": 8 recetas con proteína** | No sé qué comer |
+| Bonus 1 | **Recetario "Comidas que rinden": 10 recetas con proteína** | No sé qué comer |
 | Bonus 2 | **2 talleres del equipo: heladera y ansiedad** | Como por ansiedad o desorden |
 | Bonus 3 | **Comunidad RENOVA** | Estoy sola |
 
@@ -135,4 +135,6 @@ Este último escalón se ofrece solo adentro del ebook, no en la landing.
 2. **Portada de la landing:** etiqueta "MÉTODO RENOVA · MUJERES 35+" (pasar todo de 40+ a 35+); título **"Volvé a sentirte fuerte y con más energía"**; subtítulo "Un plan de 8 semanas de bajo impacto que integra entrenamiento, alimentación y hábitos. En casa o en el gimnasio." Reemplaza a "Tu cuerpo cambió después de los 40…", que era casi la frase de Menofit.
    Ajuste: el subtítulo queda sin "En casa o en el gimnasio"; eso va en la línea de abajo (donde hoy dice "2 ebooks en una compra"): **"Hacelo donde quieras: en casa o en el gimnasio. 2 ebooks en una compra."**
 3. **Talleres del bonus 2:** los gratis son **"Elecciones inteligentes en el súper"** y **"Gestión de la ansiedad"** (no "Organizar la heladera"): cambiarlo en la landing y en los ebooks.
-4. **Nombres de los bonus:** 1 = **"Recetario de comidas fáciles y proteicas"** (8 recetas); 2 = **2 talleres del equipo: "Elecciones inteligentes en el súper" y "Gestión de la ansiedad"**; 3 = **"Comunidad RENOVA: entrá a una comunidad de mujeres con tus mismos objetivos"**.
+4. **Nombres de los bonus:** 1 = **"Recetario de comidas fáciles y proteicas"** (10 recetas); 2 = **2 talleres del equipo: "Elecciones inteligentes en el súper" y "Gestión de la ansiedad"**; 3 = **"Comunidad RENOVA: entrá a una comunidad de mujeres con tus mismos objetivos"**.
+5. **Promesa "6 a 10 kg en 90 días":** se reemplaza por los casos reales con el descargo (Mari: 8 kg de grasa y 10 cm de cintura; Moni: 6 kg), en los ebooks de casa y gimnasio y en los creativos.
+6. **Recetario:** las 10 recetas más proteicas (`RECETAS_BONUS` en `build.py`), ya aplicado.
