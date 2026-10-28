@@ -88,13 +88,13 @@ if ENT:
     <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
     <span class="c2-kick">PLAN DE 8 SEMANAS · {G("FUERZA EN CASA", "FUERZA EN EL GIMNASIO · NIVEL INICIAL", "FUERZA EN CASA PARA MAMÁS")} · CON VIDEOS</span>
   </div>
-  <h1 class="c2-title">{G('ENTRENÁ DESDE <span class="c2-t">CASA.</span>', 'ENTRENÁ EN EL <span class="c2-t">GIMNASIO.</span>', 'ENTRENÁ SIENDO <span class="c2-t">MAMÁ.</span>')}<br>{G('TRANSFORMÁ TU <span class="c2-r">CUERPO.</span>', 'TRANSFORMÁ TU <span class="c2-r">CUERPO.</span>', 'RECUPERÁ TU <span class="c2-r">FUERZA.</span>')}</h1>
+  <h1 class="c2-title">{G('ENTRENÁ DESDE <span class="c2-t">CASA.</span>', 'ENTRENÁ EN EL <span class="c2-t">GIMNASIO.</span>', 'ENTRENÁ SIENDO <span class="c2-t">MAMÁ.</span>')}<br>{G('GANÁ <span class="c2-r">FUERZA.</span>', 'GANÁ <span class="c2-r">FUERZA.</span>', 'RECUPERÁ TU <span class="c2-r">FUERZA.</span>')}</h1>
   <div class="c2-bar"></div>
-  <p class="c2-sub">{G("Resultados visibles en 8 semanas.", "Resultados visibles en 8 semanas.", "Un plan de 8 semanas, a tu ritmo.")}</p>
+  <p class="c2-sub">{G("Más fuerza y energía en 8 semanas.", "Más fuerza y energía en 8 semanas.", "Un plan de 8 semanas, a tu ritmo.")}</p>
   <div class="c2-res">
     <div><b>2</b><span>semanas</span><p>Más energía</p></div>
     <div><b>4</b><span>semanas</span><p>Más fuerza</p></div>
-    <div class="on"><b>8</b><span>semanas</span><p>{G("Resultados visibles y el hábito logrado", "Resultados visibles y el hábito logrado", "Te sentís fuerte y con el hábito logrado")}</p></div>
+    <div class="on"><b>8</b><span>semanas</span><p>{G("Te sentís fuerte y con el hábito logrado", "Te sentís fuerte y con el hábito logrado", "Te sentís fuerte y con el hábito logrado")}</p></div>
   </div>
   <p class="c2-desc">{G("Sesiones de 20 a 40 minutos para mujeres con poco tiempo.", "Sesiones de 45 a 60 minutos, desde cero, para mujeres con poco tiempo.", "Sesiones de 15 a 30 minutos, sin saltos, con respiración, piso pélvico y pausa activa.")} Bonus: dos talleres, recetario y acceso a la comunidad RENOVA.</p>
   <div class="c2-photos one">
@@ -185,8 +185,8 @@ if FULL:   # en los ebooks de entrenamiento no va la promesa de 6 a 10 kg: queda
 if not MAMA:   # resultados de mujeres 40+: en la edición mamás no se muestran hasta tener casos propios
   page(f'''
 {eyebrow("RESULTADOS REALES")}
-<h1 class="h1">Ellas ya lo <span class="t">lograron</span></h1>
-<p class="lead">Personas que siguieron este método con el equipo RENOVA.</p>
+<h1 class="h1">{'Conocé lo que lograron <span class="t">con nuestro abordaje</span>' if ENT else 'Ellas ya lo <span class="t">lograron</span>'}</h1>
+<p class="lead">{'Mujeres reales que entrenaron con el método RENOVA. Los resultados dependen de cada persona.' if ENT else 'Personas que siguieron este método con el equipo RENOVA.'}</p>
 <div class="res3">
   <div class="rc"><div class="rc-img two"><div><img src="img/mari_a.jpg" alt="" style="object-position:52% 50%"><span>ANTES</span></div><div><img src="img/mari_d.jpg" alt="" style="object-position:58% 50%"><span class="d">DESPUÉS</span></div></div>
     <p><b>Mari</b>Bajó 8 kg de grasa y 10 cm de cintura.</p></div>
@@ -1489,7 +1489,7 @@ def recipe_html(r, n=0):
             + f'<div class="keytips"><h5>Consejos clave de preparación</h5><ul>' + "".join(f"<li>{t}</li>" for t in TIPS[r["t"]]) + '</ul></div>')
 
 REC_HEAD = (chap_head("06", 'Recetas <span class="t">fáciles</span>', "Recetas simples para resolver desayunos, meriendas, comidas y postres. La mayoría aparece en los menús del capítulo 5.") if FULL else
-            eyebrow("BONUS 2 · INCLUIDO") + '<h1 class="h1">Recetario <span class="t">fácil</span></h1><p class="lead">' + str(len(R)) + ' recetas simples para resolver desayunos, meriendas, comidas y postres, con ingredientes de cualquier súper.</p>')
+            eyebrow("BONUS 2 · INCLUIDO") + ('<h1 class="h1">Recetario <span class="t">fácil</span></h1>' if MAMA else '<h1 class="h1">Recetario de comidas <span class="t">fáciles y proteicas</span></h1>') + '<p class="lead">' + str(len(R)) + ' recetas simples para resolver desayunos, meriendas, comidas y postres, con ingredientes de cualquier súper.</p>')
 REC_CH = "06 · Recetas" if FULL else "Bonus 2 · Recetario"
 if ENT and not MAMA:   # antes de las recetas: cómo armar el plato
     page(f'''
@@ -1508,8 +1508,9 @@ if ENT:   # carátula que separa el entrenamiento de los bonus
   <p class="dv-desc">Herramientas para acompañar tu plan fuera del entrenamiento.</p>
   <div class="dv-list">
     <a href="#talleres"><span>1</span><b>Dos talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
-    <a href="#cap6"><span>2</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>
+    <a href="#cap6"><span>2</span><b>{"Recetario fácil" if MAMA else "Recetario de comidas fáciles y proteicas"}</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>
     <a href="#bonus"><span>3</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
+    {"" if MAMA else '<a href="#bonus"><span>4</span><b>Pausa activa: 4 rutinas de 10 minutos</b><em>PDF aparte</em></a>'}
   </div>
   <a class="btn btn-big dv-btn" href="{esc(LINKS["comunidad"])}">ENTRÁ A LA COMUNIDAD RENOVA {ICON_ARROW}</a>
 </div>
@@ -1522,7 +1523,7 @@ if ENT:
 <h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
 <p class="lead">Los talleres se ven en la comunidad RENOVA, en Skool. Ahí tenés estos dos y los cursos del equipo.</p>
 <div class="tk2">
-  <div><img src="img/taller_heladera.png" alt=""><span class="wtag">INCLUIDO</span><h3>Organizar la heladera</h3><p>Guardar, porcionar y ordenar para tener siempre opciones sanas a mano.</p></div>
+  {'<div><img src="img/taller_heladera.png" alt=""><span class="wtag">INCLUIDO</span><h3>Organizar la heladera</h3><p>Guardar, porcionar y ordenar para tener siempre opciones sanas a mano.</p></div>' if MAMA else '<div><img src="img/taller_super.png" alt=""><span class="wtag">INCLUIDO</span><h3>Elecciones inteligentes en el súper</h3><p>Qué elegir, cómo leer las etiquetas y cómo armar un carrito que te rinda toda la semana.</p></div>'}
   <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
 </div>
 <a class="skool" href="{esc(LINKS["talleres"])}">
@@ -1723,6 +1724,7 @@ page(f'''
 <div class="bonus">
 {eyebrow("BONUS EXCLUSIVO" if FULL else "BONUS 3 · INCLUIDO")}
 <h1 class="h1 big">Comunidad <span class="t">RENOVA</span></h1>
+{'' if FULL or MAMA else '<h2>Entrá a una comunidad de mujeres con tus mismos objetivos</h2>'}
 <p class="lead">Con este ebook tenés acceso a la comunidad RENOVA en Skool: el lugar donde están los cursos y talleres del equipo, y donde podés encontrarte con otras mujeres que están haciendo el mismo camino.</p>
 <div class="cols2">
 <div><h3>En la comunidad vas a poder</h3>
