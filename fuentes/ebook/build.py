@@ -14,7 +14,7 @@ Dos ediciones salen de este mismo archivo:
 Para editar textos: modificá este archivo y volvé a correr build.py.
 Para cambiar links: completá el diccionario LINKS (dejá "" si todavía no lo tenés).
 """
-import html, os, sys
+import html, os, re, sys
 
 # Design system compartido (tokens, tipografías y componentes): fuentes/design-system/
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -127,23 +127,20 @@ if ENT:
     page(f'''
 {eyebrow("BIENVENIDA")}
 <h1 class="h1">Te damos la bienvenida a <span class="t">{G("Entrená desde casa", "Entrená en el gimnasio", "Entrená siendo mamá")}</span></h1>
-<p class="lead">{G("Un plan de 8 semanas para entrenar desde casa si tenés poco tiempo. En las dos primeras semanas vas a tener más energía; a las cuatro semanas, más fuerza; y al terminar la octava, vas a ver resultados visibles y habrás logrado el hábito.", "Un plan de 8 semanas para entrenar en el gimnasio desde cero si tenés poco tiempo. En las dos primeras semanas vas a tener más energía; a las cuatro semanas, más fuerza; y al terminar la octava, vas a ver resultados visibles y habrás logrado el hábito.", "Un plan de 8 semanas para volver a entrenar después de ser mamá, en casa y con poco tiempo. Empezás por la respiración y el piso pélvico, sumás fuerza de a poco y, al terminar la octava semana, vas a sentirte más fuerte y con el hábito logrado.")}</p>
-<h2>Qué incluye</h2>
-<div class="pillars">
-  <div class="pillar"><span class="pn">01</span><h3>Plan de 8 semanas</h3><p>Tres fases con un calendario semana a semana.</p></div>
-  <div class="pillar"><span class="pn">02</span><h3>Rutinas detalladas</h3><p>{G("Con videos e imágenes de referencia.", "Con videos e imágenes de referencia.", "Sin saltos, con videos e imágenes de referencia.")}</p></div>
-  <div class="pillar"><span class="pn">03</span><h3>{G("Evaluación", "Evaluación", "Pausa activa")}</h3><p>{G("Formas simples de medir tu progreso.", "Formas simples de medir tu progreso.", "5 minutos por día para tu espalda y tu postura.")}</p></div>
-</div>
-{box("<b>Bonus incluidos:</b> dos talleres (Organizar la heladera y Gestión de la ansiedad), recetario con 10 recetas y acceso a la comunidad RENOVA.", "soft")}
+<p class="lead">{G("Un plan de 8 semanas para entrenar desde casa si tenés poco tiempo: a las 2 semanas vas a tener más energía, a las 4 más fuerza y a las 8 el hábito logrado.", "Un plan de 8 semanas para entrenar en el gimnasio desde cero si tenés poco tiempo: a las 2 semanas vas a tener más energía, a las 4 más fuerza y a las 8 el hábito logrado.", "Un plan de 8 semanas para volver a entrenar después de ser mamá, en casa y con poco tiempo. Empezás por la respiración y el piso pélvico y sumás fuerza de a poco.")}</p>
+<h2>Qué necesitás</h2>
+<p>{G("Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga). Sesiones de 30 a 40 minutos, 2 o 3 veces por semana.", "Un gimnasio con máquinas básicas, mancuernas y poleas, ropa cómoda, toalla y agua. Las primeras veces, pedile al profesor de sala que te ayude a regular las máquinas. Sesiones de 45 a 60 minutos, 2 o 3 veces por semana.", "Una colchoneta, una silla firme y un peso liviano (mancuernas o botellas). Sesiones de 20 a 30 minutos, 2 o 3 veces por semana. Podés entrenar con tu bebé cerca.")}</p>
 <div class="firstweek">
-  <h2>Tu primera semana</h2>
+  <h2>Empezá esta semana</h2>
   <div class="fw">
-    <div><span>1</span><b>{G("Medite", "Medite", "Chequeá")}</b><p>{G("Pesate y medí tu cintura (capítulo 02).", "Pesate y medí tu cintura (capítulo 02).", "Tené el alta médica y leé el capítulo 02.")}</p></div>
-    <div><span>2</span><b>Agendá</b><p>Elegí 2 días para la fuerza y 2 para caminar.</p></div>
-    <div><span>3</span><b>{G("Prepará", "Conocé")}</b><p>{G("Una colchoneta, una silla firme y un peso liviano.", "Ubicá las máquinas y pedí ayuda para usarlas.", "Una colchoneta, una silla firme y 20 minutos para vos.")}</p></div>
-    <div><span>4</span><b>Registrá</b><p>Anotá cada sesión en la planilla del capítulo 07.</p></div>
+    <div><span>1</span><b>Agendá</b><p>Elegí 2 o 3 días para la fuerza y 2 para caminar.</p></div>
+    <div><span>2</span><b>Leé</b><p>{G('<a href="#como">Cómo se hace cada rutina</a>: es una sola hoja.', '<a href="#como">Cómo se hace cada rutina</a>: es una sola hoja.', '<a href="#antes">Antes de empezar</a> y <a href="#como">cómo se hace cada rutina</a>.')}</p></div>
+    <div><span>3</span><b>Entrená</b><p>Hacé la <a href="#rutina1">Rutina 1</a> (página <span class="pref" data-ref="rutina1"></span>).</p></div>
+    <div><span>4</span><b>Anotá</b><p>Marcá la sesión en <a href="#cargas">tu registro</a>.</p></div>
   </div>
 </div>
+{box('<b>Antes de empezar.</b> Necesitás el alta médica. Si tenés pérdidas, dolor o la panza hace “carpa”, frená y usá la variante más fácil.' if MAMA else '<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená. Si tenés una lesión o una condición médica, consultá con un profesional antes de empezar.', "note")}
+<p class="small"><b>¿Querés ver tu progreso?</b> Medí tu cintura antes de la primera rutina: está explicado en <a href="#eval">Medí tu progreso</a> (página <span class="pref" data-ref="eval"></span>).</p>
 ''', chapter="Bienvenida", pid="bienvenida")
 
 if FULL:
@@ -169,7 +166,7 @@ if FULL:
 </div>
 ''', chapter="Bienvenida", pid="bienvenida")
 
-if not MAMA:   # resultados de mujeres 40+: en la edición mamás no se muestran hasta tener casos propios
+if FULL:   # en los ebooks de entrenamiento no va la promesa de 6 a 10 kg: quedan los casos reales al final
   page(f'''
 {eyebrow("ANTES DE EMPEZAR")}
 <h1 class="h1">Esta es la base que usamos con <span class="t">{"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"}</span></h1>
@@ -182,6 +179,7 @@ if not MAMA:   # resultados de mujeres 40+: en la edición mamás no se muestran
 {box("<b>Es una guía.</b> Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. Si necesitás un plan a tu medida, el equipo RENOVA te acompaña, con entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.", "soft")}
 ''', chapter="Bienvenida", pid="base")
 
+if not MAMA:   # resultados de mujeres 40+: en la edición mamás no se muestran hasta tener casos propios
   page(f'''
 {eyebrow("RESULTADOS REALES")}
 <h1 class="h1">Ellas ya lo <span class="t">lograron</span></h1>
@@ -205,33 +203,10 @@ if not MAMA:   # resultados de mujeres 40+: en la edición mamás no se muestran
 # ================================================================== ÍNDICE (se completa al final)
 page("__TOC__", chapter="Índice", pid="indice")
 
-# ================================================================== CAP 1
+# ================================================================== MEDÍ TU PROGRESO (ebooks de entrenamiento: va después de las rutinas)
 if ENT:
     page(f'''
-{chap_head("01", 'Cómo usar <span class="t">esta guía</span>', "Medí tu punto de partida, seguí el plan semana a semana y registrá lo que hacés.")}
-<div class="cols2">
-<div>
-<h3>1. Medí tu punto de partida</h3>
-<p>{G("Pesate y medí tu cintura antes de empezar (capítulo 02). Repetilo cada 3 semanas para ver cuánto avanzás.", "Pesate y medí tu cintura antes de empezar (capítulo 02). Repetilo cada 3 semanas para ver cuánto avanzás.", "Leé el capítulo 02: cuándo empezar, señales para frenar y cómo están tu abdomen y tu piso pélvico. Después medí tu cintura y repetilo cada 3 semanas.")}</p>
-<h3>2. Elegí tus días de entrenamiento</h3>
-<p>Reservá 2 o 3 momentos de {G("30 a 40", "45 a 60", "15 a 30")} minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
-<h3>3. Seguí el plan de 8 semanas</h3>
-<p>El capítulo 03 te dice qué rutinas hacer cada semana, cuántas vueltas y con qué esfuerzo. No te adelantes: la progresión está pensada para que llegues bien a la semana 8.</p>
-</div>
-<div>
-<h3>4. Registrá tus avances</h3>
-<p>Anotá en el capítulo 07 tus sesiones, las repeticiones y los pesos que usás. Es la mejor forma de ver que estás progresando.</p>
-<h3>5. Si perdés una sesión</h3>
-<p>Retomá en tu próximo día disponible. No hagas dos sesiones juntas.</p>
-<h3>6. Si se interrumpe una semana entera</h3>
-<p>Repetí la última semana que completaste antes de avanzar. No compenses con más ejercicio ni comiendo menos.</p>
-</div>
-</div>
-''', chapter="01 · Cómo usar esta guía", pid="cap1", toc="01 · Cómo usar esta guía")
-
-
-    page(f'''
-{chap_head("02", 'Evaluación <span class="t">inicial</span>', "Antes de empezar, registrá tu peso y tu perímetro de cintura. Repetilo cada 3 semanas: la cintura muestra cambios que la balanza a veces no refleja.") if not MAMA else eyebrow("ANTES DE EMPEZAR") + '<h1 class="h1">Tu punto <span class="t">de partida</span></h1><p class="lead">Medí tu cintura y, si querés, tu peso. Repetilo cada 3 semanas. Después del parto el cuerpo cambia a su ritmo: mirá la tendencia y cómo te sentís, no un número.</p>'}
+{chap_head("05", 'Medí tu <span class="t">progreso</span>', "Medí tu cintura y, si querés, tu peso: antes de la primera rutina, en la semana 4 y al terminar la 8. La cintura muestra cambios que la balanza a veces no refleja." + (" Después del parto el cuerpo cambia a su ritmo: mirá la tendencia y cómo te sentís." if MAMA else ""))}
 <div class="meas">
 <figure><img src="img/medir_cintura.png" alt="Cómo medir el perímetro de cintura"></figure>
 <div>
@@ -247,11 +222,11 @@ if ENT:
 </div>
 <h3>Cómo pesarte</h3>
 {ul(["Siempre con la misma balanza y el mismo día de la semana.", "A la mañana, en ayunas y después de ir al baño, con poca ropa."] + (["Si das la teta, pesate después de amamantar."] if MAMA else []))}
-<table class="grid-t meas-t"><thead><tr><th></th><th>Inicio</th><th>Semana 3</th><th>Semana 6</th><th>Semana 8</th></tr></thead><tbody>
-{"".join(f"<tr><th>{t}</th><td></td><td></td><td></td><td></td></tr>" for t in ["Fecha","Peso (kg)","Cintura (cm)"])}
+<table class="grid-t meas-t"><thead><tr><th></th><th>Inicio</th><th>Semana 4</th><th>Semana 8</th></tr></thead><tbody>
+{"".join(f"<tr><th>{t}</th><td></td><td></td><td></td></tr>" for t in ["Fecha","Peso (kg)","Cintura (cm)"])}
 </tbody></table>
 <p class="small">El peso cambia de un día a otro por los líquidos, la sal o el ciclo. Mirá la tendencia entre una medición y otra, no un número aislado.</p>
-''', chapter=G("02 · Evaluación inicial", "02 · Evaluación inicial", "02 · Antes de empezar"), pid="eval", toc=None if MAMA else "02 · Evaluación inicial")
+''', pid="eval")
 
 if FULL:
     page(f'''
@@ -277,8 +252,9 @@ if FULL:
 </div>
 ''', chapter="01 · Cómo usar esta guía", pid="cap1", toc="01 · Cómo usar esta guía")
 
-# ================================================================== CAP 2 ENTRENAMIENTO
-page(f'''
+# ================================================================== CAP 2 ENTRENAMIENTO (edición completa)
+if FULL:
+  page(f'''
 {chap_head(NE, G('Entrenamiento de <span class="t">fuerza en casa</span>', 'Entrenamiento de <span class="t">fuerza en el gimnasio</span>', 'Fuerza para <span class="t">mamás</span>'), G("Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.", "Tres rutinas de cuerpo completo con máquinas, mancuernas y poleas, pensadas para empezar desde cero.", "Tres rutinas de cuerpo completo en casa, sin saltos ni abdominales clásicos, que empiezan por la respiración y el piso pélvico."))}
 <h2>Por qué entrenar fuerza</h2>
 <p>{G("El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía.", "El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía.", "Ser mamá es un trabajo físico: levantar, cargar y agacharte muchas veces por día. La fuerza hace que todo eso te cueste menos, cuida tu espalda y suma energía.")}</p>
@@ -307,7 +283,8 @@ if FULL:
 <h3>Videos de cada ejercicio</h3><p>En cada ejercicio vas a encontrar el botón <span class="vbtn-sm inline">{ICON_PLAY} VER VIDEO</span>. Tocalo para ver la demostración. Las primeras veces, mirate en un espejo o filmate con el celular para revisar la técnica.</p>
 ''', chapter=NE + " · Entrenamiento", pid="cap2b")
 
-page(f'''
+if FULL:
+  page(f'''
 {eyebrow("CÓMO HACER CADA RUTINA" if FULL else "CONCEPTOS CLAVE")}
 <h1 class="h1">{"Dificultad y" if FULL else "Esfuerzo y"} <span class="t">progresión</span></h1>
 <h3>Cómo elegir la dificultad</h3>
@@ -439,7 +416,7 @@ def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False
     evb = f' <a class="vbtn-xs" href="{esc(ev)}">{ICON_PLAY} VER VARIANTE</a>' if ev else ""
     e = f'<p class="easy"><b>{easy_label}:</b> {easy}{evb}</p>' if easy else ""
     if ENT and not GYM and not MAMA and name in PLUS2:
-        e += '<p class="plus"><b>Semanas 7 y 8:</b> sumá dos mancuernas.</p>'
+        e += '<p class="plus"><b>Semanas 6 a 8:</b> sumá dos mancuernas.</p>'
     mat = f'<span class="mat">{MATERIAL.get(name, "Propio cuerpo")}</span>'
     url = VIDEOS.get(name, "")
     vb = (f'<a class="vbtn-sm" href="{esc(url)}">{ICON_PLAY} VER VIDEO</a>' if url
@@ -718,7 +695,7 @@ for k, r in RUT.items():
     page(f"""
 {block_head(r["title"].upper() + " · BLOQUE 2", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
 {"".join(ex_card(*e, row=True) for e in r["ex"][4:])}
-<p class="small"><b>Al terminar el bloque 2</b>, {'hacé la <a href="#core">rutina de zona media</a> (página <span class="pref" data-ref="core"></span>) y después ' if ENT and k == "3" else 'hacé '}la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p>
+<p class="small"><b>Al terminar el bloque 2</b>, hacé la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p>
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}b2")
 
 ELONG = [
@@ -817,127 +794,102 @@ if FULL:
 # ================================================================== EBOOK 1: PLAN DE 8 SEMANAS
 # Semana, fase, rutinas, vueltas, repeticiones · tiempo, pausa entre ejercicios, esfuerzo (1–10), aeróbico.
 PLAN8 = [
- ("1", "Base",          "R1 · R2",         "2",          "10 · 15 s",                    "60 s",    "5–6", "2 × 20 min"),
- ("2", "Base",          "R1 · R2 · R3",    "2",          "10–12 · 15–20 s",              "60 s",    "6",   "2 × 30 min"),
- ("3", "Construcción",  "R1 · R2 · R3",    "3",          "10–12 · 20 s",                 "60 s",    "6–7", "2 × 30 min"),
- ("4", "Construcción",  "R1 · R2 · R3",    "3",          "12 · 25 s",                    "45 s",    "7",   "3 × 30 min"),
- ("5", "Construcción",  "R1 · R2 · R3",    "3",          "12 con más peso · 30 s",       "45 s",    "7–8", "3 × 30–40 min"),
- ("6", "Descarga",      "R1 · R2",         "2",          "10 · 20 s",                    "60 s",    "6",   "2 × 30 min"),
- ("7", "Consolidación", "R1 · R2 · R3",    "3",          "10–12 bajando en 3 s · 30 s",  "30–45 s", "7–8", "3 × 40 min"),
- ("8", "Consolidación", "R1 · R2 · R3",    "3 (+1 opcional)", "12 · 35–40 s",            "30–45 s", "7–8", "3 × 40 min"),
+ ("1", "Base",         "R1 · R2",      "2",               "10 · 15 s",                   "60 s",    "5–6", "2 × 20 min"),
+ ("2", "Base",         "R1 · R2 · R3", "2",               "10–12 · 15–20 s",             "60 s",    "6",   "2 × 30 min"),
+ ("3", "Construcción", "R1 · R2 · R3", "3",               "10–12 · 20 s",                "60 s",    "6–7", "2 × 30 min"),
+ ("4", "Construcción", "R1 · R2 · R3", "3",               "12 · 25 s",                   "45 s",    "7",   "3 × 30 min"),
+ ("5", "Descarga",     "R1 · R2",      "2",               "10 · 20 s",                   "60 s",    "6",   "2 × 30 min"),
+ ("6", "Progresión",   "R1 · R2 · R3", "3",               "12 con más peso · 30 s",      "45 s",    "7–8", "3 × 30–40 min"),
+ ("7", "Progresión",   "R1 · R2 · R3", "3",               "10–12 bajando en 3 s · 30 s", "30–45 s", "7–8", "3 × 40 min"),
+ ("8", "Progresión",   "R1 · R2 · R3", "3 (+1 opcional)", "12 · 35–40 s",                "30–45 s", "7–8", "3 × 40 min"),
 ]
 if MAMA:   # mamás: arranca con una sola rutina y sube más despacio; aeróbico = caminata (con cochecito vale)
     PLAN8 = [
-     ("1", "Reconexión", "R1",           "1 o 2", "8–10 · —",                "60 s",    "4–5", "3 × 15–20 min"),
-     ("2", "Reconexión", "R1 · R2",      "2",     "10 · 15 s",               "60 s",    "5",   "3 × 20 min"),
-     ("3", "Base",       "R1 · R2 · R3", "2",     "10–12 · 15–20 s",         "60 s",    "5–6", "3 × 20–30 min"),
-     ("4", "Base",       "R1 · R2 · R3", "2 o 3", "10–12 · 20 s",            "45–60 s", "6",   "3 × 30 min"),
-     ("5", "Base",       "R1 · R2 · R3", "3",     "12 · 20–25 s",            "45 s",    "6–7", "3 × 30 min"),
-     ("6", "Descarga",   "R1 · R2",      "2",     "10 · 20 s",               "60 s",    "5–6", "2 o 3 × 30 min"),
-     ("7", "Fuerza",     "R1 · R2 · R3", "3",     "10–12 con más peso · 25 s", "45 s",  "7",   "3 × 30–40 min"),
-     ("8", "Fuerza",     "R1 · R2 · R3", "3",     "12 · 30 s",               "45 s",    "7",   "3 × 30–40 min"),
+     ("1", "Reconexión", "R1",           "1 o 2", "8–10 · —",                  "60 s",    "4–5", "3 × 15–20 min"),
+     ("2", "Reconexión", "R1 · R2",      "2",     "10 · 15 s",                 "60 s",    "5",   "3 × 20 min"),
+     ("3", "Base",       "R1 · R2 · R3", "2",     "10–12 · 15–20 s",           "60 s",    "5–6", "3 × 20–30 min"),
+     ("4", "Base",       "R1 · R2 · R3", "2 o 3", "10–12 · 20 s",              "45–60 s", "6",   "3 × 30 min"),
+     ("5", "Descarga",   "R1 · R2",      "2",     "10 · 15–20 s",              "60 s",    "5–6", "2 o 3 × 30 min"),
+     ("6", "Fuerza",     "R1 · R2 · R3", "3",     "12 · 20–25 s",              "45 s",    "6–7", "3 × 30 min"),
+     ("7", "Fuerza",     "R1 · R2 · R3", "3",     "10–12 con más peso · 25 s", "45 s",    "7",   "3 × 30–40 min"),
+     ("8", "Fuerza",     "R1 · R2 · R3", "3",     "12 · 30 s",                 "45 s",    "7",   "3 × 30–40 min"),
     ]
 PLAN8_DAYS = {
  "1": ["1","A","-","2","-","A","D"],
  "2": ["1","A","2","-","3","A","D"],
  "3": ["1","A","2","-","3","A","D"],
  "4": ["1","A","2","A","3","A","D"],
- "5": ["1","A","2","A","3","A","D"],
- "6": ["1","A","-","2","-","A","D"],
+ "5": ["1","A","-","2","-","A","D"],
+ "6": ["1","A","2","A","3","A","D"],
  "7": ["1","A","2","A","3","A","D"],
  "8": ["1","A","2","A","3","A","D"],
 }
 if MAMA:
     PLAN8_DAYS.update({"1": ["1","A","-","1","-","A","D"], "2": ["1","A","-","2","-","A","D"]})
 LEGEND = '<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>'
-GLOSARIO = [
- ("R1, R2, R3", "Rutina 1, Rutina 2 y Rutina 3. Están en el capítulo 04, con imagen y video de cada ejercicio."),
- ("Bloque", "Grupo de 4 ejercicios que se hacen seguidos. Cada rutina tiene entrada en calor, bloque 1, bloque 2 y elongación."),
- ("Repetición", "Un movimiento completo. Por ejemplo, bajar y subir en una sentadilla."),
- ("Vuelta", "Hacer una vez todos los ejercicios del bloque. “3 vueltas por bloque” es repetir el bloque 3 veces."),
- ("Segundos", "Los ejercicios que se sostienen, como las planchas, se miden en segundos en vez de repeticiones."),
- ("Pausa", "Descanso entre un ejercicio y otro. Entre vueltas, 1 minuto; entre el bloque 1 y el 2, 2 minutos."),
- ("Esfuerzo", "Tu sensación de esfuerzo, de 1 (muy fácil) a 10 (no podrías hacer ni una repetición más). Un 7 es terminar sintiendo que podrías hacer 2 o 3 más."),
- ("Aeróbico (A)", G("Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez.", "Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez.", "Caminar rápido (con el cochecito también vale), bicicleta fija, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. Sin correr ni saltar durante este plan.")),
- ("Fase y descarga", G("El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte.", "El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte.", "El plan tiene 3 fases: reconexión, base y fuerza. La semana 6 es de descarga: más liviana, para recuperarte.")),
-]
-
-def plan8_table(rows):
-    # una tarjeta por semana (se lee mejor en el celular que una tabla de 8 columnas)
-    def card(w, f, r, v, rp, pa, e, a):
-        items = [("Fuerza", r), ("Vueltas por bloque", v), ("Repeticiones · planchas", rp),
-                 ("Pausa", pa), ("Esfuerzo (1–10)", e), ("Aeróbico", a)]
-        return (f'<div class="p8c{" dl" if f == "Descarga" else ""}"><div class="p8ch"><small>SEMANA</small><b>{w}</b><span>{f}</span></div>'
-                f'<div class="p8cg">' + "".join(f'<div><span>{k}</span><b>{x}</b></div>' for k, x in items) + '</div></div>')
-    return "".join(card(*row) for row in rows)
 DAYS_HEAD = "<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>"
+
+def plan_simple(rows):
+    """Cuadro simple del plan: una fila por semana."""
+    head = "<thead><tr><th>Semana</th><th>Rutinas</th><th>Vueltas</th><th>Repeticiones · planchas</th><th>Esfuerzo</th></tr></thead>"
+    return ('<table class="grid-t plan4">' + head + "<tbody>" +
+            "".join(f"<tr><th>{w}</th><td>{r}</td><td>{v}</td><td>{rp}</td><td>{e} de 10</td></tr>" for w, f, r, v, rp, pa, e, a in rows) +
+            "</tbody></table>")
+SEMANA_TIPO = ["1","A","2","-","3","A","D"]
 
 if ENT:
     page(f'''
-{chap_head("03", 'Tu plan de <span class="t">8 semanas</span>', "Conceptos clave: antes de ver los cuadros, conocé qué significa cada cosa.")}
-{"".join(f'<div class="glosr"><b>{t}</b><p>{d}</p></div>' for t, d in GLOSARIO)}
-''', chapter="03 · Plan de 8 semanas", pid="plan8", toc="03 · Plan de 8 semanas")
-
-    page(f'''
-{eyebrow("PLAN DE 8 SEMANAS")}
-<h1 class="h1">Semanas 1 a 4: <span class="t">{G("base y construcción", "base y construcción", "reconexión y base")}</span></h1>
-<div class="phases">{G('<span><b>Fase 1 · Base</b> semanas 1–2</span><span><b>Fase 2 · Construcción</b> semanas 3–6</span><span><b>Fase 3 · Consolidación</b> semanas 7–8</span>', '<span><b>Fase 1 · Base</b> semanas 1–2</span><span><b>Fase 2 · Construcción</b> semanas 3–6</span><span><b>Fase 3 · Consolidación</b> semanas 7–8</span>', '<span><b>Fase 1 · Reconexión</b> semanas 1–2</span><span><b>Fase 2 · Base</b> semanas 3–6</span><span><b>Fase 3 · Fuerza</b> semanas 7–8</span>')}</div>
-{plan8_table(PLAN8[:4])}
-<h3>Cómo progresar</h3>
-{ul(["<b>Semanas 1 y 2:</b> aprendé la técnica con 2 vueltas por bloque y esfuerzo moderado. Tenés que terminar con energía.",
-     "<b>Semana 3:</b> pasás a 3 vueltas por bloque, con el mismo peso. Al final de la semana, <a href=\"#eval\">pesate y medí tu cintura</a>.",
-     "<b>Semana 4:</b> bajá la pausa a 45 s y subí las planchas a 25 s."] if not MAMA else
-    ["<b>Semana 1:</b> solo la rutina 1, con 1 o 2 vueltas y sin planchas. Practicá la respiración todos los días. Tenés que terminar con energía.",
-     "<b>Semana 2:</b> sumás la rutina 2. Si no tenés pérdidas ni pesadez, probá la plancha en rodillas.",
-     "<b>Semanas 3 y 4:</b> sumás la rutina 3 y pasás a 2 o 3 vueltas. Al final de la semana 3, <a href=\"#eval\">medí tu cintura</a>."])}
-''', chapter="03 · Plan de 8 semanas", pid="plan8t1")
-
-    page(f'''
-{eyebrow("PLAN DE 8 SEMANAS")}
-<h1 class="h1">Semanas 5 a 8: <span class="t">más exigencia</span></h1>
-{plan8_table(PLAN8[4:])}
-<h3>Cómo progresar</h3>
-{ul(["<b>Semana 5:</b> sumá peso o pasá a la variante más difícil en los ejercicios donde ya llegás cómoda a 12 repeticiones.",
-     "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Al final, pesate y medí tu cintura.",
-     G("<b>Semanas 7 y 8:</b> en los ejercicios que lo indican, sumá dos mancuernas, una en cada mano. Los demás se hacen igual.", "<b>Semanas 7 y 8:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones.", "<b>Semanas 7 y 8:</b> subí el peso o pasá a la variante más difícil donde ya llegás cómoda a 12 repeticiones, siempre sin pérdidas ni pesadez."), "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
-     "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá pesándote y midiendo tu cintura."])}
-''', chapter="03 · Plan de 8 semanas", pid="plan8w2")
-
-    page(f'''
-{eyebrow("PLAN DE 8 SEMANAS")}
-<h1 class="h1">Tu calendario <span class="t">semana a semana</span></h1>
-<p>Una propuesta para organizar los días. Movelos según tu agenda: lo importante es el total de la semana.</p>
-<table class="cal cal8">
-{DAYS_HEAD}
-<tbody>
-{"".join(cal_row(f"Semana {w}", PLAN8_DAYS[w]) for w in PLAN8_DAYS)}
-</tbody></table>
-{LEGEND}
-<h3>Reglas simples</h3>
-{ul(["Dejá al menos un día entre dos sesiones de fuerza.",
-     "Aeróbico: caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar.",
-     "Si una semana te costó mucho (esfuerzo 9 o más, o no completaste las sesiones), repetila antes de avanzar.",
-     "Si solo podés 2 días de fuerza, seguí la versión del capítulo 05."])}
-''', chapter="03 · Plan de 8 semanas", pid="plan8b")
-
-    page(f'''
-{eyebrow("PLAN DE 8 SEMANAS")}
-<h1 class="h1">Cómo avanzar en <span class="t">cada ejercicio</span></h1>
-<p class="lead">El plan sube las vueltas y baja las pausas. Vos, además, subís de escalón en cada ejercicio cuando te resulta fácil.</p>
-<div class="minplan">
-<div><span>Escalón 1</span><p><b>Variante fácil.</b> La que figura como “Más fácil” en cada ejercicio.</p></div>
-<div><span>Escalón 2</span><p><b>Variante principal.</b> {G("Sin peso o con tu propio cuerpo.", "Con poco peso, cuidando la técnica.")}</p></div>
-<div><span>Escalón 3</span><p><b>{G("Con peso.", "Más peso.")}</b> {G("Mancuernas, botellas o una mochila con carga.", "Subí una placa en la máquina o 1 kg en las mancuernas.")}</p></div>
-<div><span>Escalón 4</span><p><b>Más peso o más lento.</b> Sumá carga o bajá en 3 segundos.</p></div>
+{chap_head("01", 'Cómo se hace <span class="t">cada rutina</span>', "Leé esta hoja una vez y ya podés empezar.")}
+<div class="steps steps4">
+  <div class="step"><span>1</span><b>Entrada en calor</b><p>{G("5 a 10 min", "10 a 15 min", "5 min, con respiración")}</p></div>
+  <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
+  <div class="step"><span>3</span><b>Bloque 2</b><p>4 ejercicios</p></div>
+  <div class="step"><span>4</span><b>Elongación</b><p>5 min</p></div>
 </div>
-<h3>Cuándo subir un escalón</h3>
-<p>Cuando completes las 12 repeticiones en todas las vueltas con un esfuerzo de 7 o menos, dos sesiones seguidas. Subí de a un ejercicio por vez.</p>
-<h3>Qué significa “bajando en 3 segundos”</h3>
-<p>En la semana 7, hacé la parte de bajada de cada movimiento contando lento hasta 3 (por ejemplo, al bajar en la sentadilla) y subí a ritmo normal. Con el mismo peso, el ejercicio se vuelve más exigente.</p>
-<h3>Por qué la semana 6 es más liviana</h3>
-<p>Después de tres semanas de subir la exigencia, una semana de descarga ayuda a recuperarte y a llegar con energía a la fase final. No es perder tiempo: es parte del plan.</p>
-{box("<b>Si algo duele</b>, volvé al escalón anterior en ese ejercicio. Molestia muscular al día siguiente es normal; dolor articular o punzante, no: frená y consultá.", "note")}
-''', chapter="03 · Plan de 8 semanas", pid="plan8c")
+<h3>Cómo se hace un bloque</h3>
+{ul(["Hacé los 4 ejercicios seguidos: eso es <b>una vuelta</b>. Repetí las vueltas que indica tu semana.",
+     "Pausas: 30 a 60 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.",
+     "Las planchas se hacen por segundos. Cada ejercicio tiene imagen, video y una variante más fácil."])}
+<h3>Con qué esfuerzo: terminá sintiendo que podrías hacer 2 o 3 más</h3>
+<div class="rpe">
+  <div><b>1–4</b><span>Muy fácil</span><p>Podrías seguir mucho tiempo.</p></div>
+  <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>
+  <div><b>9–10</b><span>Máximo</span><p>No podrías hacer una más.</p></div>
+</div>
+<h3>Cuándo subir de nivel</h3>
+<p>Cuando hacés 12 repeticiones en todas las vueltas con esfuerzo 7 o menos, dos sesiones seguidas: {G("pasá a la variante más difícil o sumá peso.", "subí una placa en la máquina o 1 kg en las mancuernas.", "pasá a la variante más difícil o sumá peso, siempre sin pérdidas ni pesadez.")} Si algo duele, volvé a la variante más fácil.</p>
+''', pid="como")
+
+    page(f'''
+{eyebrow("PLAN DE 8 SEMANAS")}
+<h1 class="h1">Semanas 1 a 4: <span class="t">{G("aprendé y construí tu base", "aprendé y construí tu base", "reconexión y base")}</span></h1>
+{plan_simple(PLAN8[:4])}
+<h3>Tu semana tipo</h3>
+<table class="cal">{DAYS_HEAD}<tbody>{cal_row("Semana", SEMANA_TIPO)}</tbody></table>
+{LEGEND}
+{ul((["<b>Semana 1:</b> solo la rutina 1, con 1 o 2 vueltas y sin planchas. Practicá la respiración todos los días.",
+      "<b>Semana 2:</b> sumás la rutina 2; si no tenés pérdidas ni pesadez, probá la plancha en rodillas.",
+      "<b>Caminata (A):</b> 2 o 3 veces por semana, a paso ágil. Con el cochecito también vale."] if MAMA else
+     ["<b>Semana 1:</b> solo la rutina 1 y la 2.",
+      "<b>Pausa entre ejercicios:</b> 60 s; desde la semana 4, 45 s.",
+      "<b>Aeróbico (A):</b> caminar rápido, bici o bailar, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar."]) +
+    ["Dejá un día entre dos sesiones de fuerza. Los días se pueden mover: lo importante es el total de la semana."])}
+''', pid="plan8t1")
+
+    page(f'''
+{eyebrow("PLAN DE 8 SEMANAS")}
+{box(f"<b>Semana 5: descarga.</b> {PLAN8[4][2].replace(' · ', ' y ')}, {PLAN8[4][3]} vueltas y esfuerzo {PLAN8[4][6]}. Es más liviana a propósito: te recuperás para lo que viene.", "soft")}
+<h1 class="h1">Ahora <span class="t">progresamos y aumentamos</span></h1>
+<p class="lead">Semanas 6 a 8: más peso, más tiempo y menos pausa.</p>
+{plan_simple(PLAN8[5:])}
+<h3>Cómo aumentar</h3>
+{ul(([G("<b>Semana 6:</b> sumá peso o pasá a la variante más difícil donde ya llegás cómoda a 12 repeticiones. En los ejercicios que lo indican, sumá dos mancuernas.", "<b>Semana 6:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones."),
+      "<b>Semana 7:</b> bajá en 3 segundos en cada repetición (por ejemplo, al bajar en la sentadilla) y acortá la pausa a 30–45 s.",
+      "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1."] if not MAMA else
+     ["<b>Semana 6:</b> pasás a 3 vueltas en todas las rutinas.",
+      "<b>Semanas 7 y 8:</b> subí el peso o pasá a la variante más difícil donde ya llegás cómoda a 12 repeticiones, siempre sin pérdidas ni pesadez."]) +
+    ['<b>Al terminar la semana 8:</b> <a href="#eval">medí tu progreso</a> (página <span class="pref" data-ref="eval"></span>).'])}
+''', pid="plan8w2")
 
     # ---------------------------------------------------------- CAP 5 SEMANAS CON POCO TIEMPO
     page(f'''
@@ -1036,35 +988,28 @@ if ENT:
 ''', chapter="06 · Pausa activa", pid="bebe", toc="Entrená con tu bebé")
 
     # ---------------------------------------------------------- CAP 6 REGISTRO
-    def week_table(n):
-        return (f'<h3 class="wk">Semana {n} · del ____ al ____</h3><table class="grid-t wk8">{DAYS_HEAD}'
-                f'<tbody>{blank_week()}</tbody></table>')
-    page(f'''
-{chap_head("07", 'Registro de <span class="t">evolución</span>', "Anotá lo que hacés para ver tu progreso. No es para calificarte: una semana con casilleros vacíos también te da información.")}
-<p>Marcá en cada día la rutina que hiciste (R1, R2 o R3), los minutos de aeróbico y si elongaste. Imprimí estas planillas o usalas de modelo en tu agenda.</p>
-{"".join(week_table(n) for n in range(1, 9))}
-''', chapter="07 · Registro de evolución", pid="registro", toc="07 · Registro de evolución")
-
     LOADS = (["Prensa","Press de pecho en máquina","Remo en máquina","Jalón al pecho","Peso muerto con mancuernas","Estocada split con mancuernas","Sentadilla en copa","Hip thrust","Press de hombros en máquina","Plancha prona (segundos)"] if GYM else
              ["Sentadilla en copa","Puente de glúteos","Estocada split con apoyo","Remo inclinado","Peso muerto con mancuernas","Sentadilla sumo","Sentadilla con press de hombros","Bíceps con peso","Plancha (segundos)","Piso pélvico (segundos)"] if MAMA else
              ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto con mancuernas","Bíceps con peso","Plancha prona (segundos)"])
     page(f'''
-{eyebrow("REGISTRO DE EVOLUCIÓN")}
-<h1 class="h1">Mis cargas y <span class="t">repeticiones</span></h1>
+{eyebrow("MEDÍ TU PROGRESO")}
+<h1 class="h1">Tu <span class="t">registro</span></h1>
+<h3 class="wk">Mi semana · del ____ al ____</h3>
+<table class="grid-t wk8">{DAYS_HEAD}<tbody>{blank_week()}</tbody></table>
+<p class="small">Marcá la rutina que hiciste (R1, R2 o R3), los minutos de aeróbico y si elongaste. Imprimí una por semana o copiala en tu agenda.</p>
+<h3 class="wk">Mis cargas y repeticiones</h3>
 <p>Una vez por semana, anotá el peso y las repeticiones de la última vuelta. Por ejemplo: <b>4 kg × 12</b>. Si usaste una variante, agregá F (fácil) o P (principal).</p>
 <table class="grid-t loads"><thead><tr><th>Ejercicio</th>{"".join(f"<th>S{n}</th>" for n in range(1, 9))}</tr></thead>
 <tbody>{"".join(f"<tr><th>{e}</th>" + "<td></td>"*8 + "</tr>" for e in LOADS)}</tbody></table>
-<h3 class="wk">Cómo me sentí</h3>
-<table class="track feel"><thead><tr><th></th>{"".join(f"<th>S{n}</th>" for n in range(1, 9))}</tr></thead>
-<tbody>{"".join(f"<tr><th>{t}</th>" + "<td></td>"*8 + "</tr>" for t in ["Energía general (1 a 5)","Esfuerzo promedio (1 a 10)","Cómo dormí (1 a 5)"] + (["Pérdidas o pesadez (sí / no)"] if MAMA else []))}</tbody></table>
-''', chapter="07 · Registro de evolución", pid="cargas")
+
+''', pid="cargas")
 
     # ---------------------------------------------------------- CAP 7 DESPUÉS DE LAS 8 SEMANAS
     page(f'''
 {chap_head("08", 'Después de las <span class="t">8 semanas</span>', "Terminar el plan no es el final: es el punto de partida para seguir, ahora con más fuerza y experiencia.")}
 <h2>Tres caminos para seguir</h2>
 <div class="pillars">
-  <div class="pillar"><span class="pn">01</span><h3>Subí la carga</h3><p>Repetí las semanas 7 y 8 con más peso o variantes más exigentes. Seguí midiendo peso y cintura cada 3 semanas.</p></div>
+  <div class="pillar"><span class="pn">01</span><h3>Subí la carga</h3><p>Repetí las semanas 6 a 8 con más peso o variantes más exigentes. Seguí midiendo tu cintura cada 4 semanas.</p></div>
   <div class="pillar"><span class="pn">02</span><h3>Nuevo ciclo</h3><p>Volvé a la semana 1 con el peso que usás hoy. Vas a notar que todo te cuesta menos.</p></div>
   <div class="pillar"><span class="pn">03</span><h3>Mantené</h3><p>Si tu agenda está cargada, 2 sesiones por semana alcanzan para sostener lo que ganaste.</p></div>
 </div>
@@ -1848,17 +1793,42 @@ OUT_HTML = "ebook.html" if FULL else G("entrena.html", "gimnasio.html", "mamas.h
 
 def render():
     if ENT:
+        # Ebooks de entrenamiento: orden fijo, numeración de capítulos e índice armados acá.
+        # Se entra rápido a entrenar: bienvenida → cómo se hace → plan → rutinas; las mediciones van al final.
+        RUTS = [f"rutina{k}{b}" for k in "123" for b in ("", "b1", "b2")]
+        SECS = [  # (título del capítulo o None, páginas, entradas extra del índice)
+            (None, ["portada", "bienvenida", "indice"], []),
+            *([("Antes de empezar", ["antes", "antes2", "base-mama"], [])] if MAMA else []),
+            ("Tu plan de 8 semanas", ["como", "plan8t1", "plan8w2"], []),
+            ("Rutinas", RUTS + ["elong", "elong2", "core"],
+             [("Elongación", "elong"), ("Zona media", "core")]),
+            (G("Semanas con poco tiempo", "Semanas con poco tiempo", "Días con poco tiempo"), ["express", "cap5e"], []),
+            (G("Activa en el trabajo", "Activa en el trabajo", "Pausa activa"), ["pausa", "tips10"] + (["bebe"] if MAMA else []),
+             [("Entrená con tu bebé", "bebe")] if MAMA else []),
+            ("Medí tu progreso", ["eval", "cargas"], []),
+            ("Después de las 8 semanas", ["cap7e"], []),
+            (None, ["bonus-portada", "talleres", "cap6", "recetas", "bonus"] + ([] if MAMA else ["testimonios"]) + ["bio", "metodo"], []),
+        ]
         by = {p["id"]: p for p in PAGES}
-        def move(ids, before):
-            blk = [by[i] for i in ids]
-            rest = [p for p in PAGES if p["id"] not in ids]
-            at = next(i for i, p in enumerate(rest) if p["id"] == before)
-            PAGES[:] = rest[:at] + blk + rest[at:]
-        move(["plan8", "cap2c", "plan8t1", "plan8w2", "plan8b", "plan8c"], "cap2")   # plan antes de las rutinas
-        move(["core"], "elong")                                                     # zona media después de la rutina 3
-        move(["bio"], "bienvenida")                                                 # "Quién soy", segunda página
-        if MAMA:
-            move(["antes", "antes2", "base-mama"], "eval")                          # capítulo 02: antes de empezar
+        toc_old = dict((pid, t) for t, pid in TOC)
+        PAGES[:], TOC[:] = [], []
+        n = 0
+        for title, pids, extra in SECS:
+            if title:
+                n += 1
+                label = f"{n:02d} · {title}"
+                TOC.append((label, pids[0]))
+                TOC.extend(extra)
+            for pid in pids:
+                pg = by.pop(pid)
+                if title:
+                    pg["chapter"] = label
+                    pg["body"] = re.sub(r'<span class="cnum">\d+</span>', f'<span class="cnum">{n:02d}</span>', pg["body"])
+                elif pid in toc_old:
+                    TOC.append((toc_old[pid], pid))
+                PAGES.append(pg)
+        sobran = set(by)
+        assert not sobran, f"páginas sin lugar en el orden: {sobran}"
     order = {p["id"]: i for i, p in enumerate(PAGES)}
     TOC.sort(key=lambda t: order[t[1]])
     num = {p["id"]: i + 1 for i, p in enumerate(PAGES)}
