@@ -52,7 +52,7 @@ No es un VSL de venta "dura": es un **video de bienvenida y presentación del pr
 **Lo que le falta (y RENOVA puede aprovechar)**
 - **Cero prueba social** en el video: no aparece ninguna alumna, ni un resultado, ni un mensaje.
 - **No hay equipo**: es solo ella. RENOVA tiene entrenadores, **médico deportólogo**, psicólogo y nutricionista.
-- **No hay acompañamiento personal**: RENOVA tiene la consulta con Nacho por WhatsApp.
+- **No hay comunidad**: RENOVA tiene la comunidad en Skool, con los cursos y otras mujeres haciendo el plan.
 - **No hay CTA claro** ni oferta en el video (precio, bonus de regalo, acceso inmediato).
 - Es largo y lleno de características; se pierde el problema de la clienta (falta de tiempo, no saber qué hacer, haber probado y abandonado).
 - Está en inglés y pensado para EE. UU.: lenguaje, ejemplos y recetas no son los nuestros.
@@ -72,10 +72,10 @@ No es un VSL de venta "dura": es un **video de bienvenida y presentación del pr
 | Explicación del porqué | Guías de alimentación y entrenamiento en la menopausia | "¿Sabías que…?" en la landing; poca explicación hormonal dentro del ebook |
 | Días complicados | No lo menciona | Sesión express de 15 min, semanas con poco tiempo, pausa activa |
 | Equipo | Solo ella | Entrenadores, médico deportólogo, psicólogo, nutricionista |
-| Acompañamiento | No | Consulta con Nacho por WhatsApp + 50% off en plan personalizado |
+| Comunidad | No | Comunidad RENOVA en Skool: cursos, talleres y otras mujeres (opcional) |
 | Prueba social | No en el video | Alumnas reales con antes y después, y mensajes de WhatsApp |
 
-**Conclusión:** RENOVA gana en equipo, acompañamiento, días reales y prueba social. Menofit gana en **explicar el porqué hormonal** y en **mostrar la recuperación y el manejo del estrés** como parte del plan. Esas dos cosas son las que conviene sumar.
+**Conclusión:** RENOVA gana en equipo, comunidad, días reales y prueba social. Menofit gana en **explicar el porqué hormonal** y en **mostrar la recuperación y el manejo del estrés** como parte del plan. Esas dos cosas son las que conviene sumar.
 
 ---
 
@@ -115,7 +115,7 @@ Por orden de impacto. Nada de esto está hecho todavía: decime cuáles querés 
 | **1:05 – 1:40** · Qué es | "Son **dos planes de 8 semanas en una sola compra**: uno para entrenar **en casa** y otro para el **gimnasio**. Usás el que te quede mejor, o los alternás. Cada rutina trae entrada en calor, dos bloques y elongación, con **video de cada ejercicio** y una variante más fácil, sin saltos si los necesitás. Sesiones de 20 a 40 minutos en casa o de 45 a 60 en el gimnasio. Y para las semanas complicadas, una sesión express de 15 minutos, así no cortás la racha." | Tapas de los 2 ebooks en 3D. Páginas de rutinas. Video de un ejercicio (Harbiz). Texto: **CASA + GIMNASIO · 8 SEMANAS · CON VIDEO**. |
 | **1:40 – 1:55** · Equipo | "Y no estás sola: detrás de RENOVA hay un equipo de entrenadores, **médico deportólogo**, psicólogo y nutricionista." | Fotos del equipo. Íconos de cada profesional. |
 | **1:55 – 2:20** · Prueba | "Mari bajó 8 kilos de grasa y 10 centímetros de cintura. Moni bajó 6 kilos y logró algo que nunca había podido: el hábito de entrenar. Romi volvió a correr sin dolores. Y nos escriben cosas como esta…" | Antes y después de Mari y Moni, foto de Romi, capturas de WhatsApp (las de la landing). Texto chico: *"Los resultados dependen de cada persona."* |
-| **2:20 – 2:40** · Bonus | "Además te llevás de regalo un recetario con 23 recetas con proteína, dos talleres grabados del equipo y una consulta conmigo por WhatsApp con 50% de descuento en tu plan personalizado, para cuando quieras ir por más." | Chips de los 3 bonus. |
+| **2:20 – 2:40** · Bonus | "Además te llevás de regalo un recetario con 23 recetas con proteína, dos talleres grabados del equipo y acceso a la comunidad RENOVA, donde ves los cursos y, si querés, compartís el camino con otras mujeres." | Chips de los 3 bonus. |
 | **2:40 – 2:55** · Nunca es tarde + CTA | "No importa si estás arrancando la perimenopausia o si ya pasaste la menopausia: nunca es tarde para ponerte fuerte. Tocá el botón, descargá los dos ebooks y empezamos hoy." | Botón **EMPEZAR AHORA** animado. Texto: **ACCESO INMEDIATO · 100% DIGITAL**. |
 | **2:55 – 3:00** · Firma | "Soy Nacho, y te espero adentro." | Nacho sonriendo. Logo. |
 

@@ -4,9 +4,12 @@
 Dos ediciones salen de este mismo archivo:
   python3 build.py            → Programa RENOVA completo (ebook.html)
   python3 build.py entrena    → Ebook 1 "Entrená desde casa" (entrena.html):
-                                plan de 8 semanas + bonus recetario, talleres y consulta.
+                                plan de 8 semanas + bonus talleres, recetario y comunidad.
   python3 build.py gimnasio   → "Entrená en el gimnasio" (gimnasio.html): misma lógica que el
                                 Ebook 1, con rutinas de gimnasio para nivel inicial.
+  python3 build.py mamas      → "Entrená siendo mamá" (mamas.html): misma lógica que el Ebook 1,
+                                para mamás que vuelven a entrenar (respiración, piso pélvico, sin
+                                impacto) + pausa activa en casa.
 
 Para editar textos: modificá este archivo y volvé a correr build.py.
 Para cambiar links: completá el diccionario LINKS (dejá "" si todavía no lo tenés).
@@ -20,25 +23,24 @@ from design_system import (css as ds_css, esc, ICON_CHECK, ICON_ARROW, ICON_HAND
                            eyebrow, chap_head, ul, checks, box, block_head, params)
 
 EDITION = sys.argv[1] if len(sys.argv) > 1 else "completo"
-if EDITION not in ("completo", "entrena", "gimnasio"):
-    sys.exit("Edición desconocida: usá 'completo', 'entrena' o 'gimnasio'")
+if EDITION not in ("completo", "entrena", "gimnasio", "mamas"):
+    sys.exit("Edición desconocida: usá 'completo', 'entrena', 'gimnasio' o 'mamas'")
 FULL = EDITION == "completo"
 GYM = EDITION == "gimnasio"                 # versión gimnasio del Ebook 1: comparte todo salvo las rutinas y algunos textos
-ENT = EDITION in ("entrena", "gimnasio")
-def G(casa, gym):
-    """Texto de la edición en casa o de la edición gimnasio."""
-    return gym if GYM else casa
+MAMA = EDITION == "mamas"                   # versión para mamás del Ebook 1: en casa, con respiración y piso pélvico, sin impacto
+ENT = EDITION in ("entrena", "gimnasio", "mamas")
+def G(casa, gym, mama=None):
+    """Texto de la edición en casa, gimnasio o mamás (si no se da el de mamás, usa el de casa)."""
+    if GYM:
+        return gym
+    return mama if MAMA and mama is not None else casa
 NE = "02" if FULL else "04"   # número del capítulo de entrenamiento en cada edición
 
 LINKS = {
     "talleres": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",   # Skool RENOVA: acceso a los talleres
     "taller_heladera": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",   # taller incluido: Organizar la heladera (Skool)
     "taller_ansiedad": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",   # taller incluido: Gestión de la ansiedad (Skool)
-    "talleres_todos": "https://wa.link/d9hfrd",          # desbloquear el resto de los talleres (WhatsApp)
-    "wa_plan": "https://wa.link/hewha8",                 # WhatsApp: consulta directa con Nacho por el próximo plan
-    "wa_nutricion": "https://wa.link/1asjt1",            # WhatsApp: planes nutricionales a medida / consulta con Nacho
-    "consulta": "https://calendly.com/nachoportillo-renova/30min",   # Calendly: reserva de la consulta con Nacho
-    "renova": "https://wa.link/1asjt1",   # botón "Quiero" de la última página (WhatsApp)
+    "comunidad": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",  # comunidad RENOVA en Skool (cursos + otras mujeres)
     "video_talleres": "",     # link del video de presentación de los talleres
     "foto_equipo": "img/equipo2.jpg",        # ruta de la foto del equipo, por ejemplo "img/equipo.jpg"
     "video_explicacion": "",  # [INSERTAR LINK DEL VIDEO EXPLICATIVO]
@@ -80,20 +82,20 @@ if ENT:
 <div class="cv2 cv-ent">
   <div class="c2-top">
     <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
-    <span class="c2-kick">PLAN DE 8 SEMANAS · {G("FUERZA EN CASA", "FUERZA EN EL GIMNASIO · NIVEL INICIAL")} · CON VIDEOS</span>
+    <span class="c2-kick">PLAN DE 8 SEMANAS · {G("FUERZA EN CASA", "FUERZA EN EL GIMNASIO · NIVEL INICIAL", "FUERZA EN CASA PARA MAMÁS")} · CON VIDEOS</span>
   </div>
-  <h1 class="c2-title">{G('ENTRENÁ DESDE <span class="c2-t">CASA.</span>', 'ENTRENÁ EN EL <span class="c2-t">GIMNASIO.</span>')}<br>TRANSFORMÁ TU <span class="c2-r">CUERPO.</span></h1>
+  <h1 class="c2-title">{G('ENTRENÁ DESDE <span class="c2-t">CASA.</span>', 'ENTRENÁ EN EL <span class="c2-t">GIMNASIO.</span>', 'ENTRENÁ SIENDO <span class="c2-t">MAMÁ.</span>')}<br>{G('TRANSFORMÁ TU <span class="c2-r">CUERPO.</span>', 'TRANSFORMÁ TU <span class="c2-r">CUERPO.</span>', 'RECUPERÁ TU <span class="c2-r">FUERZA.</span>')}</h1>
   <div class="c2-bar"></div>
-  <p class="c2-sub">Resultados visibles en 8 semanas.</p>
+  <p class="c2-sub">{G("Resultados visibles en 8 semanas.", "Resultados visibles en 8 semanas.", "Un plan de 8 semanas, a tu ritmo.")}</p>
   <div class="c2-res">
     <div><b>2</b><span>semanas</span><p>Más energía</p></div>
     <div><b>4</b><span>semanas</span><p>Más fuerza</p></div>
-    <div class="on"><b>8</b><span>semanas</span><p>Resultados visibles y el hábito logrado</p></div>
+    <div class="on"><b>8</b><span>semanas</span><p>{G("Resultados visibles y el hábito logrado", "Resultados visibles y el hábito logrado", "Te sentís fuerte y con el hábito logrado")}</p></div>
   </div>
-  <p class="c2-desc">{G("Sesiones de 20 a 40 minutos", "Sesiones de 45 a 60 minutos, desde cero,")} para mujeres con poco tiempo. Bonus: dos talleres, recetario y 50% off en tu plan personalizado.</p>
+  <p class="c2-desc">{G("Sesiones de 20 a 40 minutos para mujeres con poco tiempo.", "Sesiones de 45 a 60 minutos, desde cero, para mujeres con poco tiempo.", "Sesiones de 15 a 30 minutos, sin saltos, con respiración, piso pélvico y pausa activa.")} Bonus: dos talleres, recetario y acceso a la comunidad RENOVA.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
-      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
+      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales detrás de cada pilar del método.</span></figcaption></figure>
     <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
   </div>
 </div>
@@ -112,7 +114,7 @@ if FULL:
   <p class="c2-desc">Un sistema práctico de alimentación, entrenamiento y descanso para personas con poco tiempo que quieren resultados sostenibles.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
-      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
+      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales detrás de cada pilar del método.</span></figcaption></figure>
     <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
   </div>
 </div>
@@ -122,21 +124,21 @@ if FULL:
 if ENT:
     page(f'''
 {eyebrow("BIENVENIDA")}
-<h1 class="h1">Te damos la bienvenida a <span class="t">{G("Entrená desde casa", "Entrená en el gimnasio")}</span></h1>
-<p class="lead">Un plan de 8 semanas para entrenar {G("desde casa", "en el gimnasio desde cero")} si tenés poco tiempo. En las dos primeras semanas vas a tener más energía; a las cuatro semanas, más fuerza; y al terminar la octava, vas a ver resultados visibles y habrás logrado el hábito.</p>
+<h1 class="h1">Te damos la bienvenida a <span class="t">{G("Entrená desde casa", "Entrená en el gimnasio", "Entrená siendo mamá")}</span></h1>
+<p class="lead">{G("Un plan de 8 semanas para entrenar desde casa si tenés poco tiempo. En las dos primeras semanas vas a tener más energía; a las cuatro semanas, más fuerza; y al terminar la octava, vas a ver resultados visibles y habrás logrado el hábito.", "Un plan de 8 semanas para entrenar en el gimnasio desde cero si tenés poco tiempo. En las dos primeras semanas vas a tener más energía; a las cuatro semanas, más fuerza; y al terminar la octava, vas a ver resultados visibles y habrás logrado el hábito.", "Un plan de 8 semanas para volver a entrenar después de ser mamá, en casa y con poco tiempo. Empezás por la respiración y el piso pélvico, sumás fuerza de a poco y, al terminar la octava semana, vas a sentirte más fuerte y con el hábito logrado.")}</p>
 <h2>Qué incluye</h2>
 <div class="pillars">
   <div class="pillar"><span class="pn">01</span><h3>Plan de 8 semanas</h3><p>Tres fases con un calendario semana a semana.</p></div>
-  <div class="pillar"><span class="pn">02</span><h3>Rutinas detalladas</h3><p>Con videos e imágenes de referencia.</p></div>
-  <div class="pillar"><span class="pn">03</span><h3>Evaluación</h3><p>Formas simples de medir tu progreso.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Rutinas detalladas</h3><p>{G("Con videos e imágenes de referencia.", "Con videos e imágenes de referencia.", "Sin saltos, con videos e imágenes de referencia.")}</p></div>
+  <div class="pillar"><span class="pn">03</span><h3>{G("Evaluación", "Evaluación", "Pausa activa")}</h3><p>{G("Formas simples de medir tu progreso.", "Formas simples de medir tu progreso.", "5 minutos por día para tu espalda y tu postura.")}</p></div>
 </div>
-{box("<b>Bonus incluidos:</b> dos talleres (Organizar la heladera y Gestión de la ansiedad), recetario con 23 recetas y 50% de descuento en tu plan personalizado.", "soft")}
+{box("<b>Bonus incluidos:</b> dos talleres (Organizar la heladera y Gestión de la ansiedad), recetario con 23 recetas y acceso a la comunidad RENOVA.", "soft")}
 <div class="firstweek">
   <h2>Tu primera semana</h2>
   <div class="fw">
-    <div><span>1</span><b>Medite</b><p>Pesate y medí tu cintura (capítulo 02).</p></div>
+    <div><span>1</span><b>{G("Medite", "Medite", "Chequeá")}</b><p>{G("Pesate y medí tu cintura (capítulo 02).", "Pesate y medí tu cintura (capítulo 02).", "Tené el alta médica y leé el capítulo 02.")}</p></div>
     <div><span>2</span><b>Agendá</b><p>Elegí 2 días para la fuerza y 2 para caminar.</p></div>
-    <div><span>3</span><b>{G("Prepará", "Conocé")}</b><p>{G("Una colchoneta, una silla firme y un peso liviano.", "Ubicá las máquinas y pedí ayuda para usarlas.")}</p></div>
+    <div><span>3</span><b>{G("Prepará", "Conocé")}</b><p>{G("Una colchoneta, una silla firme y un peso liviano.", "Ubicá las máquinas y pedí ayuda para usarlas.", "Una colchoneta, una silla firme y 20 minutos para vos.")}</p></div>
     <div><span>4</span><b>Registrá</b><p>Anotá cada sesión en la planilla del capítulo 07.</p></div>
   </div>
 </div>
@@ -165,19 +167,20 @@ if FULL:
 </div>
 ''', chapter="Bienvenida", pid="bienvenida")
 
-page(f'''
+if not MAMA:   # resultados de mujeres 40+: en la edición mamás no se muestran hasta tener casos propios
+  page(f'''
 {eyebrow("ANTES DE EMPEZAR")}
 <h1 class="h1">Esta es la base que usamos con <span class="t">{"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"}</span></h1>
-<p class="lead">Con esta rutina como base de entrenamiento, y orden en la alimentación, acompañamos a {"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"} a bajar de 6 a 10 kilos de grasa en 90 días.</p>
+<p class="lead">Con esta rutina como base de entrenamiento, y orden en la alimentación, ayudamos a {"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"} a bajar de 6 a 10 kilos de grasa en 90 días.</p>
 <div class="claim">
   <div><b>6 a 10 kg</b><span>de grasa</span></div>
   <div><b>90 días</b><span>de proceso</span></div>
   <div><b>{G("30 min", "45 min")}</b><span>por sesión</span></div>
 </div>
-{box("<b>Es una guía.</b> Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. Si necesitás un plan a tu medida, el equipo RENOVA te acompaña, con entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.", "soft")}
+{box("<b>Es una guía.</b> Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. El método lo armamos con el equipo RENOVA: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.", "soft")}
 ''', chapter="Bienvenida", pid="base")
 
-page(f'''
+  page(f'''
 {eyebrow("RESULTADOS REALES")}
 <h1 class="h1">Ellas ya lo <span class="t">lograron</span></h1>
 <p class="lead">Personas que siguieron este método con el equipo RENOVA.</p>
@@ -207,9 +210,9 @@ if ENT:
 <div class="cols2">
 <div>
 <h3>1. Medí tu punto de partida</h3>
-<p>Pesate y medí tu cintura antes de empezar (capítulo 02). Repetilo cada 3 semanas para ver cuánto avanzás.</p>
+<p>{G("Pesate y medí tu cintura antes de empezar (capítulo 02). Repetilo cada 3 semanas para ver cuánto avanzás.", "Pesate y medí tu cintura antes de empezar (capítulo 02). Repetilo cada 3 semanas para ver cuánto avanzás.", "Leé el capítulo 02: cuándo empezar, señales para frenar y cómo están tu abdomen y tu piso pélvico. Después medí tu cintura y repetilo cada 3 semanas.")}</p>
 <h3>2. Elegí tus días de entrenamiento</h3>
-<p>Reservá 2 o 3 momentos de {G("30 a 40", "45 a 60")} minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
+<p>Reservá 2 o 3 momentos de {G("30 a 40", "45 a 60", "15 a 30")} minutos por semana, con un día libre entre sesiones de fuerza. Agendalos como una reunión.</p>
 <h3>3. Seguí el plan de 8 semanas</h3>
 <p>El capítulo 03 te dice qué rutinas hacer cada semana, cuántas vueltas y con qué esfuerzo. No te adelantes: la progresión está pensada para que llegues bien a la semana 8.</p>
 </div>
@@ -226,7 +229,7 @@ if ENT:
 
 
     page(f'''
-{chap_head("02", 'Evaluación <span class="t">inicial</span>', "Antes de empezar, registrá tu peso y tu perímetro de cintura. Repetilo cada 3 semanas: la cintura muestra cambios que la balanza a veces no refleja.")}
+{chap_head("02", 'Evaluación <span class="t">inicial</span>', "Antes de empezar, registrá tu peso y tu perímetro de cintura. Repetilo cada 3 semanas: la cintura muestra cambios que la balanza a veces no refleja.") if not MAMA else eyebrow("ANTES DE EMPEZAR") + '<h1 class="h1">Tu punto <span class="t">de partida</span></h1><p class="lead">Medí tu cintura y, si querés, tu peso. Repetilo cada 3 semanas. Después del parto el cuerpo cambia a su ritmo: mirá la tendencia y cómo te sentís, no un número.</p>'}
 <div class="meas">
 <figure><img src="img/medir_cintura.png" alt="Cómo medir el perímetro de cintura"></figure>
 <div>
@@ -241,12 +244,12 @@ if ENT:
 </div>
 </div>
 <h3>Cómo pesarte</h3>
-{ul(["Siempre con la misma balanza y el mismo día de la semana.", "A la mañana, en ayunas y después de ir al baño, con poca ropa."])}
+{ul(["Siempre con la misma balanza y el mismo día de la semana.", "A la mañana, en ayunas y después de ir al baño, con poca ropa."] + (["Si das la teta, pesate después de amamantar."] if MAMA else []))}
 <table class="grid-t meas-t"><thead><tr><th></th><th>Inicio</th><th>Semana 3</th><th>Semana 6</th><th>Semana 8</th></tr></thead><tbody>
 {"".join(f"<tr><th>{t}</th><td></td><td></td><td></td><td></td></tr>" for t in ["Fecha","Peso (kg)","Cintura (cm)"])}
 </tbody></table>
 <p class="small">El peso cambia de un día a otro por los líquidos, la sal o el ciclo. Mirá la tendencia entre una medición y otra, no un número aislado.</p>
-''', chapter="02 · Evaluación inicial", pid="eval", toc="02 · Evaluación inicial")
+''', chapter=G("02 · Evaluación inicial", "02 · Evaluación inicial", "02 · Antes de empezar"), pid="eval", toc=None if MAMA else "02 · Evaluación inicial")
 
 if FULL:
     page(f'''
@@ -274,19 +277,19 @@ if FULL:
 
 # ================================================================== CAP 2 ENTRENAMIENTO
 page(f'''
-{chap_head(NE, G('Entrenamiento de <span class="t">fuerza en casa</span>', 'Entrenamiento de <span class="t">fuerza en el gimnasio</span>'), G("Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.", "Tres rutinas de cuerpo completo con máquinas, mancuernas y poleas, pensadas para empezar desde cero."))}
+{chap_head(NE, G('Entrenamiento de <span class="t">fuerza en casa</span>', 'Entrenamiento de <span class="t">fuerza en el gimnasio</span>', 'Fuerza para <span class="t">mamás</span>'), G("Tres rutinas de cuerpo completo, de bajo impacto y con variantes, para empezar a ganar fuerza sin gimnasio.", "Tres rutinas de cuerpo completo con máquinas, mancuernas y poleas, pensadas para empezar desde cero.", "Tres rutinas de cuerpo completo en casa, sin saltos ni abdominales clásicos, que empiezan por la respiración y el piso pélvico."))}
 <h2>Por qué entrenar fuerza</h2>
-<p>El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía.</p>
+<p>{G("El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía.", "El entrenamiento de fuerza ayuda a mantener y desarrollar masa muscular, cuidar la salud ósea y sostener la capacidad para las tareas del día a día. A partir de los 35–40 años la masa muscular tiende a disminuir si no se estimula, por eso la fuerza es la base de esta guía.", "Ser mamá es un trabajo físico: levantar, cargar y agacharte muchas veces por día. La fuerza hace que todo eso te cueste menos, cuida tu espalda y suma energía.")}</p>
 <h2>Cómo está organizado</h2>
 <div class="steps steps4">
-  <div class="step"><span>1</span><b>Entrada en calor</b><p>{G("5 a 10 min", "10 a 15 min")}</p></div>
+  <div class="step"><span>1</span><b>Entrada en calor</b><p>{G("5 a 10 min", "10 a 15 min", "5 min, con respiración")}</p></div>
   <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
   <div class="step"><span>3</span><b>Bloque 2</b><p>4 ejercicios</p></div>
   <div class="step"><span>4</span><b>Elongación</b><p>5 min</p></div>
 </div>
 <h2>Qué necesitás y cuánto dura</h2>
-<p>{G("Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga); si no tenés peso, usá tu propio cuerpo. Una sesión completa lleva entre 30 y 40 minutos.", "Un gimnasio con máquinas básicas, mancuernas y poleas, ropa cómoda, una toalla y agua. Las primeras veces pedile al profesor de sala que te ayude a regular cada máquina. Una sesión completa lleva entre 45 y 60 minutos.")}</p>
-{box('<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená el ejercicio. Si tenés una lesión, dolor persistente o una condición médica, consultá con un profesional antes de hacer los ejercicios que puedan agravarla.', "note")}
+<p>{G("Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga); si no tenés peso, usá tu propio cuerpo. Una sesión completa lleva entre 30 y 40 minutos.", "Un gimnasio con máquinas básicas, mancuernas y poleas, ropa cómoda, una toalla y agua. Las primeras veces pedile al profesor de sala que te ayude a regular cada máquina. Una sesión completa lleva entre 45 y 60 minutos.", "Una colchoneta, una silla firme y un peso liviano (mancuernas o botellas). Podés entrenar con tu bebé cerca. Una sesión lleva entre 20 y 30 minutos.")}</p>
+{box('<b>Antes de empezar.</b> Necesitás el alta médica. Si tenés pérdidas, dolor o la panza hace “carpa”, usá la variante más fácil.' if MAMA else '<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená el ejercicio. Si tenés una lesión, dolor persistente o una condición médica, consultá con un profesional antes de hacer los ejercicios que puedan agravarla.', "note")}
 ''', chapter=NE + " · Entrenamiento", pid="cap2", toc=NE + " · Entrenamiento")
 
 if FULL:
@@ -430,15 +433,15 @@ MATERIAL = {
 PLUS2 = {"Sentadilla en copa", "Estocada split", "Subida al banco", "Sentadilla búlgara", "Estocada cruzada", "Sentadilla sumo"}
 
 def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False):
-    ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" and not GYM else ""
+    ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" and not GYM and not MAMA else ""
     evb = f' <a class="vbtn-xs" href="{esc(ev)}">{ICON_PLAY} VER VARIANTE</a>' if ev else ""
     e = f'<p class="easy"><b>{easy_label}:</b> {easy}{evb}</p>' if easy else ""
-    if ENT and not GYM and name in PLUS2:
+    if ENT and not GYM and not MAMA and name in PLUS2:
         e += '<p class="plus"><b>Semanas 7 y 8:</b> sumá dos mancuernas.</p>'
     mat = f'<span class="mat">{MATERIAL.get(name, "Propio cuerpo")}</span>'
     url = VIDEOS.get(name, "")
     vb = (f'<a class="vbtn-sm" href="{esc(url)}">{ICON_PLAY} VER VIDEO</a>' if url
-          else f'<span class="vbtn-sm">{ICON_PLAY} VER VIDEO</span>')
+          else "" if MAMA else f'<span class="vbtn-sm">{ICON_PLAY} VER VIDEO</span>')
     if row:   # tarjeta en fila: el botón de video va junto al título
         return (f'<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/{img}" alt=""></div>{mat}</div>'
                 f'<div class="extx"><div class="exh"><h4>{name}</h4><span class="dose">{dose}</span>{vb}</div>'
@@ -453,6 +456,43 @@ def warm_card(img, name, dose):
           else f'<span class="vbtn-sm">{ICON_PLAY} VIDEO</span>')
     return (f'<div class="wc"><div class="wcim"><img src="img/{img}" alt=""></div>'
             f'<b>{name}</b><span class="dose">{dose}</span>{vb}</div>')
+
+# ---- Edición mamás: capítulo 02 (cuándo empezar, señales, abdomen y piso pélvico). render() lo ubica antes de la evaluación.
+if MAMA:
+    page(f'''
+{chap_head("02", 'Antes de <span class="t">empezar</span>', "Tu cuerpo hizo un trabajo enorme. Estos chequeos te ayudan a volver a entrenar segura y a tu ritmo.")}
+<h3>¿Cuándo puedo empezar?</h3>
+<p>Cuando tu médico o tu obstetra te dé el alta para hacer ejercicio. Suele darse en el control de las 6 semanas después de un parto vaginal; después de una cesárea puede llevar más tiempo. Hasta entonces, caminá tranquila.</p>
+<p>Y si tus hijos ya son más grandes, este plan también es para vos: <b>nunca es tarde para volver a entrenar.</b></p>
+<h3>Una consulta que vale la pena</h3>
+<p>Una evaluación con kinesiología de piso pélvico revisa tu abdomen y tu piso pélvico. Es muy útil si tuviste pérdidas de orina, un desgarro o una cesárea.</p>
+<h3>Si das la teta</h3>
+<p>Entrená después de amamantar o de sacarte leche, usá un corpiño con buen sostén y tomá agua antes y después. El ejercicio moderado no afecta la producción de leche.</p>
+{box("<b>Frená y consultá si:</b> tenés pérdidas de orina al toser o hacer fuerza; sentís peso o un bulto en la vagina; te duele la cicatriz o la pelvis; el sangrado aumenta; o la panza forma una “carpa” cuando hacés fuerza.", "note")}
+''', chapter="02 · Antes de empezar", pid="antes", toc="02 · Antes de empezar")
+
+    page(f'''
+{eyebrow("ANTES DE EMPEZAR")}
+<h1 class="h1">Abdomen y <span class="t">piso pélvico</span></h1>
+<h3>La separación del abdomen (diástasis)</h3>
+<p>En el embarazo, los músculos del abdomen se separan para dejarle lugar al bebé. Es normal, y en muchas mujeres se va cerrando en los meses siguientes. Por eso este plan empieza con ejercicios que recuperan la fuerza del abdomen sin forzarlo, y deja los abdominales clásicos afuera.</p>
+<h3>Cómo darte una idea</h3>
+<ol class="steps-ol">
+<li>Acostate boca arriba con las rodillas flexionadas.</li>
+<li>Apoyá los dedos en la línea del medio de la panza, a la altura del ombligo.</li>
+<li>Levantá apenas la cabeza y los hombros, y fijate cuánto se hunden los dedos.</li>
+</ol>
+<p>Si entran más de 2 dedos, o se forma una “carpa” o un bulto, consultá con un kinesiólogo y avanzá despacio con las planchas. Esta prueba no reemplaza una evaluación profesional.</p>
+''', chapter="02 · Antes de empezar", pid="antes2")
+
+    page(f'''
+{eyebrow("ANTES DE EMPEZAR")}
+<h1 class="h1">Tu base: <span class="t">respiración y piso pélvico</span></h1>
+<p class="lead">Son dos ejercicios cortos que vas a hacer todos los días (3 a 5 minutos) y al principio de cada rutina. Te ayudan a que el abdomen y el piso pélvico vuelvan a trabajar juntos.</p>
+{ex_card("mama_respiracion.png", "Respiración 360°", "5 respiraciones", "Boca arriba con las rodillas flexionadas y las manos en las costillas. Inhalá por la nariz y sentí cómo se abren las costillas hacia los costados. Exhalá lento por la boca, como soplando una vela: la panza baja y el piso pélvico sube suavemente.", "sentada en una silla, con la espalda apoyada.", row=True)}
+{ex_card("mama_pisopelvico.png", "Activación de piso pélvico", "8–10 · sostené 3–5 s", "Sentada con la espalda derecha. Al exhalar, apretá y elevá el piso pélvico, como si quisieras retener un gas, sin apretar los glúteos ni aguantar el aire. Sostené y soltá del todo al inhalar.", "sostené 2 segundos y hacé menos repeticiones.", row=True)}
+{box("<b>La regla de oro: exhalá al hacer fuerza.</b> En cada ejercicio, soltá el aire en la parte más difícil (al subir de la sentadilla, al levantar la cadera, al empujar). Y también en tu día: al levantar al bebé, el huevito o las bolsas.", "soft")}
+''', chapter="02 · Antes de empezar", pid="base-mama")
 
 def routine(eyebrow_t, title_html, prm, note, cards, end_box, pid):
     page(f"""
@@ -597,11 +637,75 @@ if GYM:
     ]),
     }
 
+# ---- Edición mamás: en casa, sin saltos ni abdominales clásicos; cada rutina arranca con respiración y piso pélvico.
+if MAMA:
+    VIDEOS.update({
+     "Puente de glúteos": "https://youtu.be/YopfscyxtK0",
+     "Flexiones en pared o mesa": "https://youtu.be/mBv-_kaIzME",
+     "Flexiones de brazo en rodillas": "https://youtu.be/mBv-_kaIzME",
+     "Almeja": "https://youtu.be/9ayi-DrA98o",
+     "Bicho muerto con piernas": "https://youtu.be/kgG0lb4XfMQ",
+     "Estocada split con apoyo": "https://youtu.be/s7ewEzHwXgQ",
+     "Plancha en rodillas": "https://www.youtube.com/watch?v=qVnZtJGK4zY",
+     "Subida al escalón": "https://youtu.be/CMlvRdB7dIk",
+     "Plancha lateral en rodillas": "https://youtu.be/bxQgU1eK4dc",
+     "Bird dog con pausa": "https://youtu.be/kyNrWqz1iqs",
+     "Abducción de pierna de pie": "https://youtu.be/4C0pyUW9DaQ",
+     "Puente con exhalación": "https://youtu.be/YopfscyxtK0",
+    })
+    MATERIAL.update({
+     "Respiración 360°": "Colchoneta", "Activación de piso pélvico": "Silla", "Puente de glúteos": "Colchoneta",
+     "Flexiones en pared o mesa": "Pared o mesa", "Almeja": "Colchoneta", "Bicho muerto con piernas": "Colchoneta",
+     "Estocada split con apoyo": "Pared o silla", "Plancha en rodillas": "Colchoneta", "Subida al escalón": "Escalón",
+     "Plancha lateral en rodillas": "Colchoneta", "Flexiones de brazo en rodillas": "Colchoneta", "Bird dog con pausa": "Colchoneta",
+     "Abducción de pierna de pie": "Silla", "Puente con exhalación": "Colchoneta", "Sentadilla en copa": "1 mancuerna o tu bebé",
+     "Peso muerto con mancuernas": "2 mancuernas o botellas", "Bíceps con peso": "2 mancuernas o botellas",
+     "Vuelo posterior con peso": "2 mancuernas o botellas", "Remo inclinado": "Mancuerna y silla",
+    })
+    RESP = ("mama_respiracion.png", "Respiración 360°", "5 respiraciones", "Boca arriba con las rodillas flexionadas y las manos en las costillas. Inhalá abriendo las costillas y exhalá lento por la boca: la panza baja y el piso pélvico sube suavemente.")
+    CALOR_R = {
+     "1": [RESP, CALOR_EXTRA["gato"], C["Movilidad de cadera acostada"], C["Elevación de cadera"], C["Bird dog"]],
+     "2": [RESP, C["Movilidad de brazos"], CALOR_EXTRA["apertura"], C["Sentadilla lateral"], CALOR_EXTRA["psoas"]],
+     "3": [RESP, CALOR_EXTRA["circ"], CALOR_EXTRA["gato"], C["Abducción de pierna"], C["Elevación de cadera"]],
+    }
+    RUT = {
+    "1": dict(title="Rutina 1", note="Exhalá al hacer fuerza.", ex=[
+     ("pausa_sentadilla.png","Sentadilla a la silla","10–12","Parada delante de una silla, llevá la cadera hacia atrás hasta rozar el asiento y subí empujando el piso. Exhalá al subir.","sentate del todo en la silla y levantate."),
+     ("calor_5.png","Puente de glúteos","10–12","Boca arriba con las rodillas flexionadas. Exhalá, activá el piso pélvico y subí la cadera apretando los glúteos. Bajá lento mientras inhalás.","subí menos la cadera."),
+     ("r1_3.png","Flexiones en pared o mesa","8–12","Manos en una pared o una mesa firme y el cuerpo alineado. Bajá el pecho flexionando los codos y empujá para volver, exhalando.","más cerca de la pared, con menos inclinación."),
+     ("calor_6.png","Bird dog","8 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria sin mover la espalda. Sostené 2 segundos y volvé.","mové solo el brazo o solo la pierna."),
+     ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre una silla. Con la espalda recta, tirá del peso hacia la cadera exhalando y bajá lento.","con una botella de agua o sin peso."),
+     ("calor_4.png","Almeja","10–12 por lado","Acostada de costado, con las rodillas flexionadas y los pies juntos. Abrí la rodilla de arriba sin mover la cadera y cerrá lento.","menos apertura."),
+     ("core_bicho.png","Bicho muerto con piernas","6–8 por lado","Boca arriba, con las rodillas a 90°. Exhalá y bajá un talón hasta tocar el piso sin que se arquee la zona lumbar. Volvé y cambiá de pierna.","con los pies apoyados, deslizá un talón por el piso."),
+     ("pausa_talones.png","Elevación de talones","15","Tomada del respaldo de una silla, subí a puntas de pie y bajá lento.","con menos altura."),
+    ]),
+    "2": dict(title="Rutina 2", note="Exhalá al hacer fuerza. Plancha en rodillas: 15–20 s.", ex=[
+     ("r1_1.png","Sentadilla en copa","10–12","Pies al ancho de los hombros y una mancuerna contra el pecho. Llevá la cadera hacia atrás y abajo con el pecho alto, y subí exhalando.","sentadilla a la silla, sin peso."),
+     ("r1_2.png","Estocada split con apoyo","8–10 por pierna","Un pie adelante y otro atrás, con una mano en una pared o una silla. Bajá en vertical y subí empujando con la pierna de adelante.","bajá solo un poco."),
+     ("r1_7.png","Plancha en rodillas","15–20 s","Antebrazos y rodillas apoyados, el cuerpo en línea de las rodillas a los hombros. Respirá sin aguantar el aire.","con las manos en una mesa o en la pared."),
+     ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados juntando los omóplatos. Ayuda a la postura de cargar y amamantar.","sin peso."),
+     ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y un peso en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas y volvé apretando los glúteos.","con un palo de escoba, sin peso."),
+     ("r2_1.png","Subida al escalón","8–10 por pierna","Apoyá el pie completo en un escalón firme y subí empujando con esa pierna, exhalando. Bajá con control.","escalón más bajo y sosteniéndote de la pared."),
+     ("r3_2.png","Plancha lateral en rodillas","10–15 s por lado","De costado, apoyada en el antebrazo y con las rodillas flexionadas. Elevá la cadera y sostené el cuerpo alineado.","sostené 8 a 10 segundos."),
+     ("r3_6.png","Bíceps con peso","10–12","De pie, con los codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","con botellas de agua."),
+    ]),
+    "3": dict(title="Rutina 3", note="Exhalá al hacer fuerza. Plancha: 15–30 s.", ex=[
+     ("r3_3.png","Sentadilla sumo","10–12","Pies bien separados y las puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí exhalando y apretando los glúteos.","sin peso y con menos profundidad."),
+     ("r1_4.png","Puente a una pierna","8–10 por lado","Boca arriba, un pie apoyado y la otra pierna elevada. Exhalá y subí la cadera apretando el glúteo; bajá lento.","puente con los dos pies apoyados."),
+     ("r1_3.png","Flexiones de brazo en rodillas","8–10","Manos debajo de los hombros y las rodillas apoyadas, con el cuerpo alineado. Bajá el pecho y empujá exhalando.","flexiones en una mesa o en la pared."),
+     ("calor_6.png","Bird dog con pausa","8 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria y sostené 3 segundos sin mover la espalda.","mové solo el brazo o solo la pierna."),
+     ("r2_3.png","Sentadilla con press de hombros","10–12","Con un peso en cada mano a la altura de los hombros, hacé una sentadilla y, al subir, empujá los pesos hacia arriba exhalando.","sentadilla con botellas, sin el press."),
+     ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre una silla. Con la espalda recta, tirá del peso hacia la cadera exhalando y bajá lento.","con una botella de agua o sin peso."),
+     ("r1_7.png","Plancha prona","15–30 s","Empezá en rodillas. Cuando sostengas 30 segundos sin pérdidas y sin que la panza haga “carpa”, pasá a puntas de pie.","plancha en rodillas."),
+     ("calor_2.png","Abducción de pierna de pie","10–12 por lado","Tomada del respaldo de una silla, separá una pierna hacia el costado sin inclinar el tronco y volvé con control.","menos apertura."),
+    ]),
+    }
+
 VUELTAS = "3 vueltas (2 en la semana 1)" if FULL else "2 o 3 vueltas, según tu semana"
 for k, r in RUT.items():
     page(f"""
 <h1 class="h1 rt">{r["title"]}: <span class="t">cuerpo completo</span></h1>
-{block_head("ENTRADA EN CALOR", G("1 o 2 vueltas · 10–12 rep. · 20–30 s de pausa", "5–10 min de aeróbico y después 1 o 2 vueltas de movilidad · 20–30 s de pausa"))}
+{block_head("ENTRADA EN CALOR", G("1 o 2 vueltas · 10–12 rep. · 20–30 s de pausa", "5–10 min de aeróbico y después 1 o 2 vueltas de movilidad · 20–30 s de pausa", "1 vuelta · empezá siempre por la respiración · 20–30 s de pausa"))}
 {"".join(ex_card(*c, row=True) for c in CALOR_R[k])}
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}")
     page(f"""
@@ -720,6 +824,17 @@ PLAN8 = [
  ("7", "Consolidación", "R1 · R2 · R3",    "3",          "10–12 bajando en 3 s · 30 s",  "30–45 s", "7–8", "3 × 40 min"),
  ("8", "Consolidación", "R1 · R2 · R3",    "3 (+1 opcional)", "12 · 35–40 s",            "30–45 s", "7–8", "3 × 40 min"),
 ]
+if MAMA:   # mamás: arranca con una sola rutina y sube más despacio; aeróbico = caminata (con cochecito vale)
+    PLAN8 = [
+     ("1", "Reconexión", "R1",           "1 o 2", "8–10 · —",                "60 s",    "4–5", "3 × 15–20 min"),
+     ("2", "Reconexión", "R1 · R2",      "2",     "10 · 15 s",               "60 s",    "5",   "3 × 20 min"),
+     ("3", "Base",       "R1 · R2 · R3", "2",     "10–12 · 15–20 s",         "60 s",    "5–6", "3 × 20–30 min"),
+     ("4", "Base",       "R1 · R2 · R3", "2 o 3", "10–12 · 20 s",            "45–60 s", "6",   "3 × 30 min"),
+     ("5", "Base",       "R1 · R2 · R3", "3",     "12 · 20–25 s",            "45 s",    "6–7", "3 × 30 min"),
+     ("6", "Descarga",   "R1 · R2",      "2",     "10 · 20 s",               "60 s",    "5–6", "2 o 3 × 30 min"),
+     ("7", "Fuerza",     "R1 · R2 · R3", "3",     "10–12 con más peso · 25 s", "45 s",  "7",   "3 × 30–40 min"),
+     ("8", "Fuerza",     "R1 · R2 · R3", "3",     "12 · 30 s",               "45 s",    "7",   "3 × 30–40 min"),
+    ]
 PLAN8_DAYS = {
  "1": ["1","A","-","2","-","A","D"],
  "2": ["1","A","2","-","3","A","D"],
@@ -730,6 +845,8 @@ PLAN8_DAYS = {
  "7": ["1","A","2","A","3","A","D"],
  "8": ["1","A","2","A","3","A","D"],
 }
+if MAMA:
+    PLAN8_DAYS.update({"1": ["1","A","-","1","-","A","D"], "2": ["1","A","-","2","-","A","D"]})
 LEGEND = '<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>'
 GLOSARIO = [
  ("R1, R2, R3", "Rutina 1, Rutina 2 y Rutina 3. Están en el capítulo 04, con imagen y video de cada ejercicio."),
@@ -739,8 +856,8 @@ GLOSARIO = [
  ("Segundos", "Los ejercicios que se sostienen, como las planchas, se miden en segundos en vez de repeticiones."),
  ("Pausa", "Descanso entre un ejercicio y otro. Entre vueltas, 1 minuto; entre el bloque 1 y el 2, 2 minutos."),
  ("Esfuerzo", "Tu sensación de esfuerzo, de 1 (muy fácil) a 10 (no podrías hacer ni una repetición más). Un 7 es terminar sintiendo que podrías hacer 2 o 3 más."),
- ("Aeróbico (A)", "Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez."),
- ("Fase y descarga", "El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte."),
+ ("Aeróbico (A)", G("Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez.", "Caminar rápido, bicicleta, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. “2 × 30 min” es 2 veces por semana, 30 minutos cada vez.", "Caminar rápido (con el cochecito también vale), bicicleta fija, nadar o bailar, a un ritmo en el que podés hablar pero no cantar. Sin correr ni saltar durante este plan.")),
+ ("Fase y descarga", G("El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte.", "El plan tiene 3 fases. La semana 6 es de descarga: más liviana, para recuperarte.", "El plan tiene 3 fases: reconexión, base y fuerza. La semana 6 es de descarga: más liviana, para recuperarte.")),
 ]
 
 def plan8_table(rows):
@@ -761,13 +878,16 @@ if ENT:
 
     page(f'''
 {eyebrow("PLAN DE 8 SEMANAS")}
-<h1 class="h1">Semanas 1 a 4: <span class="t">base y construcción</span></h1>
-<div class="phases"><span><b>Fase 1 · Base</b> semanas 1–2</span><span><b>Fase 2 · Construcción</b> semanas 3–6</span><span><b>Fase 3 · Consolidación</b> semanas 7–8</span></div>
+<h1 class="h1">Semanas 1 a 4: <span class="t">{G("base y construcción", "base y construcción", "reconexión y base")}</span></h1>
+<div class="phases">{G('<span><b>Fase 1 · Base</b> semanas 1–2</span><span><b>Fase 2 · Construcción</b> semanas 3–6</span><span><b>Fase 3 · Consolidación</b> semanas 7–8</span>', '<span><b>Fase 1 · Base</b> semanas 1–2</span><span><b>Fase 2 · Construcción</b> semanas 3–6</span><span><b>Fase 3 · Consolidación</b> semanas 7–8</span>', '<span><b>Fase 1 · Reconexión</b> semanas 1–2</span><span><b>Fase 2 · Base</b> semanas 3–6</span><span><b>Fase 3 · Fuerza</b> semanas 7–8</span>')}</div>
 {plan8_table(PLAN8[:4])}
 <h3>Cómo progresar</h3>
 {ul(["<b>Semanas 1 y 2:</b> aprendé la técnica con 2 vueltas por bloque y esfuerzo moderado. Tenés que terminar con energía.",
      "<b>Semana 3:</b> pasás a 3 vueltas por bloque, con el mismo peso. Al final de la semana, <a href=\"#eval\">pesate y medí tu cintura</a>.",
-     "<b>Semana 4:</b> bajá la pausa a 45 s y subí las planchas a 25 s."])}
+     "<b>Semana 4:</b> bajá la pausa a 45 s y subí las planchas a 25 s."] if not MAMA else
+    ["<b>Semana 1:</b> solo la rutina 1, con 1 o 2 vueltas y sin planchas. Practicá la respiración todos los días. Tenés que terminar con energía.",
+     "<b>Semana 2:</b> sumás la rutina 2. Si no tenés pérdidas ni pesadez, probá la plancha en rodillas.",
+     "<b>Semanas 3 y 4:</b> sumás la rutina 3 y pasás a 2 o 3 vueltas. Al final de la semana 3, <a href=\"#eval\">medí tu cintura</a>."])}
 ''', chapter="03 · Plan de 8 semanas", pid="plan8t1")
 
     page(f'''
@@ -777,7 +897,7 @@ if ENT:
 <h3>Cómo progresar</h3>
 {ul(["<b>Semana 5:</b> sumá peso o pasá a la variante más difícil en los ejercicios donde ya llegás cómoda a 12 repeticiones.",
      "<b>Semana 6, de descarga:</b> 2 vueltas por bloque y esfuerzo 6. Al final, pesate y medí tu cintura.",
-     G("<b>Semanas 7 y 8:</b> en los ejercicios que lo indican, sumá dos mancuernas, una en cada mano. Los demás se hacen igual.", "<b>Semanas 7 y 8:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones."), "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
+     G("<b>Semanas 7 y 8:</b> en los ejercicios que lo indican, sumá dos mancuernas, una en cada mano. Los demás se hacen igual.", "<b>Semanas 7 y 8:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones.", "<b>Semanas 7 y 8:</b> subí el peso o pasá a la variante más difícil donde ya llegás cómoda a 12 repeticiones, siempre sin pérdidas ni pesadez."), "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y acortá la pausa a 30–45 s.",
      "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1. Cerrá pesándote y midiendo tu cintura."])}
 ''', chapter="03 · Plan de 8 semanas", pid="plan8w2")
 
@@ -819,7 +939,7 @@ if ENT:
 
     # ---------------------------------------------------------- CAP 5 SEMANAS CON POCO TIEMPO
     page(f'''
-{chap_head("05", 'Semanas con <span class="t">poco tiempo</span>', "Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.")}
+{chap_head("05", G('Semanas con <span class="t">poco tiempo</span>', 'Semanas con <span class="t">poco tiempo</span>', 'Días con poco tiempo <span class="t">(o poco sueño)</span>'), G("Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.", "Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.", "Hay semanas con noches cortas, bebé enfermo o mil cosas. Elegí una versión reducida: hacer menos, pero sostenido, suma más que intentar todo y abandonar."))}
 <table class="cal">
 {DAYS_HEAD}
 <tbody>
@@ -833,21 +953,23 @@ if ENT:
 <div class="minplan">
 <div><span>Fuerza</span><p>1 o 2 sesiones express de 15 minutos.</p></div>
 <div><span>Movimiento</span><p>Caminatas de 10 minutos; 3 en el día también suman.</p></div>
-<div><span>Recuperación</span><p>Mismo horario para levantarte y 30 minutos sin pantallas.</p></div>
+<div><span>{G("Recuperación", "Recuperación", "Descanso")}</span><p>{G("Mismo horario para levantarte y 30 minutos sin pantallas.", "Mismo horario para levantarte y 30 minutos sin pantallas.", "Dormí cuando puedas. Si dormiste muy poco, solo respiración y caminata.")}</p></div>
 <div><span>Registro</span><p>Un tilde por día en la planilla, aunque sea uno solo.</p></div>
 </div>
 <p class="small">Para los días con muy poco tiempo, usá la <a href="#express">sesión express de 15 minutos</a>.</p>
-''', chapter="05 · Semanas con poco tiempo", pid="cap5e", toc="05 · Semanas con poco tiempo")
+''', chapter=G("05 · Semanas con poco tiempo", "05 · Semanas con poco tiempo", "05 · Días con poco tiempo"), pid="cap5e", toc=G("05 · Semanas con poco tiempo", "05 · Semanas con poco tiempo", "05 · Días con poco tiempo"))
 
     EXPRESS = ({"Prensa", "Press de pecho en máquina", "Remo en máquina", "Plancha prona"} if GYM else
+               {"Sentadilla en copa", "Puente de glúteos", "Remo inclinado", "Plancha en rodillas"} if MAMA else
                {"Sentadilla en copa", "Flexiones de brazo", "Remo inclinado", "Plancha prona"})
-    exp_cards = [ex_card(e[0], e[1], "40 s", e[3], row=True) for r in RUT.values() for e in r["ex"] if e[1] in EXPRESS]
+    exp_ex = list({e[1]: e for r in RUT.values() for e in r["ex"] if e[1] in EXPRESS}.values())   # sin repetidos
+    exp_cards = [ex_card(e[0], e[1], "40 s", e[3], row=True) for e in exp_ex]
     page(f'''
-<h1 class="h1">Sesión express de <span class="t">15 minutos</span></h1>
+<h1 class="h1">Sesión express de <span class="t">15 minutos</span>{" (en la siesta)" if MAMA else ""}</h1>
 {params([("Vueltas","3"),("Trabajo","40 s por ejercicio"),("Pausa","20 s · 1 min entre vueltas"),("Duración","15 min")])}
-<p class="small">Antes, {G("2 minutos de movilidad de brazos y sentadilla lateral", "3 minutos de cinta o bici y movilidad de brazos")}. Usá la variante y el peso de tu semana del plan.</p>
+<p class="small">Antes, {G("2 minutos de movilidad de brazos y sentadilla lateral", "3 minutos de cinta o bici y movilidad de brazos", "1 minuto de respiración 360° y movilidad de brazos")}. Usá la variante y el peso de tu semana del plan.</p>
 {"".join(exp_cards)}
-''', chapter="05 · Semanas con poco tiempo", pid="express")
+''', chapter=G("05 · Semanas con poco tiempo", "05 · Semanas con poco tiempo", "05 · Días con poco tiempo"), pid="express")
 
     # ---------------------------------------------------------- CAP 6 ACTIVA EN EL TRABAJO
     PAUSA = [
@@ -859,12 +981,12 @@ if ENT:
      ("elong_6.png","Estiramiento de pecho en pared","20 s por lado","Apoyá el antebrazo en una pared o en el marco de una puerta y girá suavemente el cuerpo hacia el lado contrario."),
     ]
     page(f'''
-{chap_head("06", 'Activa en <span class="t">el trabajo</span>', "Pasar muchas horas sentada también cuenta. Una pausa activa de 5 minutos por día y algunos hábitos simples te ayudan a moverte más, aunque no sea día de entrenamiento.")}
+{chap_head("06", G('Activa en <span class="t">el trabajo</span>', 'Activa en <span class="t">el trabajo</span>', 'Pausa <span class="t">activa</span>'), G("Pasar muchas horas sentada también cuenta. Una pausa activa de 5 minutos por día y algunos hábitos simples te ayudan a moverte más, aunque no sea día de entrenamiento.", "Pasar muchas horas sentada también cuenta. Una pausa activa de 5 minutos por día y algunos hábitos simples te ayudan a moverte más, aunque no sea día de entrenamiento.", "Amamantar, cargar, cambiar pañales o trabajar en la compu te dejan muchas horas sentada o inclinada hacia adelante. Una pausa activa de 5 minutos por día alivia el cuello y la espalda, aunque no sea día de entrenamiento."))}
 <h2>Rutina de pausa activa</h2>
-{params([("Cuándo","1 vez al día"),("Vueltas","1 o 2"),("Dónde","En tu lugar de trabajo"),("Duración","5 minutos")])}
-<p class="small">Hacé los ejercicios en orden, sin pausa entre ellos. No necesitás cambiarte de ropa: alcanza con una silla firme y una pared.</p>
+{params([("Cuándo","1 vez al día"),("Vueltas","1 o 2"),("Dónde",G("En tu lugar de trabajo", "En tu lugar de trabajo", "En casa o en el trabajo")),("Duración","5 minutos")])}
+<p class="small">Hacé los ejercicios en orden, sin pausa entre ellos. No necesitás cambiarte de ropa: alcanza con una silla firme y una pared.{" Un buen momento: después de amamantar o mientras el bebé duerme." if MAMA else ""}</p>
 {"".join(ex_card(*e) for e in PAUSA)}
-''', chapter="06 · Activa en el trabajo", pid="pausa", toc="06 · Activa en el trabajo")
+''', chapter=G("06 · Activa en el trabajo", "06 · Activa en el trabajo", "06 · Pausa activa"), pid="pausa", toc=G("06 · Activa en el trabajo", "06 · Activa en el trabajo", "06 · Pausa activa"))
 
     TIPS_DIA = [
      ("Cada 2 horas, caminá", "Levantate y caminá 3 a 5 minutos: al baño más lejano, a buscar agua o por el pasillo."),
@@ -878,14 +1000,38 @@ if ENT:
      ("Ordená tu puesto de trabajo", "Pantalla a la altura de los ojos, pies apoyados y la espalda contra el respaldo."),
      ("Luz natural a la mañana", "Unos minutos de sol al empezar el día te ayudan a tener más energía y a dormir mejor."),
     ]
+    if MAMA:
+        TIPS_DIA = [
+         ("Amamantá con la espalda apoyada", "Usá almohadones para acercar el bebé a vos, no vos al bebé. Hombros sueltos y pies apoyados."),
+         ("Levantá al bebé con las piernas", "Flexioná las rodillas, acercalo a tu cuerpo y subí exhalando, como en la sentadilla."),
+         ("Exhalá al hacer fuerza", "Al levantar el huevito, el cochecito o las bolsas, soltá el aire. No aguantes la respiración."),
+         ("Alterná el lado", "Cambiá de brazo y de cadera al cargar al bebé, para no sobrecargar siempre el mismo lado."),
+         ("Caminá con el cochecito", "20 a 30 minutos a paso ágil cuentan como aeróbico. Si usás mochila o fular, que quede alta y ajustada."),
+         ("Piso pélvico en los ratos muertos", "Mientras amamantás o esperás que hierva el agua: 5 activaciones de piso pélvico."),
+         ("Tomá agua", "Una botella a la vista. Si das la teta, un vaso cada vez que amamantás."),
+         ("Dormí cuando puedas", "Una siesta de 20 minutos también suma. Entrenar no debería quitarte horas de sueño."),
+         ("Movete con tu bebé", "Bailar con él en brazos, jugar en el piso o subir escaleras también es movimiento."),
+         ("Pedí ayuda", "Delegá una tarea para tener tus 20 minutos. Cuidarte también es cuidar a tu familia."),
+        ]
     page(f'''
-{eyebrow("ACTIVA EN EL TRABAJO")}
+{eyebrow(G("ACTIVA EN EL TRABAJO", "ACTIVA EN EL TRABAJO", "PAUSA ACTIVA"))}
 <h1 class="h1">10 recomendaciones <span class="t">para tu día</span></h1>
 <p class="lead">No hace falta hacerlas todas desde el primer día: elegí 2 o 3, sostenelas una semana y sumá otra.</p>
 <div class="tips10">
 {"".join(f'<div><span>{i:02d}</span><h3>{t}</h3><p>{d}</p></div>' for i, (t, d) in enumerate(TIPS_DIA, 1))}
 </div>
-''', chapter="06 · Activa en el trabajo", pid="tips10")
+''', chapter=G("06 · Activa en el trabajo", "06 · Activa en el trabajo", "06 · Pausa activa"), pid="tips10")
+
+    if MAMA:
+        page(f'''
+{eyebrow("PAUSA ACTIVA")}
+<h1 class="h1">Entrená con <span class="t">tu bebé</span></h1>
+<p class="lead">Cuando no tenés con quién dejarlo, sumalo al entrenamiento. Solo cuando ya sostiene bien la cabeza (alrededor de los 4 meses) y vos ya dominás el ejercicio sin peso.</p>
+{ex_card("mama_sentadilla_bebe.png", "Sentadilla con tu bebé", "8–10", "Con el bebé contra tu pecho y bien sostenido con los dos brazos. Bajá llevando la cadera hacia atrás y subí exhalando.", "sin bebé, con una mochila liviana.", easy_label="Si te cuesta", row=True)}
+{ex_card("mama_puente_bebe.png", "Puente con tu bebé", "8–10", "Boca arriba, con el bebé sentado sobre tu cadera y sostenido con las dos manos. Exhalá y subí la cadera despacio; bajá lento.", "sin bebé, con las manos en el piso.", easy_label="Si te cuesta", row=True)}
+{ex_card("mama_cochecito.png", "Caminata con cochecito", "20–30 min", "A paso ágil, con los brazos cerca del cuerpo y la espalda derecha. Cuenta como aeróbico del plan.", "empezá con 10 minutos y sumá 5 por semana.", easy_label="Para arrancar", row=True)}
+{box("<b>Siempre:</b> movimientos lentos y controlados, el bebé pegado a tu cuerpo y nada de saltos ni giros bruscos. Si está inquieto, frená: otro día sigue.", "note")}
+''', chapter="06 · Pausa activa", pid="bebe", toc="Entrená con tu bebé")
 
     # ---------------------------------------------------------- CAP 6 REGISTRO
     def week_table(n):
@@ -898,6 +1044,7 @@ if ENT:
 ''', chapter="07 · Registro de evolución", pid="registro", toc="07 · Registro de evolución")
 
     LOADS = (["Prensa","Press de pecho en máquina","Remo en máquina","Jalón al pecho","Peso muerto con mancuernas","Estocada split con mancuernas","Sentadilla en copa","Hip thrust","Press de hombros en máquina","Plancha prona (segundos)"] if GYM else
+             ["Sentadilla en copa","Puente de glúteos","Estocada split con apoyo","Remo inclinado","Peso muerto con mancuernas","Sentadilla sumo","Sentadilla con press de hombros","Bíceps con peso","Plancha (segundos)","Piso pélvico (segundos)"] if MAMA else
              ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto con mancuernas","Bíceps con peso","Plancha prona (segundos)"])
     page(f'''
 {eyebrow("REGISTRO DE EVOLUCIÓN")}
@@ -907,7 +1054,7 @@ if ENT:
 <tbody>{"".join(f"<tr><th>{e}</th>" + "<td></td>"*8 + "</tr>" for e in LOADS)}</tbody></table>
 <h3 class="wk">Cómo me sentí</h3>
 <table class="track feel"><thead><tr><th></th>{"".join(f"<th>S{n}</th>" for n in range(1, 9))}</tr></thead>
-<tbody>{"".join(f"<tr><th>{t}</th>" + "<td></td>"*8 + "</tr>" for t in ["Energía general (1 a 5)","Esfuerzo promedio (1 a 10)","Cómo dormí (1 a 5)"])}</tbody></table>
+<tbody>{"".join(f"<tr><th>{t}</th>" + "<td></td>"*8 + "</tr>" for t in ["Energía general (1 a 5)","Esfuerzo promedio (1 a 10)","Cómo dormí (1 a 5)"] + (["Pérdidas o pesadez (sí / no)"] if MAMA else []))}</tbody></table>
 ''', chapter="07 · Registro de evolución", pid="cargas")
 
     # ---------------------------------------------------------- CAP 7 DESPUÉS DE LAS 8 SEMANAS
@@ -925,18 +1072,17 @@ if ENT:
 {ul(["Volvé en la próxima oportunidad, no “el lunes”.","Empezá con la mitad: 2 vueltas y un escalón menos.","No compenses con ejercicio extra ni comiendo menos."])}
 </div>
 <div>
-<h3>Cuándo pedir ayuda</h3>
-<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
+<h3>Si tenés una lesión o una molestia</h3>
+<p>Si aparece un dolor que no se va o tenés una condición médica, consultá con un profesional de la salud antes de seguir subiendo la exigencia.</p>
 </div>
 </div>
 <div class="ctapanel cta-plan">
-  <p class="ctatitle">Seguí avanzando con un plan a tu medida</p>
-  <p class="center">Consultanos para avanzar de manera personalizada y seguir potenciando tus resultados. ¡Hacé clic y consultá por tu próximo plan!</p>
-  {button("CONSULTÁ DIRECTO CON NACHO", "wa_plan", "", big=True)}
-  <p class="off">Recordá: todos los que vienen del ebook tienen <b>50% off</b> en sus rutinas personalizadas.</p>
+  <p class="ctatitle">Seguí en la comunidad RENOVA</p>
+  <p class="center">Entrá a la comunidad: ahí están los cursos y talleres del equipo y, si querés, podés compartir tu proceso con otras mujeres que están entrenando como vos.</p>
+  {button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}
 </div>
+{box("<b>¿Cuándo volver a correr o saltar?</b> Son ejercicios de impacto. Las guías para volver a correr después del parto sugieren esperar al menos 12 semanas y hacerlo cuando no tenés pérdidas, pesadez ni dolor, idealmente después de una evaluación de piso pélvico. Empezá alternando caminata y trote suave.", "note") if MAMA else ""}
 {box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus.", "soft")}
-<div class="cta-center">{button("CONSULTÁ POR UN PLAN NUTRICIONAL A MEDIDA", "wa_nutricion", "")}</div>
 ''', chapter="08 · Después de las 8 semanas", pid="cap7e", toc="08 · Después de las 8 semanas")
 
     # ---------------------------------------------------------- EXTRA: ZONA MEDIA
@@ -952,10 +1098,14 @@ if ENT:
      ("core_cruzados.png","Abdominales cruzados","6–12 por lado","Boca arriba con las rodillas flexionadas y las manos detrás de la cabeza. Despegá la espalda alta y llevá el codo hacia la rodilla contraria, sin tirar del cuello.",
       "<b>S1–2:</b> 6 por lado. <b>S3–4:</b> 8 por lado. <b>S5–8:</b> 10–12 por lado, bajando lento."),
     ]
+    if MAMA:   # sin abdominales cruzados: después del embarazo se reemplazan por un puente con exhalación
+        CORE = CORE[:4] + [("calor_5.png","Puente con exhalación","8–12","Boca arriba con las rodillas flexionadas. Inhalá abajo; al exhalar, activá el piso pélvico, subí la cadera y sostené 3 segundos. Bajá lento.",
+          "<b>S1–2:</b> 8, sin sostener. <b>S3–4:</b> 10, sosteniendo 3 s. <b>S5–8:</b> 12, sosteniendo 5 s.")]
+        CORE[1] = CORE[1][:4] + ("<b>S1:</b> todavía no. <b>S2–4:</b> rodillas apoyadas, 10–20 s. <b>S5–6:</b> rodillas, 25–30 s. <b>S7–8:</b> completa, 15–20 s, si no hay pérdidas ni “carpa”.",)
     page(f'''
 {eyebrow("EXTRA")}
 <h1 class="h1">Rutina de <span class="t">zona media</span></h1>
-<p class="lead">Cinco ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.</p>
+<p class="lead">{G("Cinco ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.", "Cinco ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.", "Cinco ejercicios para recuperar la fuerza del abdomen y la espalda baja después del embarazo, sin abdominales clásicos. Empezá siempre exhalando.")}</p>
 {params([("Cuándo","2 o 3 veces por semana"),("Vueltas","2 (3 desde la semana 5)"),("Pausa","30 s entre ejercicios"),("Duración","8–10 min")])}
 <p class="small">Hacela al terminar el bloque 2, antes de elongar, o en un día de aeróbico.</p>
 {"".join(ex_card(*c[:4], easy=c[4], easy_label="Cómo avanzar") for c in CORE)}
@@ -1385,9 +1535,9 @@ if ENT:   # carátula que separa el entrenamiento de los bonus
   <div class="dv-list">
     <a href="#talleres"><span>1</span><b>Dos talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
     <a href="#cap6"><span>2</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>
-    <a href="{esc(LINKS["wa_nutricion"])}"><span>3</span><b>Consulta con Nacho</b><em>WhatsApp</em></a>
+    <a href="#bonus"><span>3</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
   </div>
-  <a class="btn btn-big dv-btn" href="{esc(LINKS["wa_nutricion"])}">CONSULTÁ POR PLANES NUTRICIONALES A MEDIDA {ICON_ARROW}</a>
+  <a class="btn btn-big dv-btn" href="{esc(LINKS["comunidad"])}">ENTRÁ A LA COMUNIDAD RENOVA {ICON_ARROW}</a>
 </div>
 ''', pid="bonus-portada", cls="p-cover", header=False)
 
@@ -1396,15 +1546,15 @@ if ENT:
     page(f'''
 {eyebrow("BONUS 1 · INCLUIDO")}
 <h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
-<p class="lead">Los talleres se ven en la plataforma de RENOVA, en Skool. Ahí tenés estos dos y todos los talleres del equipo.</p>
+<p class="lead">Los talleres se ven en la comunidad RENOVA, en Skool. Ahí tenés estos dos y los cursos del equipo.</p>
 <div class="tk2">
   <div><img src="img/taller_heladera.png" alt=""><span class="wtag">INCLUIDO</span><h3>Organizar la heladera</h3><p>Guardar, porcionar y ordenar para tener siempre opciones sanas a mano.</p></div>
   <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
 </div>
 <a class="skool" href="{esc(LINKS["talleres"])}">
   <img src="img/equipo_cover.jpg" alt="Equipo RENOVA">
-  <div class="skx"><span class="wtag">PLATAFORMA RENOVA · SKOOL</span><h3>Entrá y mirá todos los talleres</h3>
-  <p>Tocá el botón: se abre la plataforma de RENOVA en Skool, con todos los talleres del equipo.</p>
+  <div class="skx"><span class="wtag">COMUNIDAD RENOVA · SKOOL</span><h3>Entrá y mirá todos los talleres</h3>
+  <p>Tocá el botón: se abre la comunidad RENOVA en Skool, con los cursos y talleres del equipo.</p>
   <span class="btn btn-big">{ICON_ARROW} IR A LOS TALLERES</span></div>
 </a>
 ''', chapter="Bonus 1 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 1: Talleres RENOVA")
@@ -1546,8 +1696,8 @@ if FULL:
 <div>
 <h3>Cómo retomar</h3>
 {ul(["Volvé en la próxima oportunidad, no “el lunes”.","Empezá con la mitad: 2 vueltas y comidas simples.","No compenses con ejercicio extra ni comiendo menos."])}
-<h3>Cuándo pedir ayuda</h3>
-<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
+<h3>Si tenés una lesión o una condición médica</h3>
+<p>Consultá con un profesional de la salud antes de seguir subiendo la exigencia.</p>
 </div>
 </div>
 <h2>Tu plan mínimo para semanas difíciles</h2>
@@ -1598,23 +1748,23 @@ if FULL:
 page(f'''
 <div class="bonus">
 {eyebrow("BONUS EXCLUSIVO" if FULL else "BONUS 3 · INCLUIDO")}
-<h1 class="h1 big">Consulta personalizada <span class="t">con Nacho</span></h1>
-<p class="lead">Como complemento de esta guía, podés acceder a una consulta personalizada con Nacho para conversar sobre tus objetivos, revisar tus principales dificultades y orientar tus próximos pasos.{" Y si seguís con un plan personalizado, por venir del ebook tenés 50% off." if ENT else ""}</p>
+<h1 class="h1 big">Comunidad <span class="t">RENOVA</span></h1>
+<p class="lead">Con este ebook tenés acceso a la comunidad RENOVA en Skool: el lugar donde están los cursos y talleres del equipo, y donde podés encontrarte con otras mujeres que están haciendo el mismo camino.</p>
 <div class="cols2">
-<div><h3>En la consulta vas a poder</h3>
-{checks(["Contar tus objetivos y tu situación actual.","Revisar qué te está costando sostener.","Definir los próximos pasos con más claridad."])}
+<div><h3>En la comunidad vas a poder</h3>
+{checks(["Ver los cursos y talleres del equipo RENOVA.","Compartir tu proceso y tus logros, si querés.","Leer cómo lo resuelven otras mujeres con poco tiempo."])}
 </div>
 <div><h3>Para aprovecharla</h3>
-{checks(["Completá antes un par de semanas de la planilla de seguimiento.","Anotá tus preguntas.","Tené a mano tu agenda semanal."])}
+{checks(["Entrá una vez por semana, aunque sea un rato.","Contá en qué semana del plan estás.","Participar es opcional: usala como te sirva."])}
 </div>
 </div>
 <div class="ctapanel">
-  <p class="ctatitle">Reservá tu lugar</p>
-  <p class="small center">Elegí el día y el horario que mejor te queden.</p>
-  {button("RESERVAR MI CONSULTA CON NACHO", "consulta", "[INSERTAR LINK REAL DE RESERVA DE CONSULTA]", big=True)}
+  <p class="ctatitle">Entrá ahora</p>
+  <p class="small center">Tocá el botón y se abre la comunidad RENOVA en Skool.</p>
+  {button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}
 </div>
 </div>
-''', chapter="Bonus" if FULL else "Bonus 3 · Consulta", pid="bonus", cls="p-spread", toc="Bonus: consulta con Nacho" if FULL else "Bonus 3: Consulta con Nacho")
+''', chapter="Bonus" if FULL else "Bonus 3 · Comunidad", pid="bonus", cls="p-spread", toc="Bonus: comunidad RENOVA" if FULL else "Bonus 3: Comunidad RENOVA")
 
 # ================================================================== FUENTES
 
@@ -1635,7 +1785,7 @@ if ENT:
   </div>
   <div class="what">
     <h2>¿Qué es <span class="t">Programa RENOVA</span>?</h2>
-    <p>Es el programa de acompañamiento que creamos con el equipo para mujeres: entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, psicología y hábitos, con un enfoque en el ámbito hormonal.</p>
+    <p>Es el método que creamos con el equipo para mujeres: entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, psicología y hábitos, con un enfoque en el ámbito hormonal.</p>
   </div>
   <div class="quote dark">En este ebook vamos a trabajar el pilar del entrenamiento, con bonus incluidos. <span class="t2">¡Seguimos!</span></div>
 </div>
@@ -1646,11 +1796,11 @@ if ENT:
   {eyebrow("MÉTODO RENOVA")}
   <h1 class="h1 big">Método <span class="t">RENOVA</span></h1>
   <div class="team-big"><img src="{LINKS["foto_equipo"]}" alt="Equipo RENOVA"></div>
-  <p>En RENOVA acompañamos a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
-  <p>Un equipo completo trabaja con vos: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
+  <p>En RENOVA ayudamos a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
+  <p>Detrás del método hay un equipo completo: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
   <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Hábitos</span><span>Salud hormonal</span></div>
   <div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>
-  <div class="cta-center">{button("QUIERO SUMARME A RENOVA", "renova", "", big=True)}</div>
+  <div class="cta-center">{button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}</div>
 </div>
 ''', chapter="Método RENOVA", pid="metodo", toc="Método RENOVA")
 
@@ -1669,21 +1819,21 @@ if FULL:
   </div>
   <div class="what">
     <h2>¿Qué es <span class="t">Programa RENOVA</span>?</h2>
-    <p>PROGRAMA RENOVA es un programa de acompañamiento que integra entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, descanso y gestión de hábitos para ayudarte a mejorar tu composición corporal y construir una rutina sostenible.</p>
+    <p>PROGRAMA RENOVA es un método que integra entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, descanso y gestión de hábitos para ayudarte a mejorar tu composición corporal y construir una rutina sostenible.</p>
     <p>No se trata de seguir una dieta extrema ni de entrenar sin estrategia. Se trata de organizar un proceso, aprender a tomar mejores decisiones y contar con herramientas que puedas mantener en el tiempo.</p>
     <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Descanso</span><span>Hábitos</span></div>
   </div>
   <div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>
-  <div class="cta-center">{button("CONOCÉ PROGRAMA RENOVA", "renova", "[INSERTAR LINK OFICIAL DE PROGRAMA RENOVA]", big=True)}</div>
+  <div class="cta-center">{button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}</div>
 </div>
 ''', chapter="Quién soy", pid="bio", toc="Quién soy y qué es RENOVA")
 
 # ------------------------------------------------------------------ ENSAMBLADO
 CSS = ds_css(HERE) + "\n" + open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
 
-BRAND = "PROGRAMA <b>RENOVA</b>" if FULL else G("ENTRENÁ DESDE CASA", "ENTRENÁ EN EL GIMNASIO") + " · <b>RENOVA</b>"
-TITLE = "Programa RENOVA · Guía práctica" if FULL else G("Entrená desde casa", "Entrená en el gimnasio") + " · RENOVA"
-OUT_HTML = "ebook.html" if FULL else G("entrena.html", "gimnasio.html")
+BRAND = "PROGRAMA <b>RENOVA</b>" if FULL else G("ENTRENÁ DESDE CASA", "ENTRENÁ EN EL GIMNASIO", "ENTRENÁ SIENDO MAMÁ") + " · <b>RENOVA</b>"
+TITLE = "Programa RENOVA · Guía práctica" if FULL else G("Entrená desde casa", "Entrená en el gimnasio", "Entrená siendo mamá") + " · RENOVA"
+OUT_HTML = "ebook.html" if FULL else G("entrena.html", "gimnasio.html", "mamas.html")
 
 def render():
     if ENT:
@@ -1696,6 +1846,8 @@ def render():
         move(["plan8", "cap2c", "plan8t1", "plan8w2", "plan8b", "plan8c"], "cap2")   # plan antes de las rutinas
         move(["core"], "elong")                                                     # zona media después de la rutina 3
         move(["bio"], "bienvenida")                                                 # "Quién soy", segunda página
+        if MAMA:
+            move(["antes", "antes2", "base-mama"], "eval")                          # capítulo 02: antes de empezar
     order = {p["id"]: i for i, p in enumerate(PAGES)}
     TOC.sort(key=lambda t: order[t[1]])
     num = {p["id"]: i + 1 for i, p in enumerate(PAGES)}

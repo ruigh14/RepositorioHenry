@@ -14,6 +14,8 @@ entrena-desde-casa/          Ebook 1
   Ebook_Entrena_desde_casa_RENOVA.pdf
 entrena-en-el-gimnasio/      Ebook 2: misma lógica, rutinas de gimnasio nivel inicial
   Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
+entrena-siendo-mama/         Ebook 3: mamás que vuelven a entrenar (respiración, piso pélvico, sin impacto) + pausa activa
+  Ebook_Entrena_siendo_mama_RENOVA.pdf
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
   Ebook_Programa_RENOVA.pdf
 investigacion/               material de referencia (VSL del competidor, etc.)
@@ -31,7 +33,7 @@ Cada ebook tiene además `creativos/` (imágenes, carrusel y videos para Instagr
 Una sola marca para todo: **los colores son los del ebook** y landings, creativos y videos usan exactamente esa paleta (nada de colores sueltos: si hace falta uno, se agrega como token). `tokens.css` es la fuente única; el ebook y las landings usan alias que apuntan a los tokens. `design_system.py` tiene `css()`, los íconos, los componentes del ebook y las reglas de venta (`DESCARGO`, `GARANTIA = None` hasta que Nacho la defina). `creativos/datos.py` tiene los textos de los creativos de cada producto. Todo está explicado en `fuentes/design-system/README.md`; la muestra visual es `muestra.pdf`.
 
 ### `fuentes/ebook/`
-- `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio). Tres ediciones: `completo`, `entrena` (casa) y `gimnasio` (`GYM`; los textos que cambian entre casa y gimnasio usan `G(casa, gym)`; rutinas armadas a partir de las de gimnasio de Nacho en Harbiz, ilustraciones `img/gym_*.png` de Canva).
+- `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio). Cuatro ediciones: `completo`, `entrena` (casa), `gimnasio` y `mamas` (`GYM`; los textos que cambian entre casa y gimnasio usan `G(casa, gym)`; rutinas armadas a partir de las de gimnasio de Nacho en Harbiz, ilustraciones `img/gym_*.png` de Canva). En `mamas` los textos que cambian van como tercer argumento: `G(casa, gym, mama)`; tiene capítulo 02 "Antes de empezar" (alta médica, señales para frenar, diástasis, respiración y piso pélvico), rutinas sin saltos ni abdominales clásicos, "Entrená con tu bebé" e ilustraciones `img/mama_*.png` de Canva.
 - `ebook.html`, `entrena.html`, `gimnasio.html`: HTML intermedio que genera `build.py` (no editar).
 - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright a la carpeta del producto.
 - `img/`: fotos, ilustraciones, recetas y testimonios. Las tipografías están en `fuentes/design-system/fonts/`.
@@ -48,6 +50,7 @@ Una sola marca para todo: **los colores son los del ebook** y landings, creativo
 ```
 cd fuentes/ebook && python3 build.py entrena && node export.js entrena     # Entrená desde casa
 cd fuentes/ebook && python3 build.py gimnasio && node export.js gimnasio   # Entrená en el gimnasio
+cd fuentes/ebook && python3 build.py mamas && node export.js mamas         # Entrená siendo mamá
 cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
 cd fuentes/landing && python3 build.py                                     # la landing de la tienda
 cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
@@ -57,6 +60,8 @@ cd fuentes/design-system && python3 muestra.py && node muestra.js           # mu
 El ebook debe imprimir `OVERFLOW []` (sin páginas con texto cortado). Para revisar el texto de un PDF: `pdftotext -layout <pdf> /tmp/x.txt`.
 
 ## Estrategia de producto
+
+- **No hay consulta ni acompañamiento personalizado** (ni 50% off en planes): no ofrecerlo en ningún lado. El bonus 3 es el **acceso a la comunidad RENOVA en Skool**, donde ven los cursos y talleres y, si quieren, interactúan con otras mujeres. WhatsApp solo para problemas con la compra.
 
 - Ebook 1 (solo entrenamiento) es el producto de entrada; alimentación (menús, compras) y descanso quedan para ebooks de upsell.
 - El equipo incluye **médico deportólogo** (medicina deportiva): mantenerlo en ambas ediciones.
@@ -77,6 +82,8 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 3. Preguntar con qué sigue.
 
 ## Pendientes
+
+- Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
 
 - Ebook gimnasio: que Nacho revise las rutinas y diga si cambia algún ejercicio.
 - Landing de la tienda: pegarla en Impultienda, revisar que reemplace precios y que el upsell sume al carrito, y cargar los 2 PDF en el producto (casa + gimnasio). Si Nacho prefiere vender el de gimnasio como upsell, cambiar en `tienda.html`.
