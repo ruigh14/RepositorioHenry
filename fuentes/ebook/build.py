@@ -142,7 +142,7 @@ if ENT:
   </div>
 </div>
 {box('<b>Antes de empezar.</b> Necesitás el alta médica. Si tenés pérdidas, dolor o la panza hace “carpa”, frená y usá la variante más fácil.' if MAMA else '<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená. Si tenés una lesión o una condición médica, consultá con un profesional antes de empezar.', "note")}
-{'' if MAMA else '<p class="small"><b>Semana 1:</b> hacé la Rutina 1 y la Rutina 2, con 2 vueltas por bloque. Desde la semana 2, seguí <a href="#plan8t1">tu plan de 8 semanas</a> (página <span class="pref" data-ref="plan8t1"></span>).</p>'}
+{'' if MAMA else '<p class="small"><b>Semana 1:</b> hacé la Rutina 1 y la Rutina 2, con 2 vueltas por bloque y al menos un día (48 h) entre una y otra. Desde la semana 2, seguí <a href="#plan8t1">tu plan de 8 semanas</a> (página <span class="pref" data-ref="plan8t1"></span>).</p>'}
 <p class="small"><b>¿Querés ver tu progreso?</b> Medí tu cintura antes de la primera rutina: está explicado en <a href="#eval">Medí tu progreso</a> (página <span class="pref" data-ref="eval"></span>).</p>
 ''', chapter="Bienvenida", pid="bienvenida")
 
@@ -845,6 +845,7 @@ SEMANA_TIPO = ["1","A","2","-","3","A","D"]
 if ENT:
     page(f'''
 {chap_head("01", 'Cómo se hace <span class="t">cada rutina</span>', "Leé esta hoja una vez y ya podés empezar.")}
+{'' if MAMA else '<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales de la perimenopausia y la menopausia se pierde músculo y densidad ósea más rápido. El entrenamiento de fuerza es la herramienta con más respaldo para cuidar los dos y sostener tu metabolismo.</p>'}
 <div class="steps steps4">
   <div class="step"><span>1</span><b>Entrada en calor</b><p>{G("5 a 10 min", "10 a 15 min", "5 min, con respiración")}</p></div>
   <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
@@ -855,12 +856,11 @@ if ENT:
 {ul(["Hacé los 4 ejercicios seguidos: eso es <b>una vuelta</b>. Repetí las vueltas que indica tu semana.",
      "Pausas: 30 a 60 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.",
      "Las planchas se hacen por segundos. Cada ejercicio tiene imagen, video y una variante más fácil."])}
-<h3>Con qué esfuerzo: terminá sintiendo que podrías hacer 2 o 3 más</h3>
-<div class="rpe">
+{'<h3>Con qué esfuerzo: terminá sintiendo que podrías hacer 2 o 3 más</h3>' + '''<div class="rpe">
   <div><b>1–4</b><span>Muy fácil</span><p>Podrías seguir mucho tiempo.</p></div>
   <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>
   <div><b>9–10</b><span>Máximo</span><p>No podrías hacer una más.</p></div>
-</div>
+</div>''' if MAMA else '<h3>Con qué esfuerzo y con qué peso</h3><p>Terminá cada vuelta sintiendo que podrías hacer 2 o 3 repeticiones más: un 6 a 7 de 10. ' + G('Elegí el peso', 'Elegí el peso de cada máquina') + ' con ese criterio desde la primera semana.</p>'}
 <h3>Cuándo subir de nivel</h3>
 <p>Cuando hacés 12 repeticiones en todas las vueltas con esfuerzo 7 o menos, dos sesiones seguidas: {G("pasá a la variante más difícil o sumá peso.", "subí una placa en la máquina o 1 kg en las mancuernas.", "pasá a la variante más difícil o sumá peso, siempre sin pérdidas ni pesadez.")} Si algo duele, volvé a la variante más fácil.</p>
 ''', pid="como")
@@ -916,7 +916,7 @@ if ENT:
 <div><span>{G("Recuperación", "Recuperación", "Descanso")}</span><p>{G("Mismo horario para levantarte y 30 minutos sin pantallas.", "Mismo horario para levantarte y 30 minutos sin pantallas.", "Dormí cuando puedas. Si dormiste muy poco, solo respiración y caminata.")}</p></div>
 <div><span>Registro</span><p>Un tilde por día en la planilla, aunque sea uno solo.</p></div>
 </div>
-<p class="small">Para los días con muy poco tiempo, usá la <a href="#express">sesión express de 15 minutos</a>.</p>
+{'<p class="small">Para los días con muy poco tiempo, usá la <a href="#express">sesión express de 15 minutos</a>.</p>' if MAMA else '<p class="small"><b>¿Tu rutina diaria es muy irregular o tenés dudas para adaptarla?</b> Escribile a Nacho para ver cómo personalizar tu caso.</p>' + button("ESCRIBILE A NACHO POR WHATSAPP", "wa_plan", "")}
 ''', chapter=G("05 · Semanas con poco tiempo", "05 · Semanas con poco tiempo", "05 · Días con poco tiempo"), pid="cap5e", toc=G("05 · Semanas con poco tiempo", "05 · Semanas con poco tiempo", "05 · Días con poco tiempo"))
 
     EXPRESS = ({"Prensa", "Press de pecho en máquina", "Remo en máquina", "Plancha prona"} if GYM else
@@ -1035,7 +1035,7 @@ if ENT:
   <p class="ctatitle">Seguí avanzando con un plan a tu medida</p>
   <p class="center">Escribime y armamos tu próximo paso de forma personalizada: rutinas de entrenamiento o el programa integral RENOVA (entrenamiento, nutrición y hábitos).</p>
   {button("ESCRIBILE A NACHO POR WHATSAPP", "wa_plan", "", big=True)}
-  <p class="off">Por venir del ebook tenés <b>50% off</b> en tu plan personalizado.</p>
+  <p class="off">{'Por venir del ebook tenés <b>50% off</b> en tu plan personalizado.' if MAMA else 'Por venir del ebook tenés <b>50% off</b> en el plan integral RENOVA de entrenamiento y nutrición.'}</p>
 </div>
 {box("<b>¿Cuándo volver a correr o saltar?</b> Son ejercicios de impacto. Las guías para volver a correr después del parto sugieren esperar al menos 12 semanas y hacerlo cuando no tenés pérdidas, pesadez ni dolor, idealmente después de una evaluación de piso pélvico. Empezá alternando caminata y trote suave.", "note") if MAMA else ""}
 {box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus.", "soft")}
@@ -1915,7 +1915,7 @@ if PAUSA_ED:
 </div>
 <div class="ctapanel">
   <p class="ctatitle">Escribile a Nacho</p>
-  <p class="small center">Por tener este bonus, tenés <b>50% off</b> en tu plan personalizado.</p>
+  <p class="small center">Por tener este bonus, tenés <b>50% off</b> en el plan integral RENOVA de entrenamiento y nutrición.</p>
   {button("QUIERO MI PLAN PERSONALIZADO", "wa_plan", "", big=True)}
 </div>
 </div>
