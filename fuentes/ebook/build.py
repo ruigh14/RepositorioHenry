@@ -1947,20 +1947,15 @@ if PAUSA_ED:
      ("Fuerza express", "De pie", "Un poco más de fuerza en 10 minutos, para los días con energía.", ["sentadilla", "flexiones", "estocada", "abduccion", "cuello"]),
     ]
     page(f'''
-<div class="cv2 cv-ent">
-  <div class="c2-top">
-    <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
-    <span class="c2-kick">BONUS · 4 RUTINAS DE 10 MINUTOS · CON VIDEOS</span>
+<div class="cv3 pausa">
+  <div class="c3-in">
+    <img class="c3-logo" src="img/logo_renova.png" alt="RENOVA">
+    <span class="c3-pill">BONUS · MÉTODO RENOVA</span>
+    <h1 class="c3-title">PAUSA<br>ACTIVA</h1>
+    <p class="c3-claim">10 MINUTOS PARA <b><span>TU DÍA.</span></b></p>
+    <p class="c3-sub"><b>4 rutinas</b> de <em>10 minutos</em> para todo el cuerpo,<br><span>en la <mark>oficina</mark> o en <mark>casa</mark>, sin cambiarte.</span></p>
   </div>
-  <h1 class="c2-title">PAUSA <span class="c2-t">ACTIVA.</span><br>10 MINUTOS PARA <span class="c2-r">TU DÍA.</span></h1>
-  <div class="c2-bar"></div>
-  <p class="c2-sub">En la oficina o en casa, sin cambiarte.</p>
-  <p class="c2-desc">Cuatro rutinas cortas para aflojar el cuello y la espalda, activar las piernas y despejar la cabeza en los días de muchas horas sentada.</p>
-  <div class="c2-photos one">
-    <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
-      <figcaption><b>EQUIPO RENOVA</b><span>{"Profesionales que te acompañan en cada pilar." if MAMA else "Profesionales detrás de cada pilar del método."}</span></figcaption></figure>
-    <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
-  </div>
+  <div class="c3-team"><img src="img/equipo_tapa.png" alt="Equipo RENOVA"></div>
 </div>
 ''', pid="p-portada", cls="p-cover", header=False)
 

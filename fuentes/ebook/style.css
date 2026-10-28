@@ -901,6 +901,9 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 
 /* ---- tapa de casa y gimnasio (cada ebook con su tono de turquesa) */
 .cv3{--c3-a:var(--tq);--c3-b:var(--tq);--c3-l:var(--tq-l);position:relative;height:297mm;box-sizing:border-box;border:1.2mm solid var(--c3-b);background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.cv3.pausa{--c3-a:var(--tq-t);--c3-b:var(--ink);--c3-l:var(--tq-l)}
+.pausa .c3-title{font-size:92pt}
+.pausa .c3-claim b span{text-shadow:1.2mm 1.2mm 0 var(--tq)}
 .cv3.gym{--c3-a:var(--tq-d);--c3-b:var(--tq-dd);--c3-l:var(--tq-b)}
 .c3-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8mm 12mm 0}
 .c3-logo{height:13mm;width:auto;margin-bottom:5mm}
