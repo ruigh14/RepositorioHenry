@@ -1806,12 +1806,15 @@ if PAUSA_ED:
      "Círculos de cadera": "https://youtu.be/T-v_pylMgfk",          # Harbiz: "Circunducción externa de cadera"
      "Balanceo de pierna frontal": "https://www.youtube.com/watch?v=LuC5h8PdEwk",
      "Flexiones de brazos inclinadas": "https://youtu.be/xr_4kJVoShc",
+     "Jumping jacks sin salto": "https://youtu.be/x5MT-e2LWs8",
+     "Sentadilla sumo sin peso": "https://www.youtube.com/watch?v=GAppZ0-rdYE",
+     "Estocada con apoyo": "https://youtu.be/s7ewEzHwXgQ",             # Harbiz: "Estocada"
     })
     MATERIAL.update({
      "Estiramiento del cuello": "Silla", "Rotaciones de tronco": "Silla", "Sentadilla a la silla": "Silla",
      "Elevación de talones": "Silla", "Abducción de cadera de pie": "Silla", "Estiramiento pectoral en pared": "Pared",
      "Círculos de cadera": "Silla o pared", "Balanceo de pierna frontal": "Pared",
-     "Flexiones de brazos inclinadas": "Escritorio o pared",
+     "Flexiones de brazos inclinadas": "Escritorio o pared", "Estocada con apoyo": "Silla",
     })
     E = {
      "cuello": ("elong_8.png", "Estiramiento del cuello", "20 s por lado", "Sentada con la espalda derecha, incliná la cabeza hacia un hombro y ayudate suavemente con la mano. Sin tirones.", "sin ayudarte con la mano."),
@@ -1827,12 +1830,16 @@ if PAUSA_ED:
      "cadera": ("calor_circcadera.png", "Círculos de cadera", "8 por lado", "Tomada de la silla o de una pared, subí una rodilla al frente y dibujá un círculo hacia afuera, sin mover el tronco.", "con un círculo más chico."),
      "balanceo": ("calor_balanceo.png", "Balanceo de pierna frontal", "10 por lado", "Tomada de una pared, balanceá una pierna estirada hacia adelante y hacia atrás, con la espalda derecha y sin forzar.", "con menos altura."),
      "flexiones": ("r1_3.png", "Flexiones de brazos inclinadas", "8–10", "Manos en el borde del escritorio o en una pared, con el cuerpo alineado. Bajá el pecho flexionando los codos y empujá para volver.", "más cerca de la pared, con menos inclinación."),
+     "jumping": ("r1_6.png", "Jumping jacks sin salto", "40 s", "Paso al costado con una pierna mientras subís los brazos por los costados; volvé y cambiá de lado, sin saltar.", "más lento y subiendo los brazos solo hasta los hombros."),
+     "sumo": ("r3_3.png", "Sentadilla sumo sin peso", "10", "Pies bien separados y las puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí apretando los glúteos.", "con menos profundidad."),
+     "estocada": ("r1_2.png", "Estocada con apoyo", "8 por pierna", "Una mano en el respaldo de la silla, un pie adelante y otro atrás. Bajá en vertical y subí empujando con la pierna de adelante.", "bajá solo un poco."),
     }
+    # Las 4 mueven todo el cuerpo: hombros y cuello, tronco, cadera y piernas. Cambia el enfoque de cada una.
     PAUSA_RUT = [
-     ("Cuello y hombros", "Sentada", "Para cuando pasaste horas frente a la compu o con el celular.", ["cuello", "hombro", "hombro_est", "tronco", "pecho"]),
-     ("Piernas activas", "De pie", "Para cuando estuviste mucho tiempo sentada y sentís las piernas pesadas.", ["sentadilla", "talones", "abduccion", "lateral", "marcha"]),
-     ("Espalda y cadera", "De pie", "Para aflojar la espalda baja y la cadera después de muchas horas en la silla.", ["cadera", "balanceo", "tronco", "flexiones", "pecho"]),
-     ("Cuerpo completo", "Sentada y de pie", "Cuando tenés 10 minutos y querés activar todo el cuerpo.", ["sentadilla", "flexiones", "talones", "hombro", "cuello"]),
+     ("Despertá tu cuerpo", "De pie", "Movilidad suave de pies a cabeza: ideal para arrancar la mañana.", ["hombro", "tronco", "sentadilla", "cadera", "cuello"]),
+     ("Activá la circulación", "De pie", "Para cuando estuviste mucho tiempo sentada y sentís las piernas pesadas.", ["marcha", "flexiones", "lateral", "talones", "pecho"]),
+     ("Soltá la espalda", "De pie", "Para aflojar espalda, hombros y cadera después de muchas horas en la silla.", ["jumping", "hombro_est", "tronco", "balanceo", "sumo"]),
+     ("Fuerza express", "De pie", "Un poco más de fuerza en 10 minutos, para los días con energía.", ["sentadilla", "flexiones", "estocada", "abduccion", "cuello"]),
     ]
     page(f'''
 <div class="cv2 cv-ent">
@@ -1858,6 +1865,7 @@ if PAUSA_ED:
 <p class="lead">Diez minutos de movimiento en tu día alivian el cuello y la espalda, activan las piernas y te despejan la cabeza.</p>
 {params([("Cuándo", "1 o 2 veces al día"), ("Duración", "10 minutos"), ("Vueltas", "2"), ("Dónde", "Oficina o casa")])}
 <h3>Elegí tu rutina</h3>
+<p class="small">Las 4 mueven todo el cuerpo: hombros y cuello, tronco, cadera y piernas. Alternalas durante la semana.</p>
 <div class="tips10">
 {"".join(f'<div><span>{i:02d}</span><h3>{t}</h3><p>{d}</p></div>' for i, (t, w, d, x) in enumerate(PAUSA_RUT, 1))}
 </div>
