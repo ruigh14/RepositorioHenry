@@ -1772,7 +1772,7 @@ if ENT:
 <div class="bio metodo">
   {eyebrow("MÉTODO RENOVA")}
   <h1 class="h1 big">Método <span class="t">RENOVA</span></h1>
-  <div class="team-big"><img src="{LINKS["foto_equipo"]}" alt="Equipo RENOVA"></div>
+  <div class="team-big"><img src="{LINKS["foto_equipo"]}" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>
   <p>En RENOVA acompañamos a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
   <p>Un equipo completo trabaja con vos: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
   <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Hábitos</span><span>Salud hormonal</span></div>
