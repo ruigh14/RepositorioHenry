@@ -1059,8 +1059,7 @@ if ENT:
           "<b>S1–2:</b> 8, sin sostener. <b>S3–4:</b> 10, sosteniendo 3 s. <b>S5–8:</b> 12, sosteniendo 5 s.")]
         CORE[1] = CORE[1][:4] + ("<b>S1:</b> todavía no. <b>S2–4:</b> rodillas apoyadas, 10–20 s. <b>S5–6:</b> rodillas, 25–30 s. <b>S7–8:</b> completa, 15–20 s, si no hay pérdidas ni “carpa”.",)
     page(f'''
-{eyebrow("EXTRA")}
-<h1 class="h1">Rutina de <span class="t">zona media</span></h1>
+{eyebrow("EXTRA") + '<h1 class="h1">Rutina de <span class="t">zona media</span></h1>' if MAMA else chap_head("00", 'Rutinas <span class="t">extras</span>', "Para sumar cuando quieras: la rutina de zona media y la sesión express de 15 minutos para los días con poco tiempo.") + '<h2>Rutina de zona media</h2>'}
 <p class="lead">{G("Cinco ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.", "Cinco ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.", "Cinco ejercicios para recuperar la fuerza del abdomen y la espalda baja después del embarazo, sin abdominales clásicos. Empezá siempre exhalando.")}</p>
 {params([("Cuándo","2 o 3 veces por semana"),("Vueltas","2 (3 desde la semana 5)"),("Pausa","30 s entre ejercicios"),("Duración","8–10 min")])}
 <p class="small">Hacela al terminar el bloque 2, antes de elongar, o en un día de aeróbico.</p>
@@ -1946,9 +1945,10 @@ def render():
             *([("Tu plan de 8 semanas", ["como", "plan8t1", "plan8w2"], []),
                ("Rutinas", RUTS + ["elong", "elong2", "core"], [("Elongación", "elong"), ("Zona media", "core")])] if MAMA else
               [("Cómo entrenar", ["como"], []),   # casa y gimnasio: primero las rutinas, el plan después
-               ("Rutinas", RUTS + ["elong", "core"], [("Elongación", "elong"), ("Zona media", "core")]),
+               ("Rutinas", RUTS + ["elong"], []),
+               ("Rutinas extras", ["core", "express"], [("Sesión express de 15 minutos", "express")]),
                ("Tu plan de 8 semanas", ["plan8t1", "plan8w2"], [])]),
-            (G("Semanas con poco tiempo", "Semanas con poco tiempo", "Días con poco tiempo"), ["express", "cap5e"], []),
+            (G("Semanas con poco tiempo", "Semanas con poco tiempo", "Días con poco tiempo"), (["express", "cap5e"] if MAMA else ["cap5e"]), []),
             *([("Pausa activa", ["pausa", "tips10", "bebe"], [("Entrená con tu bebé", "bebe")])] if MAMA else []),
             ("Medí tu progreso", ["eval", "cargas"], []),
             ("Después de las 8 semanas", ["cap7e"], []),
