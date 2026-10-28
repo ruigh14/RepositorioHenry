@@ -131,7 +131,7 @@ def cover_bg(kind):
     ic = "".join(f'<svg x="{x}mm" y="{y}mm" width="{w}mm" height="{w}mm" viewBox="0 0 24 24" overflow="visible">'
                  f'<g transform="rotate({r} 12 12)" filter="url(#c3glow)">{COVER_ICONS[n]}</g></svg>'
                  for n, (x, y, w, r) in zip(big, pos))
-    woman = '<svg x="150mm" y="84mm" width="46mm" height="63mm" viewBox="0 0 110 150" overflow="visible">' + _woman(kind) + '</svg>'
+    woman = '<svg x="153mm" y="104mm" width="44mm" height="60mm" viewBox="0 0 110 150" overflow="visible">' + _woman(kind) + '</svg>'
     return ('''<svg class="c3-pat" width="210mm" height="297mm" fill="none" stroke="url(#c3g)" stroke-width="1.1"
   stroke-linecap="round" stroke-linejoin="round"><defs>
   <linearGradient id="c3g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24" y2="24"><stop offset="0" style="stop-color:var(--c3-i)"/><stop offset="1" style="stop-color:var(--c3-g)"/></linearGradient>
