@@ -133,3 +133,5 @@ Este último escalón se ofrece solo adentro del ebook, no en la landing.
 
 1. **Garantía:** 7 días; si no le gusta el material, se le devuelve el dinero (ya está en `GARANTIA`).
 2. **Portada de la landing:** etiqueta "MÉTODO RENOVA · MUJERES 35+" (pasar todo de 40+ a 35+); título **"Volvé a sentirte fuerte y con más energía"**; subtítulo "Un plan de 8 semanas de bajo impacto que integra entrenamiento, alimentación y hábitos. En casa o en el gimnasio." Reemplaza a "Tu cuerpo cambió después de los 40…", que era casi la frase de Menofit.
+   Ajuste: el subtítulo queda sin "En casa o en el gimnasio"; eso va en la línea de abajo (donde hoy dice "2 ebooks en una compra"): **"Hacelo donde quieras: en casa o en el gimnasio. 2 ebooks en una compra."**
+3. **Talleres del bonus 2:** los gratis son **"Elecciones inteligentes en el súper"** y **"Gestión de la ansiedad"** (no "Organizar la heladera"): cambiarlo en la landing y en los ebooks.
