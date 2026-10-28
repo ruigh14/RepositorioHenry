@@ -16,6 +16,8 @@ entrena-en-el-gimnasio/      Ebook 2: misma lógica, rutinas de gimnasio nivel i
   Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
 entrena-siendo-mama/         Ebook 3: mamás que vuelven a entrenar (respiración, piso pélvico, sin impacto) + pausa activa
   Ebook_Entrena_siendo_mama_RENOVA.pdf
+pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación + 4 rutinas de pausa activa de 10 min + plan personalizado
+  Bonus_Pausa_activa_RENOVA.pdf
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
   Ebook_Programa_RENOVA.pdf
 investigacion/               material de referencia (VSL del competidor, etc.)
@@ -34,8 +36,9 @@ Una sola marca para todo: **los colores son los del ebook** y landings, creativo
 
 ### `fuentes/ebook/`
 - `build.py`: todos los textos, recetas, menús, ejercicios (cada rutina en 3 hojas: entrada en calor, bloque 1, bloque 2; elongación al final), plan de 8 semanas (`PLAN8`), pausa activa (`PAUSA`, `TIPS_DIA`), extra de zona media (`CORE`) y links (`LINKS`; `VIDEOS` = links de Harbiz de cada ejercicio). Cuatro ediciones: `completo`, `entrena` (casa), `gimnasio` y `mamas` (`GYM`; los textos que cambian entre casa y gimnasio usan `G(casa, gym)`; rutinas armadas a partir de las de gimnasio de Nacho en Harbiz, ilustraciones `img/gym_*.png` de Canva). En `mamas` los textos que cambian van como tercer argumento: `G(casa, gym, mama)`; tiene capítulo 02 "Antes de empezar" (alta médica, señales para frenar, diástasis, respiración y piso pélvico), rutinas sin saltos ni abdominales clásicos, "Entrená con tu bebé" e ilustraciones `img/mama_*.png` de Canva.
-- Orden de los ebooks de entrenamiento (lo arma `render()` con `SECS`, que también numera capítulos e índice): portada → bienvenida ("Empezá esta semana") → índice → [mamás: Antes de empezar] → Tu plan de 8 semanas ("Cómo se hace cada rutina" + cuadro semanas 1–4 + "Ahora progresamos y aumentamos", semanas 6–8, con descarga en la 5) → Rutinas 1–3 → elongación → zona media → semanas con poco tiempo (sesión express) → pausa activa → Medí tu progreso (medición + registro) → después de las 8 semanas → bonus → resultados reales → quién soy → método RENOVA. Una página nueva tiene que sumarse a `SECS` o el build falla.
-- `ebook.html`, `entrena.html`, `gimnasio.html`, `mamas.html`: HTML intermedio que genera `build.py` (no editar).
+- Orden de los ebooks de entrenamiento (lo arma `render()` con `SECS`, que también numera capítulos e índice): portada → bienvenida ("Empezá esta semana") → índice → [mamás: Antes de empezar] → Tu plan de 8 semanas ("Cómo se hace cada rutina" + cuadro semanas 1–4 + "Ahora progresamos y aumentamos", semanas 6–8, con descarga en la 5) → Rutinas 1–3 → elongación → zona media → semanas con poco tiempo (sesión express) → [mamás: pausa activa] → Medí tu progreso (medición + registro) → después de las 8 semanas → bonus → resultados reales → quién soy → método RENOVA. Una página nueva tiene que sumarse a `SECS` o el build falla.
+- Edición `pausa` (`PAUSA_ED`): bonus de casa y gimnasio, 7 hojas (portada, cómo hacerla, 4 rutinas de 10 min con ejercicios verificados en la biblioteca de Harbiz de Nacho, llamado al plan personalizado). En casa y gimnasio ya no hay pausa activa adentro; en mamás sí.
+- `ebook.html`, `entrena.html`, `gimnasio.html`, `mamas.html`, `pausa.html`: HTML intermedio que genera `build.py` (no editar).
 - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright a la carpeta del producto.
 - `img/`: fotos, ilustraciones, recetas y testimonios. Las tipografías están en `fuentes/design-system/fonts/`.
 - `archivo/version-anterior_7_1.pdf`: exportación vieja, solo referencia.
@@ -52,6 +55,7 @@ Una sola marca para todo: **los colores son los del ebook** y landings, creativo
 cd fuentes/ebook && python3 build.py entrena && node export.js entrena     # Entrená desde casa
 cd fuentes/ebook && python3 build.py gimnasio && node export.js gimnasio   # Entrená en el gimnasio
 cd fuentes/ebook && python3 build.py mamas && node export.js mamas         # Entrená siendo mamá
+cd fuentes/ebook && python3 build.py pausa && node export.js pausa         # Bonus: pausa activa
 cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
 cd fuentes/landing && python3 build.py                                     # la landing de la tienda
 cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
@@ -84,6 +88,8 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 3. Preguntar con qué sigue.
 
 ## Pendientes
+
+- Bonus pausa activa: cargar `pausa-activa/Bonus_Pausa_activa_RENOVA.pdf` en el producto de Impultienda (junto a casa y gimnasio) y sumarlo a la landing como bonus 4 (hoy la landing todavía lista la pausa activa dentro de los ebooks).
 
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
 

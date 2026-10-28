@@ -3,6 +3,7 @@
 //   node export.js            → ebook.html    → programa-renova-completo/Ebook_Programa_RENOVA.pdf
 //   node export.js entrena    → entrena.html  → entrena-desde-casa/Ebook_Entrena_desde_casa_RENOVA.pdf
 //   node export.js gimnasio   → gimnasio.html → entrena-en-el-gimnasio/Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
+//   node export.js pausa      → pausa.html    → pausa-activa/Bonus_Pausa_activa_RENOVA.pdf
 //   node export.js mamas      → mamas.html    → entrena-siendo-mama/Ebook_Entrena_siendo_mama_RENOVA.pdf
 const { chromium } = require('playwright');
 const path = require('path');
@@ -11,6 +12,7 @@ const EDITIONS = {
   entrena: ['entrena.html', 'entrena-desde-casa/Ebook_Entrena_desde_casa_RENOVA.pdf'],
   gimnasio: ['gimnasio.html', 'entrena-en-el-gimnasio/Ebook_Entrena_en_el_gimnasio_RENOVA.pdf'],
   mamas: ['mamas.html', 'entrena-siendo-mama/Ebook_Entrena_siendo_mama_RENOVA.pdf'],
+  pausa: ['pausa.html', 'pausa-activa/Bonus_Pausa_activa_RENOVA.pdf'],
 };
 const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {

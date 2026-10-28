@@ -7,6 +7,7 @@ Dos ediciones salen de este mismo archivo:
                                 plan de 8 semanas + bonus talleres, recetario y comunidad.
   python3 build.py gimnasio   → "Entrená en el gimnasio" (gimnasio.html): misma lógica que el
                                 Ebook 1, con rutinas de gimnasio para nivel inicial.
+  python3 build.py pausa      → bonus "Pausa activa" (pausa.html): explicación, 4 rutinas y plan personalizado.
   python3 build.py mamas      → "Entrená siendo mamá" (mamas.html): misma lógica que el Ebook 1,
                                 para mamás que vuelven a entrenar (respiración, piso pélvico, sin
                                 impacto) + pausa activa en casa.
@@ -23,10 +24,11 @@ from design_system import (css as ds_css, esc, ICON_CHECK, ICON_ARROW, ICON_HAND
                            eyebrow, chap_head, ul, checks, box, block_head, params)
 
 EDITION = sys.argv[1] if len(sys.argv) > 1 else "completo"
-if EDITION not in ("completo", "entrena", "gimnasio", "mamas"):
-    sys.exit("Edición desconocida: usá 'completo', 'entrena', 'gimnasio' o 'mamas'")
+if EDITION not in ("completo", "entrena", "gimnasio", "mamas", "pausa"):
+    sys.exit("Edición desconocida: usá 'completo', 'entrena', 'gimnasio', 'mamas' o 'pausa'")
 FULL = EDITION == "completo"
 GYM = EDITION == "gimnasio"                 # versión gimnasio del Ebook 1: comparte todo salvo las rutinas y algunos textos
+PAUSA_ED = EDITION == "pausa"               # bonus "Pausa activa": explicación + 4 rutinas + llamado al plan personalizado
 MAMA = EDITION == "mamas"                   # versión para mamás del Ebook 1: en casa, con respiración y piso pélvico, sin impacto
 ENT = EDITION in ("entrena", "gimnasio", "mamas")
 def G(casa, gym, mama=None):
@@ -412,7 +414,7 @@ MATERIAL = {
 PLUS2 = {"Sentadilla en copa", "Estocada split", "Subida al banco", "Sentadilla búlgara", "Estocada cruzada", "Sentadilla sumo"}
 
 def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False):
-    ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" and not GYM and not MAMA else ""
+    ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" and not GYM and not MAMA and not PAUSA_ED else ""
     evb = f' <a class="vbtn-xs" href="{esc(ev)}">{ICON_PLAY} VER VARIANTE</a>' if ev else ""
     e = f'<p class="easy"><b>{easy_label}:</b> {easy}{evb}</p>' if easy else ""
     if ENT and not GYM and not MAMA and name in PLUS2:
@@ -935,7 +937,8 @@ if ENT:
      ("pausa_talones.png","Elevación de talones","15","Con una mano en el respaldo de la silla, subí a puntas de pie y bajá lento."),
      ("elong_6.png","Estiramiento de pecho en pared","20 s por lado","Apoyá el antebrazo en una pared o en el marco de una puerta y girá suavemente el cuerpo hacia el lado contrario."),
     ]
-    page(f'''
+    if MAMA:   # en casa y gimnasio la pausa activa es un bonus aparte (edición "pausa")
+      page(f'''
 {chap_head("06", G('Activa en <span class="t">el trabajo</span>', 'Activa en <span class="t">el trabajo</span>', 'Pausa <span class="t">activa</span>'), G("Pasar muchas horas sentada también cuenta. Una pausa activa de 5 minutos por día y algunos hábitos simples te ayudan a moverte más, aunque no sea día de entrenamiento.", "Pasar muchas horas sentada también cuenta. Una pausa activa de 5 minutos por día y algunos hábitos simples te ayudan a moverte más, aunque no sea día de entrenamiento.", "Amamantar, cargar, cambiar pañales o trabajar en la compu te dejan muchas horas sentada o inclinada hacia adelante. Una pausa activa de 5 minutos por día alivia el cuello y la espalda, aunque no sea día de entrenamiento."))}
 <h2>Rutina de pausa activa</h2>
 {params([("Cuándo","1 vez al día"),("Vueltas","1 o 2"),("Dónde",G("En tu lugar de trabajo", "En tu lugar de trabajo", "En casa o en el trabajo")),("Duración","5 minutos")])}
@@ -968,7 +971,8 @@ if ENT:
          ("Movete con tu bebé", "Bailar con él en brazos, jugar en el piso o subir escaleras también es movimiento."),
          ("Pedí ayuda", "Delegá una tarea para tener tus 20 minutos. Cuidarte también es cuidar a tu familia."),
         ]
-    page(f'''
+    if MAMA:
+      page(f'''
 {eyebrow(G("ACTIVA EN EL TRABAJO", "ACTIVA EN EL TRABAJO", "PAUSA ACTIVA"))}
 <h1 class="h1">10 recomendaciones <span class="t">para tu día</span></h1>
 <p class="lead">No hace falta hacerlas todas desde el primer día: elegí 2 o 3, sostenelas una semana y sumá otra.</p>
@@ -1785,14 +1789,130 @@ if FULL:
 </div>
 ''', chapter="Quién soy", pid="bio", toc="Quién soy y qué es RENOVA")
 
+# ================================================================== BONUS: PAUSA ACTIVA (edición "pausa")
+# Solo ejercicios con video en la biblioteca de Harbiz de Nacho (verificados por nombre y link).
+if PAUSA_ED:
+    VIDEOS.update({
+     "Estiramiento del cuello": "https://youtu.be/3kWdTdnKvVw",
+     "Circunducción de hombro": "https://youtu.be/2LWFYoBjS5I",
+     "Estiramiento de hombro a un brazo": "https://youtu.be/ecGClH49zxk",
+     "Rotaciones de tronco": "https://youtu.be/8ZhHlY4Aq_Y",
+     "Estiramiento pectoral en pared": "https://youtu.be/5reQDGL1cA4",
+     "Sentadilla a la silla": "https://youtu.be/gFTgLpn08Xc",          # Harbiz: "Sentadilla en cajón"
+     "Elevación de talones": "https://youtu.be/XEmxAHBzMTg",
+     "Abducción de cadera de pie": "https://youtu.be/4C0pyUW9DaQ",
+     "Sentadilla lateral sin peso": "https://www.youtube.com/watch?v=AhPJmY4v3Z4",
+     "Marcha en el lugar": "https://youtu.be/Zsygt0rh8FQ",
+     "Círculos de cadera": "https://youtu.be/T-v_pylMgfk",          # Harbiz: "Circunducción externa de cadera"
+     "Balanceo de pierna frontal": "https://www.youtube.com/watch?v=LuC5h8PdEwk",
+     "Flexiones de brazos inclinadas": "https://youtu.be/xr_4kJVoShc",
+    })
+    MATERIAL.update({
+     "Estiramiento del cuello": "Silla", "Rotaciones de tronco": "Silla", "Sentadilla a la silla": "Silla",
+     "Elevación de talones": "Silla", "Abducción de cadera de pie": "Silla", "Estiramiento pectoral en pared": "Pared",
+     "Círculos de cadera": "Silla o pared", "Balanceo de pierna frontal": "Pared",
+     "Flexiones de brazos inclinadas": "Escritorio o pared",
+    })
+    E = {
+     "cuello": ("elong_8.png", "Estiramiento del cuello", "20 s por lado", "Sentada con la espalda derecha, incliná la cabeza hacia un hombro y ayudate suavemente con la mano. Sin tirones.", "sin ayudarte con la mano."),
+     "hombro": ("calor_1.png", "Circunducción de hombro", "10 + 10", "De pie o sentada, hacé círculos amplios con los brazos: 10 hacia adelante y 10 hacia atrás.", "círculos chicos, moviendo solo los hombros."),
+     "hombro_est": ("elong_7.png", "Estiramiento de hombro a un brazo", "20 s por lado", "Cruzá un brazo por delante del pecho y sostenelo con el otro, sin elevar el hombro.", "menos presión con el brazo que sostiene."),
+     "tronco": ("pausa_rotacion.png", "Rotaciones de tronco", "8 por lado", "Sentada en el borde de la silla, con los brazos cruzados sobre el pecho, girá el tronco hacia un lado y hacia el otro sin mover la cadera.", "con menos recorrido."),
+     "pecho": ("elong_6.png", "Estiramiento pectoral en pared", "20 s por lado", "Apoyá el antebrazo en una pared o en el marco de una puerta y girá suavemente el cuerpo hacia el lado contrario.", "apoyá el brazo más bajo."),
+     "sentadilla": ("pausa_sentadilla.png", "Sentadilla a la silla", "10", "Parada delante de la silla, llevá la cadera hacia atrás hasta rozar el asiento y subí empujando el piso.", "sentate del todo en la silla y levantate."),
+     "talones": ("pausa_talones.png", "Elevación de talones", "15", "Tomada del respaldo de la silla, subí a puntas de pie y bajá lento.", "con menos altura."),
+     "abduccion": ("calor_2.png", "Abducción de cadera de pie", "10 por lado", "Apoyada en el respaldo de la silla, separá una pierna hacia el costado sin inclinar el tronco y volvé con control.", "con menos apertura."),
+     "lateral": ("calor_3.png", "Sentadilla lateral sin peso", "8 por lado", "Con los pies bien separados, llevá el peso a una pierna flexionando la rodilla y dejá la otra estirada. Volvé al centro y cambiá.", "menos profundidad, tomada de la silla."),
+     "marcha": ("r2_6.png", "Marcha en el lugar", "40 s", "Marchá en el lugar elevando las rodillas y acompañando con los brazos.", "más lento y con las rodillas más bajas."),
+     "cadera": ("calor_circcadera.png", "Círculos de cadera", "8 por lado", "Tomada de la silla o de una pared, subí una rodilla al frente y dibujá un círculo hacia afuera, sin mover el tronco.", "con un círculo más chico."),
+     "balanceo": ("calor_balanceo.png", "Balanceo de pierna frontal", "10 por lado", "Tomada de una pared, balanceá una pierna estirada hacia adelante y hacia atrás, con la espalda derecha y sin forzar.", "con menos altura."),
+     "flexiones": ("r1_3.png", "Flexiones de brazos inclinadas", "8–10", "Manos en el borde del escritorio o en una pared, con el cuerpo alineado. Bajá el pecho flexionando los codos y empujá para volver.", "más cerca de la pared, con menos inclinación."),
+    }
+    PAUSA_RUT = [
+     ("Cuello y hombros", "Sentada", "Para cuando pasaste horas frente a la compu o con el celular.", ["cuello", "hombro", "hombro_est", "tronco", "pecho"]),
+     ("Piernas activas", "De pie", "Para cuando estuviste mucho tiempo sentada y sentís las piernas pesadas.", ["sentadilla", "talones", "abduccion", "lateral", "marcha"]),
+     ("Espalda y cadera", "De pie", "Para aflojar la espalda baja y la cadera después de muchas horas en la silla.", ["cadera", "balanceo", "tronco", "flexiones", "pecho"]),
+     ("Cuerpo completo", "Sentada y de pie", "Cuando tenés 10 minutos y querés activar todo el cuerpo.", ["sentadilla", "flexiones", "talones", "hombro", "cuello"]),
+    ]
+    page(f'''
+<div class="cv2 cv-ent">
+  <div class="c2-top">
+    <img class="c2-logo" src="img/logo_renova.png" alt="RENOVA">
+    <span class="c2-kick">BONUS · 4 RUTINAS DE 10 MINUTOS · CON VIDEOS</span>
+  </div>
+  <h1 class="c2-title">PAUSA <span class="c2-t">ACTIVA.</span><br>10 MINUTOS PARA <span class="c2-r">TU DÍA.</span></h1>
+  <div class="c2-bar"></div>
+  <p class="c2-sub">En la oficina o en casa, sin cambiarte.</p>
+  <p class="c2-desc">Cuatro rutinas cortas para aflojar el cuello y la espalda, activar las piernas y despejar la cabeza en los días de muchas horas sentada.</p>
+  <div class="c2-photos one">
+    <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
+      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
+    <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
+  </div>
+</div>
+''', pid="p-portada", cls="p-cover", header=False)
+
+    page(f'''
+{eyebrow("CÓMO USAR ESTE BONUS")}
+<h1 class="h1">Cómo hacer tu <span class="t">pausa activa</span></h1>
+<p class="lead">Diez minutos de movimiento en tu día alivian el cuello y la espalda, activan las piernas y te despejan la cabeza.</p>
+{params([("Cuándo", "1 o 2 veces al día"), ("Duración", "10 minutos"), ("Vueltas", "2"), ("Dónde", "Oficina o casa")])}
+<h3>Elegí tu rutina</h3>
+<div class="tips10">
+{"".join(f'<div><span>{i:02d}</span><h3>{t}</h3><p>{d}</p></div>' for i, (t, w, d, x) in enumerate(PAUSA_RUT, 1))}
+</div>
+<h3>Cómo se hace</h3>
+{ul(["Hacé los ejercicios en orden y sin pausa (una vuelta). Hacé 2 vueltas.",
+     "Alcanza con una silla firme, sin rueditas, y una pared. Cada ejercicio tiene video y una variante más fácil.",
+     "Agendala: a media mañana, después de almorzar o a media tarde.",
+     "<b>Si sentís dolor o mareos, frená.</b> Si tenés una lesión, consultá antes."])}
+''', pid="p-como")
+
+    for n, (t, w, d, ids) in enumerate(PAUSA_RUT, 1):
+        page(f'''
+{eyebrow(f"RUTINA {n} · {w.upper()}")}
+<h1 class="h1">{t.split()[0]} <span class="t">{" ".join(t.split()[1:])}</span></h1>
+{params([("Vueltas", "2"), ("Duración", "10 min"), ("Pausa", "Sin pausa"), ("Posición", w)])}
+{"".join(ex_card(*E[k][:4], easy=E[k][4], row=True) for k in ids)}
+''', pid=f"p-rut{n}")
+
+    page(f'''
+<div class="bonus">
+{eyebrow("EL PRÓXIMO PASO")}
+<h1 class="h1 big">Un plan <span class="t">a tu medida</span></h1>
+<p class="lead">Con estas pausas ya sumás movimiento a tu día. Si querés ir por más, armamos juntos tu plan personalizado: rutinas de entrenamiento pensadas para vos o el programa integral RENOVA, con entrenamiento, nutrición y hábitos.</p>
+<div class="cols2">
+<div><h3>Con tu plan personalizado</h3>
+{checks(["Rutinas armadas según tu nivel, tu tiempo y tus objetivos.", "Ajustes a medida que avanzás.", "El respaldo del equipo RENOVA, con médico deportólogo."])}
+</div>
+<div><h3>Cómo empezar</h3>
+{checks(["Escribile a Nacho por WhatsApp.", "Contale tu objetivo y cuánto tiempo tenés.", "Elegí entrenamiento o programa integral."])}
+</div>
+</div>
+<div class="ctapanel">
+  <p class="ctatitle">Escribile a Nacho</p>
+  <p class="small center">Por tener este bonus, tenés <b>50% off</b> en tu plan personalizado.</p>
+  {button("QUIERO MI PLAN PERSONALIZADO", "wa_plan", "", big=True)}
+</div>
+</div>
+''', pid="p-cta", cls="p-spread")
+
 # ------------------------------------------------------------------ ENSAMBLADO
 CSS = ds_css(HERE) + "\n" + open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
 
-BRAND = "PROGRAMA <b>RENOVA</b>" if FULL else G("ENTRENÁ DESDE CASA", "ENTRENÁ EN EL GIMNASIO", "ENTRENÁ SIENDO MAMÁ") + " · <b>RENOVA</b>"
-TITLE = "Programa RENOVA · Guía práctica" if FULL else G("Entrená desde casa", "Entrená en el gimnasio", "Entrená siendo mamá") + " · RENOVA"
-OUT_HTML = "ebook.html" if FULL else G("entrena.html", "gimnasio.html", "mamas.html")
+BRAND = ("PROGRAMA <b>RENOVA</b>" if FULL else "PAUSA ACTIVA · <b>RENOVA</b>" if PAUSA_ED else
+         G("ENTRENÁ DESDE CASA", "ENTRENÁ EN EL GIMNASIO", "ENTRENÁ SIENDO MAMÁ") + " · <b>RENOVA</b>")
+TITLE = ("Programa RENOVA · Guía práctica" if FULL else "Pausa activa · RENOVA" if PAUSA_ED else
+         G("Entrená desde casa", "Entrená en el gimnasio", "Entrená siendo mamá") + " · RENOVA")
+OUT_HTML = "ebook.html" if FULL else "pausa.html" if PAUSA_ED else G("entrena.html", "gimnasio.html", "mamas.html")
 
 def render():
+    if PAUSA_ED:   # bonus corto: solo sus páginas, sin índice
+        keep = ["p-portada", "p-como", "p-rut1", "p-rut2", "p-rut3", "p-rut4", "p-cta"]
+        by = {p["id"]: p for p in PAGES}
+        PAGES[:], TOC[:] = [by[k] for k in keep], []
+        for p in PAGES:
+            p["chapter"] = "Bonus · Pausa activa"
     if ENT:
         # Ebooks de entrenamiento: orden fijo, numeración de capítulos e índice armados acá.
         # Se entra rápido a entrenar: bienvenida → cómo se hace → plan → rutinas; las mediciones van al final.
@@ -1804,8 +1924,7 @@ def render():
             ("Rutinas", RUTS + ["elong", "elong2", "core"],
              [("Elongación", "elong"), ("Zona media", "core")]),
             (G("Semanas con poco tiempo", "Semanas con poco tiempo", "Días con poco tiempo"), ["express", "cap5e"], []),
-            (G("Activa en el trabajo", "Activa en el trabajo", "Pausa activa"), ["pausa", "tips10"] + (["bebe"] if MAMA else []),
-             [("Entrená con tu bebé", "bebe")] if MAMA else []),
+            *([("Pausa activa", ["pausa", "tips10", "bebe"], [("Entrená con tu bebé", "bebe")])] if MAMA else []),
             ("Medí tu progreso", ["eval", "cargas"], []),
             ("Después de las 8 semanas", ["cap7e"], []),
             (None, ["bonus-portada", "talleres", "cap6", "recetas", "bonus"] + ([] if MAMA else ["testimonios"]) + ["bio", "metodo"], []),
@@ -1845,7 +1964,8 @@ def render():
         hdr = ""
         if p["header"]:
             hdr = (f'<div class="hdr"><span>{BRAND}</span><span>{esc(p["chapter"])}</span></div>'
-                   f'<div class="ftr"><a class="toidx" href="#indice">{ICON_HAND} Hacé clic y volvé al índice</a><span class="pgnum"></span></div>')
+                   + (f'<div class="ftr"><a class="toidx" href="#p-como">{ICON_HAND} Volvé a elegir tu rutina</a><span class="pgnum"></span></div>' if PAUSA_ED else
+                      f'<div class="ftr"><a class="toidx" href="#indice">{ICON_HAND} Hacé clic y volvé al índice</a><span class="pgnum"></span></div>'))
         out.append(f'<section class="page {p["cls"]}" id="{p["id"]}">{hdr}<div class="body">{body}</div></section>')
     return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>' + TITLE + '</title>'
             f'<style>{CSS}</style></head><body>' + "".join(out) + '<script src="paginate.js"></script></body></html>')
