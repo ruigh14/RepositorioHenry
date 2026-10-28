@@ -325,6 +325,7 @@ VIDEOS = {
  "Flexiones de brazo": "https://youtu.be/P5_xMDhaVHs",
  "Puente a una pierna": "https://youtu.be/xVvVhmIp7sM",
  "Fondo en banco": "https://youtu.be/FqLq6-WRoqw",
+ "Remo inclinado con mochila": "https://youtu.be/6o78vcu6BOY",   # Harbiz: "Remo a 45° con barra" (mismo movimiento)
  "Jumping jack": "https://youtu.be/t-warTAW-QY",
  "Plancha prona": "https://youtu.be/nd0qbgESlao",
  "Crunch abdominal": "https://youtu.be/dCXP5MiZQNc",
@@ -404,7 +405,7 @@ EASY_VIDEO = {
 }
 # Material de cada ejercicio (vacío = no se muestra)
 MATERIAL = {
- "Sentadilla en copa": "1 mancuerna", "Fondo en banco": "Silla", "Subida al banco": "Escalón o silla",
+ "Sentadilla en copa": "1 mancuerna", "Fondo en banco": "Silla", "Remo inclinado con mochila": "Mochila o mancuernas", "Subida al banco": "Escalón o silla",
  "Sentadilla con press de hombros": "2 mancuernas", "Sentadilla búlgara": "Silla", "Remo inclinado": "Mancuerna y silla",
  "Peso muerto con mancuernas": "2 mancuernas", "Bíceps con peso": "2 mancuernas", "Vuelo posterior con peso": "2 mancuernas",
  "Abducción de pierna": "Silla", "Circunducción de cadera": "Silla", "Balanceo de pierna": "Pared",
@@ -515,7 +516,7 @@ RUT = {
  ("r1_2.png","Estocada split","10–12 por pierna","Un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen un ángulo cercano a 90° y volvé a subir.","subida a un escalón bajo, sosteniéndote de una pared."),
  ("r1_3.png","Flexiones de brazo","8–12","Manos debajo de los hombros y el cuerpo alineado. Bajá el pecho hacia el piso con los codos a unos 45° y empujá para subir.","con las rodillas apoyadas o con las manos sobre una mesa firme o una pared."),
  ("r1_4.png","Puente a una pierna","10–12 por lado","Boca arriba, un pie apoyado y la otra pierna elevada. Subí la cadera apretando el glúteo y bajá lento.","puente con los dos pies apoyados."),
- ("r1_5.png","Fondo en banco","8–12","Manos en el borde de una silla firme y los pies en el piso. Flexioná los codos hacia atrás hasta unos 90° y subí. Evitá si te molestan los hombros.","rodillas flexionadas y pies cerca de la silla, con menos recorrido."),
+ ("remo_mochila.png","Remo inclinado con mochila","10–12","De pie, con las rodillas apenas flexionadas y el tronco inclinado hacia adelante con la espalda recta. Tirá de una mochila pesada (o de dos mancuernas) hacia el abdomen llevando los codos hacia atrás, y bajá lento.","con menos peso en la mochila o con botellas de agua."),
  ("r1_6.png","Jumping jack","10–12","Saltá abriendo piernas y brazos a la vez y volvé a cerrar. Aterrizá suave.","sin salto: paso lateral alternado, abriendo los brazos."),
  ("r1_7.png","Plancha prona","15–20 s","Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera.","con las rodillas apoyadas."),
  ("r1_8.png","Crunch abdominal","10–12","Boca arriba con las rodillas flexionadas, despegá los hombros del piso llevando las costillas hacia la cadera. Sin tirar del cuello.","bicho muerto: boca arriba, moviendo brazos y piernas sin despegar la espalda del piso."),
@@ -525,7 +526,7 @@ RUT = {
  ("r2_2.png","Mountain climber","15–20 s","En plancha alta, llevá las rodillas hacia el pecho de forma alternada, manteniendo la cadera estable.","lento y sin saltar: llevá una rodilla por vez."),
  ("r2_3.png","Sentadilla con press de hombros","10–12","Con un peso en cada mano a la altura de los hombros, hacé una sentadilla y, al subir, empujá los pesos por encima de la cabeza.","sentadilla con botellas, sin el press."),
  ("r2_4.png","Abdominales bicicleta","10–12 por lado","Boca arriba, acercá un codo a la rodilla contraria mientras estirás la otra pierna. Alterná sin apuro.","abdominales cruzados, con los pies apoyados en el piso."),
- ("r2_5.png","Sentadilla búlgara","10–12 por pierna","Pie de atrás apoyado sobre una silla. Bajá en vertical flexionando la pierna de adelante y subí empujando con el talón.","estocada split con los dos pies en el piso."),
+ ("r1_2.png","Estocada split","10–12 por pierna","Un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen un ángulo cercano a 90° y volvé a subir.","subida a un escalón bajo, sosteniéndote de una pared."),
  ("r2_6.png","Skipping en el lugar","15–20 s","Corré en el lugar elevando las rodillas y acompañando con los brazos.","marcha en el lugar elevando las rodillas, sin salto."),
  ("r2_7.png","Plancha alta dinámica","15–20 s","Desde plancha alta, tocá el hombro contrario con una mano y alterná, sin rotar la cadera.","plancha alta quieta, sin tocar los hombros."),
  ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre un banco o silla. Con la espalda recta, tirá del peso hacia la cadera y bajá lento.","nados: boca abajo, elevá brazos y pecho, sin peso."),
@@ -691,12 +692,12 @@ for k, r in RUT.items():
 {"".join(ex_card(*c, row=True) for c in CALOR_R[k])}
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}")
     page(f"""
-{block_head(r["title"].upper() + " · BLOQUE 1", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
+{block_head(r["title"].upper() + " · BLOQUE 1", VUELTAS + G(" · 30–60 s entre ejercicios", " · 60–90 s entre ejercicios") + " · 1 min entre vueltas · " + r["note"])}
 {"".join(ex_card(*e, row=True) for e in r["ex"][:4])}
 <p class="small"><b>Al terminar las vueltas</b>, descansá 2 minutos y pasá al bloque 2.</p>
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}b1")
     page(f"""
-{block_head(r["title"].upper() + " · BLOQUE 2", VUELTAS + " · 30–60 s entre ejercicios · 1 min entre vueltas · " + r["note"])}
+{block_head(r["title"].upper() + " · BLOQUE 2", VUELTAS + G(" · 30–60 s entre ejercicios", " · 60–90 s entre ejercicios") + " · 1 min entre vueltas · " + r["note"])}
 {"".join(ex_card(*e, row=True) for e in r["ex"][4:])}
 <p class="small"><b>Al terminar el bloque 2</b>, hacé la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p>
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}b2")
@@ -854,7 +855,7 @@ if ENT:
 </div>
 <h3>Cómo se hace un bloque</h3>
 {ul(["Hacé los 4 ejercicios seguidos: eso es <b>una vuelta</b>. Repetí las vueltas que indica tu semana.",
-     "Pausas: 30 a 60 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.",
+     G("Pausas: 30 a 60 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.", "Pausas: 60 a 90 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2."),
      "Las planchas se hacen por segundos. Cada ejercicio tiene imagen, video y una variante más fácil."])}
 {'<h3>Con qué esfuerzo: terminá sintiendo que podrías hacer 2 o 3 más</h3>' + '''<div class="rpe">
   <div><b>1–4</b><span>Muy fácil</span><p>Podrías seguir mucho tiempo.</p></div>
@@ -876,7 +877,7 @@ if ENT:
       "<b>Semana 2:</b> sumás la rutina 2; si no tenés pérdidas ni pesadez, probá la plancha en rodillas.",
       "<b>Caminata (A):</b> 2 o 3 veces por semana, a paso ágil. Con el cochecito también vale."] if MAMA else
      ["<b>Semana 1:</b> solo la rutina 1 y la 2.",
-      "<b>Pausa entre ejercicios:</b> 60 s; desde la semana 4, 45 s.",
+      G("<b>Pausa entre ejercicios:</b> 60 s; desde la semana 4, 45 s.", "<b>Pausa entre ejercicios:</b> 60 a 90 s. En el gimnasio progresás subiendo el peso, no acortando la pausa."),
       G("<b>Aeróbico (A):</b> caminar rápido, bici o bailar, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar.",
         "<b>Aeróbico (A):</b> cinta, bici o elíptica en el gimnasio, o caminar rápido al aire libre, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar.")]) +
     ["Dejá un día entre dos sesiones de fuerza. Los días se pueden mover: lo importante es el total de la semana."])}
@@ -890,7 +891,7 @@ if ENT:
 {plan_simple(PLAN8[5:])}
 <h3>Cómo aumentar</h3>
 {ul(([G("<b>Semana 6:</b> sumá peso o pasá a la variante más difícil donde ya llegás cómoda a 12 repeticiones. En los ejercicios que lo indican, sumá dos mancuernas.", "<b>Semana 6:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones."),
-      "<b>Semana 7:</b> bajá en 3 segundos en cada repetición (por ejemplo, al bajar en la sentadilla) y acortá la pausa a 30–45 s.",
+      G("<b>Semana 7:</b> bajá en 3 segundos en cada repetición (por ejemplo, al bajar en la sentadilla) y acortá la pausa a 30–45 s.", "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y, si llegás cómoda a 12, subí el peso. La pausa sigue en 60 a 90 s."),
       "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1."] if not MAMA else
      ["<b>Semana 6:</b> pasás a 3 vueltas en todas las rutinas.",
       "<b>Semanas 7 y 8:</b> subí el peso o pasá a la variante más difícil donde ya llegás cómoda a 12 repeticiones, siempre sin pérdidas ni pesadez."]) +
@@ -998,7 +999,7 @@ if ENT:
     # ---------------------------------------------------------- CAP 6 REGISTRO
     LOADS = (["Prensa","Press de pecho en máquina","Remo en máquina","Jalón al pecho","Peso muerto con mancuernas","Estocada split con mancuernas","Sentadilla en copa","Hip thrust","Press de hombros en máquina","Plancha prona (segundos)"] if GYM else
              ["Sentadilla en copa","Puente de glúteos","Estocada split con apoyo","Remo inclinado","Peso muerto con mancuernas","Sentadilla sumo","Sentadilla con press de hombros","Bíceps con peso","Plancha (segundos)","Piso pélvico (segundos)"] if MAMA else
-             ["Sentadilla en copa","Estocada split","Flexiones de brazo","Sentadilla con press de hombros","Sentadilla búlgara","Remo inclinado","Sentadilla sumo","Peso muerto con mancuernas","Bíceps con peso","Plancha prona (segundos)"])
+             ["Sentadilla en copa","Estocada split","Flexiones de brazo","Remo inclinado con mochila","Sentadilla con press de hombros","Remo inclinado","Sentadilla sumo","Peso muerto con mancuernas","Bíceps con peso","Plancha prona (segundos)"])
     page(f'''
 {eyebrow("MEDÍ TU PROGRESO")}
 <h1 class="h1">Tu <span class="t">registro</span></h1>

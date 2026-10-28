@@ -103,3 +103,13 @@ Prioridad: 🔴 **crítica** (afecta seguridad, coherencia de lo que se promete 
 - 1.2 y 1.3: ¿qué ejercicio de espalda sumar en la Rutina 1 de casa, y si se reemplaza el fondo en banco?
 - 1.4 y 1.5: ¿búlgara recién desde la semana 6, y un solo ejercicio de abdomen por rutina?
 - 1.6: en gimnasio, ¿progresión por carga con pausas de 60 a 90 s?
+
+---
+
+## Decisiones de Nacho (aplicadas)
+
+- **1.1 Saltos:** quedan como están, con su opción sin salto. Se corrigió la landing: "cada ejercicio tiene una variante más fácil y los que llevan salto tienen una opción sin salto".
+- **1.2 / 1.3 Tracción en casa:** en la Rutina 1, el fondo en banco se reemplazó por **remo inclinado con mochila pesada (o mancuernas)**. En el gimnasio ya hay remo en máquina, jalón, remo en polea y face pull.
+- **1.4 Búlgara:** reemplazada por **estocada split** en la Rutina 2 de casa.
+- **1.6 Gimnasio:** progresión por carga, con **60 a 90 s de pausa** entre ejercicios (no se acorta la pausa).
+- Pendientes de decisión: 1.5 (abdomen por rutina), 2.1 (errores frecuentes), 2.2 (qué hacer si perdés días), 4.1 ("te acompañan" / "trabaja con vos").
