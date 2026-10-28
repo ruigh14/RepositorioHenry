@@ -82,6 +82,5 @@ def params(items):
 
 # ---- Reglas de venta
 DESCARGO = "Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud."
-# Garantía: desactivada hasta que Nacho la defina. Cuando exista, poné el texto acá
-# (por ejemplo "7 días de garantía") y las piezas que la usan la muestran.
-GARANTIA = None
+# Garantía definida por Nacho: 7 días, sin preguntas. Las piezas que la usan la muestran.
+GARANTIA = "Garantía de 7 días: si no te gusta el material, te devolvemos el dinero."
