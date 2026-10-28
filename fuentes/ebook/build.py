@@ -99,7 +99,7 @@ if ENT:
   <p class="c2-desc">{G("Sesiones de 20 a 40 minutos para mujeres con poco tiempo.", "Sesiones de 45 a 60 minutos, desde cero, para mujeres con poco tiempo.", "Sesiones de 15 a 30 minutos, sin saltos, con respiración, piso pélvico y pausa activa.")} Bonus: dos talleres, recetario y acceso a la comunidad RENOVA.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
-      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
+      <figcaption><b>EQUIPO RENOVA</b><span>{"Profesionales que te acompañan en cada pilar." if MAMA else "Profesionales detrás de cada pilar del método."}</span></figcaption></figure>
     <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
   </div>
 </div>
@@ -118,7 +118,7 @@ if FULL:
   <p class="c2-desc">Un sistema práctico de alimentación, entrenamiento y descanso para personas con poco tiempo que quieren resultados sostenibles.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
-      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
+      <figcaption><b>EQUIPO RENOVA</b><span>{"Profesionales que te acompañan en cada pilar." if MAMA else "Profesionales detrás de cada pilar del método."}</span></figcaption></figure>
     <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
   </div>
 </div>
@@ -415,12 +415,66 @@ MATERIAL = {
 # Ejercicios que en las semanas 7 y 8 suman dos mancuernas (solo Ebook 1)
 PLUS2 = {"Sentadilla en copa", "Estocada split", "Subida al banco", "Sentadilla búlgara", "Estocada cruzada", "Sentadilla sumo"}
 
+
+# Una oración de cuidados y errores frecuentes por ejercicio (casa y gimnasio; mamás todavía no).
+CUIDADOS = {
+ # casa
+ "Sentadilla en copa": "espalda derecha y rodillas que no se vayan hacia adentro.",
+ "Estocada split": "tronco derecho y la rodilla de adelante sin irse hacia adentro.",
+ "Flexiones de brazo": "cuerpo en línea, sin dejar caer la cadera.",
+ "Puente a una pierna": "subí con el glúteo, sin arquear la zona lumbar.",
+ "Remo inclinado con mochila": "espalda derecha, mirada al piso y hombros lejos de las orejas.",
+ "Jumping jack": "aterrizá suave, con las rodillas apenas flexionadas.",
+ "Plancha prona": "cadera alineada y respirá sin aguantar el aire.",
+ "Crunch abdominal": "no tires del cuello: subí con el abdomen.",
+ "Subida al banco": "pie completo en el escalón y rodilla sin irse hacia adentro.",
+ "Mountain climber": "manos debajo de los hombros y cadera estable.",
+ "Sentadilla con press de hombros": "abdomen firme, sin arquear la zona lumbar al subir los brazos.",
+ "Abdominales bicicleta": "girá el tronco y no tires del cuello.",
+ "Skipping en el lugar": "aterrizá suave y tronco derecho.",
+ "Plancha alta dinámica": "pies separados para que la cadera no gire.",
+ "Remo inclinado": "espalda derecha y codo pegado al cuerpo, sin girar el tronco.",
+ "Estocada cruzada": "tronco derecho y la rodilla de adelante sin irse hacia adentro.",
+ "Plancha lateral dinámica": "codo debajo del hombro y cuerpo en línea.",
+ "Sentadilla sumo": "rodillas hacia las puntas de los pies y espalda derecha.",
+ "Abdominales tijera": "si se despega la lumbar, subí las piernas.",
+ "Peso muerto con mancuernas": "espalda derecha, mirada al piso y pesas cerca de las piernas.",
+ "Bíceps con peso": "codos quietos, sin balancear el tronco.",
+ "Plancha oso": "espalda plana y rodillas apenas despegadas.",
+ "Vuelo posterior con peso": "espalda derecha, mirada al piso y hombros abajo.",
+ # gimnasio
+ "Prensa": "la zona lumbar siempre apoyada en el respaldo y sin bloquear las rodillas al estirar.",
+ "Press de pecho en máquina": "hombros abajo y atrás, apoyados en el respaldo; no bloquees los codos.",
+ "Extensión de cuádriceps": "subí y bajá lento, sin impulso ni golpes con la pila de placas.",
+ "Remo en máquina": "pecho apoyado y hombros lejos de las orejas; tirá con los codos.",
+ "Curl de isquiotibiales sentada": "rodillas alineadas con el eje de la máquina y sin despegar la cadera del asiento.",
+ "Elevaciones laterales sentada": "subí solo hasta la altura de los hombros, sin encogerlos ni balancear el tronco.",
+ "Bicho muerto con disco": "la zona lumbar siempre pegada al piso; si se despega, bajá menos las piernas.",
+ "Jalón al pecho": "bajá la barra al pecho, nunca detrás de la nuca, sin echarte hacia atrás.",
+ "Aductores en máquina": "movimiento lento y con control al abrir, sin forzar más de lo cómodo.",
+ "Plancha lateral": "codo debajo del hombro y cadera alta: el cuerpo en línea.",
+ "Estocada split con mancuernas": "tronco derecho y que la rodilla de adelante no se vaya hacia adentro.",
+ "Apertura de pecho en máquina": "codos apenas flexionados y fijos; no abras más atrás de la línea del cuerpo.",
+ "Extensión de tríceps con soga": "codos pegados al cuerpo y quietos: solo se mueven los antebrazos.",
+ "Remo bajo en polea": "espalda derecha, sin balancear el tronco hacia atrás para tirar.",
+ "Hip thrust": "mentón levemente hacia el pecho y subí con el glúteo, sin arquear la zona lumbar.",
+ "Bird dog": "espalda quieta: que la cadera no gire al estirar la pierna.",
+ "Press de hombros en máquina": "espalda apoyada y sin arquear la zona lumbar al empujar.",
+ "Abducción en máquina": "abrí con control y volvé lento, sin dejar que la máquina te cierre las piernas.",
+ "Bíceps con mancuernas": "codos quietos, sin balancear el tronco.",
+ "Face pull": "tirá hacia la cara con los codos altos, sin echar el tronco hacia atrás.",
+ # zona media
+ "Bicho muerto alternado": "la zona lumbar pegada al piso todo el tiempo; si se despega, achicá el movimiento.",
+ "Plancha": "cadera alineada y respirá sin aguantar el aire.",
+ "Abdominales cruzados": "no tires del cuello con las manos: girá desde el tronco.",
+}
+
 def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False):
     ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" and not GYM and not MAMA and not PAUSA_ED else ""
     evb = f' <a class="vbtn-xs" href="{esc(ev)}">{ICON_PLAY} VER VARIANTE</a>' if ev else ""
     e = f'<p class="easy"><b>{easy_label}:</b> {easy}{evb}</p>' if easy else ""
-    if ENT and not GYM and not MAMA and name in PLUS2:
-        e += '<p class="plus"><b>Semanas 6 a 8:</b> sumá dos mancuernas.</p>'
+    if ENT and not MAMA and name in CUIDADOS:   # el cuidado va en el mismo párrafo que la explicación
+        how = f'{how} <span class="ojo"><b>Cuidá:</b> {CUIDADOS[name]}</span>'
     mat = f'<span class="mat">{MATERIAL.get(name, "Propio cuerpo")}</span>'
     url = VIDEOS.get(name, "")
     vb = (f'<a class="vbtn-sm" href="{esc(url)}">{ICON_PLAY} VER VIDEO</a>' if url
@@ -535,7 +589,7 @@ RUT = {
  ("r3_1.png","Estocada cruzada","10–12 por pierna","Llevá una pierna en diagonal hacia atrás, por detrás de la otra, y bajá con el tronco erguido. Volvé al centro.","estocada split, sin cruzar la pierna."),
  ("r3_2.png","Plancha lateral dinámica","10–12 por lado","Apoyada sobre un antebrazo, con el cuerpo de costado, bajá la cadera hacia el piso y subila apretando el lateral del abdomen.","plancha lateral quieta, con las rodillas apoyadas."),
  ("r3_3.png","Sentadilla sumo","10–12","Pies bien separados y puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí apretando glúteos.","sin peso y con menos profundidad."),
- ("r3_4.png","Abdominales tijera","15–20 s","Boca arriba, con las manos debajo de los glúteos y las piernas estiradas a unos 15 cm del piso. Cruzá los pies en movimientos cortos, con la zona lumbar pegada al piso.","bicho muerto, moviendo solo las piernas."),
+ ("r3_4.png","Abdominales tijera","15–20 s","Boca arriba, manos debajo de los glúteos y piernas estiradas a unos 15 cm del piso. Cruzá los pies en movimientos cortos.","bicho muerto, moviendo solo las piernas."),
  ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y una mancuerna en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas por delante de las piernas y volvé apretando los glúteos.","con un palo de escoba, sin peso, para aprender el movimiento."),
  ("r3_6.png","Bíceps con peso","10–12","De pie, codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","con botellas de agua."),
  ("r3_7.png","Plancha oso","15–20 s","En cuatro apoyos, elevá las rodillas unos centímetros del piso y sostené con la espalda plana.","bird dog: en cuatro apoyos, sin despegar las rodillas."),
@@ -596,7 +650,7 @@ if GYM:
      ("gym_remomaq.png","Remo en máquina","10–12","Pecho apoyado en el respaldo y manijas con agarre neutro. Tirá llevando los codos hacia atrás, pegados al cuerpo, juntá los omóplatos y volvé lento.","menos peso y recorrido más corto."),
      ("gym_curlisq.png","Curl de isquiotibiales sentada","12","Regulá la máquina para que las rodillas queden al borde del asiento. Flexioná las rodillas llevando el rodillo hacia abajo y volvé lento.","menos peso, o puente de glúteos en la colchoneta."),
      ("gym_vuelolat.png","Elevaciones laterales sentada","10–12","Sentada en un banco, con una mancuerna en cada mano. Elevá los brazos hacia los costados hasta la altura de los hombros, con los codos apenas flexionados, y bajá lento.","mancuernas de 1 kg o sin peso."),
-     ("gym_bichodisco.png","Bicho muerto con disco","8–10","Boca arriba, con un disco sostenido con los brazos estirados hacia el techo y las rodillas a 90°. Bajá brazos y piernas hacia el piso sin despegar la zona lumbar y volvé.","sin disco, alternando un brazo y la pierna contraria."),
+     ("gym_bichodisco.png","Bicho muerto con disco","8–10","Boca arriba, con un disco sostenido con los brazos hacia el techo y las rodillas a 90°. Bajá brazos y piernas hacia el piso y volvé.","sin disco, alternando un brazo y la pierna contraria."),
     ]),
     "2": dict(title="Rutina 2", note="Plancha lateral: 15–20 s por lado.", ex=[
      ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y una mancuerna en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas por delante de las piernas y volvé apretando los glúteos.","con una barra sin peso o un palo, para aprender el movimiento."),
@@ -685,6 +739,7 @@ if MAMA:
     }
 
 VUELTAS = "3 vueltas (2 en la semana 1)" if FULL else "2 o 3 vueltas, según tu semana"
+CORTO = not (ENT and not MAMA)   # casa y gimnasio: el cierre de cada bloque va en el encabezado (deja lugar a los cuidados)
 for k, r in RUT.items():
     page(f"""
 <h1 class="h1 rt">{r["title"]}: <span class="t">cuerpo completo</span></h1>
@@ -692,14 +747,14 @@ for k, r in RUT.items():
 {"".join(ex_card(*c, row=True) for c in CALOR_R[k])}
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}")
     page(f"""
-{block_head(r["title"].upper() + " · BLOQUE 1", VUELTAS + G(" · 30–60 s entre ejercicios", " · 60–90 s entre ejercicios") + " · 1 min entre vueltas · " + r["note"])}
+{block_head(r["title"].upper() + " · BLOQUE 1", VUELTAS + G(" · 30–60 s entre ejercicios", " · 60–90 s entre ejercicios") + " · 1 min entre vueltas · " + r["note"] + ("" if CORTO else " Al terminar, 2 min de pausa y pasá al bloque 2."))}
 {"".join(ex_card(*e, row=True) for e in r["ex"][:4])}
-<p class="small"><b>Al terminar las vueltas</b>, descansá 2 minutos y pasá al bloque 2.</p>
+{'<p class="small"><b>Al terminar las vueltas</b>, descansá 2 minutos y pasá al bloque 2.</p>' if CORTO else ''}
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}b1")
     page(f"""
-{block_head(r["title"].upper() + " · BLOQUE 2", VUELTAS + G(" · 30–60 s entre ejercicios", " · 60–90 s entre ejercicios") + " · 1 min entre vueltas · " + r["note"])}
+{block_head(r["title"].upper() + " · BLOQUE 2", VUELTAS + G(" · 30–60 s entre ejercicios", " · 60–90 s entre ejercicios") + " · 1 min entre vueltas · " + r["note"] + ("" if CORTO else ' Al terminar, hacé la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).'))}
 {"".join(ex_card(*e, row=True) for e in r["ex"][4:])}
-<p class="small"><b>Al terminar el bloque 2</b>, hacé la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p>
+{'<p class="small"><b>Al terminar el bloque 2</b>, hacé la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p>' if CORTO else ''}
 """, chapter=NE + " · Entrenamiento", pid=f"rutina{k}b2")
 
 ELONG = [
@@ -880,7 +935,8 @@ if ENT:
       G("<b>Pausa entre ejercicios:</b> 60 s; desde la semana 4, 45 s.", "<b>Pausa entre ejercicios:</b> 60 a 90 s. En el gimnasio progresás subiendo el peso, no acortando la pausa."),
       G("<b>Aeróbico (A):</b> caminar rápido, bici o bailar, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar.",
         "<b>Aeróbico (A):</b> cinta, bici o elíptica en el gimnasio, o caminar rápido al aire libre, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar.")]) +
-    ["Dejá un día entre dos sesiones de fuerza. Los días se pueden mover: lo importante es el total de la semana."])}
+    ["Dejá un día entre dos sesiones de fuerza. Los días se pueden mover: lo importante es el total de la semana."] +
+    ([] if MAMA else ["<b>Si perdés un día:</b> no pasa nada. Hacé esa rutina en tu próximo día libre y seguí; no hagas dos el mismo día ni compenses. Si perdés la semana entera, repetí la última semana que completaste."]))}
 ''', pid="plan8t1")
 
     page(f'''
@@ -890,7 +946,7 @@ if ENT:
 <p class="lead">Semanas 6 a 8: más peso, más tiempo y menos pausa.</p>
 {plan_simple(PLAN8[5:])}
 <h3>Cómo aumentar</h3>
-{ul(([G("<b>Semana 6:</b> sumá peso o pasá a la variante más difícil donde ya llegás cómoda a 12 repeticiones. En los ejercicios que lo indican, sumá dos mancuernas.", "<b>Semana 6:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones."),
+{ul(([G("<b>Semana 6:</b> sumá peso o pasá a la variante más difícil donde ya llegás cómoda a 12 repeticiones. En sentadillas, estocadas y subida al banco, sumá dos mancuernas.", "<b>Semana 6:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones."),
       G("<b>Semana 7:</b> bajá en 3 segundos en cada repetición (por ejemplo, al bajar en la sentadilla) y acortá la pausa a 30–45 s.", "<b>Semana 7:</b> bajá en 3 segundos en cada repetición y, si llegás cómoda a 12, subí el peso. La pausa sigue en 60 a 90 s."),
       "<b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1."] if not MAMA else
      ["<b>Semana 6:</b> pasás a 3 vueltas en todas las rutinas.",
@@ -1029,7 +1085,7 @@ if ENT:
 </div>
 <div>
 <h3>Cuándo pedir ayuda</h3>
-<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
+<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, {"un acompañamiento personalizado" if MAMA else "un plan personalizado"} te ayuda a ajustar el plan.</p>
 </div>
 </div>
 <div class="ctapanel cta-plan">
@@ -1674,7 +1730,7 @@ if FULL:
 <h3>Cómo retomar</h3>
 {ul(["Volvé en la próxima oportunidad, no “el lunes”.","Empezá con la mitad: 2 vueltas y comidas simples.","No compenses con ejercicio extra ni comiendo menos."])}
 <h3>Cuándo pedir ayuda</h3>
-<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
+<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, {"un acompañamiento personalizado" if MAMA else "un plan personalizado"} te ayuda a ajustar el plan.</p>
 </div>
 </div>
 <h2>Tu plan mínimo para semanas difíciles</h2>
@@ -1763,7 +1819,7 @@ if ENT:
   </div>
   <div class="what">
     <h2>¿Qué es <span class="t">Programa RENOVA</span>?</h2>
-    <p>Es el programa de acompañamiento que creamos con el equipo para mujeres: entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, psicología y hábitos, con un enfoque en el ámbito hormonal.</p>
+    <p>{"Es el programa de acompañamiento que creamos" if MAMA else "Es el método que creamos"} con el equipo para mujeres: entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, psicología y hábitos, con un enfoque en el ámbito hormonal.</p>
   </div>
   <div class="quote dark">En este ebook vamos a trabajar el pilar del entrenamiento, con bonus incluidos. <span class="t2">¡Seguimos!</span></div>
 </div>
@@ -1774,8 +1830,8 @@ if ENT:
   {eyebrow("MÉTODO RENOVA")}
   <h1 class="h1 big">Método <span class="t">RENOVA</span></h1>
   <div class="team-big"><img src="{LINKS["foto_equipo"]}" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>
-  <p>En RENOVA acompañamos a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
-  <p>Un equipo completo trabaja con vos: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
+  <p>{"En RENOVA acompañamos" if MAMA else "En RENOVA ayudamos"} a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
+  <p>{"Un equipo completo trabaja con vos" if MAMA else "Detrás del método hay un equipo completo"}: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
   <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Hábitos</span><span>Salud hormonal</span></div>
   <div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>
   <div class="cta-center">{button("QUIERO SUMARME A RENOVA", "renova", "", big=True)}</div>
@@ -1797,7 +1853,7 @@ if FULL:
   </div>
   <div class="what">
     <h2>¿Qué es <span class="t">Programa RENOVA</span>?</h2>
-    <p>PROGRAMA RENOVA es un programa de acompañamiento que integra entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, descanso y gestión de hábitos para ayudarte a mejorar tu composición corporal y construir una rutina sostenible.</p>
+    <p>PROGRAMA RENOVA es un método que integra entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, descanso y gestión de hábitos para ayudarte a mejorar tu composición corporal y construir una rutina sostenible.</p>
     <p>No se trata de seguir una dieta extrema ni de entrenar sin estrategia. Se trata de organizar un proceso, aprender a tomar mejores decisiones y contar con herramientas que puedas mantener en el tiempo.</p>
     <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Descanso</span><span>Hábitos</span></div>
   </div>
@@ -1870,7 +1926,7 @@ if PAUSA_ED:
   <p class="c2-desc">Cuatro rutinas cortas para aflojar el cuello y la espalda, activar las piernas y despejar la cabeza en los días de muchas horas sentada.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
-      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
+      <figcaption><b>EQUIPO RENOVA</b><span>{"Profesionales que te acompañan en cada pilar." if MAMA else "Profesionales detrás de cada pilar del método."}</span></figcaption></figure>
     <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
   </div>
 </div>

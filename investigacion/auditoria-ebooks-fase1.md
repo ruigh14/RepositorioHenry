@@ -113,3 +113,7 @@ Prioridad: 🔴 **crítica** (afecta seguridad, coherencia de lo que se promete 
 - **1.4 Búlgara:** reemplazada por **estocada split** en la Rutina 2 de casa.
 - **1.6 Gimnasio:** progresión por carga, con **60 a 90 s de pausa** entre ejercicios (no se acorta la pausa).
 - Pendientes de decisión: 1.5 (abdomen por rutina), 2.1 (errores frecuentes), 2.2 (qué hacer si perdés días), 4.1 ("te acompañan" / "trabaja con vos").
+- **1.5 Abdomen:** queda como está.
+- **2.1 Errores frecuentes:** cada ejercicio de las rutinas y de la zona media tiene una oración "Cuidá:" (`CUIDADOS` en `build.py`), en el mismo párrafo de la explicación. El cierre de cada bloque pasó al encabezado para que todo entre en una hoja.
+- **2.2 Si perdés un día:** explicado en la hoja de las semanas 1 a 4 del plan.
+- **4.1 Acompañamiento:** Nacho no hace acompañamiento. Se cambió "te acompañan", "acompañamos", "trabaja con vos" y "programa de acompañamiento" en casa, gimnasio y la edición completa (mamás todavía no se tocó).
