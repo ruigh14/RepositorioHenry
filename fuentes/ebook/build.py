@@ -118,7 +118,6 @@ def _woman(kind):
     ang = (f'<path d="M{J["knee"][0] + 9} {J["knee"][1] - 4}A10 10 0 0 1 {J["knee"][0] + 6} {J["knee"][1] + 8}"/>'
            f'<path d="M{J["hip"][0] - 10} {J["hip"][1] + 2}A10 10 0 0 1 {J["hip"][0] - 3} {J["hip"][1] - 9}"/>')
     return f'''<g class="c3-w">
-  <circle cx="50" cy="80" r="62" class="c3-glass"/>
   <circle cx="50" cy="80" r="60" class="c3-hud" stroke-dasharray="1 3"/><circle cx="50" cy="80" r="52" class="c3-hud"/>
   <g class="c3-sil"><path d="{_SIL["body"]}"/><path d="{_SIL["tail"]}"/><circle cx="{hx}" cy="{hy}" r="8"/></g>
   <path class="c3-arm" d="{arm}"/>
@@ -132,7 +131,7 @@ def cover_bg(kind):
     ic = "".join(f'<svg x="{x}mm" y="{y}mm" width="{w}mm" height="{w}mm" viewBox="0 0 24 24" overflow="visible">'
                  f'<g transform="rotate({r} 12 12)" filter="url(#c3glow)">{COVER_ICONS[n]}</g></svg>'
                  for n, (x, y, w, r) in zip(big, pos))
-    woman = '<svg x="160mm" y="214mm" width="48mm" height="65mm" viewBox="0 0 110 150" overflow="visible">' + _woman(kind) + '</svg>'
+    woman = '<svg x="3mm" y="196mm" width="56mm" height="76mm" viewBox="0 0 110 150" overflow="visible">' + _woman(kind) + '</svg>'
     return ('''<svg class="c3-pat" width="210mm" height="297mm" fill="none" stroke="url(#c3g)" stroke-width="1.1"
   stroke-linecap="round" stroke-linejoin="round"><defs>
   <linearGradient id="c3g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--c3-i)"/><stop offset="1" style="stop-color:var(--c3-g)"/></linearGradient>
