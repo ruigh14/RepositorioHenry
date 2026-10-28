@@ -80,10 +80,44 @@ def page(body, chapter="", pid=None, cls="", toc=None, header=True):
         TOC.append((toc, pid))
     return pid
 
+
+# ---- fondo de la tapa: íconos de entrenamiento muy suaves (casa o gimnasio)
+COVER_ICONS = {
+    "pesa": '<path d="M6 8v8M3.5 10v4M18 8v8M20.5 10v4M6 12h12"/>',
+    "barra": '<path d="M2 12h20M5 7v10M7.5 8.5v7M19 7v10M16.5 8.5v7"/>',
+    "rusa": '<path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><circle cx="12" cy="14.5" r="5.5"/>',
+    "disco": '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/>',
+    "silla": '<path d="M7 3v9M6 12h12M7 12v9M17 12v9"/>',
+    "botella": '<path d="M10 2h4M10.5 2v3L9 7v14h6V7l-1.5-2V2"/>',
+    "colchoneta": '<rect x="3" y="8" width="13" height="8" rx="1"/><circle cx="17" cy="12" r="4"/>',
+    "zapa": '<path d="M3 16v-6l3-1h5l3 4 5 1c1 0 2 1 2 2v2H3zM3 18h18"/>',
+    "casa": '<path d="M3 11l9-7 9 7M5 10v10h14V10"/>',
+    "reloj": '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M10 2h4"/>',
+    "corazon": '<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>',
+    "banco": '<path d="M3 11h18M6 11v6M18 11v6M4 17h4M16 17h4"/>',
+}
+def cover_bg(kind):
+    import random
+    rnd = random.Random(7 if kind == "casa" else 11)
+    names = (["pesa", "silla", "botella", "colchoneta", "zapa", "casa", "reloj", "corazon"] if kind == "casa"
+             else ["barra", "rusa", "disco", "pesa", "banco", "zapa", "reloj", "corazon"])
+    out, k = [], 0
+    for r in range(10):
+        for c in range(7):
+            x = 3 + c * 30 + (15 if r % 2 else 0) + rnd.uniform(-3, 3)
+            y = 3 + r * 29 + rnd.uniform(-3, 3)
+            if x > 200: continue
+            n = names[k % len(names)]; k += 1
+            out.append(f'<svg x="{x:.1f}mm" y="{y:.1f}mm" width="13mm" height="13mm" viewBox="0 0 24 24">'
+                       f'<g transform="rotate({rnd.uniform(-25, 25):.0f} 12 12)">{COVER_ICONS[n]}</g></svg>')
+    return ('<svg class="c3-pat" width="210mm" height="297mm" fill="none" stroke="currentColor" stroke-width="1.5" '
+            f'stroke-linecap="round" stroke-linejoin="round">{"".join(out)}</svg>')
+
 # ================================================================== PORTADA
 if ENT and not MAMA:   # tapa de casa y gimnasio (modelo de Nacho)
     page(f'''
 <div class="cv3 {G("casa","gym")}">
+  {cover_bg(G("casa","gym"))}
   <div class="c3-in">
     <img class="c3-logo" src="img/logo_renova.png" alt="RENOVA">
     <span class="c3-pill">MÉTODO RENOVA · MUJERES 35+ · PLAN DE 8 SEMANAS</span>
@@ -91,7 +125,7 @@ if ENT and not MAMA:   # tapa de casa y gimnasio (modelo de Nacho)
     <p class="c3-claim">VOLVÉ A SENTIRTE <b><span>FUERTE.</span></b></p>
     <p class="c3-sub">Más fuerza y energía en 8 semanas,<br><span>con sesiones cortas y de bajo impacto.</span></p>
   </div>
-  <div class="c3-team"><img src="img/equipo2.jpg" alt="Equipo RENOVA"></div>
+  <div class="c3-team"><img src="img/equipo_tapa.png" alt="Equipo RENOVA"></div>
   <div class="c3-band"><b>EQUIPO RENOVA</b><span>•</span>ENTRENAMIENTO · NUTRICIÓN · MEDICINA DEPORTIVA</div>
 </div>
 ''', pid="portada", cls="p-cover", header=False)
