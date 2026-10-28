@@ -1318,6 +1318,8 @@ dict(t="Brownie de banana", cat="Postres", rinde="6 cuadrados", tiempo="30 min",
 ]
 
 R = R[:19] + [R[22]] + R[19:22]   # el brownie va junto a los otros postres de horno/freezer
+for i, r in enumerate(R):   # la foto (img/food/NN.jpg) queda atada a la receta, aunque después se filtre la lista
+    r["foto"] = i + 1
 # Ebooks de entrenamiento: recetario corto con las recetas más proteicas (10 en mamás, 8 en casa y gimnasio). Las 23 quedan en la edición completa
 # y en la futura guía de alimentación.
 RECETAS_BONUS = ["Pancake individual", "Pancakes de banana y coco", "Hummus de garbanzos", "Ensalada tibia de vegetales, legumbres y pollo",
@@ -1481,7 +1483,7 @@ def recipe_html(r, n=0):
     ing = "".join(f"<li>{i}</li>" for i in r["ing"])
     pasos = "".join(f"<li>{p}</li>" for p in r["pasos"])
     tip = f'<p class="tip"><b>Tip:</b> {r["tip"]}</p>' if r["tip"] else ""
-    return (f'<article class="rec">{recipe_img(n, r["t"])}<div class="rech"><span class="rcat">{r["cat"].upper()}</span><h2>{r["t"]}</h2>'
+    return (f'<article class="rec">{recipe_img(r["foto"], r["t"])}<div class="rech"><span class="rcat">{r["cat"].upper()}</span><h2>{r["t"]}</h2>'
             f'<div class="rmeta"><span>Rinde: <b>{r["rinde"]}</b></span><span>Tiempo: <b>{r["tiempo"]}</b></span></div></div>'
             f'<div class="recb"><div><h5>Ingredientes</h5><ul class="ing">{ing}</ul></div>'
             f'<div><h5>Preparación</h5><ol class="steps-ol">{pasos}</ol></div></div></article>'
