@@ -872,7 +872,8 @@ if ENT:
       "<b>Caminata (A):</b> 2 o 3 veces por semana, a paso ágil. Con el cochecito también vale."] if MAMA else
      ["<b>Semana 1:</b> solo la rutina 1 y la 2.",
       "<b>Pausa entre ejercicios:</b> 60 s; desde la semana 4, 45 s.",
-      "<b>Aeróbico (A):</b> caminar rápido, bici o bailar, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar."]) +
+      G("<b>Aeróbico (A):</b> caminar rápido, bici o bailar, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar.",
+        "<b>Aeróbico (A):</b> cinta, bici o elíptica en el gimnasio, o caminar rápido al aire libre, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar.")]) +
     ["Dejá un día entre dos sesiones de fuerza. Los días se pueden mover: lo importante es el total de la semana."])}
 ''', pid="plan8t1")
 
