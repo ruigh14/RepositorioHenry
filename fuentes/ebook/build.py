@@ -467,13 +467,30 @@ CUIDADOS = {
  "Bicho muerto alternado": "la zona lumbar pegada al piso todo el tiempo; si se despega, achicá el movimiento.",
  "Plancha": "cadera alineada y respirá sin aguantar el aire.",
  "Abdominales cruzados": "no tires del cuello con las manos: girá desde el tronco.",
+ # bonus pausa activa
+ "Estiramiento del cuello": "hombros abajo y sin tirones: solo el peso de la mano.",
+ "Circunducción de hombro": "círculos lentos y amplios, sin encoger los hombros.",
+ "Estiramiento de hombro a un brazo": "el hombro que estirás, abajo y lejos de la oreja.",
+ "Rotaciones de tronco": "la cadera quieta: gira solo el tronco.",
+ "Estiramiento pectoral en pared": "girá suave, sin forzar el hombro.",
+ "Sentadilla a la silla": "espalda derecha y rodillas que no se vayan hacia adentro.",
+ "Elevación de talones": "subí y bajá lento, sin balancearte.",
+ "Abducción de cadera de pie": "tronco derecho: que no se incline hacia el costado.",
+ "Sentadilla lateral sin peso": "la rodilla que se flexiona, en dirección a la punta del pie.",
+ "Marcha en el lugar": "tronco derecho y abdomen firme.",
+ "Círculos de cadera": "tronco quieto: se mueve solo la cadera.",
+ "Balanceo de pierna frontal": "espalda derecha, sin forzar la altura.",
+ "Flexiones de brazos inclinadas": "cuerpo en línea, sin dejar caer la cadera.",
+ "Jumping jacks sin salto": "paso suave y brazos hasta donde estés cómoda.",
+ "Sentadilla sumo sin peso": "rodillas hacia las puntas de los pies y espalda derecha.",
+ "Estocada con apoyo": "tronco derecho y la rodilla de adelante sin irse hacia adentro.",
 }
 
 def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False):
     ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" and not GYM and not MAMA and not PAUSA_ED else ""
     evb = f' <a class="vbtn-xs" href="{esc(ev)}">{ICON_PLAY} VER VARIANTE</a>' if ev else ""
     e = f'<p class="easy"><b>{easy_label}:</b> {easy}{evb}</p>' if easy else ""
-    if ENT and not MAMA and name in CUIDADOS:   # el cuidado va en el mismo párrafo que la explicación
+    if ((ENT and not MAMA) or PAUSA_ED) and name in CUIDADOS:   # el cuidado va en el mismo párrafo que la explicación
         how = f'{how} <span class="ojo"><b>Cuidá:</b> {CUIDADOS[name]}</span>'
     mat = f'<span class="mat">{MATERIAL.get(name, "Propio cuerpo")}</span>'
     url = VIDEOS.get(name, "")
@@ -1944,7 +1961,7 @@ if PAUSA_ED:
 </div>
 <h3>Cómo se hace</h3>
 {ul(["Hacé los ejercicios en orden y sin pausa (una vuelta). Hacé 2 vueltas.",
-     "Alcanza con una silla firme, sin rueditas, y una pared. Cada ejercicio tiene video y una variante más fácil.",
+     "Alcanza con una silla firme, sin rueditas, y una pared. Cada ejercicio tiene su video. Si alguno te cuesta, hacelo con menos recorrido.",
      "Agendala: a media mañana, después de almorzar o a media tarde.",
      "<b>Si sentís dolor o mareos, frená.</b> Si tenés una lesión, consultá antes."])}
 ''', pid="p-como")
@@ -1953,18 +1970,18 @@ if PAUSA_ED:
         page(f'''
 {eyebrow(f"RUTINA {n} · {w.upper()}")}
 <h1 class="h1">{t.split()[0]} <span class="t">{" ".join(t.split()[1:])}</span></h1>
-{params([("Vueltas", "2"), ("Duración", "10 min"), ("Pausa", "Sin pausa"), ("Posición", w)])}
-{"".join(ex_card(*E[k][:4], easy=E[k][4], row=True) for k in ids)}
+<p class="small">2 vueltas · 10 min · sin pausa entre ejercicios · {w.lower()}</p>
+{"".join(ex_card(*E[k][:4], row=True) for k in ids)}
 ''', pid=f"p-rut{n}")
 
     page(f'''
 <div class="bonus">
 {eyebrow("EL PRÓXIMO PASO")}
 <h1 class="h1 big">Un plan <span class="t">a tu medida</span></h1>
-<p class="lead">Con estas pausas ya sumás movimiento a tu día. Si querés ir por más, armamos juntos tu plan personalizado: rutinas de entrenamiento pensadas para vos o el programa integral RENOVA, con entrenamiento, nutrición y hábitos.</p>
+<p class="lead">Con estas pausas ya sumás movimiento a tu día. Si querés ir por más, armamos tu plan integral RENOVA de entrenamiento y nutrición, pensado para vos.</p>
 <div class="cols2">
 <div><h3>Con tu plan personalizado</h3>
-{checks(["Rutinas armadas según tu nivel, tu tiempo y tus objetivos.", "Ajustes a medida que avanzás.", "El respaldo del equipo RENOVA, con médico deportólogo."])}
+{checks(["Un plan de entrenamiento y nutrición pensado para vos.", "Armado según tu nivel, tu tiempo y tus objetivos.", "Con el respaldo del equipo RENOVA, con médico deportólogo."])}
 </div>
 <div><h3>Cómo empezar</h3>
 {checks(["Escribile a Nacho por WhatsApp.", "Contale tu objetivo y cuánto tiempo tenés.", "Juntos elaboramos un plan a tu medida."])}
