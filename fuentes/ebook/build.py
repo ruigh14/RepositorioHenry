@@ -81,37 +81,64 @@ def page(body, chapter="", pid=None, cls="", toc=None, header=True):
     return pid
 
 
-# ---- fondo de la tapa: íconos de entrenamiento muy suaves (casa o gimnasio)
+# ---- fondo de la tapa: dibujos translúcidos de casa o gimnasio + mujer con líneas de biomecánica
 COVER_ICONS = {
-    "pesa": '<path d="M6 8v8M3.5 10v4M18 8v8M20.5 10v4M6 12h12"/>',
-    "barra": '<path d="M2 12h20M5 7v10M7.5 8.5v7M19 7v10M16.5 8.5v7"/>',
-    "rusa": '<path d="M9 9V6.5a3 3 0 0 1 6 0V9"/><circle cx="12" cy="14.5" r="5.5"/>',
-    "disco": '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/>',
-    "silla": '<path d="M7 3v9M6 12h12M7 12v9M17 12v9"/>',
-    "botella": '<path d="M10 2h4M10.5 2v3L9 7v14h6V7l-1.5-2V2"/>',
-    "colchoneta": '<rect x="3" y="8" width="13" height="8" rx="1"/><circle cx="17" cy="12" r="4"/>',
-    "zapa": '<path d="M3 16v-6l3-1h5l3 4 5 1c1 0 2 1 2 2v2H3zM3 18h18"/>',
-    "casa": '<path d="M3 11l9-7 9 7M5 10v10h14V10"/>',
-    "reloj": '<circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M10 2h4"/>',
-    "corazon": '<path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/>',
-    "banco": '<path d="M3 11h18M6 11v6M18 11v6M4 17h4M16 17h4"/>',
+    "mochila": '<path d="M7 8.5a5 5 0 0 1 10 0V19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2z"/><path d="M10 3.6h4M9 13h6v4H9zM12 13v1.6M7 11H5.5v6H7M17 11h1.5v6H17"/>',
+    "botellas": ('<g><rect x="3.4" y="2" width="3.2" height="2" rx=".5"/><path d="M3.6 4h2.8v1.4l1.3 1.6V20a1 1 0 0 1-1 1H3.3a1 1 0 0 1-1-1V7l1.3-1.6z"/>'
+                 '<path d="M2.3 11h5.4M2.3 15h5.4"/></g><g transform="translate(10.5 -1)"><rect x="3.4" y="2" width="3.2" height="2" rx=".5"/>'
+                 '<path d="M3.6 4h2.8v1.4l1.3 1.6V21a1 1 0 0 1-1 1H3.3a1 1 0 0 1-1-1V7l1.3-1.6z"/><path d="M2.3 11h5.4M2.3 15h5.4"/></g>'),
+    "mancuernas": ('<rect x="2" y="9" width="2.4" height="6" rx=".6"/><rect x="4.4" y="7" width="3" height="10" rx=".8"/>'
+                   '<rect x="16.6" y="7" width="3" height="10" rx=".8"/><rect x="19.6" y="9" width="2.4" height="6" rx=".6"/><path d="M7.4 12h9.2"/>'),
+    "barra": ('<path d="M.5 12h23"/><rect x="3.6" y="5" width="2.6" height="14" rx=".8"/><rect x="6.4" y="7" width="2" height="10" rx=".6"/>'
+              '<rect x="17.8" y="5" width="2.6" height="14" rx=".8"/><rect x="15.6" y="7" width="2" height="10" rx=".6"/>'),
+    "rusa": '<path d="M8.5 9.6V7a3.5 3.5 0 0 1 7 0v2.6"/><path d="M7 10.5h10a5.4 5.4 0 0 1 2 4.2c0 3.6-3.1 6.3-7 6.3s-7-2.7-7-6.3a5.4 5.4 0 0 1 2-4.2z"/>',
+    "banco": ('<rect x="2" y="13" width="15" height="2.6" rx="1.2"/><path d="M5 15.6V21M14 15.6V21M3.5 21h3M12.5 21h3"/>'
+              '<path d="M19.5 4v17M18 21h3M19.5 8h-2"/><path d="M14 7.6h9.5"/>'),
 }
+_SIL = {  # silueta de mujer de perfil (mira a la izquierda) en sentadilla
+    "body": ("M40 31C37 34 36 37 36 40C33 44 34 50 39 52C42 56 45 62 48 66C51 72 54 76 56 79L38 87C33 89 33 96 36 98"
+             "L47 124C42 125 33 125 32 128C32 131 36 131 40 131L58 131C60 130 59 126 57 123C56 115 57 106 50 99"
+             "L68 92C76 90 78 80 73 75C67 70 63 65 61 58C58 49 55 40 51 34C49 31 48 30 47 29Z"),
+    "tail": "M46 14C54 12 61 17 60 26C59 30 57 33 55 35C57 29 56 22 48 20Z",
+}
+def _woman(kind):
+    if kind == "casa":   # sentadilla goblet con mancuerna
+        J = dict(head=(41, 21), sho=(45, 37), elb=(34, 55), hand=(31, 46), hip=(63, 79), knee=(40, 93), ank=(52, 126), toe=(36, 129))
+        arm = "M45 38L34 55L31 46"
+        tool = '<rect x="25" y="35" width="12" height="4.5" rx="1.5"/><rect x="25" y="52" width="12" height="4.5" rx="1.5"/><path d="M31 39.5v12.5"/>'
+    else:                # sentadilla con barra en la espalda
+        J = dict(head=(41, 21), sho=(47, 37), elb=(60, 47), hand=(53, 34), hip=(63, 79), knee=(40, 93), ank=(52, 126), toe=(36, 129))
+        arm = "M47 38L60 47L53 34"
+        tool = '<path d="M14 34h80"/><rect x="83" y="22" width="5" height="24" rx="1.5"/><rect x="89" y="25" width="4" height="18" rx="1.2"/>'
+    bones = [("head", "sho"), ("sho", "hip"), ("sho", "elb"), ("elb", "hand"), ("hip", "knee"), ("knee", "ank"), ("ank", "toe")]
+    p = lambda k: f"{J[k][0]} {J[k][1]}"
+    lines = "".join(f'<path d="M{p(x)}L{p(y)}"/>' for x, y in bones)
+    dots = "".join(f'<circle cx="{J[k][0]}" cy="{J[k][1]}" r="1.7"/>' for k in J if k != "head")
+    hx, hy = J["head"]
+    ang = (f'<path d="M{J["knee"][0] + 9} {J["knee"][1] - 4}A10 10 0 0 1 {J["knee"][0] + 6} {J["knee"][1] + 8}"/>'
+           f'<path d="M{J["hip"][0] - 10} {J["hip"][1] + 2}A10 10 0 0 1 {J["hip"][0] - 3} {J["hip"][1] - 9}"/>')
+    return f'''<g class="c3-w">
+  <circle cx="50" cy="80" r="62" class="c3-glass"/>
+  <circle cx="50" cy="80" r="60" class="c3-hud" stroke-dasharray="1 3"/><circle cx="50" cy="80" r="52" class="c3-hud"/>
+  <g class="c3-sil"><path d="{_SIL["body"]}"/><path d="{_SIL["tail"]}"/><circle cx="{hx}" cy="{hy}" r="8"/></g>
+  <path class="c3-arm" d="{arm}"/>
+  <g class="c3-line">{tool}{lines}{ang}</g>
+  <g class="c3-dot">{dots}</g>
+</g>'''
+
 def cover_bg(kind):
-    import random
-    rnd = random.Random(7 if kind == "casa" else 11)
-    names = (["pesa", "silla", "botella", "colchoneta", "zapa", "casa", "reloj", "corazon"] if kind == "casa"
-             else ["barra", "rusa", "disco", "pesa", "banco", "zapa", "reloj", "corazon"])
-    out, k = [], 0
-    for r in range(10):
-        for c in range(7):
-            x = 3 + c * 30 + (15 if r % 2 else 0) + rnd.uniform(-3, 3)
-            y = 3 + r * 29 + rnd.uniform(-3, 3)
-            if x > 200: continue
-            n = names[k % len(names)]; k += 1
-            out.append(f'<svg x="{x:.1f}mm" y="{y:.1f}mm" width="13mm" height="13mm" viewBox="0 0 24 24">'
-                       f'<g transform="rotate({rnd.uniform(-25, 25):.0f} 12 12)">{COVER_ICONS[n]}</g></svg>')
-    return ('<svg class="c3-pat" width="210mm" height="297mm" fill="none" stroke="currentColor" stroke-width="1.5" '
-            f'stroke-linecap="round" stroke-linejoin="round">{"".join(out)}</svg>')
+    big = (["mochila", "botellas", "mancuernas"] if kind == "casa" else ["barra", "rusa", "banco"])
+    pos = [(8, 22, 30, -14), (175, 20, 28, 10), (170, 100, 34, -8)]
+    ic = "".join(f'<svg x="{x}mm" y="{y}mm" width="{w}mm" height="{w}mm" viewBox="0 0 24 24" overflow="visible">'
+                 f'<g transform="rotate({r} 12 12)" filter="url(#c3glow)">{COVER_ICONS[n]}</g></svg>'
+                 for n, (x, y, w, r) in zip(big, pos))
+    woman = '<svg x="160mm" y="214mm" width="48mm" height="65mm" viewBox="0 0 110 150" overflow="visible">' + _woman(kind) + '</svg>'
+    return ('''<svg class="c3-pat" width="210mm" height="297mm" fill="none" stroke="url(#c3g)" stroke-width="1.1"
+  stroke-linecap="round" stroke-linejoin="round"><defs>
+  <linearGradient id="c3g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--c3-i)"/><stop offset="1" style="stop-color:var(--c3-g)"/></linearGradient>
+  <filter id="c3glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation=".8" result="b"/>
+  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'''
+            + f'<g class="c3-ic">{ic}</g>{woman}</svg>')
 
 # ================================================================== PORTADA
 if ENT and not MAMA:   # tapa de casa y gimnasio (modelo de Nacho)
