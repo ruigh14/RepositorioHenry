@@ -142,6 +142,7 @@ if ENT:
   </div>
 </div>
 {box('<b>Antes de empezar.</b> Necesitás el alta médica. Si tenés pérdidas, dolor o la panza hace “carpa”, frená y usá la variante más fácil.' if MAMA else '<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená. Si tenés una lesión o una condición médica, consultá con un profesional antes de empezar.', "note")}
+{'' if MAMA else '<p class="small"><b>Semana 1:</b> hacé la Rutina 1 y la Rutina 2, con 2 vueltas por bloque. Desde la semana 2, seguí <a href="#plan8t1">tu plan de 8 semanas</a> (página <span class="pref" data-ref="plan8t1"></span>).</p>'}
 <p class="small"><b>¿Querés ver tu progreso?</b> Medí tu cintura antes de la primera rutina: está explicado en <a href="#eval">Medí tu progreso</a> (página <span class="pref" data-ref="eval"></span>).</p>
 ''', chapter="Bienvenida", pid="bienvenida")
 
@@ -710,14 +711,16 @@ ELONG = [
  ("elong_7.png","Hombros","Cruzá un brazo por delante del pecho y sostenelo con el otro, sin elevar el hombro.","menos presión con el brazo que sostiene."),
  ("elong_8.png","Cuello","Incliná la cabeza hacia un lado, ayudándote suavemente con la mano. Sin tirones.","sin ayudarte con la mano."),
 ]
+ELONG_CORTA = ENT and not MAMA   # casa y gimnasio: 6 posturas en una sola hoja
+ELONG_1 = [e for e in ELONG if e[1] not in ("Abdominales", "Cuello")] if ELONG_CORTA else ELONG[:4]
 page(f"""
 {eyebrow("AL TERMINAR CADA RUTINA")}
 <h1 class="h1">Rutina de <span class="t">elongación</span></h1>
-{params([("Vueltas","1 a 2"),("Cada postura","15–30 s"),("Intensidad","Suave, sin dolor"),("Duración","5–8 min")])}
-<p class="small">Sostené cada postura sin rebotes y respirando con calma.</p>
-{"".join(ex_card(i, n, "15–30 s", h, row=True) for i, n, h, e in ELONG[:4])}
+{'<p class="small">1 vuelta · 15–30 s cada postura · suave, sin dolor y sin rebotes. Al terminar, anotá la sesión en tu registro.</p>' if ELONG_CORTA else params([("Vueltas","1 a 2"),("Cada postura","15–30 s"),("Intensidad","Suave, sin dolor"),("Duración","5–8 min")]) + '<p class="small">Sostené cada postura sin rebotes y respirando con calma.</p>'}
+{"".join(ex_card(i, n, "15–30 s", h, row=True) for i, n, h, e in ELONG_1)}
 """, chapter=NE + " · Entrenamiento", pid="elong")
-page(f"""
+if not ELONG_CORTA:
+  page(f"""
 <h2 class="bh">Elongación · <span class="t">continuación</span></h2>
 {"".join(ex_card(i, n, "15–30 s", h, row=True) for i, n, h, e in ELONG[4:])}
 <p class="small"><b>¡Bien hecho!</b> Anotá la sesión en tu planilla de registro.</p>
@@ -1066,10 +1069,7 @@ if ENT:
 ''', chapter="Extra · Zona media", pid="core", toc="Extra: Rutina de zona media")
 
 # ================================================================== CAP 4 ALIMENTACIÓN
-if FULL:
-    page(f'''
-{chap_head("04", 'Alimentación <span class="t">práctica</span>', "Comer bien con poco tiempo no depende de recetas complicadas, sino de tener un criterio simple y algunas opciones resueltas.")}
-<div class="plate-wrap">
+PLATO = f'''<div class="plate-wrap">
   <div class="plate" aria-hidden="true">
     <div class="pl-veg">½ Verduras</div><div class="pl-pro">¼ Proteína</div><div class="pl-car">¼ Carbohi&shy;dratos</div>
   </div>
@@ -1094,6 +1094,11 @@ if FULL:
 <p>No hay alimentos prohibidos. Una comida fuera del plan no arruina la semana.</p>
 </div>
 </div>
+'''   # el plato como guía (edición completa y recetario de casa y gimnasio)
+if FULL:
+    page(f'''
+{chap_head("04", 'Alimentación <span class="t">práctica</span>', "Comer bien con poco tiempo no depende de recetas complicadas, sino de tener un criterio simple y algunas opciones resueltas.")}
+{PLATO}
 ''', chapter="04 · Alimentación práctica", pid="cap4", toc="04 · Alimentación práctica")
 
 if FULL:
@@ -1314,11 +1319,13 @@ dict(t="Brownie de banana", cat="Postres", rinde="6 cuadrados", tiempo="30 min",
 ]
 
 R = R[:19] + [R[22]] + R[19:22]   # el brownie va junto a los otros postres de horno/freezer
-# Ebooks de entrenamiento: recetario corto con las 10 recetas más proteicas. Las 23 quedan en la edición completa
+# Ebooks de entrenamiento: recetario corto con las recetas más proteicas (10 en mamás, 8 en casa y gimnasio). Las 23 quedan en la edición completa
 # y en la futura guía de alimentación.
 RECETAS_BONUS = ["Pancake individual", "Pancakes de banana y coco", "Hummus de garbanzos", "Ensalada tibia de vegetales, legumbres y pollo",
                  "Wok de verduras con arroz y pollo", "Budín de brócoli", "Tarta de verduras con masa de avena", "Pastel veggie de lentejas",
                  "Cheesecake en taza", "Mug cake de limón"]
+if ENT and not MAMA:   # casa y gimnasio: 8 recetas (sin la tarta ni el mug cake)
+    RECETAS_BONUS = [t for t in RECETAS_BONUS if t not in ("Tarta de verduras con masa de avena", "Mug cake de limón")]
 if ENT:
     R = [r for r in R if r["t"] in RECETAS_BONUS]
     assert len(R) == len(RECETAS_BONUS), "falta alguna receta de RECETAS_BONUS"
@@ -1484,6 +1491,12 @@ def recipe_html(r, n=0):
 REC_HEAD = (chap_head("06", 'Recetas <span class="t">fáciles</span>', "Recetas simples para resolver desayunos, meriendas, comidas y postres. La mayoría aparece en los menús del capítulo 5.") if FULL else
             eyebrow("BONUS 2 · INCLUIDO") + '<h1 class="h1">Recetario <span class="t">fácil</span></h1><p class="lead">' + str(len(R)) + ' recetas simples para resolver desayunos, meriendas, comidas y postres, con ingredientes de cualquier súper.</p>')
 REC_CH = "06 · Recetas" if FULL else "Bonus 2 · Recetario"
+if ENT and not MAMA:   # antes de las recetas: cómo armar el plato
+    page(f'''
+{eyebrow("BONUS 2 · RECETARIO")}
+<h1 class="h1">Armá tu <span class="t">plato</span></h1>
+{PLATO.replace('<h2>El plato como guía</h2>', '')}
+''', chapter=REC_CH, pid="plato")
 if ENT:   # carátula que separa el entrenamiento de los bonus
     page(f'''
 <div class="divider">
@@ -1928,14 +1941,16 @@ def render():
         SECS = [  # (título del capítulo o None, páginas, entradas extra del índice)
             (None, ["portada", "bienvenida", "indice"], []),
             *([("Antes de empezar", ["antes", "antes2", "base-mama"], [])] if MAMA else []),
-            ("Tu plan de 8 semanas", ["como", "plan8t1", "plan8w2"], []),
-            ("Rutinas", RUTS + ["elong", "elong2", "core"],
-             [("Elongación", "elong"), ("Zona media", "core")]),
+            *([("Tu plan de 8 semanas", ["como", "plan8t1", "plan8w2"], []),
+               ("Rutinas", RUTS + ["elong", "elong2", "core"], [("Elongación", "elong"), ("Zona media", "core")])] if MAMA else
+              [("Cómo entrenar", ["como"], []),   # casa y gimnasio: primero las rutinas, el plan después
+               ("Rutinas", RUTS + ["elong", "core"], [("Elongación", "elong"), ("Zona media", "core")]),
+               ("Tu plan de 8 semanas", ["plan8t1", "plan8w2"], [])]),
             (G("Semanas con poco tiempo", "Semanas con poco tiempo", "Días con poco tiempo"), ["express", "cap5e"], []),
             *([("Pausa activa", ["pausa", "tips10", "bebe"], [("Entrená con tu bebé", "bebe")])] if MAMA else []),
             ("Medí tu progreso", ["eval", "cargas"], []),
             ("Después de las 8 semanas", ["cap7e"], []),
-            (None, ["bonus-portada", "talleres", "cap6", "recetas", "bonus"] + ([] if MAMA else ["testimonios"]) + ["bio", "metodo"], []),
+            (None, ["bonus-portada", "talleres", "cap6"] + ([] if MAMA else ["plato"]) + ["recetas", "bonus"] + ([] if MAMA else ["testimonios"]) + ["bio", "metodo"], []),
         ]
         by = {p["id"]: p for p in PAGES}
         toc_old = dict((pid, t) for t, pid in TOC)

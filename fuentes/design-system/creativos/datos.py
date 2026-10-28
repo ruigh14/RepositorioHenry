@@ -26,7 +26,7 @@ COMUN = dict(
            ("Semanas 7 y 8", "Consolidación", "Fijás el hábito y medís tu progreso.")],
     por_que_fuerza=("Desde los 30 perdemos <em>músculo</em> cada década",
                     "Y en la menopausia ese proceso se acelera. El entrenamiento de fuerza es la herramienta más efectiva para frenarlo."),
-    bonus=["Recetario: 10 recetas", "2 talleres del equipo", "Comunidad RENOVA"],
+    bonus=["Recetario: 8 recetas", "2 talleres del equipo", "Comunidad RENOVA"],
     precio=None,            # por ejemplo "$15.000"; si queda en None, los creativos no muestran precio
     precio_antes=None,      # por ejemplo "$30.000"
 )

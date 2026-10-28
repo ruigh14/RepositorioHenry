@@ -68,7 +68,7 @@ No es un VSL de venta "dura": es un **video de bienvenida y presentación del pr
 | Videos | Sí | Video de cada ejercicio + variante más fácil |
 | Recuperación y estrés | Elongación, respiración, "bajar a tierra", agenda de recuperación | Elongación al final de cada rutina; taller de ansiedad (bonus) |
 | Cardio para los huesos | Bloques cortos opcionales, con bajo impacto | No está como bloque propio |
-| Alimentación | Menús diarios y recetas (sin gluten ni lácteos) | Recetario de 10 recetas con proteína (bonus); las 23 en la guía de alimentación; menús en el upsell |
+| Alimentación | Menús diarios y recetas (sin gluten ni lácteos) | Recetario de 8 recetas con proteína (bonus); las 23 en la guía de alimentación; menús en el upsell |
 | Explicación del porqué | Guías de alimentación y entrenamiento en la menopausia | "¿Sabías que…?" en la landing; poca explicación hormonal dentro del ebook |
 | Días complicados | No lo menciona | Sesión express de 15 min, semanas con poco tiempo, pausa activa |
 | Equipo | Solo ella | Entrenadores, médico deportólogo, psicólogo, nutricionista |
@@ -115,7 +115,7 @@ Por orden de impacto. Nada de esto está hecho todavía: decime cuáles querés 
 | **1:05 – 1:40** · Qué es | "Son **dos planes de 8 semanas en una sola compra**: uno para entrenar **en casa** y otro para el **gimnasio**. Usás el que te quede mejor, o los alternás. Cada rutina trae entrada en calor, dos bloques y elongación, con **video de cada ejercicio** y una variante más fácil, sin saltos si los necesitás. Sesiones de 20 a 40 minutos en casa o de 45 a 60 en el gimnasio. Y para las semanas complicadas, una sesión express de 15 minutos, así no cortás la racha." | Tapas de los 2 ebooks en 3D. Páginas de rutinas. Video de un ejercicio (Harbiz). Texto: **CASA + GIMNASIO · 8 SEMANAS · CON VIDEO**. |
 | **1:40 – 1:55** · Equipo | "Y no estás sola: detrás de RENOVA hay un equipo de entrenadores, **médico deportólogo**, psicólogo y nutricionista." | Fotos del equipo. Íconos de cada profesional. |
 | **1:55 – 2:20** · Prueba | "Mari bajó 8 kilos de grasa y 10 centímetros de cintura. Moni bajó 6 kilos y logró algo que nunca había podido: el hábito de entrenar. Romi volvió a correr sin dolores. Y nos escriben cosas como esta…" | Antes y después de Mari y Moni, foto de Romi, capturas de WhatsApp (las de la landing). Texto chico: *"Los resultados dependen de cada persona."* |
-| **2:20 – 2:40** · Bonus | "Además te llevás de regalo un recetario con 10 recetas con proteína, dos talleres grabados del equipo y acceso a la comunidad RENOVA, donde ves los cursos y, si querés, compartís el camino con otras mujeres." | Chips de los 3 bonus. |
+| **2:20 – 2:40** · Bonus | "Además te llevás de regalo un recetario con 8 recetas con proteína, dos talleres grabados del equipo y acceso a la comunidad RENOVA, donde ves los cursos y, si querés, compartís el camino con otras mujeres." | Chips de los 3 bonus. |
 | **2:40 – 2:55** · Nunca es tarde + CTA | "No importa si estás arrancando la perimenopausia o si ya pasaste la menopausia: nunca es tarde para ponerte fuerte. Tocá el botón, descargá los dos ebooks y empezamos hoy." | Botón **EMPEZAR AHORA** animado. Texto: **ACCESO INMEDIATO · 100% DIGITAL**. |
 | **2:55 – 3:00** · Firma | "Soy Nacho, y te espero adentro." | Nacho sonriendo. Logo. |
 
