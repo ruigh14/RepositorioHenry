@@ -910,18 +910,18 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .c3-w .c3-line{stroke:var(--c3-i);stroke-width:1}
 .c3-w .c3-dot{fill:var(--c3-i);stroke:none}
 .c3-w .c3-hud{stroke:var(--c3-i);stroke-width:.5;opacity:.6}
-.c3-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:10mm 12mm 0}
-.c3-logo{height:14mm;width:auto;margin-bottom:6mm}
+.c3-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8mm 12mm 0}
+.c3-logo{height:13mm;width:auto;margin-bottom:5mm}
 .c3-pill{display:inline-block;background:var(--c3-b);color:#fff;font-weight:800;font-size:9pt;letter-spacing:.12em;padding:2.4mm 6mm;border-radius:99px}
-.c3-title{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:70pt;line-height:.9;letter-spacing:-.02em;color:var(--c3-a);margin:7mm 0 0;text-transform:uppercase}
-.gym .c3-title{font-size:60pt}
-.c3-claim{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:31pt;line-height:1.05;color:var(--ink);margin:6mm 0 0;letter-spacing:-.005em}
-.c3-claim b{display:block;font-size:54pt;line-height:1;letter-spacing:-.01em;margin-top:1mm}
+.c3-title{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:62pt;line-height:.9;letter-spacing:-.02em;color:var(--c3-a);margin:6mm 0 0;text-transform:uppercase}
+.gym .c3-title{font-size:54pt}
+.c3-claim{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:31pt;line-height:1.05;color:var(--ink);margin:5mm 0 0;letter-spacing:-.005em}
+.c3-claim b{display:block;font-size:50pt;line-height:1;letter-spacing:-.01em;margin-top:1mm}
 .c3-claim b span{display:inline-block;transform:rotate(-2.5deg);padding:0 4mm;background:linear-gradient(transparent 58%,var(--c3-l) 58%,var(--c3-l) 92%,transparent 92%);text-shadow:1.2mm 1.2mm 0 var(--c3-b)}
 .cv3 .c3-claim b span{color:var(--ink)}
-.c3-sub{font-size:15pt;line-height:1.4;color:var(--ink);font-weight:600;margin:6mm 0 0;padding:3.5mm 4mm;background:rgba(255,255,255,.75);border-top:1.4mm double var(--c3-b);border-bottom:1.4mm double var(--c3-b)}
+.c3-sub{font-size:15pt;line-height:1.4;color:var(--ink);font-weight:600;margin:5mm 0 0;padding:3mm 4mm;background:rgba(255,255,255,.75);border-top:1.4mm double var(--c3-b);border-bottom:1.4mm double var(--c3-b)}
 .c3-sub span{white-space:nowrap}
-.c3-team{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:flex-end;justify-content:flex-end;margin-top:4mm}
+.c3-team{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:flex-end;justify-content:center;margin-top:3mm}
 .c3-team img{max-width:100%;max-height:100%;width:auto;height:auto;display:block}
 .c3-band{position:relative;z-index:1;flex:none;height:16mm;background:var(--c3-b);color:#fff;display:flex;align-items:center;justify-content:center;gap:3mm;font-weight:700;font-size:9pt;letter-spacing:.12em;white-space:nowrap}
 .c3-band b{font-weight:900}

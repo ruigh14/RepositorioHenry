@@ -127,14 +127,14 @@ def _woman(kind):
 
 def cover_bg(kind):
     big = (["mochila", "botellas", "mancuernas"] if kind == "casa" else ["barra", "rusa", "banco"])
-    pos = [(8, 22, 30, -14), (175, 20, 28, 10), (170, 100, 34, -8)]
+    pos = [(8, 22, 30, -14), (175, 20, 28, 10), (8, 96, 32, -8)]
     ic = "".join(f'<svg x="{x}mm" y="{y}mm" width="{w}mm" height="{w}mm" viewBox="0 0 24 24" overflow="visible">'
                  f'<g transform="rotate({r} 12 12)" filter="url(#c3glow)">{COVER_ICONS[n]}</g></svg>'
                  for n, (x, y, w, r) in zip(big, pos))
-    woman = '<svg x="3mm" y="196mm" width="56mm" height="76mm" viewBox="0 0 110 150" overflow="visible">' + _woman(kind) + '</svg>'
+    woman = '<svg x="150mm" y="84mm" width="46mm" height="63mm" viewBox="0 0 110 150" overflow="visible">' + _woman(kind) + '</svg>'
     return ('''<svg class="c3-pat" width="210mm" height="297mm" fill="none" stroke="url(#c3g)" stroke-width="1.1"
   stroke-linecap="round" stroke-linejoin="round"><defs>
-  <linearGradient id="c3g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--c3-i)"/><stop offset="1" style="stop-color:var(--c3-g)"/></linearGradient>
+  <linearGradient id="c3g" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24" y2="24"><stop offset="0" style="stop-color:var(--c3-i)"/><stop offset="1" style="stop-color:var(--c3-g)"/></linearGradient>
   <filter id="c3glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation=".8" result="b"/>
   <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'''
             + f'<g class="c3-ic">{ic}</g>{woman}</svg>')
