@@ -900,19 +900,11 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .skx .btn .ic{stroke:currentColor}
 
 /* ---- tapa de casa y gimnasio (cada ebook con su tono de turquesa) */
-.cv3{--c3-a:var(--tq);--c3-b:var(--tq);--c3-l:var(--tq-l);--c3-g:var(--tq-dd);--c3-i:var(--tq);position:relative;height:297mm;box-sizing:border-box;border:1.2mm solid var(--c3-b);background:#fff;display:flex;flex-direction:column;overflow:hidden}
-.cv3.gym{--c3-a:var(--tq-d);--c3-b:var(--tq-dd);--c3-l:var(--tq-b);--c3-i:var(--rnv-rosa);--c3-g:var(--rnv-rojo)}
-.c3-pat{position:absolute;left:-1.2mm;top:-1.2mm;z-index:0}
-.c3-ic{opacity:.18;stroke-width:1.3}
-.c3-w{opacity:.45}
-.c3-w .c3-sil{fill:url(#c3g);stroke:none;opacity:.3}
-.c3-w .c3-arm{stroke:var(--c3-i);stroke-width:5.5;opacity:.32}
-.c3-w .c3-line{stroke:var(--c3-i);stroke-width:1}
-.c3-w .c3-dot{fill:var(--c3-i);stroke:none}
-.c3-w .c3-hud{stroke:var(--c3-i);stroke-width:.5;opacity:.6}
+.cv3{--c3-a:var(--tq);--c3-b:var(--tq);--c3-l:var(--tq-l);position:relative;height:297mm;box-sizing:border-box;border:1.2mm solid var(--c3-b);background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.cv3.gym{--c3-a:var(--tq-d);--c3-b:var(--tq-dd);--c3-l:var(--tq-b)}
 .c3-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8mm 12mm 0}
 .c3-logo{height:13mm;width:auto;margin-bottom:5mm}
-.c3-pill{display:inline-block;background:var(--c3-b);color:#fff;font-weight:800;font-size:9pt;letter-spacing:.12em;padding:2.4mm 6mm;border-radius:99px}
+.c3-pill{display:inline-block;background:var(--c3-b);color:#fff;font-weight:800;font-size:13pt;letter-spacing:.08em;padding:3mm 8mm;border-radius:99px}
 .c3-title{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:78pt;line-height:.9;letter-spacing:-.02em;color:var(--c3-a);margin:6mm 0 0;text-transform:uppercase}
 .gym .c3-title{font-size:67pt}
 .c3-claim{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:34pt;line-height:1.05;color:var(--ink);margin:5mm 0 0;letter-spacing:-.005em}
