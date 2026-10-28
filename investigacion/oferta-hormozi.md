@@ -126,3 +126,10 @@ Este último escalón se ofrece solo adentro del ebook, no en la landing.
 | 6 | Hoja de **adaptaciones** (rodilla, espalda, hombro) en los ebooks | Claude + revisión del médico deportólogo |
 | 7 | Reemplazar el upsell 1 por la **guía de alimentación** cuando esté | Nutricionista + Claude |
 | 8 | Más **testimonios del ebook** (pedirlos en la comunidad) | Nacho |
+
+---
+
+## 10. Decisiones de Nacho (se aplican todas juntas al terminar las preguntas)
+
+1. **Garantía:** 7 días; si no le gusta el material, se le devuelve el dinero (ya está en `GARANTIA`).
+2. **Portada de la landing:** etiqueta "MÉTODO RENOVA · MUJERES 35+" (pasar todo de 40+ a 35+); título **"Volvé a sentirte fuerte y con más energía"**; subtítulo "Un plan de 8 semanas de bajo impacto que integra entrenamiento, alimentación y hábitos. En casa o en el gimnasio." Reemplaza a "Tu cuerpo cambió después de los 40…", que era casi la frase de Menofit.
