@@ -1894,7 +1894,7 @@ if PAUSA_ED:
 {checks(["Rutinas armadas según tu nivel, tu tiempo y tus objetivos.", "Ajustes a medida que avanzás.", "El respaldo del equipo RENOVA, con médico deportólogo."])}
 </div>
 <div><h3>Cómo empezar</h3>
-{checks(["Escribile a Nacho por WhatsApp.", "Contale tu objetivo y cuánto tiempo tenés.", "Elegí entrenamiento o programa integral."])}
+{checks(["Escribile a Nacho por WhatsApp.", "Contale tu objetivo y cuánto tiempo tenés.", "Juntos elaboramos un plan a tu medida."])}
 </div>
 </div>
 <div class="ctapanel">
