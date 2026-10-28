@@ -90,5 +90,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 - Garantía: Nacho tiene que definir si hay (y cuál). Cuando la defina, completar `GARANTIA` en `fuentes/design-system/design_system.py` y sumarla a la landing.
 - Creativos: que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.
 - Actualizar el perfil de la skill carrusel-studio (dice "rojo vino + azul oscuro") a la paleta turquesa del ebook.
+- Oferta (Hormozi): análisis y prioridades en `investigacion/oferta-hormozi.md`. Falta que Nacho apruebe las acciones de la sección 9 (garantía, título de resultado, nombres de bonus, sacar "6 a 10 kg", victoria del día 1, hoja de adaptaciones).
+- Guía práctica de alimentación (con la nutricionista): armarla desde la edición completa; reemplaza al upsell 1. Los ebooks de entrenamiento llevan solo 8 recetas (`RECETAS_BONUS` en `build.py`); las 23 quedan para la guía.
 - VSL: análisis del competidor (Menofit) y guion propio en `investigacion/vsl-competidor/analisis-y-guion-vsl-renova.md`. Falta: que Nacho apruebe el guion y lo grabe; decidir qué ajustes de la sección 4 se implementan (frase de mecanismo en la landing, FAQ "nunca es tarde", hoja "por qué este plan" y hoja de recuperación en los ebooks).
 - 5 videos sin equivalente en Harbiz (plancha oso, plancha lateral dinámica, balanceo de pierna, sentadilla sumo sin peso, plancha con rodillas): grabarlos si se quieren todos propios.
