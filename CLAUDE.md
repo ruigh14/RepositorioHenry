@@ -61,7 +61,8 @@ El ebook debe imprimir `OVERFLOW []` (sin páginas con texto cortado). Para revi
 
 ## Estrategia de producto
 
-- **No hay consulta ni acompañamiento personalizado** (ni 50% off en planes): no ofrecerlo en ningún lado. El bonus 3 es el **acceso a la comunidad RENOVA en Skool**, donde ven los cursos y talleres y, si quieren, interactúan con otras mujeres. WhatsApp solo para problemas con la compra.
+- **Landing y creativos:** no se vende consulta ni acompañamiento. El bonus 3 es el **acceso a la comunidad RENOVA en Skool** (cursos y talleres; interactuar con otras mujeres es opcional). En la landing, WhatsApp solo para problemas con la compra.
+- **Adentro del ebook (después de comprar):** sí está la oferta de Nacho: **50% off en el plan personalizado** (rutinas de entrenamiento o programa integral RENOVA), contactándolo por WhatsApp (`LINKS["wa_plan"]`, capítulo "Después de las 8 semanas") y el botón "Quiero sumarme a RENOVA" (`LINKS["renova"]`). No hay consulta gratis.
 
 - Ebook 1 (solo entrenamiento) es el producto de entrada; alimentación (menús, compras) y descanso quedan para ebooks de upsell.
 - El equipo incluye **médico deportólogo** (medicina deportiva): mantenerlo en ambas ediciones.

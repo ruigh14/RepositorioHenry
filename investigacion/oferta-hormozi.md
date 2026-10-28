@@ -2,7 +2,7 @@
 
 Análisis de lo que **ya tenemos** (landing de la tienda + ebooks de casa y gimnasio + bonus) con las herramientas de *$100M Offers* de Alex Hormozi: la ecuación de valor, la lista de obstáculos, el armado de la oferta (bonus, garantía, urgencia, nombre) y los productos que vienen después.
 
-Regla de base: **prometer solo lo que el producto entrega.** No hay consulta ni acompañamiento personalizado.
+Regla de base: **prometer solo lo que el producto entrega.** La landing no vende consulta ni acompañamiento. Adentro del ebook, después de comprar, está la oferta de Nacho: 50% off en el plan personalizado (entrenamiento o programa integral) por WhatsApp.
 
 ---
 
@@ -101,8 +101,9 @@ Opciones:
 | Upsell 1 | **Guía práctica de alimentación** (con la nutricionista): reemplaza al upsell actual "Recetas para entrenar mejor" | A desarrollar a partir de la edición completa |
 | Otra entrada | **Entrená siendo mamá**: es otra clienta (mamás recientes), conviene venderlo con su propia página o sección y sus creativos | Ebook listo, falta definir cómo se vende |
 | Combo | **Paquete RENOVA:** entrenamiento + alimentación | Cuando esté la guía |
+| Después del ebook | **Plan personalizado** (rutinas o programa integral RENOVA) con 50% off, contactando a Nacho por WhatsApp | Ya está dentro de los ebooks |
 
-No hay escalón de acompañamiento personalizado.
+Este último escalón se ofrece solo adentro del ebook, no en la landing.
 
 ---
 

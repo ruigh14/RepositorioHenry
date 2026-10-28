@@ -41,6 +41,8 @@ LINKS = {
     "taller_heladera": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",   # taller incluido: Organizar la heladera (Skool)
     "taller_ansiedad": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",   # taller incluido: Gestión de la ansiedad (Skool)
     "comunidad": "https://www.skool.com/renova-entrenamiento-y-salud-1617/about",  # comunidad RENOVA en Skool (cursos + otras mujeres)
+    "wa_plan": "https://wa.link/hewha8",   # WhatsApp de Nacho: plan personalizado (entrenamiento o integral) con descuento, después de comprar
+    "renova": "https://wa.link/1asjt1",    # WhatsApp: Programa RENOVA integral (botón de la página Método RENOVA)
     "video_talleres": "",     # link del video de presentación de los talleres
     "foto_equipo": "img/equipo2.jpg",        # ruta de la foto del equipo, por ejemplo "img/equipo.jpg"
     "video_explicacion": "",  # [INSERTAR LINK DEL VIDEO EXPLICATIVO]
@@ -95,7 +97,7 @@ if ENT:
   <p class="c2-desc">{G("Sesiones de 20 a 40 minutos para mujeres con poco tiempo.", "Sesiones de 45 a 60 minutos, desde cero, para mujeres con poco tiempo.", "Sesiones de 15 a 30 minutos, sin saltos, con respiración, piso pélvico y pausa activa.")} Bonus: dos talleres, recetario y acceso a la comunidad RENOVA.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
-      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales detrás de cada pilar del método.</span></figcaption></figure>
+      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
     <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
   </div>
 </div>
@@ -114,7 +116,7 @@ if FULL:
   <p class="c2-desc">Un sistema práctico de alimentación, entrenamiento y descanso para personas con poco tiempo que quieren resultados sostenibles.</p>
   <div class="c2-photos one">
     <figure class="c2-team"><div class="c2-img"><img src="img/equipo_cover.jpg" alt="Equipo RENOVA"></div>
-      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales detrás de cada pilar del método.</span></figcaption></figure>
+      <figcaption><b>EQUIPO RENOVA</b><span>Profesionales que te acompañan en cada pilar.</span></figcaption></figure>
     <div class="c2-roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
   </div>
 </div>
@@ -171,13 +173,13 @@ if not MAMA:   # resultados de mujeres 40+: en la edición mamás no se muestran
   page(f'''
 {eyebrow("ANTES DE EMPEZAR")}
 <h1 class="h1">Esta es la base que usamos con <span class="t">{"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"}</span></h1>
-<p class="lead">Con esta rutina como base de entrenamiento, y orden en la alimentación, ayudamos a {"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"} a bajar de 6 a 10 kilos de grasa en 90 días.</p>
+<p class="lead">Con esta rutina como base de entrenamiento, y orden en la alimentación, acompañamos a {"decenas de mujeres con poco tiempo" if ENT else "decenas de clientes"} a bajar de 6 a 10 kilos de grasa en 90 días.</p>
 <div class="claim">
   <div><b>6 a 10 kg</b><span>de grasa</span></div>
   <div><b>90 días</b><span>de proceso</span></div>
   <div><b>{G("30 min", "45 min")}</b><span>por sesión</span></div>
 </div>
-{box("<b>Es una guía.</b> Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. El método lo armamos con el equipo RENOVA: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.", "soft")}
+{box("<b>Es una guía.</b> Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud. Si necesitás un plan a tu medida, el equipo RENOVA te acompaña, con entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.", "soft")}
 ''', chapter="Bienvenida", pid="base")
 
   page(f'''
@@ -1072,14 +1074,15 @@ if ENT:
 {ul(["Volvé en la próxima oportunidad, no “el lunes”.","Empezá con la mitad: 2 vueltas y un escalón menos.","No compenses con ejercicio extra ni comiendo menos."])}
 </div>
 <div>
-<h3>Si tenés una lesión o una molestia</h3>
-<p>Si aparece un dolor que no se va o tenés una condición médica, consultá con un profesional de la salud antes de seguir subiendo la exigencia.</p>
+<h3>Cuándo pedir ayuda</h3>
+<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
 </div>
 </div>
 <div class="ctapanel cta-plan">
-  <p class="ctatitle">Seguí en la comunidad RENOVA</p>
-  <p class="center">Entrá a la comunidad: ahí están los cursos y talleres del equipo y, si querés, podés compartir tu proceso con otras mujeres que están entrenando como vos.</p>
-  {button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}
+  <p class="ctatitle">Seguí avanzando con un plan a tu medida</p>
+  <p class="center">Escribime y armamos tu próximo paso de forma personalizada: rutinas de entrenamiento o el programa integral RENOVA (entrenamiento, nutrición y hábitos).</p>
+  {button("ESCRIBILE A NACHO POR WHATSAPP", "wa_plan", "", big=True)}
+  <p class="off">Por venir del ebook tenés <b>50% off</b> en tu plan personalizado.</p>
 </div>
 {box("<b>¿Cuándo volver a correr o saltar?</b> Son ejercicios de impacto. Las guías para volver a correr después del parto sugieren esperar al menos 12 semanas y hacerlo cuando no tenés pérdidas, pesadez ni dolor, idealmente después de una evaluación de piso pélvico. Empezá alternando caminata y trote suave.", "note") if MAMA else ""}
 {box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus.", "soft")}
@@ -1703,8 +1706,8 @@ if FULL:
 <div>
 <h3>Cómo retomar</h3>
 {ul(["Volvé en la próxima oportunidad, no “el lunes”.","Empezá con la mitad: 2 vueltas y comidas simples.","No compenses con ejercicio extra ni comiendo menos."])}
-<h3>Si tenés una lesión o una condición médica</h3>
-<p>Consultá con un profesional de la salud antes de seguir subiendo la exigencia.</p>
+<h3>Cuándo pedir ayuda</h3>
+<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un acompañamiento personalizado te ayuda a ajustar el plan.</p>
 </div>
 </div>
 <h2>Tu plan mínimo para semanas difíciles</h2>
@@ -1792,7 +1795,7 @@ if ENT:
   </div>
   <div class="what">
     <h2>¿Qué es <span class="t">Programa RENOVA</span>?</h2>
-    <p>Es el método que creamos con el equipo para mujeres: entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, psicología y hábitos, con un enfoque en el ámbito hormonal.</p>
+    <p>Es el programa de acompañamiento que creamos con el equipo para mujeres: entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, psicología y hábitos, con un enfoque en el ámbito hormonal.</p>
   </div>
   <div class="quote dark">En este ebook vamos a trabajar el pilar del entrenamiento, con bonus incluidos. <span class="t2">¡Seguimos!</span></div>
 </div>
@@ -1803,11 +1806,11 @@ if ENT:
   {eyebrow("MÉTODO RENOVA")}
   <h1 class="h1 big">Método <span class="t">RENOVA</span></h1>
   <div class="team-big"><img src="{LINKS["foto_equipo"]}" alt="Equipo RENOVA"></div>
-  <p>En RENOVA ayudamos a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
-  <p>Detrás del método hay un equipo completo: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
+  <p>En RENOVA acompañamos a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
+  <p>Un equipo completo trabaja con vos: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
   <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Hábitos</span><span>Salud hormonal</span></div>
   <div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>
-  <div class="cta-center">{button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}</div>
+  <div class="cta-center">{button("QUIERO SUMARME A RENOVA", "renova", "", big=True)}</div>
 </div>
 ''', chapter="Método RENOVA", pid="metodo", toc="Método RENOVA")
 
@@ -1826,12 +1829,12 @@ if FULL:
   </div>
   <div class="what">
     <h2>¿Qué es <span class="t">Programa RENOVA</span>?</h2>
-    <p>PROGRAMA RENOVA es un método que integra entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, descanso y gestión de hábitos para ayudarte a mejorar tu composición corporal y construir una rutina sostenible.</p>
+    <p>PROGRAMA RENOVA es un programa de acompañamiento que integra entrenamiento de fuerza, nutrición, medicina deportiva a cargo de nuestro médico deportólogo, descanso y gestión de hábitos para ayudarte a mejorar tu composición corporal y construir una rutina sostenible.</p>
     <p>No se trata de seguir una dieta extrema ni de entrenar sin estrategia. Se trata de organizar un proceso, aprender a tomar mejores decisiones y contar con herramientas que puedas mantener en el tiempo.</p>
     <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Descanso</span><span>Hábitos</span></div>
   </div>
   <div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>
-  <div class="cta-center">{button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}</div>
+  <div class="cta-center">{button("QUIERO SUMARME A RENOVA", "renova", "", big=True)}</div>
 </div>
 ''', chapter="Quién soy", pid="bio", toc="Quién soy y qué es RENOVA")
 
