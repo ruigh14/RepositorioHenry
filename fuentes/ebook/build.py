@@ -90,7 +90,7 @@ if ENT and not MAMA:   # tapa de casa y gimnasio (modelo de Nacho)
     <span class="c3-pill">MÉTODO RENOVA · MUJERES 35+</span>
     <h1 class="c3-title">{G("ENTRENÁ<br>DESDE CASA", "ENTRENÁ EN EL<br>GIMNASIO")}</h1>
     <p class="c3-claim">VOLVÉ A SENTIRTE <b><span>FUERTE.</span></b></p>
-    <p class="c3-sub">Más fuerza y energía en 8 semanas,<br><span>con sesiones cortas y de bajo impacto.</span></p>
+    <p class="c3-sub">Más <em>fuerza</em> y <em>energía</em> en <b>8 semanas</b>,<br><span>con sesiones <mark>cortas</mark> y de <mark>bajo impacto</mark>.</span></p>
   </div>
   <div class="c3-team"><img src="img/equipo_tapa.png" alt="Equipo RENOVA"></div>
 </div>
