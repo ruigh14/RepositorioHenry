@@ -146,7 +146,7 @@ if ENT:
 <h1 class="h1">Te damos la bienvenida a <span class="t">{G("Entrená desde casa", "Entrená en el gimnasio", "Entrená siendo mamá")}</span></h1>
 <p class="lead">{G("Un plan de 8 semanas para entrenar desde casa si tenés poco tiempo: a las 2 semanas vas a tener más energía, a las 4 más fuerza y a las 8 el hábito logrado.", "Un plan de 8 semanas para entrenar en el gimnasio desde cero si tenés poco tiempo: a las 2 semanas vas a tener más energía, a las 4 más fuerza y a las 8 el hábito logrado.", "Un plan de 8 semanas para volver a entrenar después de ser mamá, en casa y con poco tiempo. Empezás por la respiración y el piso pélvico y sumás fuerza de a poco.")}</p>
 <h2>Qué necesitás</h2>
-<p>{G("Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga). Sesiones de 30 a 40 minutos, 2 o 3 veces por semana.", "Un gimnasio con máquinas básicas, mancuernas y poleas, ropa cómoda, toalla y agua. Las primeras veces, pedile al profesor de sala que te ayude a regular las máquinas. Sesiones de 45 a 60 minutos, 2 o 3 veces por semana.", "Una colchoneta, una silla firme y un peso liviano (mancuernas o botellas). Sesiones de 20 a 30 minutos, 2 o 3 veces por semana. Podés entrenar con tu bebé cerca.")}</p>
+<p>{G("Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga). Sesiones de 30 a 40 minutos, 2 o 3 veces por semana.", "Un gimnasio con máquinas, mancuernas y poleas; al principio, pedile al profesor de sala que te ayude a regularlas. Sesiones de 45 a 60 min, 2 o 3 veces por semana.", "Una colchoneta, una silla firme y un peso liviano (mancuernas o botellas). Sesiones de 20 a 30 minutos, 2 o 3 veces por semana. Podés entrenar con tu bebé cerca.")}</p>
 <div class="firstweek">
   <h2>Empezá esta semana</h2>
   <div class="fw">
@@ -156,9 +156,8 @@ if ENT:
     <div><span>4</span><b>Anotá</b><p>Marcá la sesión en <a href="#cargas">tu registro</a>.</p></div>
   </div>
 </div>
-{box('<b>Antes de empezar.</b> Necesitás el alta médica. Si tenés pérdidas, dolor o la panza hace “carpa”, frená y usá la variante más fácil.' if MAMA else '<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená. Si tenés una lesión o una condición médica, consultá con un profesional antes de empezar.', "note")}
-{'' if MAMA else '<p class="small"><b>Semana 1:</b> hacé la Rutina 1 y la Rutina 2, con 2 vueltas por bloque y al menos un día (48 h) entre una y otra. Desde la semana 2, seguí <a href="#plan8t1">tu plan de 8 semanas</a> (página <span class="pref" data-ref="plan8t1"></span>).</p>'}
-<p class="small"><b>¿Querés ver tu progreso?</b> Medí tu cintura antes de la primera rutina: está explicado en <a href="#eval">Medí tu progreso</a> (página <span class="pref" data-ref="eval"></span>).</p>
+{box('<b>Antes de empezar.</b> Necesitás el alta médica. Si tenés pérdidas, dolor o la panza hace “carpa”, frená y usá la variante más fácil.' if MAMA else '<b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire o dolor en el pecho, frená. Si tenés una lesión o una condición médica, consultá antes con un profesional.', "note")}
+{'<p class="small"><b>¿Querés ver tu progreso?</b> Medí tu cintura antes de la primera rutina: está explicado en <a href="#eval">Medí tu progreso</a> (página <span class="pref" data-ref="eval"></span>).</p>' if MAMA else '<p class="small"><b>Semana 1:</b> Rutina 1 y 2, con 2 vueltas por bloque y un día de descanso entre ambas. Después, <a href="#plan8t1">tu plan</a> (página <span class="pref" data-ref="plan8t1"></span>). Antes de empezar, <a href="#eval">medí tu cintura</a>.</p>'}
 ''', chapter="Bienvenida", pid="bienvenida")
 
 if FULL:
@@ -239,11 +238,11 @@ if ENT:
 </div>
 </div>
 <h3>Cómo pesarte</h3>
-{ul(["Siempre con la misma balanza y el mismo día de la semana.", "A la mañana, en ayunas y después de ir al baño, con poca ropa."] + (["Si das la teta, pesate después de amamantar."] if MAMA else []))}
+{ul(["Siempre con la misma balanza y el mismo día de la semana.", "A la mañana, en ayunas y después de ir al baño, con poca ropa."] + (["Si das la teta, pesate después de amamantar."] if MAMA else ["Mirá la tendencia, no un número suelto: el peso cambia por los líquidos, la sal o el ciclo."]))}
 <table class="grid-t meas-t"><thead><tr><th></th><th>Inicio</th><th>Semana 4</th><th>Semana 8</th></tr></thead><tbody>
 {"".join(f"<tr><th>{t}</th><td></td><td></td><td></td></tr>" for t in ["Fecha","Peso (kg)","Cintura (cm)"])}
 </tbody></table>
-<p class="small">El peso cambia de un día a otro por los líquidos, la sal o el ciclo. Mirá la tendencia entre una medición y otra, no un número aislado.</p>
+{'<p class="small">El peso cambia de un día a otro por los líquidos, la sal o el ciclo. Mirá la tendencia entre una medición y otra, no un número aislado.</p>' if MAMA else ''}
 ''', pid="eval")
 
 if FULL:
@@ -501,11 +500,11 @@ CUIDADOS = {
  "Estocada con apoyo": "tronco derecho y la rodilla de adelante sin irse hacia adentro.",
 }
 
-def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False):
+def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False, cuida=True):
     ev = EASY_VIDEO.get(name, "") if easy_label == "Más fácil" and not GYM and not MAMA and not PAUSA_ED else ""
     evb = f' <a class="vbtn-xs" href="{esc(ev)}">{ICON_PLAY} VER VARIANTE</a>' if ev else ""
     e = f'<p class="easy"><b>{easy_label}:</b> {easy}{evb}</p>' if easy else ""
-    if ((ENT and not MAMA) or PAUSA_ED) and name in CUIDADOS:   # el cuidado va en el mismo párrafo que la explicación
+    if cuida and ((ENT and not MAMA) or PAUSA_ED) and name in CUIDADOS:   # el cuidado va en el mismo párrafo que la explicación
         how = f'{how} <span class="ojo"><b>Cuidá:</b> {CUIDADOS[name]}</span>'
     mat = f'<span class="mat">{MATERIAL.get(name, "Propio cuerpo")}</span>'
     url = VIDEOS.get(name, "")
@@ -933,7 +932,7 @@ SEMANA_TIPO = ["1","A","2","-","3","A","D"]
 if ENT:
     page(f'''
 {chap_head("01", 'Cómo se hace <span class="t">cada rutina</span>', "Leé esta hoja una vez y ya podés empezar.")}
-{'' if MAMA else '<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales de la perimenopausia y la menopausia se pierde músculo y densidad ósea más rápido. El entrenamiento de fuerza es la herramienta con más respaldo para cuidar los dos y sostener tu metabolismo.</p>'}
+{'' if MAMA else '<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales se pierde músculo y hueso más rápido, y la fuerza es lo que más ayuda a cuidarlos y a sostener tu metabolismo.</p>'}
 <div class="steps steps4">
   <div class="step"><span>1</span><b>Entrada en calor</b><p>{G("5 a 10 min", "10 a 15 min", "5 min, con respiración")}</p></div>
   <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
@@ -943,7 +942,7 @@ if ENT:
 <h3>Cómo se hace un bloque</h3>
 {ul(["Hacé los 4 ejercicios seguidos: eso es <b>una vuelta</b>. Repetí las vueltas que indica tu semana.",
      G("Pausas: 30 a 60 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.", "Pausas: 60 a 90 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2."),
-     "Las planchas se hacen por segundos. Cada ejercicio tiene imagen, video y una variante más fácil."])}
+     ] + (["Las planchas se hacen por segundos. Cada ejercicio tiene imagen, video y una variante más fácil."] if MAMA else []))}
 {'<h3>Con qué esfuerzo: terminá sintiendo que podrías hacer 2 o 3 más</h3>' + '''<div class="rpe">
   <div><b>1–4</b><span>Muy fácil</span><p>Podrías seguir mucho tiempo.</p></div>
   <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>
@@ -1012,10 +1011,10 @@ if ENT:
                {"Sentadilla en copa", "Puente de glúteos", "Remo inclinado", "Plancha en rodillas"} if MAMA else
                {"Sentadilla en copa", "Flexiones de brazo", "Remo inclinado", "Plancha prona"})
     exp_ex = list({e[1]: e for r in RUT.values() for e in r["ex"] if e[1] in EXPRESS}.values())   # sin repetidos
-    exp_cards = [ex_card(e[0], e[1], "40 s", e[3], row=True) for e in exp_ex]
+    exp_cards = [ex_card(e[0], e[1], "40 s", e[3], row=True, cuida=False) for e in exp_ex]   # el cuidado ya está en la rutina
     page(f'''
 <h1 class="h1">Sesión express de <span class="t">15 minutos</span>{" (en la siesta)" if MAMA else ""}</h1>
-{params([("Vueltas","3"),("Trabajo","40 s por ejercicio"),("Pausa","20 s · 1 min entre vueltas"),("Duración","15 min")])}
+{params([("Vueltas","3"),("Trabajo","40 s por ejercicio"),("Pausa","20 s · 1 min entre vueltas"),("Duración","15 min")]) if MAMA else '<p class="small"><b>3 vueltas · 40 s por ejercicio · 20 s de pausa · 1 min entre vueltas.</b></p>'}
 <p class="small">Antes, {G("2 minutos de movilidad de brazos y sentadilla lateral", "3 minutos de cinta o bici y movilidad de brazos", "1 minuto de respiración 360° y movilidad de brazos")}. Usá la variante y el peso de tu semana del plan.</p>
 {"".join(exp_cards)}
 ''', chapter=G("05 · Semanas con poco tiempo", "05 · Semanas con poco tiempo", "05 · Días con poco tiempo"), pid="express")
@@ -2079,7 +2078,7 @@ def render():
                       f'<div class="ftr"><a class="toidx" href="#indice">{ICON_HAND} Hacé clic y volvé al índice</a><span class="pgnum"></span></div>'))
         out.append(f'<section class="page {p["cls"]}" id="{p["id"]}">{hdr}<div class="body">{body}</div></section>')
     return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>' + TITLE + '</title>'
-            f'<style>{CSS}</style></head><body>' + "".join(out) + '<script src="paginate.js"></script></body></html>')
+            f'<style>{CSS}</style></head><body{" class=\"grande\"" if (ENT and not MAMA) or PAUSA_ED else ""}>' + "".join(out) + '<script src="paginate.js"></script></body></html>')
 
 if __name__ == "__main__":
     here = os.path.dirname(os.path.abspath(__file__))

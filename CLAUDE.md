@@ -80,6 +80,7 @@ El ebook debe imprimir `OVERFLOW []` (sin páginas con texto cortado). Para revi
 - Después de cada cambio: regenerar el PDF (o la landing), commitear y pushear a `main`.
 - Idioma: español rioplatense (voseo).
 - Se lee en el celular: letra grande (cuerpo 15 pt). Si algo no entra en la hoja, acortar texto o separar en hojas, no achicar la letra.
+- Casa, gimnasio y pausa llevan `<body class="grande">` (bloque `.grande` al final de `style.css`): desarrollo a 15,5–16,5 pt y dibujos de ejercicios de 40 mm; `paginate.js` reparte lo que no entra. Mamás todavía usa los tamaños anteriores.
 
 ## Frase para retomar: "RENOVA, seguimos"
 

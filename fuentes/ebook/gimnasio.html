@@ -981,6 +981,9 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 
 /* ---- tapa de casa y gimnasio (cada ebook con su tono de turquesa) */
 .cv3{--c3-a:var(--tq);--c3-b:var(--tq);--c3-l:var(--tq-l);position:relative;height:297mm;box-sizing:border-box;border:1.2mm solid var(--c3-b);background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.cv3.pausa{--c3-a:var(--tq-t);--c3-b:var(--ink);--c3-l:var(--tq-l)}
+.pausa .c3-title{font-size:92pt}
+.pausa .c3-claim b span{text-shadow:1.2mm 1.2mm 0 var(--tq)}
 .cv3.gym{--c3-a:var(--tq-d);--c3-b:var(--tq-dd);--c3-l:var(--tq-b)}
 .c3-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8mm 12mm 0}
 .c3-logo{height:13mm;width:auto;margin-bottom:5mm}
@@ -998,7 +1001,38 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .c3-sub mark{font-weight:800;color:var(--ink);background:linear-gradient(transparent 55%,var(--c3-l) 55%,var(--c3-l) 92%,transparent 92%);padding:0 .6mm}
 .c3-team{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:flex-end;justify-content:center;margin-top:3mm}
 .c3-team img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
-</style></head><body><section class="page p-cover" id="portada"><div class="body">
+
+/* v9: casa, gimnasio y pausa activa: letra y dibujos más grandes en el desarrollo (lectura en celular).
+   Los títulos quedan igual; si algo no entra, paginate.js lo pasa a otra hoja. */
+body.grande{font-size:16.5pt;line-height:1.48}
+.grande .lead{font-size:17pt}
+.grande .small{font-size:14pt}
+.grande .box{font-size:15.5pt}
+.grande .list li,.grande .checks li{margin-bottom:2mm}
+.grande .ex.exrow{grid-template-columns:40mm 1fr;gap:5mm;padding:3.4mm 4mm;margin-bottom:3mm}
+.grande .ex.exrow .exim{width:40mm;height:38mm;padding:1mm}
+.grande .mat{font-size:10.4pt;white-space:normal}
+.grande .exrow .exh h4{font-size:17pt}
+.grande .exrow .extx p{font-size:15.5pt;line-height:1.42;margin-bottom:1mm}
+.grande .dose{font-size:12.4pt}
+.grande .exrow .exh .vbtn-sm,.grande .vbtn-sm{font-size:11pt;padding:1.8mm 3.6mm}
+.grande .vbtn-xs{font-size:10.4pt}
+.grande .blk span{font-size:12pt}.grande .blk p{font-size:14pt}
+.grande .wcim{height:24mm}
+.grande .wc b{font-size:11.4pt}.grande .wc .dose{font-size:9.6pt}.grande .wc .vbtn-sm{font-size:9pt;padding:1.2mm 2.6mm}
+.grande .pillar p,.grande .step p,.grande .tile p,.grande .minplan p,.grande .tips10 p,.grande .fw p,.grande .rpe p{font-size:15pt}
+.grande .pillar h3,.grande .step b,.grande .tile h3,.grande .fw b,.grande .tips10 h3{font-size:16pt}
+.grande .cb,.grande .cbox .cb{font-size:15pt}
+.grande .wcard p,.grande .team-tx p,.grande .bio-top p,.grande .what p,.grande #talleres .wcard p,.grande #talleres .team-tx p{font-size:15pt}
+.grande .legend{font-size:13.6pt}
+.grande .phases span{font-size:13.4pt}
+.grande .meas .steps-ol{font-size:15pt}
+.grande .ttx p{font-size:14.6pt}
+.grande #express .ex.exrow{grid-template-columns:30mm 1fr}
+.grande #express .ex.exrow .exim{width:30mm;height:30mm}
+.grande .meas{grid-template-columns:44mm 1fr}
+.grande .meas-t td{height:8.5mm}
+</style></head><body class="grande"><section class="page p-cover" id="portada"><div class="body">
 <div class="cv3 gym">
   <div class="c3-in">
     <img class="c3-logo" src="img/logo_renova.png" alt="RENOVA">
@@ -1014,7 +1048,7 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 <h1 class="h1">Te damos la bienvenida a <span class="t">Entrená en el gimnasio</span></h1>
 <p class="lead">Un plan de 8 semanas para entrenar en el gimnasio desde cero si tenés poco tiempo: a las 2 semanas vas a tener más energía, a las 4 más fuerza y a las 8 el hábito logrado.</p>
 <h2>Qué necesitás</h2>
-<p>Un gimnasio con máquinas básicas, mancuernas y poleas, ropa cómoda, toalla y agua. Las primeras veces, pedile al profesor de sala que te ayude a regular las máquinas. Sesiones de 45 a 60 minutos, 2 o 3 veces por semana.</p>
+<p>Un gimnasio con máquinas, mancuernas y poleas; al principio, pedile al profesor de sala que te ayude a regularlas. Sesiones de 45 a 60 min, 2 o 3 veces por semana.</p>
 <div class="firstweek">
   <h2>Empezá esta semana</h2>
   <div class="fw">
@@ -1024,12 +1058,11 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
     <div><span>4</span><b>Anotá</b><p>Marcá la sesión en <a href="#cargas">tu registro</a>.</p></div>
   </div>
 </div>
-<div class="box note"><b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire inusual o dolor en el pecho, frená. Si tenés una lesión o una condición médica, consultá con un profesional antes de empezar.</div>
-<p class="small"><b>Semana 1:</b> hacé la Rutina 1 y la Rutina 2, con 2 vueltas por bloque y al menos un día (48 h) entre una y otra. Desde la semana 2, seguí <a href="#plan8t1">tu plan de 8 semanas</a> (página <span class="pref" data-ref="plan8t1"></span>).</p>
-<p class="small"><b>¿Querés ver tu progreso?</b> Medí tu cintura antes de la primera rutina: está explicado en <a href="#eval">Medí tu progreso</a> (página <span class="pref" data-ref="eval"></span>).</p>
+<div class="box note"><b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire o dolor en el pecho, frená. Si tenés una lesión o una condición médica, consultá antes con un profesional.</div>
+<p class="small"><b>Semana 1:</b> Rutina 1 y 2, con 2 vueltas por bloque y un día de descanso entre ambas. Después, <a href="#plan8t1">tu plan</a> (página <span class="pref" data-ref="plan8t1"></span>). Antes de empezar, <a href="#eval">medí tu cintura</a>.</p>
 </div></section><section class="page " id="indice"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>Índice</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><span class="pill">CONTENIDO</span><div class="idxhead"><h1 class="h1">Índice</h1><p class="idxtip"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic donde quieras ir. Para volver al índice, abajo de cada página tenés el botón.</p></div><div class="tocl"><a class="tocr" href="#como"><span class="tt">01 · Cómo entrenar</span><span class="dots"></span><span class="pg">4</span></a><a class="tocr" href="#rutina1"><span class="tt">02 · Rutinas</span><span class="dots"></span><span class="pg">5</span></a><a class="tocr" href="#core"><span class="tt">03 · Rutinas extras</span><span class="dots"></span><span class="pg">15</span></a><a class="tocr" href="#express"><span class="tt">Sesión express de 15 minutos</span><span class="dots"></span><span class="pg">16</span></a><a class="tocr" href="#plan8t1"><span class="tt">04 · Tu plan de 8 semanas</span><span class="dots"></span><span class="pg">17</span></a><a class="tocr" href="#cap5e"><span class="tt">05 · Semanas con poco tiempo</span><span class="dots"></span><span class="pg">19</span></a><a class="tocr" href="#eval"><span class="tt">06 · Medí tu progreso</span><span class="dots"></span><span class="pg">20</span></a><a class="tocr" href="#cap7e"><span class="tt">07 · Después de las 8 semanas</span><span class="dots"></span><span class="pg">22</span></a><a class="tocr" href="#talleres"><span class="tt">Bonus 1: Talleres RENOVA</span><span class="dots"></span><span class="pg">24</span></a><a class="tocr" href="#cap6"><span class="tt">Bonus 2: Recetario</span><span class="dots"></span><span class="pg">25</span></a><a class="tocr" href="#bonus"><span class="tt">Bonus 3: Comunidad RENOVA</span><span class="dots"></span><span class="pg">28</span></a><a class="tocr" href="#testimonios"><span class="tt">Resultados reales</span><span class="dots"></span><span class="pg">29</span></a><a class="tocr" href="#bio"><span class="tt">Quién soy</span><span class="dots"></span><span class="pg">30</span></a><a class="tocr" href="#metodo"><span class="tt">Método RENOVA</span><span class="dots"></span><span class="pg">31</span></a></div></div></section><section class="page " id="como"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>01 · Cómo entrenar</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
 <div class="chead"><span class="cnum">01</span><h1>Cómo se hace <span class="t">cada rutina</span></h1><p class="lead">Leé esta hoja una vez y ya podés empezar.</p></div>
-<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales de la perimenopausia y la menopausia se pierde músculo y densidad ósea más rápido. El entrenamiento de fuerza es la herramienta con más respaldo para cuidar los dos y sostener tu metabolismo.</p>
+<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales se pierde músculo y hueso más rápido, y la fuerza es lo que más ayuda a cuidarlos y a sostener tu metabolismo.</p>
 <div class="steps steps4">
   <div class="step"><span>1</span><b>Entrada en calor</b><p>10 a 15 min</p></div>
   <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
@@ -1037,7 +1070,7 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
   <div class="step"><span>4</span><b>Elongación</b><p>5 min</p></div>
 </div>
 <h3>Cómo se hace un bloque</h3>
-<ul class="list"><li>Hacé los 4 ejercicios seguidos: eso es <b>una vuelta</b>. Repetí las vueltas que indica tu semana.</li><li>Pausas: 60 a 90 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.</li><li>Las planchas se hacen por segundos. Cada ejercicio tiene imagen, video y una variante más fácil.</li></ul>
+<ul class="list"><li>Hacé los 4 ejercicios seguidos: eso es <b>una vuelta</b>. Repetí las vueltas que indica tu semana.</li><li>Pausas: 60 a 90 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.</li></ul>
 <h3>Con qué esfuerzo y con qué peso</h3><p>Terminá cada vuelta sintiendo que podrías hacer 2 o 3 repeticiones más: un 6 a 7 de 10. Elegí el peso de cada máquina con ese criterio desde la primera semana.</p>
 <h3>Cuándo subir de nivel</h3>
 <p>Cuando hacés 12 repeticiones en todas las vueltas con esfuerzo 7 o menos, dos sesiones seguidas: subí una placa en la máquina o 1 kg en las mancuernas. Si algo duele, volvé a la variante más fácil.</p>
@@ -1091,9 +1124,9 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 <div class="box soft"><b>Regla simple para variar:</b> cada 2 semanas, sumá 5 segundos o 2 repeticiones por ejercicio. Si sentís molestia en la zona lumbar o en el cuello, volvé al paso anterior.</div>
 </div></section><section class="page " id="express"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas extras</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
 <h1 class="h1">Sesión express de <span class="t">15 minutos</span></h1>
-<div class="params"><div><span>Vueltas</span><b>3</b></div><div><span>Trabajo</span><b>40 s por ejercicio</b></div><div><span>Pausa</span><b>20 s · 1 min entre vueltas</b></div><div><span>Duración</span><b>15 min</b></div></div>
+<p class="small"><b>3 vueltas · 40 s por ejercicio · 20 s de pausa · 1 min entre vueltas.</b></p>
 <p class="small">Antes, 3 minutos de cinta o bici y movilidad de brazos. Usá la variante y el peso de tu semana del plan.</p>
-<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_prensa.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Prensa</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/ddfmGBWmB88"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Sentada con la espalda bien apoyada y los pies al ancho de la cadera en la plataforma. Bajá flexionando las rodillas hasta unos 90° y empujá sin bloquear las rodillas. <span class="ojo"><b>Cuidá:</b> la zona lumbar siempre apoyada en el respaldo y sin bloquear las rodillas al estirar.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_presspecho.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Press de pecho en máquina</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/NwxHu5BSiKQ"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Regulá el asiento para que las manijas queden a la altura del pecho. Empujá hacia adelante sin bloquear los codos y volvé lento. <span class="ojo"><b>Cuidá:</b> hombros abajo y atrás, apoyados en el respaldo; no bloquees los codos.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r1_7.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Plancha prona</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/nd0qbgESlao"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera. <span class="ojo"><b>Cuidá:</b> cadera alineada y respirá sin aguantar el aire.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_remomaq.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Remo en máquina</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/2ybm7nnYbyg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Pecho apoyado en el respaldo y manijas con agarre neutro. Tirá llevando los codos hacia atrás, pegados al cuerpo, juntá los omóplatos y volvé lento. <span class="ojo"><b>Cuidá:</b> pecho apoyado y hombros lejos de las orejas; tirá con los codos.</span></p></div></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_prensa.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Prensa</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/ddfmGBWmB88"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Sentada con la espalda bien apoyada y los pies al ancho de la cadera en la plataforma. Bajá flexionando las rodillas hasta unos 90° y empujá sin bloquear las rodillas.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_presspecho.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Press de pecho en máquina</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/NwxHu5BSiKQ"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Regulá el asiento para que las manijas queden a la altura del pecho. Empujá hacia adelante sin bloquear los codos y volvé lento.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r1_7.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Plancha prona</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/nd0qbgESlao"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_remomaq.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Remo en máquina</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/2ybm7nnYbyg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Pecho apoyado en el respaldo y manijas con agarre neutro. Tirá llevando los codos hacia atrás, pegados al cuerpo, juntá los omóplatos y volvé lento.</p></div></div>
 </div></section><section class="page " id="plan8t1"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>04 · Tu plan de 8 semanas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
 <span class="pill">PLAN DE 8 SEMANAS</span>
 <h1 class="h1">Semanas 1 a 4: <span class="t">aprendé y construí tu base</span></h1>
@@ -1145,11 +1178,11 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 </div>
 </div>
 <h3>Cómo pesarte</h3>
-<ul class="list"><li>Siempre con la misma balanza y el mismo día de la semana.</li><li>A la mañana, en ayunas y después de ir al baño, con poca ropa.</li></ul>
+<ul class="list"><li>Siempre con la misma balanza y el mismo día de la semana.</li><li>A la mañana, en ayunas y después de ir al baño, con poca ropa.</li><li>Mirá la tendencia, no un número suelto: el peso cambia por los líquidos, la sal o el ciclo.</li></ul>
 <table class="grid-t meas-t"><thead><tr><th></th><th>Inicio</th><th>Semana 4</th><th>Semana 8</th></tr></thead><tbody>
 <tr><th>Fecha</th><td></td><td></td><td></td></tr><tr><th>Peso (kg)</th><td></td><td></td><td></td></tr><tr><th>Cintura (cm)</th><td></td><td></td><td></td></tr>
 </tbody></table>
-<p class="small">El peso cambia de un día a otro por los líquidos, la sal o el ciclo. Mirá la tendencia entre una medición y otra, no un número aislado.</p>
+
 </div></section><section class="page " id="cargas"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>06 · Medí tu progreso</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
 <span class="pill">MEDÍ TU PROGRESO</span>
 <h1 class="h1">Tu <span class="t">registro</span></h1>
