@@ -46,7 +46,9 @@ Una sola marca para todo: **los colores son los del ebook** y landings, creativo
 
 ### `fuentes/landing/`
 - `tienda.html`: fuente de la única landing (vende los 2 ebooks juntos, con un solo `/checkout`; el producto de Impultienda tiene que entregar los 2 PDF). `build.py` encierra el CSS en `#rnv` (para que no choque con la tienda) y cambia `img/...` por links de GitHub a `fuentes/landing/img/`, fijados al último commit de esa carpeta: **commitear y pushear las imágenes nuevas antes de regenerar**. Los videos (`<source src="img/….mp4">`) salen de jsDelivr con GitHub de respaldo.
-- Portada: secuencia en `#stage` (video de alumnas 6 s → fotos de logros 1,5 s c/u → collage fijo) y foto de Nacho fija. Mensajes de clientas: carrusel `#msgs`; para sumar uno, otra `<figure class="msg">` con la captura en `img/`.
+- Estructura (prompt de landing de alta conversión): barra de oferta fija → portada (tapas de los ebooks, `img/tapa_*.jpg`, salen de la hoja 1 de cada PDF) → ¿Te pasa esto? → No es tu culpa → beneficios → producto y precio (`#comprar`) → qué incluye + clips de ejercicios de Nacho (`img/clip_*.mp4`, 4 s sin sonido) → 4 bonus → quién soy → testimonios + carrusel `#msgs` → valor total → garantía de 7 días → preguntas → cierre → barra de compra en el celular. Sin cuenta regresiva ni avisos de compras inventados (no hay fecha real de fin de oferta).
+- Valores de referencia (Nacho): cada pieza de entrenamiento $10.000 (casa, gimnasio, pausa activa), recetario $15.000; talleres y comunidad figuran como incluidos. Prueba social: "más de 150 alumnas".
+- Upsell 1 de Impultienda: va a ser el ebook de nutrición en la menopausia ($10.000, todavía por hacer). Si el upsell no está cargado, la landing lo esconde sola.
 - Impultienda: compra con `<a href="/checkout">`, precios con `{{price}}`, `{{original_price}}`, `{{savings}}` y upsell 1 con `{{upsell_1_*}}` + `data-upsell-toggle="1"`.
 
 ## Regenerar
@@ -93,7 +95,9 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 
 - Auditoría Fase 1 de casa y gimnasio en `investigacion/auditoria-ebooks-fase1.md`: Nacho decide los puntos críticos (saltos/impacto, tracción en casa, errores frecuentes, qué hacer si pierdo días, "te acompañan") antes de pasar a la Fase 3.
 
-- Bonus pausa activa: cargar `pausa-activa/Bonus_Pausa_activa_RENOVA.pdf` en el producto de Impultienda (junto a casa y gimnasio) y sumarlo a la landing como bonus 4 (hoy la landing todavía lista la pausa activa dentro de los ebooks).
+- Bonus pausa activa: cargar `pausa-activa/Bonus_Pausa_activa_RENOVA.pdf` en el producto de Impultienda (junto a casa y gimnasio). En la landing ya es el bonus 4.
+- Ebook de nutrición en la menopausia (upsell 1, $10.000): por hacer; cuando esté, cargarlo como upsell 1 en Impultienda en lugar de "Recetas para entrenar mejor".
+- Landing: falta saber medios de pago y si hay cuotas sin interés.
 
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
 

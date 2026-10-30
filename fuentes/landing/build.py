@@ -93,7 +93,7 @@ html = (head + "<body>\n<div id=\"rnv\">\n<style>@import url(\"" + FONTS + "\");
         + scope(css).strip() + "\n</style>\n" + body.strip() + "\n</div>\n</body>\n</html>\n")
 html = re.sub(r'<source src="img/([^"]+)" type="video/mp4"/>',
               lambda m: f'<source src="{CDN}{m[1]}" type="video/mp4"/><source src="{IMG}{m[1]}" type="video/mp4"/>', html)
-html = re.sub(r'(src|href)="img/', r'\1="' + IMG, html)
+html = re.sub(r'(src|href|poster)="img/', r'\1="' + IMG, html)
 html = html.replace("url('img/", "url('" + IMG)
 (HERE.parent.parent / OUT).write_text(html)
 print(OUT, len(html) // 1024, "KB")
