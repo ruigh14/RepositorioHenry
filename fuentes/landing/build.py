@@ -95,5 +95,15 @@ html = re.sub(r'<source src="img/([^"]+)" type="video/mp4"/>',
               lambda m: f'<source src="{CDN}{m[1]}" type="video/mp4"/><source src="{IMG}{m[1]}" type="video/mp4"/>', html)
 html = re.sub(r'(src|href|poster)="img/', r'\1="' + IMG, html)
 html = html.replace("url('img/", "url('" + IMG)
+# Impultienda mete el HTML dentro de su propio <script>: un "</script>" nuestro le corta la página.
+# Por eso el JS va en landing.js (desde jsDelivr) y se carga con el onload de una imagen de 1 px.
+JS_SHA = subprocess.check_output(["git", "log", "-1", "--format=%H", "--", "landing.js"], cwd=HERE, text=True).strip()
+JS = f"https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@{JS_SHA}/fuentes/landing/landing.js"
+GIF = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+html = html.replace('<script src="landing.js"></script>',
+                    f'<img alt="" src="{GIF}" style="display:none" '
+                    f'onload="var s=document.createElement(\'script\');s.src=\'{JS}\';document.body.appendChild(s);this.onload=null"/>')
+html = re.sub(r"<!--.*?-->", "", html, flags=re.S)   # un "<!--" adentro de un <script> también rompe el HTML
+assert "</script" not in html.lower(), "la landing no puede tener </script>"
 (HERE.parent.parent / OUT).write_text(html)
 print(OUT, len(html) // 1024, "KB")
