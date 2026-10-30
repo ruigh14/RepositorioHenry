@@ -184,7 +184,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .bonus .bv b{background:var(--brl);color:var(--brd);padding:4px 12px;border-radius:999px;font-size:14px;letter-spacing:.04em}
 
 /* PORTADA CON VSL */
-.hero-in{padding:40px 0 54px;text-align:center;max-width:900px}
+.hero .wrap.hero-in{display:block;padding:40px 0 54px;text-align:center;max-width:900px}
 .hero-in h1{font-size:clamp(42px,7vw,78px)}
 .hero-in .sub{max-width:700px;margin:14px auto 22px}
 .vsl{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:5px solid #fff;box-shadow:0 26px 60px rgba(0,0,0,.35);background:#fff}
@@ -324,6 +324,15 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .guar p{font-size:16.5px;margin-bottom:10px}
 .guar .sig{font-weight:800;color:var(--ink)}
 
+/* GARANTÍA (formato Menofit) */
+.gar{position:relative;max-width:1000px;margin:30px auto 0;border-radius:16px;overflow:visible;box-shadow:var(--sh2);background:var(--br2) url('img/nacho.jpg') right 30%/auto 120% no-repeat;color:#fff}
+.gar::before{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(90deg,var(--rnv-turquesa) 0%,var(--rnv-turquesa-titulo) 55%,rgba(14,157,178,.35) 80%,rgba(14,157,178,0) 100%)}
+.gseal{position:absolute;left:-30px;top:-40px;width:170px;height:170px;z-index:3;filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
+.gar-tx{position:relative;padding:48px 40px 40px 170px;max-width:720px}
+.gar h2{color:#fff;font-size:clamp(28px,3.6vw,42px);line-height:1.05;margin-bottom:16px}
+.gar p{font-size:17px;margin-bottom:14px;color:#fff}
+.gar .sig{font-weight:800;font-size:18px}
+
 /* FAQ */
 .faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
 .faq details{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(20,20,20,.07);border:1px solid var(--line)}
@@ -385,6 +394,10 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
   .clips .clip:last-child{grid-column:1/-1;aspect-ratio:16/10}
   .inc{grid-template-columns:1fr;padding:22px}
   .inc .book{width:180px}
+  .gar{background-size:0 0}
+  .gar::before{background:var(--grad)}
+  .gseal{left:50%;margin-left:-60px;top:-50px;width:120px;height:120px}
+  .gar-tx{padding:84px 20px 26px}
   .guar{grid-template-columns:1fr;text-align:center;padding:26px 20px}
   .guar h2{text-align:center}
   .seal{margin:0 auto;width:124px;height:124px}
@@ -704,15 +717,24 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 </div>
 
 <!-- GARANTÍA -->
-<div class="sec tint">
+<div class="sec">
   <div class="wrap">
-    <div class="guar rv">
-      <div class="seal"><div><b>7</b>días de<br/>garantía</div></div>
-      <div>
-        <h2>Probalo <span class="b">sin riesgo</span></h2>
-        <p>Tenés 7 días para ver el material. Si no te gusta, nos escribís y <b>te devolvemos el dinero</b>. Sin vueltas.</p>
-        <p>Sé el impacto que este plan puede tener en tu vida, porque lo veo todos los días en las mujeres que entrenan con RENOVA.</p>
-        <p class="sig">Nacho Portillo · Creador de RENOVA</p>
+    <div class="gar rv">
+      <svg class="gseal" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--rnv-oro-claro)"/><stop offset=".55" style="stop-color:var(--rnv-oro)"/><stop offset="1" style="stop-color:var(--rnv-oro-oscuro)"/></linearGradient>
+        <path id="garc" d="M100 100 m-62 0 a62 62 0 1 1 124 0 a62 62 0 1 1 -124 0"/></defs>
+        <polygon fill="url(#gg)" points="100,2 112,22 133,8 138,32 162,26 158,50 182,52 170,73 192,85 174,100 192,115 170,127 182,148 158,150 162,174 138,168 133,192 112,178 100,198 88,178 67,192 62,168 38,174 42,150 18,148 30,127 8,115 26,100 8,85 30,73 18,52 42,50 38,26 62,32 67,8 88,22"/>
+        <circle cx="100" cy="100" r="74" fill="var(--rnv-tinta)"/><circle cx="100" cy="100" r="66" fill="none" stroke="url(#gg)" stroke-width="3"/>
+        <circle cx="100" cy="100" r="44" fill="url(#gg)"/>
+        <text font-family="Inter Tight,Inter,sans-serif" font-weight="900" font-size="15" letter-spacing="2" fill="url(#gg)"><textPath href="#garc" startOffset="0">GARANTÍA · DEVOLUCIÓN · GARANTÍA · DEVOLUCIÓN ·</textPath></text>
+        <text x="100" y="98" text-anchor="middle" font-family="Inter Tight,Inter,sans-serif" font-weight="900" font-size="34" fill="var(--rnv-tinta)">100%</text>
+        <text x="100" y="120" text-anchor="middle" font-family="Inter Tight,Inter,sans-serif" font-weight="800" font-size="13" fill="var(--rnv-tinta)">7 DÍAS</text>
+      </svg>
+      <div class="gar-tx">
+        <h2>Garantía de devolución del 100% del dinero</h2>
+        <p>Sé que este programa puede tener un impacto muy positivo en tu vida, porque lo veo todos los días en las mujeres que entrenan con RENOVA.</p>
+        <p>Sé que ya recorriste un largo camino para llegar hasta acá, y confío en que sabés lo que te conviene. Si esto no es lo que buscás o no genera un cambio en tu vida, no te preocupes: podés pedir la devolución dentro de los <b>7 días</b> y recuperar tu dinero, sin preguntas.</p>
+        <p class="sig">Nacho Portillo<br/>Creador de RENOVA</p>
       </div>
     </div>
   </div>

@@ -40,22 +40,49 @@ NUT = f"""<!doctype html><meta charset="utf-8"><style>{BASE}</style>
 <div class="card" style="left:790px;top:330px;width:340px;transform:rotate(4deg)"><h4>Lista de compras</h4>
   <div class="row"><span class="ck on"></span>Huevos y yogur natural</div><div class="row"><span class="ck on"></span>Pollo y pescado</div>
   <div class="row"><span class="ck"></span>Avena, legumbres y quinoa</div><div class="row"><span class="ck"></span>Verduras de estación</div><div class="row"><span class="ck"></span>Frutos secos</div></div>
-<div class="card" style="left:760px;top:70px;width:220px;height:220px;padding:8px;transform:rotate(-5deg)"><img src="{I}comida_21.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></div>
+<div class="card" style="left:780px;top:60px;width:230px;height:230px;padding:8px;transform:rotate(-5deg)"><img src="{I}comida_yogur.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></div>
+<div class="card" style="left:660px;top:640px;width:250px;height:230px;padding:8px;transform:rotate(-3deg)"><img src="{I}comida_15.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></div>
+<div class="card" style="left:930px;top:600px;width:240px;transform:rotate(3deg);text-align:center"><h4>Armá tu plato</h4>
+  <div style="width:150px;height:150px;margin:6px auto 10px;border-radius:50%;border:6px solid #fff;box-shadow:0 0 0 2px var(--rnv-linea);background:conic-gradient(var(--rnv-turquesa) 0 50%,var(--rnv-tinta) 50% 75%,var(--rnv-turquesa-borde) 75% 100%)"></div>
+  <div style="font-size:13px;text-align:left;line-height:1.6;color:var(--rnv-tinta)"><b style="color:var(--rnv-turquesa)">■</b> ½ verduras<br><b>■</b> ¼ proteína<br><b style="color:var(--rnv-turquesa-borde)">■</b> ¼ carbohidratos</div></div>
 """
 
-PRO = f"""<!doctype html><meta charset="utf-8"><style>{BASE} body{{background:linear-gradient(135deg,var(--rnv-turquesa-fondo),#fff)}}
-.ph{{position:absolute;border:10px solid var(--rnv-tinta);border-radius:22px;overflow:hidden;box-shadow:0 22px 44px rgba(20,20,20,.3);background:#000}}
-.ph img{{width:100%;height:100%;object-fit:cover}}</style>
-<div class="ph" style="left:40px;top:470px;width:300px;height:220px"><img src="{I}foto_remo.jpg"></div>
-<div class="ph" style="left:70px;top:150px;width:260px;height:260px;transform:rotate(-4deg)"><img src="{I}foto_estocada.jpg"></div>
-<div class="ph" style="left:880px;top:150px;width:260px;height:260px;transform:rotate(4deg)"><img src="{I}foto_patada.jpg"></div>
-<div class="ph" style="left:860px;top:470px;width:300px;height:220px"><img src="{I}foto_subidas.jpg"></div>
-<div class="bk" style="left:300px;top:150px;width:300px;height:424px;transform:rotate(-6deg)"><img src="{I}tapa_gym.jpg" style="width:100%;height:100%"></div>
-<div class="bk" style="left:610px;top:150px;width:300px;height:424px;transform:rotate(6deg)"><img src="{I}tapa_pausa.jpg" style="width:100%;height:100%"></div>
-<div class="bk" style="left:420px;top:90px;width:360px;height:509px;z-index:3"><img src="{I}tapa_casa.jpg" style="width:100%;height:100%"></div>
-<div class="bk" style="left:330px;top:600px;width:540px;height:270px;z-index:4;border-radius:14px"><img src="{I}mock_nutricion.jpg" style="width:100%;height:100%;object-fit:cover"></div>
-<div class="card" style="left:60px;top:740px;width:250px;height:140px;padding:6px"><img src="{I}comida_05.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></div>
-<div class="card" style="left:890px;top:740px;width:250px;height:140px;padding:6px"><img src="{I}habitos.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px"></div>
+PRO = f"""<!doctype html><meta charset="utf-8"><style>{BASE}
+body{{width:2000px;height:950px;background:#fff}}
+.tab{{position:absolute;background:var(--rnv-tinta);border-radius:22px;padding:12px;box-shadow:0 22px 44px rgba(20,20,20,.28)}}
+.tab img{{display:block;width:100%;height:100%;object-fit:cover;border-radius:10px}}
+.ft{{position:absolute;background:#fff;border-radius:16px;padding:7px;box-shadow:0 14px 30px rgba(20,20,20,.2)}}
+.ft img{{display:block;width:100%;height:100%;object-fit:cover;border-radius:10px}}
+.sh{{position:absolute;background:#fff;border-radius:6px;box-shadow:0 14px 30px rgba(20,20,20,.18);overflow:hidden}}
+.sh .hd{{background:var(--rnv-tinta);color:#fff;font-family:InterTightW,sans-serif;font-weight:900;font-size:30px;padding:14px 18px}}
+.sh .tg{{position:absolute;top:-2px;left:40px;background:var(--rnv-turquesa);color:#fff;font-family:InterTightW,sans-serif;font-weight:900;font-size:22px;padding:6px 16px;border-radius:0 0 8px 8px}}
+.sh table{{width:100%;border-collapse:collapse;font-size:12px}} .sh td{{border:1px solid var(--rnv-linea);height:30px}}
+.mon{{position:absolute;left:640px;top:150px;width:760px;height:470px;background:var(--rnv-tinta);border-radius:22px;padding:16px;box-shadow:0 26px 54px rgba(20,20,20,.3)}}
+.scr{{width:100%;height:100%;border-radius:10px;background:var(--rnv-degrade);position:relative;overflow:hidden}}
+</style>
+<div class="sh" style="left:400px;top:70px;width:380px;height:300px;transform:rotate(-7deg)"><span class="tg">SEMANA 2</span><div class="hd" style="padding-top:40px">RENOVA</div><table>{"<tr><td></td><td></td><td></td><td></td></tr>"*7}</table></div>
+<div class="sh" style="left:540px;top:50px;width:380px;height:300px;transform:rotate(-3deg)"><span class="tg">SEMANA 1</span><div class="hd" style="padding-top:40px">RENOVA</div><table>{"<tr><td></td><td></td><td></td><td></td></tr>"*7}</table></div>
+<div class="ft" style="left:60px;top:150px;width:260px;height:200px;transform:rotate(-5deg)"><img src="{I}comida_11.jpg"></div>
+<div class="ft" style="left:40px;top:370px;width:250px;height:190px;transform:rotate(3deg)"><img src="{I}comida_yogur.jpg"></div>
+<div class="ft" style="left:60px;top:580px;width:250px;height:190px;transform:rotate(-3deg)"><img src="{I}comida_15.jpg"></div>
+<div class="ft" style="left:300px;top:420px;width:230px;height:180px;transform:rotate(4deg)"><img src="{I}comida_01.jpg"></div>
+<div class="mon"><div class="scr">
+  <img src="{I}logo.png" style="position:absolute;left:40px;top:40px;height:48px;filter:brightness(0) invert(1)">
+  <p class="ttl" style="position:absolute;left:40px;top:120px;font-size:96px">RENOVA</p>
+  <p style="position:absolute;left:42px;top:230px;color:#fff;font-family:InterTightW,sans-serif;font-weight:800;font-size:30px;line-height:1.2">Para volver a sentirte<br>fuerte después de los 35</p>
+  <img src="{I}foto_estocada.jpg" style="position:absolute;right:20px;bottom:20px;width:300px;height:300px;object-fit:cover;border-radius:12px;border:5px solid #fff">
+</div></div>
+<div style="position:absolute;left:960px;top:620px;width:120px;height:50px;background:var(--rnv-tinta)"></div>
+<div class="bk" style="left:1460px;top:40px;width:250px;height:354px;transform:rotate(6deg)"><img src="{I}tapa_gym.jpg" style="width:100%;height:100%"></div>
+<div class="bk" style="left:1720px;top:90px;width:230px;height:325px;transform:rotate(-4deg)"><img src="{I}tapa_pausa.jpg" style="width:100%;height:100%"></div>
+<div class="bk" style="left:1300px;top:470px;width:250px;height:354px;transform:rotate(-5deg);z-index:3"><img src="{I}tapa_casa.jpg" style="width:100%;height:100%"></div>
+<div class="tab" style="left:1590px;top:450px;width:360px;height:225px"><img src="{I}foto_l_patada.jpg"></div>
+<div class="tab" style="left:1590px;top:700px;width:360px;height:225px"><img src="{I}foto_l_pesomuerto.jpg"></div>
+<div class="tab" style="left:330px;top:680px;width:370px;height:230px"><img src="{I}foto_l_remo.jpg"></div>
+<div class="tab" style="left:720px;top:690px;width:370px;height:230px;z-index:2"><img src="{I}foto_l_subidas.jpg"></div>
+<div class="bk" style="left:1110px;top:620px;width:190px;height:270px;transform:rotate(4deg);z-index:2"><div class="cv">
+  <div style="background:var(--rnv-turquesa);padding:12px"><img src="{I}logo.png" style="height:16px;filter:brightness(0) invert(1)"><p class="ttl" style="font-size:26px;margin-top:6px">Recetario<br>proteico</p></div>
+  <div class="grid" style="padding:4px;gap:4px"><img src="{I}comida_01.jpg"><img src="{I}comida_05.jpg"><img src="{I}comida_09.jpg"><img src="{I}comida_14.jpg"></div></div></div>
 """
 Path("nutricion.html").write_text(NUT)
 Path("programa.html").write_text(PRO)
