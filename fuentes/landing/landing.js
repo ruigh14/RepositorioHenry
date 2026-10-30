@@ -27,7 +27,7 @@
   // Upsell: si Impultienda no lo completó, no se muestra
   var ups = document.getElementById('ups');
   if (ups) {
-    var t = ups.querySelector('h4').textContent.trim();
+    var t = ups.querySelector('.ups-f b').textContent.trim();   // el precio lo completa Impultienda
     if (!t || t.indexOf('{{') > -1) ups.style.display = 'none';
   }
 
