@@ -48,7 +48,7 @@ NUT = f"""<!doctype html><meta charset="utf-8"><style>{BASE}</style>
 """
 
 PRO = f"""<!doctype html><meta charset="utf-8"><style>{BASE}
-body{{width:2000px;height:950px;background:#fff}}
+body{{width:2200px;height:1000px;background:#fff}}
 .tab{{position:absolute;background:var(--rnv-tinta);border-radius:22px;padding:12px;box-shadow:0 22px 44px rgba(20,20,20,.28)}}
 .tab img{{display:block;width:100%;height:100%;object-fit:cover;border-radius:10px}}
 .ft{{position:absolute;background:#fff;border-radius:16px;padding:7px;box-shadow:0 14px 30px rgba(20,20,20,.2)}}
@@ -68,21 +68,21 @@ body{{width:2000px;height:950px;background:#fff}}
 <div class="ft" style="left:300px;top:420px;width:230px;height:180px;transform:rotate(4deg)"><img src="{I}comida_01.jpg"></div>
 <div class="mon"><div class="scr">
   <img src="{I}logo.png" style="position:absolute;left:40px;top:40px;height:48px;filter:brightness(0) invert(1)">
-  <p class="ttl" style="position:absolute;left:40px;top:120px;font-size:96px">RENOVA</p>
-  <p style="position:absolute;left:42px;top:230px;color:#fff;font-family:InterTightW,sans-serif;font-weight:800;font-size:30px;line-height:1.2">Para volver a sentirte<br>fuerte después de los 35</p>
-  <img src="{I}foto_estocada.jpg" style="position:absolute;right:20px;bottom:20px;width:300px;height:300px;object-fit:cover;border-radius:12px;border:5px solid #fff">
+  <p class="ttl" style="position:absolute;left:40px;top:120px;font-size:72px">RENOVA</p>
+  <p style="position:absolute;left:42px;top:210px;color:#fff;font-family:InterTightW,sans-serif;font-weight:800;font-size:28px;line-height:1.2">Para volver a sentirte<br>fuerte después<br>de los 35</p>
+  <img src="{I}foto_estocada.jpg" style="position:absolute;right:22px;bottom:22px;width:290px;height:290px;object-fit:cover;border-radius:12px;border:5px solid #fff">
 </div></div>
 <div style="position:absolute;left:960px;top:620px;width:120px;height:50px;background:var(--rnv-tinta)"></div>
-<div class="bk" style="left:1460px;top:40px;width:250px;height:354px;transform:rotate(6deg)"><img src="{I}tapa_gym.jpg" style="width:100%;height:100%"></div>
-<div class="bk" style="left:1720px;top:90px;width:230px;height:325px;transform:rotate(-4deg)"><img src="{I}tapa_pausa.jpg" style="width:100%;height:100%"></div>
-<div class="bk" style="left:1300px;top:470px;width:250px;height:354px;transform:rotate(-5deg);z-index:3"><img src="{I}tapa_casa.jpg" style="width:100%;height:100%"></div>
-<div class="tab" style="left:1590px;top:450px;width:360px;height:225px"><img src="{I}foto_l_patada.jpg"></div>
-<div class="tab" style="left:1590px;top:700px;width:360px;height:225px"><img src="{I}foto_l_pesomuerto.jpg"></div>
-<div class="tab" style="left:330px;top:680px;width:370px;height:230px"><img src="{I}foto_l_remo.jpg"></div>
-<div class="tab" style="left:720px;top:690px;width:370px;height:230px;z-index:2"><img src="{I}foto_l_subidas.jpg"></div>
-<div class="bk" style="left:1110px;top:620px;width:190px;height:270px;transform:rotate(4deg);z-index:2"><div class="cv">
-  <div style="background:var(--rnv-turquesa);padding:12px"><img src="{I}logo.png" style="height:16px;filter:brightness(0) invert(1)"><p class="ttl" style="font-size:26px;margin-top:6px">Recetario<br>proteico</p></div>
-  <div class="grid" style="padding:4px;gap:4px"><img src="{I}comida_01.jpg"><img src="{I}comida_05.jpg"><img src="{I}comida_09.jpg"><img src="{I}comida_14.jpg"></div></div></div>
+<div class="bk" style="left:1660px;top:40px;width:250px;height:354px;transform:rotate(6deg)"><img src="{I}tapa_gym.jpg" style="width:100%;height:100%"></div>
+<div class="bk" style="left:1920px;top:90px;width:230px;height:325px;transform:rotate(-4deg)"><img src="{I}tapa_pausa.jpg" style="width:100%;height:100%"></div>
+<div class="bk" style="left:1470px;top:430px;width:250px;height:354px;transform:rotate(-5deg);z-index:3"><img src="{I}tapa_casa.jpg" style="width:100%;height:100%"></div>
+<div class="tab" style="left:1790px;top:450px;width:360px;height:225px"><img src="{I}foto_l_patada.jpg"></div>
+<div class="tab" style="left:1790px;top:720px;width:360px;height:225px"><img src="{I}foto_l_pesomuerto.jpg"></div>
+<div class="tab" style="left:330px;top:720px;width:370px;height:230px"><img src="{I}foto_l_remo.jpg"></div>
+<div class="tab" style="left:720px;top:730px;width:370px;height:230px;z-index:2"><img src="{I}foto_l_subidas.jpg"></div>
+<div class="bk" style="left:1100px;top:650px;width:180px;height:255px;transform:rotate(-6deg);z-index:4"><div class="cv" style="background:var(--rnv-tinta)"><div style="padding:12px"><img src="{I}logo.png" style="height:15px;filter:brightness(0) invert(1)"><p class="ttl" style="font-size:19px;margin-top:8px">Nutrición<br>en la<br><span style=\"color:var(--rnv-turquesa)\">menopausia</span></p><p style="color:#fff;font-weight:700;font-size:10px;margin-top:4px">Qué comer en esta etapa</p></div><div style="flex:1;background:url({I}comida_11.jpg) center/cover"></div></div></div>
+<div class="bk" style="left:1250px;top:690px;width:180px;height:255px;transform:rotate(0deg);z-index:4"><div class="cv" style="background:var(--rnv-turquesa)"><div style="padding:12px"><img src="{I}logo.png" style="height:15px;filter:brightness(0) invert(1)"><p class="ttl" style="font-size:19px;margin-top:8px">Recetario<br>fácil y<br>saludable</p><p style="color:#fff;font-weight:700;font-size:10px;margin-top:4px">Recetas ricas en proteína</p></div><div style="flex:1;background:url({I}comida_01.jpg) center/cover"></div></div></div>
+<div class="bk" style="left:1390px;top:650px;width:180px;height:255px;transform:rotate(7deg);z-index:4"><div class="cv" style="background:var(--rnv-turquesa-profundo)"><div style="padding:12px"><img src="{I}logo.png" style="height:15px;filter:brightness(0) invert(1)"><p class="ttl" style="font-size:19px;margin-top:8px">Plan de<br>nutrición<br>8 semanas</p><p style="color:#fff;font-weight:700;font-size:10px;margin-top:4px">Menús y lista de compras</p></div><div style="flex:1;background:url({I}comida_15.jpg) center/cover"></div></div></div>
 """
 Path("nutricion.html").write_text(NUT)
 Path("programa.html").write_text(PRO)
