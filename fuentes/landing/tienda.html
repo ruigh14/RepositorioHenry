@@ -228,7 +228,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .bhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 22px;max-width:980px;border-bottom:2px solid var(--line);padding-bottom:12px}
 .bhead h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
 .bono{max-width:980px;margin:0 auto 20px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
-.bono .bt{position:relative;background:var(--brl);padding:16px 20px 16px 140px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;color:var(--ink)}
+.bono .bt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--brl);padding:16px 20px 16px 140px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;color:var(--ink)}
 .bono .bt i{position:absolute;left:0;top:50%;transform:translateY(-50%);background:var(--grad);color:#fff;font-style:normal;font-size:14px;padding:6px 16px;border-radius:0 6px 6px 0}
 .bono .bb{display:grid;grid-template-columns:.7fr 1.3fr;gap:24px;align-items:center;padding:20px 24px}
 .bono .bb>img{width:100%;max-width:260px;aspect-ratio:1;object-fit:cover;border-radius:12px;margin:0 auto;box-shadow:0 10px 24px rgba(0,0,0,.15)}
@@ -237,6 +237,9 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .bono .bb .val{display:inline-block;margin-top:10px}
 .bono .two{display:flex;flex-direction:column;gap:8px}
 .bono .two img{width:100%;border-radius:10px}
+
+.bono .bt em{flex:none;font-style:normal;background:var(--navy);color:#fff;font-size:14px;letter-spacing:.06em;padding:8px 14px;border-radius:10px;text-align:center;line-height:1.2}
+.bono .bt em small{display:block;font-size:11.5px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--brb)}
 
 /* EQUIPO */
 .team-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:none}
@@ -343,7 +346,13 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .faq details p{padding:0 18px 18px;font-size:16px;color:var(--txt)}
 
 /* CTA FINAL */
-.final{background:var(--grad);color:#fff;text-align:center;border-radius:26px;padding:46px 24px;box-shadow:var(--sh2)}
+.final{position:relative;color:#fff;text-align:center;border-radius:28px;padding:52px 24px;overflow:hidden;
+  background:radial-gradient(circle at 15% 0%,rgba(20,177,199,.45),transparent 50%),radial-gradient(circle at 90% 100%,rgba(226,169,40,.22),transparent 45%),var(--navy);
+  border:2px solid transparent;background-clip:padding-box;box-shadow:0 0 0 2px var(--rnv-oro),0 0 0 7px rgba(226,169,40,.18),0 30px 70px rgba(20,20,20,.35)}
+.final h2 .gold,.final .gold{color:var(--rnv-oro-claro)}
+.final .pr2.inv .on{background:linear-gradient(135deg,var(--rnv-oro-claro),var(--rnv-oro));border-color:var(--rnv-oro)}
+.final .pr2.inv .on small,.final .pr2.inv .on b{color:var(--ink)}
+.final .btn.white{background:linear-gradient(135deg,var(--rnv-turquesa),var(--rnv-turquesa-titulo));color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.15),0 16px 34px rgba(20,177,199,.45)}
 .final h2{color:#fff;font-size:clamp(28px,4vw,44px);text-transform:uppercase;margin-bottom:12px}
 .final p{font-size:18px;max-width:640px;margin:0 auto 18px}
 .final .price b{color:#fff}
@@ -377,7 +386,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
   .sec{padding:56px 0}
   .tb-x{width:100%;font-size:12px}
   .band{border-radius:40px 40px 0 0;padding:28px 16px}
-  .bono .bt{padding:46px 16px 14px;font-size:17px}
+  .bono .bt{padding:46px 16px 14px;font-size:17px;flex-direction:column;align-items:flex-start}
   .bono .bt i{top:12px;transform:none}
   .bhead{flex-direction:column}
   .item{padding:18px}
@@ -629,13 +638,13 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 <div class="sec" id="bonus">
   <div class="wrap">
     <div class="bhead rv"><h2>Bonos gratuitos</h2><span class="val big">Valor de $70.000</span></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #1</i>Planes de pausa activa</div>
-      <div class="bb"><img src="img/tapa_pausa.jpg" alt="Bonus Pausa activa" class="tall"/><div><p><b>Ejercicios para relajar el cuerpo y mantenerte activa durante el trabajo</b>, con tu propio cuerpo: 4 rutinas de 10 minutos.</p><span class="val">Valor $10.000</span></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #2</i>Rutinas express de 15 minutos</div>
-      <div class="bb"><img src="img/foto_subidas.jpg" alt=""/><div><p><b>Para sostener el proceso</b> cuando viajás o tenés poco tiempo.</p><span class="val">Valor $10.000</span></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #3</i>Rutinas de abdominales</div>
-      <div class="bb"><img src="img/foto_abdominales.jpg" alt="" style="aspect-ratio:4/3"/><div><p><b>Cómo hacerlas correctamente</b> y mejorar tu zona media.</p><span class="val">Valor $10.000</span></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #4</i>Espacio de talleres del equipo RENOVA</div>
+    <div class="bono rv"><div class="bt"><i>BONUS #1</i><span>Planes de pausa activa</span><em>INCLUIDO <small>(valor habitual $10.000)</small></em></div>
+      <div class="bb"><img src="img/tapa_pausa.jpg" alt="Bonus Pausa activa" class="tall"/><div><p><b>Ejercicios para relajar el cuerpo y mantenerte activa durante el trabajo</b>, con tu propio cuerpo: 4 rutinas de 10 minutos.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #2</i><span>Rutinas express de 15 minutos</span><em>INCLUIDO <small>(valor habitual $10.000)</small></em></div>
+      <div class="bb"><img src="img/foto_subidas.jpg" alt=""/><div><p><b>Para sostener el proceso</b> cuando viajás o tenés poco tiempo.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #3</i><span>Rutinas de abdominales</span><em>INCLUIDO <small>(valor habitual $10.000)</small></em></div>
+      <div class="bb"><img src="img/foto_abdominales.jpg" alt="" style="aspect-ratio:4/3"/><div><p><b>Cómo hacerlas correctamente</b> y mejorar tu zona media.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #4</i><span>Espacio de talleres del equipo RENOVA</span><em>INCLUIDO <small>(valor habitual $20.000)</small></em></div>
       <div class="bb"><div class="two"><img src="img/taller_super.jpg" alt=""/><img src="img/taller_ansiedad.jpg" alt=""/></div><div>
         <p>Trabajá los pilares clave: <b>hábitos, nutrición y entrenamiento</b>.</p>
         <ul>
@@ -643,10 +652,9 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de nutrición:</b> aprendé a ordenar tu heladera, elegir mejor en el súper y mucho más.</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Conectar con el momento presente:</b> un curso completo de mindfulness con el psicólogo Pedro, para disfrutar el proceso y conectar con vos misma.</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Mejorar la higiene del sueño:</b> hábitos que te ayudan a descansar mejor.</span></li>
-        </ul>
-        <span class="val">Valor $20.000</span></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #5</i>Acceso a la comunidad RENOVA</div>
-      <div class="bb"><img src="img/comunidad.jpg" alt="Comunidad RENOVA"/><div><p><b>Una comunidad de mujeres que están en tu misma situación</b>, en Skool: ahí están los cursos y talleres, y participar es opcional.</p><span class="val">Valor $20.000</span></div></div></div>
+        </ul></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #5</i><span>Acceso a la comunidad RENOVA</span><em>INCLUIDO <small>(valor habitual $20.000)</small></em></div>
+      <div class="bb"><img src="img/comunidad.jpg" alt="Comunidad RENOVA"/><div><p><b>Una comunidad de mujeres que están en tu misma situación</b>, en Skool: ahí están los cursos y talleres, y participar es opcional.</p></div></div></div>
     <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </div>
 </div>
@@ -763,7 +771,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 <div class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="final rv">
-      <h2>Empezá hoy a sentirte fuerte</h2>
+      <h2>Empezá hoy a sentirte <span class="gold">fuerte</span></h2>
       <p>Entrenamiento en casa y en el gimnasio + plan de nutrición + 5 bonus. Acceso inmediato y 7 días de garantía.</p>
       <div class="pr2 inv"><div><small>Valor total</small><s>$100.000</s></div><div class="on"><small>Hoy</small><b>$35.000</b></div></div>
       <div class="cta" style="margin-top:14px">

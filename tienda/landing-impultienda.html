@@ -301,7 +301,7 @@ html{scroll-behavior:smooth}
 #rnv .bhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 22px;max-width:980px;border-bottom:2px solid var(--line);padding-bottom:12px}
 #rnv .bhead h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
 #rnv .bono{max-width:980px;margin:0 auto 20px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
-#rnv .bono .bt{position:relative;background:var(--brl);padding:16px 20px 16px 140px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;color:var(--ink)}
+#rnv .bono .bt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--brl);padding:16px 20px 16px 140px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;color:var(--ink)}
 #rnv .bono .bt i{position:absolute;left:0;top:50%;transform:translateY(-50%);background:var(--grad);color:#fff;font-style:normal;font-size:14px;padding:6px 16px;border-radius:0 6px 6px 0}
 #rnv .bono .bb{display:grid;grid-template-columns:.7fr 1.3fr;gap:24px;align-items:center;padding:20px 24px}
 #rnv .bono .bb>img{width:100%;max-width:260px;aspect-ratio:1;object-fit:cover;border-radius:12px;margin:0 auto;box-shadow:0 10px 24px rgba(0,0,0,.15)}
@@ -310,6 +310,9 @@ html{scroll-behavior:smooth}
 #rnv .bono .bb .val{display:inline-block;margin-top:10px}
 #rnv .bono .two{display:flex;flex-direction:column;gap:8px}
 #rnv .bono .two img{width:100%;border-radius:10px}
+
+#rnv .bono .bt em{flex:none;font-style:normal;background:var(--navy);color:#fff;font-size:14px;letter-spacing:.06em;padding:8px 14px;border-radius:10px;text-align:center;line-height:1.2}
+#rnv .bono .bt em small{display:block;font-size:11.5px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--brb)}
 
 
 #rnv .team-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:none}
@@ -398,7 +401,7 @@ html{scroll-behavior:smooth}
 #rnv .guar .sig{font-weight:800;color:var(--ink)}
 
 
-#rnv .gar{position:relative;max-width:1000px;margin:30px auto 0;border-radius:16px;overflow:visible;box-shadow:var(--sh2);background:var(--br2) url('https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/nacho.jpg') right 30%/auto 120% no-repeat;color:#fff}
+#rnv .gar{position:relative;max-width:1000px;margin:30px auto 0;border-radius:16px;overflow:visible;box-shadow:var(--sh2);background:var(--br2) url('https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/nacho.jpg') right 30%/auto 120% no-repeat;color:#fff}
 #rnv .gar::before{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(90deg,var(--rnv-turquesa) 0%,var(--rnv-turquesa-titulo) 55%,rgba(14,157,178,.35) 80%,rgba(14,157,178,0) 100%)}
 #rnv .gseal{position:absolute;left:-30px;top:-40px;width:170px;height:170px;z-index:3;filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
 #rnv .gar-tx{position:relative;padding:48px 40px 40px 170px;max-width:720px}
@@ -416,7 +419,13 @@ html{scroll-behavior:smooth}
 #rnv .faq details p{padding:0 18px 18px;font-size:16px;color:var(--txt)}
 
 
-#rnv .final{background:var(--grad);color:#fff;text-align:center;border-radius:26px;padding:46px 24px;box-shadow:var(--sh2)}
+#rnv .final{position:relative;color:#fff;text-align:center;border-radius:28px;padding:52px 24px;overflow:hidden;
+  background:radial-gradient(circle at 15% 0%,rgba(20,177,199,.45),transparent 50%),radial-gradient(circle at 90% 100%,rgba(226,169,40,.22),transparent 45%),var(--navy);
+  border:2px solid transparent;background-clip:padding-box;box-shadow:0 0 0 2px var(--rnv-oro),0 0 0 7px rgba(226,169,40,.18),0 30px 70px rgba(20,20,20,.35)}
+#rnv .final h2 .gold,#rnv .final .gold{color:var(--rnv-oro-claro)}
+#rnv .final .pr2.inv .on{background:linear-gradient(135deg,var(--rnv-oro-claro),var(--rnv-oro));border-color:var(--rnv-oro)}
+#rnv .final .pr2.inv .on small,#rnv .final .pr2.inv .on b{color:var(--ink)}
+#rnv .final .btn.white{background:linear-gradient(135deg,var(--rnv-turquesa),var(--rnv-turquesa-titulo));color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.15),0 16px 34px rgba(20,177,199,.45)}
 #rnv .final h2{color:#fff;font-size:clamp(28px,4vw,44px);text-transform:uppercase;margin-bottom:12px}
 #rnv .final p{font-size:18px;max-width:640px;margin:0 auto 18px}
 #rnv .final .price b{color:#fff}
@@ -450,7 +459,7 @@ html{scroll-behavior:smooth}
   #rnv .sec{padding:56px 0}
   #rnv .tb-x{width:100%;font-size:12px}
   #rnv .band{border-radius:40px 40px 0 0;padding:28px 16px}
-  #rnv .bono .bt{padding:46px 16px 14px;font-size:17px}
+  #rnv .bono .bt{padding:46px 16px 14px;font-size:17px;flex-direction:column;align-items:flex-start}
   #rnv .bono .bt i{top:12px;transform:none}
   #rnv .bhead{flex-direction:column}
   #rnv .item{padding:18px}
@@ -523,11 +532,11 @@ html{scroll-behavior:smooth}
     <h1>Volvé a sentirte <em>fuerte</em></h1>
     <p class="sub">Fuerza de bajo impacto, nutrición simple y hábitos: un plan de 8 semanas, en casa o en el gimnasio.</p>
     
-    <div class="vsl rv"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/mock_programa.jpg" alt="Programa RENOVA: ebooks, videos y plan de nutrición"/></div>
+    <div class="vsl rv"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/mock_programa.jpg" alt="Programa RENOVA: ebooks, videos y plan de nutrición"/></div>
     <div class="cta">
       <a class="btn white big" href="/checkout">Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
       <div class="proof">
-        <div class="faces"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/mari_d.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/ba_romi.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/moni_a.jpg" alt=""/></div>
+        <div class="faces"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/mari_d.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/ba_romi.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/moni_a.jpg" alt=""/></div>
         <span><span class="stars">★★★★★</span><br/>Más de <b>150 alumnas</b> ya entrenaron con RENOVA</span>
       </div>
     </div>
@@ -579,32 +588,32 @@ html{scroll-behavior:smooth}
     <p class="lead rv">Mujeres reales que entrenaron con el método RENOVA.</p>
     <div class="posts">
       <div class="post rv">
-        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/mari_d.jpg" alt=""/><div><b>Mari</b><span class="stars">★★★★★</span></div></div>
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/mari_d.jpg" alt=""/><div><b>Mari</b><span class="stars">★★★★★</span></div></div>
         <p>Bajó <b>8 kg de grasa</b> y <b>10 cm de cintura</b>.</p>
-        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/mari_a.jpg" alt="Mari antes" style="object-position:52% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/mari_d.jpg" alt="Mari después" style="object-position:58% 50%"/><span class="tag d">DESPUÉS</span></div></div>
+        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/mari_a.jpg" alt="Mari antes" style="object-position:52% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/mari_d.jpg" alt="Mari después" style="object-position:58% 50%"/><span class="tag d">DESPUÉS</span></div></div>
       </div>
       <div class="post rv">
-        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/moni_a.jpg" alt=""/><div><b>Moni</b><span class="stars">★★★★★</span></div></div>
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/moni_a.jpg" alt=""/><div><b>Moni</b><span class="stars">★★★★★</span></div></div>
         <p>Bajó <b>6 kg</b> y logró <b>el hábito de entrenar</b>.</p>
-        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/moni_d.jpg" alt="Moni antes" style="object-position:43% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/moni_a.jpg" alt="Moni después" style="object-position:52% 50%"/><span class="tag d">DESPUÉS</span></div></div>
+        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/moni_d.jpg" alt="Moni antes" style="object-position:43% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/moni_a.jpg" alt="Moni después" style="object-position:52% 50%"/><span class="tag d">DESPUÉS</span></div></div>
       </div>
       <div class="post rv">
-        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/ba_romi.jpg" alt=""/><div><b>Romi</b><span class="stars">★★★★★</span></div></div>
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/ba_romi.jpg" alt=""/><div><b>Romi</b><span class="stars">★★★★★</span></div></div>
         <p>Ganó <b>masa muscular</b> y volvió a <b>correr sin dolores</b>.</p>
-        <div class="one"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/ba_romi.jpg" alt="Romi"/></div>
+        <div class="one"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/ba_romi.jpg" alt="Romi"/></div>
       </div>
       <div class="post rv">
-        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/hero_entrenan.jpg" alt=""/><div><b>Alumnas RENOVA</b><span class="stars">★★★★★</span></div></div>
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/hero_entrenan.jpg" alt=""/><div><b>Alumnas RENOVA</b><span class="stars">★★★★★</span></div></div>
         <p>Así entrenan <b>nuestras alumnas</b>.</p>
-        <div class="one"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/hero_entrenan.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/hero_entrenan.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/hero_entrenan.mp4" type="video/mp4"/></video></div>
+        <div class="one"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/hero_entrenan.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/hero_entrenan.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/hero_entrenan.mp4" type="video/mp4"/></video></div>
       </div>
     </div>
     <h3 class="msgs-t rv">Lo que nos escriben</h3>
     
     <div class="msgs rv">
       <div class="msgs-track" id="msgs">
-        <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/msg_1.jpg" alt="Mensaje de Romi: comencé el gym hace 2 semanas y me siento bárbara en todos los deportes"/><figcaption>Romi · por WhatsApp</figcaption></figure>
-        <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/msg_2.jpg" alt="Mensaje de una alumna: el ebook me resultó muy fácil de seguir y adaptar a mi rutina"/><figcaption>Alumna RENOVA · por WhatsApp</figcaption></figure>
+        <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/msg_1.jpg" alt="Mensaje de Romi: comencé el gym hace 2 semanas y me siento bárbara en todos los deportes"/><figcaption>Romi · por WhatsApp</figcaption></figure>
+        <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/msg_2.jpg" alt="Mensaje de una alumna: el ebook me resultó muy fácil de seguir y adaptar a mi rutina"/><figcaption>Alumna RENOVA · por WhatsApp</figcaption></figure>
       </div>
       <div class="msgs-dots" id="msgs-dots"></div>
     </div>
@@ -625,7 +634,7 @@ html{scroll-behavior:smooth}
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Movimiento diario:</b> la clave no es solo entrenar, es lo que hacés en el día. Por eso te damos estrategias y ejercicios para que te mantengas activa durante tu jornada laboral.</span></li>
         </ul>
       </div>
-      <div class="pil-im"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_subidas.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_pesomuerto.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_remo.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_abduccion.jpg" alt=""/></div>
+      <div class="pil-im"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_subidas.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_pesomuerto.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_remo.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_abduccion.jpg" alt=""/></div>
     </div>
     <div class="pil rv">
       <div class="pil-tx">
@@ -636,7 +645,7 @@ html{scroll-behavior:smooth}
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Estructura y simplicidad:</b> preparaciones fáciles y completas; la constancia y la practicidad son la base de cualquier objetivo.</span></li>
         </ul>
       </div>
-      <div class="pil-im"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/comida_01.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/comida_05.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/comida_09.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/comida_14.jpg" alt=""/></div>
+      <div class="pil-im"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/comida_01.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/comida_05.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/comida_09.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/comida_14.jpg" alt=""/></div>
     </div>
     <div class="pil rv">
       <div class="pil-tx">
@@ -646,7 +655,7 @@ html{scroll-behavior:smooth}
           <li><svg class="ic"><use href="#i-check"/></svg><span>Herramientas para <b>salir del piloto automático</b>, dejar de vivir en tensión y disfrutar del proceso, conectando con el presente.</span></li>
         </ul>
       </div>
-      <div class="pil-im one"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/habitos.jpg" alt="Taller del equipo RENOVA"/></div>
+      <div class="pil-im one"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/habitos.jpg" alt="Taller del equipo RENOVA"/></div>
     </div>
   </div>
 </div>
@@ -659,8 +668,8 @@ html{scroll-behavior:smooth}
     <h2 class="h2 rv">Esto es lo que <span class="b">incluye</span>:</h2>
     <div class="item rv">
       <div class="item-im">
-        <div class="trio"><figure><figcaption>Gimnasio</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_remo.jpg" alt=""/></figure><figure><figcaption>Casa</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_patada.jpg" alt=""/></figure><figure><figcaption>Mancuernas</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_estocada.jpg" alt=""/></figure></div>
-        <div class="duo"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/tapa_casa.jpg" alt="Ebook Entrená desde casa"/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/tapa_gym.jpg" alt="Ebook Entrená en el gimnasio"/></div>
+        <div class="trio"><figure><figcaption>Gimnasio</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_remo.jpg" alt=""/></figure><figure><figcaption>Casa</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_patada.jpg" alt=""/></figure><figure><figcaption>Mancuernas</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_estocada.jpg" alt=""/></figure></div>
+        <div class="duo"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/tapa_casa.jpg" alt="Ebook Entrená desde casa"/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/tapa_gym.jpg" alt="Ebook Entrená en el gimnasio"/></div>
       </div>
       <div class="item-tx">
         <div class="item-h"><h3>Programa de entrenamiento de 8 semanas</h3><span class="val">Valor $15.000</span></div>
@@ -673,14 +682,14 @@ html{scroll-behavior:smooth}
       </div>
     </div>
     <div class="clips rv">
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_abduccion.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_abduccion.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_abduccion.mp4" type="video/mp4"/></video><span>Abducción de cadera</span></div>
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_remo.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_remo.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_remo.mp4" type="video/mp4"/></video><span>Remo en polea</span></div>
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_baston.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_baston.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_baston.mp4" type="video/mp4"/></video><span>Movilidad con bastón</span></div>
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_skipping.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_skipping.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_skipping.mp4" type="video/mp4"/></video><span>Skipping en el lugar</span></div>
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_tobillo.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_tobillo.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/clip_tobillo.mp4" type="video/mp4"/></video><span>Movilidad de tobillo</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_abduccion.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_abduccion.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_abduccion.mp4" type="video/mp4"/></video><span>Abducción de cadera</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_remo.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_remo.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_remo.mp4" type="video/mp4"/></video><span>Remo en polea</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_baston.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_baston.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_baston.mp4" type="video/mp4"/></video><span>Movilidad con bastón</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_skipping.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_skipping.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_skipping.mp4" type="video/mp4"/></video><span>Skipping en el lugar</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_tobillo.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_tobillo.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/clip_tobillo.mp4" type="video/mp4"/></video><span>Movilidad de tobillo</span></div>
     </div>
     <div class="item rv">
-      <div class="item-im"><img class="mock" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/mock_nutricion.jpg" alt="Plan de nutrición RENOVA"/></div>
+      <div class="item-im"><img class="mock" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/mock_nutricion.jpg" alt="Plan de nutrición RENOVA"/></div>
       <div class="item-tx">
         <div class="item-h"><h3>Plan de nutrición de 8 semanas</h3><span class="val">Valor $15.000</span></div>
         <p>Alimentá tu entrenamiento y tu cuerpo con un enfoque pensado para tu situación actual: más proteína, más fibra, comidas más simples, mejores resultados.</p>
@@ -699,24 +708,23 @@ html{scroll-behavior:smooth}
 <div class="sec" id="bonus">
   <div class="wrap">
     <div class="bhead rv"><h2>Bonos gratuitos</h2><span class="val big">Valor de $70.000</span></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #1</i>Planes de pausa activa</div>
-      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/tapa_pausa.jpg" alt="Bonus Pausa activa" class="tall"/><div><p><b>Ejercicios para relajar el cuerpo y mantenerte activa durante el trabajo</b>, con tu propio cuerpo: 4 rutinas de 10 minutos.</p><span class="val">Valor $10.000</span></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #2</i>Rutinas express de 15 minutos</div>
-      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_subidas.jpg" alt=""/><div><p><b>Para sostener el proceso</b> cuando viajás o tenés poco tiempo.</p><span class="val">Valor $10.000</span></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #3</i>Rutinas de abdominales</div>
-      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/foto_abdominales.jpg" alt="" style="aspect-ratio:4/3"/><div><p><b>Cómo hacerlas correctamente</b> y mejorar tu zona media.</p><span class="val">Valor $10.000</span></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #4</i>Espacio de talleres del equipo RENOVA</div>
-      <div class="bb"><div class="two"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/taller_super.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/taller_ansiedad.jpg" alt=""/></div><div>
+    <div class="bono rv"><div class="bt"><i>BONUS #1</i><span>Planes de pausa activa</span><em>INCLUIDO <small>(valor habitual $10.000)</small></em></div>
+      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/tapa_pausa.jpg" alt="Bonus Pausa activa" class="tall"/><div><p><b>Ejercicios para relajar el cuerpo y mantenerte activa durante el trabajo</b>, con tu propio cuerpo: 4 rutinas de 10 minutos.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #2</i><span>Rutinas express de 15 minutos</span><em>INCLUIDO <small>(valor habitual $10.000)</small></em></div>
+      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_subidas.jpg" alt=""/><div><p><b>Para sostener el proceso</b> cuando viajás o tenés poco tiempo.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #3</i><span>Rutinas de abdominales</span><em>INCLUIDO <small>(valor habitual $10.000)</small></em></div>
+      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/foto_abdominales.jpg" alt="" style="aspect-ratio:4/3"/><div><p><b>Cómo hacerlas correctamente</b> y mejorar tu zona media.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #4</i><span>Espacio de talleres del equipo RENOVA</span><em>INCLUIDO <small>(valor habitual $20.000)</small></em></div>
+      <div class="bb"><div class="two"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/taller_super.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/taller_ansiedad.jpg" alt=""/></div><div>
         <p>Trabajá los pilares clave: <b>hábitos, nutrición y entrenamiento</b>.</p>
         <ul>
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de hábitos:</b> con nuestra psicóloga Agostina, apoyo para el estrés y para mejorar tus hábitos.</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de nutrición:</b> aprendé a ordenar tu heladera, elegir mejor en el súper y mucho más.</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Conectar con el momento presente:</b> un curso completo de mindfulness con el psicólogo Pedro, para disfrutar el proceso y conectar con vos misma.</span></li>
           <li><svg class="ic"><use href="#i-check"/></svg><span><b>Mejorar la higiene del sueño:</b> hábitos que te ayudan a descansar mejor.</span></li>
-        </ul>
-        <span class="val">Valor $20.000</span></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #5</i>Acceso a la comunidad RENOVA</div>
-      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/comunidad.jpg" alt="Comunidad RENOVA"/><div><p><b>Una comunidad de mujeres que están en tu misma situación</b>, en Skool: ahí están los cursos y talleres, y participar es opcional.</p><span class="val">Valor $20.000</span></div></div></div>
+        </ul></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #5</i><span>Acceso a la comunidad RENOVA</span><em>INCLUIDO <small>(valor habitual $20.000)</small></em></div>
+      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/comunidad.jpg" alt="Comunidad RENOVA"/><div><p><b>Una comunidad de mujeres que están en tu misma situación</b>, en Skool: ahí están los cursos y talleres, y participar es opcional.</p></div></div></div>
     <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </div>
 </div>
@@ -724,7 +732,7 @@ html{scroll-behavior:smooth}
 
 <div class="sec tint">
   <div class="coach">
-    <div class="rv"><div class="ring"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/nacho.jpg" alt="Nacho Portillo"/></div><p class="nm">Coach <span>Nacho Portillo</span></p></div>
+    <div class="rv"><div class="ring"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/nacho.jpg" alt="Nacho Portillo"/></div><p class="nm">Coach <span>Nacho Portillo</span></p></div>
     <div class="rv">
       <h2>¡Conocé a tu <span class="b">entrenador</span>!</h2>
       <p>Soy Nacho Portillo, creador de RENOVA. Hace más de 15 años trabajo con mujeres en distintas etapas de la vida: cambios hormonales, perimenopausia y menopausia, y también con deportistas.</p>
@@ -735,7 +743,7 @@ html{scroll-behavior:smooth}
     <h3 class="msgs-t rv">El equipo <span class="b">RENOVA</span></h3>
     
     <div class="team-track rv">
-      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/nacho.jpg" alt=""/><b>Nacho Portillo</b><span>Entrenador · creador de RENOVA</span></figure>
+      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/nacho.jpg" alt=""/><b>Nacho Portillo</b><span>Entrenador · creador de RENOVA</span></figure>
       <figure class="tm"><div class="tm-ph">A</div><b>Agostina</b><span>Psicóloga</span></figure>
       <figure class="tm"><div class="tm-ph">P</div><b>Pedro</b><span>Psicólogo</span></figure>
       <figure class="tm"><div class="tm-ph">N</div><b>Nombre</b><span>Nutricionista</span></figure>
@@ -749,7 +757,7 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <h2 class="h2 rv">¡Pongámonos en forma con <span class="b">RENOVA</span>!</h2>
     <p class="lead rv">Empezá hoy este programa para mujeres en perimenopausia y menopausia: más fuerte, con más energía y con el hábito instalado.</p>
-    <img class="collage rv" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/mock_programa.jpg" alt="Todo lo que incluye RENOVA"/>
+    <img class="collage rv" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/mock_programa.jpg" alt="Todo lo que incluye RENOVA"/>
     <div class="cta rv"><a class="btn big" href="/checkout">Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </div>
 </div>
@@ -833,7 +841,7 @@ html{scroll-behavior:smooth}
 <div class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="final rv">
-      <h2>Empezá hoy a sentirte fuerte</h2>
+      <h2>Empezá hoy a sentirte <span class="gold">fuerte</span></h2>
       <p>Entrenamiento en casa y en el gimnasio + plan de nutrición + 5 bonus. Acceso inmediato y 7 días de garantía.</p>
       <div class="pr2 inv"><div><small>Valor total</small><s>$100.000</s></div><div class="on"><small>Hoy</small><b>$35.000</b></div></div>
       <div class="cta" style="margin-top:14px">
@@ -847,7 +855,7 @@ html{scroll-behavior:smooth}
 
 <div class="foot">
   <div class="wrap">
-    <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/781019fa0be64710ce2582fb14dc828379fb6aad/fuentes/landing/img/logo.png" alt="RENOVA"/>
+    <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/a0f367c3a472acfdbbfbb8e85d04a501346b74d6/fuentes/landing/img/logo.png" alt="RENOVA"/>
     <p>¿Problemas con tu compra? <a href="https://wa.link/hewha8" target="_blank" rel="noopener">Escribinos por WhatsApp</a> y lo resolvemos.</p>
     <p class="legal">© RENOVA · Nacho Portillo · <a href="https://www.nachoportillo.com/" target="_blank" rel="noopener">nachoportillo.com</a><br/>Material educativo general. No sustituye la consulta médica.</p>
   </div>
