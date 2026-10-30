@@ -112,12 +112,12 @@ html{scroll-behavior:smooth}
 #rnv .cta small .ic{color:var(--br)}
 
 
-#rnv .top{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff}
-#rnv .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:56px;padding:6px 0}
-#rnv .top img{height:26px;width:auto;filter:brightness(0) invert(1)}
-#rnv .top p{flex:1;text-align:center;font-size:14.5px;line-height:1.3}
-#rnv .top p b{color:var(--br)}
-#rnv .top a.go{flex:none;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase;background:var(--grad);color:#fff;padding:10px 16px;border-radius:10px}
+#rnv .top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 12px;padding:9px 12px;background:var(--navy);color:#fff;text-align:center;line-height:1.2}
+#rnv .tb-tag{background:var(--red);color:#fff;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;animation:pulse 2.4s ease-in-out infinite}
+#rnv .tb-p{font-family:"Inter Tight",Inter,sans-serif;font-size:18px}
+#rnv .tb-p s{color:var(--mut);font-size:14px;margin-right:4px}
+#rnv .tb-p b{color:var(--br);font-weight:900}
+#rnv .tb-x{font-size:13.5px;color:var(--brb)}
 
 
 #rnv .hero{position:relative;background:var(--grad);color:#fff;overflow:hidden}
@@ -253,6 +253,86 @@ html{scroll-behavior:smooth}
 #rnv .bonus .bv b{background:var(--brl);color:var(--brd);padding:4px 12px;border-radius:999px;font-size:14px;letter-spacing:.04em}
 
 
+#rnv .hero-in{padding:40px 0 54px;text-align:center;max-width:900px}
+#rnv .hero-in h1{font-size:clamp(42px,7vw,78px)}
+#rnv .hero-in .sub{max-width:700px;margin:14px auto 22px}
+#rnv .vsl{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:5px solid #fff;box-shadow:0 26px 60px rgba(0,0,0,.35);background:#fff}
+#rnv .vsl img,#rnv .vsl iframe,#rnv .vsl video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+#rnv .hero-in .cta{text-align:center}
+#rnv .hero-in .proof{justify-content:center}
+
+
+#rnv .pil{display:grid;grid-template-columns:1.2fr .8fr;background:var(--brl);border-radius:18px;overflow:hidden;box-shadow:var(--sh);margin:0 auto 24px;max-width:980px}
+#rnv .pil-tx h3{background:var(--grad);color:#fff;font-size:24px;text-transform:uppercase;padding:16px 22px 14px}
+#rnv .pil-tx h3 small{display:block;text-transform:none;font-family:Inter,sans-serif;font-size:15px;font-weight:500;opacity:.95;margin-top:4px}
+#rnv .pil-tx ul{list-style:none;padding:18px 22px 22px;display:grid;gap:12px}
+#rnv .pil-tx li{display:flex;gap:10px;font-size:16px;line-height:1.5;color:var(--ink)}
+#rnv .pil-tx li .ic{color:var(--br);stroke-width:3;margin-top:4px}
+#rnv .pil-im{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:10px;background:#fff;align-content:center}
+#rnv .pil-im img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+#rnv .pil-im.one{grid-template-columns:1fr}
+#rnv .pil-im.one img{aspect-ratio:16/10}
+#rnv .band{background:var(--brl);border-top:4px solid var(--br);border-radius:90px 90px 0 0;padding:40px 24px;text-align:center}
+#rnv .band h2{font-size:clamp(20px,2.8vw,30px);max-width:920px;margin:0 auto;text-transform:uppercase;letter-spacing:-.02em}
+
+
+#rnv .item{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;border-radius:20px;box-shadow:var(--sh);padding:26px;margin-bottom:24px}
+#rnv .trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+#rnv .trio figure{margin:0}
+#rnv .trio figcaption{background:var(--br);color:#fff;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:4px;border-radius:6px 6px 0 0}
+#rnv .trio img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:0 0 8px 8px}
+#rnv .duo{display:flex;justify-content:center;gap:14px;margin-top:16px}
+#rnv .duo img{width:42%;border-radius:3px 8px 8px 3px;box-shadow:12px 16px 30px rgba(20,20,20,.25)}
+#rnv .item .mock{width:100%;border-radius:14px}
+#rnv .item-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+#rnv .item-h h3{font-size:clamp(22px,2.6vw,28px);text-transform:uppercase}
+#rnv .val{flex:none;background:var(--brl);color:var(--brd);border:1px solid var(--br);font-weight:800;font-size:14px;padding:4px 12px;border-radius:999px;white-space:nowrap}
+#rnv .val.big{font-size:20px;padding:6px 16px;background:#FFE58A;border-color:#E9C548;color:var(--ink)}
+#rnv .item-tx p{font-size:16.5px;margin-bottom:12px;color:var(--ink)}
+#rnv .item-tx ul,#rnv .bono ul{list-style:none;display:grid;gap:9px}
+#rnv .item-tx li,#rnv .bono li{display:flex;gap:10px;font-size:16px;line-height:1.45;color:var(--ink)}
+#rnv .item-tx li .ic,#rnv .bono li .ic{color:var(--br);stroke-width:3;margin-top:4px}
+
+
+#rnv .bhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 22px;max-width:980px;border-bottom:2px solid var(--line);padding-bottom:12px}
+#rnv .bhead h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
+#rnv .bono{max-width:980px;margin:0 auto 20px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
+#rnv .bono .bt{position:relative;background:var(--brl);padding:16px 20px 16px 140px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;color:var(--ink)}
+#rnv .bono .bt i{position:absolute;left:0;top:50%;transform:translateY(-50%);background:var(--grad);color:#fff;font-style:normal;font-size:14px;padding:6px 16px;border-radius:0 6px 6px 0}
+#rnv .bono .bb{display:grid;grid-template-columns:.7fr 1.3fr;gap:24px;align-items:center;padding:20px 24px}
+#rnv .bono .bb>img{width:100%;max-width:260px;aspect-ratio:1;object-fit:cover;border-radius:12px;margin:0 auto;box-shadow:0 10px 24px rgba(0,0,0,.15)}
+#rnv .bono .bb>img.tall{aspect-ratio:210/297;max-width:190px}
+#rnv .bono .bb p{font-size:16.5px;margin-bottom:10px;color:var(--ink)}
+#rnv .bono .bb .val{display:inline-block;margin-top:10px}
+#rnv .bono .two{display:flex;flex-direction:column;gap:8px}
+#rnv .bono .two img{width:100%;border-radius:10px}
+
+
+#rnv .team-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:none}
+#rnv .team-track::-webkit-scrollbar{display:none}
+#rnv .tm{flex:0 0 200px;scroll-snap-align:center;margin:0;background:#fff;border-radius:16px;box-shadow:var(--sh);padding:12px;text-align:center}
+#rnv .tm img,#rnv .tm-ph{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 25%;border-radius:12px;margin-bottom:10px}
+#rnv .tm-ph{display:grid;place-items:center;background:var(--brl);color:var(--br);font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:56px}
+#rnv .tm b{display:block;color:var(--ink);font-size:16px}
+#rnv .tm span{font-size:13.5px;color:var(--mut)}
+#rnv .collage{width:100%;max-width:980px;margin:0 auto;border-radius:20px;box-shadow:var(--sh2)}
+
+
+#rnv .pr2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 12px}
+#rnv .pr2>div{border:2px solid var(--line);border-radius:12px;padding:10px}
+#rnv .pr2 small{display:block;font-size:13px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+#rnv .pr2 s{font-size:24px;color:var(--mut)}
+#rnv .pr2 .on{border-color:var(--br);background:var(--brl)}
+#rnv .pr2 b{font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(34px,5vw,44px);font-weight:900;color:var(--ink);line-height:1.1}
+#rnv .pr2.inv{max-width:460px;margin:10px auto}
+#rnv .pr2.inv>div{border-color:rgba(255,255,255,.5)}
+#rnv .pr2.inv small,#rnv .pr2.inv s{color:#fff}
+#rnv .pr2.inv .on{background:#fff}
+#rnv .pr2.inv .on small{color:var(--brd)}
+#rnv #comprar .h2{font-size:clamp(22px,3vw,32px);max-width:900px;margin:0 auto 26px}
+#rnv #comprar .card{max-width:560px;margin:0 auto}
+
+
 #rnv .coach{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;max-width:960px;margin:0 auto}
 #rnv .ring{width:min(320px,100%);aspect-ratio:1;border-radius:50%;border:5px solid var(--br);padding:6px;margin:0 auto;box-shadow:var(--sh2)}
 #rnv .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 25%}
@@ -345,7 +425,7 @@ html{scroll-behavior:smooth}
 #rnv.js .rv.in{opacity:1;transform:none}
 
 @media (max-width:900px){
-  #rnv .hero .wrap,#rnv .fault,#rnv .offer,#rnv .coach{grid-template-columns:1fr}
+  #rnv .hero .wrap,#rnv .fault,#rnv .offer,#rnv .coach,#rnv .pil,#rnv .item,#rnv .bono .bb{grid-template-columns:1fr}
   #rnv .books,#rnv .offer .books{height:380px;max-width:440px;width:100%;margin:0 auto}
   #rnv .pains,#rnv .bens{grid-template-columns:1fr 1fr}
   #rnv .clips{grid-template-columns:repeat(3,1fr)}
@@ -355,8 +435,13 @@ html{scroll-behavior:smooth}
 @media (max-width:640px){
   #rnv{font-size:16px}
   #rnv .sec{padding:56px 0}
-  #rnv .top p{font-size:12.5px;text-align:left}
-  #rnv .top img{display:none}
+  #rnv .tb-x{width:100%;font-size:12px}
+  #rnv .band{border-radius:40px 40px 0 0;padding:28px 16px}
+  #rnv .bono .bt{padding:46px 16px 14px;font-size:17px}
+  #rnv .bono .bt i{top:12px;transform:none}
+  #rnv .bhead{flex-direction:column}
+  #rnv .item{padding:18px}
+  #rnv .tm{flex-basis:160px}
   #rnv .hero .wrap{padding:30px 0 46px;gap:26px}
   #rnv .hero .cta{text-align:center}
   #rnv .proof{justify-content:center;flex-wrap:wrap}
@@ -408,35 +493,26 @@ html{scroll-behavior:smooth}
 </svg>
 
 
-<div class="top">
-  <div class="wrap">
-    <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/logo.png" alt="RENOVA"/>
-    <p><b>Oferta de lanzamiento:</b> 2 ebooks + 4 bonus a <b>{{price}}</b> · acceso inmediato</p>
-    <a class="go" href="#comprar">Lo quiero</a>
-  </div>
-</div>
+<a class="top" href="/checkout">
+  <span class="tb-tag">Oferta de lanzamiento</span>
+  <span class="tb-p"><s>$100.000</s> <b>$35.000</b></span>
+  <span class="tb-x">2 ebooks + 5 bonus · acceso inmediato</span>
+</a>
 
 
 <div class="hero">
-  <div class="wrap">
-    <div>
-      <span class="eyebrow">Método RENOVA · Mujeres 35+</span>
-      <h1>Volvé a sentirte <em>fuerte</em> y con más energía</h1>
-      <p class="sub">Un plan de 8 semanas de bajo impacto que integra entrenamiento, alimentación y hábitos.</p>
-      <p class="dos">Hacelo donde quieras: <b>en casa</b> o <b>en el gimnasio</b>. 2 ebooks en una compra.</p>
-      <div class="cta">
-        <a class="btn white big" href="#comprar">Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
-        <div class="proof">
-          <div class="faces"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/mari_d.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/ba_romi.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/moni_a.jpg" alt=""/></div>
-          <span><span class="stars">★★★★★</span><br/>Más de <b>150 alumnas</b> ya entrenaron con RENOVA</span>
-        </div>
+  <div class="wrap hero-in">
+    <span class="eyebrow">Método RENOVA · Mujeres 35+</span>
+    <h1>Volvé a sentirte <em>fuerte</em></h1>
+    <p class="sub">Fuerza de bajo impacto, nutrición simple y hábitos: un plan de 8 semanas, en casa o en el gimnasio.</p>
+    
+    <div class="vsl rv"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/mock_programa.jpg" alt="Programa RENOVA: ebooks, videos y plan de nutrición"/></div>
+    <div class="cta">
+      <a class="btn white big" href="/checkout">Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <div class="proof">
+        <div class="faces"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/mari_d.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/ba_romi.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/moni_a.jpg" alt=""/></div>
+        <span><span class="stars">★★★★★</span><br/>Más de <b>150 alumnas</b> ya entrenaron con RENOVA</span>
       </div>
-    </div>
-    <div class="books rv">
-      <div class="book b1"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_pausa.jpg" alt="Bonus Pausa activa"/></div>
-      <div class="book b2"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_gym.jpg" alt="Ebook Entrená en el gimnasio"/></div>
-      <div class="book b3"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_casa.jpg" alt="Ebook Entrená desde casa"/></div>
-      <span class="tag">2 ebooks + 4 bonus</span>
     </div>
   </div>
 </div>
@@ -448,8 +524,8 @@ html{scroll-behavior:smooth}
     <p class="lead rv">Si te sentís identificada con alguna, este plan es para vos.</p>
     <div class="pains">
       <div class="pain rv"><svg class="ic"><use href="#i-battery"/></svg><p>Llegás al final del día <b>sin energía</b> y te cansás más que antes.</p></div>
-      <div class="pain rv"><svg class="ic"><use href="#i-muscle"/></svg><p>Sentís que <b>perdiste fuerza y tono</b>, aunque hagas lo mismo de siempre.</p></div>
-      <div class="pain rv"><svg class="ic"><use href="#i-scale"/></svg><p>La ropa te ajusta en la <b>cintura</b> y no entendés por qué.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-muscle"/></svg><p>Te mirás al espejo y <b>no reconocés el cuerpo</b> que te gustaría.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-scale"/></svg><p>La ropa te ajusta en la <b>cintura</b> y te sentís <b>más hinchada</b>.</p></div>
       <div class="pain rv"><svg class="ic"><use href="#i-help"/></svg><p>Querés entrenar pero <b>no sabés por dónde empezar</b>, o el gimnasio te intimida.</p></div>
       <div class="pain rv"><svg class="ic"><use href="#i-repeat"/></svg><p>Probaste rutinas de internet y <b>las dejaste a las dos semanas</b>.</p></div>
       <div class="pain rv"><svg class="ic"><use href="#i-clock"/></svg><p>Entre el trabajo, la casa y la familia, <b>vos quedás última</b>.</p></div>
@@ -463,8 +539,8 @@ html{scroll-behavior:smooth}
     <div class="rv">
       <h2 class="h2">No es tu culpa: <span class="b">tu cuerpo cambió</span></h2>
       <p>A partir de los 35 empezás a perder músculo, y con los cambios hormonales ese proceso <b>se acelera</b>. Por eso lo que antes te funcionaba hoy no alcanza.</p>
-      <p>La mayoría de las rutinas no están pensadas para esta etapa: mucho salto, mucho cardio y nada de fuerza. <b>No te faltó voluntad: te faltó un plan hecho para vos.</b></p>
-      <p>RENOVA pone el foco en lo que más te cuida ahora: <b>fuerza, de bajo impacto, en sesiones cortas</b>.</p>
+      <p>La mayoría de las rutinas no están pensadas para tu etapa actual: no tienen en cuenta tu poco tiempo ni tu estado, y <b>no ves resultados porque no tienen progresiones</b>. No las dejás por falta de voluntad, sino por falta de resultados.</p>
+      <p>RENOVA pone el foco en tu estado actual: <b>sesiones cortas y eficientes</b> para que recuperes fuerza, confianza y el cuerpo que querés.</p>
     </div>
     <div class="know rv">
       <h3>¿Sabías que…?</h3>
@@ -480,57 +556,208 @@ html{scroll-behavior:smooth}
 </div>
 
 
-<div class="sec tint">
+<div class="sec gray" id="resultados">
   <div class="wrap">
-    <h2 class="h2 rv">Con RENOVA <span class="b">vas a lograr</span></h2>
-    <p class="lead rv">En 2 semanas, más energía. En 4, más fuerza. En 8, el hábito instalado.</p>
-    <div class="bens">
-      <div class="ben rv"><svg class="ic"><use href="#i-check"/></svg><h3>Más fuerza para tu día</h3><p>Levantar, cargar y subir escaleras sin esfuerzo.</p></div>
-      <div class="ben rv"><svg class="ic"><use href="#i-check"/></svg><h3>Más energía</h3><p>Llegar al final del día con resto, no arrastrándote.</p></div>
-      <div class="ben rv"><svg class="ic"><use href="#i-check"/></svg><h3>Huesos y articulaciones cuidados</h3><p>Ejercicios de bajo impacto, con variante más fácil.</p></div>
-      <div class="ben rv"><svg class="ic"><use href="#i-check"/></svg><h3>Tu cuerpo, más firme</h3><p>Fuerza y caminatas para cuidar tu músculo y tu cintura.</p></div>
-      <div class="ben rv"><svg class="ic"><use href="#i-check"/></svg><h3>Saber qué hacer cada día</h3><p>Un calendario de 8 semanas: abrís el ebook y entrenás.</p></div>
-      <div class="ben rv"><svg class="ic"><use href="#i-check"/></svg><h3>Un hábito que se sostiene</h3><p>Sesiones de 30 a 40 minutos, 2 o 3 veces por semana.</p></div>
+    <h2 class="h2 rv">Para una mujer en perimenopausia y/o menopausia el entrenamiento de fuerza <span class="b">no es opcional, ¡es preventivo!</span></h2>
+    <p class="lead rv">Mujeres reales que entrenaron con el método RENOVA.</p>
+    <div class="posts">
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/mari_d.jpg" alt=""/><div><b>Mari</b><span class="stars">★★★★★</span></div></div>
+        <p>Bajó <b>8 kg de grasa</b> y <b>10 cm de cintura</b>.</p>
+        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/mari_a.jpg" alt="Mari antes" style="object-position:52% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/mari_d.jpg" alt="Mari después" style="object-position:58% 50%"/><span class="tag d">DESPUÉS</span></div></div>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/moni_a.jpg" alt=""/><div><b>Moni</b><span class="stars">★★★★★</span></div></div>
+        <p>Bajó <b>6 kg</b> y logró <b>el hábito de entrenar</b>.</p>
+        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/moni_d.jpg" alt="Moni antes" style="object-position:43% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/moni_a.jpg" alt="Moni después" style="object-position:52% 50%"/><span class="tag d">DESPUÉS</span></div></div>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/ba_romi.jpg" alt=""/><div><b>Romi</b><span class="stars">★★★★★</span></div></div>
+        <p>Ganó <b>masa muscular</b> y volvió a <b>correr sin dolores</b>.</p>
+        <div class="one"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/ba_romi.jpg" alt="Romi"/></div>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/hero_entrenan.jpg" alt=""/><div><b>Alumnas RENOVA</b><span class="stars">★★★★★</span></div></div>
+        <p>Así entrenan <b>nuestras alumnas</b>.</p>
+        <div class="one"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/hero_entrenan.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/hero_entrenan.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/hero_entrenan.mp4" type="video/mp4"/></video></div>
+      </div>
     </div>
-    <div class="cta rv"><a class="btn" href="#comprar">Quiero empezar <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+    <h3 class="msgs-t rv">Lo que nos escriben</h3>
+    
+    <div class="msgs rv">
+      <div class="msgs-track" id="msgs">
+        <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/msg_1.jpg" alt="Mensaje de Romi: comencé el gym hace 2 semanas y me siento bárbara en todos los deportes"/><figcaption>Romi · por WhatsApp</figcaption></figure>
+        <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/msg_2.jpg" alt="Mensaje de una alumna: el ebook me resultó muy fácil de seguir y adaptar a mi rutina"/><figcaption>Alumna RENOVA · por WhatsApp</figcaption></figure>
+      </div>
+      <div class="msgs-dots" id="msgs-dots"></div>
+    </div>
+    <p class="disc">Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud.</p>
+    <div class="cta rv"><a class="btn" href="/checkout">Quiero empezar <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </div>
 </div>
 
 
-<div class="sec" id="comprar">
-  <div class="wrap offer">
-    <div class="books rv">
-      <div class="book b1"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_pausa.jpg" alt="Bonus Pausa activa"/></div>
-      <div class="book b2"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_gym.jpg" alt="Ebook Entrená en el gimnasio"/></div>
-      <div class="book b3"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_casa.jpg" alt="Ebook Entrená desde casa"/></div>
-      <span class="tag">Acceso inmediato</span>
+<div class="sec">
+  <div class="wrap">
+    <h2 class="h2 rv">Resultados como estos son la razón por la que creé <span class="b">RENOVA</span> para vos…</h2>
+    <div class="pil rv">
+      <div class="pil-tx">
+        <h3>Entrenamiento de fuerza de bajo impacto<small>Progresivo y pensado para tu etapa</small></h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Fortalecimiento general:</b> vas a entrenar de forma progresiva, con ejercicios básicos y aumentando la intensidad de a poco, para construir masa muscular de manera segura, fortalecer tus huesos y normalizar tu metabolismo.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Movimiento diario:</b> la clave no es solo entrenar, es lo que hacés en el día. Por eso te damos estrategias y ejercicios para que te mantengas activa durante tu jornada laboral.</span></li>
+        </ul>
+      </div>
+      <div class="pil-im"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_subidas.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_pesomuerto.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_remo.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_abduccion.jpg" alt=""/></div>
     </div>
+    <div class="pil rv">
+      <div class="pil-tx">
+        <h3>Ingesta de nutrientes y simplicidad<small>Te ayudamos a tener una alimentación consciente y práctica</small></h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Aporte óptimo de fibra:</b> priorizala en tu día para fortalecer tu microbioma intestinal, favorecer la regulación hormonal y aumentar tu energía.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Proteína de calidad:</b> los bloques esenciales para preservar tu masa muscular, cuidar tu densidad ósea y recuperarte mejor.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Estructura y simplicidad:</b> preparaciones fáciles y completas; la constancia y la practicidad son la base de cualquier objetivo.</span></li>
+        </ul>
+      </div>
+      <div class="pil-im"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/comida_01.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/comida_05.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/comida_09.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/comida_14.jpg" alt=""/></div>
+    </div>
+    <div class="pil rv">
+      <div class="pil-tx">
+        <h3>Mejorá tus hábitos y la gestión del estrés<small>El pilar invisible que sostiene todo lo demás</small></h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Cuidar tus hábitos, aprender a regular el estrés y <b>descansar de verdad</b> hace que tu entrenamiento y tu nutrición funcionen sin desgastarte ni frustrarte.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Herramientas para <b>salir del piloto automático</b>, dejar de vivir en tensión y disfrutar del proceso, conectando con el presente.</span></li>
+        </ul>
+      </div>
+      <div class="pil-im one"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/habitos.jpg" alt="Taller del equipo RENOVA"/></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap"><div class="band rv"><h2>RENOVA te da todo esto en un programa <span class="b">práctico y fácil</span>, con todo explicado, para que aumentes tu masa muscular y tu densidad ósea y favorezcas la pérdida de grasa, cuidando tu cuerpo y tu mente.</h2></div></div>
+
+
+<div class="sec tint" id="incluido">
+  <div class="wrap">
+    <h2 class="h2 rv">Esto es lo que <span class="b">incluye</span>:</h2>
+    <div class="item rv">
+      <div class="item-im">
+        <div class="trio"><figure><figcaption>Gimnasio</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_remo.jpg" alt=""/></figure><figure><figcaption>Casa</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_patada.jpg" alt=""/></figure><figure><figcaption>Mancuernas</figcaption><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_estocada.jpg" alt=""/></figure></div>
+        <div class="duo"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/tapa_casa.jpg" alt="Ebook Entrená desde casa"/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/tapa_gym.jpg" alt="Ebook Entrená en el gimnasio"/></div>
+      </div>
+      <div class="item-tx">
+        <div class="item-h"><h3>Programa de entrenamiento de 8 semanas</h3><span class="val">Valor $15.000</span></div>
+        <p>Tu programa de entrenamiento de bajo impacto, completo y diseñado para mujeres en etapa de cambios hormonales:</p>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Plan para la casa</b>, con peso corporal o pocos elementos.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Plan para el gimnasio</b>, con todas las explicaciones para comenzar o retomar después de mucho tiempo.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Video de cada ejercicio</b>, explicado por Nacho, y una variante más fácil.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="clips rv">
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_abduccion.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_abduccion.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_abduccion.mp4" type="video/mp4"/></video><span>Abducción de cadera</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_remo.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_remo.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_remo.mp4" type="video/mp4"/></video><span>Remo en polea</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_baston.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_baston.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_baston.mp4" type="video/mp4"/></video><span>Movilidad con bastón</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_skipping.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_skipping.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_skipping.mp4" type="video/mp4"/></video><span>Skipping en el lugar</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_tobillo.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_tobillo.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/clip_tobillo.mp4" type="video/mp4"/></video><span>Movilidad de tobillo</span></div>
+    </div>
+    <div class="item rv">
+      <div class="item-im"><img class="mock" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/mock_nutricion.jpg" alt="Plan de nutrición RENOVA"/></div>
+      <div class="item-tx">
+        <div class="item-h"><h3>Plan de nutrición de 8 semanas</h3><span class="val">Valor $15.000</span></div>
+        <p>Alimentá tu entrenamiento y tu cuerpo con un enfoque pensado para tu situación actual: más proteína, más fibra, comidas más simples, mejores resultados.</p>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Recetario RENOVA</b> con recetas ricas en proteína y fibra: fáciles y ricas, para alcanzar tus objetivos.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Menús semanales de 8 semanas:</b> sin adivinar qué comer, con todos los nutrientes importantes.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Listas de compras:</b> aprendé a comprar mejor y más rápido en el súper.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</div>
+
+
+<div class="sec" id="bonus">
+  <div class="wrap">
+    <div class="bhead rv"><h2>Bonos gratuitos</h2><span class="val big">Valor de $70.000</span></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #1</i>Planes de pausa activa</div>
+      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/tapa_pausa.jpg" alt="Bonus Pausa activa" class="tall"/><div><p><b>Ejercicios para relajar el cuerpo y mantenerte activa durante el trabajo</b>, con tu propio cuerpo: 4 rutinas de 10 minutos.</p><span class="val">Valor $10.000</span></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #2</i>Rutinas express de 15 minutos</div>
+      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_subidas.jpg" alt=""/><div><p><b>Para sostener el proceso</b> cuando viajás o tenés poco tiempo.</p><span class="val">Valor $10.000</span></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #3</i>Rutinas de abdominales</div>
+      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/foto_abdominales.jpg" alt="" style="aspect-ratio:4/3"/><div><p><b>Cómo hacerlas correctamente</b> y mejorar tu zona media.</p><span class="val">Valor $10.000</span></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #4</i>Espacio de talleres del equipo RENOVA</div>
+      <div class="bb"><div class="two"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/taller_super.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/taller_ansiedad.jpg" alt=""/></div><div>
+        <p>Trabajá los pilares clave: <b>hábitos, nutrición y entrenamiento</b>.</p>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de hábitos:</b> con nuestra psicóloga Agostina, apoyo para el estrés y para mejorar tus hábitos.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de nutrición:</b> aprendé a ordenar tu heladera, elegir mejor en el súper y mucho más.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Conectar con el momento presente:</b> un curso completo de mindfulness con el psicólogo Pedro, para disfrutar el proceso y conectar con vos misma.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Mejorar la higiene del sueño:</b> hábitos que te ayudan a descansar mejor.</span></li>
+        </ul>
+        <span class="val">Valor $20.000</span></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #5</i>Acceso a la comunidad RENOVA</div>
+      <div class="bb"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/comunidad.jpg" alt="Comunidad RENOVA"/><div><p><b>Una comunidad de mujeres que están en tu misma situación</b>, en Skool: ahí están los cursos y talleres, y participar es opcional.</p><span class="val">Valor $20.000</span></div></div></div>
+    <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</div>
+
+
+<div class="sec tint">
+  <div class="coach">
+    <div class="rv"><div class="ring"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/nacho.jpg" alt="Nacho Portillo"/></div><p class="nm">Coach <span>Nacho Portillo</span></p></div>
+    <div class="rv">
+      <h2>¡Conocé a tu <span class="b">entrenador</span>!</h2>
+      <p>Soy Nacho Portillo, creador de RENOVA. Hace más de 15 años trabajo con mujeres en distintas etapas de la vida: cambios hormonales, perimenopausia y menopausia, y también con deportistas.</p>
+      <p>En todos estos años vi lo mismo una y otra vez: mujeres con ganas que abandonaban porque el plan no era para su cuerpo ni para su agenda. Aprendí que no alcanza con tener una rutina: necesitás un sistema que puedas sostener. Por eso creé RENOVA, junto a un equipo completo.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <h3 class="msgs-t rv">El equipo <span class="b">RENOVA</span></h3>
+    
+    <div class="team-track rv">
+      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/nacho.jpg" alt=""/><b>Nacho Portillo</b><span>Entrenador · creador de RENOVA</span></figure>
+      <figure class="tm"><div class="tm-ph">A</div><b>Agostina</b><span>Psicóloga</span></figure>
+      <figure class="tm"><div class="tm-ph">P</div><b>Pedro</b><span>Psicólogo</span></figure>
+      <figure class="tm"><div class="tm-ph">N</div><b>Nombre</b><span>Nutricionista</span></figure>
+      <figure class="tm"><div class="tm-ph">M</div><b>Nombre</b><span>Médico deportólogo</span></figure>
+    </div>
+  </div>
+</div>
+
+
+<div class="sec">
+  <div class="wrap">
+    <h2 class="h2 rv">¡Pongámonos en forma con <span class="b">RENOVA</span>!</h2>
+    <p class="lead rv">Empezá hoy este programa para mujeres en perimenopausia y menopausia: más fuerte, con más energía y con el hábito instalado.</p>
+    <img class="collage rv" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/mock_programa.jpg" alt="Todo lo que incluye RENOVA"/>
+    <div class="cta rv"><a class="btn big" href="/checkout">Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</div>
+
+
+<div class="sec gray" id="comprar">
+  <div class="wrap">
+    <h2 class="h2 rv">Programa RENOVA de 8 semanas <span class="b">(valor de $30.000)</span> + bonificaciones <span class="b">(valor de $70.000)</span> = valor de $100.000</h2>
     <div class="card rv">
       <h3>Método <span class="b">RENOVA</span></h3>
-      <p class="cc">Entrená en casa + en el gimnasio · 2 ebooks + 4 bonus</p>
-      <div class="price"><s>{{original_price}}</s><b>{{price}}</b></div>
-      <span class="save">Ahorrás {{savings}}</span>
-      <ul class="incl">
-        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Ebook Entrená desde casa</b>: plan de 8 semanas</span></li>
-        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Ebook Entrená en el gimnasio</b>: nivel inicial</span></li>
-        <li><svg class="ic"><use href="#i-check"/></svg><span>Video de cada ejercicio, explicado</span></li>
-        <li><svg class="ic"><use href="#i-check"/></svg><span>4 bonus: recetario, 2 talleres, comunidad y pausa activa</span></li>
-      </ul>
-
+      <p class="cc">Entrenamiento + nutrición + 5 bonus. ¡Empezá hoy!</p>
+      <div class="pr2"><div><small>Valor total</small><s>$100.000</s></div><div class="on"><small>Hoy</small><b>$35.000</b></div></div>
+      <span class="save">Ahorrás $65.000</span>
       <div class="ups" id="ups">
         <img class="ups-img" src="{{upsell_1_image}}" alt=""/>
         <div class="ups-tx">
-          <span class="ups-tag">Sumalo a tu compra · {{upsell_1_discount}} OFF</span>
-          <h4>{{upsell_1_title}}</h4>
-          <p>{{upsell_1_description}}</p>
+          <span class="ups-tag">Sumalo a tu compra</span>
+          <h4>Guía de alimentación para la menopausia</h4>
+          <p>Una guía práctica de nutrición centrada en la menopausia: qué nutrientes importan más ahora, cómo cuidar tu salud intestinal y estrategias simples para que tu alimentación beneficie a tus hormonas, en lugar de perjudicarlas.</p>
           <div class="ups-f">
             <div><s>{{upsell_1_original_price}}</s> <b>{{upsell_1_price}}</b></div>
             <button type="button" class="ups-btn" data-upsell-toggle="1"><span class="add">＋ Agregar</span><span class="ok">✓ Agregado</span></button>
           </div>
         </div>
       </div>
-
-      <div class="tot"><span>Total</span><b data-cart-total>{{price}}</b></div>
       <a class="btn big" href="/checkout">Comprar ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
       <div class="trust">
         <span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro</span>
@@ -539,151 +766,6 @@ html{scroll-behavior:smooth}
       </div>
       <div class="gmini"><svg class="ic"><use href="#i-shield"/></svg><span><b>Garantía de 7 días.</b> Si no te gusta el material, te devolvemos el dinero.</span></div>
     </div>
-  </div>
-</div>
-
-
-<div class="sec gray" id="incluido">
-  <div class="wrap">
-    <h2 class="h2 rv">¿Qué <span class="b">incluye</span>?</h2>
-    <p class="lead rv">Dos planes de fuerza de 8 semanas con la misma lógica. Usá el que mejor te quede, o alternalos según tu semana.</p>
-    <div class="inc rv">
-      <div class="book"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_casa.jpg" alt="Ebook Entrená desde casa"/></div>
-      <div>
-        <span class="tagp">EBOOK 1</span>
-        <h3>Entrená <span class="b">desde casa</span></h3>
-        <ul>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>3 rutinas de cuerpo completo</b>, cada una con su entrada en calor.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>30 a 40 minutos</b>, 2 o 3 veces por semana.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span>Solo necesitás <b>una colchoneta, una silla y un peso liviano</b>.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span>Rutina de zona media, elongación y <b>sesión express de 15 minutos</b>.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="inc rv">
-      <div class="book"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_gym.jpg" alt="Ebook Entrená en el gimnasio"/></div>
-      <div>
-        <span class="tagp">EBOOK 2</span>
-        <h3>Entrená <span class="b">en el gimnasio</span></h3>
-        <ul>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Nivel inicial</b>: aunque nunca hayas ido a un gimnasio.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Máquinas, mancuernas y poleas</b>, paso a paso.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>45 a 60 minutos</b>, 2 o 3 veces por semana.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span>Cuadro de 8 semanas y <b>registro para medir tu progreso</b>.</span></li>
-        </ul>
-      </div>
-    </div>
-    <h3 class="msgs-t rv">Cada ejercicio, <span class="b">con su video</span></h3>
-    <p class="lead rv" style="margin-bottom:18px">Lo tocás desde el celular y ves cómo se hace, explicado por Nacho.</p>
-    <div class="clips rv">
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_abduccion.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_abduccion.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_abduccion.mp4" type="video/mp4"/></video><span>Abducción de cadera</span></div>
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_remo.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_remo.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_remo.mp4" type="video/mp4"/></video><span>Remo en polea</span></div>
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_baston.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_baston.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_baston.mp4" type="video/mp4"/></video><span>Movilidad con bastón</span></div>
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_skipping.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_skipping.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_skipping.mp4" type="video/mp4"/></video><span>Skipping en el lugar</span></div>
-      <div class="clip"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_tobillo.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_tobillo.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/clip_tobillo.mp4" type="video/mp4"/></video><span>Movilidad de tobillo</span></div>
-    </div>
-    <div class="cta rv"><a class="btn" href="#comprar">Quiero los 2 ebooks <svg class="ic"><use href="#i-arrow"/></svg></a></div>
-  </div>
-</div>
-
-
-<div class="sec" id="bonus">
-  <div class="wrap">
-    <h2 class="h2 rv">4 bonus <span class="b">de regalo</span></h2>
-    <p class="lead rv">Vienen incluidos en tu compra, sin costo extra.</p>
-    <div class="bonuses">
-      <div class="bonus rv">
-        <div class="bim"><span class="num">BONUS #1</span><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/receta_42.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/receta_43.jpg" alt=""/></div>
-        <div class="bt"><h3>Recetario de comidas fáciles y proteicas</h3><p>8 recetas con ingredientes del súper y cómo armar tu plato, para alimentar tu músculo sin complicarte.</p><div class="bv"><s>$15.000</s><b>GRATIS HOY</b></div></div>
-      </div>
-      <div class="bonus rv">
-        <div class="bim"><span class="num">BONUS #2</span><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/taller_super.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/taller_ansiedad.jpg" alt=""/></div>
-        <div class="bt"><h3>2 talleres del equipo RENOVA</h3><p>"Elecciones inteligentes en el súper" y "Gestión de la ansiedad": herramientas concretas para comer mejor sin vivir a dieta.</p><div class="bv"><b>INCLUIDO</b></div></div>
-      </div>
-      <div class="bonus rv">
-        <div class="bim"><span class="num">BONUS #3</span><img class="full" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/comunidad.jpg" alt="Comunidad RENOVA"/></div>
-        <div class="bt"><h3>Comunidad RENOVA</h3><p>Entrá a una comunidad de mujeres con tus mismos objetivos, en Skool: ahí están los cursos y talleres, y participar es opcional.</p><div class="bv"><b>INCLUIDO</b></div></div>
-      </div>
-      <div class="bonus rv">
-        <div class="bim"><span class="num">BONUS #4</span><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/tapa_pausa.jpg" alt="Bonus Pausa activa"/></div>
-        <div class="bt"><h3>Pausa activa: 4 rutinas de 10 minutos</h3><p>Para moverte en la oficina o en casa, sin cambiarte: aflojá cuello y espalda y activá las piernas.</p><div class="bv"><s>$10.000</s><b>GRATIS HOY</b></div></div>
-      </div>
-    </div>
-    <div class="cta rv"><a class="btn" href="#comprar">Llevate los 4 bonus <svg class="ic"><use href="#i-arrow"/></svg></a></div>
-  </div>
-</div>
-
-
-<div class="sec tint">
-  <div class="coach">
-    <div class="rv"><div class="ring"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/nacho.jpg" alt="Nacho Portillo"/></div><p class="nm">Coach <span>Nacho Portillo</span></p></div>
-    <div class="rv">
-      <h2>Quién <span class="b">soy</span></h2>
-      <p>Soy Nacho Portillo, creador de RENOVA. Hace más de 15 años trabajo con mujeres en distintas etapas de la vida: cambios hormonales, perimenopausia y menopausia, y también con deportistas.</p>
-      <p>En todos estos años vi lo mismo una y otra vez: mujeres con ganas que abandonaban porque el plan no era para su cuerpo ni para su agenda. Aprendí que no alcanza con tener una rutina: necesitás un sistema que puedas sostener.</p>
-      <p>Por eso creé RENOVA, junto a un equipo completo:</p>
-      <div class="roles"><span>Entrenadores</span><span>Médico deportólogo</span><span>Psicólogo</span><span>Nutricionista</span></div>
-    </div>
-  </div>
-</div>
-
-
-<div class="sec gray" id="resultados">
-  <div class="wrap">
-    <h2 class="h2 rv">Conocé lo que <span class="b">lograron</span></h2>
-    <p class="lead rv">Mujeres reales que entrenaron con el método RENOVA.</p>
-    <div class="posts">
-      <div class="post rv">
-        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/mari_d.jpg" alt=""/><div><b>Mari</b><span class="stars">★★★★★</span></div></div>
-        <p>Bajó <b>8 kg de grasa</b> y <b>10 cm de cintura</b>.</p>
-        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/mari_a.jpg" alt="Mari antes" style="object-position:52% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/mari_d.jpg" alt="Mari después" style="object-position:58% 50%"/><span class="tag d">DESPUÉS</span></div></div>
-      </div>
-      <div class="post rv">
-        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/moni_a.jpg" alt=""/><div><b>Moni</b><span class="stars">★★★★★</span></div></div>
-        <p>Bajó <b>6 kg</b> y logró <b>el hábito de entrenar</b>.</p>
-        <div class="ba"><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/moni_d.jpg" alt="Moni antes" style="object-position:43% 50%"/><span class="tag">ANTES</span></div><div><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/moni_a.jpg" alt="Moni después" style="object-position:52% 50%"/><span class="tag d">DESPUÉS</span></div></div>
-      </div>
-      <div class="post rv">
-        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/ba_romi.jpg" alt=""/><div><b>Romi</b><span class="stars">★★★★★</span></div></div>
-        <p>Ganó <b>masa muscular</b> y volvió a <b>correr sin dolores</b>.</p>
-        <div class="one"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/ba_romi.jpg" alt="Romi"/></div>
-      </div>
-      <div class="post rv">
-        <div class="who"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/hero_entrenan.jpg" alt=""/><div><b>Alumnas RENOVA</b><span class="stars">★★★★★</span></div></div>
-        <p>Así entrenan <b>nuestras alumnas</b>.</p>
-        <div class="one"><video muted loop playsinline preload="none" poster="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/hero_entrenan.jpg"><source src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/hero_entrenan.mp4" type="video/mp4"/><source src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/hero_entrenan.mp4" type="video/mp4"/></video></div>
-      </div>
-    </div>
-    <h3 class="msgs-t rv">Lo que nos escriben</h3>
-    
-    <div class="msgs rv">
-      <div class="msgs-track" id="msgs">
-        <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/msg_1.jpg" alt="Mensaje de Romi: comencé el gym hace 2 semanas y me siento bárbara en todos los deportes"/><figcaption>Romi · por WhatsApp</figcaption></figure>
-        <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/msg_2.jpg" alt="Mensaje de una alumna: el ebook me resultó muy fácil de seguir y adaptar a mi rutina"/><figcaption>Alumna RENOVA · por WhatsApp</figcaption></figure>
-      </div>
-      <div class="msgs-dots" id="msgs-dots"></div>
-    </div>
-    <p class="disc">Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud.</p>
-    <div class="cta rv"><a class="btn" href="#comprar">Quiero estos resultados <svg class="ic"><use href="#i-arrow"/></svg></a></div>
-  </div>
-</div>
-
-
-<div class="sec">
-  <div class="wrap">
-    <h2 class="h2 rv">Todo lo que <span class="b">te llevás</span></h2>
-    <p class="lead rv">Si lo compraras por separado:</p>
-    <div class="stack rv">
-      <div class="row"><span><svg class="ic"><use href="#i-check"/></svg>Ebook Entrená desde casa</span><em>$10.000</em></div>
-      <div class="row"><span><svg class="ic"><use href="#i-check"/></svg>Ebook Entrená en el gimnasio</span><em>$10.000</em></div>
-      <div class="row"><span><svg class="ic"><use href="#i-check"/></svg>Bonus 1: Recetario proteico</span><em>$15.000</em></div>
-      <div class="row"><span><svg class="ic"><use href="#i-check"/></svg>Bonus 2: 2 talleres del equipo</span><em class="free">Incluido</em></div>
-      <div class="row"><span><svg class="ic"><use href="#i-check"/></svg>Bonus 3: Comunidad RENOVA</span><em class="free">Incluido</em></div>
-      <div class="row"><span><svg class="ic"><use href="#i-check"/></svg>Bonus 4: Pausa activa</span><em>$10.000</em></div>
-      <div class="row sumv"><span>Valor total</span><em><s>$45.000</s></em></div>
-      <div class="row hoy"><span>Hoy</span><b>{{price}}</b></div>
-    </div>
-    <div class="cta rv"><a class="btn big" href="#comprar">Aprovechar la oferta <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </div>
 </div>
 
@@ -707,10 +789,10 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <h2 class="h2 rv">Preguntas <span class="b">frecuentes</span></h2>
     <div class="faq rv">
-      <details><summary>¿Qué incluye?</summary><p>Dos ebooks, uno para entrenar en casa y otro para el gimnasio, cada uno con su plan de 8 semanas, 3 rutinas de cuerpo completo con video de cada ejercicio, zona media, elongación, sesión express de 15 minutos y registro de progreso. Además, 4 bonus: recetario de comidas fáciles y proteicas, 2 talleres del equipo, la comunidad RENOVA y pausa activa.</p></details>
+      <details><summary>¿Qué incluye?</summary><p>El programa de entrenamiento de 8 semanas (un ebook para casa y otro para el gimnasio, con video de cada ejercicio), el plan de nutrición de 8 semanas y 5 bonus: pausa activa, rutinas express, rutinas de abdominales, el espacio de talleres y la comunidad RENOVA.</p></details>
       <details><summary>¿Cuál me conviene, casa o gimnasio?</summary><p>Te llevás los dos. Si tenés poco tiempo o no querés salir de casa, empezá por el de casa. Si ya vas o querés ir al gimnasio, usá el otro. También podés alternarlos según tu semana.</p></details>
       <details><summary>¿Sirve si hace años que no entreno?</summary><p>Sí. Las primeras semanas son de adaptación: aprendés la técnica sin sobrecargas, y cada ejercicio tiene una variante más fácil para empezar.</p></details>
-      <details><summary>¿Cuánto tiempo me lleva?</summary><p>En casa, entre 30 y 40 minutos; en el gimnasio, entre 45 y 60. Siempre 2 o 3 veces por semana. Para los días con muy poco tiempo tenés una sesión express de 15 minutos.</p></details>
+      <details><summary>¿Cuánto tiempo me lleva?</summary><p>En casa, entre 30 y 40 minutos; en el gimnasio, entre 45 y 60. Siempre 2 o 3 veces por semana. Para los días con muy poco tiempo tenés rutinas express de 15 minutos.</p></details>
       <details><summary>¿Qué necesito para entrenar?</summary><p>En casa: una colchoneta, una silla firme y un peso liviano, como mancuernas, botellas de agua o una mochila con carga. En el gimnasio: máquinas, mancuernas y poleas; es nivel inicial, aunque nunca hayas ido.</p></details>
       <details><summary>¿Sirve si estoy en la perimenopausia o la menopausia?</summary><p>Sí. El plan está pensado para mujeres de 35+ y para los cambios de esta etapa. El entrenamiento de fuerza es una de las herramientas más recomendadas.</p></details>
       <details><summary>Tengo dolor de rodilla o de espalda, ¿puedo hacerlo?</summary><p>Es de bajo impacto: cada ejercicio tiene una variante más fácil y los que llevan salto tienen una opción sin salto. Si tenés una lesión o una condición de salud, consultá antes con tu médico.</p></details>
@@ -726,10 +808,10 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="final rv">
       <h2>Empezá hoy a sentirte fuerte</h2>
-      <p>2 ebooks (casa y gimnasio) + video de cada ejercicio + 4 bonus. Acceso inmediato y 7 días de garantía.</p>
-      <div class="price"><s>{{original_price}}</s><b>{{price}}</b></div>
+      <p>Entrenamiento en casa y en el gimnasio + plan de nutrición + 5 bonus. Acceso inmediato y 7 días de garantía.</p>
+      <div class="pr2 inv"><div><small>Valor total</small><s>$100.000</s></div><div class="on"><small>Hoy</small><b>$35.000</b></div></div>
       <div class="cta" style="margin-top:14px">
-        <a class="btn white big" href="/checkout">Comprar ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a class="btn white big" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a>
         <small><span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro</span><span><svg class="ic"><use href="#i-bolt"/></svg>Acceso inmediato</span><span><svg class="ic"><use href="#i-shield"/></svg>Garantía de 7 días</span></small>
       </div>
     </div>
@@ -739,18 +821,18 @@ html{scroll-behavior:smooth}
 
 <div class="foot">
   <div class="wrap">
-    <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/logo.png" alt="RENOVA"/>
+    <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/cedf5a55bc689a630581cd62a496426a1cf7929c/fuentes/landing/img/logo.png" alt="RENOVA"/>
     <p>¿Problemas con tu compra? <a href="https://wa.link/hewha8" target="_blank" rel="noopener">Escribinos por WhatsApp</a> y lo resolvemos.</p>
     <p class="legal">© RENOVA · Nacho Portillo · <a href="https://www.nachoportillo.com/" target="_blank" rel="noopener">nachoportillo.com</a><br/>Material educativo general. No sustituye la consulta médica.</p>
   </div>
 </div>
 
 <div class="mbar" id="mbar">
-  <div><b>{{price}}</b><s>{{original_price}}</s><small>Ahorrás {{savings}}</small></div>
-  <a class="btn" href="/checkout">Comprar</a>
+  <div><b>$35.000</b><s>$100.000</s><small>Ahorrás $65.000</small></div>
+  <a class="btn" href="/checkout">Lo quiero</a>
 </div>
 
-<img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none" onload="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@b607b2be17afad0dc91a5fbd14135c5f0199491d/fuentes/landing/landing.js';document.body.appendChild(s);this.onload=null"/>
+<img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none" onload="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@7bd74ea18bbe2c1460afc31eb8a35487792c3dea/fuentes/landing/landing.js';document.body.appendChild(s);this.onload=null"/>
 </div>
 </body>
 </html>
