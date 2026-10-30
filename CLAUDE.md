@@ -41,7 +41,6 @@ Una sola marca para todo: **los colores son los del ebook** y landings, creativo
 - `ebook.html`, `entrena.html`, `gimnasio.html`, `mamas.html`, `pausa.html`: HTML intermedio que genera `build.py` (no editar).
 - `style.css`: diseño. `paginate.js`: paginación automática A4. `export.js`: exporta el PDF con Playwright a la carpeta del producto.
 - `img/`: fotos, ilustraciones, recetas y testimonios. Las tipografías están en `fuentes/design-system/fonts/`.
-- `archivo/version-anterior_7_1.pdf`: exportación vieja, solo referencia.
 - Talleres: están en Skool (https://www.skool.com/renova-entrenamiento-y-salud-1617/about); el bonus de talleres de los ebooks tiene un botón grande que lleva ahí. No hay ebook de talleres ni página de upsell.
 
 ### `fuentes/landing/`
@@ -102,9 +101,8 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
 
 - Ebook gimnasio: que Nacho revise las rutinas y diga si cambia algún ejercicio.
-- Landing de la tienda: pegarla en Impultienda, revisar que reemplace precios y que el upsell sume al carrito, y cargar los 2 PDF en el producto (casa + gimnasio). Si Nacho prefiere vender el de gimnasio como upsell, cambiar en `tienda.html`.
-- Garantía: Nacho tiene que definir si hay (y cuál). Cuando la defina, completar `GARANTIA` en `fuentes/design-system/design_system.py` y sumarla a la landing.
-- Creativos: que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.
+- Landing de la tienda: pegarla en Impultienda (el JS va aparte en `fuentes/landing/landing.js`, porque Impultienda se rompe con un `<script>` propio), revisar que reemplace precios y que el upsell sume al carrito, y cargar los PDF (casa, gimnasio y pausa) en el producto.
+- Creativos (no tocados en la última ronda: siguen con 40+, dibujos de Canva y 3 bonus): que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.
 - Actualizar el perfil de la skill carrusel-studio (dice "rojo vino + azul oscuro") a la paleta turquesa del ebook.
 - Oferta (Hormozi): análisis y prioridades en `investigacion/oferta-hormozi.md`. Falta que Nacho apruebe las acciones de la sección 9 (garantía, título de resultado, nombres de bonus, sacar "6 a 10 kg", victoria del día 1, hoja de adaptaciones).
 - Guía práctica de alimentación (con la nutricionista): armarla desde la edición completa; reemplaza al upsell 1. Casa y gimnasio llevan 8 recetas proteicas y la hoja "Armá tu plato"; mamás lleva 10 (`RECETAS_BONUS` en `build.py`); las 23 quedan para la guía.
