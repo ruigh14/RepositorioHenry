@@ -22,7 +22,23 @@
 
       // Salvaguarda ejercicios RENOVA: nunca dividir bloques de 4 ejercicios o menos
       const initialExs = b.querySelectorAll('.ex').length;
-      if (initialExs > 0 && initialExs <= 4) continue;
+      if (initialExs > 0 && initialExs <= 4) {
+        // si lo que sobra es el texto de arriba, los ejercicios pasan juntos a la hoja siguiente
+        const kids = [...b.children], first = kids.findIndex(k => k.querySelector && (k.matches('.ex') || k.querySelector('.ex')));
+        if (first > 1) {
+          const np = document.createElement('section');
+          np.className = p.className; np.id = p.id + '-' + i;
+          const h = p.querySelector('.hdr'), f = p.querySelector('.ftr');
+          if (h) np.appendChild(h.cloneNode(true));
+          if (f) np.appendChild(f.cloneNode(true));
+          const nb = document.createElement('div'); nb.className = 'body'; np.appendChild(nb);
+          p.after(np);
+          kids.slice(first).forEach(k => nb.appendChild(k));
+          // no dejar títulos sueltos al pie
+          while (b.children.length > 1 && /^(H1|H2|H3|SPAN)$/.test(b.lastElementChild.tagName)) nb.prepend(b.lastElementChild);
+        }
+        continue;
+      }
 
       const np = document.createElement('section');
       np.className = p.className; np.id = p.id + '-' + i;
@@ -36,12 +52,13 @@
       while (b.children.length > 1 && /^(H1|H2|H3|SPAN)$/.test(b.lastElementChild.tagName)) nb.prepend(b.lastElementChild);
 
       // Regla RENOVA: nunca puede quedar una página con 1 o 2 ejercicios (.ex)
-      const exP = b.querySelectorAll('.ex').length;
-      const exNP = nb.querySelectorAll('.ex').length;
-      if ((exP > 0 && exP < 3) || (exNP > 0 && exNP < 3)) {
-        while (nb.firstChild) b.appendChild(nb.firstChild);
-        np.remove();
-        continue;
+      // (se reparte en vez de volver atrás, para no dejar texto cortado)
+      const nEx = el => el.querySelectorAll('.ex').length;
+      while (nEx(nb) > 0 && nEx(nb) < 3 && nEx(b) > 3) nb.prepend(b.lastElementChild);
+      if (nEx(b) > 0 && nEx(b) < 3) {
+        const kids = [...b.children], first = kids.findIndex(k => k.matches('.ex') || k.querySelector('.ex'));
+        kids.slice(first).reverse().forEach(k => nb.prepend(k));
+        while (b.children.length > 1 && /^(H1|H2|H3|SPAN)$/.test(b.lastElementChild.tagName)) nb.prepend(b.lastElementChild);
       }
     }
   }

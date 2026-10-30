@@ -1133,7 +1133,7 @@ if ENT:
   <p class="off">{'Por venir del ebook tenés <b>50% off</b> en tu plan personalizado.' if MAMA else 'Por venir del ebook tenés <b>50% off</b> en el plan integral RENOVA de entrenamiento y nutrición.'}</p>
 </div>
 {box("<b>¿Cuándo volver a correr o saltar?</b> Son ejercicios de impacto. Las guías para volver a correr después del parto sugieren esperar al menos 12 semanas y hacerlo cuando no tenés pérdidas, pesadez ni dolor, idealmente después de una evaluación de piso pélvico. Empezá alternando caminata y trote suave.", "note") if MAMA else ""}
-{box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus.", "soft")}
+{"" if (ENT and not MAMA) else box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus.", "soft")}
 ''', chapter="08 · Después de las 8 semanas", pid="cap7e", toc="08 · Después de las 8 semanas")
 
     # ---------------------------------------------------------- EXTRA: ZONA MEDIA
@@ -1605,14 +1605,14 @@ if ENT:   # carátula que separa el entrenamiento de los bonus
   <img class="dv-logo" src="img/logo_renova.png" alt="RENOVA">
   <p class="dv-kick">TERMINASTE LA PARTE DE ENTRENAMIENTO</p>
   <h1 class="dv-title">BONUS!</h1>
-  <p class="dv-sub">Nutrición y hábitos</p>
+  <p class="dv-sub">{"Nutrición y hábitos" if MAMA else "Talleres y comunidad"}</p>
   <div class="dv-bar"></div>
   <p class="dv-desc">Herramientas para acompañar tu plan fuera del entrenamiento.</p>
   <div class="dv-list">
     <a href="#talleres"><span>1</span><b>Dos talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
-    <a href="#cap6"><span>2</span><b>{"Recetario fácil" if MAMA else "Recetario de comidas fáciles y proteicas"}</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>
-    <a href="#bonus"><span>3</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
-    {"" if MAMA else '<a href="#bonus"><span>4</span><b>Pausa activa: 4 rutinas de 10 minutos</b><em>PDF aparte</em></a>'}
+    {'<a href="#cap6"><span>2</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>' if MAMA else ''}
+    <a href="#bonus"><span>{3 if MAMA else 2}</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
+    {"" if MAMA else '<a href="#bonus"><span>3</span><b>Pausa activa: 4 rutinas de 10 minutos</b><em>PDF aparte</em></a>'}
   </div>
   <a class="btn btn-big dv-btn" href="{esc(LINKS["comunidad"])}">ENTRÁ A LA COMUNIDAD RENOVA {ICON_ARROW}</a>
 </div>
@@ -1824,7 +1824,7 @@ if FULL:
 
 page(f'''
 <div class="bonus">
-{eyebrow("BONUS EXCLUSIVO" if FULL else "BONUS 3 · INCLUIDO")}
+{eyebrow("BONUS EXCLUSIVO" if FULL else "BONUS 3 · INCLUIDO" if MAMA else "BONUS 2 · INCLUIDO")}
 <h1 class="h1 big">Comunidad <span class="t">RENOVA</span></h1>
 {'' if FULL or MAMA else '<h2>Entrá a una comunidad de mujeres con tus mismos objetivos</h2>'}
 <p class="lead">Con este ebook tenés acceso a la comunidad RENOVA en Skool: el lugar donde están los cursos y talleres del equipo, y donde podés encontrarte con otras mujeres que están haciendo el mismo camino.</p>
@@ -1842,7 +1842,7 @@ page(f'''
   {button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}
 </div>
 </div>
-''', chapter="Bonus" if FULL else "Bonus 3 · Comunidad", pid="bonus", cls="p-spread", toc="Bonus: comunidad RENOVA" if FULL else "Bonus 3: Comunidad RENOVA")
+''', chapter="Bonus" if FULL else "Bonus 3 · Comunidad" if MAMA else "Bonus 2 · Comunidad", pid="bonus", cls="p-spread", toc="Bonus: comunidad RENOVA" if FULL else "Bonus 3: Comunidad RENOVA" if MAMA else "Bonus 2: Comunidad RENOVA")
 
 # ================================================================== FUENTES
 
@@ -2050,7 +2050,7 @@ def render():
             *([("Pausa activa", ["pausa", "tips10", "bebe"], [("Entrená con tu bebé", "bebe")])] if MAMA else []),
             ("Medí tu progreso", ["eval", "cargas"], []),
             ("Después de las 8 semanas", ["cap7e"], []),
-            (None, ["bonus-portada", "talleres", "cap6"] + ([] if MAMA else ["plato"]) + ["recetas", "bonus"] + ([] if MAMA else ["testimonios"]) + ["bio", "metodo"], []),
+            (None, ["bonus-portada", "talleres"] + (["cap6", "recetas"] if MAMA else []) + ["bonus"] + ([] if MAMA else ["testimonios"]) + ["bio", "metodo"], []),
         ]
         by = {p["id"]: p for p in PAGES}
         toc_old = dict((pid, t) for t, pid in TOC)
@@ -2070,6 +2070,8 @@ def render():
                 elif pid in toc_old:
                     TOC.append((toc_old[pid], pid))
                 PAGES.append(pg)
+        if not MAMA:   # casa y gimnasio: sin recetario ni plato (la nutrición se vende aparte)
+            for x in ("cap6", "plato", "recetas"): by.pop(x, None)
         sobran = set(by)
         assert not sobran, f"páginas sin lugar en el orden: {sobran}"
     order = {p["id"]: i for i, p in enumerate(PAGES)}
