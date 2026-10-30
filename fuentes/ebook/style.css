@@ -929,15 +929,16 @@ body.grande{font-size:16.5pt;line-height:1.48}
 .grande .small{font-size:14pt}
 .grande .box{font-size:15.5pt}
 .grande .list li,.grande .checks li{margin-bottom:2mm}
-.grande .ex.exrow{grid-template-columns:40mm 1fr;gap:5mm;padding:3.4mm 4mm;margin-bottom:3mm}
-.grande .ex.exrow .exim{width:40mm;height:38mm;padding:1mm}
-.grande .mat{font-size:10.4pt;white-space:normal}
+.grande .ex.exrow{grid-template-columns:36mm 1fr;gap:3.5mm;padding:2.2mm 3.2mm;margin-bottom:2mm}
+.grande .ex.exrow .exim{width:36mm;height:32mm;padding:1mm}
+.grande .mat{font-size:9.5pt;white-space:normal;padding:.4mm 2mm}
 .grande .exrow .exh h4{font-size:17pt}
-.grande .exrow .extx p{font-size:15.5pt;line-height:1.42;margin-bottom:1mm}
+.grande .exrow .extx p{font-size:15.5pt;line-height:1.36;margin-bottom:.8mm}
 .grande .dose{font-size:12.4pt}
-.grande .exrow .exh .vbtn-sm,.grande .vbtn-sm{font-size:11pt;padding:1.8mm 3.6mm}
-.grande .vbtn-xs{font-size:10.4pt}
-.grande .blk span{font-size:12pt}.grande .blk p{font-size:14pt}
+.grande .exrow .exh .vbtn-sm,.grande .vbtn-sm{font-size:10.5pt;padding:1.4mm 3mm}
+.grande .vbtn-xs{font-size:10pt}
+.grande .blk{margin:2.5mm 0 1.8mm;padding-bottom:1.2mm}
+.grande .blk span{font-size:11pt}.grande .blk p{font-size:13pt}
 .grande .wcim{height:24mm}
 .grande .wc b{font-size:11.4pt}.grande .wc .dose{font-size:9.6pt}.grande .wc .vbtn-sm{font-size:9pt;padding:1.2mm 2.6mm}
 .grande .pillar p,.grande .step p,.grande .tile p,.grande .minplan p,.grande .tips10 p,.grande .fw p,.grande .rpe p{font-size:15pt}
