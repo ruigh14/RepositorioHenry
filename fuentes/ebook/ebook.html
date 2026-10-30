@@ -978,6 +978,64 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 .skx p{color:#E3F6F9;font-size:12.5pt;line-height:1.4;margin:0 0 4.5mm}
 .skx .btn{padding:4.5mm 5mm;background:#fff;color:var(--tq-dd);box-shadow:0 0 0 1.2mm rgba(255,255,255,.3)}
 .skx .btn .ic{stroke:currentColor}
+
+/* ---- tapa de casa y gimnasio (cada ebook con su tono de turquesa) */
+.cv3{--c3-a:var(--tq);--c3-b:var(--tq);--c3-l:var(--tq-l);position:relative;height:297mm;box-sizing:border-box;border:1.2mm solid var(--c3-b);background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.cv3.pausa{--c3-a:var(--tq-t);--c3-b:var(--ink);--c3-l:var(--tq-l)}
+.pausa .c3-title{font-size:92pt}
+.pausa .c3-claim b span{text-shadow:1.2mm 1.2mm 0 var(--tq)}
+.cv3.gym{--c3-a:var(--tq-d);--c3-b:var(--tq-dd);--c3-l:var(--tq-b)}
+.c3-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8mm 12mm 0}
+.c3-logo{height:13mm;width:auto;margin-bottom:5mm}
+.c3-pill{display:inline-block;background:var(--c3-b);color:#fff;font-weight:800;font-size:19pt;letter-spacing:.06em;padding:3.4mm 10mm;border-radius:99px}
+.c3-title{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:78pt;line-height:.9;letter-spacing:-.02em;color:var(--c3-a);margin:6mm 0 0;text-transform:uppercase}
+.gym .c3-title{font-size:67pt}
+.c3-claim{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:34pt;line-height:1.05;color:var(--ink);margin:5mm 0 0;letter-spacing:-.005em}
+.c3-claim b{display:block;font-size:50pt;line-height:1;letter-spacing:-.01em;margin-top:1mm}
+.c3-claim b span{display:inline-block;transform:rotate(-2.5deg);padding:0 4mm;background:linear-gradient(transparent 58%,var(--c3-l) 58%,var(--c3-l) 92%,transparent 92%);text-shadow:1.2mm 1.2mm 0 var(--c3-b)}
+.cv3 .c3-claim b span{color:var(--ink)}
+.c3-sub{font-family:"InterTightW","InterW",sans-serif;font-size:21pt;line-height:1.3;color:var(--ink);font-weight:600;letter-spacing:.005em;margin:5mm 0 0;padding:3mm 4mm 0;width:178mm;box-sizing:border-box;background:rgba(255,255,255,.75);border-top:1.4mm double var(--c3-b);}
+.c3-sub span{white-space:nowrap}
+.c3-sub em{font-style:normal;font-weight:900;color:var(--c3-a)}
+.c3-sub b{font-weight:900;color:#fff;background:var(--c3-b);padding:0 2.2mm;border-radius:1.6mm}
+.c3-sub mark{font-weight:800;color:var(--ink);background:linear-gradient(transparent 55%,var(--c3-l) 55%,var(--c3-l) 92%,transparent 92%);padding:0 .6mm}
+.c3-team{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:flex-end;justify-content:center;margin-top:3mm}
+.c3-team img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
+
+/* v9: casa, gimnasio y pausa activa: letra y dibujos más grandes en el desarrollo (lectura en celular).
+   Los títulos quedan igual; si algo no entra, paginate.js lo pasa a otra hoja. */
+body.grande{font-size:16.5pt;line-height:1.48}
+.grande .lead{font-size:17pt}
+.grande .small{font-size:14pt}
+.grande .box{font-size:15.5pt}
+.grande .list li,.grande .checks li{margin-bottom:2mm}
+.grande .ex.exrow{grid-template-columns:40mm 1fr;gap:5mm;padding:3.4mm 4mm;margin-bottom:3mm}
+.grande .ex.exrow .exim{width:40mm;height:38mm;padding:1mm}
+.grande .mat{font-size:10.4pt;white-space:normal}
+.grande .exrow .exh h4{font-size:17pt}
+.grande .exrow .extx p{font-size:15.5pt;line-height:1.42;margin-bottom:1mm}
+.grande .dose{font-size:12.4pt}
+.grande .exrow .exh .vbtn-sm,.grande .vbtn-sm{font-size:11pt;padding:1.8mm 3.6mm}
+.grande .vbtn-xs{font-size:10.4pt}
+.grande .blk span{font-size:12pt}.grande .blk p{font-size:14pt}
+.grande .wcim{height:24mm}
+.grande .wc b{font-size:11.4pt}.grande .wc .dose{font-size:9.6pt}.grande .wc .vbtn-sm{font-size:9pt;padding:1.2mm 2.6mm}
+.grande .pillar p,.grande .step p,.grande .tile p,.grande .minplan p,.grande .tips10 p,.grande .fw p,.grande .rpe p{font-size:15pt}
+.grande .pillar h3,.grande .step b,.grande .tile h3,.grande .fw b,.grande .tips10 h3{font-size:16pt}
+.grande .cb,.grande .cbox .cb{font-size:15pt}
+.grande .wcard p,.grande .team-tx p,.grande .bio-top p,.grande .what p,.grande #talleres .wcard p,.grande #talleres .team-tx p{font-size:15pt}
+.grande .legend{font-size:13.6pt}
+.grande .phases span{font-size:13.4pt}
+.grande .meas .steps-ol{font-size:15pt}
+.grande .ttx p{font-size:14.6pt}
+.grande #express .ex.exrow{grid-template-columns:30mm 1fr}
+.grande #express .ex.exrow .exim{width:30mm;height:30mm}
+.grande .meas{grid-template-columns:44mm 1fr}
+.grande .meas-t td{height:8.5mm}
+
+/* v10: textos en negro (antes gris); encabezado y pie de página siguen en gris */
+:root{--txt:var(--rnv-tinta);--mut:var(--rnv-tinta)}
+.hdr,.ftr,.ftr span.pgnum{color:var(--rnv-gris)}
 </style></head><body><section class="page p-cover" id="portada"><div class="body">
 <div class="cv2">
   <div class="c2-top">
@@ -1169,7 +1227,7 @@ h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
 </div></section><section class="page " id="cap3x"><div class="hdr"><span>PROGRAMA <b>RENOVA</b></span><span>03 · Organización semanal</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
 <span class="pill">ORGANIZACIÓN SEMANAL</span>
 <h1 class="h1">Semanas con <span class="t">menos tiempo</span></h1>
-<p class="lead">Si tu agenda no permite la propuesta completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.</p>
+<p class="lead">Si tu agenda no permite la propuesta completa, elegí una versión reducida. Hacer <b>menos, pero sostenido</b>, suma más que intentar todo y abandonar.</p>
 <table class="cal">
 <thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>
 <tbody>

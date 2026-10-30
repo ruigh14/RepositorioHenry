@@ -144,7 +144,7 @@ if ENT:
     page(f'''
 {eyebrow("BIENVENIDA")}
 <h1 class="h1">Te damos la bienvenida a <span class="t">{G("Entrená desde casa", "Entrená en el gimnasio", "Entrená siendo mamá")}</span></h1>
-<p class="lead">{G("Un plan de 8 semanas para entrenar desde casa si tenés poco tiempo: a las 2 semanas vas a tener más energía, a las 4 más fuerza y a las 8 el hábito logrado.", "Un plan de 8 semanas para entrenar en el gimnasio desde cero si tenés poco tiempo: a las 2 semanas vas a tener más energía, a las 4 más fuerza y a las 8 el hábito logrado.", "Un plan de 8 semanas para volver a entrenar después de ser mamá, en casa y con poco tiempo. Empezás por la respiración y el piso pélvico y sumás fuerza de a poco.")}</p>
+<p class="lead">{G("Un plan de 8 semanas para entrenar desde casa si tenés poco tiempo: a las 2 semanas vas a tener <b>más energía</b>, a las 4 <b>más fuerza</b> y a las 8 <b>el hábito logrado</b>.", "Un plan de 8 semanas para entrenar en el gimnasio desde cero si tenés poco tiempo: a las 2 semanas vas a tener <b>más energía</b>, a las 4 <b>más fuerza</b> y a las 8 <b>el hábito logrado</b>.", "Un plan de 8 semanas para volver a entrenar después de ser mamá, en casa y con poco tiempo. Empezás por la respiración y el piso pélvico y sumás fuerza de a poco.")}</p>
 <h2>Qué necesitás</h2>
 <p>{G("Una colchoneta, una silla firme y un peso liviano (mancuernas, botellas de agua o una mochila con carga). Sesiones de 30 a 40 minutos, 2 o 3 veces por semana.", "Un gimnasio con máquinas, mancuernas y poleas; al principio, pedile al profesor de sala que te ayude a regularlas. Sesiones de 45 a 60 min, 2 o 3 veces por semana.", "Una colchoneta, una silla firme y un peso liviano (mancuernas o botellas). Sesiones de 20 a 30 minutos, 2 o 3 veces por semana. Podés entrenar con tu bebé cerca.")}</p>
 <div class="firstweek">
@@ -223,7 +223,7 @@ page("__TOC__", chapter="Índice", pid="indice")
 # ================================================================== MEDÍ TU PROGRESO (ebooks de entrenamiento: va después de las rutinas)
 if ENT:
     page(f'''
-{chap_head("05", 'Medí tu <span class="t">progreso</span>', "Medí tu cintura y, si querés, tu peso: antes de la primera rutina, en la semana 4 y al terminar la 8. La cintura muestra cambios que la balanza a veces no refleja." + (" Después del parto el cuerpo cambia a su ritmo: mirá la tendencia y cómo te sentís." if MAMA else ""))}
+{chap_head("05", 'Medí tu <span class="t">progreso</span>', "Medí tu cintura y, si querés, tu peso: <b>antes de la primera rutina, en la semana 4 y al terminar la 8</b>. La cintura muestra cambios que la balanza a veces no refleja." + (" Después del parto el cuerpo cambia a su ritmo: mirá la tendencia y cómo te sentís." if MAMA else ""))}
 <div class="meas">
 <figure><img src="img/medir_cintura.png" alt="Cómo medir el perímetro de cintura"></figure>
 <div>
@@ -853,7 +853,7 @@ if FULL:
     page(f'''
 {eyebrow("ORGANIZACIÓN SEMANAL")}
 <h1 class="h1">Semanas con <span class="t">menos tiempo</span></h1>
-<p class="lead">Si tu agenda no permite la propuesta completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.</p>
+<p class="lead">Si tu agenda no permite la propuesta completa, elegí una versión reducida. Hacer <b>menos, pero sostenido</b>, suma más que intentar todo y abandonar.</p>
 <table class="cal">
 <thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>
 <tbody>
@@ -932,7 +932,7 @@ SEMANA_TIPO = ["1","A","2","-","3","A","D"]
 if ENT:
     page(f'''
 {chap_head("01", 'Cómo se hace <span class="t">cada rutina</span>', "Leé esta hoja una vez y ya podés empezar.")}
-{'' if MAMA else '<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales se pierde músculo y hueso más rápido, y la fuerza es lo que más ayuda a cuidarlos y a sostener tu metabolismo.</p>'}
+{'' if MAMA else '<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales se pierde <b>músculo y hueso</b> más rápido, y <b>la fuerza</b> es lo que más ayuda a cuidarlos y a sostener tu metabolismo.</p>'}
 <div class="steps steps4">
   <div class="step"><span>1</span><b>Entrada en calor</b><p>{G("5 a 10 min", "10 a 15 min", "5 min, con respiración")}</p></div>
   <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
@@ -947,9 +947,9 @@ if ENT:
   <div><b>1–4</b><span>Muy fácil</span><p>Podrías seguir mucho tiempo.</p></div>
   <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>
   <div><b>9–10</b><span>Máximo</span><p>No podrías hacer una más.</p></div>
-</div>''' if MAMA else '<h3>Con qué esfuerzo y con qué peso</h3><p>Terminá cada vuelta sintiendo que podrías hacer 2 o 3 repeticiones más: un 6 a 7 de 10. ' + G('Elegí el peso', 'Elegí el peso de cada máquina') + ' con ese criterio desde la primera semana.</p>'}
+</div>''' if MAMA else '<h3>Con qué esfuerzo y con qué peso</h3><p>Terminá cada vuelta sintiendo que podrías hacer <b>2 o 3 repeticiones más</b>: un 6 a 7 de 10. ' + G('Elegí el peso', 'Elegí el peso de cada máquina') + ' con ese criterio desde la primera semana.</p>'}
 <h3>Cuándo subir de nivel</h3>
-<p>Cuando hacés 12 repeticiones en todas las vueltas con esfuerzo 7 o menos, dos sesiones seguidas: {G("pasá a la variante más difícil o sumá peso.", "subí una placa en la máquina o 1 kg en las mancuernas.", "pasá a la variante más difícil o sumá peso, siempre sin pérdidas ni pesadez.")} Si algo duele, volvé a la variante más fácil.</p>
+<p>Cuando hacés <b>12 repeticiones</b> en todas las vueltas con esfuerzo 7 o menos, <b>dos sesiones seguidas</b>: {G("pasá a la variante más difícil o sumá peso.", "subí una placa en la máquina o 1 kg en las mancuernas.", "pasá a la variante más difícil o sumá peso, siempre sin pérdidas ni pesadez.")} Si algo duele, volvé a la variante más fácil.</p>
 ''', pid="como")
 
     page(f'''
@@ -987,7 +987,7 @@ if ENT:
 
     # ---------------------------------------------------------- CAP 5 SEMANAS CON POCO TIEMPO
     page(f'''
-{chap_head("05", G('Semanas con <span class="t">poco tiempo</span>', 'Semanas con <span class="t">poco tiempo</span>', 'Días con poco tiempo <span class="t">(o poco sueño)</span>'), G("Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.", "Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer menos, pero sostenido, suma más que intentar todo y abandonar.", "Hay semanas con noches cortas, bebé enfermo o mil cosas. Elegí una versión reducida: hacer menos, pero sostenido, suma más que intentar todo y abandonar."))}
+{chap_head("05", G('Semanas con <span class="t">poco tiempo</span>', 'Semanas con <span class="t">poco tiempo</span>', 'Días con poco tiempo <span class="t">(o poco sueño)</span>'), G("Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer <b>menos, pero sostenido</b>, suma más que intentar todo y abandonar.", "Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer <b>menos, pero sostenido</b>, suma más que intentar todo y abandonar.", "Hay semanas con noches cortas, bebé enfermo o mil cosas. Elegí una versión reducida: hacer menos, pero sostenido, suma más que intentar todo y abandonar."))}
 <table class="cal">
 {DAYS_HEAD}
 <tbody>
