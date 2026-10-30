@@ -407,7 +407,7 @@ html{scroll-behavior:smooth}
   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol>
 </svg>
 
-<!-- BARRA DE OFERTA (fija) -->
+
 <div class="top">
   <div class="wrap">
     <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/logo.png" alt="RENOVA"/>
@@ -416,7 +416,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- HERO -->
+
 <div class="hero">
   <div class="wrap">
     <div>
@@ -441,7 +441,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- DOLORES -->
+
 <div class="sec dark">
   <div class="wrap">
     <h2 class="h2 rv">¿Te pasa <span class="b">esto?</span></h2>
@@ -457,7 +457,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- NO ES TU CULPA -->
+
 <div class="sec">
   <div class="wrap fault">
     <div class="rv">
@@ -479,7 +479,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- BENEFICIOS -->
+
 <div class="sec tint">
   <div class="wrap">
     <h2 class="h2 rv">Con RENOVA <span class="b">vas a lograr</span></h2>
@@ -496,7 +496,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- PRODUCTO + PRECIO -->
+
 <div class="sec" id="comprar">
   <div class="wrap offer">
     <div class="books rv">
@@ -542,7 +542,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- QUÉ INCLUYE -->
+
 <div class="sec gray" id="incluido">
   <div class="wrap">
     <h2 class="h2 rv">¿Qué <span class="b">incluye</span>?</h2>
@@ -586,7 +586,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- BONUS -->
+
 <div class="sec" id="bonus">
   <div class="wrap">
     <h2 class="h2 rv">4 bonus <span class="b">de regalo</span></h2>
@@ -613,7 +613,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- AUTOR -->
+
 <div class="sec tint">
   <div class="coach">
     <div class="rv"><div class="ring"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/nacho.jpg" alt="Nacho Portillo"/></div><p class="nm">Coach <span>Nacho Portillo</span></p></div>
@@ -627,7 +627,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- TESTIMONIOS -->
+
 <div class="sec gray" id="resultados">
   <div class="wrap">
     <h2 class="h2 rv">Conocé lo que <span class="b">lograron</span></h2>
@@ -655,7 +655,7 @@ html{scroll-behavior:smooth}
       </div>
     </div>
     <h3 class="msgs-t rv">Lo que nos escriben</h3>
-    <!-- Mensajes de clientas: para sumar uno, agregá otra <figure class="msg"> con la captura en img/. -->
+    
     <div class="msgs rv">
       <div class="msgs-track" id="msgs">
         <figure class="msg"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/msg_1.jpg" alt="Mensaje de Romi: comencé el gym hace 2 semanas y me siento bárbara en todos los deportes"/><figcaption>Romi · por WhatsApp</figcaption></figure>
@@ -668,7 +668,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- VALOR -->
+
 <div class="sec">
   <div class="wrap">
     <h2 class="h2 rv">Todo lo que <span class="b">te llevás</span></h2>
@@ -687,7 +687,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- GARANTÍA -->
+
 <div class="sec tint">
   <div class="wrap">
     <div class="guar rv">
@@ -702,7 +702,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- FAQ -->
+
 <div class="sec" id="preguntas">
   <div class="wrap">
     <h2 class="h2 rv">Preguntas <span class="b">frecuentes</span></h2>
@@ -721,7 +721,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- CTA FINAL -->
+
 <div class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="final rv">
@@ -736,7 +736,7 @@ html{scroll-behavior:smooth}
   </div>
 </div>
 
-<!-- PIE -->
+
 <div class="foot">
   <div class="wrap">
     <img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/041f19a4871ce2f45ed41269f55b66c9e4e8af8c/fuentes/landing/img/logo.png" alt="RENOVA"/>
@@ -750,66 +750,7 @@ html{scroll-behavior:smooth}
   <a class="btn" href="/checkout">Comprar</a>
 </div>
 
-<script>
-(function(){
-  var root = document.getElementById('rnv') || document.body;
-  root.classList.add('js');
-
-  // Aparición de las secciones
-  var els = root.querySelectorAll('.rv');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: .1 });
-    els.forEach(function(el){ io.observe(el); });
-  } else { els.forEach(function(el){ el.classList.add('in'); }); }
-
-  // Videos: se reproducen solo mientras se ven (ahorra datos en el celular)
-  var vids = root.querySelectorAll('video');
-  if ('IntersectionObserver' in window) {
-    var vo = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        var v = e.target;
-        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function(){}); } else v.pause();
-      });
-    }, { threshold: .3 });
-    vids.forEach(function(v){ vo.observe(v); });
-  }
-
-  // Upsell: si Impultienda no lo completó, no se muestra
-  var ups = document.getElementById('ups');
-  if (ups) {
-    var t = ups.querySelector('h4').textContent.trim();
-    if (!t || t.indexOf('{{') > -1) ups.style.display = 'none';
-  }
-
-  // Mensajes de clientas: pasan solos cada 4 s
-  var tr = document.getElementById('msgs'), dw = document.getElementById('msgs-dots');
-  if (tr) {
-    var ms = tr.children, k = 0, timer;
-    for (var j = 0; j < ms.length; j++) (function(j){
-      var d = document.createElement('button'); d.setAttribute('aria-label', 'Mensaje ' + (j + 1));
-      d.onclick = function(){ go(j); restart(); }; dw.appendChild(d);
-    })(j);
-    var go = function(n){
-      k = (n + ms.length) % ms.length;
-      tr.scrollTo({ left: ms[k].offsetLeft - (tr.clientWidth - ms[k].offsetWidth) / 2, behavior: 'smooth' });
-      [].forEach.call(dw.children, function(d, x){ d.classList.toggle('on', x === k); });
-    };
-    var restart = function(){ clearInterval(timer); timer = setInterval(function(){ go(k + 1); }, 4000); };
-    go(0); restart();
-    tr.addEventListener('touchstart', restart, { passive: true });
-  }
-
-  // Barra de compra en el celular: aparece después del 30% de la página y se esconde sobre la caja de precio
-  var bar = document.getElementById('mbar'), buy = document.querySelector('#comprar .card');
-  window.addEventListener('scroll', function(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    var b = buy.getBoundingClientRect();
-    bar.classList.toggle('show', h > 0 && window.scrollY / h > .3 && !(b.top < window.innerHeight && b.bottom > 0));
-  }, { passive: true });
-})();
-</script>
+<img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none" onload="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@b607b2be17afad0dc91a5fbd14135c5f0199491d/fuentes/landing/landing.js';document.body.appendChild(s);this.onload=null"/>
 </div>
 </body>
 </html>
