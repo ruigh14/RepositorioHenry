@@ -19,6 +19,11 @@
       const b = p.querySelector('.body');
       if (p.classList.contains('p-cover') || p.classList.contains('p-spread') || !over(b)) continue;
       if (b.children.length < 2) continue;
+
+      // Salvaguarda ejercicios RENOVA: nunca dividir bloques de 4 ejercicios o menos
+      const initialExs = b.querySelectorAll('.ex').length;
+      if (initialExs > 0 && initialExs <= 4) continue;
+
       const np = document.createElement('section');
       np.className = p.className; np.id = p.id + '-' + i;
       const h = p.querySelector('.hdr'), f = p.querySelector('.ftr');
@@ -29,6 +34,15 @@
       while (over(b) && b.children.length > 1) nb.prepend(b.lastElementChild);
       // no dejar títulos sueltos al pie
       while (b.children.length > 1 && /^(H1|H2|H3|SPAN)$/.test(b.lastElementChild.tagName)) nb.prepend(b.lastElementChild);
+
+      // Regla RENOVA: nunca puede quedar una página con 1 o 2 ejercicios (.ex)
+      const exP = b.querySelectorAll('.ex').length;
+      const exNP = nb.querySelectorAll('.ex').length;
+      if ((exP > 0 && exP < 3) || (exNP > 0 && exNP < 3)) {
+        while (nb.firstChild) b.appendChild(nb.firstChild);
+        np.remove();
+        continue;
+      }
     }
   }
   function space() {

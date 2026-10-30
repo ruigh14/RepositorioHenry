@@ -433,71 +433,71 @@ PLUS2 = {"Sentadilla en copa", "Estocada split", "Subida al banco", "Sentadilla 
 # Una oración de cuidados y errores frecuentes por ejercicio (casa y gimnasio; mamás todavía no).
 CUIDADOS = {
  # casa
- "Sentadilla en copa": "espalda derecha y rodillas que no se vayan hacia adentro.",
- "Estocada split": "tronco derecho y la rodilla de adelante sin irse hacia adentro.",
- "Flexiones de brazo": "cuerpo en línea, sin dejar caer la cadera.",
- "Puente a una pierna": "subí con el glúteo, sin arquear la zona lumbar.",
- "Remo inclinado con mochila": "espalda derecha, mirada al piso y hombros lejos de las orejas.",
- "Jumping jack": "aterrizá suave, con las rodillas apenas flexionadas.",
- "Plancha prona": "cadera alineada y respirá sin aguantar el aire.",
- "Crunch abdominal": "no tires del cuello: subí con el abdomen.",
- "Subida al banco": "pie completo en el escalón y rodilla sin irse hacia adentro.",
- "Mountain climber": "manos debajo de los hombros y cadera estable.",
- "Sentadilla con press de hombros": "abdomen firme, sin arquear la zona lumbar al subir los brazos.",
- "Abdominales bicicleta": "girá el tronco y no tires del cuello.",
- "Skipping en el lugar": "aterrizá suave y tronco derecho.",
- "Plancha alta dinámica": "pies separados para que la cadera no gire.",
- "Remo inclinado": "espalda derecha y codo pegado al cuerpo, sin girar el tronco.",
- "Estocada cruzada": "tronco derecho y la rodilla de adelante sin irse hacia adentro.",
- "Plancha lateral dinámica": "codo debajo del hombro y cuerpo en línea.",
- "Sentadilla sumo": "rodillas hacia las puntas de los pies y espalda derecha.",
- "Abdominales tijera": "si se despega la lumbar, subí las piernas.",
- "Peso muerto con mancuernas": "espalda derecha, mirada al piso y pesas cerca de las piernas.",
- "Bíceps con peso": "codos quietos, sin balancear el tronco.",
- "Plancha oso": "espalda plana y rodillas apenas despegadas.",
- "Vuelo posterior con peso": "espalda derecha, mirada al piso y hombros abajo.",
+ "Sentadilla en copa": "espalda derecha, rodillas alineadas.",
+ "Estocada split": "tronco erguido, rodilla alineada.",
+ "Flexiones de brazo": "cuerpo en línea, cadera firme.",
+ "Puente a una pierna": "subí con glúteo, sin arquear lumbar.",
+ "Remo inclinado con mochila": "espalda plana, hombros lejos de orejas.",
+ "Jumping jack": "aterrizá suave con rodillas flexionadas.",
+ "Plancha prona": "cadera alineada, respirá continuo.",
+ "Crunch abdominal": "subí con el abdomen, sin tirar del cuello.",
+ "Subida al banco": "pie completo en apoyo, rodilla firme.",
+ "Mountain climber": "manos bajo hombros, cadera estable.",
+ "Sentadilla con press de hombros": "abdomen firme, sin arquear lumbar al empujar.",
+ "Abdominales bicicleta": "girá el tronco, sin tirar del cuello.",
+ "Skipping en el lugar": "aterrizá suave con tronco erguido.",
+ "Plancha alta dinámica": "pies separados para estabilizar cadera.",
+ "Remo inclinado": "espalda plana, codo pegado al cuerpo.",
+ "Estocada cruzada": "tronco derecho, rodilla alineada.",
+ "Plancha lateral dinámica": "codo bajo hombro, cuerpo recto.",
+ "Sentadilla sumo": "rodillas hacia las puntas, torso erguido.",
+ "Abdominales tijera": "lumbar pegada al piso; si molesta, elevá piernas.",
+ "Peso muerto con mancuernas": "espalda recta, pesas pegadas a piernas.",
+ "Bíceps con peso": "codos fijos, sin balancear el cuerpo.",
+ "Plancha oso": "espalda plana, rodillas apenas despegadas.",
+ "Vuelo posterior con peso": "espalda plana, juntá omóplatos.",
  # gimnasio
- "Prensa": "la zona lumbar siempre apoyada en el respaldo y sin bloquear las rodillas al estirar.",
- "Press de pecho en máquina": "hombros abajo y atrás, apoyados en el respaldo; no bloquees los codos.",
- "Extensión de cuádriceps": "subí y bajá lento, sin impulso ni golpes con la pila de placas.",
- "Remo en máquina": "pecho apoyado y hombros lejos de las orejas; tirá con los codos.",
- "Curl de isquiotibiales sentada": "rodillas alineadas con el eje de la máquina y sin despegar la cadera del asiento.",
- "Elevaciones laterales sentada": "subí solo hasta la altura de los hombros, sin encogerlos ni balancear el tronco.",
- "Bicho muerto con disco": "la zona lumbar siempre pegada al piso; si se despega, bajá menos las piernas.",
- "Jalón al pecho": "bajá la barra al pecho, nunca detrás de la nuca, sin echarte hacia atrás.",
- "Aductores en máquina": "movimiento lento y con control al abrir, sin forzar más de lo cómodo.",
- "Plancha lateral": "codo debajo del hombro y cadera alta: el cuerpo en línea.",
- "Estocada split con mancuernas": "tronco derecho y que la rodilla de adelante no se vaya hacia adentro.",
- "Apertura de pecho en máquina": "codos apenas flexionados y fijos; no abras más atrás de la línea del cuerpo.",
- "Extensión de tríceps con soga": "codos pegados al cuerpo y quietos: solo se mueven los antebrazos.",
- "Remo bajo en polea": "espalda derecha, sin balancear el tronco hacia atrás para tirar.",
- "Hip thrust": "mentón levemente hacia el pecho y subí con el glúteo, sin arquear la zona lumbar.",
- "Bird dog": "espalda quieta: que la cadera no gire al estirar la pierna.",
- "Press de hombros en máquina": "espalda apoyada y sin arquear la zona lumbar al empujar.",
- "Abducción en máquina": "abrí con control y volvé lento, sin dejar que la máquina te cierre las piernas.",
- "Bíceps con mancuernas": "codos quietos, sin balancear el tronco.",
- "Face pull": "tirá hacia la cara con los codos altos, sin echar el tronco hacia atrás.",
+ "Prensa": "lumbar apoyada, sin trabar rodillas.",
+ "Press de pecho en máquina": "hombros apoyados, sin bloquear codos.",
+ "Extensión de cuádriceps": "movimiento fluido sin golpear placas.",
+ "Remo en máquina": "pecho apoyado, tirá llevando codos atrás.",
+ "Curl de isquiotibiales sentada": "rodillas en eje, cadera en asiento.",
+ "Elevaciones laterales sentada": "subí hasta hombros sin balancear.",
+ "Bicho muerto con disco": "lumbar pegada al piso en todo momento.",
+ "Jalón al pecho": "barra al pecho alto, torso estable.",
+ "Aductores en máquina": "apertura controlada sin tirones.",
+ "Plancha lateral": "codo bajo hombro, cadera elevada.",
+ "Estocada split con mancuernas": "tronco vertical, rodilla alineada.",
+ "Apertura de pecho en máquina": "codos semiflexionados, sin forzar atrás.",
+ "Extensión de tríceps con soga": "codos fijos a costados, empujá abajo.",
+ "Remo bajo en polea": "espalda derecha, sin tironear con el tronco.",
+ "Hip thrust": "mentón al pecho, empujá con talones.",
+ "Bird dog": "espalda quieta, cadera sin rotar.",
+ "Press de hombros en máquina": "espalda apoyada, sin arquear lumbar.",
+ "Abducción en máquina": "apertura firme y regreso pausado.",
+ "Bíceps con mancuernas": "codos quietos a los costados.",
+ "Face pull": "codos altos hacia la cara.",
  # zona media
- "Bicho muerto alternado": "la zona lumbar pegada al piso todo el tiempo; si se despega, achicá el movimiento.",
- "Plancha": "cadera alineada y respirá sin aguantar el aire.",
- "Abdominales cruzados": "no tires del cuello con las manos: girá desde el tronco.",
+ "Bicho muerto alternado": "lumbar pegada al piso todo el tiempo.",
+ "Plancha": "cadera alineada, respirá continuo.",
+ "Abdominales cruzados": "rotá el torso sin tirar del cuello.",
  # bonus pausa activa
- "Estiramiento del cuello": "hombros abajo y sin tirones: solo el peso de la mano.",
- "Circunducción de hombro": "círculos lentos y amplios, sin encoger los hombros.",
- "Estiramiento de hombro a un brazo": "el hombro que estirás, abajo y lejos de la oreja.",
- "Rotaciones de tronco": "la cadera quieta: gira solo el tronco.",
- "Estiramiento pectoral en pared": "girá suave, sin forzar el hombro.",
- "Sentadilla a la silla": "espalda derecha y rodillas que no se vayan hacia adentro.",
- "Elevación de talones": "subí y bajá lento, sin balancearte.",
- "Abducción de cadera de pie": "tronco derecho: que no se incline hacia el costado.",
- "Sentadilla lateral sin peso": "la rodilla que se flexiona, en dirección a la punta del pie.",
- "Marcha en el lugar": "tronco derecho y abdomen firme.",
- "Círculos de cadera": "tronco quieto: se mueve solo la cadera.",
- "Balanceo de pierna frontal": "espalda derecha, sin forzar la altura.",
- "Flexiones de brazos inclinadas": "cuerpo en línea, sin dejar caer la cadera.",
- "Jumping jacks sin salto": "paso suave y brazos hasta donde estés cómoda.",
- "Sentadilla sumo sin peso": "rodillas hacia las puntas de los pies y espalda derecha.",
- "Estocada con apoyo": "tronco derecho y la rodilla de adelante sin irse hacia adentro.",
+ "Estiramiento del cuello": "hombros abajo, sin tirones.",
+ "Circunducción de hombro": "círculos lentos y amplios.",
+ "Estiramiento de hombro a un brazo": "hombro abajo y relajado.",
+ "Rotaciones de tronco": "cadera fija, girá solo el tronco.",
+ "Estiramiento pectoral en pared": "giro suave sin forzar hombro.",
+ "Sentadilla a la silla": "espalda derecha, rodillas alineadas.",
+ "Elevación de talones": "subida y bajada controladas.",
+ "Abducción de cadera de pie": "tronco derecho sin inclinarte.",
+ "Sentadilla lateral sin peso": "rodilla hacia la punta del pie.",
+ "Marcha en el lugar": "tronco erguido, braceo coordinado.",
+ "Círculos de cadera": "tronco quieto, abrí con cadera.",
+ "Balanceo de pierna frontal": "espalda derecha sin forzar altura.",
+ "Flexiones de brazos inclinadas": "cuerpo en línea recta.",
+ "Jumping jacks sin salto": "paso suave y brazos controlados.",
+ "Sentadilla sumo sin peso": "rodillas a las puntas, torso alto.",
+ "Estocada con apoyo": "tronco vertical, rodilla alineada.",
 }
 
 def ex_card(img, name, dose, how, easy=None, easy_label="Más fácil", row=False, cuida=True):
@@ -556,10 +556,11 @@ if MAMA:
     page(f'''
 {eyebrow("ANTES DE EMPEZAR")}
 <h1 class="h1">Tu base: <span class="t">respiración y piso pélvico</span></h1>
-<p class="lead">Son dos ejercicios cortos que vas a hacer todos los días (3 a 5 minutos) y al principio de cada rutina. Te ayudan a que el abdomen y el piso pélvico vuelvan a trabajar juntos.</p>
-{ex_card("mama_respiracion.png", "Respiración 360°", "5 respiraciones", "Boca arriba con las rodillas flexionadas y las manos en las costillas. Inhalá por la nariz y sentí cómo se abren las costillas hacia los costados. Exhalá lento por la boca, como soplando una vela: la panza baja y el piso pélvico sube suavemente.", "sentada en una silla, con la espalda apoyada.", row=True)}
-{ex_card("mama_pisopelvico.png", "Activación de piso pélvico", "8–10 · sostené 3–5 s", "Sentada con la espalda derecha. Al exhalar, apretá y elevá el piso pélvico, como si quisieras retener un gas, sin apretar los glúteos ni aguantar el aire. Sostené y soltá del todo al inhalar.", "sostené 2 segundos y hacé menos repeticiones.", row=True)}
-{box("<b>La regla de oro: exhalá al hacer fuerza.</b> En cada ejercicio, soltá el aire en la parte más difícil (al subir de la sentadilla, al levantar la cadera, al empujar). Y también en tu día: al levantar al bebé, el huevito o las bolsas.", "soft")}
+<p class="lead">Tres ejercicios esenciales para hacer todos los días (3 a 5 min) y al inicio de cada sesión. Conectan respiración, abdomen y piso pélvico.</p>
+{ex_card("mama_respiracion.png", "Respiración 360°", "5 respiraciones", "Boca arriba con rodillas flexionadas y manos en costillas. Inhalá abriendo costillas; exhalá soplando lento: abdomen baja y piso pélvico sube.", "sentada con espalda apoyada.", row=True)}
+{ex_card("mama_pisopelvico.png", "Activación de piso pélvico", "8–10 · sostené 3–5 s", "Sentada erguida. Al exhalar, elevá el piso pélvico sin apretar glúteos ni cortar el aire. Sostené y soltá del todo al inhalar.", "sostené 2 s y hacé menos repeticiones.", row=True)}
+{ex_card("calor_5.png", "Puente con exhalación", "8–10 repeticiones", "Boca arriba con rodillas flexionadas. Exhalá activando el piso pélvico y elevá cadera con glúteos; inhalá bajando lento con control.", "elevá la cadera solo unos centímetros.", row=True)}
+{box("<b>Regla de oro: exhalá al hacer fuerza.</b> En cada ejercicio, soltá el aire en la parte más difícil (al subir de la sentadilla, empujar o levantar peso).", "soft")}
 ''', chapter="02 · Antes de empezar", pid="base-mama")
 
 def routine(eyebrow_t, title_html, prm, note, cards, end_box, pid):
@@ -573,20 +574,20 @@ def routine(eyebrow_t, title_html, prm, note, cards, end_box, pid):
 """, chapter=NE + " · Entrenamiento", pid=pid)
 
 CALOR = [
- ("calor_1.png","Movilidad de brazos","10–12","De pie, llevá los brazos hacia arriba y luego en círculos amplios, hacia adelante y hacia atrás. Podés sostener un bastón o un palo de escoba.","solo hacia adelante y con menor amplitud."),
- ("calor_2.png","Abducción de pierna","10–12 por lado","Apoyada en el respaldo de una silla, separá una pierna hacia el costado sin inclinar el tronco y volvé con control.","menor apertura, sin apuro."),
- ("calor_3.png","Sentadilla lateral","10–12 por lado","Con los pies bien separados, llevá el peso a una pierna flexionando la rodilla y dejá la otra estirada. Volvé al centro y cambiá de lado.","menos profundidad y con apoyo en una silla."),
- ("calor_4.png","Movilidad de cadera acostada","10–12 por lado","Acostada de costado con las rodillas flexionadas, abrí y cerrá la rodilla de arriba sin despegar los pies.","menor apertura de la rodilla."),
- ("calor_5.png","Elevación de cadera","10–12","Boca arriba con las rodillas flexionadas, apretá los glúteos y elevá la cadera hasta alinear rodillas, cadera y hombros. Bajá lento.","subí menos la cadera."),
- ("calor_6.png","Bird dog","10–12 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria, sostené un segundo y volvé. Mantené la espalda quieta.","mové solo el brazo o solo la pierna."),
+ ("calor_1.png","Movilidad de brazos","10–12","De pie, elevá brazos y hacé círculos amplios hacia adelante y atrás. Podés usar un bastón.","círculos hacia adelante con menor amplitud."),
+ ("calor_2.png","Abducción de pierna","10–12 por lado","Apoyada en una silla, separá la pierna al costado sin inclinar el tronco y volvé con control.","menor apertura lateral."),
+ ("calor_3.png","Sentadilla lateral","10–12 por lado","Pies separados. Llevá peso a una pierna flexionando rodilla con la otra estirada; alterná.","menos profundidad y apoyo en silla."),
+ ("calor_4.png","Movilidad de cadera acostada","10–12 por lado","De costado con rodillas flexionadas, abrí y cerrá la rodilla superior sin separar pies.","menor apertura de rodilla."),
+ ("calor_5.png","Elevación de cadera","10–12","Boca arriba con rodillas flexionadas, elevá la cadera apretando glúteos y bajá lento.","subí menos la cadera."),
+ ("calor_6.png","Bird dog","10–12 por lado","En cuatro apoyos, estirá brazo y pierna contraria en línea recta. Sostené 1 s y volvé.","mové solo brazo o pierna."),
 ]
 
 CALOR_EXTRA = {
- "gato": ("calor_gatovaca.png","Gato-vaca","8–10","En cuatro apoyos, redondeá la espalda al exhalar llevando el mentón al pecho y arqueala suavemente al inhalar."),
- "apertura": ("calor_apertura.png","Apertura de tren superior","8 por lado","En cuatro apoyos, con una mano detrás de la cabeza. Llevá el codo hacia abajo y después girá abriendo el pecho hacia el techo."),
- "psoas": ("calor_psoas.png","Psoas dinámico","8 por lado","Con una rodilla en el piso y la otra pierna adelante, llevá la cadera hacia adelante. Podés subir los brazos."),
- "circ": ("calor_circcadera.png","Circunducción de cadera","8 por lado","De pie y tomada de una silla, subí una rodilla al frente y dibujá un círculo hacia afuera abriendo la cadera, sin mover el tronco."),
- "balanceo": ("calor_balanceo.png","Balanceo de pierna","10 por lado","De pie y tomada de una pared, balanceá una pierna estirada hacia adelante y hacia atrás, con la espalda derecha y sin forzar."),
+ "gato": ("calor_gatovaca.png","Gato-vaca","8–10","En cuatro apoyos, redondeá espalda al exhalar con mentón al pecho y arqueala suave al inhalar."),
+ "apertura": ("calor_apertura.png","Apertura de tren superior","8 por lado","En cuatro apoyos, mano a la nuca. Llevá codo abajo y girá abriendo el pecho al techo."),
+ "psoas": ("calor_psoas.png","Psoas dinámico","8 por lado","Una rodilla en piso y otra pierna adelante. Llevá cadera al frente con torso erguido."),
+ "circ": ("calor_circcadera.png","Circunducción de cadera","8 por lado","De pie con apoyo, subí rodilla al frente y dibujá un círculo amplio hacia afuera."),
+ "balanceo": ("calor_balanceo.png","Balanceo de pierna","10 por lado","De pie con apoyo en pared, balanceá la pierna estirada adelante y atrás con espalda recta."),
 }
 C = {c[1]: c[:4] for c in CALOR}
 CALOR_R = {
@@ -597,34 +598,34 @@ CALOR_R = {
 
 RUT = {
 "1": dict(title="Rutina 1", note="Las planchas: 15–20 s.", ex=[
- ("r1_1.png","Sentadilla en copa","10–12","Pies al ancho de los hombros y el peso sostenido contra el pecho. Llevá la cadera hacia atrás y abajo con el pecho alto; subí empujando el piso.","sentadilla hacia una silla: tocá el asiento y subí, sin peso."),
- ("r1_2.png","Estocada split","10–12 por pierna","Un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen un ángulo cercano a 90° y volvé a subir.","subida a un escalón bajo, sosteniéndote de una pared."),
- ("r1_3.png","Flexiones de brazo","8–12","Manos debajo de los hombros y el cuerpo alineado. Bajá el pecho hacia el piso con los codos a unos 45° y empujá para subir.","con las rodillas apoyadas o con las manos sobre una mesa firme o una pared."),
- ("r1_4.png","Puente a una pierna","10–12 por lado","Boca arriba, un pie apoyado y la otra pierna elevada. Subí la cadera apretando el glúteo y bajá lento.","puente con los dos pies apoyados."),
- ("remo_mochila.png","Remo inclinado con mochila","10–12","De pie, con las rodillas apenas flexionadas y el tronco inclinado hacia adelante con la espalda recta. Tirá de una mochila pesada (o de dos mancuernas) hacia el abdomen llevando los codos hacia atrás, y bajá lento.","con menos peso en la mochila o con botellas de agua."),
- ("r1_6.png","Jumping jack","10–12","Saltá abriendo piernas y brazos a la vez y volvé a cerrar. Aterrizá suave.","sin salto: paso lateral alternado, abriendo los brazos."),
- ("r1_7.png","Plancha prona","15–20 s","Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera.","con las rodillas apoyadas."),
- ("r1_8.png","Crunch abdominal","10–12","Boca arriba con las rodillas flexionadas, despegá los hombros del piso llevando las costillas hacia la cadera. Sin tirar del cuello.","bicho muerto: boca arriba, moviendo brazos y piernas sin despegar la espalda del piso."),
+ ("r1_1.png","Sentadilla en copa","10–12","Pies al ancho de hombros, peso al pecho. Bajá con cadera atrás y pecho alto; subí empujando el piso.","sentadilla a una silla sin peso."),
+ ("r1_2.png","Estocada split","10–12 por pierna","Un pie adelante y otro atrás. Bajá en vertical hasta formar 90° con ambas rodillas y volvé a subir.","subida a escalón bajo con apoyo."),
+ ("r1_3.png","Flexiones de brazo","8–12","Cuerpo alineado, manos bajo hombros. Bajá el pecho a 45° de codos y empujá firme para subir.","con rodillas apoyadas o en pared/mesa."),
+ ("r1_4.png","Puente a una pierna","10–12 por lado","Boca arriba, un pie apoyado y otra pierna arriba. Elevá cadera apretando glúteos y bajá lento.","puente con ambos pies apoyados."),
+ ("remo_mochila.png","Remo inclinado con mochila","10–12","Tronco inclinado adelante con espalda recta. Tirá de la mochila o pesas hacia el abdomen y bajá lento.","con menos peso o botellas."),
+ ("r1_6.png","Jumping jack","10–12","Saltá abriendo piernas y brazos a la vez y cerrá al volver. Aterrizá suave sobre metatarsos.","sin salto: paso lateral con brazos."),
+ ("r1_7.png","Plancha prona","15–20 s","Antebrazos y puntas apoyadas, cuerpo alineado. Apretá abdomen y glúteos sin arquear la cintura.","con rodillas apoyadas."),
+ ("r1_8.png","Crunch abdominal","10–12","Boca arriba con rodillas flexionadas. Despegá hombros llevando costillas a cadera, sin tirar del cuello.","bicho muerto en el piso."),
 ]),
 "2": dict(title="Rutina 2", note="Mountain climber, skipping y plancha: 15–20 s.", ex=[
- ("r2_1.png","Subida al banco","10–12 por pierna","Apoyá un pie completo en un escalón o banco firme y subí empujando con esa pierna. Bajá con control.","escalón más bajo y sosteniéndote de una pared."),
- ("r2_2.png","Mountain climber","15–20 s","En plancha alta, llevá las rodillas hacia el pecho de forma alternada, manteniendo la cadera estable.","lento y sin saltar: llevá una rodilla por vez."),
- ("r2_3.png","Sentadilla con press de hombros","10–12","Con un peso en cada mano a la altura de los hombros, hacé una sentadilla y, al subir, empujá los pesos por encima de la cabeza.","sentadilla con botellas, sin el press."),
- ("r2_4.png","Abdominales bicicleta","10–12 por lado","Boca arriba, acercá un codo a la rodilla contraria mientras estirás la otra pierna. Alterná sin apuro.","abdominales cruzados, con los pies apoyados en el piso."),
- ("r1_2.png","Estocada split","10–12 por pierna","Un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen un ángulo cercano a 90° y volvé a subir.","subida a un escalón bajo, sosteniéndote de una pared."),
- ("r2_6.png","Skipping en el lugar","15–20 s","Corré en el lugar elevando las rodillas y acompañando con los brazos.","marcha en el lugar elevando las rodillas, sin salto."),
- ("r2_7.png","Plancha alta dinámica","15–20 s","Desde plancha alta, tocá el hombro contrario con una mano y alterná, sin rotar la cadera.","plancha alta quieta, sin tocar los hombros."),
- ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre un banco o silla. Con la espalda recta, tirá del peso hacia la cadera y bajá lento.","nados: boca abajo, elevá brazos y pecho, sin peso."),
+ ("r2_1.png","Subida al banco","10–12 por pierna","Pie completo en escalón firme. Subí empujando con esa pierna y bajá con control.","escalón bajo con apoyo de pared."),
+ ("r2_2.png","Mountain climber","15–20 s","En plancha alta, llevá rodillas al pecho de forma alternada manteniendo la cadera firme.","lento, llevando una rodilla por vez."),
+ ("r2_3.png","Sentadilla con press de hombros","10–12","Pesas a hombros. Hacé sentadilla y, al pararte, empujá los pesos sobre la cabeza con control.","sentadilla con botellas, sin press."),
+ ("r2_4.png","Abdominales bicicleta","10–12 por lado","Boca arriba, acercá el codo a la rodilla contraria estirando la otra pierna. Alterná fluido.","abdominales cruzados con pies apoyados."),
+ ("r1_2.png","Estocada split","10–12 por pierna","Un pie adelante y otro atrás. Bajá en vertical a 90° y subí empujando con la pierna delantera.","escalón bajo con apoyo de pared."),
+ ("r2_6.png","Skipping en el lugar","15–20 s","Corré en el lugar elevando rodillas con braceo coordinado. Aterrizá suave.","marcha en el lugar sin salto."),
+ ("r2_7.png","Plancha alta dinámica","15–20 s","Desde plancha alta, tocá el hombro contrario alternando manos, sin girar la cadera.","plancha alta sostenida fija."),
+ ("r2_8.png","Remo inclinado","10–12 por brazo","Mano y rodilla en una silla, espalda recta. Tirá del peso hacia la cadera y bajá lento.","nados boca abajo sin peso."),
 ]),
 "3": dict(title="Rutina 3", note="Abdominales tijera y plancha oso: 15–20 s.", ex=[
- ("r3_1.png","Estocada cruzada","10–12 por pierna","Llevá una pierna en diagonal hacia atrás, por detrás de la otra, y bajá con el tronco erguido. Volvé al centro.","estocada split, sin cruzar la pierna."),
- ("r3_2.png","Plancha lateral dinámica","10–12 por lado","Apoyada sobre un antebrazo, con el cuerpo de costado, bajá la cadera hacia el piso y subila apretando el lateral del abdomen.","plancha lateral quieta, con las rodillas apoyadas."),
- ("r3_3.png","Sentadilla sumo","10–12","Pies bien separados y puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí apretando glúteos.","sin peso y con menos profundidad."),
- ("r3_4.png","Abdominales tijera","15–20 s","Boca arriba, manos debajo de los glúteos y piernas estiradas a unos 15 cm del piso. Cruzá los pies en movimientos cortos.","bicho muerto, moviendo solo las piernas."),
- ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y una mancuerna en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas por delante de las piernas y volvé apretando los glúteos.","con un palo de escoba, sin peso, para aprender el movimiento."),
- ("r3_6.png","Bíceps con peso","10–12","De pie, codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","con botellas de agua."),
- ("r3_7.png","Plancha oso","15–20 s","En cuatro apoyos, elevá las rodillas unos centímetros del piso y sostené con la espalda plana.","bird dog: en cuatro apoyos, sin despegar las rodillas."),
- ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados llevando los omóplatos hacia atrás.","nados: boca abajo y sin peso, elevá brazos y pecho juntando los omóplatos."),
+ ("r3_1.png","Estocada cruzada","10–12 por pierna","Llevá una pierna en diagonal atrás y bajá erguida flexionando ambas rodillas. Volvé al centro.","estocada split sin cruzar pierna."),
+ ("r3_2.png","Plancha lateral dinámica","10–12 por lado","De costado sobre el antebrazo. Bajá la cadera hacia el piso y elevala apretando el lateral.","plancha lateral fija con rodillas."),
+ ("r3_3.png","Sentadilla sumo","10–12","Pies separados y puntas hacia afuera. Bajá con torso erguido y subí apretando glúteos.","sin peso y con menor profundidad."),
+ ("r3_4.png","Abdominales tijera","15–20 s","Boca arriba con manos bajo glúteos y piernas bajas. Cruzá los pies en tijera sin arquear lumbar.","bicho muerto con piernas."),
+ ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies ancho de cadera, pesas en mano. Llevá cadera atrás con espalda recta y subí con glúteos.","con palo de escoba sin carga."),
+ ("r3_6.png","Bíceps con peso","10–12","De pie con codos fijos a costados. Flexioná subiendo peso a hombros y bajá con control.","con botellas de agua livianas."),
+ ("r3_7.png","Plancha oso","15–20 s","En cuatro apoyos, despegá rodillas a 3 cm del piso y sostené con espalda plana y abdomen firme.","bird dog en cuatro apoyos."),
+ ("r3_8.png","Vuelo posterior con peso","10–12","Tronco inclinado adelante con espalda recta. Abrí brazos a los lados juntando omóplatos.","nados boca abajo sin carga."),
 ]),
 }
 
@@ -664,44 +665,44 @@ if GYM:
      "Crunch abdominal": "Colchoneta", "Bird dog": "Colchoneta", "Movilidad de brazos": "Propio cuerpo",
      "Circunducción de cadera": "Máquina o pared",
     })
-    CINTA = ("gym_cinta.png","Cinta, bici o elíptica","5–10 min","Empezá con aeróbico suave: caminata rápida en la cinta, bicicleta o elíptica. Tenés que poder hablar sin agitarte.")
+    CINTA = ("gym_cinta.png","Cinta, bici o elíptica","5–10 min","Aeróbico suave en cinta o bicicleta. Mantené un ritmo continuo que te permita hablar.")
     CALOR_R = {
-     "1": [CINTA, C["Movilidad de brazos"], CALOR_EXTRA["apertura"], C["Movilidad de cadera acostada"], CALOR_EXTRA["psoas"]],
-     "2": [CINTA, CALOR_EXTRA["gato"], C["Movilidad de cadera acostada"], CALOR_EXTRA["psoas"], C["Elevación de cadera"]],
+     "1": [CINTA, C["Movilidad de brazos"], CALOR_EXTRA["apertura"], C["Movilidad de cadera acostada"], CALOR_EXTRA["psoas"], C["Bird dog"]],
+     "2": [CINTA, CALOR_EXTRA["gato"], C["Movilidad de cadera acostada"], CALOR_EXTRA["psoas"], C["Elevación de cadera"], C["Movilidad de brazos"]],
      "3": [CINTA, C["Movilidad de brazos"], CALOR_EXTRA["gato"],
-           CALOR_EXTRA["circ"][:3] + ("De pie y tomada de una máquina o una pared, subí una rodilla al frente y dibujá un círculo hacia afuera abriendo la cadera, sin mover el tronco.",),
-           C["Sentadilla lateral"]],
+           CALOR_EXTRA["circ"][:3] + ("De pie y tomada de una máquina o pared, subí una rodilla y hacé un círculo hacia afuera.",),
+           C["Sentadilla lateral"], C["Elevación de cadera"]],
     }
     RUT = {
     "1": dict(title="Rutina 1", note="La plancha: 15–20 s.", ex=[
-     ("gym_prensa.png","Prensa","10–12","Sentada con la espalda bien apoyada y los pies al ancho de la cadera en la plataforma. Bajá flexionando las rodillas hasta unos 90° y empujá sin bloquear las rodillas.","menos peso y menos recorrido."),
-     ("gym_presspecho.png","Press de pecho en máquina","10–12","Regulá el asiento para que las manijas queden a la altura del pecho. Empujá hacia adelante sin bloquear los codos y volvé lento.","menos peso y recorrido más corto."),
-     ("gym_extcuad.png","Extensión de cuádriceps","12","Sentada con la espalda apoyada y el rodillo sobre los tobillos. Estirá las piernas, sostené un segundo arriba y bajá lento.","menos peso, sin sostener arriba."),
-     ("r1_7.png","Plancha prona","15–20 s","Antebrazos y puntas de pie apoyados, el cuerpo en línea recta. Apretá abdomen y glúteos sin dejar caer la cadera.","con las rodillas apoyadas."),
-     ("gym_remomaq.png","Remo en máquina","10–12","Pecho apoyado en el respaldo y manijas con agarre neutro. Tirá llevando los codos hacia atrás, pegados al cuerpo, juntá los omóplatos y volvé lento.","menos peso y recorrido más corto."),
-     ("gym_curlisq.png","Curl de isquiotibiales sentada","12","Regulá la máquina para que las rodillas queden al borde del asiento. Flexioná las rodillas llevando el rodillo hacia abajo y volvé lento.","menos peso, o puente de glúteos en la colchoneta."),
-     ("gym_vuelolat.png","Elevaciones laterales sentada","10–12","Sentada en un banco, con una mancuerna en cada mano. Elevá los brazos hacia los costados hasta la altura de los hombros, con los codos apenas flexionados, y bajá lento.","mancuernas de 1 kg o sin peso."),
-     ("gym_bichodisco.png","Bicho muerto con disco","8–10","Boca arriba, con un disco sostenido con los brazos hacia el techo y las rodillas a 90°. Bajá brazos y piernas hacia el piso y volvé.","sin disco, alternando un brazo y la pierna contraria."),
+     ("gym_prensa.png","Prensa","10–12","Espalda apoyada y pies al ancho de cadera. Bajá a 90° y empujá sin bloquear rodillas.","menos peso y menos recorrido."),
+     ("gym_presspecho.png","Press de pecho en máquina","10–12","Asiento a la altura del pecho. Empujá adelante sin trabar codos y volvé lento.","menos peso y recorrido corto."),
+     ("gym_extcuad.png","Extensión de cuádriceps","12","Sentada con rodillo sobre tobillos. Estirá piernas, pausá 1 s arriba y bajá lento.","menos peso, bajando controlado."),
+     ("r1_7.png","Plancha prona","15–20 s","Antebrazos y puntas apoyadas, cuerpo alineado. Apretá abdomen y glúteos firme.","con rodillas apoyadas."),
+     ("gym_remomaq.png","Remo en máquina","10–12","Pecho apoyado, agarre neutro. Tirá codos atrás juntando omóplatos y volvé lento.","menos peso y menor recorrido."),
+     ("gym_curlisq.png","Curl de isquiotibiales sentada","12","Rodillas al borde del asiento. Flexioná bajando el rodillo y volvé con control.","menos peso o puente en piso."),
+     ("gym_vuelolat.png","Elevaciones laterales sentada","10–12","Sentada con mancuernas. Elevá brazos a los lados hasta hombros y bajá lento.","mancuernas de 1 kg o sin peso."),
+     ("gym_bichodisco.png","Bicho muerto con disco","8–10","Boca arriba con disco al techo y rodillas a 90°. Bajá extremidades con lumbar pegada.","sin disco, alternando lados."),
     ]),
     "2": dict(title="Rutina 2", note="Plancha lateral: 15–20 s por lado.", ex=[
-     ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y una mancuerna en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas por delante de las piernas y volvé apretando los glúteos.","con una barra sin peso o un palo, para aprender el movimiento."),
-     ("gym_jalon.png","Jalón al pecho","10–12","Sentada, con las piernas trabadas debajo del apoyo. Tomá la barra más ancha que los hombros y bajala hacia la parte alta del pecho con la espalda recta. Subí lento.","menos peso y agarre más cerrado."),
-     ("gym_aductores.png","Aductores en máquina","12","Espalda apoyada y piernas abiertas en los apoyos. Cerrá las piernas apretando el interior de los muslos, sostené un segundo y abrí lento.","menos peso y menos apertura."),
-     ("r3_2.png","Plancha lateral","15–20 s por lado","De costado, apoyada en el antebrazo con el codo debajo del hombro. Elevá la cadera y sostené el cuerpo alineado.","con las rodillas flexionadas y apoyadas."),
-     ("r1_2.png","Estocada split con mancuernas","10 por pierna","Una mancuerna en cada mano, un pie adelante y otro atrás. Bajá en vertical hasta que ambas rodillas formen unos 90° y subí empujando con la pierna de adelante.","sin mancuernas y sosteniéndote de una máquina."),
-     ("gym_apertura.png","Apertura de pecho en máquina","12","Sentada con la espalda apoyada y los brazos abiertos en las manijas. Juntá los brazos por delante del pecho, con los codos apenas flexionados, y abrí lento.","menos peso y menos apertura."),
-     ("gym_triceps.png","Extensión de tríceps con soga","12","De frente a la polea alta, con los codos pegados al cuerpo. Empujá la soga hacia abajo hasta estirar los brazos y volvé lento sin despegar los codos.","menos peso y menos recorrido."),
-     ("r1_8.png","Crunch abdominal","10–12","Boca arriba con las rodillas flexionadas, despegá los hombros del piso llevando las costillas hacia la cadera. Sin tirar del cuello.","bicho muerto: boca arriba, moviendo brazos y piernas sin despegar la espalda del piso."),
+     ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies ancho de cadera. Llevá cadera atrás con espalda recta, bajá mancuernas y subí con glúteos.","con barra sin peso o palo."),
+     ("gym_jalon.png","Jalón al pecho","10–12","Piernas trabadas y agarre ancho. Bajá barra al pecho alto con torso erguido; subí lento.","menos peso y agarre cerrado."),
+     ("gym_aductores.png","Aductores en máquina","12","Piernas en apoyos. Cerrá apretando cara interna, pausá 1 s y abrí despacio.","menos peso y menor apertura."),
+     ("r3_2.png","Plancha lateral","15–20 s por lado","De costado sobre antebrazo con codo bajo hombro. Elevá cadera y sostené cuerpo recto.","con rodillas apoyadas."),
+     ("r1_2.png","Estocada split con mancuernas","10 por pierna","Mancuernas en mano, un pie adelante y otro atrás. Bajá a 90° y empujá con talón frontal.","sin mancuernas y con apoyo."),
+     ("gym_apertura.png","Apertura de pecho en máquina","12","Espalda apoyada y brazos abiertos. Juntá brazos al frente con codos semiflexionados y abrí lento.","menos peso y menor apertura."),
+     ("gym_triceps.png","Extensión de tríceps con soga","12","Frente a polea alta con codos fijos. Empujá la soga abajo abriendo al final y volvé lento.","menos peso y recorrido corto."),
+     ("r1_8.png","Crunch abdominal","10–12","Boca arriba con rodillas flexionadas. Despegá hombros llevando costillas a cadera sin tirar del cuello.","bicho muerto en colchoneta."),
     ]),
     "3": dict(title="Rutina 3", note="Bird dog: sostené 2 s en cada repetición.", ex=[
-     ("r1_1.png","Sentadilla en copa","10–12","Pies al ancho de los hombros y la mancuerna sostenida contra el pecho. Llevá la cadera hacia atrás y abajo con el pecho alto; subí empujando el piso.","sentadilla a un banco: tocá el asiento y subí, sin peso."),
-     ("gym_remopolea.png","Remo bajo en polea","10–12","Sentada con los pies en la plataforma y las rodillas apenas flexionadas. Con la espalda recta, tirá del agarre hacia el abdomen llevando los codos hacia atrás y volvé lento.","menos peso y sin inclinar el tronco."),
-     ("gym_hipthrust.png","Hip thrust","10–12","Espalda alta apoyada en un banco y una barra o un disco sobre la cadera, con una colchoneta para proteger. Empujá con los talones hasta alinear cadera y tronco; apretá los glúteos y bajá lento.","puente de glúteos en la colchoneta, sin peso."),
-     ("calor_6.png","Bird dog","8–10 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria, sostené y volvé. Mantené la espalda quieta.","mové solo el brazo o solo la pierna."),
-     ("gym_presshombro.png","Press de hombros en máquina","10–12","Sentada con la espalda apoyada y las manijas a la altura de los hombros. Empujá hacia arriba sin bloquear los codos y bajá lento hasta unos 90°.","menos peso y menos recorrido."),
-     ("gym_abduccion.png","Abducción en máquina","12","Sentada, con el tronco apenas inclinado hacia adelante y las piernas en los apoyos. Abrí las piernas con control y cerrá lento.","menos peso y menos apertura."),
-     ("r3_6.png","Bíceps con mancuernas","10–12","De pie, una mancuerna en cada mano y los codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","mancuernas más livianas, de a un brazo."),
-     ("gym_facepull.png","Face pull","12","Polea a la altura de la cara y la soga con las dos manos. Tirá hacia la cara separando las manos, con los codos altos, y volvé lento.","menos peso y recorrido más corto."),
+     ("r1_1.png","Sentadilla en copa","10–12","Pies ancho de hombros con peso al pecho. Bajá con cadera atrás y pecho erguido; subí con fuerza.","sentadilla al banco sin peso."),
+     ("gym_remopolea.png","Remo bajo en polea","10–12","Sentada con rodillas semiflexionadas. Tirá del agarre al ombligo con codos pegados y volvé lento.","menos peso sin inclinar tronco."),
+     ("gym_hipthrust.png","Hip thrust","10–12","Espalda en banco y barra sobre cadera. Empujá con talones hasta alinear torso y apretá glúteos arriba.","puente en colchoneta sin peso."),
+     ("calor_6.png","Bird dog","8–10 por lado","En cuatro apoyos, estirá brazo y pierna contraria en línea recta. Sostené 2 s y volvé firme.","mové solo brazo o pierna."),
+     ("gym_presshombro.png","Press de hombros en máquina","10–12","Espalda apoyada y manijas a hombros. Empujá arriba sin bloquear codos y bajá a 90°.","menos peso y recorrido medio."),
+     ("gym_abduccion.png","Abducción en máquina","12","Sentada con piernas en apoyos externos. Abrí con fuerza de glúteo medio y cerrá despacio.","menos peso y menor apertura."),
+     ("r3_6.png","Bíceps con mancuernas","10–12","De pie con codos fijos a costados. Flexioná subiendo mancuernas a hombros y bajá lento.","mancuernas más livianas de a una."),
+     ("gym_facepull.png","Face pull","12","Polea alta a la cara. Tirá la soga hacia la frente con codos bien altos y regresá controlado.","menos peso y recorrido cómodo."),
     ]),
     }
 
@@ -730,42 +731,42 @@ if MAMA:
      "Peso muerto con mancuernas": "2 mancuernas o botellas", "Bíceps con peso": "2 mancuernas o botellas",
      "Vuelo posterior con peso": "2 mancuernas o botellas", "Remo inclinado": "Mancuerna y silla",
     })
-    RESP = ("mama_respiracion.png", "Respiración 360°", "5 respiraciones", "Boca arriba con las rodillas flexionadas y las manos en las costillas. Inhalá abriendo las costillas y exhalá lento por la boca: la panza baja y el piso pélvico sube suavemente.")
+    RESP = ("mama_respiracion.png", "Respiración 360°", "5 respiraciones", "Boca arriba con rodillas flexionadas. Inhalá abriendo costillas; exhalá soplando lento: abdomen baja y suelo pélvico sube.")
     CALOR_R = {
-     "1": [RESP, CALOR_EXTRA["gato"], C["Movilidad de cadera acostada"], C["Elevación de cadera"], C["Bird dog"]],
-     "2": [RESP, C["Movilidad de brazos"], CALOR_EXTRA["apertura"], C["Sentadilla lateral"], CALOR_EXTRA["psoas"]],
-     "3": [RESP, CALOR_EXTRA["circ"], CALOR_EXTRA["gato"], C["Abducción de pierna"], C["Elevación de cadera"]],
+     "1": [RESP, CALOR_EXTRA["gato"], C["Movilidad de cadera acostada"], C["Elevación de cadera"], C["Bird dog"], C["Movilidad de brazos"]],
+     "2": [RESP, C["Movilidad de brazos"], CALOR_EXTRA["apertura"], C["Sentadilla lateral"], CALOR_EXTRA["psoas"], CALOR_EXTRA["gato"]],
+     "3": [RESP, CALOR_EXTRA["circ"], CALOR_EXTRA["gato"], C["Abducción de pierna"], C["Elevación de cadera"], C["Bird dog"]],
     }
     RUT = {
     "1": dict(title="Rutina 1", note="Exhalá al hacer fuerza.", ex=[
-     ("pausa_sentadilla.png","Sentadilla a la silla","10–12","Parada delante de una silla, llevá la cadera hacia atrás hasta rozar el asiento y subí empujando el piso. Exhalá al subir.","sentate del todo en la silla y levantate."),
-     ("calor_5.png","Puente de glúteos","10–12","Boca arriba con las rodillas flexionadas. Exhalá, activá el piso pélvico y subí la cadera apretando los glúteos. Bajá lento mientras inhalás.","subí menos la cadera."),
-     ("r1_3.png","Flexiones en pared o mesa","8–12","Manos en una pared o una mesa firme y el cuerpo alineado. Bajá el pecho flexionando los codos y empujá para volver, exhalando.","más cerca de la pared, con menos inclinación."),
-     ("calor_6.png","Bird dog","8 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria sin mover la espalda. Sostené 2 segundos y volvé.","mové solo el brazo o solo la pierna."),
-     ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre una silla. Con la espalda recta, tirá del peso hacia la cadera exhalando y bajá lento.","con una botella de agua o sin peso."),
-     ("calor_4.png","Almeja","10–12 por lado","Acostada de costado, con las rodillas flexionadas y los pies juntos. Abrí la rodilla de arriba sin mover la cadera y cerrá lento.","menos apertura."),
-     ("core_bicho.png","Bicho muerto con piernas","6–8 por lado","Boca arriba, con las rodillas a 90°. Exhalá y bajá un talón hasta tocar el piso sin que se arquee la zona lumbar. Volvé y cambiá de pierna.","con los pies apoyados, deslizá un talón por el piso."),
-     ("pausa_talones.png","Elevación de talones","15","Tomada del respaldo de una silla, subí a puntas de pie y bajá lento.","con menos altura."),
+     ("pausa_sentadilla.png","Sentadilla a la silla","10–12","Frente a una silla. Llevá cadera atrás hasta rozar el asiento y subí empujando, exhalando.","sentate del todo y levantate."),
+     ("calor_5.png","Puente de glúteos","10–12","Boca arriba con rodillas flexionadas. Exhalá, activá suelo pélvico y elevá cadera con glúteos; bajá lento.","subí menos la cadera."),
+     ("r1_3.png","Flexiones en pared o mesa","8–12","Manos apoyadas y cuerpo alineado. Bajá flexionando codos a 45° y empujá al exhalar.","más cerca de la pared con menos ángulo."),
+     ("calor_6.png","Bird dog","8 por lado","En cuatro apoyos, estirá brazo y pierna contraria sin rotar cadera. Sostené 2 s y volvé.","mové solo brazo o pierna."),
+     ("r2_8.png","Remo inclinado","10–12 por brazo","Mano y rodilla en silla, espalda recta. Tirá de la pesa a la cadera exhalando y bajá lento.","con botella de agua o sin peso."),
+     ("calor_4.png","Almeja","10–12 por lado","De costado con rodillas flexionadas y pies juntos. Abrí la rodilla superior sin rotar pelvis.","menor apertura de rodilla."),
+     ("core_bicho.png","Bicho muerto con piernas","6–8 por lado","Boca arriba con rodillas a 90°. Exhalá bajando un talón sin arquear lumbar y alterná.","deslizá talón por el piso."),
+     ("pausa_talones.png","Elevación de talones","15","Tomada de una silla, elevá talones a puntas de pie con control y bajá lento.","menor elevación."),
     ]),
     "2": dict(title="Rutina 2", note="Exhalá al hacer fuerza. Plancha en rodillas: 15–20 s.", ex=[
-     ("r1_1.png","Sentadilla en copa","10–12","Pies al ancho de los hombros y una mancuerna contra el pecho. Llevá la cadera hacia atrás y abajo con el pecho alto, y subí exhalando.","sentadilla a la silla, sin peso."),
-     ("r1_2.png","Estocada split con apoyo","8–10 por pierna","Un pie adelante y otro atrás, con una mano en una pared o una silla. Bajá en vertical y subí empujando con la pierna de adelante.","bajá solo un poco."),
-     ("r1_7.png","Plancha en rodillas","15–20 s","Antebrazos y rodillas apoyados, el cuerpo en línea de las rodillas a los hombros. Respirá sin aguantar el aire.","con las manos en una mesa o en la pared."),
-     ("r3_8.png","Vuelo posterior con peso","10–12","Inclinada hacia adelante con la espalda recta, abrí los brazos hacia los costados juntando los omóplatos. Ayuda a la postura de cargar y amamantar.","sin peso."),
-     ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies al ancho de la cadera y un peso en cada mano. Con las rodillas apenas flexionadas y la espalda recta, llevá la cadera hacia atrás bajando las pesas y volvé apretando los glúteos.","con un palo de escoba, sin peso."),
-     ("r2_1.png","Subida al escalón","8–10 por pierna","Apoyá el pie completo en un escalón firme y subí empujando con esa pierna, exhalando. Bajá con control.","escalón más bajo y sosteniéndote de la pared."),
-     ("r3_2.png","Plancha lateral en rodillas","10–15 s por lado","De costado, apoyada en el antebrazo y con las rodillas flexionadas. Elevá la cadera y sostené el cuerpo alineado.","sostené 8 a 10 segundos."),
-     ("r3_6.png","Bíceps con peso","10–12","De pie, con los codos pegados al cuerpo. Flexioná los codos llevando el peso hacia los hombros y bajá lento.","con botellas de agua."),
+     ("r1_1.png","Sentadilla en copa","10–12","Pies al ancho de hombros, peso al pecho. Bajá con cadera atrás y subí empujando con talones.","sentadilla a la silla sin peso."),
+     ("r1_2.png","Estocada split con apoyo","8–10 por pierna","Un pie adelante y otro atrás, mano en pared o silla. Bajá en vertical y subí con pierna frontal.","bajá con menor recorrido."),
+     ("r1_7.png","Plancha en rodillas","15–20 s","Antebrazos y rodillas apoyados, pelvis neutra. Exhalá y sostené abdomen firme respirando.","manos en mesa o pared."),
+     ("r3_8.png","Vuelo posterior con peso","10–12","Tronco inclinado adelante con espalda recta. Abrí brazos a lados juntando omóplatos.","hacelo sin carga."),
+     ("r3_5b.png","Peso muerto con mancuernas","10–12","Pies ancho de cadera, pesas en mano. Llevá cadera atrás con espalda recta y subí con glúteos.","con palo de escoba sin peso."),
+     ("r2_1.png","Subida al escalón","8–10 por pierna","Pie completo en escalón firme. Subí empujando y exhalando; bajá con control.","escalón bajo con apoyo de pared."),
+     ("r3_2.png","Plancha lateral en rodillas","10–15 s por lado","De costado sobre antebrazo y rodillas flexionadas. Elevá cadera y sostené cuerpo recto.","sostené 8 a 10 segundos."),
+     ("r3_6.png","Bíceps con peso","10–12","De pie con codos fijos a costados. Flexioná subiendo peso a hombros y bajá lento.","con botellas de agua livianas."),
     ]),
     "3": dict(title="Rutina 3", note="Exhalá al hacer fuerza. Plancha: 15–30 s.", ex=[
-     ("r3_3.png","Sentadilla sumo","10–12","Pies bien separados y las puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí exhalando y apretando los glúteos.","sin peso y con menos profundidad."),
-     ("r1_4.png","Puente a una pierna","8–10 por lado","Boca arriba, un pie apoyado y la otra pierna elevada. Exhalá y subí la cadera apretando el glúteo; bajá lento.","puente con los dos pies apoyados."),
-     ("r1_3.png","Flexiones de brazo en rodillas","8–10","Manos debajo de los hombros y las rodillas apoyadas, con el cuerpo alineado. Bajá el pecho y empujá exhalando.","flexiones en una mesa o en la pared."),
-     ("calor_6.png","Bird dog con pausa","8 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria y sostené 3 segundos sin mover la espalda.","mové solo el brazo o solo la pierna."),
-     ("r2_3.png","Sentadilla con press de hombros","10–12","Con un peso en cada mano a la altura de los hombros, hacé una sentadilla y, al subir, empujá los pesos hacia arriba exhalando.","sentadilla con botellas, sin el press."),
-     ("r2_8.png","Remo inclinado","10–12 por brazo","Una mano y una rodilla sobre una silla. Con la espalda recta, tirá del peso hacia la cadera exhalando y bajá lento.","con una botella de agua o sin peso."),
-     ("r1_7.png","Plancha prona","15–30 s","Empezá en rodillas. Cuando sostengas 30 segundos sin pérdidas y sin que la panza haga “carpa”, pasá a puntas de pie.","plancha en rodillas."),
-     ("calor_2.png","Abducción de pierna de pie","10–12 por lado","Tomada del respaldo de una silla, separá una pierna hacia el costado sin inclinar el tronco y volvé con control.","menos apertura."),
+     ("r3_3.png","Sentadilla sumo","10–12","Pies separados y puntas afuera. Bajá con espalda recta y subí exhalando con fuerza de glúteos.","sin peso y con menor profundidad."),
+     ("r1_4.png","Puente a una pierna","8–10 por lado","Boca arriba, un pie apoyado. Elevá cadera exhalando con glúteo activo y bajá lento.","puente con dos apoyos."),
+     ("r1_3.png","Flexiones de brazo en rodillas","8–10","Manos bajo hombros y rodillas apoyadas. Bajá el pecho alineada y empujá exhalando.","en mesa o pared."),
+     ("calor_6.png","Bird dog con pausa","8 por lado","Cuatro apoyos. Estirá brazo y pierna contraria, sostené 3 s sin rotar espalda y alterná.","mové solo brazo o pierna."),
+     ("r2_3.png","Sentadilla con press de hombros","10–12","Pesas a hombros. Hacé sentadilla y al pararte empujá arriba exhalando.","con botellas sin press."),
+     ("r2_8.png","Remo inclinado","10–12 por brazo","Espalda recta apoyada en silla. Tirá el peso a la cadera exhalando y bajá lento.","con botella o sin carga."),
+     ("r1_7.png","Plancha prona","15–30 s","En rodillas o puntas. Sostené cuerpo alineado con abdomen firme y respiración continua.","plancha en rodillas 15 s."),
+     ("calor_2.png","Abducción de pierna de pie","10–12 por lado","Tomada de silla, separá pierna lateral sin inclinar torso y volvé controlada.","menor apertura lateral."),
     ]),
     }
 
@@ -929,6 +930,16 @@ def plan_simple(rows):
             "</tbody></table>")
 SEMANA_TIPO = ["1","A","2","-","3","A","D"]
 
+RPE_BLOCK_MAMA = ('<h3>Con qué esfuerzo: terminá sintiendo que podrías hacer 2 o 3 más</h3>'
+                  '<div class="rpe">'
+                  '  <div><b>1–4</b><span>Muy fácil</span><p>Podrías seguir mucho tiempo.</p></div>'
+                  '  <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>'
+                  '  <div><b>9–10</b><span>Máximo</span><p>No podrías hacer una más.</p></div>'
+                  '</div>')
+RPE_BLOCK_OTHER = ('<h3>Con qué esfuerzo y con qué peso</h3><p>Terminá cada vuelta sintiendo que podrías hacer <b>2 o 3 repeticiones más</b>: un 6 a 7 de 10. '
+                   + G('Elegí el peso', 'Elegí el peso de cada máquina')
+                   + ' con ese criterio desde la primera semana.</p>')
+
 if ENT:
     page(f'''
 {chap_head("01", 'Cómo se hace <span class="t">cada rutina</span>', "Leé esta hoja una vez y ya podés empezar.")}
@@ -943,11 +954,7 @@ if ENT:
 {ul(["Hacé los 4 ejercicios seguidos: eso es <b>una vuelta</b>. Repetí las vueltas que indica tu semana.",
      G("Pausas: 30 a 60 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.", "Pausas: 60 a 90 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2."),
      ] + (["Las planchas se hacen por segundos. Cada ejercicio tiene imagen, video y una variante más fácil."] if MAMA else []))}
-{'<h3>Con qué esfuerzo: terminá sintiendo que podrías hacer 2 o 3 más</h3>' + '''<div class="rpe">
-  <div><b>1–4</b><span>Muy fácil</span><p>Podrías seguir mucho tiempo.</p></div>
-  <div class="on"><b>6–8</b><span>Zona objetivo</span><p>Te quedan 2 o 3 repeticiones.</p></div>
-  <div><b>9–10</b><span>Máximo</span><p>No podrías hacer una más.</p></div>
-</div>''' if MAMA else '<h3>Con qué esfuerzo y con qué peso</h3><p>Terminá cada vuelta sintiendo que podrías hacer <b>2 o 3 repeticiones más</b>: un 6 a 7 de 10. ' + G('Elegí el peso', 'Elegí el peso de cada máquina') + ' con ese criterio desde la primera semana.</p>'}
+{RPE_BLOCK_MAMA if MAMA else RPE_BLOCK_OTHER}
 <h3>Cuándo subir de nivel</h3>
 <p>Cuando hacés <b>12 repeticiones</b> en todas las vueltas con esfuerzo 7 o menos, <b>dos sesiones seguidas</b>: {G("pasá a la variante más difícil o sumá peso.", "subí una placa en la máquina o 1 kg en las mancuernas.", "pasá a la variante más difícil o sumá peso, siempre sin pérdidas ni pesadez.")} Si algo duele, volvé a la variante más fácil.</p>
 ''', pid="como")
@@ -1131,24 +1138,30 @@ if ENT:
 
     # ---------------------------------------------------------- EXTRA: ZONA MEDIA
     CORE = [
-     ("core_bicho.png","Bicho muerto alternado","6–10 por lado","Boca arriba, brazos hacia el techo y rodillas a 90°. Estirá un brazo hacia atrás y la pierna contraria hacia adelante sin despegar la zona lumbar del piso. Volvé y cambiá de lado.",
-      "<b>S1–2:</b> solo las piernas, 6 por lado. <b>S3–4:</b> brazo y pierna, 8 por lado. <b>S5–8:</b> 10 por lado, bajando lento."),
-     ("r1_7.png","Plancha","15–30 s","Antebrazos debajo de los hombros y el cuerpo en línea recta. Apretá abdomen y glúteos y respirá sin aguantar el aire.",
-      "<b>S1–2:</b> rodillas apoyadas, 15 s. <b>S3–4:</b> rodillas, 25 s. <b>S5–6:</b> plancha completa, 15–20 s. <b>S7–8:</b> completa, 30 s."),
-     ("r3_2.png","Plancha lateral","10–25 s por lado","De costado, apoyada en un antebrazo con el codo debajo del hombro. Elevá la cadera y sostené el cuerpo alineado.",
-      "<b>S1–2:</b> rodillas flexionadas, 10 s. <b>S3–4:</b> rodillas, 15 s. <b>S5–6:</b> piernas estiradas, 15 s. <b>S7–8:</b> piernas estiradas, 20–25 s."),
-     ("calor_6.png","Bird dog","6–10 por lado","En cuatro apoyos, estirá un brazo y la pierna contraria sin mover la espalda. Sostené y volvé con control.",
-      "<b>S1–2:</b> 6 por lado. <b>S3–4:</b> 8 por lado, sosteniendo 2 s. <b>S5–8:</b> 10 por lado, sosteniendo 3 s."),
-     ("core_cruzados.png","Abdominales cruzados","6–12 por lado","Boca arriba con las rodillas flexionadas y las manos detrás de la cabeza. Despegá la espalda alta y llevá el codo hacia la rodilla contraria, sin tirar del cuello.",
-      "<b>S1–2:</b> 6 por lado. <b>S3–4:</b> 8 por lado. <b>S5–8:</b> 10–12 por lado, bajando lento."),
+     ("core_bicho.png","Bicho muerto alternado","6–10 por lado","Boca arriba, brazos al techo y rodillas a 90°. Estirá brazo y pierna contraria sin despegar lumbar del piso. Alterná lados.",
+      "<b>S1–2:</b> solo piernas, 6 por lado. <b>S3–4:</b> brazo y pierna, 8 por lado. <b>S5–8:</b> 10 por lado."),
+     ("r1_7.png","Plancha","15–30 s","Antebrazos bajo hombros, cuerpo recto. Apretá abdomen y glúteos respirando continuo sin arquear la cintura.",
+      "<b>S1–2:</b> rodillas apoyadas, 15 s. <b>S3–4:</b> rodillas, 25 s. <b>S5–6:</b> completa, 20 s. <b>S7–8:</b> 30 s."),
+     ("r3_2.png","Plancha lateral","10–25 s por lado","De costado sobre antebrazo con codo bajo hombro. Elevá cadera y sostené el cuerpo alineado.",
+      "<b>S1–2:</b> rodillas flexionadas, 10 s. <b>S3–4:</b> rodillas, 15 s. <b>S5–6:</b> piernas estiradas, 15 s. <b>S7–8:</b> 25 s."),
+     ("calor_6.png","Bird dog","6–10 por lado","En cuatro apoyos, estirá brazo y pierna contraria en línea recta. Sostené 2 s y volvé con control.",
+      "<b>S1–2:</b> 6 por lado. <b>S3–4:</b> 8 por lado. <b>S5–8:</b> 10 por lado sosteniendo 3 s."),
+     ("core_cruzados.png","Abdominales cruzados","6–12 por lado","Boca arriba con rodillas flexionadas. Despegá la espalda alta y llevá codo a rodilla contraria sin tirar del cuello.",
+      "<b>S1–2:</b> 6 por lado. <b>S3–4:</b> 8 por lado. <b>S5–8:</b> 10–12 por lado."),
+     ("r3_7.png","Plancha oso","10–20 s","En cuatro apoyos, despegá rodillas a 3 cm del piso. Sostené espalda plana y abdomen firme.",
+      "<b>S1–2:</b> rodillas apoyadas. <b>S3–4:</b> 10 s. <b>S5–8:</b> 15–20 s."),
     ]
     if MAMA:   # sin abdominales cruzados: después del embarazo se reemplazan por un puente con exhalación
-        CORE = CORE[:4] + [("calor_5.png","Puente con exhalación","8–12","Boca arriba con las rodillas flexionadas. Inhalá abajo; al exhalar, activá el piso pélvico, subí la cadera y sostené 3 segundos. Bajá lento.",
-          "<b>S1–2:</b> 8, sin sostener. <b>S3–4:</b> 10, sosteniendo 3 s. <b>S5–8:</b> 12, sosteniendo 5 s.")]
-        CORE[1] = CORE[1][:4] + ("<b>S1:</b> todavía no. <b>S2–4:</b> rodillas apoyadas, 10–20 s. <b>S5–6:</b> rodillas, 25–30 s. <b>S7–8:</b> completa, 15–20 s, si no hay pérdidas ni “carpa”.",)
+        CORE = CORE[:4] + [
+          ("calor_5.png","Puente con exhalación","8–12","Boca arriba con rodillas flexionadas. Exhalá activando suelo pélvico, elevá cadera y sostené 3 s; bajá lento.",
+           "<b>S1–2:</b> 8 sin sostener. <b>S3–4:</b> 10 sosteniendo 3 s. <b>S5–8:</b> 12 sosteniendo 5 s."),
+          ("calor_6.png","Bird dog con pausa","6–8 por lado","En cuatro apoyos, extendé brazo y pierna opuesta sin mover la espalda. Sostené 3 s y volvé.",
+           "<b>S1–2:</b> solo piernas. <b>S3–4:</b> 6 por lado. <b>S5–8:</b> 8 por lado sosteniendo 3 s.")
+        ]
+        CORE[1] = CORE[1][:4] + ("<b>S1:</b> todavía no. <b>S2–4:</b> rodillas apoyadas, 10–20 s. <b>S5–6:</b> rodillas, 25–30 s. <b>S7–8:</b> completa, 15–20 s.",)
     page(f'''
 {eyebrow("EXTRA") + '<h1 class="h1">Rutina de <span class="t">zona media</span></h1>' if MAMA else chap_head("00", 'Rutinas <span class="t">extras</span>', "Para sumar cuando quieras: la rutina de zona media y la sesión express de 15 minutos para los días con poco tiempo.") + '<h2>Rutina de zona media</h2>'}
-<p class="lead">{G("Cinco ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.", "Cinco ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.", "Cinco ejercicios para recuperar la fuerza del abdomen y la espalda baja después del embarazo, sin abdominales clásicos. Empezá siempre exhalando.")}</p>
+<p class="lead">{G("Seis ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.", "Seis ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.", "Seis ejercicios para recuperar la fuerza del abdomen y la espalda baja después del embarazo, sin abdominales clásicos. Empezá siempre exhalando.")}</p>
 {params([("Cuándo","2 o 3 veces por semana"),("Vueltas","2 (3 desde la semana 5)"),("Pausa","30 s entre ejercicios"),("Duración","8–10 min")])}
 <p class="small">Hacela al terminar el bloque 2, antes de elongar, o en un día de aeróbico.</p>
 {"".join(ex_card(*c[:4], easy=c[4], easy_label="Cómo avanzar") for c in CORE)}
@@ -1921,22 +1934,22 @@ if PAUSA_ED:
      "Flexiones de brazos inclinadas": "Escritorio o pared", "Estocada con apoyo": "Silla",
     })
     E = {
-     "cuello": ("elong_8.png", "Estiramiento del cuello", "20 s por lado", "Sentada con la espalda derecha, incliná la cabeza hacia un hombro y ayudate suavemente con la mano. Sin tirones.", "sin ayudarte con la mano."),
-     "hombro": ("calor_1.png", "Circunducción de hombro", "10 + 10", "De pie o sentada, hacé círculos amplios con los brazos: 10 hacia adelante y 10 hacia atrás.", "círculos chicos, moviendo solo los hombros."),
-     "hombro_est": ("elong_7.png", "Estiramiento de hombro a un brazo", "20 s por lado", "Cruzá un brazo por delante del pecho y sostenelo con el otro, sin elevar el hombro.", "menos presión con el brazo que sostiene."),
-     "tronco": ("pausa_rotacion.png", "Rotaciones de tronco", "8 por lado", "Sentada en el borde de la silla, con los brazos cruzados sobre el pecho, girá el tronco hacia un lado y hacia el otro sin mover la cadera.", "con menos recorrido."),
-     "pecho": ("elong_6.png", "Estiramiento pectoral en pared", "20 s por lado", "Apoyá el antebrazo en una pared o en el marco de una puerta y girá suavemente el cuerpo hacia el lado contrario.", "apoyá el brazo más bajo."),
-     "sentadilla": ("pausa_sentadilla.png", "Sentadilla a la silla", "10", "Parada delante de la silla, llevá la cadera hacia atrás hasta rozar el asiento y subí empujando el piso.", "sentate del todo en la silla y levantate."),
-     "talones": ("pausa_talones.png", "Elevación de talones", "15", "Tomada del respaldo de la silla, subí a puntas de pie y bajá lento.", "con menos altura."),
-     "abduccion": ("calor_2.png", "Abducción de cadera de pie", "10 por lado", "Apoyada en el respaldo de la silla, separá una pierna hacia el costado sin inclinar el tronco y volvé con control.", "con menos apertura."),
-     "lateral": ("calor_3.png", "Sentadilla lateral sin peso", "8 por lado", "Con los pies bien separados, llevá el peso a una pierna flexionando la rodilla y dejá la otra estirada. Volvé al centro y cambiá.", "menos profundidad, tomada de la silla."),
-     "marcha": ("r2_6.png", "Marcha en el lugar", "40 s", "Marchá en el lugar elevando las rodillas y acompañando con los brazos.", "más lento y con las rodillas más bajas."),
-     "cadera": ("calor_circcadera.png", "Círculos de cadera", "8 por lado", "Tomada de la silla o de una pared, subí una rodilla al frente y dibujá un círculo hacia afuera, sin mover el tronco.", "con un círculo más chico."),
-     "balanceo": ("calor_balanceo.png", "Balanceo de pierna frontal", "10 por lado", "Tomada de una pared, balanceá una pierna estirada hacia adelante y hacia atrás, con la espalda derecha y sin forzar.", "con menos altura."),
-     "flexiones": ("r1_3.png", "Flexiones de brazos inclinadas", "8–10", "Manos en el borde del escritorio o en una pared, con el cuerpo alineado. Bajá el pecho flexionando los codos y empujá para volver.", "más cerca de la pared, con menos inclinación."),
-     "jumping": ("r1_6.png", "Jumping jacks sin salto", "40 s", "Paso al costado con una pierna mientras subís los brazos por los costados; volvé y cambiá de lado, sin saltar.", "más lento y subiendo los brazos solo hasta los hombros."),
-     "sumo": ("r3_3.png", "Sentadilla sumo sin peso", "10", "Pies bien separados y las puntas hacia afuera. Bajá con la espalda recta y las rodillas en dirección a los pies; subí apretando los glúteos.", "con menos profundidad."),
-     "estocada": ("r1_2.png", "Estocada con apoyo", "8 por pierna", "Una mano en el respaldo de la silla, un pie adelante y otro atrás. Bajá en vertical y subí empujando con la pierna de adelante.", "bajá solo un poco."),
+     "cuello": ("elong_8.png", "Estiramiento del cuello", "20 s por lado", "Sentada con espalda erguida, incliná la cabeza al hombro con suave apoyo de la mano.", "sin apoyar la mano."),
+     "hombro": ("calor_1.png", "Circunducción de hombro", "10 + 10", "De pie o sentada, hacé círculos amplios con brazos: 10 adelante y 10 atrás.", "círculos más chicos."),
+     "hombro_est": ("elong_7.png", "Estiramiento de hombro", "20 s por lado", "Cruzá un brazo por delante del pecho y sostenelo con el otro a nivel medio.", "menor presión del brazo."),
+     "tronco": ("pausa_rotacion.png", "Rotaciones de tronco", "8 por lado", "Sentada en el borde de la silla con brazos al pecho, girá el tronco a cada lado.", "menor recorrido de giro."),
+     "pecho": ("elong_6.png", "Estiramiento pectoral en pared", "20 s por lado", "Apoyá antebrazo en pared o marco de puerta y girá suavemente el torso al lado opuesto.", "brazo apoyado más bajo."),
+     "sentadilla": ("pausa_sentadilla.png", "Sentadilla a la silla", "10", "Frente a la silla, llevá cadera atrás hasta rozar el asiento y subí empujando.", "sentate del todo y parate."),
+     "talones": ("pausa_talones.png", "Elevación de talones", "15", "Apoyada en la silla, elevá talones a puntas de pie con control y bajá despacio.", "menor altura de puntas."),
+     "abduccion": ("calor_2.png", "Abducción de cadera de pie", "10 por lado", "Apoyada en la silla, separá la pierna lateral sin inclinar el torso y volvé.", "menor apertura lateral."),
+     "lateral": ("calor_3.png", "Sentadilla lateral sin peso", "8 por lado", "Pies separados. Llevá peso a una pierna flexionando rodilla con la otra estirada.", "menor profundidad."),
+     "marcha": ("r2_6.png", "Marcha en el lugar", "40 s", "Marchá en el lugar elevando rodillas con braceo coordinado y torso erguido.", "ritmo más pausado."),
+     "cadera": ("calor_circcadera.png", "Círculos de cadera", "8 por lado", "Con apoyo en silla o pared, subí rodilla al frente y dibujá círculo hacia afuera.", "círculo más chico."),
+     "balanceo": ("calor_balanceo.png", "Balanceo de pierna frontal", "10 por lado", "Con apoyo en pared, balanceá la pierna estirada adelante y atrás con espalda recta.", "menor altura de balanceo."),
+     "flexiones": ("r1_3.png", "Flexiones de brazos inclinadas", "8–10", "Manos en escritorio o pared con cuerpo recto. Bajá flexionando codos y empujá firme.", "más cerca de pared."),
+     "jumping": ("r1_6.png", "Jumping jacks sin salto", "40 s", "Paso lateral abriendo brazos por los costados; volvé al centro y alterná fluido.", "brazos hasta hombros."),
+     "sumo": ("r3_3.png", "Sentadilla sumo sin peso", "10", "Pies separados y puntas hacia afuera. Bajá con torso alto y subí apretando glúteos.", "menor profundidad."),
+     "estocada": ("r1_2.png", "Estocada con apoyo", "8 por pierna", "Mano en respaldo de silla, un pie adelante y otro atrás. Bajá en vertical y subí firme.", "menor recorrido."),
     }
     # Las 4 mueven todo el cuerpo: hombros y cuello, tronco, cadera y piernas. Cambia el enfoque de cada una.
     PAUSA_RUT = [
@@ -2077,8 +2090,9 @@ def render():
                    + (f'<div class="ftr"><a class="toidx" href="#p-como">{ICON_HAND} Volvé a elegir tu rutina</a><span class="pgnum"></span></div>' if PAUSA_ED else
                       f'<div class="ftr"><a class="toidx" href="#indice">{ICON_HAND} Hacé clic y volvé al índice</a><span class="pgnum"></span></div>'))
         out.append(f'<section class="page {p["cls"]}" id="{p["id"]}">{hdr}<div class="body">{body}</div></section>')
+    body_cls = ' class="grande"' if (ENT and not MAMA) or PAUSA_ED else ''
     return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>' + TITLE + '</title>'
-            f'<style>{CSS}</style></head><body{" class=\"grande\"" if (ENT and not MAMA) or PAUSA_ED else ""}>' + "".join(out) + '<script src="paginate.js"></script></body></html>')
+            f'<style>{CSS}</style></head><body{body_cls}>' + "".join(out) + '<script src="paginate.js"></script></body></html>')
 
 if __name__ == "__main__":
     here = os.path.dirname(os.path.abspath(__file__))
