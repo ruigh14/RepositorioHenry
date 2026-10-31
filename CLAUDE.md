@@ -16,6 +16,8 @@ entrena-en-el-gimnasio/      Ebook 2: misma lógica, rutinas de gimnasio nivel i
   Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
 entrena-siendo-mama/         Ebook 3: mamás que vuelven a entrenar (respiración, piso pélvico, sin impacto) + pausa activa
   Ebook_Entrena_siendo_mama_RENOVA.pdf
+alimentacion-inteligente/    Plan de nutrición de 8 semanas (lo vende la landing): educación breve + organización + programa de 8 semanas con 32 recetas. Lo genera fuentes/ebook/nutricion.py (nutricionista: Eugenia, falta matrícula en MATRICULA)
+  Ebook_Alimentacion_Inteligente_RENOVA.pdf
 pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación + 4 rutinas de pausa activa de 10 min + plan personalizado
   Bonus_Pausa_activa_RENOVA.pdf
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
@@ -58,6 +60,7 @@ cd fuentes/ebook && python3 build.py gimnasio && node export.js gimnasio   # Ent
 cd fuentes/ebook && python3 build.py mamas && node export.js mamas         # Entrená siendo mamá
 cd fuentes/ebook && python3 build.py pausa && node export.js pausa         # Bonus: pausa activa
 cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
+cd fuentes/ebook && python3 nutricion.py && node export.js nutricion        # Alimentación Inteligente (nutrición 8 semanas)
 cd fuentes/landing && python3 build.py                                     # la landing de la tienda
 cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
 cd fuentes/design-system && python3 muestra.py && node muestra.js           # muestra.pdf del design system
@@ -100,7 +103,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
 
-- Plan de nutrición de 8 semanas (se vende en la landing): definir qué PDF lo entrega (hoy los menús y listas de compras están en el Programa RENOVA completo). Casa y gimnasio ya no traen recetario.
+- Alimentación Inteligente (plan de nutrición): borrador listo para que lo revise Eugenia (recetas, cantidades, tiempos de conservación). Falta su matrícula. Después: upsell Nutrición Femenina 40+ y recetario complementario (brief de ChatGPT).
 - Ebook gimnasio: que Nacho revise las rutinas y diga si cambia algún ejercicio.
 - Landing de la tienda: pegarla en Impultienda (el JS va aparte en `fuentes/landing/landing.js`, porque Impultienda se rompe con un `<script>` propio), revisar que reemplace precios y que el upsell sume al carrito, y cargar los PDF (casa, gimnasio y pausa) en el producto.
 - Creativos (no tocados en la última ronda: siguen con 40+, dibujos de Canva y 3 bonus): que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.
