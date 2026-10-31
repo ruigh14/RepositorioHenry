@@ -271,6 +271,13 @@ for _s in SEMANAS:   # fotos de las recetas nuevas (generadas con Canva): img/fo
             _r["foto"] = f"n{_k:02d}"
 
 
+def _src(r):
+    f = r["foto"]
+    if str(f).startswith("eve/"):
+        return f"img/{f}.jpg"
+    return f"img/food/{f}.jpg" if isinstance(f, str) else f"img/food/{f:02d}.jpg"
+
+
 def ficha(r, n):
     img = ""
     if r["foto"] is not None:
@@ -365,6 +372,12 @@ page(f'''
  ["<b>Grasas</b>", "Necesarias para el cuerpo; aportan mucha energía.", "Aceite de oliva, palta, frutos secos, semillas, pescados.", "Usalas como toque, medidas con cuchara."],
  ["<b>Fibra</b>", "Saciedad, tránsito intestinal y salud digestiva.", "Verduras, frutas, legumbres, avena, integrales.", "Aumentala de a poco y con más agua."],
 ])}
+<div class="fuentes4">
+  <figure><img src="img/nutri/proteinas.jpg" alt=""><figcaption><b>Proteínas</b>Huevo, carnes, pescado, lácteos, legumbres, tofu</figcaption></figure>
+  <figure><img src="img/nutri/carbohidratos.jpg" alt=""><figcaption><b>Carbohidratos</b>Avena, arroz, pan y pastas integrales, papa, batata, fruta</figcaption></figure>
+  <figure><img src="img/nutri/grasas.jpg" alt=""><figcaption><b>Grasas</b>Aceite de oliva, palta, frutos secos, semillas, pescado</figcaption></figure>
+  <figure><img src="img/nutri/fibra.jpg" alt=""><figcaption><b>Fibra</b>Verduras, frutas, legumbres, avena, integrales</figcaption></figure>
+</div>
 <h2>Proteína después de los 35</h2>
 <p>La proteína ayuda a mantener el músculo, sobre todo si entrenás fuerza. <b>No hay una cantidad universal</b>: depende de tu peso, tu actividad y tu salud. Revisá que cada comida tenga alguna fuente de proteína y, si querés una cifra para vos, consultala con un profesional. No hace falta empezar con suplementos.</p>
 {box("<b>Error frecuente:</b> sacar el arroz, la papa, el pan o las frutas por miedo a los carbohidratos. Si entrenás, restringir energía sin criterio perjudica el rendimiento y la recuperación.", "soft")}
@@ -460,12 +473,12 @@ page(f'''
   <div><span>03</span><h3>Cocinar bien</h3><p>Carnes, pollo, pescado y huevo, cocidos hasta el centro.</p></div>
   <div><span>04</span><h3>Enfriar rápido</h3><p>No más de 2 horas a temperatura ambiente.</p></div>
 </div>
-{table(["Zona de la heladera", "Qué va"], [
+<div class="hela"><img src="img/nutri/heladera.jpg" alt="Heladera organizada"><div>{table(["Zona de la heladera", "Qué va"], [
  ["<b>Estantes de arriba y del medio</b>", "Listos para comer, lácteos y preparaciones tapadas."],
  ["<b>Estante de abajo</b>", "Carnes y pescados crudos, en recipientes."],
  ["<b>Cajones</b>", "Frutas y verduras."],
  ["<b>Puerta</b>", "Condimentos y lo que tolera cambios de temperatura."],
-])}
+])}</div></div>
 ''', chapter="07 · Heladera y seguridad", pid="cap7", toc="07 · Heladera, freezer y seguridad")
 
 page(f'''
@@ -496,6 +509,25 @@ page(f'''
 {box("<b>Sin compensar:</b> una comida diferente no se “paga” salteando la siguiente ni con ejercicio extra. Volvé a tu estructura en la próxima comida.", "soft")}
 ''', chapter="08 · Fuera de casa", pid="cap8", toc="08 · Comer fuera de casa")
 
+
+page(f'''
+{eyebrow("COCINAR CON ESTRATEGIA")}
+<h1 class="h1">Técnicas de cocción <span class="t">para ganar tiempo</span></h1>
+{table(["Técnica", "Cuándo conviene", "Qué cuidar"], [
+ ["<b>Horno</b>", "Varias porciones de vegetales o proteínas a la vez.", "Una sola capa, sin amontonar."],
+ ["<b>Vapor</b>", "Vegetales tiernos que mantienen color y textura.", "Controlá el tiempo para que no se ablanden de más."],
+ ["<b>Hervido</b>", "Legumbres, cereales, papas.", "Agua suficiente; cada alimento tiene su tiempo."],
+ ["<b>Salteado</b>", "Vegetales y proteínas en minutos.", "Todo cortado antes de empezar, sartén amplia."],
+ ["<b>Plancha</b>", "Porciones individuales de carne, pollo, pescado o vegetales.", "Que el centro quede bien cocido."],
+ ["<b>Guisado</b>", "Legumbres y vegetales en una preparación completa.", "Enfriá en porciones chicas antes de guardar."],
+])}
+<h3>La secuencia que ahorra tiempo</h3>
+<p><b>Leé toda la receta</b> y empezá por lo que tarda más; <b>cortá y medí antes</b> de prender el fuego; usá horno y hornalla a la vez y condimentá por capas.</p>
+<h3>Familias de sabor</h3>
+<div class="sabores"><span>Limón + hierbas</span><span>Ajo + pimentón</span><span>Comino + curry</span><span>Mostaza + pimienta</span><span>Vinagre + orégano</span></div>
+<p class="small">Una misma bandeja de vegetales, con tres condimentos distintos, son tres comidas diferentes.</p>
+''', chapter="07 · Técnicas de cocción", pid="cap7c", toc="Técnicas de cocción")
+
 # ================================================================== PARTE 3 · PROGRAMA DE 8 SEMANAS
 page(f'''
 <div class="divider dv8">
@@ -525,10 +557,11 @@ page(f'''
 
 n = 0
 for s in SEMANAS:
+    eva = ('<div class="semeva"><h3>¿Cómo te fue esta semana?</h3>' + checks(["Apliqué el objetivo de la semana.", "Preparé al menos 2 recetas.", "Tuve un plan B para los días complicados."]) + '</div>')
     dias = table(["Día", "Almuerzo", "Cena"], [[d, a, c] for d, (a, c) in zip(["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], s["dias"])], cls="grid-t ntab semtab")
     desay = ", ".join(r["t"] for r in s["recetas"] if any(k in r["cat"].lower() for k in ("desayuno", "merienda", "snack", "postre")))
     page(f'''
-<div class="semhead"><span class="semn">SEMANA {s["n"]}</span><h1 class="h1">{s["titulo"]}</h1>
+<div class="semhead"><div class="semthumbs">{"".join(f'<img src="{_src(r)}" alt="">' for r in s["recetas"][:3])}</div><span class="semn">SEMANA {s["n"]}</span><h1 class="h1">{s["titulo"]}</h1>
 <p class="lead"><b>Objetivo:</b> {s["objetivo"]}</p><p class="semap"><b>Aprendizaje:</b> {s["aprendizaje"]}</p></div>
 <h3>Tu semana, combinada</h3>
 {dias}
@@ -542,6 +575,8 @@ for s in SEMANAS:
         cards.append(ficha(r, n))
     org = (f'<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3>{ul(s["orga"])}</div>'
            f'<div class="semshop"><h3>Lista de compras</h3>{checks(s["compras"])}</div></div>')
+    _eva = ('<div class="semeva"><h3>¿Cómo te fue esta semana?</h3>' + checks(["Pude aplicar el objetivo de la semana.", "Preparé al menos 2 de las recetas.", "Tuve un plan B para los días complicados."])
+           + '<p>Lo que voy a mantener: ________________________________</p></div>')
     page(f'''<h2 class="semrh">Recetas de la semana {s["n"]}</h2>''' + "".join(cards), chapter=f"09 · Semana {s['n']} · Recetas", pid=f"sem{s['n']}r")
 
 
@@ -621,6 +656,13 @@ page(f'''
 {box("<b>Cuándo pedir ayuda:</b> si tenés una enfermedad, tomás medicación que cambia el apetito o la glucemia, estás embarazada o amamantando, o tenés una relación angustiante con la comida, necesitás una orientación individual. Los talleres de gestión de la ansiedad de RENOVA también te pueden ayudar.", "note")}
 ''', chapter="10 · Sostener el cambio", pid="cap10", toc="10 · Cuando la semana no sale")
 
+
+page(f'''
+{eyebrow("HERRAMIENTAS")}
+<h1 class="h1">¿Cómo te fue <span class="t">cada semana?</span></h1>
+<p class="small">Al terminar cada semana, marcá con un ✓ y anotá lo que querés mantener.</p>
+{table(["Semana", "Apliqué el objetivo", "Preparé 2+ recetas", "Tuve plan B", "Lo que mantengo"], [[f"<b>{s['n']}</b>", "", "", "", ""] for s in SEMANAS])}
+''', chapter="Herramientas", pid="seguimiento", toc="Herramientas: seguimiento semanal")
 page(f'''
 {eyebrow("HERRAMIENTAS")}
 <h1 class="h1">Tu <span class="t">planificador semanal</span></h1>
@@ -663,7 +705,7 @@ page(f'''
 # ================================================================== RENDER
 def render():
     num = {p["id"]: i + 1 for i, p in enumerate(PAGES)}
-    toc_html = '<div class="tocl">' + "".join(
+    toc_html = '<div class="tocl tc">' + "".join(
         f'<a class="tocr" href="#{pid}"><span class="tt">{esc(t)}</span><span class="dots"></span><span class="pg">{num[pid]}</span></a>'
         for t, pid in TOC) + "</div>"
     out = []

@@ -59,8 +59,9 @@ page(f'''
 <h2>Cómo leer esta guía</h2>
 {ul(["<b>Cada capítulo es corto</b> y termina con acciones concretas.",
      "<b>Marcamos el nivel de evidencia:</b> sólida, limitada o no demostrada, para que sepas qué está probado.",
-     "<b>No es un tratamiento:</b> es educación. Las indicaciones individuales las da tu equipo de salud."])}
-<p class="small">Complementa a <b>Alimentación Inteligente</b>: allá aprendés a organizarte y tenés las recetas; acá entendés la etapa.</p>
+     "<b>No es un tratamiento:</b> es educación. Las indicaciones individuales las da tu equipo de salud.",
+     "<b>Complementa a Alimentación Inteligente:</b> allá te organizás y tenés las recetas; acá entendés la etapa."])}
+
 ''', chapter="Bienvenida", pid="bienvenida")
 
 page("__TOC__", chapter="Índice", pid="indice")
@@ -73,6 +74,7 @@ page(f'''
  ["<b>Menopausia</b>", "Es el momento de la última menstruación. Se confirma después de 12 meses seguidos sin menstruar.", "En promedio, alrededor de los 50."],
  ["<b>Posmenopausia</b>", "Los estrógenos quedan bajos de forma estable. Cobra importancia cuidar huesos, músculo y corazón.", "El resto de la vida, a partir de la menopausia."],
 ])}
+<div class="etapas"><div class="et e1"><b>Perimenopausia</b><span>Ciclos irregulares, primeros síntomas</span></div><div class="et e2"><b>Menopausia</b><span>Última menstruación (12 meses sin ciclo)</span></div><div class="et e3"><b>Posmenopausia</b><span>Estrógenos bajos estables</span></div></div>
 <h2>¿Por qué importa tanto el estrógeno?</h2>
 <p>El estrógeno no solo regula el ciclo: también participa en el mantenimiento del hueso, en la distribución de la grasa corporal, en el metabolismo de las grasas en sangre y en la regulación de la temperatura. Cuando baja, todo eso se modifica.</p>
 {box("<b>Cada mujer lo vive distinto.</b> Hay quienes casi no tienen síntomas y quienes los sienten mucho. Si los síntomas afectan tu calidad de vida, consultá con tu ginecólogo/a: existen tratamientos efectivos y seguros para muchas mujeres.", "note")}
@@ -87,6 +89,7 @@ page(f'''
          "<b>Se pierde masa muscular</b> más rápido si no hay estímulo de fuerza.",
          "<b>Baja un poco el gasto de energía</b>, sobre todo por tener menos músculo y menos movimiento.",
          "<b>El sueño y el estrés</b> influyen en el apetito y en las elecciones de comida."])}
+<img class="mimg" src="img/meno/activa.jpg" alt="Mujer activa entrenando">
 <h2>Qué podés hacer</h2>
 <div class="tips10 t3">
   <div><span>01</span><h3>Entrená fuerza</h3><p>Es la herramienta principal para conservar y ganar músculo.</p></div>
@@ -124,6 +127,7 @@ page(f'''
   <div><span>P</span><h3>Proteína</h3><p>El hueso también necesita proteína para mantenerse.</p></div>
   <div><span>F</span><h3>Fuerza e impacto</h3><p>El hueso responde a la carga: entrenar fuerza lo estimula.</p></div>
 </div>
+<figure class="mfig"><img src="img/meno/calcio.jpg" alt="Alimentos con calcio"><figcaption>Fuentes de calcio: lácteos, sardinas, almendras, vegetales de hoja verde, legumbres, tofu y sésamo.</figcaption></figure>
 {ul(["<b>Priorizá el calcio de los alimentos</b>: 2 o 3 porciones de lácteos por día cubren buena parte.",
      "<b>Vitamina D:</b> si tenés poca exposición al sol, pedí que te la midan. El suplemento solo con indicación.",
      "<b>Menos alcohol y nada de tabaco:</b> ambos aumentan la pérdida ósea.",
@@ -151,6 +155,7 @@ page(f'''
 {chap_head("06", 'Salud <span class="t">cardiometabólica</span>', "Con la baja de estrógenos aumenta el riesgo cardiovascular. Es el momento de cuidar el corazón con hábitos.")}
 <h2>Qué suele cambiar</h2>
 {checks(["Sube el colesterol LDL (el “malo”).", "Aumenta la tendencia a la resistencia a la insulina y a la glucemia elevada.", "Puede subir la presión arterial."])}
+<figure class="mfig"><img src="img/meno/mediterraneo.jpg" alt="Plato tipo mediterráneo"><figcaption>Un plato tipo mediterráneo: pescado, cereal integral, verduras, palta y aceite de oliva.</figcaption></figure>
 <h2>Qué ayuda</h2>
 {table(["Hábito", "Cómo llevarlo a la práctica"], [
  ["<b>Patrón tipo mediterráneo</b>", "Verduras, frutas, legumbres, integrales, aceite de oliva, frutos secos y pescado."],
@@ -228,6 +233,13 @@ page(f'''
 {ul(["Perímetro de cintura.", "Fuerza: cuántas repeticiones o qué peso movés en tus ejercicios.", "Sueño y energía (del 1 al 10)."])}
 ''', chapter="10 · Continuidad", pid="c10", toc="10 · Tu plan de continuidad")
 
+
+page(f'''
+{eyebrow("HERRAMIENTA")}
+<h1 class="h1">Registro de <span class="t">síntomas y hábitos</span></h1>
+<p class="small">Completalo 2 semanas antes de tu consulta: le da a tu profesional información concreta. Puntuá del 0 (nada) al 3 (mucho).</p>
+{table(["Día", "Sofocos", "Sueño", "Ánimo", "Energía", "Entrené", "Notas"], [[d, "", "", "", "", "", ""] for d in ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]])}
+''', chapter="Herramientas", pid="registro", toc="Herramienta: registro de síntomas")
 page(f'''
 {eyebrow("FUENTES")}
 <h1 class="h1">Fuentes <span class="t">y aclaraciones</span></h1>
@@ -255,7 +267,7 @@ page(f'''
 
 def render():
     num = {p["id"]: i + 1 for i, p in enumerate(PAGES)}
-    toc_html = '<div class="tocl">' + "".join(
+    toc_html = '<div class="tocl tc">' + "".join(
         f'<a class="tocr" href="#{pid}"><span class="tt">{esc(t)}</span><span class="dots"></span><span class="pg">{num[pid]}</span></a>'
         for t, pid in TOC) + "</div>"
     out = []

@@ -1042,3 +1042,32 @@ body.grande{font-size:16.5pt;line-height:1.48}
 .mitos>div>b{color:var(--rnv-rojo)}
 .mitos p{margin:1.5mm 0 0;font-size:12.5pt}
 .mitos p b{color:var(--tq-d)}
+.tocl.tc .tocr{padding:2.6mm 0;font-size:14pt}
+.fuentes4{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin:3mm 0 4mm}
+.fuentes4 figure{margin:0;border:.4mm solid var(--tq-b);border-radius:3mm;overflow:hidden;background:#fff}
+.fuentes4 img{width:100%;height:34mm;object-fit:cover;display:block}
+.fuentes4 figcaption{padding:2mm 3mm;font-size:11.5pt;line-height:1.25}
+.fuentes4 figcaption b{display:block;color:var(--tq-d);font-size:13pt}
+.hela{display:grid;grid-template-columns:52mm 1fr;gap:4mm;align-items:start}
+.hela img{width:52mm;border-radius:3mm;display:block}
+.sabores{display:flex;flex-wrap:wrap;gap:2.5mm;margin:2mm 0}
+.sabores span{background:var(--tq-l);border:.35mm solid var(--tq-b);border-radius:99px;padding:1.5mm 4mm;font-weight:700;color:var(--tq-dd);font-size:12.5pt}
+.semthumbs{float:right;display:flex;gap:2mm;margin-left:3mm}
+.semthumbs img{width:20mm;height:20mm;border-radius:50%;object-fit:cover;border:.8mm solid #fff;box-shadow:0 0 0 .4mm var(--tq-b)}
+.semeva{border:.5mm dashed var(--tq);border-radius:4mm;padding:3mm 4mm;margin-top:2mm}
+.semeva h3{margin:0 0 1.5mm}
+.semeva li{font-size:12.5pt}
+.semeva p{margin:1.5mm 0 0;font-size:12.5pt}
+.semeva{padding:2mm 4mm;margin-top:3mm}.semeva h3{font-size:14pt}.semeva li{font-size:11.6pt;margin-bottom:.3mm}
+#seguimiento .ntab td{height:15mm}
+.tocl.tc .tocr{padding:1.8mm 0;font-size:13pt}.tocl.tc{margin-top:2mm}
+.etapas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin:4mm 0;border-radius:3mm;overflow:hidden}
+.et{padding:3mm;color:#fff;font-size:11.5pt;line-height:1.25;position:relative}
+.et b{display:block;font-size:13pt;margin-bottom:1mm}
+.e1{background:var(--tq)}.e2{background:var(--tq-d)}.e3{background:var(--tq-dd)}
+.mimg{width:100%;height:60mm;object-fit:cover;border-radius:4mm;display:block;margin:2mm 0 3mm}
+.mfig{margin:3mm 0;display:grid;grid-template-columns:62mm 1fr;gap:4mm;align-items:center;background:var(--tq-l);border-radius:4mm;padding:3mm}
+.mfig img{width:62mm;height:46mm;object-fit:cover;border-radius:3mm;display:block}
+.mfig figcaption{font-size:12.5pt;line-height:1.35}
+#registro .ntab td{height:17mm}
+#bienvenida .mimg{height:42mm}#bienvenida .nutri-card{margin:3mm 0}
