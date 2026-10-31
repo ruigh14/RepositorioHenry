@@ -143,7 +143,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .gmini{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;border-radius:12px;background:var(--brl);text-align:left;font-size:14.5px;color:var(--ink)}
 .gmini .ic{width:34px;height:34px;color:var(--brd)}
 .ups{display:grid;grid-template-columns:86px 1fr;gap:14px;text-align:left;background:var(--brll);border:2px dashed var(--br);border-radius:14px;padding:14px;margin-bottom:16px}
-.ups-img{width:86px;height:86px;object-fit:cover;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,.12);background:#fff}
+.ups-img{width:86px;height:120px;object-fit:contain;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,.12);background:#fff}
 .ups-tag{display:inline-block;background:var(--grad);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:6px}
 .ups-tx{min-width:0}
 .ups h4{font-size:17px;margin-bottom:3px;letter-spacing:-.01em}
@@ -708,6 +708,18 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
       <p class="cc">Entrenamiento + nutrición + 5 bonus. ¡Empezá hoy!</p>
       <div class="pr2"><div><small>Valor total</small><s>{{original_price}}</s></div><div class="on"><small>Hoy</small><b>{{price}}</b></div></div>
       <span class="save">Ahorrás {{savings}}</span>
+      <div class="ups" id="ups">
+        <img class="ups-img" src="img/tapa_menopausia.jpg" alt="Ebook Nutrición en la menopausia" style="object-fit:contain"/>
+        <div class="ups-tx">
+          <span class="ups-tag">Sumalo a tu compra</span>
+          <h4>Nutrición en la menopausia</h4>
+          <p>Qué cambia en la perimenopausia y la menopausia y cómo cuidar tu músculo, tus huesos, tu corazón y tu energía desde la alimentación. Con evidencia, sin mitos, de la mano de nuestra nutricionista.</p>
+          <div class="ups-f">
+            <div><s>{{upsell_1_original_price}}</s> <b>{{upsell_1_price}}</b></div>
+            <button type="button" class="ups-btn" data-upsell-toggle="1"><span class="add">＋ Agregar</span><span class="ok">✓ Agregado</span></button>
+          </div>
+        </div>
+      </div>
       <a class="btn big" href="/checkout">Comprar ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
       <div class="trust">
         <span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro</span>

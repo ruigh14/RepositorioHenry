@@ -51,7 +51,7 @@ Una sola marca para todo: **los colores son los del ebook** y landings, creativo
 - `tienda.html`: fuente de la única landing (vende los 2 ebooks juntos, con un solo `/checkout`; el producto de Impultienda tiene que entregar los 2 PDF). `build.py` encierra el CSS en `#rnv` (para que no choque con la tienda) y cambia `img/...` por links de GitHub a `fuentes/landing/img/`, fijados al último commit de esa carpeta: **commitear y pushear las imágenes nuevas antes de regenerar**. Los videos (`<source src="img/….mp4">`) salen de jsDelivr con GitHub de respaldo.
 - Estructura (correcciones de Nacho, modelo Menofit): barra de oferta fija (toda la barra lleva al carrito) → portada con espacio para el VSL (`.vsl`; hoy muestra `img/mock_programa.jpg`) → ¿Te pasa esto? → No es tu culpa → testimonios ("…no es opcional, ¡es preventivo!") → pilares (fuerza, nutrición, hábitos) → "Esto es lo que incluye": programa de entrenamiento ($15.000) y plan de nutrición ($15.000, `img/mock_nutricion.jpg`) → 5 bonos ($70.000: pausa activa, express, abdominales, talleres, comunidad) → quién soy + carrusel del equipo (boceto: faltan fotos y nombres) → collage → valor $100.000 / hoy $35.000 + upsell → garantía → preguntas → cierre. Todos los botones van a `/checkout`. Precios con los tokens de Impultienda (`{{price}}` = $35.000, `{{original_price}}` = $100.000, `{{savings}}`): se cargan en el producto. El desglose de valores ($30.000 + $70.000) queda escrito fijo.
 - Imágenes armadas: `fuentes/landing/mockups/` (`python3 mockups.py && node mockups.js`). Fotos de Nacho: `img/foto_*.jpg`, sacadas de sus videos de ejercicios.
-- Upsell: sacado por ahora (Nacho). Cuando vuelva: "Guía de alimentación para la menopausia" con `{{upsell_1_*}}` y `data-upsell-toggle="1"` (ver historia de git de `tienda.html`).
+- Upsell 1: ebook "Nutrición en la menopausia" (texto e imagen `img/tapa_menopausia.jpg` fijos; precio con `{{upsell_1_price}}` y `{{upsell_1_original_price}}`, botón `data-upsell-toggle="1"`). Si Impultienda no completa el precio, el bloque se esconde.
 - Impultienda: compra con `<a href="/checkout">`, precios con `{{price}}`, `{{original_price}}`, `{{savings}}` y upsell 1 con `{{upsell_1_*}}` + `data-upsell-toggle="1"`.
 
 ## Regenerar
@@ -101,7 +101,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 - Auditoría Fase 1 de casa y gimnasio en `investigacion/auditoria-ebooks-fase1.md`: Nacho decide los puntos críticos (saltos/impacto, tracción en casa, errores frecuentes, qué hacer si pierdo días, "te acompañan") antes de pasar a la Fase 3.
 
 - Bonus pausa activa: cargar `pausa-activa/Bonus_Pausa_activa_RENOVA.pdf` en el producto de Impultienda (junto a casa y gimnasio). En la landing ya es el bonus 4.
-- Ebook Nutrición en la menopausia (upsell 1, $10.000): hecho (borrador); que Eugenia lo revise, cargarlo como upsell 1 en Impultienda y volver a poner el bloque de upsell en la landing.
+- Ebook Nutrición en la menopausia (upsell 1, $10.000): aprobado por Eugenia y ya en la landing. Falta cargarlo como upsell 1 en Impultienda (con precio) en lugar de "Recetas para entrenar mejor".
 - Landing: falta saber medios de pago y si hay cuotas sin interés.
 
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
