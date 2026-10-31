@@ -949,7 +949,7 @@ RPE_BLOCK_OTHER = ('<h3>Con qué esfuerzo y con qué peso</h3><p>Terminá cada v
 if ENT:
     page(f'''
 {chap_head("01", 'Cómo se hace <span class="t">cada rutina</span>', "Leé esta hoja una vez y ya podés empezar.")}
-{'' if MAMA else '<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales se pierde <b>músculo y hueso</b> más rápido, y <b>la fuerza</b> es lo que más ayuda a cuidarlos y a sostener tu metabolismo.</p>'}
+{'' if (MAMA or GYM) else '<p class="small"><b>Por qué fuerza:</b> con los cambios hormonales se pierde <b>músculo y hueso</b> más rápido, y <b>la fuerza</b> es lo que más ayuda a cuidarlos y a sostener tu metabolismo.</p>'}
 <div class="steps steps4">
   <div class="step"><span>1</span><b>Entrada en calor</b><p>{G("5 a 10 min", "10 a 15 min", "5 min, con respiración")}</p></div>
   <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
@@ -1624,6 +1624,51 @@ if ENT:   # carátula que separa el entrenamiento de los bonus
 </div>
 ''', pid="bonus-portada", cls="p-cover", header=False)
 
+# ---- Gimnasio: hoja "Antes de entrenar" (después del índice). Casa y gimnasio: 10 claves antes de los bonus.
+if GYM:
+    page(f'''
+{chap_head("01", 'Antes de <span class="t">entrenar</span>', "Cuatro claves para entrenar seguro y ver resultados.")}
+<h3>¿Por qué fuerza después de los 35?</h3>
+<p>Desde los 35 perdés músculo de a poco y, con los cambios hormonales de la perimenopausia y la menopausia, también hueso. <b>El entrenamiento de fuerza es lo que más ayuda a frenarlo:</b> cuida tus huesos y articulaciones, mejora tu metabolismo y te da energía para el día a día.</p>
+<h3>Cómo sube la carga</h3>
+<p>En las semanas 1 a 4 aprendés la técnica y sumás vueltas. La semana 5 es de <b>descarga</b>: bajás el volumen para que el cuerpo se recupere y se adapte. En las semanas 6 a 8 <b>subís el peso</b>: cuando hacés 12 repeticiones con facilidad, sumá una placa o 1 kg.</p>
+<h3>Primero, la técnica</h3>
+<p>Antes de cada ejercicio, <b>mirá su video</b> (tocá VER VIDEO) y aprendé el movimiento con poco peso. La técnica va antes que la carga: si no te sale, usá la variante más fácil.</p>
+<h3>No saltees la entrada en calor</h3>
+<p>Los 5 a 10 minutos de cinta o bici y la movilidad de cada rutina preparan músculos y articulaciones y <b>bajan el riesgo de lesiones</b>. Es parte del entrenamiento, no un extra.</p>
+''', pid="antes-gym")
+
+if ENT and not MAMA:
+    CLAVES = G([
+        ("Tomá agua durante el día", "Tené una botella a mano, no esperes a tener sed."),
+        ("Caminá dentro de casa", "Cada vez que hablás por teléfono, caminá."),
+        ("Hacé la pausa activa", "Si pasás horas sentada, cortá con 10 minutos del bonus."),
+        ("Tomá sol a la mañana", "10 a 15 minutos de luz natural mejoran tu sueño."),
+        ("Dejá el celular antes de dormir", "Apagá pantallas una hora antes de acostarte."),
+        ("Dormí 7 a 8 horas", "Con horarios parecidos todos los días."),
+        ("Usá las escaleras", "Suman fuerza y movimiento sin darte cuenta."),
+        ("Respirá profundo", "Dos minutos de respiración lenta bajan el estrés del día."),
+        ("Prepará tu espacio", "Dejá colchoneta y ropa listas la noche anterior."),
+        ("Anotá cada sesión", "Ver tu avance en el registro te motiva."),
+    ], [
+        ("Hacé siempre la entrada en calor", "Prepara músculos y articulaciones y baja el riesgo de lesiones."),
+        ("Regulá cada máquina", "Asiento, respaldo y apoyos a tu medida. Al principio, pedile ayuda al profe de sala."),
+        ("Arrancá con poco peso", "Subí de a poco, como indica tu plan."),
+        ("Técnica antes que carga", "Si perdés la postura, bajá el peso."),
+        ("Respirá", "Exhalá en el esfuerzo y no contengas el aire."),
+        ("Movimientos controlados", "Sin tirones, sin rebotes y sin balancear el cuerpo."),
+        ("Hidratate", "Llevá tu botella y tomá entre ejercicios."),
+        ("Calzado y toalla", "Zapatillas cerradas y cómodas, y una toalla para las máquinas."),
+        ("Escuchá a tu cuerpo", "Si sentís dolor articular, mareo o falta de aire, frená."),
+        ("Respetá los descansos", "Entre series y entre sesiones: el músculo crece cuando descansás."),
+    ])
+    page(f'''
+{chap_head("09", G('10 hábitos <span class="t">clave</span>', '10 cuidados en el <span class="t">gimnasio</span>'), G("Suman tanto como el entrenamiento. Empezá por 2 o 3.", "Para entrenar seguro y sacarle el máximo a cada sesión."))}
+<div class="tips10">
+{"".join(f'<div><span>{i:02d}</span><h3>{t}</h3><p>{d}</p></div>' for i, (t, d) in enumerate(CLAVES, 1))}
+</div>
+''', pid="claves")
+
 # talleres primero (acceso a Skool), después el recetario
 if ENT:
     page(f'''
@@ -2048,7 +2093,7 @@ def render():
             *([("Antes de empezar", ["antes", "antes2", "base-mama"], [])] if MAMA else []),
             *([("Tu plan de 8 semanas", ["como", "plan8t1", "plan8w2"], []),
                ("Rutinas", RUTS + ["elong", "elong2", "core"], [("Elongación", "elong"), ("Zona media", "core")])] if MAMA else
-              [("Cómo entrenar", ["como"], []),   # casa y gimnasio: primero las rutinas, el plan después
+              ([("Antes de entrenar", ["antes-gym"], [])] if GYM else []) + [("Cómo entrenar", ["como"], []),   # casa y gimnasio: primero las rutinas, el plan después
                ("Rutinas", RUTS + ["elong"], []),
                ("Rutinas extras", ["core", "express"], [("Sesión express de 15 minutos", "express")]),
                ("Tu plan de 8 semanas", ["plan8t1", "plan8w2"], [])]),
@@ -2056,6 +2101,7 @@ def render():
             *([("Pausa activa", ["pausa", "tips10", "bebe"], [("Entrená con tu bebé", "bebe")])] if MAMA else []),
             ("Medí tu progreso", ["eval", "cargas"], []),
             ("Después de las 8 semanas", ["cap7e"], []),
+            *([(G("10 hábitos clave", "10 cuidados en el gimnasio"), ["claves"], [])] if not MAMA else []),
             (None, ["bonus-portada", "talleres"] + (["cap6", "recetas"] if MAMA else []) + ["bonus"] + ([] if MAMA else ["testimonios"]) + ["bio", "metodo"], []),
         ]
         by = {p["id"]: p for p in PAGES}
