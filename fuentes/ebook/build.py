@@ -464,6 +464,7 @@ CUIDADOS = {
  "Curl de isquiotibiales sentada": "rodillas en eje, cadera en asiento.",
  "Elevaciones laterales sentada": "subí hasta hombros sin balancear.",
  "Bicho muerto con disco": "lumbar pegada al piso en todo momento.",
+ "Rotación de tronco de pie": "cadera fija al frente, girá solo el tronco.",
  "Jalón al pecho": "no balancees el cuerpo al bajar la barra; tronco lo más derecho posible.",
  "Aductores en máquina": "apertura controlada sin tirones.",
  "Plancha lateral": "codo bajo hombro, cadera elevada.",
@@ -641,7 +642,7 @@ if GYM:
      "Curl de isquiotibiales sentada": "https://youtu.be/8I7lYLxvAf0",
      "Elevaciones laterales sentada": "https://youtu.be/SfQ7Iostut8",   # Harbiz: sentada con tronco derecho
      "Peso muerto con mancuernas": "https://youtu.be/W5FS9E0Lib4",      # Harbiz: con mancuernas
-     "Rotaciones de tronco": "https://youtu.be/8ZhHlY4Aq_Y",
+     "Rotación de tronco de pie": "https://youtu.be/8ZhHlY4Aq_Y",
      "Circunducción de cadera": "https://youtu.be/T-v_pylMgfk",
      "Bicho muerto con disco": "https://youtu.be/fKAKLkzfhvQ",
      "Jalón al pecho": "https://youtu.be/Vfeh314bQX4",
@@ -666,9 +667,9 @@ if GYM:
      "Abducción en máquina": "Máquina", "Bíceps con mancuernas": "2 mancuernas", "Face pull": "Polea y soga",
      "Sentadilla en copa": "1 mancuerna", "Plancha prona": "Colchoneta", "Plancha lateral": "Colchoneta",
      "Crunch abdominal": "Colchoneta", "Bird dog": "Colchoneta", "Movilidad de brazos": "Propio cuerpo",
-     "Circunducción de cadera": "Máquina o pared", "Rotaciones de tronco": "Banco",
+     "Circunducción de cadera": "Máquina o pared", "Rotación de tronco de pie": "Propio cuerpo",
     })
-    ROT = ("pausa_rotacion.png","Rotaciones de tronco","8 por lado","Sentada en el banco con brazos cruzados al pecho. Girá el tronco a un lado y al otro sin mover la cadera.")
+    ROT = ("rot_tronco_pie.png","Rotación de tronco de pie","8 por lado","De pie con pies al ancho de cadera y brazos cruzados al pecho. Girá el tronco a un lado y al otro con la cadera al frente.")
     CINTA = ("gym_cinta.png","Cinta, bici o elíptica","5–10 min","Aeróbico suave en cinta o bicicleta. Mantené un ritmo continuo que te permita hablar.")
     CALOR_R = {
      "1": [CINTA, C["Movilidad de brazos"], CALOR_EXTRA["apertura"], C["Movilidad de cadera acostada"], CALOR_EXTRA["psoas"], C["Bird dog"], ROT],
