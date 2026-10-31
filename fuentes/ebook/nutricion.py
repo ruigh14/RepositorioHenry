@@ -15,9 +15,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "design-system"))
 from design_system import css as ds_css, esc, ICON_ARROW, ICON_HAND, eyebrow, chap_head, ul, checks, box
 
-NUTRI = "Eugenia"
+NUTRI = "María Eugenia Ballini"
 NUTRI_TITULO = "Lic. en Nutrición"
-MATRICULA = ""   # completar cuando Nacho la pase, por ejemplo "M.N. 0000"
+MATRICULA = "M.N. 11773"
 LINK_PLAN = "https://wa.link/1asjt1"   # WhatsApp de Nacho: plan integral personalizado 1 a 1
 
 PAGES, TOC = [], []
@@ -268,8 +268,8 @@ assert sum(len(s["recetas"]) for s in SEMANAS) == 32
 def ficha(r, n):
     img = ""
     if r["foto"] is not None:
-        f = r["foto"] if isinstance(r["foto"], str) else f"{r['foto']:02d}"
-        img = f'<div class="nr-img"><img src="img/food/{f}.jpg" alt="{esc(r["t"])}"></div>'
+        f = f"img/{r['foto']}.jpg" if str(r["foto"]).startswith("eve/") else (f"img/food/{r['foto']}.jpg" if isinstance(r["foto"], str) else f"img/food/{r['foto']:02d}.jpg")
+        img = f'<div class="nr-img"><img src="{f}" alt="{esc(r["t"])}"></div>'
     ing = "".join(f"<li>{i}</li>" for i in r["ing"])
     pas = "".join(f"<li>{p}</li>" for p in r["pasos"])
     cons = f'<p class="nr-x"><b>Conservación:</b> {r["conserva"]}</p>' if r["conserva"] else ""
@@ -523,11 +523,12 @@ for s in SEMANAS:
     desay = ", ".join(r["t"] for r in s["recetas"] if any(k in r["cat"].lower() for k in ("desayuno", "merienda", "snack", "postre")))
     page(f'''
 <div class="semhead"><span class="semn">SEMANA {s["n"]}</span><h1 class="h1">{s["titulo"]}</h1>
-<p class="lead"><b>Objetivo:</b> {s["objetivo"]}</p></div>
+<p class="lead"><b>Objetivo:</b> {s["objetivo"]}</p><p class="semap"><b>Aprendizaje:</b> {s["aprendizaje"]}</p></div>
 <h3>Tu semana, combinada</h3>
 {dias}
 <p class="small"><b>Desayunos y meriendas:</b> {desay or "elegí entre las opciones de semanas anteriores"}, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
-<div class="quote semq">{s["aprendizaje"]}</div>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3>{ul(s["orga"])}</div>
+<div class="semshop"><h3>Lista de compras</h3>{checks(s["compras"])}</div></div>
 ''', chapter=f"09 · Semana {s['n']}", pid=f"sem{s['n']}")
     cards = []
     for r in s["recetas"]:
@@ -535,7 +536,72 @@ for s in SEMANAS:
         cards.append(ficha(r, n))
     org = (f'<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3>{ul(s["orga"])}</div>'
            f'<div class="semshop"><h3>Lista de compras</h3>{checks(s["compras"])}</div></div>')
-    page(f'''<h2 class="semrh">Recetas de la semana {s["n"]}</h2>''' + "".join(cards) + org, chapter=f"09 · Semana {s['n']} · Recetas", pid=f"sem{s['n']}r")
+    page(f'''<h2 class="semrh">Recetas de la semana {s["n"]}</h2>''' + "".join(cards), chapter=f"09 · Semana {s['n']} · Recetas", pid=f"sem{s['n']}r")
+
+
+# ================================================================== EXTRA · DESAYUNOS Y MERIENDAS DE EUGENIA + REEMPLAZOS + PRODUCTOS
+EXTRAS = [
+ rec("Pancake de coco", "Desayuno o merienda", "10 min", "1 porción",
+     ["2 huevos (o 1 huevo y 1 clara)", "5 cdas de coco rallado", "1 cdita de polvo de hornear", "Esencia de vainilla y gotas de stevia"],
+     ["Batí todo enérgicamente para que no queden grumos.", "Volcá en una sartén aceitada a fuego mínimo.", "Cociná vuelta y vuelta. Toppings: fruta, frutos secos o pasta de maní."],
+     "coco por avena; stevia por fruta pisada.", foto="eve/r5"),
+ rec("Galletitas de 4 ingredientes sin azúcar", "Merienda", "30 min", "8 a 10 galletitas",
+     ["¼ taza de harina de garbanzos", "2 cdas de pasta de maní", "4 dátiles sin carozo (remojados si están secos)", "4 nueces picadas, 3 cdas de agua y ½ cdita de polvo de hornear"],
+     ["Mezclá todo hasta formar una masa (si hace falta, enfriala un rato).", "Formá las galletitas sobre una placa.", "Horneá a 200 °C unos 20 minutos, hasta que estén doradas."],
+     "dátiles por pasas remojadas; nueces por almendras.", "3 a 4 días en recipiente hermético o 2 meses en freezer.", foto="eve/r18"),
+ rec("Granola de quinoa", "Desayuno o merienda", "35 min", "Aprox. 6 porciones",
+     ["1 taza de quinoa cocida (⅓ taza cruda)", "¼ taza de semillas de girasol y zapallo", "¼ taza de frutos secos picados", "¼ taza de coco rallado y 2 cdas de miel"],
+     ["Lavá bien la quinoa, hervila hasta que esté transparente, colala y enfriala.", "Mezclá con semillas, frutos secos, coco y miel.", "Horneá en placa con papel manteca a 180 °C, revolviendo cada 5 minutos, unos 15 minutos."],
+     "miel por azúcar mascabo o dulce de dátiles.", "2 semanas en frasco cerrado.", foto="eve/r15"),
+ rec("Budín de manzana, canela y nuez", "Merienda", "45 min", "1 budín (6 porciones)",
+     ["3 a 4 cdas de avena", "3 claras y 1 huevo", "1 manzana en láminas finas", "1 puñado de nueces, canela, stevia y 1 cdita de polvo de hornear"],
+     ["Precalentá el horno a 180 °C.", "Licuá todo menos la manzana y las nueces, y volcá en una budinera.", "Acomodá la manzana y las nueces arriba y horneá unos 40 minutos."],
+     "manzana por banana o pera.", "3 a 4 días en heladera o 2 meses en freezer.", foto="eve/r23"),
+ rec("Crackers de semillas", "Snack salado", "1 h + hidratación", "Aprox. 30 crackers",
+     ["½ taza de harina de garbanzos + ½ taza de agua", "1 taza de chía y lino", "1 taza y ½ de semillas de girasol, zapallo y sésamo", "1 cda de aceite de oliva, ajo en polvo y curry"],
+     ["Hidratá la harina de garbanzos con el agua entre 1 y 8 horas.", "Mezclá con las semillas, el aceite y los condimentos.", "Estirá fino en placa con papel manteca, marcá los cortes y horneá a 180 °C hasta que estén secos y dorados."],
+     "condimentos a elección: orégano, pimentón, sésamo negro.", "2 semanas en recipiente hermético.", foto="eve/r26"),
+ rec("Snack de garbanzos tostados", "Snack salado", "35 min", "3 porciones",
+     ["1 lata de garbanzos (o 150 g secos, remojados y hervidos)", "2 cdas de aceite de oliva", "Orégano, pimienta, comino y sal"],
+     ["Escurrí y secá muy bien los garbanzos.", "Mezclalos con el aceite y los condimentos.", "Horneá en placa con papel manteca a horno moderado 30 minutos, hasta que estén crocantes."],
+     "probá con pimentón ahumado o curry.", "4 a 5 días en frasco cerrado.", foto="eve/r28"),
+]
+cards = "".join(ficha(r, 32 + i) for i, r in enumerate(EXTRAS, 1))
+page(f'''
+{eyebrow("EXTRA · RECETARIO DE EUGENIA")}
+<h1 class="h1">Desayunos y <span class="t">meriendas extra</span></h1>
+<p class="lead">Seis recetas del recetario de {NUTRI} para sumar variedad a tus mañanas y tardes.</p>
+{cards}
+{box("<b>Conservación de lo casero:</b> sin conservantes, duran poco fuera de la heladera (3 a 4 días). Guardalas en recipientes herméticos y, si hacés en cantidad, congelalas hasta 2 meses. Antes de comerlas, un golpe de horno de 5 minutos.", "soft")}
+''', chapter="Extra · Recetario", pid="extras", toc="Extra: desayunos y meriendas")
+
+page(f'''
+{eyebrow("EXTRA")}
+<h1 class="h1">Reemplazos <span class="t">saludables</span></h1>
+<p>No se trata de prohibir, sino de tener alternativas a mano. Usalos cuando te sirvan.</p>
+{table(["En vez de…", "Probá con…"], [
+ ["<b>Azúcar</b>", "Stevia, dulce de dátiles o pasas, o fruta madura (banana, manzana)."],
+ ["<b>Harina blanca</b>", "Harina integral, de avena o de garbanzos (o una mezcla)."],
+ ["<b>Manteca</b>", "Aceite de oliva o de girasol, palta o pasta de maní."],
+ ["<b>Crema o mayonesa</b>", "Yogur natural, queso untable o palta pisada."],
+ ["<b>Snacks de paquete</b>", "Garbanzos tostados, crackers de semillas, frutos secos o fruta."],
+ ["<b>Gaseosas y jugos</b>", "Agua, agua con frutas o menta, infusiones frías."],
+ ["<b>Pan rallado</b>", "Avena, semillas o harina de garbanzos."],
+ ["<b>Huevo (en budines)</b>", "Gel de chía o lino: 1 cda de semillas + 3 cdas de agua, 20 min."],
+])}
+{box("<b>Equivalencias de endulzantes:</b> 1 cda sopera de stevia ≈ 50 g de azúcar ≈ 40 g de dulce de pasas o dátiles. La idea es ir usando cada vez menos, para que tu paladar se adapte.", "note")}
+''', chapter="Extra · Reemplazos", pid="reemplazos", toc="Extra: reemplazos saludables")
+
+PROD = [("c2", "Panes, galletas y granolas"), ("c3", "Granos integrales y harinas"), ("c4", "Avena y fideos"), ("c8", "Crackers y snacks salados"),
+        ("c16", "Lácteos"), ("c17", "Yogures"), ("c21", "Congelados y semillas"), ("c22", "Proteínas")]
+for k in (0, 4):
+    grid = "".join(f'<figure class="prodf"><img src="img/prod/{f}.jpg" alt="{t}"><figcaption>{t}</figcaption></figure>' for f, t in PROD[k:k + 4])
+    page(f'''
+{eyebrow("EXTRA · PRODUCTOS RECOMENDADOS")}
+<h1 class="h1">{"Qué comprar <span class=\"t\">en el súper</span>" if k == 0 else "Más productos <span class=\"t\">recomendados</span>"}</h1>
+{"<p class=\"small\">Selección de " + NUTRI + ": marcas que conseguís en supermercados y dietéticas. Hacé zoom para ver cada producto.</p>" if k == 0 else ""}
+<div class="prodg">{grid}</div>
+''', chapter="Extra · Productos", pid=f"prod{k}", toc="Extra: productos recomendados" if k == 0 else None)
 
 # ================================================================== PARTE 4 · SOSTENER
 page(f'''

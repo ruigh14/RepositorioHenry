@@ -16,7 +16,7 @@ entrena-en-el-gimnasio/      Ebook 2: misma lógica, rutinas de gimnasio nivel i
   Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
 entrena-siendo-mama/         Ebook 3: mamás que vuelven a entrenar (respiración, piso pélvico, sin impacto) + pausa activa
   Ebook_Entrena_siendo_mama_RENOVA.pdf
-alimentacion-inteligente/    Plan de nutrición de 8 semanas (lo vende la landing): educación breve + organización + programa de 8 semanas con 32 recetas. Lo genera fuentes/ebook/nutricion.py (nutricionista: Eugenia, falta matrícula en MATRICULA)
+alimentacion-inteligente/    Plan de nutrición de 8 semanas (lo vende la landing): educación breve + organización + programa de 8 semanas con 32 recetas. Lo genera fuentes/ebook/nutricion.py (nutricionista: Lic. María Eugenia Ballini, M.N. 11773; suma 6 recetas, reemplazos e imágenes de su recetario y su catálogo de productos en img/eve/ e img/prod/)
   Ebook_Alimentacion_Inteligente_RENOVA.pdf
 pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación + 4 rutinas de pausa activa de 10 min + plan personalizado
   Bonus_Pausa_activa_RENOVA.pdf
@@ -103,7 +103,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
 
-- Alimentación Inteligente (plan de nutrición): borrador listo para que lo revise Eugenia (recetas, cantidades, tiempos de conservación). Falta su matrícula. Después: upsell Nutrición Femenina 40+ y recetario complementario (brief de ChatGPT).
+- Alimentación Inteligente (plan de nutrición, 57 hojas): listo para vender; cargar el PDF en el producto de Impultienda. Pendiente: que Eugenia valide las recetas nuevas. Después: upsell Nutrición Femenina 40+ y recetario complementario (brief de ChatGPT).
 - Ebook gimnasio: que Nacho revise las rutinas y diga si cambia algún ejercicio.
 - Landing de la tienda: pegarla en Impultienda (el JS va aparte en `fuentes/landing/landing.js`, porque Impultienda se rompe con un `<script>` propio), revisar que reemplace precios y que el upsell sume al carrito, y cargar los PDF (casa, gimnasio y pausa) en el producto.
 - Creativos (no tocados en la última ronda: siguen con 40+, dibujos de Canva y 3 bonus): que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.
