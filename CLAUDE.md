@@ -18,7 +18,7 @@ entrena-siendo-mama/         Ebook 3: mamás que vuelven a entrenar (respiració
   Ebook_Entrena_siendo_mama_RENOVA.pdf
 alimentacion-inteligente/    Plan de nutrición de 8 semanas (lo vende la landing): educación breve + organización + programa de 8 semanas con 32 recetas. Lo genera fuentes/ebook/nutricion.py (nutricionista: Lic. María Eugenia Ballini, M.N. 11773; suma 6 recetas, reemplazos e imágenes de su recetario y su catálogo de productos en img/eve/ e img/prod/)
   Ebook_Alimentacion_Inteligente_RENOVA.pdf
-nutricion-menopausia/        Upsell: Nutrición en la menopausia (25 hojas, 10 capítulos, etapas, fotos en img/meno/, registro de síntomas; revisión Eugenia). Lo genera fuentes/ebook/menopausia.py
+nutricion-menopausia/        Upsell: Nutrición en la menopausia (29 hojas, 10 capítulos, perimenopausia, nutrientes clave, casos, guía de consulta, referencias con DOI, etapas, fotos en img/meno/, registro de síntomas; revisión Eugenia). Lo genera fuentes/ebook/menopausia.py
   Ebook_Nutricion_Menopausia_RENOVA.pdf
 pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación + 4 rutinas de pausa activa de 10 min + plan personalizado
   Bonus_Pausa_activa_RENOVA.pdf

@@ -53,7 +53,7 @@ page('''
 page(f'''
 {eyebrow("BIENVENIDA")}
 <h1 class="h1">Una etapa, <span class="t">no un problema</span></h1>
-<p class="lead">La menopausia no es una enfermedad: es una etapa de la vida. Pero trae cambios reales en el cuerpo, y entenderlos te ayuda a tomar mejores decisiones.</p>
+<p class="lead">Para mujeres en <b>perimenopausia, menopausia o posmenopausia</b>. La menopausia no es una enfermedad: es una etapa de la vida. Pero trae cambios reales en el cuerpo, y entenderlos te ayuda a tomar mejores decisiones.</p>
 <div class="nutri-card"><img src="img/eugenia.jpg" alt="{NUTRI}"><div><span class="pill">TE GUÍA</span><h3>{NUTRI}</h3><p class="nc-t">{NUTRI_TIT} · Equipo RENOVA</p>
 <p>En esta guía te explico, con evidencia y sin mitos, cómo la alimentación puede acompañar tu músculo, tus huesos, tu corazón y tu energía en esta etapa.</p></div></div>
 <h2>Cómo leer esta guía</h2>
@@ -81,11 +81,25 @@ page(f'''
 <div class="esen"><h3>En la práctica</h3>{checks(['Anotá durante un mes tus ciclos y síntomas (sofocos, sueño, ánimo): te sirve para la consulta.', 'Pedí un control ginecológico si tus ciclos cambiaron o tenés síntomas que te molestan.', 'Empezá ya con fuerza y buena alimentación: cuanto antes, mejor llegás a la posmenopausia.'])}</div>
 ''', chapter="01 · Comprender la etapa", pid="c1", toc="01 · Comprender la etapa")
 
+
+page(f'''
+{eyebrow("COMPRENDER LA ETAPA")}
+<h1 class="h1">Perimenopausia: <span class="t">los cambios empiezan antes</span></h1>
+<p>Muchas mujeres notan cambios <b>años antes</b> de la última menstruación, y no siempre los relacionan con esta etapa. Las hormonas suben y bajan de forma irregular, por eso los síntomas pueden ir y venir.</p>
+{table(["Lo que podés notar", "Qué hacer"], [
+ ["Ciclos más cortos, más largos o más abundantes", "Registrarlos y consultar si el sangrado es muy abundante o fuera de lo habitual."],
+ ["Sofocos o sudoración nocturna", "Identificar disparadores y consultar si afectan tu descanso."],
+ ["Dormir peor, despertarte de noche", "Rutina de sueño, menos cafeína y alcohol a la tarde y noche."],
+ ["Cambios de ánimo, irritabilidad, más ansiedad", "Movimiento, descanso y pedir ayuda si interfiere en tu vida."],
+ ["Cambios en el peso y la cintura", "Fuerza, proteína en cada comida y no hacer dietas extremas."],
+])}
+{box("<b>Es el mejor momento para empezar.</b> Lo que construís en la perimenopausia —músculo, hueso, hábitos— es lo que te cuida en la posmenopausia.", "soft")}
+''', chapter="01 · Comprender la etapa", pid="c1b")
 # ================================================================== 02
 page(f'''
 {chap_head("02", 'Hormonas y <span class="t">composición corporal</span>', "No es solo “el metabolismo que se pone lento”: cambia dónde se acumula la grasa y cuánto músculo conservás.")}
 <h2>Qué cambia</h2>
-{checks(["<b>La grasa tiende a ubicarse en el abdomen</b> (grasa visceral), por la baja de estrógenos.",
+{checks(["<b>La grasa tiende a ubicarse más en el abdomen</b> (grasa visceral). La baja de estrógenos se asocia a este cambio, junto con la edad, el sueño y la actividad física.",
          "<b>Se pierde masa muscular</b> más rápido si no hay estímulo de fuerza.",
          "<b>Baja un poco el gasto de energía</b>, sobre todo por tener menos músculo y menos movimiento.",
          "<b>El sueño y el estrés</b> influyen en el apetito y en las elecciones de comida."])}
@@ -118,6 +132,20 @@ page(f'''
 <div class="esen"><h3>En la práctica</h3>{checks(['Sumá proteína al desayuno: yogur, huevo o queso.', 'Tené siempre a mano una proteína rápida: huevos, atún, legumbres de lata, yogur.', 'Si no comés carne, combiná legumbres, huevo, lácteos y soja durante el día.'])}</div>
 ''', chapter="03 · Proteínas y músculo", pid="c3", toc="03 · Proteínas y masa muscular")
 
+
+page(f'''
+{eyebrow("NUTRIENTES CLAVE")}
+<h1 class="h1">Nutrientes clave <span class="t">en esta etapa</span></h1>
+{table(["Nutriente", "Para qué", "Fuentes"], [
+ ["<b>Proteína</b>", "Músculo y hueso", "Huevo, lácteos, carnes, pescado, legumbres, soja"],
+ ["<b>Calcio</b>", "Hueso", "Leche, yogur, quesos, sardinas, almendras, vegetales de hoja, alimentos fortificados"],
+ ["<b>Vitamina D</b>", "Absorción de calcio, músculo", "Sol, pescados grasos, huevo, alimentos fortificados"],
+ ["<b>Fibra</b>", "Saciedad, intestino, colesterol", "Verduras, frutas, legumbres, avena, integrales"],
+ ["<b>Omega-3</b>", "Corazón", "Pescados grasos (caballa, sardina, salmón), nueces, chía, lino"],
+ ["<b>Hierro</b>", "Energía (clave si tenés sangrados abundantes)", "Carnes, legumbres + vitamina C, vegetales de hoja"],
+])}
+<p class="small">Las cantidades individuales las define tu nutricionista según tu edad, actividad y análisis.</p>
+''', chapter="03 · Proteínas y músculo", pid="c3b", toc="Nutrientes clave")
 # ================================================================== 04
 page(f'''
 {chap_head("04", 'Salud <span class="t">ósea</span>', "Después de la menopausia la pérdida de hueso se acelera. La buena noticia: hay mucho que podés hacer.")}
@@ -133,7 +161,7 @@ page(f'''
      "<b>Menos alcohol y nada de tabaco:</b> ambos aumentan la pérdida ósea.",
      "<b>Densitometría:</b> consultá con tu médico/a cuándo hacerla según tus factores de riesgo."])}
 {evid("Sólida", "calcio y vitamina D adecuados, junto con ejercicio con carga, son pilares en la prevención de la osteoporosis.")}
-<div class="esen"><h3>En la práctica</h3>{checks(['Sumá 2 o 3 porciones de lácteos al día (o alternativas fortificadas).', 'Tomá sol 10 a 15 minutos, cuidando la piel en horarios de mucho calor.', 'Consultá por la densitometría y por medir vitamina D.', 'Entrená fuerza: el hueso responde a la carga.'])}</div>
+<div class="esen"><h3>En la práctica</h3>{checks(['Sumá 2 o 3 porciones de lácteos al día (o alternativas fortificadas).', 'Pasá tiempo al aire libre; la exposición solar necesaria varía según estación, lugar, horario y tipo de piel. Preguntá si conviene medir tu vitamina D.', 'Consultá por la densitometría y por medir vitamina D.', 'Entrená fuerza: el hueso responde a la carga.'])}</div>
 ''', chapter="04 · Salud ósea", pid="c4", toc="04 · Salud ósea")
 
 # ================================================================== 05
@@ -154,7 +182,7 @@ page(f'''
 page(f'''
 {chap_head("06", 'Salud <span class="t">cardiometabólica</span>', "Con la baja de estrógenos aumenta el riesgo cardiovascular. Es el momento de cuidar el corazón con hábitos.")}
 <h2>Qué suele cambiar</h2>
-{checks(["Sube el colesterol LDL (el “malo”).", "Aumenta la tendencia a la resistencia a la insulina y a la glucemia elevada.", "Puede subir la presión arterial."])}
+{checks(["Sube el colesterol LDL (el “malo”).", "En algunas mujeres empeora la sensibilidad a la insulina; influyen la edad, la grasa abdominal y la actividad física, no solo las hormonas.", "Puede subir la presión arterial."])}
 <figure class="mfig"><img src="img/meno/mediterraneo.jpg" alt="Plato tipo mediterráneo"><figcaption>Un plato tipo mediterráneo: pescado, cereal integral, verduras, palta y aceite de oliva.</figcaption></figure>
 <h2>Qué ayuda</h2>
 {table(["Hábito", "Cómo llevarlo a la práctica"], [
@@ -205,6 +233,18 @@ page(f'''
 <div class="esen"><h3>En la práctica</h3>{checks(['Elegí un desayuno con proteína para esta semana.', 'Prepará dos comidas de respaldo para los días complicados.', 'Usá el programa de 8 semanas de Alimentación Inteligente para organizarte.'])}</div>
 ''', chapter="08 · Vida real", pid="c8", toc="08 · Alimentación en la vida real")
 
+
+page(f'''
+{eyebrow("CASOS PRÁCTICOS")}
+<h1 class="h1">Tres situaciones <span class="t">de la vida real</span></h1>
+<div class="mitos">
+  <div><b>Laura, 46 · perimenopausia</b><p>Duerme mal y a la noche pica. <b>Qué cambia:</b> cena completa con proteína, sin café después de las 14, rutina de sueño y registro de síntomas para su consulta.</p></div>
+  <div><b>Claudia, 53 · posmenopausia</b><p>Su densitometría salió baja. <b>Qué cambia:</b> 3 porciones de lácteos al día, fuerza 2 veces por semana, consulta por vitamina D y seguimiento médico.</p></div>
+  <div><b>Silvia, 49 · viaja por trabajo</b><p>Come en aeropuertos y hoteles. <b>Qué cambia:</b> yogur y frutos secos en la cartera, proteína y verduras en el menú, y fuerza en la habitación 20 minutos.</p></div>
+  <div><b>Mariana, 51 · sofocos</b><p>Los sofocos la despiertan. <b>Qué cambia:</b> identifica que el vino y el picante los empeoran, ajusta la cena y consulta con su ginecóloga por opciones de tratamiento.</p></div>
+</div>
+<p class="small">Casos ilustrativos, no personas reales. Cada situación necesita una evaluación individual.</p>
+''', chapter="08 · Vida real", pid="c8b")
 # ================================================================== 09
 page(f'''
 {chap_head("09", 'Mitos <span class="t">frecuentes</span>', "Lo que circula en redes y lo que dice la evidencia.")}
@@ -221,34 +261,31 @@ page(f'''
 # ================================================================== 10
 page(f'''
 {chap_head("10", 'Tu plan <span class="t">de continuidad</span>', "Elegí tus prioridades, llevá preguntas a la consulta y medí lo que importa.")}
+<h2>Guía para tu consulta</h2>
+<div class="cols2 keep"><div><h3>Con tu ginecólogo/a o médico/a</h3>{checks(["¿En qué etapa estoy?", "¿Conviene una densitometría? ¿Cada cuánto?", "¿Medimos vitamina D, hierro o B12?", "¿Cómo están colesterol, glucemia y presión?", "¿La terapia hormonal es una opción para mí?"])}</div>
+<div><h3>Con tu nutricionista</h3>{checks(["¿Cuánta proteína necesito con mi entrenamiento?", "¿Llego al calcio con mi alimentación?", "¿Necesito algún suplemento?", "¿Cómo adapto mis comidas a mis síntomas?"])}</div></div>
+<p class="small"><b>Llevá:</b> tu registro de síntomas (página <span class="pref" data-ref="registro"></span>), la lista de medicación y suplementos, y tus últimos análisis.</p>
 <h2>Mis 3 prioridades para este mes</h2>
 {table(["Prioridad", "Qué voy a hacer", "Cómo lo mido"], [["1", "", ""], ["2", "", ""], ["3", "", ""]])}
-<h2>Preguntas para tu consulta</h2>
-{checks(["¿Conviene que me haga una densitometría? ¿Cada cuánto?",
-         "¿Necesito medir mi vitamina D, hierro o B12?",
-         "¿Cómo están mi colesterol, glucemia y presión?",
-         "¿La terapia hormonal es una opción para mí?",
-         "¿Cuánta proteína necesito con mi entrenamiento?"])}
-<h2>Qué medir cada 4 semanas</h2>
-{ul(["Perímetro de cintura.", "Fuerza: cuántas repeticiones o qué peso movés en tus ejercicios.", "Sueño y energía (del 1 al 10)."])}
+<p class="small"><b>Cada 4 semanas medí:</b> perímetro de cintura, tu fuerza (repeticiones o peso) y cómo dormís y tu energía (del 1 al 10).</p>
 ''', chapter="10 · Continuidad", pid="c10", toc="10 · Tu plan de continuidad")
 
 
 page(f'''
 {eyebrow("HERRAMIENTA")}
 <h1 class="h1">Registro de <span class="t">síntomas y hábitos</span></h1>
-<p class="small">Completalo 2 semanas antes de tu consulta: le da a tu profesional información concreta. Puntuá del 0 (nada) al 3 (mucho).</p>
-{table(["Día", "Sofocos", "Sueño", "Ánimo", "Energía", "Entrené", "Notas"], [[d, "", "", "", "", "", ""] for d in ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]])}
+<p class="small">Completalo 2 semanas antes de tu consulta. Puntuá del 0 (nada) al 3 (mucho). En “Actividad”, anotá si entrenaste o caminaste; en “Hábito”, el que estés trabajando. No sirve para diagnosticar: es información para tu profesional.</p>
+{table(["Día", "Sofocos", "Sueño", "Ánimo", "Energía", "Actividad", "Hábito"], [[d, "", "", "", "", "", ""] for d in ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]])}
 ''', chapter="Herramientas", pid="registro", toc="Herramienta: registro de síntomas")
 page(f'''
 {eyebrow("FUENTES")}
 <h1 class="h1">Fuentes <span class="t">y aclaraciones</span></h1>
-{ul(["<b>Ministerio de Salud de la Nación</b> — Guías Alimentarias para la Población Argentina.",
-     "<b>Asociación Argentina para el Estudio del Climaterio (AAPEC)</b> — información para pacientes sobre climaterio y menopausia.",
-     "<b>The Menopause Society (antes NAMS)</b> — declaraciones de posición sobre terapia hormonal y tratamientos no hormonales de los síntomas vasomotores.",
-     "<b>Organización Mundial de la Salud</b> — nota descriptiva sobre la menopausia.",
-     "<b>International Osteoporosis Foundation</b> — nutrición y salud ósea.",
-     "<b>American Heart Association</b> — menopausia y riesgo cardiovascular; recomendaciones de alimentación."])}
+{ul(["Ministerio de Salud de la Nación (2016). <i>Guías Alimentarias para la Población Argentina</i>. argentina.gob.ar/salud",
+     "Organización Mundial de la Salud (2024). <i>Menopausia</i> (nota descriptiva). who.int/news-room/fact-sheets/detail/menopause",
+     "The North American Menopause Society (2022). The 2022 hormone therapy position statement. <i>Menopause</i>, 29(7), 767–794. doi:10.1097/GME.0000000000002028",
+     "The Menopause Society (2023). The 2023 nonhormone therapy position statement. <i>Menopause</i>, 30(6), 573–590. doi:10.1097/GME.0000000000002200",
+     "El Khoudary, S. R., et al. (2020). Menopause transition and cardiovascular disease risk. <i>Circulation</i>, 142(25), e506–e532. doi:10.1161/CIR.0000000000000912",
+     "International Osteoporosis Foundation. <i>Nutrition and bone health</i>. osteoporosis.foundation"])}
 {box("<b>Material educativo general.</b> Esta guía no reemplaza la consulta médica, ginecológica ni nutricional. No indica tratamientos, dosis de suplementos ni cantidades individuales de nutrientes. Ante síntomas, enfermedades o medicación, consultá con tu equipo de salud.", "note")}
 <p class="small">Revisión de contenidos: {NUTRI}, {NUTRI_TIT}.</p>
 ''', chapter="Fuentes", pid="fuentes", toc="Fuentes y aclaraciones")
