@@ -457,7 +457,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 <!-- BARRA DE OFERTA (fija): toda la barra lleva al carrito -->
 <a class="top" href="/checkout">
   <span class="tb-tag">Oferta de lanzamiento</span>
-  <span class="tb-p"><s>$100.000</s> <b>$35.000</b></span>
+  <span class="tb-p"><s>{{original_price}}</s> <b>{{price}}</b></span>
   <span class="tb-x">2 ebooks + 5 bonus · acceso inmediato</span>
 </a>
 
@@ -706,20 +706,8 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
     <div class="card rv">
       <h3>Método <span class="b">RENOVA</span></h3>
       <p class="cc">Entrenamiento + nutrición + 5 bonus. ¡Empezá hoy!</p>
-      <div class="pr2"><div><small>Valor total</small><s>$100.000</s></div><div class="on"><small>Hoy</small><b>$35.000</b></div></div>
-      <span class="save">Ahorrás $65.000</span>
-      <div class="ups" id="ups">
-        <img class="ups-img" src="{{upsell_1_image}}" alt=""/>
-        <div class="ups-tx">
-          <span class="ups-tag">Sumalo a tu compra</span>
-          <h4>Guía de alimentación para la menopausia</h4>
-          <p>Una guía práctica de nutrición centrada en la menopausia: qué nutrientes importan más ahora, cómo cuidar tu salud intestinal y estrategias simples para que tu alimentación beneficie a tus hormonas, en lugar de perjudicarlas.</p>
-          <div class="ups-f">
-            <div><s>{{upsell_1_original_price}}</s> <b>{{upsell_1_price}}</b></div>
-            <button type="button" class="ups-btn" data-upsell-toggle="1"><span class="add">＋ Agregar</span><span class="ok">✓ Agregado</span></button>
-          </div>
-        </div>
-      </div>
+      <div class="pr2"><div><small>Valor total</small><s>{{original_price}}</s></div><div class="on"><small>Hoy</small><b>{{price}}</b></div></div>
+      <span class="save">Ahorrás {{savings}}</span>
       <a class="btn big" href="/checkout">Comprar ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
       <div class="trust">
         <span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro</span>
@@ -780,7 +768,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
     <div class="final rv">
       <h2>Empezá hoy a sentirte <span class="gold">fuerte</span></h2>
       <p>Entrenamiento en casa y en el gimnasio + plan de nutrición + 5 bonus. Acceso inmediato y 7 días de garantía.</p>
-      <div class="pr2 inv"><div><small>Valor total</small><s>$100.000</s></div><div class="on"><small>Hoy</small><b>$35.000</b></div></div>
+      <div class="pr2 inv"><div><small>Valor total</small><s>{{original_price}}</s></div><div class="on"><small>Hoy</small><b>{{price}}</b></div></div>
       <div class="cta" style="margin-top:14px">
         <a class="btn white big" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a>
         <small><span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro</span><span><svg class="ic"><use href="#i-bolt"/></svg>Acceso inmediato</span><span><svg class="ic"><use href="#i-shield"/></svg>Garantía de 7 días</span></small>
@@ -799,7 +787,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 </div>
 
 <div class="mbar" id="mbar">
-  <div><b>$35.000</b><s>$100.000</s><small>Ahorrás $65.000</small></div>
+  <div><b>{{price}}</b><s>{{original_price}}</s><small>Ahorrás {{savings}}</small></div>
   <a class="btn" href="/checkout">Lo quiero</a>
 </div>
 
