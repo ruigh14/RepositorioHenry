@@ -305,6 +305,8 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .msgs-dots button.on{background:var(--br);width:26px;border-radius:6px}
 .disc{text-align:center;font-size:13.5px;color:var(--mut);max-width:680px;margin:10px auto 0;font-style:italic}
 
+.post-vid{background:linear-gradient(180deg,var(--brl),#fff 70%);border:2px solid var(--brb);box-shadow:0 10px 26px rgba(20,177,199,.22)}
+
 /* VALOR */
 .stack{max-width:680px;margin:0 auto;background:#fff;border-radius:20px;box-shadow:var(--sh2);overflow:hidden}
 .stack .row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--line);font-size:16.5px}
@@ -525,15 +527,15 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
       <div class="post rv">
         <div class="who"><img src="img/moni_a.jpg" alt=""/><div><b>Moni</b><span class="stars">★★★★★</span></div></div>
         <p>Bajó <b>6 kg</b> y logró <b>el hábito de entrenar</b>.</p>
-        <div class="ba"><div><img src="img/moni_d.jpg" alt="Moni antes" style="object-position:43% 50%"/><span class="tag">ANTES</span></div><div><img src="img/moni_a.jpg" alt="Moni después" style="object-position:52% 50%"/><span class="tag d">DESPUÉS</span></div></div>
+        <div class="ba"><div><img src="img/moni_antes_al.jpg" alt="Moni antes"/><span class="tag">ANTES</span></div><div><img src="img/moni_despues_al.jpg" alt="Moni después"/><span class="tag d">DESPUÉS</span></div></div>
       </div>
       <div class="post rv">
         <div class="who"><img src="img/ba_romi.jpg" alt=""/><div><b>Romi</b><span class="stars">★★★★★</span></div></div>
         <p>Ganó <b>masa muscular</b> y volvió a <b>correr sin dolores</b>.</p>
         <div class="one"><img src="img/ba_romi.jpg" alt="Romi"/></div>
       </div>
-      <div class="post rv">
-        <div class="who"><img src="img/hero_entrenan.jpg" alt=""/><div><b>Alumnas RENOVA</b><span class="stars">★★★★★</span></div></div>
+      <div class="post post-vid rv">
+        <div class="who"><img src="img/hero_entrenan.jpg" alt=""/><div><b>Alumnas RENOVA</b></div></div>
         <p>Así entrenan <b>nuestras alumnas</b>.</p>
         <div class="one"><video muted loop playsinline preload="none" poster="img/hero_entrenan.jpg"><source src="img/hero_entrenan.mp4" type="video/mp4"/></video></div>
       </div>
@@ -611,7 +613,8 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
         </ul>
       </div>
     </div>
-    <div class="clips rv">
+    <!-- Clips de ejercicios: ocultos por pedido de Nacho (sacar el style para volver a mostrarlos) -->
+    <div class="clips rv" style="display:none">
       <div class="clip"><video muted loop playsinline preload="none" poster="img/clip_abduccion.jpg"><source src="img/clip_abduccion.mp4" type="video/mp4"/></video><span>Abducción de cadera</span></div>
       <div class="clip"><video muted loop playsinline preload="none" poster="img/clip_remo.jpg"><source src="img/clip_remo.mp4" type="video/mp4"/></video><span>Remo en polea</span></div>
       <div class="clip"><video muted loop playsinline preload="none" poster="img/clip_baston.jpg"><source src="img/clip_baston.mp4" type="video/mp4"/></video><span>Movilidad con bastón</span></div>
