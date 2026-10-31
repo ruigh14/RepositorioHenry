@@ -1615,7 +1615,7 @@ if ENT:   # carátula que separa el entrenamiento de los bonus
   <div class="dv-bar"></div>
   <p class="dv-desc">Herramientas para acompañar tu plan fuera del entrenamiento.</p>
   <div class="dv-list">
-    <a href="#talleres"><span>1</span><b>Dos talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
+    <a href="#talleres"><span>1</span><b>{"Dos talleres incluidos" if MAMA else "Más de 10 talleres incluidos"}</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
     {'<a href="#cap6"><span>2</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>' if MAMA else ''}
     <a href="#bonus"><span>{3 if MAMA else 2}</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
     {"" if MAMA else '<a href="#bonus"><span>3</span><b>Pausa activa: 4 rutinas de 10 minutos</b><em>PDF aparte</em></a>'}
@@ -1673,17 +1673,18 @@ if ENT and not MAMA:
 if ENT:
     page(f'''
 {eyebrow("BONUS 1 · INCLUIDO")}
-<h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>
-<p class="lead">Los talleres se ven en la comunidad RENOVA, en Skool. Ahí tenés estos dos y los cursos del equipo.</p>
-<div class="tk2">
+{'<h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>' if MAMA else '<h1 class="h1 big">Más de 10 talleres <span class="t">incluidos</span></h1>'}
+<p class="lead">{"Los talleres se ven en la comunidad RENOVA, en Skool. Ahí tenés estos dos y los cursos del equipo." if MAMA else "Talleres y comunidad están en el mismo lugar: la comunidad RENOVA en Skool. Entrás con un solo botón."}</p>
+{'' if MAMA else '<div class="tk10"><div class="tk10-im"><img src="img/taller_super.png" alt=""><img src="img/taller_ansiedad.png" alt=""></div><div class="tk10-tx"><span class="wtag">+10 TALLERES</span><h3>Talleres de hábitos, mindfulness, nutrición inteligente y muchos más…</h3><p>Dictados por los profesionales del equipo RENOVA.</p></div></div>'}
+<div class="tk2"{'' if MAMA else ' style="display:none"'}>
   {'<div><img src="img/taller_heladera.png" alt=""><span class="wtag">INCLUIDO</span><h3>Organizar la heladera</h3><p>Guardar, porcionar y ordenar para tener siempre opciones sanas a mano.</p></div>' if MAMA else '<div><img src="img/taller_super.png" alt=""><span class="wtag">INCLUIDO</span><h3>Elecciones inteligentes en el súper</h3><p>Qué elegir, cómo leer las etiquetas y cómo armar un carrito que te rinda toda la semana.</p></div>'}
   <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
 </div>
 <a class="skool" href="{esc(LINKS["talleres"])}">
   <img src="img/equipo_cover.jpg" alt="Equipo RENOVA">
-  <div class="skx"><span class="wtag">COMUNIDAD RENOVA · SKOOL</span><h3>Entrá y mirá todos los talleres</h3>
+  <div class="skx"><span class="wtag">COMUNIDAD RENOVA · SKOOL</span><h3>{"Entrá y mirá todos los talleres" if MAMA else "Entrá a los talleres y a la comunidad"}</h3>
   <p>Tocá el botón: se abre la comunidad RENOVA en Skool, con los cursos y talleres del equipo.</p>
-  <span class="btn btn-big">{ICON_ARROW} IR A LOS TALLERES</span></div>
+  <span class="btn btn-big">{ICON_ARROW} {"IR A LOS TALLERES" if MAMA else "ENTRAR A SKOOL"}</span></div>
 </a>
 ''', chapter="Bonus 1 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 1: Talleres RENOVA")
 
@@ -1887,11 +1888,11 @@ page(f'''
 {checks(["Entrá una vez por semana, aunque sea un rato.","Contá en qué semana del plan estás.","Participar es opcional: usala como te sirva."])}
 </div>
 </div>
-<div class="ctapanel">
+{f'''<div class="ctapanel">
   <p class="ctatitle">Entrá ahora</p>
   <p class="small center">Tocá el botón y se abre la comunidad RENOVA en Skool.</p>
   {button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}
-</div>
+</div>''' if (FULL or MAMA) else '<div class="box soft"><b>¿Cómo entro?</b> Con el mismo botón de los talleres (página <span class="pref" data-ref="talleres"></span>): talleres y comunidad están juntos en Skool.</div>'}
 </div>
 ''', chapter="Bonus" if FULL else "Bonus 3 · Comunidad" if MAMA else "Bonus 2 · Comunidad", pid="bonus", cls="p-spread", toc="Bonus: comunidad RENOVA" if FULL else "Bonus 3: Comunidad RENOVA" if MAMA else "Bonus 2: Comunidad RENOVA")
 
@@ -1923,15 +1924,16 @@ if ENT:
     page(f'''
 <div class="bio metodo">
   {eyebrow("MÉTODO RENOVA")}
-  <h1 class="h1 big">Método <span class="t">RENOVA</span></h1>
+  <h1 class="h1 big">{'Método <span class="t">RENOVA</span>' if (FULL or MAMA) else 'Tu plan integral <span class="t">1 a 1 con Nacho</span>'}</h1>
   <div class="team-big"><img src="{LINKS["foto_equipo"]}" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>
   <p>{"En RENOVA acompañamos" if MAMA else "En RENOVA ayudamos"} a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
   <p>{"Un equipo completo trabaja con vos" if MAMA else "Detrás del método hay un equipo completo"}: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
   <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Hábitos</span><span>Salud hormonal</span></div>
-  <div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>
-  <div class="cta-center">{button("QUIERO SUMARME A RENOVA", "renova", "", big=True)}</div>
+  {'<div class="quote dark">No necesitás hacerlo perfecto. <span class="t2">Necesitás un sistema que puedas sostener.</span></div>' if (FULL or MAMA) else ''}
+  {'' if (FULL or MAMA) else '<p class="lead center"><b>Consultá por tu plan integral personalizado 1 a 1 con Nacho:</b> entrenamiento y nutrición armados para vos, con el equipo RENOVA.</p>'}
+  <div class="cta-center">{button("QUIERO SUMARME A RENOVA" if (FULL or MAMA) else "CONSULTÁ POR TU PLAN", "renova", "", big=True)}</div>
 </div>
-''', chapter="Método RENOVA", pid="metodo", toc="Método RENOVA")
+''', chapter="Método RENOVA", pid="metodo", toc="Método RENOVA" if (FULL or MAMA) else "Tu plan integral 1 a 1")
 
 if FULL:
     page(f'''
@@ -2102,7 +2104,7 @@ def render():
             ("Medí tu progreso", ["eval", "cargas"], []),
             ("Después de las 8 semanas", ["cap7e"], []),
             *([(G("10 hábitos clave", "10 cuidados en el gimnasio"), ["claves"], [])] if not MAMA else []),
-            (None, ["bonus-portada", "talleres"] + (["cap6", "recetas"] if MAMA else []) + ["bonus"] + ([] if MAMA else ["testimonios"]) + ["bio", "metodo"], []),
+            (None, ["bonus-portada", "talleres"] + (["cap6", "recetas"] if MAMA else []) + ["bonus"] + ([] if MAMA else ["testimonios"]) + (["bio"] if MAMA else []) + ["metodo"], []),
         ]
         by = {p["id"]: p for p in PAGES}
         toc_old = dict((pid, t) for t, pid in TOC)
@@ -2123,7 +2125,7 @@ def render():
                     TOC.append((toc_old[pid], pid))
                 PAGES.append(pg)
         if not MAMA:   # casa y gimnasio: sin recetario ni plato (la nutrición se vende aparte)
-            for x in ("cap6", "plato", "recetas"): by.pop(x, None)
+            for x in ("cap6", "plato", "recetas", "bio"): by.pop(x, None)
         sobran = set(by)
         assert not sobran, f"páginas sin lugar en el orden: {sobran}"
     order = {p["id"]: i for i, p in enumerate(PAGES)}

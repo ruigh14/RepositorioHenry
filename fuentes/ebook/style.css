@@ -961,3 +961,8 @@ body.grande{font-size:16.5pt;line-height:1.48}
 .grande .ex.exrow{padding:1.8mm 3mm;margin-bottom:1.6mm}
 .grande .ex.exrow .exim{height:28mm}
 .grande .ex.exrow{padding:1.2mm 3mm;margin-bottom:1mm}.grande .exrow .exh{margin-bottom:.3mm}.grande .exrow .extx p{line-height:1.27;margin-bottom:.4mm}
+.tk10{display:grid;grid-template-columns:1fr 1fr;gap:5mm;align-items:center;border:.4mm solid var(--tq-b);border-radius:4mm;padding:4mm;margin:2mm 0 5mm;background:var(--tq-l)}
+.tk10-im{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
+.tk10-im img{width:100%;height:40mm;object-fit:cover;border-radius:3mm;display:block}
+.tk10-tx h3{margin:1.5mm 0 2mm;font-size:17pt;line-height:1.2}
+.tk10-tx p{margin:0;font-size:13pt;color:var(--txt)}
