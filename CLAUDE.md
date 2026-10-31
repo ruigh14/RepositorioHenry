@@ -18,6 +18,8 @@ entrena-siendo-mama/         Ebook 3: mamás que vuelven a entrenar (respiració
   Ebook_Entrena_siendo_mama_RENOVA.pdf
 alimentacion-inteligente/    Plan de nutrición de 8 semanas (lo vende la landing): educación breve + organización + programa de 8 semanas con 32 recetas. Lo genera fuentes/ebook/nutricion.py (nutricionista: Lic. María Eugenia Ballini, M.N. 11773; suma 6 recetas, reemplazos e imágenes de su recetario y su catálogo de productos en img/eve/ e img/prod/)
   Ebook_Alimentacion_Inteligente_RENOVA.pdf
+nutricion-menopausia/        Upsell: Nutrición en la menopausia (23 hojas, 10 capítulos, revisión Eugenia). Lo genera fuentes/ebook/menopausia.py
+  Ebook_Nutricion_Menopausia_RENOVA.pdf
 pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación + 4 rutinas de pausa activa de 10 min + plan personalizado
   Bonus_Pausa_activa_RENOVA.pdf
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
@@ -61,6 +63,7 @@ cd fuentes/ebook && python3 build.py mamas && node export.js mamas         # Ent
 cd fuentes/ebook && python3 build.py pausa && node export.js pausa         # Bonus: pausa activa
 cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
 cd fuentes/ebook && python3 nutricion.py && node export.js nutricion        # Alimentación Inteligente (nutrición 8 semanas)
+cd fuentes/ebook && python3 menopausia.py && node export.js menopausia      # Upsell: Nutrición en la menopausia
 cd fuentes/landing && python3 build.py                                     # la landing de la tienda
 cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
 cd fuentes/design-system && python3 muestra.py && node muestra.js           # muestra.pdf del design system
@@ -98,7 +101,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 - Auditoría Fase 1 de casa y gimnasio en `investigacion/auditoria-ebooks-fase1.md`: Nacho decide los puntos críticos (saltos/impacto, tracción en casa, errores frecuentes, qué hacer si pierdo días, "te acompañan") antes de pasar a la Fase 3.
 
 - Bonus pausa activa: cargar `pausa-activa/Bonus_Pausa_activa_RENOVA.pdf` en el producto de Impultienda (junto a casa y gimnasio). En la landing ya es el bonus 4.
-- Ebook de nutrición en la menopausia (upsell 1, $10.000): por hacer; cuando esté, cargarlo como upsell 1 en Impultienda en lugar de "Recetas para entrenar mejor".
+- Ebook Nutrición en la menopausia (upsell 1, $10.000): hecho (borrador); que Eugenia lo revise, cargarlo como upsell 1 en Impultienda y volver a poner el bloque de upsell en la landing.
 - Landing: falta saber medios de pago y si hay cuotas sin interés.
 
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
