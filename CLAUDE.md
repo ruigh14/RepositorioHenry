@@ -103,7 +103,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
 
-- Alimentación Inteligente (plan de nutrición, 57 hojas): listo para vender; cargar el PDF en el producto de Impultienda. Pendiente: que Eugenia valide las recetas nuevas. Después: upsell Nutrición Femenina 40+ y recetario complementario (brief de ChatGPT).
+- Alimentación Inteligente (plan de nutrición, 55 hojas, 38 recetas, validado por Eugenia): listo para vender; cargar el PDF en el producto de Impultienda. Fotos de las recetas nuevas: img/food/n01–n16.jpg (Canva). Después: upsell Nutrición Femenina 40+ y recetario complementario (brief de ChatGPT).
 - Ebook gimnasio: que Nacho revise las rutinas y diga si cambia algún ejercicio.
 - Landing de la tienda: pegarla en Impultienda (el JS va aparte en `fuentes/landing/landing.js`, porque Impultienda se rompe con un `<script>` propio), revisar que reemplace precios y que el upsell sume al carrito, y cargar los PDF (casa, gimnasio y pausa) en el producto.
 - Creativos (no tocados en la última ronda: siguen con 40+, dibujos de Canva y 3 bonus): que Nacho revise los textos de `fuentes/design-system/creativos/datos.py` y diga si agrega precio.

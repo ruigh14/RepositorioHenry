@@ -263,6 +263,12 @@ SEMANAS = [
   aprendizaje="El objetivo no es seguir un menú: es saber armarlo vos."),
 ]
 assert sum(len(s["recetas"]) for s in SEMANAS) == 32
+_k = 0
+for _s in SEMANAS:   # fotos de las recetas nuevas (generadas con Canva): img/food/n01.jpg … n16.jpg, en orden
+    for _r in _s["recetas"]:
+        if _r["foto"] is None:
+            _k += 1
+            _r["foto"] = f"n{_k:02d}"
 
 
 def ficha(r, n):
@@ -288,7 +294,7 @@ page(f'''
     <span class="c3-pill">MÉTODO RENOVA · MUJERES 35+</span>
     <h1 class="c3-title">ALIMENTACIÓN<br>INTELIGENTE</h1>
     <p class="c3-claim">COMÉ MEJOR, <b><span>SIN DIETAS.</span></b></p>
-    <p class="c3-sub"><b>8 semanas</b> de plan práctico con <em>32 recetas</em>,<br><span><mark>menús</mark> y <mark>listas de compras</mark> para tu semana real.</span></p>
+    <p class="c3-sub"><b>8 semanas</b> de plan práctico con <em>38 recetas</em>,<br><span><mark>menús</mark> y <mark>listas de compras</mark> para tu semana real.</span></p>
   </div>
   <div class="c3-team"><img src="img/equipo_tapa.png" alt="Equipo RENOVA"></div>
 </div>
@@ -496,7 +502,7 @@ page(f'''
   <img class="dv-logo" src="img/logo_renova.png" alt="RENOVA">
   <p class="dv-kick">TU PROGRAMA PRÁCTICO</p>
   <h1 class="dv-title">8 SEMANAS</h1>
-  <p class="dv-sub">32 recetas · menús · listas de compras</p>
+  <p class="dv-sub">38 recetas · menús · listas de compras</p>
   <div class="dv-bar"></div>
   <p class="dv-desc">Cada semana tiene un objetivo, 4 recetas, una idea de cómo combinarlas los 7 días, cómo organizarte y tu lista de compras.</p>
   <div class="dv-list">
