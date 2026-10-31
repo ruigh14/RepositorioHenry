@@ -1132,13 +1132,16 @@ if ENT:
 <p>Si no lográs sostener los cambios o tenés una lesión o condición médica, {"un acompañamiento personalizado" if MAMA else "un plan personalizado"} te ayuda a ajustar el plan.</p>
 </div>
 </div>
-<div class="ctapanel cta-plan">
+<div class="ctapanel cta-plan{'' if MAMA else ' deco'}">
+  {'' if MAMA else '<img class="cp-face" src="img/nacho_full.jpg" alt="Nacho Portillo"><span class="cp-eye">PLAN INTEGRAL RENOVA</span>'}
   <p class="ctatitle">Seguí avanzando con un plan a tu medida</p>
   <p class="center">Escribime y armamos tu próximo paso de forma personalizada: rutinas de entrenamiento o el programa integral RENOVA (entrenamiento, nutrición y hábitos).</p>
   {button("ESCRIBILE A NACHO POR WHATSAPP", "wa_plan", "", big=True)}
+  {'' if MAMA else '<div class="cp-pills"><span>✓ Entrenamiento</span><span>✓ Nutrición</span><span>✓ Hábitos</span></div>'}
   <p class="off">{'Por venir del ebook tenés <b>50% off</b> en tu plan personalizado.' if MAMA else 'Por venir del ebook tenés <b>50% off</b> en el plan integral RENOVA de entrenamiento y nutrición.'}</p>
 </div>
 {box("<b>¿Cuándo volver a correr o saltar?</b> Son ejercicios de impacto. Las guías para volver a correr después del parto sugieren esperar al menos 12 semanas y hacerlo cuando no tenés pérdidas, pesadez ni dolor, idealmente después de una evaluación de piso pélvico. Empezá alternando caminata y trote suave.", "note") if MAMA else ""}
+{'<div class="quote cp-quote">No necesitás hacerlo perfecto. <span class="t">Necesitás un sistema que puedas sostener.</span></div>' if (ENT and not MAMA) else ''}
 {"" if (ENT and not MAMA) else box("<b>El próximo paso: la alimentación.</b> Con el entrenamiento en marcha, ordenar tus comidas potencia los resultados. Empezá por las recetas del bonus.", "soft")}
 ''', chapter="08 · Después de las 8 semanas", pid="cap7e", toc="08 · Después de las 8 semanas")
 
@@ -1617,8 +1620,8 @@ if ENT:   # carátula que separa el entrenamiento de los bonus
   <div class="dv-list">
     <a href="#talleres"><span>1</span><b>{"Dos talleres incluidos" if MAMA else "Más de 10 talleres incluidos"}</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
     {'<a href="#cap6"><span>2</span><b>Recetario fácil</b><em>Página <span class="pref" data-ref="cap6"></span></em></a>' if MAMA else ''}
-    <a href="#bonus"><span>{3 if MAMA else 2}</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
-    {"" if MAMA else '<a href="#bonus"><span>3</span><b>Pausa activa: 4 rutinas de 10 minutos</b><em>PDF aparte</em></a>'}
+    <a href="#bonus"{'' if MAMA else ' style="display:none"'}><span>{3 if MAMA else 2}</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
+    {"" if MAMA else '<a href="#talleres"><span>2</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="talleres"></span></em></a><a href="#talleres"><span>3</span><b>Pausa activa: 4 rutinas de 10 minutos</b><em>PDF aparte</em></a>'}
   </div>
   <a class="btn btn-big dv-btn" href="{esc(LINKS["comunidad"])}">ENTRÁ A LA COMUNIDAD RENOVA {ICON_ARROW}</a>
 </div>
@@ -1673,9 +1676,9 @@ if ENT and not MAMA:
 if ENT:
     page(f'''
 {eyebrow("BONUS 1 · INCLUIDO")}
-{'<h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>' if MAMA else '<h1 class="h1 big">Más de 10 talleres <span class="t">incluidos</span></h1>'}
-<p class="lead">{"Los talleres se ven en la comunidad RENOVA, en Skool. Ahí tenés estos dos y los cursos del equipo." if MAMA else "Talleres y comunidad están en el mismo lugar: la comunidad RENOVA en Skool. Entrás con un solo botón."}</p>
-{'' if MAMA else '<div class="tk10"><div class="tk10-im"><img src="img/taller_super.png" alt=""><img src="img/taller_ansiedad.png" alt=""></div><div class="tk10-tx"><span class="wtag">+10 TALLERES</span><h3>Talleres de hábitos, mindfulness, nutrición inteligente y muchos más…</h3><p>Dictados por los profesionales del equipo RENOVA.</p></div></div>'}
+{'<h1 class="h1 big">Dos talleres <span class="t">incluidos</span></h1>' if MAMA else '<h1 class="h1 big">Talleres y <span class="t">comunidad</span></h1>'}
+<p class="lead">{"Los talleres se ven en la comunidad RENOVA, en Skool. Ahí tenés estos dos y los cursos del equipo." if MAMA else "Más de 10 talleres y la comunidad RENOVA, todo en Skool. Entrás con un solo botón."}</p>
+{'' if MAMA else '<div class="tk10"><div class="tk10-im"><img src="img/taller_super.png" alt=""><img src="img/taller_ansiedad.png" alt=""></div><div class="tk10-tx"><span class="wtag">+10 TALLERES</span><h3>Talleres de hábitos, mindfulness, nutrición inteligente y muchos más…</h3><p>Dictados por los profesionales del equipo RENOVA.</p></div></div><p><b>Con el mismo acceso entrás a la comunidad RENOVA:</b> mujeres con tus mismos objetivos, donde podés compartir tu proceso y ver cómo lo resuelven otras. Participar es opcional.</p>'}
 <div class="tk2"{'' if MAMA else ' style="display:none"'}>
   {'<div><img src="img/taller_heladera.png" alt=""><span class="wtag">INCLUIDO</span><h3>Organizar la heladera</h3><p>Guardar, porcionar y ordenar para tener siempre opciones sanas a mano.</p></div>' if MAMA else '<div><img src="img/taller_super.png" alt=""><span class="wtag">INCLUIDO</span><h3>Elecciones inteligentes en el súper</h3><p>Qué elegir, cómo leer las etiquetas y cómo armar un carrito que te rinda toda la semana.</p></div>'}
   <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
@@ -1686,7 +1689,7 @@ if ENT:
   <p>Tocá el botón: se abre la comunidad RENOVA en Skool, con los cursos y talleres del equipo.</p>
   <span class="btn btn-big">{ICON_ARROW} {"IR A LOS TALLERES" if MAMA else "ENTRAR A SKOOL"}</span></div>
 </a>
-''', chapter="Bonus 1 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 1: Talleres RENOVA")
+''', chapter="Bonus 1 · Talleres", pid="talleres", cls="p-spread", toc="Bonus 1: Talleres RENOVA" if MAMA else "Bonus: talleres y comunidad")
 
 page(f'''
 {REC_HEAD}
@@ -1894,7 +1897,7 @@ page(f'''
   {button("ENTRÁ A LA COMUNIDAD RENOVA", "comunidad", "", big=True)}
 </div>''' if (FULL or MAMA) else '<div class="box soft"><b>¿Cómo entro?</b> Con el mismo botón de los talleres (página <span class="pref" data-ref="talleres"></span>): talleres y comunidad están juntos en Skool.</div>'}
 </div>
-''', chapter="Bonus" if FULL else "Bonus 3 · Comunidad" if MAMA else "Bonus 2 · Comunidad", pid="bonus", cls="p-spread", toc="Bonus: comunidad RENOVA" if FULL else "Bonus 3: Comunidad RENOVA" if MAMA else "Bonus 2: Comunidad RENOVA")
+''', chapter="Bonus" if FULL else "Bonus 3 · Comunidad" if MAMA else "Bonus 2 · Comunidad", pid="bonus", cls="p-spread", toc="Bonus: comunidad RENOVA" if FULL else "Bonus 3: Comunidad RENOVA" if MAMA else None)
 
 # ================================================================== FUENTES
 
@@ -2104,7 +2107,7 @@ def render():
             ("Medí tu progreso", ["eval", "cargas"], []),
             ("Después de las 8 semanas", ["cap7e"], []),
             *([(G("10 hábitos clave", "10 cuidados en el gimnasio"), ["claves"], [])] if not MAMA else []),
-            (None, ["bonus-portada", "talleres"] + (["cap6", "recetas"] if MAMA else []) + ["bonus"] + ([] if MAMA else ["testimonios"]) + (["bio"] if MAMA else []) + ["metodo"], []),
+            (None, ["bonus-portada", "talleres"] + (["cap6", "recetas"] if MAMA else []) + (["bonus"] if MAMA else []) + ([] if MAMA else ["testimonios"]) + (["bio"] if MAMA else []) + ["metodo"], []),
         ]
         by = {p["id"]: p for p in PAGES}
         toc_old = dict((pid, t) for t, pid in TOC)
@@ -2125,7 +2128,7 @@ def render():
                     TOC.append((toc_old[pid], pid))
                 PAGES.append(pg)
         if not MAMA:   # casa y gimnasio: sin recetario ni plato (la nutrición se vende aparte)
-            for x in ("cap6", "plato", "recetas", "bio"): by.pop(x, None)
+            for x in ("cap6", "plato", "recetas", "bio", "bonus"): by.pop(x, None)
         sobran = set(by)
         assert not sobran, f"páginas sin lugar en el orden: {sobran}"
     order = {p["id"]: i for i, p in enumerate(PAGES)}
