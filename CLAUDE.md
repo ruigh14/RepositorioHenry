@@ -5,7 +5,7 @@ Todo el trabajo se guarda acá, en la rama `main`. Lo que no se commitea y pushe
 
 ## Estructura
 
-Hay **una sola landing**, la de la tienda (renova.impultienda.ar), donde se venden los **dos ebooks** (casa + gimnasio en una misma compra). Cada ebook tiene su carpeta. El código que los genera está en `fuentes/` y es uno solo para todos: no duplicarlo por producto.
+Hay **una sola landing**, la de la tienda (renova.impultienda.ar; dominio propio comprado: **metodorenova.fit**, en Namecheap, 1 año desde el 1/11/2026, a conectar con Impultienda), donde se venden los **dos ebooks** (casa + gimnasio en una misma compra). Cada ebook tiene su carpeta. El código que los genera está en `fuentes/` y es uno solo para todos: no duplicarlo por producto.
 
 ```
 tienda/
@@ -103,6 +103,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 - Bonus pausa activa: cargar `pausa-activa/Bonus_Pausa_activa_RENOVA.pdf` en el producto de Impultienda (junto a casa y gimnasio). En la landing ya es el bonus 4.
 - Ebook Nutrición en la menopausia (upsell 1, $10.000): aprobado por Eugenia y ya en la landing. Falta cargarlo como upsell 1 en Impultienda (con precio) en lugar de "Recetas para entrenar mejor".
 - Landing: falta saber medios de pago y si hay cuotas sin interés.
+- Dominio metodorenova.fit (Namecheap, vence 1/11/2027): conectarlo a la tienda de Impultienda (DNS) y activar la renovación automática.
 
 - Ebook mamás: que Nacho lo revise (idealmente también una kinesióloga de piso pélvico) y defina cómo se vende (producto aparte, upsell o dentro del combo de la landing). Después: sumarlo a la landing y armar sus creativos en `creativos/datos.py`.
 
