@@ -1071,3 +1071,6 @@ body.grande{font-size:16.5pt;line-height:1.48}
 .mfig figcaption{font-size:12.5pt;line-height:1.35}
 #registro .ntab td{height:17mm}
 #bienvenida .mimg{height:42mm}#bienvenida .nutri-card{margin:3mm 0}
+#registro .ntab td{height:10mm}
+#habitos .ntab td{height:11mm}
+.frz{display:inline-block;background:var(--tq-l);color:var(--tq-dd);border-radius:99px;padding:.3mm 2.5mm;font-size:10.5pt;font-weight:800;margin-left:1mm}

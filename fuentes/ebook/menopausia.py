@@ -156,12 +156,12 @@ page(f'''
   <div><span>F</span><h3>Fuerza e impacto</h3><p>El hueso responde a la carga: entrenar fuerza lo estimula.</p></div>
 </div>
 <figure class="mfig"><img src="img/meno/calcio.jpg" alt="Alimentos con calcio"><figcaption>Fuentes de calcio: lácteos, sardinas, almendras, vegetales de hoja verde, legumbres, tofu y sésamo.</figcaption></figure>
-{ul(["<b>Priorizá el calcio de los alimentos</b>: 2 o 3 porciones de lácteos por día cubren buena parte.",
+{ul(["<b>Priorizá el calcio de los alimentos.</b> Para muchas mujeres, 2 o 3 porciones de lácteos (o alternativas fortificadas) por día cubren buena parte; tu nutricionista ajusta la cantidad.",
      "<b>Vitamina D:</b> si tenés poca exposición al sol, pedí que te la midan. El suplemento solo con indicación.",
      "<b>Menos alcohol y nada de tabaco:</b> ambos aumentan la pérdida ósea.",
      "<b>Densitometría:</b> consultá con tu médico/a cuándo hacerla según tus factores de riesgo."])}
 {evid("Sólida", "calcio y vitamina D adecuados, junto con ejercicio con carga, son pilares en la prevención de la osteoporosis.")}
-<div class="esen"><h3>En la práctica</h3>{checks(['Sumá 2 o 3 porciones de lácteos al día (o alternativas fortificadas).', 'Pasá tiempo al aire libre; la exposición solar necesaria varía según estación, lugar, horario y tipo de piel. Preguntá si conviene medir tu vitamina D.', 'Consultá por la densitometría y por medir vitamina D.', 'Entrená fuerza: el hueso responde a la carga.'])}</div>
+<div class="esen"><h3>En la práctica</h3>{checks(['Si los tolerás, 2 o 3 porciones de lácteos al día; si no, alternativas fortificadas o sin lactosa.', 'Pasá tiempo al aire libre; la exposición solar necesaria varía según estación, lugar, horario y tipo de piel. Preguntá si conviene medir tu vitamina D.', 'Consultá por la densitometría y por medir vitamina D.', 'Entrená fuerza: el hueso responde a la carga.'])}</div>
 ''', chapter="04 · Salud ósea", pid="c4", toc="04 · Salud ósea")
 
 # ================================================================== 05
@@ -174,6 +174,9 @@ page(f'''
  ["<b>Energía</b>", "Comer a intervalos regulares, hidratarte, hacer actividad física y descartar déficit de hierro o vitamina B12 con tu médico/a.", "Sólida"],
  ["<b>Salud intestinal</b>", "Fibra variada (verduras, frutas, legumbres, integrales), yogur y agua.", "Sólida"],
 ])}
+<h2>Qué puede y qué no puede la alimentación</h2>
+<div class="cols2 keep"><div class="esen"><h3>Puede</h3>{checks(["Ayudarte a dormir y descansar mejor.", "Darte energía más estable en el día.", "Cuidar músculo, hueso y corazón a largo plazo.", "Hacer más llevaderos algunos síntomas."])}</div>
+<div class="esen"><h3>No puede</h3>{ul(["“Equilibrar” tus hormonas con un alimento.", "Eliminar los sofocos por sí sola.", "Reemplazar un tratamiento médico cuando hace falta."])}</div></div>
 {box("<b>Si los síntomas son intensos,</b> la alimentación ayuda pero no siempre alcanza. La terapia hormonal y otros tratamientos son opciones que se evalúan con tu ginecólogo/a, según tu historia.", "note")}
 <div class="esen"><h3>En la práctica</h3>{checks(['Anotá qué dispara tus sofocos durante dos semanas.', 'Cortá la cafeína después del mediodía y probá cenar más temprano.', 'Si te cuesta dormir, armá una rutina: misma hora, poca pantalla, cuarto fresco.'])}</div>
 ''', chapter="05 · Alimentación y síntomas", pid="c5", toc="05 · Alimentación y síntomas")
@@ -273,10 +276,17 @@ page(f'''
 
 page(f'''
 {eyebrow("HERRAMIENTA")}
-<h1 class="h1">Registro de <span class="t">síntomas y hábitos</span></h1>
+<h1 class="h1">Tus hábitos <span class="t">prioritarios</span></h1>
+<p class="small">Marcá los que ya hacés y elegí 2 para sumar este mes. No hace falta hacer todo junto.</p>
+{table(["Hábito", "Ya lo hago", "Lo sumo"], [[h, "☐", "☐"] for h in ["Entreno fuerza 2 o 3 veces por semana", "Como proteína en cada comida", "Como verduras en almuerzo y cena", "Sumo lácteos o alternativas con calcio", "Como legumbres 2 o 3 veces por semana", "Como pescado 1 o 2 veces por semana", "Camino o me muevo todos los días", "Duermo 7 a 8 horas", "Limito alcohol y cafeína a la tarde", "Tomo agua durante el día"]])}
+''', chapter="Herramientas", pid="habitos", toc="Herramienta: hábitos prioritarios")
+
+page(f'''
+{eyebrow("HERRAMIENTA")}
+<h1 class="h1">Registro de <span class="t">14 días</span></h1>
 <p class="small">Completalo 2 semanas antes de tu consulta. Puntuá del 0 (nada) al 3 (mucho). En “Actividad”, anotá si entrenaste o caminaste; en “Hábito”, el que estés trabajando. No sirve para diagnosticar: es información para tu profesional.</p>
-{table(["Día", "Sofocos", "Sueño", "Ánimo", "Energía", "Actividad", "Hábito"], [[d, "", "", "", "", "", ""] for d in ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"]])}
-''', chapter="Herramientas", pid="registro", toc="Herramienta: registro de síntomas")
+{table(["Día", "Sofocos", "Sueño", "Ánimo", "Energía", "Actividad", "Hábito"], [[f"Día {d}", "", "", "", "", "", ""] for d in range(1, 15)])}
+''', chapter="Herramientas", pid="registro", toc="Herramienta: registro de 14 días")
 page(f'''
 {eyebrow("FUENTES")}
 <h1 class="h1">Fuentes <span class="t">y aclaraciones</span></h1>
@@ -295,7 +305,9 @@ page(f'''
   {eyebrow("PLAN INTEGRAL RENOVA")}
   <h1 class="h1 big">Tu plan integral <span class="t">1 a 1 con Nacho</span></h1>
   <div class="team-big"><img src="img/equipo2.jpg" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>
-  <p class="lead center"><b>Consultá por tu plan integral personalizado 1 a 1 con Nacho:</b> entrenamiento y nutrición armados para vos y tu etapa, con el equipo RENOVA.</p>
+  <p class="lead center">Esta guía te explica la etapa. <b>Si querés un plan hecho para vos,</b> lo armamos con el equipo RENOVA:</p>
+  <div class="cp-pills"><span>✓ Entrenamiento a tu medida</span><span>✓ Nutrición para tu etapa</span><span>✓ Seguimiento de tu progreso</span></div>
+  <p class="center"><b>Consultá por tu plan integral 1 a 1 con Nacho</b> y contanos en qué etapa estás.</p>
   <div class="cta-center"><a class="btn btn-big" href="{esc(LINK_PLAN)}">CONSULTÁ POR TU PLAN {ICON_ARROW}</a></div>
   <div class="quote dark">Esta etapa no es un final. <span class="t2">Es un buen momento para cuidarte.</span></div>
 </div>

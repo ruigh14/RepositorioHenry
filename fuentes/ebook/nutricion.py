@@ -285,7 +285,8 @@ def ficha(r, n):
         img = f'<div class="nr-img"><img src="{f}" alt="{esc(r["t"])}"></div>'
     ing = "".join(f"<li>{i}</li>" for i in r["ing"])
     pas = "".join(f"<li>{p}</li>" for p in r["pasos"])
-    cons = f'<p class="nr-x"><b>Conservación:</b> {r["conserva"]}</p>' if r["conserva"] else ""
+    frz = ' <span class="frz">❄ Se puede freezar</span>' if "freezer" in r["conserva"].lower() or "congel" in r["conserva"].lower() else ""
+    cons = f'<p class="nr-x"><b>Conservación:</b> {r["conserva"]}{frz}</p>' if r["conserva"] else ""
     return (f'<article class="nrec{" con-img" if img else ""}">{img}<div class="nr-tx">'
             f'<div class="nr-h"><span class="nr-n">{n:02d}</span><div><span class="nr-cat">{r["cat"].upper()}</span><h3>{r["t"]}</h3>'
             f'<p class="nr-meta">{r["tiempo"]} · {r["porc"]}</p></div></div>'
@@ -613,13 +614,13 @@ page(f'''
 <h1 class="h1">Desayunos y <span class="t">meriendas extra</span></h1>
 <p class="lead">Seis recetas del recetario de {NUTRI} para sumar variedad a tus mañanas y tardes.</p>
 {cards}
-{box("<b>Conservación de lo casero:</b> sin conservantes, duran poco fuera de la heladera (3 a 4 días). Guardalas en recipientes herméticos y, si hacés en cantidad, congelalas hasta 2 meses. Antes de comerlas, un golpe de horno de 5 minutos.", "soft")}
+{box("<b>Conservación de lo casero (sin conservantes):</b> lo horneado y seco (granola, crackers, galletitas, garbanzos tostados) dura 1 a 2 semanas en frasco hermético a temperatura ambiente; lo húmedo (budines, pancakes) va a la heladera y dura 3 a 4 días. Todo se puede freezar hasta 2 meses. Antes de comer, un golpe de horno de 5 minutos.", "soft")}
 ''', chapter="Extra · Recetario", pid="extras", toc="Extra: desayunos y meriendas")
 
 page(f'''
 {eyebrow("EXTRA")}
 <h1 class="h1">Reemplazos <span class="t">saludables</span></h1>
-<p>No se trata de prohibir, sino de tener alternativas a mano. Usalos cuando te sirvan.</p>
+<p>No se trata de prohibir ni de que un reemplazo sea automáticamente “más sano”: son <b>alternativas según la preparación</b>. Usalas cuando te sirvan.</p>
 {table(["En vez de…", "Probá con…"], [
  ["<b>Azúcar</b>", "Stevia, dulce de dátiles o pasas, o fruta madura (banana, manzana)."],
  ["<b>Harina blanca</b>", "Harina integral, de avena o de garbanzos (o una mezcla)."],
@@ -630,7 +631,7 @@ page(f'''
  ["<b>Pan rallado</b>", "Avena, semillas o harina de garbanzos."],
  ["<b>Huevo (en budines)</b>", "Gel de chía o lino: 1 cda de semillas + 3 cdas de agua, 20 min."],
 ])}
-{box("<b>Equivalencias de endulzantes:</b> 1 cda sopera de stevia ≈ 50 g de azúcar ≈ 40 g de dulce de pasas o dátiles. La idea es ir usando cada vez menos, para que tu paladar se adapte.", "note")}
+{box("<b>Endulzantes:</b> la equivalencia con el azúcar depende de cada producto (stevia en polvo, líquida o en sobres): seguí la indicación del envase. Dátiles, pasas y miel también aportan azúcares: usalos con moderación. La idea es ir usando cada vez menos para que tu paladar se adapte.", "note")}
 ''', chapter="Extra · Reemplazos", pid="reemplazos", toc="Extra: reemplazos saludables")
 
 PROD = [("c2", "Panes, galletas y granolas"), ("c3", "Granos integrales y harinas"), ("c4", "Avena y fideos"), ("c8", "Crackers y snacks salados"),
@@ -640,7 +641,7 @@ for k in (0, 4):
     page(f'''
 {eyebrow("EXTRA · PRODUCTOS RECOMENDADOS")}
 <h1 class="h1">{"Qué comprar <span class=\"t\">en el súper</span>" if k == 0 else "Más productos <span class=\"t\">recomendados</span>"}</h1>
-{"<p class=\"small\">Selección de " + NUTRI + ": marcas que conseguís en supermercados y dietéticas. Hacé zoom para ver cada producto.</p>" if k == 0 else ""}
+{"<p class=\"small\">Selección de " + NUTRI + ". <b>Las marcas cambian:</b> usá estos criterios con cualquier producto — ingredientes cortos, integral o con fibra como primer ingrediente, poca azúcar agregada y sodio moderado, y compará por 100 g. Hacé zoom para ver cada producto.</p>" if k == 0 else ""}
 <div class="prodg">{grid}</div>
 ''', chapter="Extra · Productos", pid=f"prod{k}", toc="Extra: productos recomendados" if k == 0 else None)
 
