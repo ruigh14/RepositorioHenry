@@ -110,7 +110,7 @@ body{{width:1920px;height:1080px;background:var(--rnv-tinta)}}
 <div class="side" style="left:0"><img src="{I}foto_l_remo.jpg" style="left:40px;top:120px;width:420px;height:240px"><img src="{I}comida_05.jpg" style="left:90px;top:420px;width:300px;height:300px"><img src="{I}tapa_casa.jpg" style="left:30px;top:760px;width:220px;height:310px"></div>
 <div class="side" style="right:0"><img src="{I}tapa_gym.jpg" style="right:60px;top:110px;width:230px;height:325px"><img src="{I}foto_l_subidas.jpg" style="right:30px;top:500px;width:420px;height:240px"><img src="{I}mock_nutricion.jpg" style="right:110px;top:790px;width:330px;height:250px"></div>
 <div class="vig"></div><div class="glow"></div>
-<img class="team" src="{I}equipo_tapa.png" alt="Equipo RENOVA">
+<img class="team" src="{I}equipo_tapa_limpia.png" alt="Equipo RENOVA">
 <div class="top"><img src="{I}logo.png"><p>Equipo <b>interdisciplinario</b></p><div class="line"></div></div>
 <div class="foot"><span>Entrenamiento</span><span>Nutrición</span><span>Medicina deportiva</span><span>Psicología</span></div>
 """
