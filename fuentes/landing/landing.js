@@ -24,6 +24,21 @@
     vids.forEach(function(v){ vo.observe(v); });
   }
 
+  // Reloj de la oferta: 5 horas desde que entra (se guarda en el navegador; al terminar vuelve a empezar)
+  var tm = document.getElementById('tmr');
+  if (tm) {
+    var D = 5 * 3600 * 1000, t0 = Date.now();
+    try { var g = +localStorage.getItem('rnv_t0'); if (g && Date.now() - g < D) t0 = g; else localStorage.setItem('rnv_t0', t0); } catch (e) {}
+    var z = function(n){ return (n < 10 ? '0' : '') + n; };
+    var tick = function(){
+      var r = D - (Date.now() - t0);
+      if (r <= 0) { t0 = Date.now(); r = D; try { localStorage.setItem('rnv_t0', t0); } catch (e) {} }
+      var x = Math.floor(r / 1000);
+      tm.textContent = z(Math.floor(x / 3600)) + ':' + z(Math.floor(x / 60) % 60) + ':' + z(x % 60);
+    };
+    tick(); setInterval(tick, 1000);
+  }
+
   // Upsell: si Impultienda no lo completó, no se muestra
   var ups = document.getElementById('ups');
   if (ups) {
