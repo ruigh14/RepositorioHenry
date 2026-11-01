@@ -265,11 +265,12 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 
 /* PRECIO (dos columnas) */
 .pr2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 12px}
-.pr2>div{border:2px solid var(--line);border-radius:12px;padding:10px}
+.pr2>div{border:2px solid var(--line);border-radius:12px;padding:10px;min-width:0;container-type:inline-size}
 .pr2 small{display:block;font-size:13px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 .pr2 s{font-size:24px;color:var(--mut)}
 .pr2 .on{border-color:var(--br);background:var(--brl)}
-.pr2 b{font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(34px,5vw,44px);font-weight:900;color:var(--ink);line-height:1.1}
+.pr2 b{font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(26px,4vw,44px);font-size:min(44px,15cqw);font-weight:900;color:var(--ink);line-height:1.1;white-space:nowrap}
+.pr2 s{font-size:min(24px,10cqw)}
 .pr2.inv{max-width:460px;margin:10px auto}
 .pr2.inv>div{border-color:rgba(255,255,255,.5)}
 .pr2.inv small,.pr2.inv s{color:#fff}
@@ -448,13 +449,13 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
   .mbar small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .mbar .btn{flex:none;width:auto;white-space:nowrap;padding:12px 16px;font-size:16px}
   .pr2>div{padding:8px 6px;min-width:0}
-  .pr2 b{font-size:clamp(18px,6.4vw,32px);white-space:nowrap}
+  .pr2 b{font-size:min(32px,15cqw)}
   .item-h{flex-wrap:wrap}
   .final{padding:40px 14px}
   .pr2{gap:8px}
   .ups{grid-template-columns:70px 1fr}
   .ups-img{width:70px;height:100px}
-  .pr2 s{font-size:16px;white-space:nowrap}
+  .pr2 s{font-size:min(16px,10cqw);white-space:nowrap}
   .btn{white-space:nowrap}
   .tb-p{white-space:nowrap}
 }
@@ -720,7 +721,6 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
     <h2 class="h2 rv">Programa RENOVA de 8 semanas + <span class="b">5 bonificaciones</span></h2>
     <div class="card rv">
       <h3>Método <span class="b">RENOVA</span></h3>
-      <p class="cc">Entrenamiento + nutrición + 5 bonus. ¡Empezá hoy!</p>
       <div class="pr2"><div><small>Valor total</small><s>{{original_price}}</s></div><div class="on"><small>Hoy</small><b>{{price}}</b></div></div>
       <span class="save">Ahorrás {{savings}}</span>
       <div class="lleva">
