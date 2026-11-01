@@ -468,7 +468,9 @@ html{scroll-behavior:smooth}
   #rnv .bono .bt{padding:46px 16px 14px;font-size:17px;flex-direction:column;align-items:flex-start}
   #rnv .bono .bt i{top:12px;transform:none}
   #rnv .bhead{flex-direction:column}
-  #rnv .item{padding:18px}
+  #rnv .item{padding:18px;min-width:0}
+  #rnv .item>*{min-width:0}
+  #rnv .trio figcaption{font-size:10px;letter-spacing:.02em}
   #rnv .tm{flex-basis:160px}
   #rnv .hero .wrap{padding:30px 0 46px;gap:26px}
   #rnv .hero .cta{text-align:center}
@@ -504,6 +506,22 @@ html{scroll-behavior:smooth}
   #rnv .mbar small{display:block;font-family:Inter,sans-serif;font-size:12px;color:var(--br2);font-weight:800}
   #rnv .mbar .btn{flex:1;width:auto;min-height:50px;padding:12px 10px;font-size:17px;animation:none}
   #rnv .foot{padding-bottom:100px}
+  #rnv .mbar{gap:10px;padding:10px 12px}
+  #rnv .mbar div{min-width:0;flex:1}
+  #rnv .mbar b{font-size:19px;white-space:nowrap}
+  #rnv .mbar s{font-size:12px;white-space:nowrap}
+  #rnv .mbar small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #rnv .mbar .btn{flex:none;width:auto;white-space:nowrap;padding:12px 16px;font-size:16px}
+  #rnv .pr2>div{padding:8px 6px;min-width:0}
+  #rnv .pr2 b{font-size:clamp(18px,6.4vw,32px);white-space:nowrap}
+  #rnv .item-h{flex-wrap:wrap}
+  #rnv .final{padding:40px 14px}
+  #rnv .pr2{gap:8px}
+  #rnv .ups{grid-template-columns:70px 1fr}
+  #rnv .ups-img{width:70px;height:100px}
+  #rnv .pr2 s{font-size:16px;white-space:nowrap}
+  #rnv .btn{white-space:nowrap}
+  #rnv .tb-p{white-space:nowrap}
 }
 @media (prefers-reduced-motion:reduce){#rnv,#rnv *{animation:none!important;transition:none!important}#rnv.js .rv{opacity:1;transform:none}}
 </style>
