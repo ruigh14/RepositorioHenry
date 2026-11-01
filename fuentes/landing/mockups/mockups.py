@@ -87,3 +87,31 @@ body{{width:2200px;height:1000px;background:#fff}}
 Path("nutricion.html").write_text(NUT)
 Path("programa.html").write_text(PRO)
 print("ok")
+
+# ---- Portada (espacio del VSL): equipo RENOVA protagonista, imágenes de fondo suaves
+VSL = f"""<!doctype html><meta charset="utf-8"><style>{BASE}
+body{{width:1920px;height:1080px;background:var(--rnv-tinta)}}
+.bg{{position:absolute;inset:-40px;background:url({I}mock_programa.jpg) center/cover;filter:blur(7px) saturate(.9);opacity:.28}}
+.side{{position:absolute;top:0;bottom:0;width:560px;overflow:hidden;opacity:.55;filter:blur(1.5px)}}
+.side img{{position:absolute;border-radius:18px;box-shadow:0 20px 40px rgba(0,0,0,.4);object-fit:cover}}
+.vig{{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 58%,rgba(20,20,20,0) 0%,rgba(20,20,20,.55) 45%,rgba(20,20,20,.95) 80%)}}
+.glow{{position:absolute;left:50%;top:55%;width:1300px;height:900px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(20,177,199,.35),rgba(0,51,160,.18) 45%,transparent 70%)}}
+.team{{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:880px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}}
+.top{{position:absolute;top:56px;left:0;right:0;text-align:center}}
+.top img{{height:64px;filter:brightness(0) invert(1)}}
+.top p{{margin-top:14px;color:#fff;font-family:InterTightW,sans-serif;font-weight:800;letter-spacing:.32em;font-size:24px;text-transform:uppercase}}
+.top p b{{color:var(--rnv-turquesa)}}
+.line{{width:120px;height:5px;background:var(--rnv-rojo);margin:18px auto 0;border-radius:3px}}
+.fade{{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(transparent,rgba(20,20,20,.92))}}
+.foot{{position:absolute;bottom:34px;left:0;right:0;display:flex;justify-content:center;gap:16px}}
+.foot span{{background:rgba(255,255,255,.92);color:var(--rnv-tinta);font-weight:800;font-size:22px;padding:10px 22px;border-radius:99px;letter-spacing:.04em}}
+</style>
+<div class="bg"></div>
+<div class="side" style="left:0"><img src="{I}foto_l_remo.jpg" style="left:40px;top:120px;width:420px;height:240px"><img src="{I}comida_05.jpg" style="left:90px;top:420px;width:300px;height:300px"><img src="{I}tapa_casa.jpg" style="left:30px;top:760px;width:220px;height:310px"></div>
+<div class="side" style="right:0"><img src="{I}tapa_gym.jpg" style="right:60px;top:110px;width:230px;height:325px"><img src="{I}foto_l_subidas.jpg" style="right:30px;top:500px;width:420px;height:240px"><img src="{I}mock_nutricion.jpg" style="right:110px;top:790px;width:330px;height:250px"></div>
+<div class="vig"></div><div class="glow"></div>
+<img class="team" src="{I}equipo_tapa.png" alt="Equipo RENOVA">
+<div class="top"><img src="{I}logo.png"><p>Equipo <b>interdisciplinario</b></p><div class="line"></div></div>
+<div class="fade"></div><div class="foot"><span>Entrenamiento</span><span>Nutrición</span><span>Medicina deportiva</span><span>Psicología</span></div>
+"""
+Path("vsl.html").write_text(VSL)

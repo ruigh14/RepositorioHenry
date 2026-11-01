@@ -1,0 +1,123 @@
+<!doctype html><meta charset="utf-8"><style>/* RENOVA · design system — tipografías locales.
+   ../../design-system/fonts/ se reemplaza por la ruta a fuentes/design-system/fonts/ (lo hace design_system.css()). */
+@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("../../design-system/fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("../../design-system/fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("../../design-system/fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("../../design-system/fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("../../design-system/fonts/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("../../design-system/fonts/inter-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"InterTightW";font-weight:100 900;font-style:normal;src:url("../../design-system/fonts/inter-tight-latin-var.woff2") format("woff2")}
+
+/* RENOVA · design system — tokens
+   Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
+   Paleta = la del ebook (medida en el PDF). Landings, creativos y videos usan exactamente estos colores.
+   Ver README.md para el uso de cada uno. */
+:root{
+  /* ---- Color: turquesa de marca (el de nachoportillo.com) */
+  --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
+  --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
+  --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
+  --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
+  --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
+  --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  /* ---- Color: logo (solo portada y logo, no para texto corrido) */
+  --rnv-azul:#0033A0;
+  --rnv-rojo:#E63333;
+  /* ---- Color: sello de garantía (solo el sello dorado) */
+  --rnv-oro:#E2A928;
+  --rnv-oro-claro:#F9DE7E;
+  --rnv-oro-oscuro:#8A5A0B;
+  /* ---- Color: neutros */
+  --rnv-tinta:#141414;             /* títulos */
+  --rnv-texto:#2A2F33;             /* cuerpo */
+  --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
+  --rnv-linea:#E3ECEE;             /* separadores */
+  --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
+  --rnv-oscuro:#141414;            /* barras, pie y recuadros oscuros (el negro del ebook) */
+  --rnv-blanco:#FFFFFF;
+
+  /* ---- Degradés y sombras */
+  --rnv-degrade:linear-gradient(135deg,#14B1C7 0%,#0E9DB2 100%);   /* solo turquesas del ebook */
+  --rnv-sombra:0 10px 30px rgba(20,20,20,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(20,20,20,.16);
+  --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
+
+  /* ---- Tipografía */
+  --rnv-fuente:"InterW","Inter",system-ui,sans-serif;            /* todo el texto */
+  --rnv-fuente-display:"InterTightW","Inter Tight","InterW",sans-serif; /* titulares de web y redes */
+
+  /* Escala del ebook (A4, se lee en el celular: cuerpo mínimo 15 pt) */
+  --rnv-pdf-portada:37pt;
+  --rnv-pdf-h1:26pt;
+  --rnv-pdf-h2:18pt;
+  --rnv-pdf-h3:16pt;
+  --rnv-pdf-cuerpo:16pt;
+  --rnv-pdf-chico:13pt;
+  --rnv-pdf-etiqueta:7.6pt;
+
+  /* Escala web (landing) */
+  --rnv-web-h1:clamp(46px,7vw,80px);
+  --rnv-web-h2:clamp(28px,3.6vw,42px);
+  --rnv-web-cuerpo:17px;
+  --rnv-web-chico:14px;
+
+  /* Escala redes (lienzo de 1080 px de ancho: se ve a ~36% en el celular) */
+  --rnv-red-gancho:104px;   /* titular principal */
+  --rnv-red-titulo:72px;
+  --rnv-red-subtitulo:48px;
+  --rnv-red-cuerpo:40px;    /* mínimo para que se lea en el celular */
+  --rnv-red-etiqueta:28px;
+
+  /* ---- Espacios y radios */
+  --rnv-esp-1:8px; --rnv-esp-2:16px; --rnv-esp-3:24px; --rnv-esp-4:40px; --rnv-esp-5:64px;
+  --rnv-radio:14px;
+  --rnv-radio-grande:24px;
+  --rnv-radio-pill:999px;
+
+  /* ---- Página A4 del ebook */
+  --rnv-a4-margen:21mm 17mm 17mm;
+
+  /* ---- Zonas seguras de Instagram y Facebook en 1080×1920 (historias y reels) */
+  --rnv-zona-arriba:250px;
+  --rnv-zona-abajo:340px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1200px;height:900px;overflow:hidden;font-family:InterW,sans-serif;background:var(--rnv-turquesa-fondo);position:relative}
+.bk{position:absolute;background:#fff;border-radius:6px 14px 14px 6px;overflow:hidden;box-shadow:24px 30px 50px rgba(20,20,20,.28)}
+.bk::after{content:"";position:absolute;inset:0 auto 0 0;width:6%;background:linear-gradient(90deg,rgba(0,0,0,.22),transparent)}
+.cv{position:absolute;inset:0;display:flex;flex-direction:column}
+.ttl{font-family:InterTightW,sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.92;color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;flex:1}
+.grid img{width:100%;height:100%;object-fit:cover}
+.card{position:absolute;background:#fff;border-radius:14px;box-shadow:0 18px 40px rgba(20,20,20,.18);padding:18px 20px}
+.card h4{font-family:InterTightW,sans-serif;font-weight:900;color:var(--rnv-tinta);font-size:22px;margin-bottom:10px}
+.row{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--rnv-tinta);padding:7px 0;border-bottom:1px solid var(--rnv-linea)}
+.ck{width:18px;height:18px;border-radius:4px;border:2px solid var(--rnv-turquesa);flex:none}
+.ck.on{background:var(--rnv-turquesa)}
+.wk{position:absolute;background:var(--rnv-turquesa);color:#fff;font-family:InterTightW,sans-serif;font-weight:900;font-size:56px;padding:4px 22px;border-radius:10px;transform:rotate(-4deg);box-shadow:0 12px 26px rgba(0,0,0,.25)}
+.logo{height:34px;width:auto}
+
+body{width:1920px;height:1080px;background:var(--rnv-tinta)}
+.bg{position:absolute;inset:-40px;background:url(../img/mock_programa.jpg) center/cover;filter:blur(7px) saturate(.9);opacity:.28}
+.side{position:absolute;top:0;bottom:0;width:560px;overflow:hidden;opacity:.55;filter:blur(1.5px)}
+.side img{position:absolute;border-radius:18px;box-shadow:0 20px 40px rgba(0,0,0,.4);object-fit:cover}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 58%,rgba(20,20,20,0) 0%,rgba(20,20,20,.55) 45%,rgba(20,20,20,.95) 80%)}
+.glow{position:absolute;left:50%;top:55%;width:1300px;height:900px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(20,177,199,.35),rgba(0,51,160,.18) 45%,transparent 70%)}
+.team{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:880px;filter:drop-shadow(0 30px 50px rgba(0,0,0,.55))}
+.top{position:absolute;top:56px;left:0;right:0;text-align:center}
+.top img{height:64px;filter:brightness(0) invert(1)}
+.top p{margin-top:14px;color:#fff;font-family:InterTightW,sans-serif;font-weight:800;letter-spacing:.32em;font-size:24px;text-transform:uppercase}
+.top p b{color:var(--rnv-turquesa)}
+.line{width:120px;height:5px;background:var(--rnv-rojo);margin:18px auto 0;border-radius:3px}
+.fade{position:absolute;left:0;right:0;bottom:0;height:200px;background:linear-gradient(transparent,rgba(20,20,20,.92))}
+.foot{position:absolute;bottom:34px;left:0;right:0;display:flex;justify-content:center;gap:16px}
+.foot span{background:rgba(255,255,255,.92);color:var(--rnv-tinta);font-weight:800;font-size:22px;padding:10px 22px;border-radius:99px;letter-spacing:.04em}
+</style>
+<div class="bg"></div>
+<div class="side" style="left:0"><img src="../img/foto_l_remo.jpg" style="left:40px;top:120px;width:420px;height:240px"><img src="../img/comida_05.jpg" style="left:90px;top:420px;width:300px;height:300px"><img src="../img/tapa_casa.jpg" style="left:30px;top:760px;width:220px;height:310px"></div>
+<div class="side" style="right:0"><img src="../img/tapa_gym.jpg" style="right:60px;top:110px;width:230px;height:325px"><img src="../img/foto_l_subidas.jpg" style="right:30px;top:500px;width:420px;height:240px"><img src="../img/mock_nutricion.jpg" style="right:110px;top:790px;width:330px;height:250px"></div>
+<div class="vig"></div><div class="glow"></div>
+<img class="team" src="../img/equipo_tapa.png" alt="Equipo RENOVA">
+<div class="top"><img src="../img/logo.png"><p>Equipo <b>interdisciplinario</b></p><div class="line"></div></div>
+<div class="fade"></div><div class="foot"><span>Entrenamiento</span><span>Nutrición</span><span>Medicina deportiva</span><span>Psicología</span></div>
