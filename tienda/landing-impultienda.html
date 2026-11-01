@@ -327,9 +327,9 @@ html{scroll-behavior:smooth}
 #rnv .val.big b{font-weight:900;font-size:20px;color:var(--ink);letter-spacing:.04em}
 
 
-#rnv .team-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:none}
+#rnv .team-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 4px 18px;scrollbar-width:none}
 #rnv .team-track::-webkit-scrollbar{display:none}
-#rnv .tm{flex:0 0 200px;scroll-snap-align:center;margin:0;background:#fff;border-radius:16px;box-shadow:var(--sh);padding:12px;text-align:center}
+#rnv .tm{flex:0 0 min(300px,72%);scroll-snap-align:center;margin:0;background:#fff;border-radius:16px;box-shadow:var(--sh);padding:12px;text-align:center}
 #rnv .tm img,#rnv .tm-ph{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 25%;border-radius:12px;margin-bottom:10px}
 #rnv .tm-ph{display:grid;place-items:center;background:var(--brl);color:var(--br);font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:56px}
 #rnv .tm b{display:block;color:var(--ink);font-size:16px}
@@ -479,7 +479,7 @@ html{scroll-behavior:smooth}
   #rnv .item{padding:18px;min-width:0}
   #rnv .item>*{min-width:0}
   #rnv .trio figcaption{font-size:10px;letter-spacing:.02em}
-  #rnv .tm{flex-basis:160px}
+  #rnv .tm{flex-basis:72%}
   #rnv .hero .wrap{padding:30px 0 46px;gap:26px}
   #rnv .hero .cta{text-align:center}
   #rnv .proof{justify-content:center;flex-wrap:wrap}
@@ -776,11 +776,14 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <h3 class="msgs-t rv">El equipo <span class="b">RENOVA</span></h3>
     
-    <div class="team-track rv">
+    <div class="msgs rv">
+    <div class="team-track" id="team">
       <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/img/nacho.jpg" alt="Nacho Portillo"/><b>Nacho Portillo</b><span>Entrenador · creador de RENOVA</span></figure>
-      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/img/equipo_eugenia.jpg" alt="María Eugenia Ballini"/><b>María Eugenia Ballini</b><span>Lic. en Nutrición</span></figure>
-      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/img/equipo_agostina.jpg" alt="Agostina"/><b>Agostina</b><span>Lic. en Psicología</span></figure>
-      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/img/equipo_rodrigo.jpg" alt="Rodrigo"/><b>Rodrigo</b><span>Médico traumatólogo y deportólogo</span></figure>
+      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/img/equipo_eugenia.jpg" alt="Lic. María Eugenia Ballini"/><b>Lic. María Eugenia Ballini</b><span>Lic. en Nutrición</span></figure>
+      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/img/equipo_agostina.jpg" alt="Lic. Agostina Galiani"/><b>Lic. Agostina Galiani</b><span>Lic. en Psicología</span></figure>
+      <figure class="tm"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/img/equipo_rodrigo.jpg" alt="Dr. Rodrigo Portillo Ruffa"/><b>Dr. Rodrigo Portillo Ruffa</b><span>Médico traumatólogo y deportólogo</span></figure>
+    </div>
+    <div class="msgs-dots" id="team-dots"></div>
     </div>
   </div>
 </div>
@@ -902,7 +905,7 @@ html{scroll-behavior:smooth}
   <a class="btn" href="/checkout">Lo quiero</a>
 </div>
 
-<img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none" onload="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/landing.js';document.body.appendChild(s);this.onload=null"/>
+<img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none" onload="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@d425f913a2fc46d489c4da63e909690e4b39a404/fuentes/landing/landing.js';document.body.appendChild(s);this.onload=null"/>
 </div>
 </body>
 </html>
