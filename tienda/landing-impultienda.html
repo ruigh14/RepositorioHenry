@@ -299,6 +299,12 @@ html{scroll-behavior:smooth}
 #rnv .item-tx li,#rnv .bono li{display:flex;gap:10px;font-size:16px;line-height:1.45;color:var(--ink)}
 #rnv .item-tx li .ic,#rnv .bono li .ic{color:var(--br);stroke-width:3;margin-top:4px}
 
+#rnv .lleva{text-align:left;margin:20px auto 4px;max-width:440px;color:var(--mut);font-size:15px}
+#rnv .lleva p{font-weight:600;color:var(--ink);margin:0 0 8px;font-size:15px}
+#rnv .lleva ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+#rnv .lleva li{display:flex;gap:8px;align-items:flex-start;line-height:1.35}
+#rnv .lleva li .ic{width:16px;height:16px;flex:none;margin-top:2px;color:var(--br)}
+#rnv .lleva b{color:var(--ink);font-weight:600}
 
 #rnv .bhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 22px;max-width:980px;border-bottom:2px solid var(--line);padding-bottom:12px}
 #rnv .bhead h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
@@ -782,12 +788,25 @@ html{scroll-behavior:smooth}
 
 <div class="sec gray" id="comprar">
   <div class="wrap">
-    <h2 class="h2 rv">Programa RENOVA de 8 semanas <span class="b">(valor de $30.000)</span> + bonificaciones <span class="b">(valor de $70.000)</span> = valor de $100.000</h2>
+    <h2 class="h2 rv">Programa RENOVA de 8 semanas + <span class="b">5 bonificaciones</span></h2>
     <div class="card rv">
       <h3>Método <span class="b">RENOVA</span></h3>
       <p class="cc">Entrenamiento + nutrición + 5 bonus. ¡Empezá hoy!</p>
       <div class="pr2"><div><small>Valor total</small><s>{{original_price}}</s></div><div class="on"><small>Hoy</small><b>{{price}}</b></div></div>
       <span class="save">Ahorrás {{savings}}</span>
+      <div class="lleva">
+        <p>En total te llevás:</p>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Ebook <b>Entrená desde casa</b> (8 semanas)</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Ebook <b>Entrená en el gimnasio</b> (8 semanas)</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Ebook <b>Alimentación Inteligente</b>: plan de nutrición de 8 semanas</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: planes de pausa activa</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: rutinas express de 15 minutos</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: rutinas de abdominales</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: talleres del equipo RENOVA</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: acceso de por vida a la comunidad RENOVA</span></li>
+        </ul>
+      </div>
       <div class="ups" id="ups">
         <img class="ups-img" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/111dd5c212d73fd129771354439f4f4c7937b2b9/fuentes/landing/img/tapa_menopausia.jpg" alt="Ebook Nutrición en la menopausia" style="object-fit:contain"/>
         <div class="ups-tx">
