@@ -307,7 +307,6 @@ page(f'''
   <div class="team-big"><img src="img/equipo2.jpg" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>
   <p class="lead center">Esta guía te explica la etapa. <b>Si querés un plan hecho para vos,</b> lo armamos con el equipo RENOVA:</p>
   <div class="cp-pills"><span>✓ Entrenamiento a tu medida</span><span>✓ Nutrición para tu etapa</span><span>✓ Seguimiento de tu progreso</span></div>
-  <p class="center"><b>Un entrenamiento presencial por mes</b> y <b>seguimiento semanal a distancia</b>, con toda tu rutina específica.</p>
   <p class="center"><b>Consultá por tu plan integral 1 a 1 con Nacho</b> y contanos en qué etapa estás.</p>
   <div class="cta-center"><a class="btn btn-big" href="{esc(LINK_PLAN)}">CONSULTÁ POR TU PLAN {ICON_ARROW}</a></div>
   <div class="quote dark">Esta etapa no es un final. <span class="t2">Es un buen momento para cuidarte.</span></div>
