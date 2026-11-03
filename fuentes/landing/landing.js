@@ -45,12 +45,23 @@
     tick(); setInterval(tick, 1000);
   }
 
-  // VSL: arranca solo, en silencio y en loop. El toque va directo al video (Wistia lo activa con sonido al instante);
-  // el cartel celeste es solo indicativo y se oculta cuando la persona toca el video.
-  var von = document.getElementById('vsl-on'), vf = document.querySelector('#vsl iframe');
-  if (von && vf) window.addEventListener('blur', function(){
-    setTimeout(function(){ if (document.activeElement === vf) von.classList.add('off'); }, 0);
-  });
+  // VSL (Wistia, embed sin iframe): arranca solo, en silencio y en loop.
+  // Al tocar, el sonido se activa al instante y el video vuelve al principio.
+  var von = document.getElementById('vsl-on');
+  if (von) {
+    ['https://fast.wistia.com/embed/medias/9xn7yk66az.jsonp', 'https://fast.wistia.com/assets/external/E-v1.js'].forEach(function(u){
+      var sc = document.createElement('script'); sc.src = u; sc.async = true; document.body.appendChild(sc);
+    });
+    var vid = null, pend = false;
+    var go = function(){
+      vid.unmute(); vid.volume(1); vid.time(0); vid.play();
+      try { vid.setControlEnabled('playbar', true); } catch (e) {}
+      von.classList.add('off');
+    };
+    window._wq = window._wq || [];
+    window._wq.push({ id: '9xn7yk66az', onReady: function(v){ vid = v; if (pend) go(); } });
+    von.onclick = function(){ if (vid) go(); else pend = true; };
+  }
 
   // Upsell: si Impultienda no lo completó, no se muestra
   var ups = document.getElementById('ups');
