@@ -306,6 +306,9 @@ html{scroll-behavior:smooth}
 #rnv .lleva li .ic{width:16px;height:16px;flex:none;margin-top:2px;color:var(--br)}
 #rnv .lleva b{color:var(--ink);font-weight:600}
 #rnv .hero-tr{margin-top:12px;font-size:15px;font-weight:700;letter-spacing:.04em;color:#fff;opacity:.95}
+#rnv .vsl-on{position:absolute;inset:0;z-index:3;border:0;background:rgba(0,0,0,.08);cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6%}
+#rnv .vsl-on span{display:inline-flex;align-items:center;gap:10px;background:var(--rnv-rojo);color:#fff;font:800 18px "Inter Tight",Inter,sans-serif;letter-spacing:.02em;padding:12px 22px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.35);animation:pulse 2s ease-in-out infinite}
+#rnv .vsl-on .ic{width:20px;height:20px}
 
 #rnv .bhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 22px;max-width:980px;border-bottom:2px solid var(--line);padding-bottom:12px}
 #rnv .bhead h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
@@ -567,7 +570,7 @@ html{scroll-behavior:smooth}
     <h1>Volvé a sentirte <em>fuerte</em></h1>
     <p class="sub">Rutinas de 30 minutos, de bajo impacto, para recuperar tu energía después de los 35, en la perimenopausia o la menopausia.</p>
     
-    <div class="vsl rv"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/1f07797378b61e6821fe0ea06f5fd0d596b2079b/fuentes/landing/img/mock_vsl.jpg" alt="Equipo interdisciplinario RENOVA"/></div>
+    <div class="vsl rv" id="vsl" data-wistia="xz8fgn1cgmdkkv6"><iframe src="https://fast.wistia.net/embed/iframe/xz8fgn1cgmdkkv6?autoPlay=true&amp;muted=true&amp;silentAutoPlay=true&amp;endVideoBehavior=loop&amp;playbar=false&amp;playButton=false&amp;smallPlayButton=false&amp;volumeControl=false&amp;fullscreenButton=false&amp;settingsControl=false&amp;controlsVisibleOnLoad=false&amp;videoFoam=false" title="Método RENOVA" allow="autoplay; fullscreen" allowfullscreen frameborder="0"></iframe><button type="button" class="vsl-on" id="vsl-on" aria-label="Ver el video con sonido"><span><svg class="ic" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>Tocá para ver con sonido</span></button></div>
     <div class="cta">
       <a class="btn white big" href="/checkout">Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
       <p class="hero-tr">30 min · bajo impacto · en casa o en el gimnasio</p>
@@ -907,7 +910,7 @@ html{scroll-behavior:smooth}
   <a class="btn" href="/checkout">Lo quiero</a>
 </div>
 
-<img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none" onload="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@031a789d9643e859299f2ae3a662d0c642b8184d/fuentes/landing/landing.js';document.body.appendChild(s);this.onload=null"/>
+<img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" style="display:none" onload="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@21d1c2a153fce330ae4aa7eadb23fc2d5e73d128/fuentes/landing/landing.js';document.body.appendChild(s);this.onload=null"/>
 </div>
 </body>
 </html>
