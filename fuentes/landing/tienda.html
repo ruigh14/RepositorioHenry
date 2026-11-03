@@ -233,9 +233,10 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .lleva li .ic{width:16px;height:16px;flex:none;margin-top:2px;color:var(--br)}
 .lleva b{color:var(--ink);font-weight:600}
 .hero-tr{margin-top:12px;font-size:15px;font-weight:700;letter-spacing:.04em;color:#fff;opacity:.95}
-.vsl-on{position:absolute;inset:0;z-index:3;border:0;background:rgba(0,0,0,.08);cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6%}
-.vsl-on span{display:inline-flex;align-items:center;gap:10px;background:var(--rnv-rojo);color:#fff;font:800 18px "Inter Tight",Inter,sans-serif;letter-spacing:.02em;padding:12px 22px;border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.35);animation:pulse 2s ease-in-out infinite}
-.vsl-on .ic{width:20px;height:20px}
+.vsl-on{position:absolute;left:0;right:0;bottom:14px;z-index:3;display:flex;justify-content:center;pointer-events:none;transition:opacity .3s}
+.vsl-on span{display:inline-flex;align-items:center;gap:7px;background:var(--rnv-turquesa);color:#fff;font:700 13.5px Inter,sans-serif;letter-spacing:.02em;padding:7px 14px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.vsl-on .ic{width:15px;height:15px}
+.vsl-on.off{opacity:0}
 /* BONOS */
 .bhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 22px;max-width:980px;border-bottom:2px solid var(--line);padding-bottom:12px}
 .bhead h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
@@ -500,7 +501,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
     <h1>Volvé a sentirte <em>fuerte</em></h1>
     <p class="sub">Rutinas de 30 minutos, de bajo impacto, para recuperar tu energía después de los 35, en la perimenopausia o la menopausia.</p>
     <!-- VSL: cuando esté el video, reemplazar la imagen por el iframe del video (16:9) dentro de .vsl -->
-    <div class="vsl rv" id="vsl" data-wistia="9xn7yk66az"><iframe src="https://fast.wistia.net/embed/iframe/9xn7yk66az?autoPlay=true&amp;muted=true&amp;silentAutoPlay=true&amp;endVideoBehavior=loop&amp;playbar=false&amp;playButton=false&amp;smallPlayButton=false&amp;volumeControl=false&amp;fullscreenButton=false&amp;settingsControl=false&amp;controlsVisibleOnLoad=false&amp;videoFoam=false" title="Método RENOVA" allow="autoplay; fullscreen" allowfullscreen frameborder="0"></iframe><button type="button" class="vsl-on" id="vsl-on" aria-label="Ver el video con sonido"><span><svg class="ic" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>Tocá para ver con sonido</span></button></div>
+    <div class="vsl rv" id="vsl" data-wistia="9xn7yk66az"><iframe src="https://fast.wistia.net/embed/iframe/9xn7yk66az?autoPlay=true&amp;silentAutoPlay=true&amp;muted=true&amp;endVideoBehavior=loop&amp;playbar=true&amp;controlsVisibleOnLoad=false&amp;videoFoam=false" title="Método RENOVA" allow="autoplay; fullscreen" allowfullscreen frameborder="0"></iframe><div class="vsl-on" id="vsl-on" aria-hidden="true"><span><svg class="ic" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor" stroke="none"/></svg>Tocá el video para escucharlo</span></div></div>
     <div class="cta">
       <a class="btn white big" href="/checkout">Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
       <p class="hero-tr">30 min · bajo impacto · en casa o en el gimnasio</p>
