@@ -45,6 +45,14 @@
     tick(); setInterval(tick, 1000);
   }
 
+  // VSL: arranca solo, en silencio y en loop; al tocarlo vuelve a empezar con sonido y controles
+  var vsl = document.getElementById('vsl'), von = document.getElementById('vsl-on');
+  if (vsl && von) von.onclick = function(){
+    var f = vsl.querySelector('iframe'), id = vsl.getAttribute('data-wistia');
+    f.src = 'https://fast.wistia.net/embed/iframe/' + id + '?autoPlay=true&muted=false&endVideoBehavior=default&playbar=true&volumeControl=true&fullscreenButton=true&videoFoam=false&time=0';
+    von.parentNode.removeChild(von);
+  };
+
   // Upsell: si Impultienda no lo completó, no se muestra
   var ups = document.getElementById('ups');
   if (ups) {
