@@ -30,10 +30,10 @@
     vids.forEach(function(v){ vo.observe(v); });
   }
 
-  // Reloj de la oferta: 5 horas desde que entra (se guarda en el navegador; al terminar vuelve a empezar)
+  // Reloj de la oferta: 15 minutos desde que entra (se guarda en el navegador; al terminar vuelve a empezar)
   var tm = document.getElementById('tmr');
   if (tm) {
-    var D = 5 * 3600 * 1000, t0 = Date.now();
+    var D = 15 * 60 * 1000, t0 = Date.now();
     try { var g = +localStorage.getItem('rnv_t0'); if (g && Date.now() - g < D) t0 = g; else localStorage.setItem('rnv_t0', t0); } catch (e) {}
     var z = function(n){ return (n < 10 ? '0' : '') + n; };
     var tick = function(){
