@@ -65,10 +65,8 @@ inner += book("tapa_casa.jpg","ENTRENÁ DESDE CASA",480,300,300,-18,2)
 inner += book("tapa_gym.jpg","ENTRENÁ EN EL GIMNASIO",1110,300,300,18,2)
 inner += book("tapa_nutri.jpg","ALIMENTACIÓN INTELIGENTE",800,250,320,0,4)
 # talleres en pantalla a la derecha
-inner += '<div class="scr" style="left:1420px;top:330px;width:440px;height:280px"><div class="in"><img src="../img/habitos.jpg"><span class="live">EN VIVO</span><div class="play"></div></div></div>'
-inner += '<div class="scr" style="left:1450px;top:640px;width:380px;height:220px"><div class="in"><img src="../img/comunidad.jpg"></div></div>'
-inner += '<div class="lb" style="left:1420px;top:290px;width:440px">Talleres <b>grabados y en vivo</b></div>'
-inner += '<div class="lb" style="left:1450px;top:875px;width:380px">Comunidad <b>de por vida</b></div>'
+inner += '<div class="scr" style="left:1400px;top:400px;width:480px;height:300px"><div class="in"><img src="../img/habitos.jpg"><span class="live">EN VIVO</span><div class="play"></div></div></div>'
+inner += '<div class="lb" style="left:1400px;top:355px;width:480px">Talleres <b>grabados y en vivo</b></div>'
 inner += '<div class="chips"><span><i>+</i>Pausa activa</span><span><i>+</i>Rutinas express</span><span><i>+</i>Abdominales</span><span><i>+</i>Talleres</span><span><i>+</i>Comunidad</span></div>'
 pg("pack_completo",1920,1080,inner)
 print("ok")
