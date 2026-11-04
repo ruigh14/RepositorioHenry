@@ -20,7 +20,8 @@ HERE = Path(__file__).parent
 # Commit fijo de la última versión de landing/img (evita la caché de GitHub con archivos nuevos).
 # Antes de correr esto, commitear y pushear las imágenes nuevas.
 SHA = subprocess.check_output(["git", "log", "-1", "--format=%H", "--", "img"], cwd=HERE, text=True).strip()
-IMG = f"https://raw.githubusercontent.com/ruigh14/RepositorioHenry/{SHA}/fuentes/landing/img/"
+IMG = f"https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@{SHA}/fuentes/landing/img/"   # CDN: carga más rápida que GitHub
+RAW = f"https://raw.githubusercontent.com/ruigh14/RepositorioHenry/{SHA}/fuentes/landing/img/"
 # Los videos salen primero de jsDelivr (manda el tipo video/mp4, que Safari necesita) y, si falla, de GitHub.
 CDN = f"https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@{SHA}/fuentes/landing/img/"
 FONTS = "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
@@ -92,7 +93,7 @@ body = src.split("<body>", 1)[1].split("</body>")[0]
 html = (head + "<body>\n<div id=\"rnv\">\n<style>@import url(\"" + FONTS + "\");\n"
         + scope(css).strip() + "\n</style>\n" + body.strip() + "\n</div>\n</body>\n</html>\n")
 html = re.sub(r'<source src="img/([^"]+)" type="video/mp4"/>',
-              lambda m: f'<source src="{CDN}{m[1]}" type="video/mp4"/><source src="{IMG}{m[1]}" type="video/mp4"/>', html)
+              lambda m: f'<source src="{CDN}{m[1]}" type="video/mp4"/><source src="{RAW}{m[1]}" type="video/mp4"/>', html)
 html = re.sub(r'(src|href|poster)="img/', r'\1="' + IMG, html)
 html = html.replace("url('img/", "url('" + IMG)
 # Impultienda mete el HTML dentro de su propio <script>: un "</script>" nuestro le corta la página.
