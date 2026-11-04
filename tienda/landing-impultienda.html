@@ -312,6 +312,24 @@ html{scroll-behavior:smooth}
 #rnv .vsl-on.off{opacity:0;pointer-events:none}
 @media (max-width:640px){#rnv .vsl-on{padding-bottom:12px}#rnv .vsl-on span{font-size:15px;padding:9px 16px}#rnv .vsl-on .ic{width:18px;height:18px}}
 
+
+#rnv .hero{background:linear-gradient(165deg,#06343b 0%,var(--rnv-turquesa-profundo) 55%,var(--rnv-turquesa-oscuro) 100%)}
+#rnv .hero::before{background:radial-gradient(circle at 80% 10%,rgba(20,177,199,.28),transparent 55%)}
+#rnv .hero .wrap.hero-in{padding:0 0 40px}
+#rnv .hero-team{display:block;height:clamp(150px,22vw,230px);width:auto;max-width:92%;margin:8px auto -6px;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent);mask-image:linear-gradient(180deg,#000 70%,transparent)}
+#rnv .eyebrow{background:transparent;color:var(--rnv-turquesa);box-shadow:none;border:1px solid rgba(20,177,199,.6);font-size:12.5px;padding:7px 16px;margin-bottom:14px}
+#rnv .hero-in h1{text-transform:none;font-weight:800;font-size:clamp(38px,6vw,66px);letter-spacing:-.02em;line-height:1.05;text-shadow:none}
+#rnv .hero h1 em{background:none;color:var(--rnv-turquesa);transform:none;padding:0;font-style:italic}
+#rnv .hero-in .sub{font-weight:400;color:rgba(255,255,255,.88);font-size:clamp(16px,2vw,20px);margin:12px auto 18px}
+#rnv .hero-lbl{font:800 13px "Inter Tight",Inter,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin:0 0 12px}
+#rnv .hero-lbl b{color:var(--rnv-turquesa)}
+#rnv .vsl{border:1px solid rgba(20,177,199,.45);box-shadow:0 0 40px rgba(20,177,199,.25),0 26px 60px rgba(0,0,0,.45)}
+#rnv .hero-btn{flex-direction:column;gap:2px;width:min(560px,100%);padding:14px 20px;background:linear-gradient(135deg,var(--rnv-turquesa),var(--rnv-turquesa-titulo));box-shadow:0 0 30px rgba(20,177,199,.55),0 14px 30px rgba(0,0,0,.35)}
+#rnv .hero-btn span{display:inline-flex;align-items:center;gap:10px}
+#rnv .hero-btn small{display:block;margin:0;font:600 12.5px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:.92}
+#rnv .hero .cta{margin-top:20px}
+#rnv .hero .proof{color:#fff}
+
 #rnv .bhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 22px;max-width:980px;border-bottom:2px solid var(--line);padding-bottom:12px}
 #rnv .bhead h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
 #rnv .bono{max-width:980px;margin:0 auto 20px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
@@ -568,14 +586,15 @@ html{scroll-behavior:smooth}
 
 <div class="hero">
   <div class="wrap hero-in">
+    <img class="hero-team" src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/1f07797378b61e6821fe0ea06f5fd0d596b2079b/fuentes/landing/img/equipo_tapa_limpia.png" alt="Equipo RENOVA"/>
     <span class="eyebrow">Método RENOVA · Mujeres 35+</span>
     <h1>Volvé a sentirte <em>fuerte</em></h1>
-    <p class="sub">Rutinas de 30 minutos, de bajo impacto, diseñadas para recuperar tu energía y la confianza en tu cuerpo después de los 35, en la perimenopausia o la menopausia.</p>
+    <p class="sub">Rutinas de 30 minutos, de bajo impacto, diseñadas para recuperar tu energía y la confianza en tu cuerpo en la perimenopausia o la menopausia.</p>
+    <p class="hero-lbl">Programa <b>interdisciplinario</b></p>
     
     <div class="vsl rv" id="vsl" data-wistia="9xn7yk66az"><div class="wistia_embed wistia_async_9xn7yk66az autoPlay=true muted=true silentAutoPlay=true endVideoBehavior=loop playbar=false controlsVisibleOnLoad=false videoFoam=false" style="position:absolute;inset:0;width:100%;height:100%">&nbsp;</div><button type="button" class="vsl-on" id="vsl-on" aria-label="Activar sonido"><span><svg class="ic" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor" stroke="none"/></svg>Tocá para activar el sonido</span></button></div>
     <div class="cta">
-      <a class="btn white big" href="/checkout">Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
-      <p class="hero-tr">30 min · bajo impacto · en casa o en el gimnasio</p>
+      <a class="btn big hero-btn" href="/checkout"><span>Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></span><small>Acceso inmediato · 7 días de garantía</small></a>
       <div class="proof">
         <div class="faces"><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/1f07797378b61e6821fe0ea06f5fd0d596b2079b/fuentes/landing/img/mari_d.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/1f07797378b61e6821fe0ea06f5fd0d596b2079b/fuentes/landing/img/ba_romi.jpg" alt=""/><img src="https://raw.githubusercontent.com/ruigh14/RepositorioHenry/1f07797378b61e6821fe0ea06f5fd0d596b2079b/fuentes/landing/img/moni_a.jpg" alt=""/></div>
         <span><span class="stars">★★★★★</span><br/>Más de <b>150 alumnas</b> ya entrenaron con RENOVA</span>
