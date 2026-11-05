@@ -20,6 +20,8 @@ alimentacion-inteligente/    Plan de nutrición de 8 semanas (lo vende la landin
   Ebook_Alimentacion_Inteligente_RENOVA.pdf
 nutricion-menopausia/        Upsell: Nutrición en la menopausia (30 hojas, registro de 14 días, hábitos prioritarios, 10 capítulos, perimenopausia, nutrientes clave, casos, guía de consulta, referencias con DOI, etapas, fotos en img/meno/, registro de síntomas; revisión Eugenia). Lo genera fuentes/ebook/menopausia.py
   Ebook_Nutricion_Menopausia_RENOVA.pdf
+comunidad/                   Bonus (PDF aparte): Acceso a la comunidad RENOVA (portada + cómo entrar a Skool y ver los talleres en Cursos). Lo genera fuentes/ebook/comunidad.py && node comunidad.js
+  Bonus_Acceso_comunidad_RENOVA.pdf
 pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación + 4 rutinas de pausa activa de 10 min + plan personalizado
   Bonus_Pausa_activa_RENOVA.pdf
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
