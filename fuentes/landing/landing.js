@@ -96,11 +96,12 @@
   carrusel(document.getElementById('msgs'), document.getElementById('msgs-dots'));
   carrusel(document.getElementById('team'), document.getElementById('team-dots'));
 
-  // Barra de compra en el celular: aparece después del 30% de la página y se esconde sobre la caja de precio
-  var bar = document.getElementById('mbar'), buy = document.querySelector('#comprar .card');
-  window.addEventListener('scroll', function(){
-    var h = document.documentElement.scrollHeight - window.innerHeight;
-    var b = buy.getBoundingClientRect();
-    bar.classList.toggle('show', h > 0 && window.scrollY / h > .3 && !(b.top < window.innerHeight && b.bottom > 0));
-  }, { passive: true });
+  // Barra de compra en el celular: aparece apenas el botón de la portada sale de la pantalla
+  // (Clarity: casi nadie baja del 15-35%) y se esconde sobre la caja de precio
+  var bar = document.getElementById('mbar'), buy = document.querySelector('#comprar .card'), hb = document.querySelector('.hero .btn');
+  var upd = function(){
+    var b = buy.getBoundingClientRect(), t = hb ? hb.getBoundingClientRect().bottom < 0 : window.scrollY > 600;
+    bar.classList.toggle('show', t && !(b.top < window.innerHeight && b.bottom > 0));
+  };
+  window.addEventListener('scroll', upd, { passive: true });
 })();
