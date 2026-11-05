@@ -94,6 +94,8 @@ html = (head + "<body>\n<div id=\"rnv\">\n<style>@import url(\"" + FONTS + "\");
         + scope(css).strip() + "\n</style>\n" + body.strip() + "\n</div>\n</body>\n</html>\n")
 html = re.sub(r'<source src="img/([^"]+)" type="video/mp4"/>',
               lambda m: f'<source src="{CDN}{m[1]}" type="video/mp4"/><source src="{RAW}{m[1]}" type="video/mp4"/>', html)
+# Imágenes: si jsDelivr falla en algún celular, cada <img> pasa sola a GitHub
+html = re.sub(r'<img ([^>]*?)src="img/', lambda m: '<img ' + m[1] + 'onerror="this.onerror=null;this.src=this.src.replace(\'' + IMG + '\',\'' + RAW + '\')" src="img/', html)
 html = re.sub(r'(src|href|poster)="img/', r'\1="' + IMG, html)
 html = html.replace("url('img/", "url('" + IMG)
 # Impultienda mete el HTML dentro de su propio <script>: un "</script>" nuestro le corta la página.
