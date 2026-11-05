@@ -60,7 +60,7 @@
     };
     window._wq = window._wq || [];
     window._wq.push({ id: '9xn7yk66az', onReady: function(v){ vid = v; if (pend) go(); } });
-    von.onclick = function(){ if (vid) go(); else pend = true; };
+    von.onclick = function(){ if (vid) go(); else pend = true; window.rnvVio = true; if (window.rnvUpd) window.rnvUpd(); };
   }
 
   // Upsell: si Impultienda no lo completó, no se muestra
@@ -101,7 +101,9 @@
   var bar = document.getElementById('mbar'), buy = document.querySelector('#comprar .card'), hb = document.querySelector('.hero .btn');
   var upd = function(){
     var b = buy.getBoundingClientRect(), t = hb ? hb.getBoundingClientRect().bottom < 0 : window.scrollY > 600;
-    bar.classList.toggle('show', t && !(b.top < window.innerHeight && b.bottom > 0));
+    // Clarity: en el celular casi nadie baja; la barra aparece también apenas activan el sonido del video
+    bar.classList.toggle('show', (t || window.rnvVio) && !(b.top < window.innerHeight && b.bottom > 0));
   };
+  window.rnvUpd = upd;
   window.addEventListener('scroll', upd, { passive: true });
 })();
