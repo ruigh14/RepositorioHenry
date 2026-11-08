@@ -71,7 +71,8 @@
       const free = b.getBoundingClientRect().bottom - last.getBoundingClientRect().bottom - parseFloat(getComputedStyle(last).marginBottom || 0);
       if (free < 8 * mm) return;
       const targets = kids.slice(1);
-      const add = Math.min((free - 4 * mm) / targets.length, 6 * mm);
+      const tope = document.body.classList.contains("m40") ? 16 : 6;   // MÉTODO 40: reparte más el espacio libre para que no queden huecos al pie
+      const add = Math.min((free - 4 * mm) / targets.length, tope * mm);
       targets.forEach(k => { k.style.marginTop = (parseFloat(getComputedStyle(k).marginTop) + add) + 'px'; });
     });
   }
