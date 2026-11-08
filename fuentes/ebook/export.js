@@ -5,6 +5,7 @@
 //   node export.js gimnasio   → gimnasio.html → entrena-en-el-gimnasio/Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
 //   node export.js pausa      → pausa.html    → pausa-activa/Bonus_Pausa_activa_RENOVA.pdf
 //   node export.js mamas      → mamas.html    → entrena-siendo-mama/Ebook_Entrena_siendo_mama_RENOVA.pdf
+//   node export.js gluteos    → gluteos.html  → gluteos-fuertes/Ebook_Gluteos_Fuertes_RENOVA.pdf
 const { chromium } = require('playwright');
 const path = require('path');
 const EDITIONS = {
@@ -15,10 +16,11 @@ const EDITIONS = {
   pausa: ['pausa.html', 'pausa-activa/Bonus_Pausa_activa_RENOVA.pdf'],
   menopausia: ['menopausia.html', 'nutricion-menopausia/Ebook_Nutricion_Menopausia_RENOVA.pdf'],
   nutricion: ['nutricion.html', 'alimentacion-inteligente/Ebook_Alimentacion_Inteligente_RENOVA.pdf'],
+  gluteos: ['gluteos.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_RENOVA.pdf'],
 };
 const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {});   // PW_CHANNEL=chrome usa el Chrome instalado
   const page = await browser.newPage();
   await page.goto('file://' + path.join(__dirname, htmlFile), { waitUntil: 'load' });
   await page.waitForSelector('body[data-ready="1"]', { timeout: 30000 });

@@ -20,6 +20,9 @@ alimentacion-inteligente/    Plan de nutrición de 8 semanas (lo vende la landin
   Ebook_Alimentacion_Inteligente_RENOVA.pdf
 nutricion-menopausia/        Upsell: Nutrición en la menopausia (30 hojas, registro de 14 días, hábitos prioritarios, 10 capítulos, perimenopausia, nutrientes clave, casos, guía de consulta, referencias con DOI, etapas, fotos en img/meno/, registro de síntomas; revisión Eugenia). Lo genera fuentes/ebook/menopausia.py
   Ebook_Nutricion_Menopausia_RENOVA.pdf
+gluteos-fuertes/             Upsell: Glúteos Fuertes (28 hojas): el día extra de RENOVA para mujeres 40+. Un día por semana (3.º si entrena 2 veces, 4.º si entrena 3), 8 semanas, sesiones A (empuje de cadera) y B (bisagra) que se alternan, cada una en casa y gimnasio; test del día 1 y semana 8, regla de progresión, errores, proteína, sesión express, planilla de cargas y 50% off plan integral. Solo ejercicios con ilustración y video de Harbiz ya existentes. Lo genera fuentes/ebook/gluteos.py
+  Ebook_Gluteos_Fuertes_RENOVA.pdf
+  creativos/                 3 portadas publicitarias (1080×1350) y video de 4 s (1080×1920): fuentes/landing/mockups/gluteos_promo.py && node gluteos_promo.js (necesita ffmpeg)
 comunidad/                   Bonus (PDF aparte): Acceso a la comunidad RENOVA (portada + cómo entrar a Skool y ver los talleres en Cursos). Lo genera fuentes/ebook/comunidad.py && node comunidad.js
   Bonus_Acceso_comunidad_RENOVA.pdf
 pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación + 4 rutinas de pausa activa de 10 min + plan personalizado
@@ -66,10 +69,13 @@ cd fuentes/ebook && python3 build.py pausa && node export.js pausa         # Bon
 cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
 cd fuentes/ebook && python3 nutricion.py && node export.js nutricion        # Alimentación Inteligente (nutrición 8 semanas)
 cd fuentes/ebook && python3 menopausia.py && node export.js menopausia      # Upsell: Nutrición en la menopausia
+cd fuentes/ebook && python3 gluteos.py && node export.js gluteos            # Upsell: Glúteos Fuertes
 cd fuentes/landing && python3 build.py                                     # la landing de la tienda
 cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
 cd fuentes/design-system && python3 muestra.py && node muestra.js           # muestra.pdf del design system
 ```
+
+Si Playwright no tiene su Chromium descargado, usar el Chrome instalado: `PW_CHANNEL=chrome node export.js …`.
 
 El ebook debe imprimir `OVERFLOW []` (sin páginas con texto cortado). Para revisar el texto de un PDF: `pdftotext -layout <pdf> /tmp/x.txt`.
 
@@ -100,6 +106,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 
 ## Pendientes
 
+- Upsell Glúteos Fuertes (listo el 8/11/2026): que Nacho revise ejercicios y plan; que Eugenia revise la hoja de alimentación (capítulo 08); elegir una de las 3 portadas de `gluteos-fuertes/creativos/`; ver en Impultienda si admite un segundo upsell (`upsell_2`) o si reemplaza al de menopausia, cargar PDF y precio, y sumarlo a la landing. Ilustraciones que faltan si se quieren más ejercicios: patada en cuadrupedia y en polea, hip thrust en sillón (hoy usa la del gimnasio), abducción con banda.
 - Auditoría Fase 1 de casa y gimnasio en `investigacion/auditoria-ebooks-fase1.md`: Nacho decide los puntos críticos (saltos/impacto, tracción en casa, errores frecuentes, qué hacer si pierdo días, "te acompañan") antes de pasar a la Fase 3.
 
 - Bonus pausa activa: cargar `pausa-activa/Bonus_Pausa_activa_RENOVA.pdf` en el producto de Impultienda (junto a casa y gimnasio). En la landing ya es el bonus 4.
