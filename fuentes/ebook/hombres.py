@@ -78,6 +78,13 @@ E = {
     "mov_escapular": ("mov_escapular", "Movilidad escapular", "Hombros y escápulas", "Brazos al frente: juntá y separá las escápulas sin doblar los codos.", "", "", "Propio cuerpo", "https://youtu.be/kctm9ouv5GU"),
     "cat_cow": ("cat_cow", "Gato-vaca", "Columna", "En cuatro apoyos, redondeá la espalda al exhalar y arqueala suave al inhalar.", "", "", "Colchoneta", "https://youtu.be/rEosL__rD5k"),
     "mov_baston": ("mov_baston", "Movilidad con bastón", "Hombros", "Con un bastón o palo de escoba, llevá los brazos estirados de adelante hacia atrás por arriba de la cabeza.", "", "", "Bastón o palo", "https://youtu.be/ti_VnUlkvg4"),
+    # elongación (al final de cada rutina; videos propios LEVEL UP)
+    "el_gigante": ("el_gigante", "Estiramiento gigante", "Cadera, columna y hombros", "Desde la estocada con las manos en el piso, girá el tronco y llevá el brazo hacia el techo. Volvé y cambiá de lado.", "", "", "Colchoneta", "https://youtu.be/58SZq_w1Eyo"),
+    "el_isquios": ("el_isquios", "Isquiotibiales a una pierna", "Isquiotibiales", "Sentado, una pierna estirada y la otra flexionada. Llevá el pecho hacia la rodilla estirada sin redondear la espalda.", "", "", "Colchoneta", "https://youtu.be/50BsrPx3-mU"),
+    "el_espalda_baja": ("el_espalda_baja", "Espalda baja", "Zona lumbar y glúteos", "Boca arriba, llevá las rodillas al pecho y abrazalas. Respirá lento.", "", "", "Colchoneta", "https://youtu.be/gswS7KoAjMc"),
+    "el_pectoral": ("el_pectoral", "Pectoral en pared", "Pecho y hombro", "Antebrazo apoyado en la pared a la altura del hombro. Girá el tronco hacia el lado contrario hasta sentir el pecho.", "", "", "Pared", "https://youtu.be/5reQDGL1cA4"),
+    "el_hombro": ("el_hombro", "Hombro a un brazo", "Hombro posterior", "Llevá un brazo cruzado por delante del pecho y sostenelo con el otro, sin subir el hombro.", "", "", "Propio cuerpo", "https://youtu.be/ecGClH49zxk"),
+    "el_abductores": ("el_abductores", "Aductores sentado", "Aductores y cadera", "Sentado, plantas de los pies juntas. Llevá las rodillas hacia el piso con la espalda derecha.", "", "", "Colchoneta", "https://youtu.be/RYs_nKnDzx4"),
     "rodillas_arriba": ("rodillas_arriba", "Rodillas arriba dinámico", "Cadera y piernas", "Marchá en el lugar subiendo las rodillas a la altura de la cadera, con ritmo creciente.", "", "", "Propio cuerpo", "https://youtu.be/SslB3xLpngI"),
     # casa
     "sentadilla_copa": ("sentadilla_copa", "Sentadilla en copa", "Cuádriceps y glúteos", "Mancuerna pegada al pecho, pies al ancho de hombros. Bajá con la cadera atrás y el pecho alto; subí empujando el piso.", "rodillas que se van hacia adentro.", "sentadilla a una silla, sin peso.", "1 mancuerna", "https://youtu.be/4vdE4BQJdIM"),
@@ -133,6 +140,7 @@ E = {
 }
 
 CALOR = ["mov_cadera", "mov_escapular", "cat_cow", "mov_baston", "rodillas_arriba"]
+ELONG = ["el_gigante", "el_isquios", "el_espalda_baja", "el_pectoral", "el_hombro", "el_abductores"]   # 30 s cada uno (por lado si corresponde)
 # rutina → [(ejercicio, tipo)]: P = principal (sigue el plan ondulado), A = accesorio (3 × 12–15), Z = zona media
 RUT = G({
     "A": [("sentadilla_copa", "P"), ("elevacion_cadera_cajon", "P"), ("flexiones", "P"), ("remo_unilateral", "P"), ("press_hombros_arrodillado", "A"), ("plancha_frontal", "Z")],
@@ -321,6 +329,12 @@ def programa():
 <h2>Series de aproximación</h2>
 {table(["Antes del primer ejercicio pesado", "Peso", "Repeticiones"], [["Serie 1", "50 % del peso de trabajo", "10"], ["Serie 2", "75 % del peso de trabajo", "5"]])}
 ''', chapter="05 · Calentamiento", pid="c5b")
+    page(f'''
+{eyebrow("AL FINAL DE CADA RUTINA")}
+<h1 class="h1">Elongación <span class="t">5 minutos</span></h1>
+<p class="lead">Al terminar la parte central, bajá pulsaciones y devolvele movilidad a lo que trabajaste. 30 segundos cada uno, por lado cuando corresponda, <b>sin dolor y sin rebotes</b>.</p>
+{table(["Estiramiento", "Qué estira", "Cómo"], [[f'<b>{E[k][1]}</b><br><a class="vbtn-sm" href="{esc(E[k][7])}">{ICON_PLAY} VIDEO</a>', E[k][2], E[k][3]] for k in ELONG], first="30%")}
+''', chapter="05 · Elongación", pid="elong", toc="Elongación de 5 minutos")
 
     for r in "ABC":
         ejs = RUT[r]

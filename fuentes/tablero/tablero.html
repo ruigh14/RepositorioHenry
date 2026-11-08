@@ -77,6 +77,14 @@ input:focus,select:focus{outline:2px solid var(--red);border-color:transparent}
 .exc .in{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .exc .prev{font-size:12px;color:var(--mut);margin-top:6px}
 @media(min-width:760px){.excs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.exc{margin:0}}
+.top-sel{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:10px}
+@media(min-width:760px){.top-sel{grid-template-columns:260px 1fr;align-items:end}}
+.parts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0 12px}
+.parts button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 4px;font:800 12px Inter,sans-serif;color:var(--txt);cursor:pointer;line-height:1.2}
+.parts button small{display:block;font-weight:600;color:var(--mut);font-size:10px;margin-top:2px}
+.parts button.on{background:var(--red);border-color:var(--red);color:#fff}.parts button.on small{color:#e6f6f8}
+.parts button.done{border-color:var(--ok)}
+.pnav{display:flex;gap:10px;margin-top:12px}.pnav .btn{flex:1;justify-content:center;padding:14px}
 .calor{display:flex;flex-wrap:wrap;gap:8px}
 .calor a{background:var(--soft);color:var(--red2);font-weight:700;font-size:13px;padding:8px 12px;border-radius:999px;text-decoration:none}
 /* fotos */
@@ -155,18 +163,16 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     <!-- ENTRENAR -->
     <section id="v-entrenar">
       <h1>Entrenar <span>hoy</span></h1>
-      <div class="tabs" id="wtabs"></div>
-      <div class="tabs" id="rtabs"></div>
-      <p class="sub" id="foco"></p>
-      <div class="presc" id="presc"></div>
-      <div class="panel" style="margin-top:0">
-        <h2>Calentamiento <b>8 minutos</b></h2>
-        <p class="note" style="margin-top:0">1 vuelta, 45 segundos cada uno. Tocá para ver el video.</p>
-        <div class="calor" id="calor"></div>
+      <div class="top-sel">
+        <label>Semana<select id="wsel"></select></label>
+        <div class="tabs" id="rtabs" style="margin:0"></div>
       </div>
-      <div class="excs" id="excs" style="margin-top:12px"></div>
-      <button class="btn big" id="saveses" style="margin-top:12px">Guardar sesión</button>
-      <p class="note">Anotá la <b>última serie</b> de cada ejercicio: peso, repeticiones y RIR. Al guardar, la sesión se suma sola a tu progreso.</p>
+      <p class="sub" id="foco" style="margin-bottom:6px"></p>
+      <div class="parts" id="parts"></div>
+      <div class="presc" id="presc"></div>
+      <div class="excs" id="excs"></div>
+      <div class="pnav" id="pnav"></div>
+      <p class="note">En la parte central anotá la <b>última serie</b> de cada ejercicio (peso, repeticiones y RIR): se guarda sola. Al terminar la elongación, tocá <b>Terminar sesión</b>.</p>
     </section>
 
     <!-- PROGRESO -->
@@ -252,7 +258,8 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
   const LIFTS = { casa: ['Sentadilla en copa', 'Flexiones', 'Remo con mancuerna'], gym: ['Sentadilla con barra', 'Press plano', 'Remo en polea baja'] };
   const PER = [['cintura', 'Cintura'], ['cadera', 'Cadera'], ['pecho', 'Pecho'], ['brazo', 'Brazo'], ['muslo', 'Muslo']];
   const $ = id => document.getElementById(id);
-  let S = load(), week = 1, rut = 'A', view = 'entrenar', charts = {};
+  let S = load(), week = 1, rut = 'A', view = 'entrenar', parte = 0, charts = {};
+  const PARTES = [['Entrada en calor', '8 min'], ['Parte central 1', ''], ['Parte central 2', ''], ['Elongación', '5 min']];
 
   function load() {
     try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.weeks) return Object.assign({ fotos: {}, cargas: {} }, s); } catch (e) {}
@@ -298,44 +305,71 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     if (t === 'A') return desc ? '2 × 12 @RIR 4' : '3 × 12–15 @RIR 2';
     return desc ? '2 × 30 s' : (week <= 4 ? '3 × 30 s' : '3 × 45 s');
   }
-  function entrenar() {
-    const D = DATA[modo()];
-    $('wtabs').innerHTML = Array.from({ length: 8 }, (_, i) => { const w = i + 1, hechas = 'ABC'.split('').filter(r => S.cargas[w] && Object.keys(S.cargas[w]).some(k => k[0] === r)).length;
-      return `<button class="tab ${w === week ? 'on' : ''} ${hechas === 3 ? 'done' : ''}" data-w="${w}">Semana ${w}${w === 4 || w === 8 ? ' · desc.' : ''}</button>`; }).join('');
-    $('wtabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { week = +b.dataset.w; render(); });
-    $('rtabs').innerHTML = 'ABC'.split('').map(r => { const hecha = S.cargas[week] && Object.keys(S.cargas[week]).some(k => k[0] === r);
-      return `<button class="tab ${r === rut ? 'on' : ''} ${hecha ? 'done' : ''}" data-r="${r}">Rutina ${r}</button>`; }).join('');
-    $('rtabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { rut = b.dataset.r; render(); });
-    $('foco').textContent = 'Rutina ' + rut + ': ' + D.foco[rut] + (week === 4 || week === 8 ? ' · semana de descarga' : '');
-    $('presc').innerHTML = `<span>Principales: ${dosis('P')}</span><span>Accesorios: ${dosis('A')}</span><span>Descanso: ${D.desc.P} / ${D.desc.A}</span>`;
-    $('calor').innerHTML = D.calor.map(e => `<a href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener">▶ ${e.n}</a>`).join('');
-    const cw = S.cargas[week] || {}, lista = rutinas()[rut], idx = {};
-    conCarga(rut).forEach((x, j) => idx[x.i] = j);
-    const previa = j => { for (let w = week - 1; w >= 1; w--) { const c = S.cargas[w] && S.cargas[w][exId(rut, j)]; if (c && (c.p || c.r)) return 'Semana ' + w + ': ' + (c.p ? fmt(c.p, c.p % 1 ? 1 : 0) + ' kg × ' : '') + (c.r || '–') + (c.x != null ? ' @' + c.x : ''); } return ''; };
-    $('excs').innerHTML = lista.map((e, i) => {
-      const j = idx[i], v = j != null ? (cw[exId(rut, j)] || {}) : {}, tipo = { P: 'Principal', A: 'Accesorio', Z: 'Zona media' }[e.t];
-      const inputs = e.t === 'Z' ? '' : `<div class="in">
-          <label>Peso (kg)<input data-j="${j}" data-f="p" inputmode="decimal" value="${v.p ?? ''}" placeholder="${/Flexiones|Fondos/.test(e.n) ? 'sin peso' : ''}"></label>
-          <label>Reps<input data-j="${j}" data-f="r" inputmode="numeric" value="${v.r ?? ''}"></label>
-          <label>RIR<input data-j="${j}" data-f="x" inputmode="numeric" value="${v.x ?? ''}"></label></div>
-        ${previa(j) ? `<div class="prev">Última vez · ${previa(j)}</div>` : ''}`;
-      return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">${tipo}</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener">▶ Video</a></div>
-        <div class="bd"><h3>${e.n}</h3><div class="mus">${e.mus} · ${e.mat}</div><span class="dose">${dosis(e.t)}</span>
-        <details><summary>Cómo se hace</summary><p>${e.how}</p>${e.evita ? `<p class="ev"><b>Evitá:</b> ${e.evita}</p>` : ''}${e.princ ? `<p><b>Principiante:</b> ${e.princ}</p>` : ''}</details>
-        ${inputs}</div></article>`;
-    }).join('');
+  function centrales() {   // la rutina se parte en dos mitades (con su índice de carga)
+    const lista = rutinas()[rut], idx = {}; conCarga(rut).forEach((x, j) => idx[x.i] = j);
+    const items = lista.map((e, i) => ({ e, j: idx[i] })), m = Math.ceil(items.length / 2);
+    return [items.slice(0, m), items.slice(m)];
   }
-  $('saveses').onclick = () => {
-    const d = S.cargas[week] = S.cargas[week] || {};
-    conCarga(rut).forEach((x, j) => { d[exId(rut, j)] = {}; });
-    $('excs').querySelectorAll('input').forEach(inp => { const n = num(inp.value); if (n != null) d[exId(rut, inp.dataset.j)][inp.dataset.f] = n; });
-    Object.keys(d).forEach(k => { if (!Object.keys(d[k]).length) delete d[k]; });
-    const hechas = 'ABC'.split('').filter(r => Object.keys(d).some(k => k[0] === r)).length;   // las sesiones se cuentan solas
-    S.weeks[week] = S.weeks[week] || {}; S.weeks[week].sesiones = Math.max(S.weeks[week].sesiones || 0, hechas);
-    if (save()) toast('Sesión ' + rut + ' de la semana ' + week + ' guardada');
-    if (rut !== 'C') rut = String.fromCharCode(rut.charCodeAt(0) + 1);
-    render(); window.scrollTo(0, 0);
-  };
+  const hechas = w => 'ABC'.split('').filter(r => (S.fin && S.fin[w] && S.fin[w][r]) || (S.cargas[w] && Object.keys(S.cargas[w]).some(k => k[0] === r)));
+  function tarjeta(e, dose, j) {
+    const cw = S.cargas[week] || {}, v = j != null ? (cw[exId(rut, j)] || {}) : {};
+    const tipo = { P: 'Principal', A: 'Accesorio', Z: 'Zona media' }[e.t] || (parte === 0 ? 'Entrada en calor' : 'Elongación');
+    let prev = '';
+    if (j != null) for (let w = week - 1; w >= 1 && !prev; w--) { const c = S.cargas[w] && S.cargas[w][exId(rut, j)]; if (c && (c.p || c.r)) prev = 'Semana ' + w + ': ' + (c.p ? fmt(c.p, c.p % 1 ? 1 : 0) + ' kg × ' : '') + (c.r || '–') + (c.x != null ? ' @' + c.x : ''); }
+    const inputs = j == null ? '' : `<div class="in">
+        <label>Peso (kg)<input data-j="${j}" data-f="p" inputmode="decimal" value="${v.p ?? ''}" placeholder="${/Flexiones|Fondos/.test(e.n) ? 'sin peso' : ''}"></label>
+        <label>Reps<input data-j="${j}" data-f="r" inputmode="numeric" value="${v.r ?? ''}"></label>
+        <label>RIR<input data-j="${j}" data-f="x" inputmode="numeric" value="${v.x ?? ''}"></label></div>
+      ${prev ? `<div class="prev">Última vez · ${prev}</div>` : ''}`;
+    return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">${tipo}</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener">▶ Video</a></div>
+      <div class="bd"><h3>${e.n}</h3><div class="mus">${e.mus} · ${e.mat}</div><span class="dose">${dose}</span>
+      <details><summary>Cómo se hace</summary><p>${e.how}</p>${e.evita ? `<p class="ev"><b>Evitá:</b> ${e.evita}</p>` : ''}${e.princ ? `<p><b>Principiante:</b> ${e.princ}</p>` : ''}</details>
+      ${inputs}</div></article>`;
+  }
+  function entrenar() {
+    const D = DATA[modo()], [c1, c2] = centrales();
+    $('wsel').innerHTML = Array.from({ length: 8 }, (_, i) => { const w = i + 1, n = hechas(w).length;
+      return `<option value="${w}" ${w === week ? 'selected' : ''}>Semana ${w}${w === 4 || w === 8 ? ' · descarga' : ''}${n ? ' · ' + n + '/3 ✓' : ''}</option>`; }).join('');
+    $('wsel').onchange = () => { week = +$('wsel').value; parte = 0; render(); };
+    $('rtabs').innerHTML = 'ABC'.split('').map(r => `<button class="tab ${r === rut ? 'on' : ''} ${hechas(week).includes(r) ? 'done' : ''}" data-r="${r}">Rutina ${r}</button>`).join('');
+    $('rtabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { rut = b.dataset.r; parte = 0; render(); });
+    $('foco').textContent = 'Rutina ' + rut + ': ' + D.foco[rut] + (week === 4 || week === 8 ? ' · semana de descarga' : '');
+    const sub = [D.calor.length + ' ejercicios', c1.length + ' ejercicios', c2.length + ' ejercicios', D.elong.length + ' estiramientos'];
+    $('parts').innerHTML = PARTES.map(([t], k) => `<button class="${k === parte ? 'on' : ''}" data-p="${k}">${t}<small>${sub[k]}</small></button>`).join('');
+    $('parts').querySelectorAll('button').forEach(b => b.onclick = () => { parte = +b.dataset.p; render(); window.scrollTo(0, 0); });
+    const presc = [['1 vuelta', '45 s cada ejercicio', 'Después: series de aproximación'],
+                   ['Principales: ' + dosis('P'), 'Accesorios: ' + dosis('A'), 'Descanso: ' + D.desc.P + ' / ' + D.desc.A],
+                   ['Principales: ' + dosis('P'), 'Accesorios: ' + dosis('A'), 'Zona media: ' + dosis('Z')],
+                   ['30 s cada uno', 'Por lado si corresponde', 'Sin dolor ni rebotes']][parte];
+    $('presc').innerHTML = presc.map(t => `<span>${t}</span>`).join('');
+    let html = '';
+    if (parte === 0) html = D.calor.map(e => tarjeta(e, '45 s', null)).join('');
+    if (parte === 1 || parte === 2) html = (parte === 1 ? c1 : c2).map(x => tarjeta(x.e, dosis(x.e.t), x.e.t === 'Z' ? null : x.j)).join('');
+    if (parte === 3) html = D.elong.map(e => tarjeta(e, '30 s', null)).join('');
+    $('excs').innerHTML = html;
+    const atras = parte > 0 ? `<button class="btn ghost" id="p-prev">← ${PARTES[parte - 1][0]}</button>` : '';
+    const adelante = parte < 3 ? `<button class="btn" id="p-next">${PARTES[parte + 1][0]} →</button>` : `<button class="btn" id="p-fin">Terminar sesión ✓</button>`;
+    $('pnav').innerHTML = atras + adelante;
+    if ($('p-prev')) $('p-prev').onclick = () => { parte--; render(); window.scrollTo(0, 0); };
+    if ($('p-next')) $('p-next').onclick = () => { parte++; render(); window.scrollTo(0, 0); };
+    if ($('p-fin')) $('p-fin').onclick = terminar;
+  }
+  // los kilos se guardan solos al escribirlos (no se pierden al cambiar de parte)
+  document.addEventListener('input', ev => {
+    const inp = ev.target; if (!inp.matches('#excs input[data-j]')) return;
+    const d = S.cargas[week] = S.cargas[week] || {}, id = exId(rut, inp.dataset.j), c = d[id] = d[id] || {}, n = num(inp.value);
+    if (n == null) delete c[inp.dataset.f]; else c[inp.dataset.f] = n;
+    if (!Object.keys(c).length) delete d[id];
+    save();
+  });
+  function terminar() {
+    S.fin = S.fin || {}; S.fin[week] = S.fin[week] || {}; S.fin[week][rut] = true;
+    S.weeks[week] = S.weeks[week] || {}; S.weeks[week].sesiones = Math.max(S.weeks[week].sesiones || 0, hechas(week).length);   // las sesiones se cuentan solas
+    if (save()) toast('¡Rutina ' + rut + ' de la semana ' + week + ' terminada!');
+    const sig = 'ABC'.split('').find(r => !hechas(week).includes(r));
+    if (sig) rut = sig; else if (week < 8) { week++; rut = 'A'; }
+    parte = 0; render(); window.scrollTo(0, 0);
+  }
 
   // ---------- MEDIDAS
   function tabs() {
@@ -547,7 +581,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
   function arrancar() {
     $('gate').hidden = true;
     // arranca en la semana y rutina que tocan: la primera semana sin las 3 sesiones
-    for (let w = 1; w <= 8; w++) { const d = S.cargas[w] || {}, faltan = 'ABC'.split('').filter(r => !Object.keys(d).some(k => k[0] === r)); if (faltan.length) { week = w; rut = faltan[0]; break; } }
+    for (let w = 1; w <= 8; w++) { const faltan = 'ABC'.split('').filter(r => !hechas(w).includes(r)); if (faltan.length) { week = w; rut = faltan[0]; break; } }
     S.perfil ? (setup(false), render()) : setup(true);
   }
   if (tieneAcceso()) arrancar(); else { $('gate').hidden = false; $('app').hidden = true; $('setup').hidden = true; }

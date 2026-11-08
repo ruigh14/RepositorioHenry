@@ -43,7 +43,7 @@ def ejercicios():
         g = runpy.run_path(os.path.join(HERE, "..", "ebook", "hombres.py"), run_name="tablero")
         ej = lambda k: dict(zip(("img", "n", "mus", "how", "evita", "princ", "mat", "url"), g["E"][k]))
         out[ed] = {"rutinas": {r: [dict(ej(k), t=t) for k, t in g["RUT"][r]] for r in "ABC"},
-                   "foco": g["FOCO"], "desc": g["DESC"], "calor": [ej(k) for k in g["CALOR"]]}
+                   "foco": g["FOCO"], "desc": g["DESC"], "calor": [ej(k) for k in g["CALOR"]], "elong": [ej(k) for k in g["ELONG"]]}
         imgs |= {g["E"][k][0] for k in g["E"]}
         DATOS["plan"] = [{"s": s, "sr": sr, "rir": rir} for s, sr, rir, _ in g["PLAN"]]
         DATOS["hash"] = hashlib.sha256(g["CODIGO_APP"].strip().upper().encode()).hexdigest()
