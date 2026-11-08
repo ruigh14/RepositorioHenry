@@ -5,8 +5,9 @@
 
 Un día de entrenamiento por semana dedicado a glúteos y cadera, que se suma a las rutinas del Método RENOVA
 (si entrenás 2 veces, es tu tercer día; si entrenás 3, el cuarto). 8 semanas. Sesiones A (empuje de cadera) y
-B (bisagra) que se alternan. Para la mujer RENOVA 40+: glúteo fuerte = cadera, rodillas y espalda sanas, postura,
-y también estética. Sin promesas de centímetros: el progreso se mide con el test del día 1 contra el de la semana 8.
+3 rutinas que rotan semana a semana (1 empuje de cadera, 2 bisagra, 3 una pierna),
+sin repetir más de 2 ejercicios entre rutinas, y una sesión express. Para la mujer RENOVA 40+: glúteo fuerte = cadera, rodillas y espalda sanas, postura,
+y también estética. Sin promesas de centímetros: el progreso se mide con la planilla de cargas.
 
 Cada hoja se arma completa a mano (sin cortes de paginate.js): ningún bloque queda partido entre dos hojas
 y ninguna hoja queda con mucho espacio libre (revisar el FREE de export.js).
@@ -79,6 +80,13 @@ VIDEOS = {
     "Puente a una pierna": "https://youtu.be/xVvVhmIp7sM",
     "Estocada cruzada": "https://youtu.be/5yYgxASNwZ8",
     "Curl de isquiotibiales sentada": "https://youtu.be/8I7lYLxvAf0",
+    "Sentadilla lateral": "https://www.youtube.com/watch?v=AhPJmY4v3Z4",
+    "Circunducción de cadera": "https://youtu.be/T-v_pylMgfk",
+    "Balanceo de pierna": "https://www.youtube.com/watch?v=LuC5h8PdEwk",
+    "Estocada split": "https://youtu.be/s7ewEzHwXgQ",
+    "Sentadilla en copa": "https://youtu.be/4vdE4BQJdIM",
+    "Sentadilla a la silla": "https://youtu.be/gFTgLpn08Xc",
+    "Aductores en máquina": "https://youtu.be/Zjn_nxVnNTc",
 }
 
 # (imagen, nombre, dosis, cómo se hace, cuidá, más fácil, material)
@@ -131,6 +139,27 @@ EJ = {
     "Curl de isquiotibiales sentada": ("gym_curlisq.png", "Curl de isquiotibiales", "12",
                                        "Rodillas al borde del asiento. Flexioná bajando el rodillo y volvé con control.",
                                        "la cadera queda en el asiento.", "menos peso.", "Máquina"),
+    "Sentadilla lateral": ("calor_3.png", "Sentadilla lateral", "10 por lado",
+                           "Pies bien separados. Llevá el peso a una pierna flexionando esa rodilla, con la otra estirada, y volvé al centro.",
+                           "la rodilla flexionada sigue la punta del pie.", "menos profundidad, con apoyo en una silla.", "Propio cuerpo"),
+    "Circunducción de cadera": ("calor_circcadera.png", "Circunducción de cadera", "8 por lado",
+                                "Apoyada en una silla o pared, subí la rodilla y dibujá un círculo grande hacia afuera con la cadera.",
+                                "el tronco queda quieto.", "círculos más chicos.", G("Silla", "Pared o barra")),
+    "Balanceo de pierna": ("calor_balanceo.png", "Balanceo de pierna", "10 por lado",
+                           "De costado a una pared, balanceá la pierna de adelante hacia atrás, de a poco más amplio.",
+                           "el tronco no se inclina.", "balanceo más corto.", "Pared"),
+    "Estocada split": ("r1_2.png", "Estocada split", "10 por lado",
+                       "Un pie adelante y otro atrás. Bajá la rodilla de atrás con el tronco un poco inclinado hacia adelante y subí con la pierna de adelante.",
+                       "rodilla de adelante alineada.", "con apoyo en una silla.", "Mancuernas (opcional)"),
+    "Sentadilla en copa": ("r1_1.png", "Sentadilla en copa", "12",
+                           "Mancuerna pegada al pecho, pies al ancho de hombros. Bajá llevando la cadera atrás y abajo, y subí empujando con los talones.",
+                           "espalda derecha, rodillas alineadas.", "sin peso o a una silla.", "1 mancuerna"),
+    "Sentadilla a la silla": ("pausa_sentadilla.png", "Sentadilla a la silla con pausa", "12",
+                              "Bajá lento hasta rozar la silla, quedate 2 segundos sin sentarte y subí empujando con los talones.",
+                              "no te dejes caer.", "sentate apenas y volvé a subir.", "Silla"),
+    "Aductores en máquina": ("gym_aductores.png", "Aductores en máquina", "12",
+                             "Sentada, piernas en los apoyos internos. Cerrá las piernas con control y abrí despacio.",
+                             "la espalda queda apoyada.", "menos peso y recorrido.", "Máquina"),
 }
 
 
@@ -143,16 +172,20 @@ def card(key, dose=None):
             f'<p>{how} <span class="ojo"><b>Cuidá:</b> {cuida}</span></p><p class="easy"><b>Más fácil:</b> {easy}</p></div></div>')
 
 
-# Sesión → (activación, principal, complementario) de esta edición
-SES = {
-    "A": G((["Almeja", "Puente de glúteos"], ["Hip thrust en sillón", "Subida al banco"], ["Abducción de pierna de pie", "Puente a una pierna"]),
-           (["Abducción en máquina", "Puente de glúteos"], ["Hip thrust con barra", "Prensa con pies altos"], ["Subida al banco", "Estocada split con mancuernas"])),
-    "B": G((["Bird dog con pausa", "Abducción de pierna de pie"], ["Peso muerto con mancuernas", "Sentadilla sumo"], ["Estocada cruzada", "Almeja"]),
-           (["Bird dog con pausa", "Abducción en máquina"], ["Peso muerto rumano con barra", "Sentadilla sumo"], ["Estocada cruzada", "Curl de isquiotibiales sentada"])),
+# Rutina → (activación, principal, complementario) de esta edición.
+# Entre las 3 rutinas se repiten como máximo 2 ejercicios (casa: Almeja y Puente de glúteos; gimnasio: Abducción en máquina y Puente de glúteos).
+RUT = {
+    1: G((["Almeja", "Puente de glúteos"], ["Hip thrust en sillón", "Subida al banco"], ["Abducción de pierna de pie", "Sentadilla lateral"]),
+         (["Abducción en máquina", "Puente de glúteos"], ["Hip thrust con barra", "Prensa con pies altos"], ["Subida al banco", "Aductores en máquina"])),
+    2: G((["Bird dog con pausa", "Circunducción de cadera"], ["Peso muerto con mancuernas", "Sentadilla sumo"], ["Estocada cruzada", "Almeja"]),
+         (["Bird dog con pausa", "Circunducción de cadera"], ["Peso muerto rumano con barra", "Sentadilla sumo"], ["Curl de isquiotibiales sentada", "Abducción en máquina"])),
+    3: G((["Balanceo de pierna", "Puente de glúteos"], ["Estocada split", "Sentadilla en copa"], ["Puente a una pierna", "Sentadilla a la silla"]),
+         (["Balanceo de pierna", "Puente de glúteos"], ["Estocada split con mancuernas", "Sentadilla en copa"], ["Puente a una pierna", "Estocada cruzada"])),
 }
-FOCO = {"A": "empuje de cadera y una pierna", "B": "bisagra de cadera y apertura"}
-CLAVE = {"A": "<b>La clave de la sesión A:</b> en el hip thrust, pausa de 1 segundo arriba apretando glúteos. Si lo sentís en la zona lumbar o en los cuádriceps, revisá la posición de los pies (capítulo 07).",
-         "B": "<b>La clave de la sesión B:</b> en el peso muerto, la cadera va hacia atrás como si cerraras una puerta con la cola. La espalda queda recta y el peso cerca de las piernas."}
+FOCO = {1: "empuje de cadera", 2: "bisagra de cadera", 3: "una pierna"}
+CLAVE = {1: "<b>La clave de la rutina 1:</b> en el hip thrust, pausa de 1 segundo arriba apretando glúteos. Si lo sentís en la zona lumbar o en los cuádriceps, revisá la posición de los pies (capítulo 06).",
+         2: "<b>La clave de la rutina 2:</b> en el peso muerto, la cadera va hacia atrás como si cerraras una puerta con la cola. La espalda queda recta y el peso cerca de las piernas.",
+         3: "<b>La clave de la rutina 3:</b> en la estocada, el tronco un poco inclinado hacia adelante y el peso en el talón de adelante: así trabaja más el glúteo y menos la rodilla."}
 MATERIAL = G("Mancuernas, sillón o banco, escalón o silla, colchoneta y, si tenés, una banda elástica.",
              "Banco y barra, prensa, mancuernas, cajón, máquinas de abducción y de isquiotibiales.")
 
@@ -179,24 +212,24 @@ page(f'''
  ["<b>2 veces por semana</b> con RENOVA", "tu <b>tercer día</b>"],
  ["<b>3 veces por semana</b> con RENOVA", "tu <b>cuarto día</b>"],
 ])}
-<h2>Cómo es cada sesión</h2>
+<h2>Cómo es cada rutina</h2>
 {checks(["<b>Unos 40 minutos:</b> activación, bloque principal y bloque complementario.",
-         "<b>Dos sesiones que se alternan:</b> la A (empuje de cadera) y la B (bisagra de cadera).",
+         "<b>Tres rutinas que rotan:</b> la 1 (empuje de cadera), la 2 (bisagra de cadera) y la 3 (una pierna).",
          G("<b>Con poco material:</b> mancuernas, una silla o sillón, un escalón y una colchoneta.",
            "<b>Con lo que hay en un gimnasio:</b> barra, banco, prensa, mancuernas y máquinas."),
          "<b>8 semanas,</b> igual que el método, para que avancen juntos.",
-         G("<b>Y también en el gimnasio:</b> si un día vas, tenés el ebook de gimnasio con las mismas sesiones.",
-           "<b>Y también en casa:</b> si un día no podés ir, tenés el ebook de casa con las mismas sesiones.")])}
+         G("<b>Y también en el gimnasio:</b> si un día vas, tenés el ebook de gimnasio, con sus propias 3 rutinas.",
+           "<b>Y también en casa:</b> si un día no podés ir, tenés el ebook de casa, con sus propias 3 rutinas.")])}
 {box("<b>Dejá al menos un día entre esta sesión y la rutina de RENOVA</b> que más trabaja piernas. Así llegás descansada y el músculo se recupera.", "soft")}
 ''', chapter="Bienvenida", pid="bienvenida")
 
 page("__TOC__", chapter="Índice", pid="indice")
-INICIO = (f'<div class="box soft"><b>Empezá por acá:</b> 1) hacé tu test del día 1 (página {pref("test")}); '
-          f'2) leé la sesión A (página {pref("a1")}); 3) elegí tu día de glúteos en la semana (página {pref("plan2")}).</div>')
+INICIO = (f'<div class="box soft"><b>Empezá por acá:</b> 1) leé cómo progresar (página {pref("c4")}); '
+          f'2) mirá la rutina 1 (página {pref("r1a")}); 3) elegí tu día de glúteos en la semana (página {pref("plan2")}).</div>')
 
 # ================================================================== 01
 page(f'''
-{chap_head("01", 'Por qué el glúteo <span class="t">importa después de los 40</span>', "No es solo estética: es el músculo que sostiene tu cadera, protege tus rodillas y cuida tu espalda.")}
+{chap_head("01", 'Por qué el glúteo <span class="t">importa después de los 40</span>', "No es solo estética: estabiliza tu cadera y puede ayudarte a cuidar rodillas y espalda.")}
 <h2>Tres músculos, tres funciones</h2>
 {table(["Músculo", "Qué hace", "Lo usás cuando…"], [
  ["<b>Glúteo mayor</b>", "Extiende la cadera: te empuja hacia adelante y hacia arriba.", "Subís una escalera, te levantás de una silla, caminás en subida."],
@@ -212,9 +245,9 @@ page(f'''
 {eyebrow("POR QUÉ EL GLÚTEO")}
 <h1 class="h1">Qué ganás con <span class="t">un glúteo fuerte</span></h1>
 <p class="lead">Entrenarlo una vez por semana, con un plan y progresión, te da beneficios que se notan en tu día a día.</p>
-{tips([("Cadera y rodillas", "Un glúteo medio débil deja que la rodilla se vaya hacia adentro. Fortalecerlo ordena el movimiento."),
-       ("Espalda baja", "Si el glúteo no empuja, la zona lumbar compensa. Un glúteo fuerte le saca carga."),
-       ("Equilibrio", "Pararte firme en una pierna es la base para caminar segura y prevenir caídas."),
+{tips([("Cadera y rodillas", "Un glúteo medio débil deja que la rodilla se vaya hacia adentro. Fortalecerlo puede mejorar el control del movimiento."),
+       ("Espalda baja", "Si el glúteo no empuja, la zona lumbar compensa. Un glúteo fuerte puede ayudar a repartir mejor la carga."),
+       ("Equilibrio", "Pararte firme en una pierna es la base para caminar segura, y puede ayudar a reducir el riesgo de caídas."),
        ("Postura", "Sostiene la pelvis y te ayuda a estar derecha sin esfuerzo."),
        ("Vida diaria", "Subir escaleras, levantarte del piso, cargar bolsas: todo pasa por el glúteo."),
        ("Forma", "Un glúteo con más músculo se ve más firme. Es una consecuencia, no el único objetivo.")])}
@@ -233,28 +266,12 @@ page(f'''
  ["<b>7</b>", "Podrías hacer 3 más. Las últimas cuestan.", "Semanas 3 y 4."],
  ["<b>8</b>", "Podrías hacer 2 más, con buena técnica.", "Semanas 6 a 8."],
 ])}
-<p>Nunca hace falta llegar a no poder más. <b>Primero la técnica, después el peso.</b> Y el músculo crece cuando descansás: dormir bien y comer proteína también son entrenamiento (capítulo 08).</p>
+<p>Nunca hace falta llegar a no poder más. <b>Primero la técnica, después el peso.</b> Y el músculo crece cuando descansás: dormir bien y comer proteína también son entrenamiento (capítulo 07).</p>
 ''', chapter="02 · Cómo se fortalece", pid="c2", toc="02 · Cómo se fortalece un músculo")
-
-# ================================================================== 03
-page(f'''
-{chap_head("03", 'Tu test <span class="t">del día 1</span>', "Antes de la primera sesión, medí tu punto de partida. En la semana 8 lo repetís y ves cuánto avanzaste.")}
-{ul(["<b>Puente a una pierna:</b> repeticiones seguidas con cada pierna, sin que la pelvis se caiga.",
-     "<b>Sentadilla a la silla (30 s):</b> cuántas veces te sentás y te parás sin usar las manos.",
-     "<b>Equilibrio en una pierna:</b> segundos en cada pierna, con los brazos cruzados (hasta 30).",
-     "<b>Contorno de cadera:</b> en la parte más saliente de los glúteos, de pie y pies juntos."])}
-{table(["Test", "Día 1", "Semana 8"], [
- ["Puente a una pierna (der. / izq.)", "&nbsp;&nbsp;&nbsp;/", "&nbsp;&nbsp;&nbsp;/"],
- ["Sentadilla a la silla (30 s)", "", ""],
- ["Equilibrio en segundos (der. / izq.)", "&nbsp;&nbsp;&nbsp;/", "&nbsp;&nbsp;&nbsp;/"],
- ["Contorno de cadera (cm)", "", ""],
-])}
-{box("<b>Tu primera victoria:</b> con hacer el test ya empezaste. Los números son tu punto de partida, no una nota. Si querés, sumá una foto de perfil el día 1 y la semana 8.", "soft")}
-''', chapter="03 · Tu test", pid="test", toc="03 · Tu test del día 1")
 
 # ================================================================== 04
 page(f'''
-{chap_head("04", 'Cómo <span class="t">progresar</span>', "Una regla simple para saber cuándo subir el peso, sin adivinar.")}
+{chap_head("03", 'Cómo <span class="t">progresar</span>', "Una regla simple para saber cuándo subir el peso, sin adivinar.")}
 <p>Cada ejercicio tiene un rango, por ejemplo <b>10 a 12</b>. Empezá con un peso que te permita hacer 10 con el esfuerzo de la semana.</p>
 <ol class="steps-ol">
 <li>Cuando hagas <b>12 en todas las series</b> con buena técnica, la sesión siguiente subí un poco el peso.</li>
@@ -262,23 +279,20 @@ page(f'''
 <li>Vas sumando repeticiones de a poco hasta llegar otra vez a 12.</li>
 </ol>
 {table(["Si…", "Hacé esto"], [
- ["Hiciste el tope del rango en todas las series", G("Subí el peso: 1 a 2 kg en mancuernas. Sin más peso, sumá una serie o bajá más lento.", "Subí el peso: 1 a 2 kg en mancuernas, 2,5 a 5 kg en barra o máquina.")],
+ ["Hiciste el tope del rango en todas las series", G("Subí 1 a 2 kg. <b>Sin más peso:</b> bajá en 3 segundos, sumá una pausa de 2 s o pasá a la versión a una pierna.", "Subí el peso: 1 a 2 kg en mancuernas, 2,5 a 5 kg en barra o máquina.")],
  ["Te quedaste dentro del rango", "Mantené el peso e intentá sumar una repetición."],
  ["No llegaste al mínimo o perdiste la técnica", "Bajá un poco el peso."],
  ["Te dolió una articulación (no es cansancio)", "Pará ese ejercicio y usá la opción más fácil."],
 ])}
 {box("<b>Dolor muscular al día siguiente:</b> es normal las primeras semanas y baja solo. Si el dolor es en una rodilla, la cadera o la espalda, y no en el músculo, consultá antes de seguir.", "note")}
 {box(f"<b>Anotá cada sesión</b> en tu planilla de cargas (página {pref('cargas')}). Sin registro no sabés si progresás.", "soft")}
-''', chapter="04 · Cómo progresar", pid="c4", toc="04 · Cómo progresar")
+''', chapter="03 · Cómo progresar", pid="c4", toc="03 · Cómo progresar")
 
 # ================================================================== 05 · SESIONES
 page(f'''
-{chap_head("05", 'Tus <span class="t">sesiones</span>', "Dos sesiones que se alternan semana a semana.")}
-{table(["Sesión", "Foco", "Página"], [
- ["<b>A</b>", "Empuje de cadera y una pierna", pref("a1")],
- ["<b>B</b>", "Bisagra de cadera y apertura", pref("b1")],
-])}
-<h2>Cómo se hace cada sesión</h2>
+{chap_head("04", 'Tus <span class="t">rutinas</span>', "Tres rutinas que rotan semana a semana, cada una con su foco.")}
+{table(["Rutina", "Foco", "Página"], [[f"<b>{n}</b>", FOCO[n].capitalize(), pref(f"r{n}a")] for n in (1, 2, 3)])}
+<h2>Cómo se hace cada rutina</h2>
 {table(["Parte", "Cómo"], [
  ["<b>Entrada en calor</b>", G("5 minutos de caminata en el lugar o subiendo y bajando un escalón.", "5 minutos de cinta, bici o elíptica.")],
  ["<b>Activación</b>", "2 vueltas seguidas de los 2 ejercicios, sin peso."],
@@ -287,52 +301,51 @@ page(f'''
  ["<b>Elongación</b>", "La de tu ebook RENOVA, 5 minutos."],
 ])}
 <p class="small"><b>Material:</b> {MATERIAL}</p>
-{G(box("<b>Antes de cada sesión:</b> agua cerca, el material listo, tu planilla de cargas y algo comido 1 a 3 horas antes.", "soft"),
-   "<h2>Antes de cada sesión</h2>" + checks(["Agua cerca y ropa cómoda.", "El plan B por si una máquina está ocupada (página " + pref("c9b") + ").",
-                                            "Tu planilla de cargas para anotar.", "Haber comido algo 1 a 3 horas antes."]))}
-''', chapter="05 · Sesiones", pid="c5", toc="05 · Tus sesiones")
+{box("<b>Antes de cada rutina:</b> agua cerca, tu planilla de cargas, algo comido 1 a 3 horas antes y " + G("el material listo.", "el plan B por si una máquina está ocupada (página " + pref("c9b") + ")."), "soft")}
+''', chapter="04 · Rutinas", pid="c5", toc="04 · Tus rutinas")
 
-for s in ("A", "B"):
-    act, prin, comp = SES[s]
+for n in (1, 2, 3):
+    act, prin, comp = RUT[n]
     page(f'''
-{eyebrow(f"SESIÓN {s} · {LUGAR}")}
-<h1 class="h1">Sesión {s}: <span class="t">{FOCO[s]}</span></h1>
-{params([("Duración", "40 min"), ("Sesión", s), ("Lugar", G("Casa", "Gimnasio")), ("Hoja", "1 de 2")])}
-<p class="small">Antes: 5 minutos de entrada en calor. Las series y repeticiones de cada semana están en el plan (página {pref("plan")}).</p>
+{eyebrow(f"RUTINA {n} · {LUGAR}")}
+<h1 class="h1">Rutina {n}: <span class="t">{FOCO[n]}</span></h1>
+{params([("Duración", "40 min"), ("Rutina", n), ("Lugar", G("Casa", "Gimnasio")), ("Hoja", "1 de 2")])}
+<p class="small">Antes: 5 minutos de entrada en calor. Las series y repeticiones de cada semana están en el plan (página {pref("plan")}).
+<b>Material de esta rutina:</b> {", ".join(dict.fromkeys(EJ[k][6] for k in act + prin + comp)).lower()}.</p>
 {block_head("ACTIVACIÓN", "2 vueltas · sin peso · sin descanso entre ejercicios")}
 {"".join(card(k) for k in act)}
 {block_head("BLOQUE PRINCIPAL", "series del plan · descanso 90 s")}
 {card(prin[0])}
-''', chapter=f"05 · Sesión {s}", pid=f"{s.lower()}1", toc=f"Sesión {s} · {FOCO[s]}")
+''', chapter=f"04 · Rutina {n}", pid=f"r{n}a", toc=f"Rutina {n} · {FOCO[n]}")
     page(f'''
-{eyebrow(f"SESIÓN {s} · {LUGAR} · HOJA 2 DE 2")}
+{eyebrow(f"RUTINA {n} · {LUGAR} · HOJA 2 DE 2")}
 {block_head("BLOQUE PRINCIPAL", "series del plan · descanso 90 s")}
 {card(prin[1])}
 {block_head("COMPLEMENTARIO", "series del plan · descanso 60 s")}
 {"".join(card(k) for k in comp)}
-{box(CLAVE[s], "")}
+{box(CLAVE[n], "")}
 {box("<b>Para cerrar:</b> 5 minutos de la elongación de tu ebook RENOVA. Anotá los pesos en tu planilla.", "soft")}
-''', chapter=f"05 · Sesión {s}", pid=f"{s.lower()}2")
+''', chapter=f"04 · Rutina {n}", pid=f"r{n}b")
 
 # ================================================================== 06 · PLAN
 page(f'''
-{chap_head("06", 'Tu plan de <span class="t">8 semanas</span>', "Igual que el Método RENOVA: base, descarga y progresión.")}
-{table(["Semana", "Sesión", "Principal", "Complem.", "Esfuerzo"], [
- ["<b>1</b>", "A", "3 × 12", "2 × 10", "5 – 6"],
- ["<b>2</b>", "B", "3 × 12", "2 × 10", "5 – 6"],
- ["<b>3</b>", "A", "3 × 10 – 12", "3 × 10", "7"],
- ["<b>4</b>", "B", "3 × 10 – 12", "3 × 10", "7"],
- ["<b>5 · descarga</b>", "A", "2 × 10 liviano", "2 × 10", "5"],
- ["<b>6</b>", "B", "4 × 8 – 10", "3 × 10", "8"],
- ["<b>7</b>", "A", "4 × 8 – 10", "3 × 10", "8"],
- ["<b>8</b>", "B + test", "4 × 8 – 10", "3 × 10", "8"],
+{chap_head("05", 'Tu plan de <span class="t">8 semanas</span>', "Igual que el Método RENOVA: base, descarga y progresión.")}
+{table(["Semana", "Rutina", "Principal", "Complem.", "Esfuerzo"], [
+ ["<b>1</b>", "1", "3 × 12", "2 × 10", "5 – 6"],
+ ["<b>2</b>", "2", "3 × 12", "2 × 10", "5 – 6"],
+ ["<b>3</b>", "3", "3 × 10 – 12", "3 × 10", "7"],
+ ["<b>4</b>", "1", "3 × 10 – 12", "3 × 10", "7"],
+ ["<b>5 · descarga</b>", "2", "2 × 10 liviano", "2 × 10", "5"],
+ ["<b>6</b>", "3", "4 × 8 – 10", "3 × 10", "8"],
+ ["<b>7</b>", "1", "4 × 8 – 10", "3 × 10", "8"],
+ ["<b>8</b>", "2", "4 × 8 – 10", "3 × 10", "8"],
 ])}
 <p class="small">“3 × 12” = 3 series de 12 repeticiones. En los ejercicios de una pierna, las repeticiones son por lado. La activación es siempre igual: 2 vueltas.</p>
 {tips([("Aprendé y construí", "Semanas 1 a 4. Técnica primero; desde la 3, subí el peso."),
        ("Descarga", "Semana 5. Menos series y peso: el cuerpo asimila."),
-       ("Progresá", "Semanas 6 a 8. Más series y peso. Al final, el test.")], "t3")}
-{box(f"<b>Semana 8:</b> después de la sesión, o el día siguiente, repetí tu test (página {pref('test')}) y compará.", "soft")}
-''', chapter="06 · Plan", pid="plan", toc="06 · Tu plan de 8 semanas")
+       ("Progresá", "Semanas 6 a 8. Más series y peso. Compará tus cargas.")], "t3")}
+{box(f"<b>Semana 8:</b> compará en tu planilla (página {pref('cargas')}) los pesos de la semana 8 con los de la semana 1.", "soft")}
+''', chapter="05 · Plan", pid="plan", toc="05 · Tu plan de 8 semanas")
 
 page(f'''
 {eyebrow("TU PLAN DE 8 SEMANAS")}
@@ -340,32 +353,32 @@ page(f'''
 <h2>Si entrenás 2 veces con RENOVA</h2>
 {table(["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], [["RENOVA", "–", "Glúteos", "–", "RENOVA", "Caminata", "–"]])}
 <h2>Si entrenás 3 veces con RENOVA</h2>
-{table(["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], [["RENOVA", "–", "RENOVA", "Glúteos", "–", "RENOVA", "–"]])}
+{table(["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], [["RENOVA", "–", "RENOVA", "–", "RENOVA", "–", "Glúteos"]])}
 <h2>Tu semana</h2>
 {table(["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], [["", "", "", "", "", "", ""]])}
-<p class="small">Son ejemplos: mové los días según tu semana. Lo importante es no hacer Glúteos Fuertes el día antes o el día después de la rutina que más trabaja piernas.</p>
-{box("<b>¿Perdiste una semana?</b> No pasa nada. Retomá con la sesión que te tocaba y el esfuerzo de la semana anterior. No intentes recuperar haciendo dos sesiones juntas.", "soft")}
+<p class="small">Son ejemplos: mové los días según tu semana. Con 4 días de entrenamiento, Glúteos Fuertes queda junto a una rutina de RENOVA (en el ejemplo, el domingo antes del lunes): que esa sea la rutina con menos trabajo de piernas, y dejá al menos un día entre Glúteos y la que más trabaja piernas.</p>
+{box("<b>¿Perdiste una semana?</b> No pasa nada. Retomá con la rutina que te tocaba y el esfuerzo de la semana anterior. No intentes recuperar haciendo dos sesiones juntas.", "soft")}
 {box("<b>¿Una semana muy cargada?</b> Hacé la sesión express de 20 minutos (página " + pref("express") + "). Mejor 20 minutos que nada.", "")}
-''', chapter="06 · Plan", pid="plan2")
+''', chapter="05 · Plan", pid="plan2")
 
 # ================================================================== 07 · ERRORES
 ERR = [("Sentir todo en los cuádriceps", "En el hip thrust y el puente, acercá los pies a la cola hasta que las canillas queden verticales arriba. Empujá con los talones."),
        ("Arquear la espalda arriba", "El movimiento termina cuando la cadera se alinea con el torso. Mentón al pecho y costillas abajo."),
        ("Bajar rápido", "La bajada también entrena. Contá 2 o 3 segundos para bajar en cada repetición."),
-       ("Subir peso antes de dominar la técnica", "Si el peso te cambia el movimiento, es demasiado. Usá la regla del rango (capítulo 04)."),
+       ("Subir peso antes de dominar la técnica", "Si el peso te cambia el movimiento, es demasiado. Usá la regla del rango (capítulo 03)."),
        ("Quedarse siempre con el mismo peso", "Si hace tres semanas que hacés lo mismo con facilidad, el músculo ya se adaptó. Toca subir."),
        ("No descansar entre series", "En el bloque principal, 90 segundos. Apurarte te hace levantar menos y progresar menos."),
        ("Saltearte la activación", "Son 5 minutos que despiertan el glúteo. Sin ellos, el trabajo se lo llevan las piernas y la espalda."),
-       ("Mirar solo la balanza", "El músculo pesa. Medí tu progreso con el test, la cinta y los pesos que levantás.")]
+       ("Mirar solo la balanza", "El músculo pesa. Medí tu progreso con la planilla de cargas, la cinta y cómo te sentís.")]
 page(f'''
-{chap_head("07", 'Errores que frenan <span class="t">tu progreso</span>', "Los más frecuentes, y cómo corregirlos.")}
+{chap_head("06", 'Errores que frenan <span class="t">tu progreso</span>', "Los más frecuentes, y cómo corregirlos.")}
 <div class="mitos">{"".join(f"<div><b>{t}</b><p>{p}</p></div>" for t, p in ERR)}</div>
 {box("<b>¿Dudas con la técnica?</b> Cada ejercicio tiene su botón <b>VER VIDEO</b>: miralo antes de la primera sesión.", "soft")}
-''', chapter="07 · Errores", pid="c7", toc="07 · Errores frecuentes")
+''', chapter="06 · Errores", pid="c7", toc="06 · Errores frecuentes")
 
 # ================================================================== 08 · ALIMENTACIÓN
 page(f'''
-{chap_head("08", 'Comer para <span class="t">construir músculo</span>', "El entrenamiento da la señal; la alimentación pone los materiales.")}
+{chap_head("07", 'Comer para <span class="t">construir músculo</span>', "El entrenamiento da la señal; la alimentación pone los materiales.")}
 {checks(["<b>Proteína en cada comida:</b> huevo, lácteos, carnes, pollo, pescado, legumbres, tofu. Repartida en el día rinde más que concentrada en la cena.",
          "<b>No entrenes en ayunas largas:</b> una comida o colación 1 a 3 horas antes te da energía para levantar más.",
          "<b>Después de entrenar,</b> una comida con proteína ayuda a la recuperación. No hace falta que sea inmediata."])}
@@ -375,7 +388,7 @@ page(f'''
  ["Si entrenás a la noche", "Merienda completa con proteína y una cena liviana después"],
 ])}
 {box("<b>Comer muy poco frena el músculo.</b> Si estás haciendo un plan para bajar de peso, no recortes la proteína. Las cantidades para vos las define tu nutricionista. En <b>Alimentación Inteligente</b> tenés 8 semanas de menús y recetas.", "note")}
-''', chapter="08 · Alimentación", pid="c8", toc="08 · Comer para construir músculo")
+''', chapter="07 · Alimentación", pid="c8", toc="07 · Comer para construir músculo")
 
 # ================================================================== 09 · CONSEJOS (distinto en cada edición)
 if GYM:
@@ -390,10 +403,10 @@ if GYM:
                 ("Toalla, agua y zapatillas firmes", "Suela plana y estable para empujar con los talones."),
                 ("Tu progreso es contra vos", "No copies los pesos de otras. Compará tu semana con tu semana anterior.")]
     page(f'''
-{chap_head("09", '10 consejos <span class="t">para el gimnasio</span>', "Para sacarle el máximo a cada sesión y sentirte cómoda desde el primer día.")}
+{chap_head("08", '10 consejos <span class="t">para el gimnasio</span>', "Para sacarle el máximo a cada sesión y sentirte cómoda desde el primer día.")}
 {tips(CONSEJOS[:6])}
 {box("<b>Si es tu primera vez en un gimnasio,</b> es normal sentirse perdida. Llevá este ebook abierto en el celular y seguí la sesión paso a paso.", "soft")}
-''', chapter="09 · Consejos", pid="c9", toc="09 · 10 consejos para el gimnasio")
+''', chapter="08 · Consejos", pid="c9", toc="08 · 10 consejos para el gimnasio")
     page(f'''
 {eyebrow("CONSEJOS PARA EL GIMNASIO")}
 {tips(CONSEJOS[6:], start=7)}
@@ -406,7 +419,7 @@ if GYM:
  ["Cajón", "Estocada split con mancuernas"],
 ])}
 {box("<b>Horarios:</b> a media mañana y a primera hora de la tarde suele haber menos gente. Si vas en hora pico, empezá por el ejercicio que esté libre.", "")}
-''', chapter="09 · Consejos", pid="c9b")
+''', chapter="08 · Consejos", pid="c9b")
 else:
     CONSEJOS = [("Levantate cada hora", "Cada 60 a 90 minutos sentada, parate 2 o 3 minutos: caminá, buscá agua, estirate."),
                 ("Pausa activa dos veces por día", "Una rutina de 10 minutos a media mañana y otra a media tarde. Tenés 4 en el bonus Pausa activa."),
@@ -419,10 +432,10 @@ else:
                 ("Bajate antes, estacioná lejos", "Una parada antes del colectivo o el auto más lejos: 10 minutos más de caminata."),
                 ("Movete con otros", "Caminá con una amiga, con tu pareja o con el perro. Es más fácil sostenerlo acompañada.")]
     page(f'''
-{chap_head("09", 'Mantenete <span class="t">activa</span>', "Entrenar 40 minutos no compensa estar sentada 9 horas. Lo que hacés el resto del día también cuenta.")}
+{chap_head("08", 'Mantenete <span class="t">activa</span>', "Entrenar 40 minutos no compensa estar sentada 9 horas. Lo que hacés el resto del día también cuenta.")}
 {box("<b>Estar mucho tiempo sentada apaga el glúteo:</b> la cadera queda flexionada y el músculo casi no trabaja. Por eso, además de entrenar, moverte durante el día es parte del programa.", "note")}
 {tips(CONSEJOS[:6])}
-''', chapter="09 · Mantenete activa", pid="c9", toc="09 · Mantenete activa: 10 consejos")
+''', chapter="08 · Mantenete activa", pid="c9", toc="08 · Mantenete activa: 10 consejos")
     page(f'''
 {eyebrow("MANTENETE ACTIVA")}
 {tips(CONSEJOS[6:], start=7)}
@@ -436,7 +449,7 @@ else:
  ["Antes de dormir", "5 minutos de elongación de cadera"],
 ])}
 {box("<b>¿Qué hacés en la pausa activa?</b> Usá las 4 rutinas de 10 minutos del bonus <b>Pausa activa</b> de tu Método RENOVA.", "soft")}
-''', chapter="09 · Mantenete activa", pid="c9b")
+''', chapter="08 · Mantenete activa", pid="c9b")
 
 # ================================================================== BONUS EXPRESS
 EXP = G([("Puente de glúteos", "12"), ("Peso muerto con mancuernas", "12"), ("Subida al banco", "10 por lado")],
@@ -466,10 +479,10 @@ page(f'''
 # ================================================================== DESPUÉS
 page(f'''
 {eyebrow("DESPUÉS DE LAS 8 SEMANAS")}
-<h1 class="h1">Repetí el test <span class="t">y elegí cómo seguir</span></h1>
-<p>En la semana 8 repetí los tests y la medida de cadera (página {pref("test")}). Compará con tu día 1: más repeticiones y más segundos en una pierna son fuerza que ganaste.</p>
+<h1 class="h1">Mirá cuánto avanzaste <span class="t">y elegí cómo seguir</span></h1>
+<p>Abrí tu planilla de cargas (página {pref("cargas")}) y compará la semana 1 con la semana 8: cada kilo y cada repetición de más es fuerza que ganaste.</p>
 {tips([("Subí la carga", "Repetí las 8 semanas empezando con los pesos de la semana 8."),
-       ("Mantené", "Seguí con un día por semana alternando A y B, con esfuerzo 7."),
+       ("Mantené", "Seguí con un día por semana rotando las 3 rutinas, con esfuerzo 7."),
        ("Plan a tu medida", "Pedí un plan integral armado para vos (página siguiente).")], "t3")}
 <h2>Qué cambió para vos</h2>
 {checks(["Subo escaleras con menos esfuerzo.", "Me levanto de la silla sin usar las manos.", "Me siento más firme parada en una pierna.",
@@ -482,8 +495,8 @@ page(f'''
 <div class="bio metodo">
   {eyebrow("PLAN INTEGRAL RENOVA")}
   <h1 class="h1 big">50% off en tu plan <span class="t">integral RENOVA</span></h1>
-  <div class="team-big"><img src="img/equipo2.jpg" alt="Equipo RENOVA" style="height:auto;max-height:110mm;object-fit:contain"></div>
-  <p class="lead center">Por tener Glúteos Fuertes, tenés <b>50% off en el plan integral RENOVA</b> de entrenamiento y nutrición, armado para vos.</p>
+  <div class="team-big"><img src="img/equipo2.jpg" alt="Equipo RENOVA" style="height:auto;max-height:96mm;object-fit:contain"></div>
+  <p class="lead center">Por tener Glúteos Fuertes, tenés <b>50% off en el plan integral RENOVA</b> de entrenamiento y nutrición, armado para vos. Tocá el botón, escribile a Nacho por WhatsApp y contale que tenés Glúteos Fuertes.</p>
   <div class="cp-pills"><span>✓ Entrenamiento a tu medida</span><span>✓ Nutrición para tu etapa</span><span>✓ Seguimiento de tu progreso</span></div>
   <div class="cta-center"><a class="btn btn-big" href="{esc(LINK_PLAN)}">QUIERO MI 50% OFF {ICON_ARROW}</a></div>
   <div class="cta-center"><a class="btn" href="{esc(LINK_RENOVA)}">QUIERO SUMARME A RENOVA {ICON_ARROW}</a></div>
