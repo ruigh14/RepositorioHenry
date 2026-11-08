@@ -9,11 +9,13 @@ const FFMPEG = process.env.FFMPEG || 'ffmpeg';
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const b = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {});
-  // 1) tapa real del ebook, en alta
-  const t = await b.newPage({ viewport: { width: 900, height: 1300 }, deviceScaleFactor: 2 });
-  await t.goto('file://' + path.join(__dirname, '..', '..', 'ebook', 'gluteos.html'));
-  await t.waitForSelector('body[data-ready="1"]', { timeout: 30000 });
-  await (await t.$('section#portada')).screenshot({ path: path.join(__dirname, 'pack', 'tapa_gluteos.jpg'), quality: 92 });
+  // 1) tapas reales de los dos ebooks (casa y gimnasio), en alta
+  for (const ed of ['casa', 'gym']) {
+    const t = await b.newPage({ viewport: { width: 900, height: 1300 }, deviceScaleFactor: 2 });
+    await t.goto('file://' + path.join(__dirname, '..', '..', 'ebook', `gluteos_${ed}.html`));
+    await t.waitForSelector('body[data-ready="1"]', { timeout: 30000 });
+    await (await t.$('section#portada')).screenshot({ path: path.join(__dirname, 'pack', `tapa_gluteos_${ed}.jpg`), quality: 92 });
+  }
   // 2) portadas
   for (const n of [1, 2, 3]) {
     const p = await b.newPage({ viewport: { width: 1080, height: 1350 } });

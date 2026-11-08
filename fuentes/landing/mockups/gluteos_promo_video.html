@@ -116,7 +116,10 @@ body{background:radial-gradient(ellipse 70% 40% at 50% 55%,rgba(20,177,199,.5),t
 .t div{overflow:hidden;line-height:.9;padding-top:40px;margin-top:-30px}
 .t h1{font-size:200px;animation:up .5s cubic-bezier(.2,.9,.3,1) both}
 .t div:nth-child(2) h1{color:var(--rnv-turquesa-claro);animation-delay:.18s}
+@keyframes spinr{from{transform:rotateY(75deg) translateX(200px);opacity:0}to{transform:rotateY(18deg);opacity:1}}
+@keyframes floatr{from{transform:rotateY(18deg) translateY(0)}to{transform:rotateY(12deg) translateY(-18px)}}
 .bk{animation:spin .8s .5s cubic-bezier(.2,.9,.3,1) both,float 2.7s 1.3s ease-in-out both}
+.bk.bkr{animation:spinr .8s .75s cubic-bezier(.2,.9,.3,1) both,floatr 2.45s 1.55s ease-in-out both}
 .shadow{animation:fade .6s .7s both}
 .pills{position:absolute;top:1430px;left:0;right:0;display:flex;gap:16px;justify-content:center}
 .pills span{border:3px solid var(--rnv-turquesa);border-radius:99px;font-size:34px;font-weight:800;padding:14px 30px;animation:pop .45s both}
@@ -128,7 +131,7 @@ body{background:radial-gradient(ellipse 70% 40% at 50% 55%,rgba(20,177,199,.5),t
 <div class="all">
 <div class="logo"><img src="../../ebook/img/logo_renova.png"></div>
 <div class="t disp"><div><h1 class="disp">Glúteos</h1></div><div><h1 class="disp">fuertes</h1></div></div>
-<div class="st"><div class="shadow s" style="left:351.0px;top:1236px;width:441.0px"></div><div class="bk " style="left:330px;top:660px;width:420px;height:594px;transform:rotateY(-18deg)"><div class="sp" style="width:42px;--fs:19px"><span>GLÚTEOS FUERTES</span></div><div class="fr"><img src="pack/tapa_gluteos.jpg"></div></div></div>
+<div class="st"><div class="g2"><div class="shadow bkrs" style="left:168.5px;top:1205px;width:388.5px"></div><div class="bk bkr" style="left:150px;top:700px;width:370px;height:523px;transform:rotateY(18deg)"><div class="sp" style="width:37px;--fs:17px"><span>GLÚTEOS FUERTES · GIMNASIO</span></div><div class="fr"><img src="pack/tapa_gluteos_gym.jpg"></div></div></div><div class="shadow s" style="left:579.5px;top:1193px;width:409.5px"></div><div class="bk " style="left:560px;top:660px;width:390px;height:551px;transform:rotateY(-18deg)"><div class="sp" style="width:39px;--fs:18px"><span>GLÚTEOS FUERTES · EN CASA</span></div><div class="fr"><img src="pack/tapa_gluteos_casa.jpg"></div></div></div>
 <div class="pills"><span>Cadera</span><span>Rodillas</span><span>Espalda</span></div>
-<div class="cta"><span>TU DÍA EXTRA · 8 SEMANAS</span><p>Casa o gimnasio · Mujeres 40+</p></div>
+<div class="cta"><span>TU DÍA EXTRA · 8 SEMANAS</span><p>2 ebooks: en casa + en el gimnasio · Mujeres 40+</p></div>
 </div>

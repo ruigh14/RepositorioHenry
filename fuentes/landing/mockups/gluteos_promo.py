@@ -1,8 +1,9 @@
 """Glúteos Fuertes: 3 portadas publicitarias (1080x1350) y un video de 4 s (1080x1920) para redes y tiendas.
-Usan la tapa real del ebook (pack/tapa_gluteos.jpg, la saca gluteos_promo.js de fuentes/ebook/gluteos.html),
+Son dos ebooks que se entregan juntos (casa y gimnasio): la portada 1 y el video muestran las dos tapas reales
+(pack/tapa_gluteos_casa.jpg y tapa_gluteos_gym.jpg, las saca gluteos_promo.js de fuentes/ebook/gluteos_casa.html y gluteos_gym.html),
 las ilustraciones de los ejercicios del ebook y los tokens del design system.
 
-Uso: cd fuentes/ebook && python3 gluteos.py
+Uso: cd fuentes/ebook && python3 gluteos.py casa && python3 gluteos.py gym
      cd fuentes/landing/mockups && python3 gluteos_promo.py && node gluteos_promo.js
      → gluteos-fuertes/creativos/portada_1..3.jpg y video_4s.mp4
 """
@@ -14,7 +15,7 @@ from design_system import css
 
 HERE = Path(__file__).parent
 IMG = "../../ebook/img/"
-TAPA = "pack/tapa_gluteos.jpg"
+TAPAS = {"casa": ("pack/tapa_gluteos_casa.jpg", "GLÚTEOS FUERTES · EN CASA"), "gym": ("pack/tapa_gluteos_gym.jpg", "GLÚTEOS FUERTES · GIMNASIO")}
 LOGO = IMG + "logo_renova.png"
 
 BASE = css(str(HERE)) + """
@@ -39,12 +40,13 @@ body{width:var(--w);height:var(--h);overflow:hidden;position:relative;font-famil
 """
 
 
-def book(x, y, w, ry, cls=""):
+def book(x, y, w, ry, cls="", ed="casa"):
+    tapa, lomo = TAPAS[ed]
     h = round(w * 1.414); sw = round(w * .1)
     return (f'<div class="shadow {cls}s" style="left:{x + w * .05}px;top:{y + h - 18}px;width:{w * 1.05}px"></div>'
             f'<div class="bk {cls}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px;transform:rotateY({ry}deg)">'
-            f'<div class="sp" style="width:{sw}px;--fs:{round(w * .045)}px"><span>GLÚTEOS FUERTES</span></div>'
-            f'<div class="fr"><img src="{TAPA}"></div></div>')
+            f'<div class="sp" style="width:{sw}px;--fs:{round(w * .045)}px"><span>{lomo}</span></div>'
+            f'<div class="fr"><img src="{tapa}"></div></div>')
 
 
 def ill(name, size, extra=""):
@@ -69,10 +71,10 @@ body{background:radial-gradient(ellipse 60% 45% at 50% 58%,rgba(20,177,199,.45),
 .bot .row{margin-top:20px;display:flex;gap:14px;justify-content:center}
 .bot .row span{border:2px solid var(--rnv-turquesa);color:#fff;font-size:24px;padding:10px 24px;border-radius:99px;font-weight:700}
 """, f'''
-<div class="top"><img src="{LOGO}"><br><span class="pill">Nuevo · Método RENOVA</span><h1 class="disp">Glúteos <span>fuertes</span></h1></div>
-<div class="st">{book(330, 420, 420, -20)}</div>
+<div class="top"><img src="{LOGO}"><br><span class="pill">Nuevo · 2 ebooks · Método RENOVA</span><h1 class="disp">Glúteos <span>fuertes</span></h1></div>
+<div class="st">{book(110, 420, 410, 22, ed="gym")}{book(550, 400, 420, -22, ed="casa")}</div>
 <div class="bot"><p>Tu día extra: 8 semanas para glúteos y cadera</p>
-<div class="row"><span>Casa o gimnasio</span><span>Mujeres 40+</span><span>Plan de 8 semanas</span></div></div>
+<div class="row"><span>En casa + en el gimnasio</span><span>Mujeres 40+</span><span>Plan de 8 semanas</span></div></div>
 ''')
 
 # ---------------------------------------------------------------- 2 · TIPOGRÁFICA CLARA (como la tapa del ebook)
@@ -136,7 +138,10 @@ body{background:radial-gradient(ellipse 70% 40% at 50% 55%,rgba(20,177,199,.5),t
 .t div{overflow:hidden;line-height:.9;padding-top:40px;margin-top:-30px}
 .t h1{font-size:200px;animation:up .5s cubic-bezier(.2,.9,.3,1) both}
 .t div:nth-child(2) h1{color:var(--rnv-turquesa-claro);animation-delay:.18s}
+@keyframes spinr{from{transform:rotateY(75deg) translateX(200px);opacity:0}to{transform:rotateY(18deg);opacity:1}}
+@keyframes floatr{from{transform:rotateY(18deg) translateY(0)}to{transform:rotateY(12deg) translateY(-18px)}}
 .bk{animation:spin .8s .5s cubic-bezier(.2,.9,.3,1) both,float 2.7s 1.3s ease-in-out both}
+.bk.bkr{animation:spinr .8s .75s cubic-bezier(.2,.9,.3,1) both,floatr 2.45s 1.55s ease-in-out both}
 .shadow{animation:fade .6s .7s both}
 .pills{position:absolute;top:1430px;left:0;right:0;display:flex;gap:16px;justify-content:center}
 .pills span{border:3px solid var(--rnv-turquesa);border-radius:99px;font-size:34px;font-weight:800;padding:14px 30px;animation:pop .45s both}
@@ -148,9 +153,9 @@ body{background:radial-gradient(ellipse 70% 40% at 50% 55%,rgba(20,177,199,.5),t
 <div class="all">
 <div class="logo"><img src="{LOGO}"></div>
 <div class="t disp"><div><h1 class="disp">Glúteos</h1></div><div><h1 class="disp">fuertes</h1></div></div>
-<div class="st">{book(330, 660, 420, -18)}</div>
+<div class="st"><div class="g2">{book(150, 700, 370, 18, "bkr", ed="gym")}</div>{book(560, 660, 390, -18, ed="casa")}</div>
 <div class="pills"><span>Cadera</span><span>Rodillas</span><span>Espalda</span></div>
-<div class="cta"><span>TU DÍA EXTRA · 8 SEMANAS</span><p>Casa o gimnasio · Mujeres 40+</p></div>
+<div class="cta"><span>TU DÍA EXTRA · 8 SEMANAS</span><p>2 ebooks: en casa + en el gimnasio · Mujeres 40+</p></div>
 </div>
 ''')
 print("ok: gluteos_promo_1..3.html y gluteos_promo_video.html")

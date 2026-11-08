@@ -1078,3 +1078,5 @@ body.grande{font-size:16.5pt;line-height:1.48}
 /* Glúteos Fuertes (gluteos.py) */
 .cv3.glut{--c3-a:var(--tq-d);--c3-b:var(--ink);--c3-l:var(--tq-b)}
 .glut .c3-title{font-size:84pt}
+.tall .grid-t td{height:20mm}
+.cv3.glut.gym{--c3-a:var(--tq-dd);--c3-b:var(--tq-d);--c3-l:var(--tq-b)}
