@@ -24,6 +24,9 @@ gluteos-fuertes/             Upsell: Glúteos Fuertes, 2 ebooks que se entregan 
   Ebook_Gluteos_Fuertes_Casa_RENOVA.pdf
   Ebook_Gluteos_Fuertes_Gimnasio_RENOVA.pdf
   creativos/                 3 portadas (1080×1350; la elegida es portada_1, libro 3D con los 2 ebooks) y video de 4 s (1080×1920): fuentes/landing/mockups/gluteos_promo.py && node gluteos_promo.js (necesita ffmpeg)
+metodo-40/                   MÉTODO 40 (submarca para hombres 40+, se vende en la otra tienda de Impultienda): 2 ebooks que se entregan juntos, Casa y Gimnasio (28 hojas c/u). Autor Ignacio Portillo. 8 semanas, 3 rutinas de cuerpo completo A/B/C, descarga en la 5. Cada ejercicio: captura y link de su video propio en Harbiz (marca LEVEL UP, Nacho decidió dejarla), músculos, técnica, error a evitar y opción principiante. Paleta: tokens --m40-* (negro, grises, rojo), body.m40. Lo genera fuentes/ebook/hombres.py casa|gym; imágenes en img/m40/; estructura en investigacion/metodo-40/estructura-ebooks.md
+  Ebook_Metodo40_Casa.pdf
+  Ebook_Metodo40_Gimnasio.pdf
 comunidad/                   Bonus (PDF aparte): Acceso a la comunidad RENOVA (portada + cómo entrar a Skool y ver los talleres en Cursos). Lo genera fuentes/ebook/comunidad.py && node comunidad.js
   Bonus_Acceso_comunidad_RENOVA.pdf
 pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación + 4 rutinas de pausa activa de 10 min + plan personalizado
@@ -72,6 +75,8 @@ cd fuentes/ebook && python3 nutricion.py && node export.js nutricion        # Al
 cd fuentes/ebook && python3 menopausia.py && node export.js menopausia      # Upsell: Nutrición en la menopausia
 cd fuentes/ebook && python3 gluteos.py casa && node export.js gluteos_casa  # Upsell: Glúteos Fuertes en casa
 cd fuentes/ebook && python3 gluteos.py gym && node export.js gluteos_gym    # Upsell: Glúteos Fuertes en el gimnasio
+cd fuentes/ebook && python3 hombres.py casa && node export.js hombres_casa  # MÉTODO 40 en casa
+cd fuentes/ebook && python3 hombres.py gym && node export.js hombres_gym    # MÉTODO 40 en el gimnasio
 cd fuentes/landing && python3 build.py                                     # la landing de la tienda
 cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
 cd fuentes/design-system && python3 muestra.py && node muestra.js           # muestra.pdf del design system
@@ -108,6 +113,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 
 ## Pendientes
 
+- MÉTODO 40 (hombres 40+, listo el 8/11/2026): que Nacho revise rutinas y textos; confirmar si se puede nombrar a Racing (hoy dice "preparador físico de fútbol profesional"); confirmar el nombre de la marca; armar la tienda/landing en la otra cuenta de Impultienda y definir precio; después: upsell de nutrición para hombres.
 - Upsell Glúteos Fuertes (2 ebooks, casa + gimnasio, se entregan juntos; listo el 8/11/2026): que Nacho revise ejercicios, plan y los 10 consejos de cada uno; verificar que funcionen los WhatsApp del 50% off (wa.link/hewha8 y wa.link/1asjt1) y que el descuento esté activo; que Eugenia revise la hoja de alimentación (capítulo 08); portada elegida: `gluteos-fuertes/creativos/portada_1.jpg` (libro 3D); ver en Impultienda si admite un segundo upsell (`upsell_2`) o si reemplaza al de menopausia, cargar los 2 PDF y el precio, y sumarlo a la landing. Ilustraciones que faltan si se quieren más ejercicios: patada en cuadrupedia y en polea, hip thrust en sillón (hoy usa la del gimnasio), abducción con banda.
 - Auditoría Fase 1 de casa y gimnasio en `investigacion/auditoria-ebooks-fase1.md`: Nacho decide los puntos críticos (saltos/impacto, tracción en casa, errores frecuentes, qué hacer si pierdo días, "te acompañan") antes de pasar a la Fase 3.
 

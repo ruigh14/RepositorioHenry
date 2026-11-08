@@ -1084,3 +1084,41 @@ body.grande{font-size:16.5pt;line-height:1.48}
 .cv3.glut.gym{background:var(--rnv-rojo-fondo);border-color:var(--ink)}   /* mismo contorno que la de casa */
 .glut.gym .c3-lugar{background:var(--rnv-rojo)}
 .glut.gym .c3-sub{background:transparent}
+
+/* ===== MÉTODO 40 (hombres 40+, hombres.py): misma maqueta, paleta negro, grises y rojo ===== */
+body.m40{--tq:var(--m40-rojo);--tq-t:var(--m40-rojo);--tq-d:var(--m40-rojo-oscuro);--tq-dd:var(--m40-negro);
+  --tq-l:var(--m40-gris-claro);--tq-b:var(--m40-borde);--ink:var(--m40-negro);--mut:var(--m40-gris);--line:var(--m40-borde);--bg2:var(--m40-gris-claro)}
+.m40 .hdr b{color:var(--m40-rojo)}
+/* portada */
+.mcv{position:relative;height:297mm;background:var(--m40-negro);color:#fff;overflow:hidden;font-family:"InterTightW","InterW",sans-serif}
+.mcv-foto{position:absolute;right:-18mm;bottom:0;height:178mm;width:auto}
+.mcv-fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--m40-negro) 38%,rgba(14,15,16,0) 70%),linear-gradient(0deg,var(--m40-negro) 0,rgba(14,15,16,0) 22%),linear-gradient(180deg,var(--m40-negro) 42%,rgba(14,15,16,0) 56%)}
+.mcv-in{position:relative;z-index:2;padding:18mm 16mm 0}
+.mcv-brand{font-weight:900;font-size:22pt;letter-spacing:.14em}
+.mcv-brand b{color:var(--m40-rojo)}
+.mcv-bar{width:26mm;height:2mm;background:var(--m40-rojo);margin:9mm 0 7mm}
+.mcv h1{font-weight:900;font-size:50pt;line-height:.95;letter-spacing:-.01em;margin:0;text-transform:uppercase}
+.mcv h1 span{color:var(--m40-rojo)}
+.mcv-lugar{display:inline-block;margin-top:9mm;background:var(--m40-rojo);color:#fff;font-weight:900;font-size:24pt;letter-spacing:.08em;padding:2.5mm 8mm;border-radius:1.5mm}
+.mcv-sub{margin-top:7mm;font-size:16pt;font-weight:700;color:#D9DBDE;line-height:1.4;max-width:95mm}
+.mcv-autor{position:absolute;z-index:2;left:16mm;bottom:16mm;font-weight:800;font-size:15pt;letter-spacing:.06em}
+.mcv-autor small{display:block;font-weight:600;font-size:11pt;letter-spacing:0;color:#B9BCC0;margin-top:1mm}
+/* tarjeta de ejercicio */
+.mx{display:grid;grid-template-columns:62mm 1fr;gap:5mm;border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm;margin-bottom:4mm;break-inside:avoid}
+.mx-im{width:62mm;height:35mm;background:var(--m40-negro);border-radius:2mm;overflow:hidden}
+.mx-im img{width:100%;height:100%;object-fit:contain;display:block}
+.mx-l .mat{margin-top:1.6mm;display:block;text-align:center}
+.mx h4{margin:0;font-size:14.5pt;line-height:1.15}
+.mx .mus{display:inline-block;margin:1.2mm 0 1.4mm;background:var(--m40-gris-claro);color:var(--m40-grafito);font-weight:700;font-size:10pt;padding:.6mm 2.4mm;border-radius:99px}
+.mx p{margin:0 0 1.2mm;font-size:12.6pt;line-height:1.35}
+.mx .ev{color:var(--m40-rojo-oscuro)}
+.mx .vbtn-sm{margin-top:1mm}
+.m40 .grid-t thead th{background:var(--m40-negro);color:#fff}
+.m40 .grid-t td{height:auto}
+.m40 .tall .grid-t td{height:18mm}
+.bio-m{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:start}
+.bio-m img{width:62mm;border-radius:3mm;display:block}
+.m40 .mid .grid-t td{height:12mm}
+.m40 .mcv h1{color:#fff;font-family:"InterTightW","InterW",sans-serif}
+.m40 .t2{color:#FF6B6B}
+.m40 .quote.dark{background:var(--m40-negro)}

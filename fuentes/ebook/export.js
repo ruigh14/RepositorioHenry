@@ -19,6 +19,8 @@ const EDITIONS = {
   nutricion: ['nutricion.html', 'alimentacion-inteligente/Ebook_Alimentacion_Inteligente_RENOVA.pdf'],
   gluteos_casa: ['gluteos_casa.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_Casa_RENOVA.pdf'],
   gluteos_gym: ['gluteos_gym.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_Gimnasio_RENOVA.pdf'],
+  hombres_casa: ['hombres_casa.html', 'metodo-40/Ebook_Metodo40_Casa.pdf'],
+  hombres_gym: ['hombres_gym.html', 'metodo-40/Ebook_Metodo40_Gimnasio.pdf'],
 };
 const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {

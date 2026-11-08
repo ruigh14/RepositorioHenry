@@ -15,6 +15,14 @@
   --rnv-azul:#0033A0;
   --rnv-rojo:#E63333;
   --rnv-rojo-fondo:#FCEBEB;   /* fondo rojo claro (tapa de Glúteos Fuertes en el gimnasio) */
+  /* MÉTODO 40 (submarca para hombres 40+): negro, grises y rojo */
+  --m40-negro:#0E0F10;
+  --m40-grafito:#1C1E21;
+  --m40-gris:#5E6368;
+  --m40-gris-claro:#F2F3F4;
+  --m40-borde:#DADDE0;
+  --m40-rojo:#D62828;
+  --m40-rojo-oscuro:#A11D1D;
   /* ---- Color: sello de garantía (solo el sello dorado) */
   --rnv-oro:#E2A928;
   --rnv-oro-claro:#F9DE7E;
