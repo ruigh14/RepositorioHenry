@@ -441,7 +441,7 @@ if HOM:
 ])}
 <h2>Lo que más ayuda al músculo</h2>
 {ul(["<b>Proteína repartida</b> en desayuno, almuerzo y cena, no toda a la noche.", "<b>Carbohidratos en los días de entrenamiento:</b> son la energía para levantar peso.", "<b>Dormir 7 a 8 horas:</b> la recuperación también es parte del plan.", "<b>Suplementos:</b> no hacen falta para empezar. Si te interesan, consultalo con un profesional."])}
-''', chapter="02 · Armá tu plato", pid="cap2d", toc="Comer alrededor del entrenamiento")
+''', chapter="02 · Armá tu plato", pid="cap2d")
 
     page(f'''
 {eyebrow("ARMÁ TU PLATO")}
@@ -453,6 +453,22 @@ if HOM:
 <div class="sabores"><span>Yogur con fruta</span><span>Queso con galletas de arroz</span><span>Sándwich de atún</span><span>Huevos duros</span><span>Leche con avena</span><span>Frutos secos + fruta</span></div>
 {box("<b>¿Entrenás y después no tenés hambre?</b> Comé algo chico igual: un yogur o un vaso de leche. Es mejor que llegar a la cena sin haber comido nada desde el entrenamiento.", "soft")}
 ''', chapter="02 · Armá tu plato", pid="cap2e")
+
+    page(f'''
+{eyebrow("HOMBRES 40+")}
+<h1 class="h1">Testosterona <span class="t">después de los 40</span></h1>
+<p class="lead">Desde los 30 o 40 años la testosterona baja de a poco, alrededor de un 1% por año. <b>Lo que más la afecta no es la edad: es la panza, el sueño, el alcohol y el sedentarismo.</b> Y sobre eso podés hacer mucho.</p>
+{table(["La baja", "La cuida"], [
+ ["Grasa abdominal en exceso", "Bajar la cintura de a poco, sin dietas extremas"],
+ ["Dormir menos de 6 horas", "Dormir 7 a 8 horas"],
+ ["Alcohol frecuente", "Tomar poco y no todos los días"],
+ ["Comer muy poco o casi sin grasas", "Comer lo suficiente, con grasas buenas (oliva, palta, frutos secos, pescado)"],
+ ["Estrés crónico y sedentarismo", "Entrenar fuerza 2 o 3 veces por semana y moverte cada día"],
+])}
+<h2>Nutrientes que no pueden faltar</h2>
+<p><b>Zinc</b> (carnes, huevo, mariscos, semillas de zapallo), <b>vitamina D</b> (sol, pescados grasos, huevo) y <b>magnesio</b> (legumbres, frutos secos, verduras verdes). Con el plan de este libro los cubrís; solo hay que suplementar si un análisis muestra que te faltan.</p>
+{box("<b>Ojo con los “boosters” de testosterona:</b> los suplementos que prometen subirla no tienen respaldo. Si tenés cansancio constante, poco deseo sexual o perdés músculo aunque entrenes, pedile a tu médico un análisis: el tratamiento hormonal solo lo indica un médico.", "note")}
+''', chapter="02 · Armá tu plato", pid="cap2f", toc="Testosterona después de los 40")
 
 page(f'''
 {chap_head("03", 'Porciones y <span class="t">etiquetas</span>', "Referencias simples para servir y comprar, sin balanza ni calculadora.")}
