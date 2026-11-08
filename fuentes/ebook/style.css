@@ -1080,3 +1080,7 @@ body.grande{font-size:16.5pt;line-height:1.48}
 .glut .c3-title{font-size:84pt}
 .tall .grid-t td{height:20mm}
 .cv3.glut.gym{--c3-a:var(--tq-dd);--c3-b:var(--tq-d);--c3-l:var(--tq-b)}
+.c3-lugar{display:inline-block;margin-top:4mm;padding:2mm 9mm;border-radius:2mm;background:var(--c3-a);color:#fff;font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:30pt;letter-spacing:.06em}
+.cv3.glut.gym{background:var(--rnv-rojo-fondo)}
+.glut.gym .c3-lugar{background:var(--rnv-rojo)}
+.glut.gym .c3-sub{background:transparent}

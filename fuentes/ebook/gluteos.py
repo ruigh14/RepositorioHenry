@@ -194,8 +194,9 @@ page(f'''
 <div class="cv3 glut{" gym" if GYM else ""}">
   <div class="c3-in">
     <img class="c3-logo" src="img/logo_renova.png" alt="RENOVA">
-    <span class="c3-pill">{LUGAR} · MUJERES 40+</span>
+    <span class="c3-pill">MÉTODO RENOVA · MUJERES 40+</span>
     <h1 class="c3-title">GLÚTEOS<br>FUERTES</h1>
+    <span class="c3-lugar">{LUGAR}</span>
     <p class="c3-claim">TU DÍA EXTRA, <b><span>8 SEMANAS.</span></b></p>
     <p class="c3-sub">Fortalecé <b>glúteos</b> y <em>cadera</em> con un plan claro,<br><span>{G("en <mark>casa</mark>, con <mark>mancuernas</mark> y <mark>banda</mark>.", "en el <mark>gimnasio</mark>, con <mark>barra</mark> y <mark>máquinas</mark>.")}</span></p>
   </div>
