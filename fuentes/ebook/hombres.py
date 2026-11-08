@@ -3,6 +3,8 @@ Tres ebooks que se venden juntos (el de métricas va de regalo), desde el mismo 
   python3 hombres.py casa     → hombres_casa.html     → metodo-40/Ebook_Metodo40_Casa.pdf       (node export.js hombres_casa)
   python3 hombres.py gym      → hombres_gym.html      → metodo-40/Ebook_Metodo40_Gimnasio.pdf   (node export.js hombres_gym)
   python3 hombres.py metricas → hombres_metricas.html → metodo-40/Ebook_Metodo40_Metricas.pdf   (node export.js hombres_metricas)
+Upsell (aparte del pack): "Zona media fuerte", rutinas de abdominales con mitos y cuidados (sin giro ruso ni toes to bar):
+  python3 hombres.py abdomen  → hombres_abdomen.html  → metodo-40/Ebook_Metodo40_Zona_Media.pdf  (node export.js hombres_abdomen)
 
 Programa: 8 semanas, 3 días por semana, rutinas de cuerpo completo A/B/C que rotan. Planificación ondulada:
 la carga sube cada semana (1→2→3 y 5→6→7) con descarga en la 4 y en la 8 (la 8 incluye la evaluación de fuerza).
@@ -21,16 +23,17 @@ sys.path.insert(0, os.path.join(HERE, "..", "design-system"))
 from design_system import css as ds_css, esc, ICON_ARROW, ICON_HAND, ICON_PLAY, eyebrow, chap_head, ul, checks, box, block_head, params
 
 ED = sys.argv[1] if len(sys.argv) > 1 else "casa"
-assert ED in ("casa", "gym", "metricas"), "edición: casa, gym o metricas"
+assert ED in ("casa", "gym", "metricas", "abdomen"), "edición: casa, gym, metricas o abdomen"
 GYM = ED == "gym"
 MET = ED == "metricas"
+ABD = ED == "abdomen"
 
 
 def G(casa, gym):
     return gym if GYM else casa
 
 
-LUGAR = {"casa": "EN CASA", "gym": "EN EL GIMNASIO", "metricas": "GUÍA DE MÉTRICAS"}[ED]
+LUGAR = {"casa": "EN CASA", "gym": "EN EL GIMNASIO", "metricas": "GUÍA DE MÉTRICAS", "abdomen": "COMPLEMENTO · 8 SEMANAS"}[ED]
 AUTOR = "Ignacio Portillo"
 AUTOR_TIT = "Licenciado en Alto Rendimiento Deportivo · Preparador físico de fútbol profesional"   # Racing: solo con autorización
 LINK_TABLERO = ""   # link del tablero web publicado (fuentes/tablero/); mientras esté vacío, el ebook muestra "LINK PENDIENTE"
@@ -115,6 +118,16 @@ E = {
     "remo_45_barra": ("remo_45_barra", "Remo inclinado con barra", "Espalda y bíceps", "Tronco inclinado a 45°, espalda recta. Llevá la barra hacia el abdomen y bajá con control.", "subir el tronco para ayudarte.", "remo en máquina.", "Barra", "https://youtu.be/6o78vcu6BOY"),
     "triceps_soga": ("triceps_soga", "Extensión de tríceps con soga", "Tríceps", "Codos fijos al costado del cuerpo. Estirá los brazos hacia abajo abriendo la soga al final.", "mover los codos hacia adelante.", "con menos peso.", "Polea y soga", "https://youtu.be/E5-R8s44Ix4"),
     "biceps_martillo": ("biceps_martillo", "Bíceps martillo", "Bíceps y antebrazo", "Palmas enfrentadas, codos pegados. Subí las mancuernas sin girar las muñecas y bajá lento.", "balancear el cuerpo.", "con menos peso.", "2 mancuernas", "https://youtu.be/UDhAd_wovw8"),
+    # zona media (upsell)
+    "plancha_alta": ("plancha_alta", "Plancha alta", "Zona media, hombros y pecho", "Manos debajo de los hombros, brazos estirados, cuerpo en línea. Apretá glúteos y abdomen.", "hundir la zona lumbar o subir la cadera.", "con las rodillas apoyadas.", "Colchoneta", "https://youtu.be/OsO8HdLap-o"),
+    "plancha_alta_din": ("plancha_alta_din", "Plancha alta con alcance", "Zona media (antirrotación) y hombros", "En plancha alta con los pies abiertos, llevá una mano al frente y volvé, sin que la cadera se mueva ni gire.", "girar la cadera al levantar la mano.", "pies más abiertos o rodillas apoyadas.", "Colchoneta", "https://youtu.be/zVOcJUakivg"),
+    "bicho_alt": ("bicho_alt", "Bicho muerto alternado", "Zona media (antiextensión)", "Boca arriba, brazos al techo y rodillas a 90°. Estirá brazo y pierna contraria exhalando, con la zona lumbar pegada al piso.", "arquear la espalda al estirar.", "mové solo las piernas.", "Colchoneta", "https://youtu.be/kgG0lb4XfMQ"),
+    "bird_dog": ("bird_dog", "Bird dog", "Zona media y espalda baja", "En cuatro apoyos, estirá un brazo y la pierna contraria hasta la línea del cuerpo. Pausa de 2 segundos y alterná.", "girar la cadera o arquear la espalda.", "mové solo la pierna.", "Colchoneta", "https://youtu.be/kyNrWqz1iqs"),
+    "mountain": ("mountain", "Mountain climber", "Zona media, hombros y cardio", "En plancha alta, llevá una rodilla hacia el pecho y volvé, alternando. La cadera queda a la altura de los hombros.", "subir la cola o rebotar con la cadera.", "más lento, apoyando el pie en cada paso.", "Propio cuerpo", "https://youtu.be/k9_dNW743ng"),
+    "caminata_manos": ("caminata_manos", "Caminata de manos", "Zona media, hombros e isquiotibiales", "De pie, flexioná la cadera y caminá con las manos hasta la plancha alta; volvé caminando hasta quedar de pie.", "hundir la zona lumbar en la plancha.", "no llegues tan lejos con las manos.", "Propio cuerpo", "https://youtu.be/ZXnoeAd8B5c"),
+    "flex_inclinadas": ("flex_inclinadas", "Flexiones inclinadas", "Pecho, tríceps y zona media", "Manos en un banco o cajón, cuerpo en línea. Bajá el pecho al borde y empujá.", "dejar caer la cadera.", "un apoyo más alto.", "Banco o cajón", "https://youtu.be/xr_4kJVoShc"),
+    "flex_toque": ("flex_toque", "Flexión con toque de hombro", "Pecho, tríceps y zona media (antirrotación)", "Hacé una flexión y, arriba, tocá el hombro contrario con una mano, sin mover la cadera. Alterná.", "girar la cadera al tocar el hombro.", "con las rodillas apoyadas.", "Propio cuerpo", "https://www.youtube.com/shorts/cDSdmJ_9xvQ"),
+    "flex_declinadas": ("flex_declinadas", "Flexiones declinadas", "Pecho alto, hombros y zona media", "Pies sobre un banco o cajón, manos en el piso. Bajá con el cuerpo en línea y empujá.", "dejar caer la cadera.", "flexiones comunes.", "Banco o cajón", "https://youtu.be/MBlrW8E_YFc"),
     "bicho_muerto_disco": ("bicho_muerto_disco", "Bicho muerto con disco", "Zona media", "Boca arriba, disco en las manos y rodillas a 90°. Estirá las piernas de a una sin despegar la zona lumbar.", "arquear la espalda.", "sin disco.", "Disco", "https://youtu.be/fKAKLkzfhvQ"),
 }
 
@@ -580,7 +593,166 @@ def metricas():
     hoja_autor()
 
 
-programa() if not MET else metricas()
+ABD_RUT = {
+    1: ("Antiextensión", ["plancha_frontal", "flexiones", "bicho_alt", "mountain"]),
+    2: ("Antirrotación y lateral", ["plancha_lateral", "press_pallof", "bird_dog", "renegade_row"]),
+    3: ("Plancha alta", ["plancha_alta", "flex_toque", "plancha_alta_din", "caminata_manos"]),
+    4: ("Fuerza y control", ["flex_declinadas", "bicho_muerto_botella", "plancha_lateral", "mountain"]),
+}
+ABD_MAS = {"plancha_frontal": "Plancha alta con alcance", "flexiones": "Flexiones declinadas", "bicho_alt": "Con una mancuerna en las manos", "mountain": "Más rápido, sin perder la línea",
+           "plancha_lateral": "Elevá la pierna de arriba", "press_pallof": "Más lejos del anclaje", "bird_dog": "Pausa de 5 segundos", "renegade_row": "Más peso",
+           "plancha_alta": "Pies sobre un banco", "flex_toque": "Pies juntos", "plancha_alta_din": "Pies juntos", "caminata_manos": "Más lejos con las manos",
+           "flex_declinadas": "Banco más alto", "bicho_muerto_botella": "Más peso"}
+ABD_CLAVES = {1: ["En los cuatro ejercicios, la zona lumbar no se arquea.", "En el bicho muerto, exhalá mientras estirás.", "El mountain climber va controlado: la cadera no rebota."],
+              2: ["Tu trabajo es que el tronco no gire ni se incline.", "En el Pallof, los brazos se estiran pero el pecho queda de frente.", "En el remo en plancha, abrí los pies para estar más estable."],
+              3: ["Toda la rutina es en plancha alta: hombros arriba de las manos.", "Al tocar el hombro o estirar el brazo, la cadera no se mueve.", "En la caminata de manos, llegá solo hasta donde mantengas la línea."],
+              4: ["Las flexiones declinadas son las más exigentes: técnica antes que repeticiones.", "En el bicho muerto con peso, la zona lumbar sigue pegada al piso.", "Repetís dos ejercicios: buscá hacerlos mejor que en la rutina 1 y 2."]}
+ABD_DOSIS = {"plancha_frontal": "tiempo", "plancha_lateral": "tiempo por lado", "plancha_alta": "tiempo", "flexiones": "reps", "flex_toque": "reps",
+             "flex_declinadas": "reps", "bicho_alt": "reps por lado", "bird_dog": "reps por lado", "bicho_muerto_botella": "reps por lado",
+             "press_pallof": "reps por lado", "renegade_row": "reps por lado", "plancha_alta_din": "reps por lado", "mountain": "reps por lado", "caminata_manos": "reps"}
+
+
+def abdomen():
+    portada('Zona media<br><span>fuerte</span>', "4 rutinas para sumar a tu programa · mitos, verdades y cómo hacerlo bien")
+
+    page(f'''
+{eyebrow("BIENVENIDO")}
+<h1 class="h1">Un abdomen fuerte <span class="t">se entrena distinto</span></h1>
+<p class="lead">Este es el complemento de MÉTODO 40 para la <b>zona media</b>: menos abdominales clásicos y más ejercicios que la entrenan para lo que hace en la vida real, que es <b>sostener la columna mientras te movés</b>.</p>
+{table(["Qué es", "Cómo es"], [
+ ["<b>Rutinas</b>", "4 distintas, de 4 ejercicios cada una"],
+ ["<b>Cuándo</b>", "2 veces por semana, 15 minutos al final de una sesión de MÉTODO 40"],
+ ["<b>Duración</b>", "8 semanas, con la misma planificación ondulada del programa"],
+ ["<b>Material</b>", "Colchoneta, banco o cajón, banda elástica y una mancuerna"],
+])}
+<h2>Qué vas a aprender</h2>
+{checks(["Qué es de verdad la zona media y para qué sirve.", "Los mitos más comunes, y por qué el giro ruso o el toes to bar no son lo que parecen.",
+         "Cómo respirar en las flexiones y en las planchas.", "Cómo progresar sin hacer planchas eternas."])}
+{box("<b>No es solo estética:</b> una zona media fuerte te deja levantar más en el programa, cuidar la espalda y moverte mejor en el día a día. El abdomen marcado depende además de la alimentación.", "soft")}
+''', chapter="Bienvenido", pid="bienvenida")
+
+    page("__TOC__", chapter="Índice", pid="indice")
+    INDICE_EXTRA.append(f'''<h2>Tu semana</h2>
+{table(["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], [["MÉTODO 40 + zona media", "–", "MÉTODO 40", "–", "MÉTODO 40 + zona media", "–", "–"]])}''')
+
+    page(f'''
+{chap_head("01", 'Qué es la <span class="t">zona media</span>', "No es solo el “six pack”: es un cilindro de músculos que rodea y sostiene tu columna.")}
+{table(["Músculo", "Qué hace"], [
+ ["<b>Recto abdominal</b>", "El de adelante. Frena que la columna se arquee hacia atrás."],
+ ["<b>Oblicuos</b>", "A los costados. Frenan la rotación y la inclinación del tronco."],
+ ["<b>Transverso</b>", "El más profundo. Funciona como una faja natural."],
+ ["<b>Diafragma y piso pélvico</b>", "Cierran el cilindro por arriba y por abajo: por eso la respiración importa."],
+], first="32%")}
+<h2>Su trabajo real: frenar, no mover</h2>
+{tips([("Antiextensión", "Que la zona lumbar no se arquee. Ejemplo: plancha."), ("Antirrotación", "Que el tronco no gire. Ejemplo: press Pallof."),
+       ("Antiflexión lateral", "Que no te inclines de costado. Ejemplo: plancha lateral."), ("Transmitir fuerza", "Pasar la fuerza de las piernas a los brazos sin perderla.")])}
+''', chapter="01 · Zona media", pid="c1", toc="01 · Qué es la zona media")
+
+    MITOS = [("“Hacer abdominales baja la panza.”", "No se puede quemar grasa de un lugar elegido. La panza baja con alimentación, fuerza en todo el cuerpo y movimiento."),
+             ("“Hay que hacer cientos de repeticiones.”", "La zona media se entrena como cualquier músculo: con buena técnica, carga y progresión."),
+             ("“Si no arde, no sirve.”", "El ardor no mide la calidad del trabajo. Un ejercicio bien hecho puede no arder nada."),
+             ("“Cuanto más larga la plancha, mejor.”", "Pasados los 45 a 60 segundos aporta poco. Es mejor una variante más difícil que un minuto más."),
+             ("“El giro ruso marca los oblicuos.”", "Los oblicuos se entrenan mejor frenando la rotación que girando con carga (capítulo 03)."),
+             ("“Colgarse y subir las piernas es el mejor abdominal.”", "Trabaja sobre todo el psoas, el flexor de la cadera (capítulo 03)."),
+             ("“Hay que entrenarlos todos los días.”", "Necesitan recuperarse como cualquier músculo: 2 veces por semana alcanzan."),
+             ("“Con abdominales fuertes no duele la espalda.”", "Ayuda, pero el dolor lumbar tiene muchas causas. Si te duele, consultá.")]
+    page(f'''
+{chap_head("02", 'Mitos <span class="t">y verdades</span>', "Lo que se repite en el gimnasio y lo que en realidad pasa.")}
+<div class="mitos">{"".join(f"<div><b>{t}</b><p>{p}</p></div>" for t, p in MITOS)}</div>
+{box("<b>La verdad que sí funciona:</b> fuerza en todo el cuerpo, una zona media que sepa frenar el movimiento y una alimentación ordenada.", "soft")}
+''', chapter="02 · Mitos", pid="c2", toc="02 · Mitos y verdades")
+
+    page(f'''
+{chap_head("03", 'Cuidados: <span class="t">punto fijo y punto móvil</span>', "La clave para entender qué músculo trabaja de verdad en cada ejercicio.")}
+<p>Un músculo une dos huesos. Cuando se contrae, uno queda quieto (<b>punto fijo</b>) y el otro se mueve hacia él (<b>punto móvil</b>). Según cuál se mueva, cambia qué músculo hace el trabajo.</p>
+{table(["Ejercicio", "Qué se mueve", "Quién trabaja más"], [
+ ["<b>Toes to bar o elevación de piernas colgado</b>", "Las piernas hacia el tronco (flexión de cadera)", "El <b>psoas</b>, flexor de la cadera. El abdomen solo estabiliza."],
+ ["<b>Crunch bien hecho</b>", "El tronco se enrolla hacia la pelvis", "El recto abdominal."],
+ ["<b>Plancha, bicho muerto, Pallof</b>", "Nada: tu trabajo es que no se mueva", "Toda la zona media, que frena el movimiento."],
+], first="32%")}
+<p class="small"><b>Regla práctica:</b> si sentís la zona lumbar en un ejercicio de abdominales, la pelvis se está despegando: frená o hacé la variante más fácil.</p>
+{box("<b>Por qué importa:</b> si el psoas tira fuerte y el abdomen no llega a sostener la pelvis, la zona lumbar se arquea y se carga. Por eso el toes to bar no es un ejercicio para entrenar abdominales, y en este programa no está.", "note")}
+''', chapter="03 · Cuidados", pid="c3", toc="03 · Cuidados: punto fijo y móvil")
+
+    page(f'''
+{eyebrow("CUIDADOS")}
+<h1 class="h1">El giro ruso y <span class="t">el cizallamiento</span></h1>
+{box("<b>Ojo:</b> hablamos del <b>giro ruso</b> (russian twist), sentado con el tronco inclinado girando de lado a lado. No tiene nada que ver con el swing con pesa rusa del programa.", "soft")}
+<p>El <b>cizallamiento</b> es una fuerza que tiende a hacer deslizar una vértebra sobre la otra. La columna lumbar tolera bien cargas en línea, pero no tanto la combinación de <b>flexión sostenida + rotación repetida</b>, y menos con peso y velocidad.</p>
+<p>El giro ruso junta todo eso: tronco flexionado, giros rápidos, muchas repeticiones y, muchas veces, un disco en las manos. Puede sumar carga innecesaria sobre los discos lumbares, sobre todo después de los 40.</p>
+{table(["En vez de…", "Hacé…", "Por qué"], [
+ ["Giro ruso", "Press Pallof", "El oblicuo trabaja frenando la rotación, con la columna neutra."],
+ ["Toes to bar", "Bicho muerto", "El abdomen sostiene la pelvis mientras se mueven las piernas."],
+ ["Abdominales con tirón de cuello", "Plancha y sus variantes", "Toda la zona media trabaja sin forzar el cuello."],
+], first="26%")}
+{box("<b>Si te duele la espalda baja,</b> evitá cualquier ejercicio que combine flexión y rotación, y consultá con un profesional antes de seguir.", "note")}
+''', chapter="03 · Cuidados", pid="c3b")
+
+    page(f'''
+{chap_head("04", 'Cómo <span class="t">respirar</span>', "La respiración es parte del ejercicio: arma la faja natural que protege tu columna.")}
+<h2>En las flexiones de brazos</h2>
+<ol class="steps-ol">
+<li><b>Arriba:</b> tomá aire por la nariz y apretá el abdomen como si te fueran a dar un golpe suave.</li>
+<li><b>Bajando:</b> mantené esa tensión, sin soltar el aire de golpe.</li>
+<li><b>Subiendo:</b> soltá el aire por la boca mientras empujás el piso.</li>
+</ol>
+<h2>En las planchas</h2>
+{checks(["Respirá corto y continuo, sin aflojar el abdomen.", "No aguantes el aire: si te ponés colorado, estás trabado.", "Si al exhalar se te cae la cadera, la plancha es demasiado larga o difícil."])}
+<h2>Respiración 360°</h2>
+<p>Acostado boca arriba, manos en las costillas: inhalá llevando el aire a los costados y a la espalda, no solo a la panza. Exhalá largo sintiendo cómo se cierra la cintura. Hacé 5 antes de cada rutina.</p>
+{box("<b>Si tenés presión alta,</b> nunca hagas fuerza aguantando el aire. Exhalá siempre en el esfuerzo.", "note")}
+''', chapter="04 · Respirar", pid="c4", toc="04 · Cómo respirar")
+
+    page(f'''
+{chap_head("05", 'Cómo se suma <span class="t">a tu programa</span>', "Dos veces por semana, 15 minutos al final de una sesión de MÉTODO 40.")}
+{table(["Semana", "Lunes", "Viernes"], [["Impares (1, 3, 5, 7)", "Rutina 1", "Rutina 2"], ["Pares (2, 4, 6, 8)", "Rutina 3", "Rutina 4"]], first="34%")}
+<p class="small">Si preferís, hacé las dos rutinas de la semana juntas en un día aparte (30 minutos). Lo importante es no hacerlas el día antes de una sesión con peso muerto o sentadilla pesada.</p>
+<h2>Cómo es cada rutina</h2>
+{table(["Parte", "Cómo"], [["Respiración 360°", "5 respiraciones"], ["Circuito", "4 ejercicios seguidos, sin descanso entre ejercicios"],
+ ["Vueltas", "Según el plan (página " + pref("plan") + ")"], ["Descanso", "Entre vueltas, según el plan"]], first="34%")}
+{table(["Rutina", "Foco", "Página"], [[f"<b>{n}</b>", foco, pref(f"ab{n}")] for n, (foco, _) in ABD_RUT.items()])}
+''', chapter="05 · Cómo se suma", pid="c5", toc="05 · Cómo se suma a tu programa")
+
+    for n, (foco, ejs) in ABD_RUT.items():
+        page(f'''
+{eyebrow(f"RUTINA {n} · ZONA MEDIA")}
+<h1 class="h1">Rutina {n}: <span class="t">{foco.lower()}</span></h1>
+{params([("Duración", "15 min"), ("Formato", "Circuito"), ("Ejercicios", "4"), ("Vueltas", "Ver plan")])}
+{table(["Ejercicio", "Dosis", "Más fácil", "Más difícil"], [[f"<b>{E[k][1]}</b>", ABD_DOSIS[k].capitalize() + " del plan", E[k][5].capitalize(), ABD_MAS[k]] for k in ejs], first="28%")}
+<p class="small">Hacé los 4 seguidos, sin descanso entre ejercicios, y descansá al terminar cada vuelta. La técnica de cada uno, en la hoja siguiente.</p>
+<h2>Claves de esta rutina</h2>
+{checks(ABD_CLAVES[n])}
+''', chapter=f"Rutina {n}", pid=f"ab{n}", toc=f"Rutina {n} · {foco.lower()}")
+        page(f'''
+{eyebrow(f"RUTINA {n} · ZONA MEDIA · 2 DE 2")}
+{"".join(card(k) for k in ejs)}
+<p class="small"><b>Al terminar:</b> 5 respiraciones 360° y anotá tiempos y repeticiones en tu registro.</p>
+''', chapter=f"Rutina {n}", pid=f"ab{n}b")
+
+    page(f'''
+{chap_head("06", 'Tu plan de <span class="t">8 semanas</span>', "La misma lógica ondulada de MÉTODO 40: sube cada semana y descarga en la 4 y la 8.")}
+{table(["Semana", "Vueltas", "Planchas", "Repeticiones", "Descanso"], [
+ ["<b>1</b>", "3", "20–30 s", "8", "60 s"], ["<b>2</b>", "3", "30 s", "10", "60 s"], ["<b>3</b>", "4", "30–40 s", "10", "60 s"],
+ ["<b>4 · descarga</b>", "2", "20 s", "8", "60 s"], ["<b>5</b>", "3", "40 s", "12", "45 s"], ["<b>6</b>", "4", "40 s", "12", "45 s"],
+ ["<b>7</b>", "4", "45 s", "15", "45 s"], ["<b>8 · descarga</b>", "2", "30 s", "10", "60 s"]], first="22%")}
+<p class="small">“Repeticiones” vale por lado en los ejercicios alternados. Las flexiones, con RIR 2: si llegás al número del plan con más reserva, pasá a la variante más difícil.</p>
+{box("<b>Progresá con variantes, no con tiempo:</b> si una plancha de 45 segundos te sale fácil, pasá a la plancha alta con alcance o subí los pies.", "soft")}
+''', chapter="06 · Plan", pid="plan", toc="06 · Tu plan de 8 semanas")
+
+    ERR = [("Cola arriba en la plancha", "La cadera va en línea con hombros y talones."), ("Zona lumbar hundida", "Apretá glúteos y llevá las costillas hacia abajo."),
+           ("Mountain climber a toda velocidad", "Primero controlado: la cadera no rebota."), ("Aguantar el aire", "Respirá corto y continuo."),
+           ("Flexiones con la cadera caída", "Si no podés sostener la línea, pasá a flexiones inclinadas."), ("Estirar el tiempo en vez de progresar", "Más de 45 a 60 segundos de plancha aporta poco.")]
+    page(f'''
+{chap_head("07", 'Errores <span class="t">frecuentes</span>', "Los que más se ven, y cómo corregirlos.")}
+<div class="mitos">{"".join(f"<div><b>{t}</b><p>{p}</p></div>" for t, p in ERR)}</div>
+<h2>Tu registro</h2>
+<div class="tall2">{table(["", "Semana 1", "Semana 4", "Semana 8"], [["Plancha frontal (segundos)", "", "", ""], ["Plancha lateral der. / izq. (s)", "", "", ""], ["Flexiones en una serie (RIR 1)", "", "", ""]], first="40%")}</div>
+''', chapter="07 · Errores", pid="c7", toc="07 · Errores y registro")
+
+    hoja_autor()
+
+
+programa() if not (MET or ABD) else metricas() if MET else abdomen()
 
 
 def render():
@@ -590,7 +762,8 @@ def render():
         for t, pid in TOC) + "</div>"
     inicio = (f'<div class="box soft"><b>Para empezar:</b> leé los capítulos 01 a 04 (páginas {pref("c1")} a {pref("c4")}), '
               f'mirá la rutina A (página {pref("rA")}) y anotá tus cargas en la planilla (página {pref("cargas")}).</div>') if not MET else (
-              f'<div class="box soft"><b>Para empezar:</b> leé la guía entera, hacé tu primera medición y cargala en tu tablero (página {pref("c7")}).</div>')
+              f'<div class="box soft"><b>Para empezar:</b> leé la guía entera, hacé tu primera medición y cargala en tu tablero (página {pref("c7")}).</div>') if MET else (
+              f'<div class="box soft"><b>Para empezar:</b> leé los capítulos 01 a 04 (páginas {pref("c1")} a {pref("c4")}) y mirá cómo se suma a tu programa (página {pref("c5")}).</div>')
     out = []
     for p in PAGES:
         body = p["body"]
@@ -599,13 +772,13 @@ def render():
                     f'<p class="idxtip">{ICON_HAND} Tocá donde quieras ir. Para volver al índice, abajo de cada página tenés el botón.</p></div>{toc_html}{inicio}{"".join(INDICE_EXTRA)}')
         hdr = ""
         if p["header"]:
-            hdr = (f'<div class="hdr"><span>MÉTODO <b>40</b> · {G("CASA", "GIMNASIO") if not MET else "MÉTRICAS"}</span><span>{esc(p["chapter"])}</span></div>'
+            hdr = (f'<div class="hdr"><span>MÉTODO <b>40</b> · {"MÉTRICAS" if MET else "ZONA MEDIA" if ABD else G("CASA", "GIMNASIO")}</span><span>{esc(p["chapter"])}</span></div>'
                    f'<div class="ftr"><a class="toidx" href="#indice">{ICON_HAND} Volvé al índice</a><span class="pgnum"></span></div>')
         out.append(f'<section class="page {p["cls"]}" id="{p["id"]}">{hdr}<div class="body">{body}</div></section>')
     css = ds_css(HERE) + "\n" + open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
-    titulo = {"casa": "En casa", "gym": "En el gimnasio", "metricas": "Guía de métricas"}[ED]
+    titulo = {"casa": "En casa", "gym": "En el gimnasio", "metricas": "Guía de métricas", "abdomen": "Zona media fuerte"}[ED]
     return (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>MÉTODO 40 · {titulo}</title>'
-            f'<style>{css}</style></head><body class="grande m40 {"m40g" if GYM else "m40c" if ED == "casa" else "m40m"}">' + "".join(out) + '<script src="paginate.js"></script></body></html>')
+            f'<style>{css}</style></head><body class="grande m40 {"m40g" if GYM or ABD else "m40c" if ED == "casa" else "m40m"}">' + "".join(out) + '<script src="paginate.js"></script></body></html>')
 
 
 if __name__ == "__main__":

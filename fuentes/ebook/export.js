@@ -22,6 +22,7 @@ const EDITIONS = {
   hombres_casa: ['hombres_casa.html', 'metodo-40/Ebook_Metodo40_Casa.pdf'],
   hombres_gym: ['hombres_gym.html', 'metodo-40/Ebook_Metodo40_Gimnasio.pdf'],
   hombres_metricas: ['hombres_metricas.html', 'metodo-40/Ebook_Metodo40_Metricas.pdf'],
+  hombres_abdomen: ['hombres_abdomen.html', 'metodo-40/Ebook_Metodo40_Zona_Media.pdf'],
 };
 const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {
