@@ -1,5 +1,5 @@
 """MÉTODO 40 · Entrenamiento de fuerza para hombres 40+ (submarca para la otra tienda de Impultienda).
-Tres ebooks que se venden juntos (el de métricas va de regalo), desde el mismo script:
+Pack MÉTODO 40: casa, gimnasio, guía de métricas (de regalo) y Alimentación Inteligente (lo genera nutricion.py hombres). Desde este script:
   python3 hombres.py casa     → hombres_casa.html     → ebook-hombres/Ebook_Metodo40_Casa.pdf       (node export.js hombres_casa)
   python3 hombres.py gym      → hombres_gym.html      → ebook-hombres/Ebook_Metodo40_Gimnasio.pdf   (node export.js hombres_gym)
   python3 hombres.py metricas → hombres_metricas.html → ebook-hombres/Ebook_Metodo40_Metricas.pdf   (node export.js hombres_metricas)
@@ -233,7 +233,7 @@ def programa():
 <h2>Cómo usar este ebook</h2>
 {checks(["Leé los capítulos 01 a 04 antes de la primera sesión: son 10 minutos.",
          "Cada ejercicio tiene su foto, la técnica, el error a evitar, la opción para principiantes y el <b>video</b>.",
-         f"Con el pack vienen la <b>Guía de métricas</b> y tu <b>app</b> para entrenar con el celular (código <b>{CODIGO_APP}</b>)."])}
+         f"Con el pack vienen el plan <b>Alimentación Inteligente</b>, la <b>Guía de métricas</b> y tu <b>app</b> para entrenar con el celular (código <b>{CODIGO_APP}</b>)."])}
 ''', chapter="Bienvenido", pid="bienvenida")
 
     page("__TOC__", chapter="Índice", pid="indice")
@@ -499,7 +499,7 @@ def metricas():
 {table(["Si…", "Probablemente…"], [
  ["Baja la cintura", "Estás bajando grasa abdominal."],
  ["Suben brazo, pecho o muslo y la cintura no", "Estás ganando músculo."],
- ["Sube la cintura", "Estás sumando grasa: revisá la alimentación."],
+ ["Sube la cintura", "Estás sumando grasa: revisá tu plan de Alimentación Inteligente."],
 ])}
 <p class="small">Es una referencia general, no un diagnóstico.</p>
 ''', chapter="02 · Perímetros", pid="c2b")
@@ -578,7 +578,7 @@ def metricas():
  ["Peso baja, cintura baja, fuerza sube", "Bajás grasa y conservás músculo.", "Seguí así."],
  ["Peso igual, cintura baja, fuerza sube", "Recomposición: menos grasa y más músculo.", "Seguí así: es el mejor escenario."],
  ["Peso sube, cintura igual, fuerza sube", "Ganás músculo.", "Bien si ese es tu objetivo."],
- ["Peso y cintura suben", "Sumás grasa.", "Revisá la alimentación."],
+ ["Peso y cintura suben", "Sumás grasa.", "Revisá tu plan de Alimentación Inteligente."],
  ["Fuerza estancada 2 semanas", "Falta descanso, comida o carga.", "Revisá sueño, proteína y el RIR."],
 ], first="32%")}
 <h2>Errores al leer tus datos</h2>
