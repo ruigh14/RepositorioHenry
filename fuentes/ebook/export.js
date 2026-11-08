@@ -17,12 +17,13 @@ const EDITIONS = {
   pausa: ['pausa.html', 'pausa-activa/Bonus_Pausa_activa_RENOVA.pdf'],
   menopausia: ['menopausia.html', 'nutricion-menopausia/Ebook_Nutricion_Menopausia_RENOVA.pdf'],
   nutricion: ['nutricion.html', 'alimentacion-inteligente/Ebook_Alimentacion_Inteligente_RENOVA.pdf'],
+  hombres_nutricion: ['nutricion_hombres.html', 'ebook-hombres/Ebook_Metodo40_Alimentacion_Inteligente.pdf'],
   gluteos_casa: ['gluteos_casa.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_Casa_RENOVA.pdf'],
   gluteos_gym: ['gluteos_gym.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_Gimnasio_RENOVA.pdf'],
-  hombres_casa: ['hombres_casa.html', 'metodo-40/Ebook_Metodo40_Casa.pdf'],
-  hombres_gym: ['hombres_gym.html', 'metodo-40/Ebook_Metodo40_Gimnasio.pdf'],
-  hombres_metricas: ['hombres_metricas.html', 'metodo-40/Ebook_Metodo40_Metricas.pdf'],
-  hombres_abdomen: ['hombres_abdomen.html', 'metodo-40/Ebook_Metodo40_Zona_Media.pdf'],
+  hombres_casa: ['hombres_casa.html', 'ebook-hombres/Ebook_Metodo40_Casa.pdf'],
+  hombres_gym: ['hombres_gym.html', 'ebook-hombres/Ebook_Metodo40_Gimnasio.pdf'],
+  hombres_metricas: ['hombres_metricas.html', 'ebook-hombres/Ebook_Metodo40_Metricas.pdf'],
+  hombres_abdomen: ['hombres_abdomen.html', 'ebook-hombres/Ebook_Metodo40_Zona_Media.pdf'],
 };
 const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {

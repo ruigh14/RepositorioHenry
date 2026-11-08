@@ -4,8 +4,11 @@ Basado en el borrador de la nutricionista (Eugenia) y en el brief editorial: edu
 organización de la semana y un programa práctico de 8 semanas con 32 recetas (4 por semana).
 Usa el mismo diseño que los ebooks de entrenamiento (style.css + paginate.js).
 
-Uso:  cd fuentes/ebook && python3 nutricion.py && node export.js nutricion
-      → alimentacion-inteligente/Ebook_Alimentacion_Inteligente_RENOVA.pdf
+Dos ediciones con el mismo contenido y las mismas recetas:
+  python3 nutricion.py          → nutricion.html          → alimentacion-inteligente/Ebook_Alimentacion_Inteligente_RENOVA.pdf  (node export.js nutricion)
+  python3 nutricion.py hombres  → nutricion_hombres.html  → ebook-hombres/Ebook_Metodo40_Alimentacion_Inteligente.pdf     (node export.js hombres_nutricion)
+La de hombres (MÉTODO 40) habla en masculino, usa la paleta negro y rojo (body.m40) y suma 2 hojas:
+comer alrededor del entrenamiento y asado, alcohol y fin de semana. Los textos que cambian van con X(mujeres, hombres).
 """
 import os
 import re
@@ -19,6 +22,15 @@ NUTRI = "María Eugenia Ballini"
 NUTRI_TITULO = "Lic. en Nutrición"
 MATRICULA = "M.N. 11773"
 LINK_PLAN = "https://wa.link/1asjt1"   # WhatsApp de Nacho: plan integral personalizado 1 a 1
+
+HOM = len(sys.argv) > 1 and sys.argv[1] == "hombres"   # edición MÉTODO 40 (hombres 40+)
+AUTOR = "Ignacio Portillo"
+
+
+def X(muj, hom):
+    """Texto de la edición de mujeres o de la de hombres."""
+    return hom if HOM else muj
+
 
 PAGES, TOC = [], []
 
@@ -295,7 +307,23 @@ def ficha(r, n):
 
 
 # ================================================================== PORTADA
-page(f'''
+if HOM:
+    page(f'''
+<div class="mcv">
+  <img class="mcv-foto" src="img/m40/autor.jpg" alt="{AUTOR}">
+  <div class="mcv-fade"></div>
+  <div class="mcv-in">
+    <div class="mcv-brand">MÉTODO <b>40</b></div>
+    <div class="mcv-bar"></div>
+    <h1>Alimentación<br><span>inteligente</span></h1>
+    <span class="mcv-lugar">8 SEMANAS</span>
+    <p class="mcv-sub">Comé mejor sin dietas: 38 recetas, menús y listas de compras para sostener el músculo y la energía después de los 40.</p>
+  </div>
+  <div class="mcv-autor">{AUTOR.upper()}<small>Con la Lic. {NUTRI} · {MATRICULA}</small></div>
+</div>
+''', pid="portada", cls="p-cover", header=False)
+else:
+    page(f'''
 <div class="cv3 nutri">
   <div class="c3-in">
     <img class="c3-logo" src="img/logo_renova.png" alt="RENOVA">
@@ -315,7 +343,8 @@ page(f'''
 <h1 class="h1">Comer mejor, <span class="t">sin vivir a dieta</span></h1>
 <p class="lead">Esta guía no busca que cocines todo el domingo, peses cada alimento ni sigas un menú rígido. Busca que tengas <b>decisiones resueltas antes de que llegue el momento de comer</b>.</p>
 <div class="nutri-card"><img src="img/eugenia.jpg" alt="{NUTRI}"><div><span class="pill">TE GUÍA</span><h3>{NUTRI}</h3><p class="nc-t">{NUTRI_TITULO}{mat} · Equipo RENOVA</p>
-<p>Armé esta guía para mujeres con poco tiempo que quieren comer mejor y acompañar su entrenamiento, con comidas simples y alimentos que conseguís en cualquier súper.</p></div></div>
+<p>{X("Armé esta guía para mujeres con poco tiempo que quieren comer mejor y acompañar su entrenamiento, con comidas simples y alimentos que conseguís en cualquier súper.",
+     "Armé esta guía para hombres de más de 40 con poco tiempo que quieren comer mejor, cuidar el músculo y acompañar el entrenamiento, con comidas simples y alimentos que conseguís en cualquier súper.")}</p></div></div>
 <h2>Cómo usar esta guía</h2>
 <div class="pillars">
   <div class="pillar"><span class="pn">01</span><h3>Aprendé lo básico</h3><p>Capítulos cortos para entender qué poner en el plato.</p></div>
@@ -379,8 +408,8 @@ page(f'''
   <figure><img src="img/nutri/grasas.jpg" alt=""><figcaption><b>Grasas</b>Aceite de oliva, palta, frutos secos, semillas, pescado</figcaption></figure>
   <figure><img src="img/nutri/fibra.jpg" alt=""><figcaption><b>Fibra</b>Verduras, frutas, legumbres, avena, integrales</figcaption></figure>
 </div>
-<h2>Proteína después de los 35</h2>
-<p>La proteína ayuda a mantener el músculo, sobre todo si entrenás fuerza. <b>No hay una cantidad universal</b>: depende de tu peso, tu actividad y tu salud. Revisá que cada comida tenga alguna fuente de proteína y, si querés una cifra para vos, consultala con un profesional. No hace falta empezar con suplementos.</p>
+<h2>Proteína después de los {X("35", "40")}</h2>
+<p>{X("La proteína ayuda a mantener el músculo, sobre todo si entrenás fuerza.", "Después de los 40 el músculo se pierde más fácil si no se entrena y se come poca proteína.")} <b>No hay una cantidad universal</b>: depende de tu peso, tu actividad y tu salud. Revisá que cada comida tenga alguna fuente de proteína y, si querés una cifra para vos, consultala con un profesional. No hace falta empezar con suplementos.</p>
 {box("<b>Error frecuente:</b> sacar el arroz, la papa, el pan o las frutas por miedo a los carbohidratos. Si entrenás, restringir energía sin criterio perjudica el rendimiento y la recuperación.", "soft")}
 ''', chapter="02 · Armá tu plato", pid="cap2b")
 
@@ -398,6 +427,32 @@ page(f'''
 <h2>Hidratación</h2>
 {ul(["<b>Tené una botella a la vista</b> y tomá de a poco durante el día.", "<b>Agua como bebida principal</b>; sumá infusiones o agua saborizada natural (con limón o menta).", "<b>Más agua si entrenás</b>, hace calor o sumás fibra.", "Si tenés indicaciones médicas sobre líquidos, seguí las de tu profesional."])}
 ''', chapter="02 · Armá tu plato", pid="cap2c")
+
+if HOM:
+    page(f'''
+{eyebrow("ARMÁ TU PLATO")}
+<h1 class="h1">Comer <span class="t">alrededor del entrenamiento</span></h1>
+<p class="lead">No hace falta un batido ni una “ventana” de 30 minutos. Lo que más pesa es <b>lo que comés en todo el día</b>. Igual, ordenar las comidas cerca del entrenamiento ayuda a rendir y a recuperar.</p>
+{table(["Momento", "Qué conviene", "Ejemplos"], [
+ ["<b>1 a 3 horas antes</b>", "Una comida normal, con carbohidratos y algo de proteína.", "Arroz con pollo, sándwich integral con huevo, avena con yogur."],
+ ["<b>Si entrenás temprano</b>", "Algo liviano o nada, según cómo te sientas.", "Una fruta, un yogur, un café con tostadas."],
+ ["<b>Después</b>", "Tu próxima comida, con una fuente de proteína.", "Almuerzo o cena del plan, o yogur con fruta y avena."],
+ ["<b>Durante</b>", "Agua. En sesiones de menos de una hora no hace falta más.", "Botella a mano, tomá de a sorbos."],
+])}
+<h2>Lo que más ayuda al músculo</h2>
+{ul(["<b>Proteína repartida</b> en desayuno, almuerzo y cena, no toda a la noche.", "<b>Carbohidratos en los días de entrenamiento:</b> son la energía para levantar peso.", "<b>Dormir 7 a 8 horas:</b> la recuperación también es parte del plan.", "<b>Suplementos:</b> no hacen falta para empezar. Si te interesan, consultalo con un profesional."])}
+''', chapter="02 · Armá tu plato", pid="cap2d", toc="Comer alrededor del entrenamiento")
+
+    page(f'''
+{eyebrow("ARMÁ TU PLATO")}
+<h1 class="h1">Combinaciones <span class="t">para tu día de entrenamiento</span></h1>
+<p>Elegí la que tengas a mano. Usá la mano como medida: <b>una palma de proteína, un puño de carbohidratos</b> y verduras sin límite.</p>
+<div class="cols2 keep"><div><h3>Antes de entrenar</h3>{ul(["Banana con yogur.", "Tostadas con mermelada y un huevo.", "Sándwich chico de pollo o atún.", "Avena con leche y fruta.", "Arroz o fideos con una porción chica de pollo."])}</div>
+<div><h3>Después de entrenar</h3>{ul(["Pollo, arroz y verduras.", "Carne magra, batata y ensalada.", "Pescado con papa o fideos.", "Tortilla de 2 o 3 huevos con pan.", "Yogur con avena y fruta."])}</div></div>
+<h3>Colaciones que suman proteína</h3>
+<div class="sabores"><span>Yogur con fruta</span><span>Queso con galletas de arroz</span><span>Sándwich de atún</span><span>Huevos duros</span><span>Leche con avena</span><span>Frutos secos + fruta</span></div>
+{box("<b>¿Entrenás y después no tenés hambre?</b> Comé algo chico igual: un yogur o un vaso de leche. Es mejor que llegar a la cena sin haber comido nada desde el entrenamiento.", "soft")}
+''', chapter="02 · Armá tu plato", pid="cap2e")
 
 page(f'''
 {chap_head("03", 'Porciones y <span class="t">etiquetas</span>', "Referencias simples para servir y comprar, sin balanza ni calculadora.")}
@@ -430,7 +485,8 @@ page(f'''
   <div><span>B</span><h3>Día complicado</h3><p>Vianda del freezer o una combinación de alacena.</p></div>
   <div><span>C</span><h3>Día afuera</h3><p>Sabés dónde comprar o llevás algo transportable.</p></div>
 </div>
-{box("<b>Ejemplo:</b> Mariana, 47 años, trabaja desde casa lunes y miércoles. Planifica solo tres almuerzos para llevar, deja una porción congelada para un imprevisto y decide antes dónde almorzar el viernes. Un plan menos ambicioso, y más fácil de cumplir.", "note")}
+{box(X("<b>Ejemplo:</b> Mariana, 47 años, trabaja desde casa lunes y miércoles. Planifica solo tres almuerzos para llevar, deja una porción congelada para un imprevisto y decide antes dónde almorzar el viernes. Un plan menos ambicioso, y más fácil de cumplir.",
+       "<b>Ejemplo:</b> Martín, 46 años, trabaja desde casa lunes y miércoles. Planifica solo tres almuerzos para llevar, deja una porción congelada para un imprevisto y decide antes dónde almorzar el viernes. Un plan menos ambicioso, y más fácil de cumplir."), "note")}
 ''', chapter="04 · Planificá tu semana", pid="cap4", toc="04 · Planificá tu semana")
 
 page(f'''
@@ -501,7 +557,7 @@ page(f'''
 {chap_head("08", 'Comer <span class="t">fuera de casa</span>', "Oficina, reuniones, restaurantes, delivery y viajes: la misma estructura, en otro lugar.")}
 {table(["Situación", "Cómo resolverla"], [
  ["<b>Oficina</b>", "Vianda de componentes o un menú del día con plancha y ensalada."],
- ["<b>Reuniones</b>", "Servite un plato con proteína y vegetales, comé tranquila y disfrutá."],
+ ["<b>Reuniones</b>", "Servite un plato con proteína y vegetales, comé " + X("tranquila", "tranquilo") + " y disfrutá."],
  ["<b>Restaurante</b>", "Mirá la carta antes; elegí una proteína, sumá vegetales y compartí el postre si querés."],
  ["<b>Delivery</b>", "Wok, ensaladas completas, sushi o carnes con guarnición de vegetales."],
  ["<b>Viajes</b>", "Llevá snacks: fruta, frutos secos, yogur, talitas. Hidratate."],
@@ -509,6 +565,18 @@ page(f'''
 ])}
 {box("<b>Sin compensar:</b> una comida diferente no se “paga” salteando la siguiente ni con ejercicio extra. Volvé a tu estructura en la próxima comida.", "soft")}
 ''', chapter="08 · Fuera de casa", pid="cap8", toc="08 · Comer fuera de casa")
+
+if HOM:
+    page(f'''
+{eyebrow("FUERA DE CASA")}
+<h1 class="h1">Asado, alcohol <span class="t">y fin de semana</span></h1>
+<p class="lead">El fin de semana no se arruina con un asado: se arruina cuando pasa a ser “días libres” sin estructura.</p>
+<h2>El asado, bien armado</h2>
+{ul(["<b>Elegí cortes magros</b> la mayoría de las veces: lomo, peceto, nalga, vacío desgrasado, pollo sin piel. Chorizo, morcilla y achuras, de vez en cuando.", "<b>La porción:</b> la palma de tu mano, no medio kilo. Mitad del plato con ensaladas o verduras a la parrilla.", "<b>Pan y picada, medidos:</b> serví una porción y alejá la panera."])}
+<h2>El alcohol</h2>
+{ul(["<b>Cuanto menos, mejor.</b> Si tomás, intercalá un vaso de agua con cada vaso de alcohol.", "<b>Afecta el sueño y la recuperación:</b> evitá tomar la noche anterior a entrenar.", "<b>Las calorías se suman sin darte cuenta:</b> cerveza, fernet con gaseosa y vino también son comida."])}
+{box("<b>La regla del fin de semana:</b> mantené el desayuno y la proteína en cada comida, entrená o caminá el sábado o el domingo, y el lunes volvés al plan sin compensar.", "soft")}
+''', chapter="08 · Fuera de casa", pid="cap8b", toc="Asado, alcohol y fin de semana")
 
 
 page(f'''
@@ -532,7 +600,7 @@ page(f'''
 # ================================================================== PARTE 3 · PROGRAMA DE 8 SEMANAS
 page(f'''
 <div class="divider dv8">
-  <img class="dv-logo" src="img/logo_renova.png" alt="RENOVA">
+  {X('<img class="dv-logo" src="img/logo_renova.png" alt="RENOVA">', '<div class="mcv-brand">MÉTODO <b>40</b></div>')}
   <p class="dv-kick">TU PROGRAMA PRÁCTICO</p>
   <h1 class="dv-title">8 SEMANAS</h1>
   <p class="dv-sub">38 recetas · menús · listas de compras</p>
@@ -552,7 +620,7 @@ page(f'''
      "<b>El cuadro de los 7 días es una idea,</b> no una obligación. Movelo según tu agenda.",
      "<b>Desayunos y meriendas:</b> elegí entre las opciones de la semana o las anteriores.",
      "<b>Las cantidades son orientativas</b> y para personas sanas. Ajustalas a tu hambre y actividad."])}
-{box("<b>Aclaración:</b> estas semanas son etapas para aprender hábitos, no un tratamiento nutricional. Si tenés una enfermedad, tomás medicación, estás embarazada o tenés antecedentes de trastornos de la conducta alimentaria, consultá con un profesional antes de cambiar tu alimentación.", "note")}
+{box("<b>Aclaración:</b> estas semanas son etapas para aprender hábitos, no un tratamiento nutricional. Si tenés una enfermedad, tomás medicación" + X(", estás embarazada", "") + " o tenés antecedentes de trastornos de la conducta alimentaria, consultá con un profesional antes de cambiar tu alimentación.", "note")}
 <div class="quote">Pequeños cambios sostenidos <span class="t">valen más que una semana perfecta.</span></div>
 ''', chapter="09 · Programa de 8 semanas", pid="prog-como")
 
@@ -640,8 +708,8 @@ for k in (0, 4):
     grid = "".join(f'<figure class="prodf"><img src="img/prod/{f}.jpg" alt="{t}"><figcaption>{t}</figcaption></figure>' for f, t in PROD[k:k + 4])
     page(f'''
 {eyebrow("EXTRA · PRODUCTOS RECOMENDADOS")}
-<h1 class="h1">{"Qué comprar <span class=\"t\">en el súper</span>" if k == 0 else "Más productos <span class=\"t\">recomendados</span>"}</h1>
-{"<p class=\"small\">Selección de " + NUTRI + ". <b>Las marcas cambian:</b> usá estos criterios con cualquier producto — ingredientes cortos, integral o con fibra como primer ingrediente, poca azúcar agregada y sodio moderado, y compará por 100 g. Hacé zoom para ver cada producto.</p>" if k == 0 else ""}
+<h1 class="h1">{"Qué comprar <span class='t'>en el súper</span>" if k == 0 else "Más productos <span class='t'>recomendados</span>"}</h1>
+{"<p class='small'>Selección de " + NUTRI + ". <b>Las marcas cambian:</b> usá estos criterios con cualquier producto — ingredientes cortos, integral o con fibra como primer ingrediente, poca azúcar agregada y sodio moderado, y compará por 100 g. Hacé zoom para ver cada producto.</p>" if k == 0 else ""}
 <div class="prodg">{grid}</div>
 ''', chapter="Extra · Productos", pid=f"prod{k}", toc="Extra: productos recomendados" if k == 0 else None)
 
@@ -654,8 +722,27 @@ page(f'''
 {ul(["<b>Frená un momento</b> y alejate de la pantalla.", "<b>¿Qué necesitás?</b> ¿Hambre, cansancio, aburrimiento, un descanso?", "<b>Respondé a eso:</b> si es hambre, comé; si es cansancio, pausá.", "<b>Sin compensar:</b> no saltees comidas ni sumes ejercicio como castigo."])}
 <h2>La revisión de 10 minutos</h2>
 <p>Un día por semana: ¿qué preparación usé más?, ¿qué sobró?, ¿qué momento fue difícil?, ¿qué cambio chico hago la semana que viene?</p>
-{box("<b>Cuándo pedir ayuda:</b> si tenés una enfermedad, tomás medicación que cambia el apetito o la glucemia, estás embarazada o amamantando, o tenés una relación angustiante con la comida, necesitás una orientación individual. Los talleres de gestión de la ansiedad de RENOVA también te pueden ayudar.", "note")}
+{X(box("<b>Cuándo pedir ayuda:</b> si tenés una enfermedad, tomás medicación que cambia el apetito o la glucemia, estás embarazada o amamantando, o tenés una relación angustiante con la comida, necesitás una orientación individual. Los talleres de gestión de la ansiedad de RENOVA también te pueden ayudar.", "note"), "")}
 ''', chapter="10 · Sostener el cambio", pid="cap10", toc="10 · Cuando la semana no sale")
+
+if HOM:
+    page(f'''
+{eyebrow("SOSTENER EL CAMBIO")}
+<h1 class="h1">Si no progresás: <span class="t">ajustá en 14 días</span></h1>
+<p class="lead">Cuando el músculo no aparece o te sentís pesado, no cambies todo. <b>Mirá las señales, elegí una causa y tocá una sola cosa.</b></p>
+{table(["Lo que notás", "Causa probable", "Qué cambiar"], [
+ ["Rendís menos, te levantás apagado, el peso baja sin buscarlo.", "<b>Falta energía</b>", "Sumá un puño de carbohidratos antes o después de entrenar."],
+ ["Comés bien una vez al día y el resto, liviano. No subís repeticiones.", "<b>Falta proteína repartida</b>", "Una palma de proteína en desayuno, almuerzo y cena."],
+ ["Dormís mal, más dolores, te sentís pesado aunque comas igual.", "<b>Falta recuperación</b>", "Cena más liviana, menos grasa cerca del entrenamiento y priorizar el sueño."],
+])}
+<h2>El plan de 14 días</h2>
+<ol class="steps-ol">
+<li><b>Días 1 a 3:</b> anotá tu peso, cómo rendiste y tu energía del día.</li>
+<li><b>Días 4 a 10:</b> aplicá un solo cambio de la tabla.</li>
+<li><b>Días 11 a 14:</b> si mejoró, seguí igual dos semanas más. Si no, probá la causa siguiente.</li>
+</ol>
+{box("<b>Lo que no conviene:</b> dietas extremas, cortar los carbohidratos de golpe o usar suplementos como base. <b>Pedí ayuda</b> si tenés presión, colesterol o glucemia altos, tomás medicación o tu relación con la comida o el alcohol te angustia.", "note")}
+''', chapter="10 · Sostener el cambio", pid="cap10b", toc="Si no progresás: ajustá en 14 días")
 
 
 page(f'''
@@ -693,10 +780,10 @@ page(f'''
 
 page(f'''
 <div class="bio metodo">
-  {eyebrow("PLAN INTEGRAL RENOVA")}
+  {eyebrow(X("PLAN INTEGRAL RENOVA", "PLAN INTEGRAL · MÉTODO 40"))}
   <h1 class="h1 big">Tu plan integral <span class="t">1 a 1 con Nacho</span></h1>
-  <div class="team-big"><img src="img/equipo2.jpg" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>
-  <p class="lead center"><b>Consultá por tu plan integral personalizado 1 a 1 con Nacho:</b> entrenamiento y nutrición armados para vos, con el equipo RENOVA.</p>
+  {X('<div class="team-big"><img src="img/equipo2.jpg" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>', '<div class="team-big"><img src="img/m40/autor.jpg" alt="' + AUTOR + '" style="height:auto;max-height:120mm;object-fit:contain;border-radius:3mm"></div>')}
+  <p class="lead center"><b>Consultá por tu plan integral personalizado 1 a 1 con Nacho:</b> entrenamiento y nutrición armados para vos, {X("con el equipo RENOVA", "con MÉTODO 40 y la Lic. " + NUTRI)}.</p>
   <div class="cta-center"><a class="btn btn-big" href="{esc(LINK_PLAN)}">CONSULTÁ POR TU PLAN {ICON_ARROW}</a></div>
   <div class="quote dark">No necesitás una semana perfecta. <span class="t2">Necesitás herramientas para la semana que tenés.</span></div>
 </div>
@@ -717,15 +804,16 @@ def render():
                     f'<p class="idxtip">{ICON_HAND} Hacé clic donde quieras ir. Para volver al índice, abajo de cada página tenés el botón.</p></div>{toc_html}')
         hdr = ""
         if p["header"]:
-            hdr = (f'<div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>{esc(p["chapter"])}</span></div>'
+            hdr = (f'<div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>{X("RENOVA", "MÉTODO 40")}</b></span><span>{esc(p["chapter"])}</span></div>'
                    f'<div class="ftr"><a class="toidx" href="#indice">{ICON_HAND} Hacé clic y volvé al índice</a><span class="pgnum"></span></div>')
         out.append(f'<section class="page {p["cls"]}" id="{p["id"]}">{hdr}<div class="body">{body}</div></section>')
     css = ds_css(HERE) + "\n" + open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
-    return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Alimentación Inteligente · RENOVA</title>'
-            f'<style>{css}</style></head><body class="grande">' + "".join(out) + '<script src="paginate.js"></script></body></html>')
+    return ('<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Alimentación Inteligente · ' + X('RENOVA', 'MÉTODO 40') + '</title>'
+            f'<style>{css}</style></head><body class="grande{X("", " m40 m40n")}">' + "".join(out) + '<script src="paginate.js"></script></body></html>')
 
 
 if __name__ == "__main__":
-    with open(os.path.join(HERE, "nutricion.html"), "w", encoding="utf-8") as f:
+    nom = X("nutricion.html", "nutricion_hombres.html")
+    with open(os.path.join(HERE, nom), "w", encoding="utf-8") as f:
         f.write(render())
-    print("nutricion.html ·", len(PAGES), "páginas antes de paginar")
+    print(nom, "·", len(PAGES), "páginas antes de paginar")

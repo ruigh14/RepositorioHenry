@@ -1,10 +1,10 @@
 """MÉTODO 40 · Entrenamiento de fuerza para hombres 40+ (submarca para la otra tienda de Impultienda).
 Tres ebooks que se venden juntos (el de métricas va de regalo), desde el mismo script:
-  python3 hombres.py casa     → hombres_casa.html     → metodo-40/Ebook_Metodo40_Casa.pdf       (node export.js hombres_casa)
-  python3 hombres.py gym      → hombres_gym.html      → metodo-40/Ebook_Metodo40_Gimnasio.pdf   (node export.js hombres_gym)
-  python3 hombres.py metricas → hombres_metricas.html → metodo-40/Ebook_Metodo40_Metricas.pdf   (node export.js hombres_metricas)
+  python3 hombres.py casa     → hombres_casa.html     → ebook-hombres/Ebook_Metodo40_Casa.pdf       (node export.js hombres_casa)
+  python3 hombres.py gym      → hombres_gym.html      → ebook-hombres/Ebook_Metodo40_Gimnasio.pdf   (node export.js hombres_gym)
+  python3 hombres.py metricas → hombres_metricas.html → ebook-hombres/Ebook_Metodo40_Metricas.pdf   (node export.js hombres_metricas)
 Upsell (aparte del pack): "Zona media fuerte", rutinas de abdominales con mitos y cuidados (sin giro ruso ni toes to bar):
-  python3 hombres.py abdomen  → hombres_abdomen.html  → metodo-40/Ebook_Metodo40_Zona_Media.pdf  (node export.js hombres_abdomen)
+  python3 hombres.py abdomen  → hombres_abdomen.html  → ebook-hombres/Ebook_Metodo40_Zona_Media.pdf  (node export.js hombres_abdomen)
 
 Programa: 8 semanas, 3 días por semana, rutinas de cuerpo completo A/B/C que rotan. Planificación ondulada:
 la carga sube cada semana (1→2→3 y 5→6→7) con descarga en la 4 y en la 8 (la 8 incluye la evaluación de fuerza).
