@@ -36,7 +36,8 @@ def G(casa, gym):
 LUGAR = {"casa": "EN CASA", "gym": "EN EL GIMNASIO", "metricas": "GUÍA DE MÉTRICAS", "abdomen": "COMPLEMENTO · 8 SEMANAS"}[ED]
 AUTOR = "Ignacio Portillo"
 AUTOR_TIT = "Licenciado en Alto Rendimiento Deportivo · Preparador físico de fútbol profesional"   # Racing: solo con autorización
-LINK_TABLERO = "https://metodo40-progreso.metodo40.workers.dev"   # tablero web publicado en Cloudflare (fuentes/tablero/, ver PUBLICAR.md)
+LINK_TABLERO = "https://metodo40-progreso.metodo40.workers.dev"   # app web publicada en Cloudflare (fuentes/tablero/, ver PUBLICAR.md)
+CODIGO_APP = "RENOVA40"   # código de acceso a la app (rutinas + progreso); fuentes/tablero/build.py lo toma de acá
 PAGES, TOC = [], []
 INDICE_EXTRA = []   # bloques que se suman debajo del índice
 
@@ -65,8 +66,8 @@ def tips(items, cls="", start=1):
 
 def boton_tablero():
     if LINK_TABLERO:
-        return f'<div class="cta-center"><a class="btn btn-big" href="{esc(LINK_TABLERO)}">ABRIR MI TABLERO {ICON_ARROW}</a></div>'
-    return '<div class="cta-center"><span class="btn btn-big">ABRIR MI TABLERO · LINK PENDIENTE</span></div>'
+        return f'<div class="cta-center"><a class="btn btn-big" href="{esc(LINK_TABLERO)}">ABRIR MI APP {ICON_ARROW}</a></div>'
+    return '<div class="cta-center"><span class="btn btn-big">ABRIR MI APP · LINK PENDIENTE</span></div>'
 
 
 # ------------------------------------------------------------------ EJERCICIOS
@@ -224,7 +225,7 @@ def programa():
 <h2>Cómo usar este ebook</h2>
 {checks(["Leé los capítulos 01 a 04 antes de la primera sesión: son 10 minutos.",
          "Cada ejercicio tiene su foto, la técnica, el error a evitar, la opción para principiantes y el <b>video</b>.",
-         "Con el pack viene la <b>Guía de métricas</b>: cómo medirte, evaluar tu fuerza y usar tu tablero de progreso."])}
+         f"Con el pack vienen la <b>Guía de métricas</b> y tu <b>app</b> para entrenar con el celular (código <b>{CODIGO_APP}</b>)."])}
 ''', chapter="Bienvenido", pid="bienvenida")
 
     page("__TOC__", chapter="Índice", pid="indice")
@@ -580,7 +581,7 @@ def metricas():
          "<b>Guardá una copia</b> con el botón del tablero cada tanto, por si cambiás de celular."])}
 <h2>Qué vas a ver</h2>
 {tips([("Indicadores", "Tu cambio de peso, cintura y fuerza desde la semana 1."), ("Gráficos", "La evolución semana a semana."), ("Sesiones", "Cuántas de las 24 hiciste.")], "t3")}
-{box("<b>Usalo siempre desde el mismo celular o computadora</b> y el mismo navegador, así tus datos te esperan cada vez que entrás.", "note")}
+{box(f"<b>Tu código de acceso: {CODIGO_APP}.</b> La app te lo pide una sola vez. Usala siempre desde el mismo celular y navegador: ahí te esperan tus datos y tus rutinas.", "note")}
 ''', chapter="07 · Tablero", pid="c7", toc="07 · Tu tablero de progreso")
 
     page(f'''
