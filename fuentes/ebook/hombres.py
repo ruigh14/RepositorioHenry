@@ -85,7 +85,7 @@ E = {
     "el_pectoral": ("el_pectoral", "Pectoral en pared", "Pecho y hombro", "Antebrazo apoyado en la pared a la altura del hombro. Girá el tronco hacia el lado contrario hasta sentir el pecho.", "", "", "Pared", "https://youtu.be/5reQDGL1cA4"),
     "el_hombro": ("el_hombro", "Hombro a un brazo", "Hombro posterior", "Llevá un brazo cruzado por delante del pecho y sostenelo con el otro, sin subir el hombro.", "", "", "Propio cuerpo", "https://youtu.be/ecGClH49zxk"),
     "el_abductores": ("el_abductores", "Aductores sentado", "Aductores y cadera", "Sentado, plantas de los pies juntas. Llevá las rodillas hacia el piso con la espalda derecha.", "", "", "Colchoneta", "https://youtu.be/RYs_nKnDzx4"),
-    "rodillas_arriba": ("rodillas_arriba", "Rodillas arriba dinámico", "Cadera y piernas", "Marchá en el lugar subiendo las rodillas a la altura de la cadera, con ritmo creciente.", "", "", "Propio cuerpo", "https://youtu.be/SslB3xLpngI"),
+    "circ_cadera": ("circ_cadera", "Circunducción de cadera", "Cadera", "De pie, manos en la cintura (o apoyado en una pared). Subí la rodilla al frente y dibujá un círculo amplio hacia afuera. 8 por lado.", "", "", "Propio cuerpo", "https://youtu.be/T-v_pylMgfk"),
     # casa
     "sentadilla_copa": ("sentadilla_copa", "Sentadilla en copa", "Cuádriceps y glúteos", "Mancuerna pegada al pecho, pies al ancho de hombros. Bajá con la cadera atrás y el pecho alto; subí empujando el piso.", "rodillas que se van hacia adentro.", "sentadilla a una silla, sin peso.", "1 mancuerna", "https://youtu.be/4vdE4BQJdIM"),
     "elevacion_cadera_cajon": ("elevacion_cadera_cajon", "Elevación de cadera en banco", "Glúteos e isquiotibiales", "Boca arriba, talones sobre un banco o silla firme. Subí la cadera hasta alinear rodillas, cadera y hombros; bajá lento.", "arquear la zona lumbar arriba.", "con los pies en el piso.", "Banco o silla", "https://youtu.be/25WCgPAdc_o"),
@@ -139,7 +139,7 @@ E = {
     "bicho_muerto_disco": ("bicho_muerto_disco", "Bicho muerto con disco", "Zona media", "Boca arriba, disco en las manos y rodillas a 90°. Estirá las piernas de a una sin despegar la zona lumbar.", "arquear la espalda.", "sin disco.", "Disco", "https://youtu.be/fKAKLkzfhvQ"),
 }
 
-CALOR = ["mov_cadera", "mov_escapular", "cat_cow", "mov_baston", "rodillas_arriba"]
+CALOR = ["mov_cadera", "mov_escapular", "cat_cow", "mov_baston", "circ_cadera"]
 ELONG = ["el_gigante", "el_isquios", "el_espalda_baja", "el_pectoral", "el_hombro", "el_abductores"]   # 30 s cada uno (por lado si corresponde)
 # rutina → [(ejercicio, tipo)]: P = principal (sigue el plan ondulado), A = accesorio (3 × 12–15), Z = zona media
 RUT = G({
