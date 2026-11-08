@@ -106,7 +106,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 
 ## Pendientes
 
-- Upsell Glúteos Fuertes (listo el 8/11/2026): que Nacho revise ejercicios y plan; que Eugenia revise la hoja de alimentación (capítulo 08); elegir una de las 3 portadas de `gluteos-fuertes/creativos/`; ver en Impultienda si admite un segundo upsell (`upsell_2`) o si reemplaza al de menopausia, cargar PDF y precio, y sumarlo a la landing. Ilustraciones que faltan si se quieren más ejercicios: patada en cuadrupedia y en polea, hip thrust en sillón (hoy usa la del gimnasio), abducción con banda.
+- Upsell Glúteos Fuertes (listo el 8/11/2026): que Nacho revise ejercicios y plan; que Eugenia revise la hoja de alimentación (capítulo 08); portada elegida: `gluteos-fuertes/creativos/portada_1.jpg` (libro 3D); ver en Impultienda si admite un segundo upsell (`upsell_2`) o si reemplaza al de menopausia, cargar PDF y precio, y sumarlo a la landing. Ilustraciones que faltan si se quieren más ejercicios: patada en cuadrupedia y en polea, hip thrust en sillón (hoy usa la del gimnasio), abducción con banda.
 - Auditoría Fase 1 de casa y gimnasio en `investigacion/auditoria-ebooks-fase1.md`: Nacho decide los puntos críticos (saltos/impacto, tracción en casa, errores frecuentes, qué hacer si pierdo días, "te acompañan") antes de pasar a la Fase 3.
 
 - Bonus pausa activa: cargar `pausa-activa/Bonus_Pausa_activa_RENOVA.pdf` en el producto de Impultienda (junto a casa y gimnasio). En la landing ya es el bonus 4.
