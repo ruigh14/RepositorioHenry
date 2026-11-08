@@ -21,6 +21,7 @@ const EDITIONS = {
   gluteos_gym: ['gluteos_gym.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_Gimnasio_RENOVA.pdf'],
   hombres_casa: ['hombres_casa.html', 'metodo-40/Ebook_Metodo40_Casa.pdf'],
   hombres_gym: ['hombres_gym.html', 'metodo-40/Ebook_Metodo40_Gimnasio.pdf'],
+  hombres_metricas: ['hombres_metricas.html', 'metodo-40/Ebook_Metodo40_Metricas.pdf'],
 };
 const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
 (async () => {

@@ -1122,3 +1122,14 @@ body.m40{--tq:var(--m40-rojo);--tq-t:var(--m40-rojo);--tq-d:var(--m40-rojo-oscur
 .m40 .mcv h1{color:#fff;font-family:"InterTightW","InterW",sans-serif}
 .m40 .t2{color:#FF6B6B}
 .m40 .quote.dark{background:var(--m40-negro)}
+.mx-h{display:flex;align-items:flex-start;justify-content:space-between;gap:3mm}
+.mx-h .vbtn-sm{margin-top:0;flex:none}
+/* MÉTODO 40: casa 3 ejercicios por hoja con fotos más grandes; gimnasio 4 por hoja, tarjeta compacta */
+.m40c .mx{grid-template-columns:70mm 1fr}
+.m40c .mx-im{width:70mm;height:40mm}
+.m40g .mx{grid-template-columns:52mm 1fr;gap:4mm;padding:3mm;margin-bottom:3mm}
+.m40g .mx-im{width:52mm;height:29mm}
+.m40g .mx h4{font-size:13.6pt}
+.m40g .mx p{font-size:12pt;line-height:1.28;margin-bottom:.8mm}
+.m40g .mx .mus{margin:.8mm 0 1mm;font-size:9.6pt}
+.m40 .tall2 .grid-t td{height:17mm}
