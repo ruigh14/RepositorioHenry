@@ -88,6 +88,16 @@ input:focus,select:focus{outline:2px solid var(--red);border-color:transparent}
 .toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);background:var(--ok);color:#fff;font-weight:800;padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:30}
 .toast.show{opacity:1}
 .setup{max-width:560px}
+.vmodal{position:fixed;inset:0;z-index:50;background:rgba(10,12,14,.88);display:flex;align-items:center;justify-content:center;padding:16px}
+.vmodal[hidden]{display:none}
+.vbox{width:min(100%,900px);display:flex;flex-direction:column;gap:10px}
+.vbox.vert{width:min(100%,380px)}
+.vtop{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#fff;font-weight:800}
+.vtop button{border:0;background:#fff;color:var(--txt);width:40px;height:40px;border-radius:50%;font-size:20px;font-weight:900;cursor:pointer;flex:none}
+.vfr{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.vbox.vert .vfr{aspect-ratio:9/16;max-height:78vh}
+.vfr iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vbox a{color:#cfd3d6;font-size:13px;text-align:center}
 .sel{max-width:420px;margin-bottom:10px}
 footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
 /* reporte (fuera de pantalla, se convierte en PDF) */
@@ -223,6 +233,13 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
 </div>
 <div class="toast" id="toast">Guardado</div>
 <div id="reporte"></div>
+<div class="vmodal" id="vmodal" hidden>
+  <div class="vbox" id="vbox">
+    <div class="vtop"><span id="vtit"></span><button id="vclose" aria-label="Cerrar">✕</button></div>
+    <div class="vfr" id="vfr"></div>
+    <a id="vyt" href="#" target="_blank" rel="noopener">¿No se ve? Abrilo en YouTube</a>
+  </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -291,7 +308,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     $('rtabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { rut = b.dataset.r; render(); });
     $('foco').textContent = 'Rutina ' + rut + ': ' + D.foco[rut] + (week === 4 || week === 8 ? ' · semana de descarga' : '');
     $('presc').innerHTML = `<span>Principales: ${dosis('P')}</span><span>Accesorios: ${dosis('A')}</span><span>Descanso: ${D.desc.P} / ${D.desc.A}</span>`;
-    $('calor').innerHTML = D.calor.map(e => `<a href="${e.url}" target="_blank" rel="noopener">▶ ${e.n}</a>`).join('');
+    $('calor').innerHTML = D.calor.map(e => `<a href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener">▶ ${e.n}</a>`).join('');
     const cw = S.cargas[week] || {}, lista = rutinas()[rut], idx = {};
     conCarga(rut).forEach((x, j) => idx[x.i] = j);
     const previa = j => { for (let w = week - 1; w >= 1; w--) { const c = S.cargas[w] && S.cargas[w][exId(rut, j)]; if (c && (c.p || c.r)) return 'Semana ' + w + ': ' + (c.p ? fmt(c.p, c.p % 1 ? 1 : 0) + ' kg × ' : '') + (c.r || '–') + (c.x != null ? ' @' + c.x : ''); } return ''; };
@@ -302,7 +319,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
           <label>Reps<input data-j="${j}" data-f="r" inputmode="numeric" value="${v.r ?? ''}"></label>
           <label>RIR<input data-j="${j}" data-f="x" inputmode="numeric" value="${v.x ?? ''}"></label></div>
         ${previa(j) ? `<div class="prev">Última vez · ${previa(j)}</div>` : ''}`;
-      return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">${tipo}</span><a class="vid" href="${e.url}" target="_blank" rel="noopener">▶ Video</a></div>
+      return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">${tipo}</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener">▶ Video</a></div>
         <div class="bd"><h3>${e.n}</h3><div class="mus">${e.mus} · ${e.mat}</div><span class="dose">${dosis(e.t)}</span>
         <details><summary>Cómo se hace</summary><p>${e.how}</p>${e.evita ? `<p class="ev"><b>Evitá:</b> ${e.evita}</p>` : ''}${e.princ ? `<p><b>Principiante:</b> ${e.princ}</p>` : ''}</details>
         ${inputs}</div></article>`;
@@ -495,6 +512,25 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     } catch (e) { alert('No se pudo armar el reporte. Probá de nuevo.'); }
     btn.disabled = false; btn.textContent = 'Exportar reporte';
   };
+
+  // ---------- videos dentro de la app (YouTube insertado, sin salir)
+  const ytId = u => { const m = String(u).match(/(?:youtu\.be\/|shorts\/|[?&]v=)([\w-]{11})/); return m && m[1]; };
+  function abrirVideo(url, titulo) {
+    const id = ytId(url); if (!id) return window.open(url, '_blank');
+    $('vbox').classList.toggle('vert', /shorts\//.test(url));
+    $('vtit').textContent = titulo || '';
+    $('vyt').href = url;
+    $('vfr').innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="${titulo || 'Video'}"></iframe>`;
+    $('vmodal').hidden = false; document.body.style.overflow = 'hidden';
+  }
+  function cerrarVideo() { $('vfr').innerHTML = ''; $('vmodal').hidden = true; document.body.style.overflow = ''; }
+  document.addEventListener('click', ev => {
+    const a = ev.target.closest('a[data-t]'); if (!a) return;
+    ev.preventDefault(); abrirVideo(a.href, a.dataset.t);
+  });
+  $('vclose').onclick = cerrarVideo;
+  $('vmodal').onclick = ev => { if (ev.target === $('vmodal')) cerrarVideo(); };
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && !$('vmodal').hidden) cerrarVideo(); });
 
   // ---------- copia de seguridad
   $('export').onclick = () => {
