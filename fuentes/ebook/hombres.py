@@ -36,7 +36,7 @@ def G(casa, gym):
 LUGAR = {"casa": "EN CASA", "gym": "EN EL GIMNASIO", "metricas": "GUÍA DE MÉTRICAS", "abdomen": "COMPLEMENTO · 8 SEMANAS"}[ED]
 AUTOR = "Ignacio Portillo"
 AUTOR_TIT = "Licenciado en Alto Rendimiento Deportivo · Preparador físico de fútbol profesional"   # Racing: solo con autorización
-LINK_TABLERO = ""   # link del tablero web publicado (fuentes/tablero/); mientras esté vacío, el ebook muestra "LINK PENDIENTE"
+LINK_TABLERO = "https://metodo40-progreso.metodo40.workers.dev"   # tablero web publicado en Cloudflare (fuentes/tablero/, ver PUBLICAR.md)
 PAGES, TOC = [], []
 INDICE_EXTRA = []   # bloques que se suman debajo del índice
 

@@ -1,31 +1,31 @@
-# Publicar el tablero de MÉTODO 40
+# Tablero de MÉTODO 40: dónde está publicado y cómo actualizarlo
 
-Se publica **una sola vez**. Todos los compradores usan el mismo link; los datos de cada uno quedan en su propio celular o computadora (no hay servidor ni base de datos, así que 300 o 3.000 compradores no cambian nada).
+**Link:** https://metodo40-progreso.metodo40.workers.dev
+(identidad RENOVA: logo y paleta --rnv-* de los ebooks; publicado el 8/11/2026 en la cuenta de Cloudflare de Nacho, como Worker con archivos estáticos, plan gratis;
+subdominio de la cuenta: `metodo40.workers.dev`). El mismo link está en `LINK_TABLERO` de `fuentes/ebook/hombres.py`.
 
-Lo que se publica es **un solo archivo**: `fuentes/tablero/dist/index.html` (se genera con `python3 build.py`).
+Es **un solo archivo** (`dist/index.html`) y todos los compradores usan el mismo link. Los datos de cada uno quedan en su
+celular o computadora: no hay servidor ni base de datos, así que la cantidad de compradores no cambia nada.
 
-## Opción recomendada: Cloudflare Pages (gratis, uso comercial permitido)
+## Actualizarlo (después de cambiar `tablero.html`)
 
-1. Entrá a https://pages.cloudflare.com y creá una cuenta (o usá la tuya).
-2. **Workers & Pages → Create → Pages → Upload assets** (subir archivos, sin GitHub).
-3. Nombre del proyecto: por ejemplo `metodo40-progreso`.
-4. Arrastrá la carpeta `fuentes/tablero/dist` (la que tiene `index.html`) y tocá **Deploy**.
-5. Te da un link como `https://metodo40-progreso.pages.dev`. Ese es el link del tablero.
-6. (Opcional) **Custom domains** → por ejemplo `progreso.metodorenova.fit`, si el dominio está en Cloudflare o agregás el registro DNS que te indica.
+```
+cd fuentes/tablero
+python3 build.py                 # arma dist/index.html con los tokens del design system
+npm install                      # la primera vez: instala wrangler y cf (quedan en node_modules, que no se sube a git)
+~/.local/bin/cf deploy           # publica en el mismo link
+```
 
-Para actualizarlo más adelante: mismo proyecto → **Create deployment** → subí de nuevo la carpeta `dist`.
+Requisitos: el CLI `cf` de Cloudflare (`npm install -g cf --prefix ~/.local`) con la sesión iniciada (`~/.local/bin/cf auth login`).
 
-## Alternativa: GitHub Pages
+## Configuración
 
-1. Creá un repositorio **público** nuevo, por ejemplo `metodo40-tablero` (no uses este repositorio: tiene todo RENOVA).
-2. Subí el `index.html` de `dist/`.
-3. **Settings → Pages → Branch: main / root → Save**.
-4. El link queda `https://<tu-usuario>.github.io/metodo40-tablero/`.
+- `cloudflare.config.ts`: nombre del Worker (`metodo40-progreso`).
+- `wrangler.config.ts`: carpeta que se publica (`./dist`).
 
-## Después de publicar
+## Más adelante
 
-1. Poné el link en `LINK_TABLERO` de `fuentes/ebook/hombres.py`.
-2. Regenerá la guía: `cd fuentes/ebook && python3 hombres.py metricas && node export.js hombres_metricas`.
-3. Abrí el link desde tu celular y probá: configurar, cargar una semana, subir una foto, "Guardar copia" y "Recuperar copia".
-
-Nota: el link es abierto (quien lo tenga lo puede usar). Es una herramienta de acompañamiento del producto, no el producto.
+- Dominio propio: en el panel de Cloudflare, **Workers & Pages → metodo40-progreso → Settings → Domains & Routes**
+  (por ejemplo `progreso.metodorenova.fit`, si el dominio pasa a Cloudflare). Si cambia el link, actualizar `LINK_TABLERO`
+  y regenerar la guía de métricas.
+- El link es abierto: quien lo tenga lo puede usar. Es una herramienta que acompaña el producto, no el producto.

@@ -3,46 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Mi progreso · MÉTODO 40</title>
-<meta name="theme-color" content="#0E0F10">
+<title>Mi progreso · RENOVA</title>
+<meta name="theme-color" content="#0E9DB2">
+<link rel="icon" href="/*FAVICON*/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
 <style>
 /*TOKENS*/
-:root{--bg:var(--m40-negro);--card:var(--m40-grafito);--line:#2C2F33;--txt:#F2F3F4;--mut:#9CA1A6;--red:var(--m40-rojo);--red2:var(--m40-rojo-oscuro);--ok:#3FB37F}
+:root{--bg:var(--rnv-fondo);--card:var(--rnv-blanco);--line:var(--rnv-linea);--txt:var(--rnv-tinta);--mut:var(--rnv-gris);--red:var(--rnv-turquesa-titulo);--red2:var(--rnv-turquesa-profundo);--ok:#1E9E62;--bad:var(--rnv-rojo);--soft:var(--rnv-turquesa-fondo)}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1100px;margin:0 auto;padding:16px 16px 60px}
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0 18px}
-.brand{font-family:"Inter Tight",Inter,sans-serif;font-weight:900;letter-spacing:.14em;font-size:18px}
-.brand b{color:var(--red)}
+.brand img{height:34px;width:auto;display:block}
+.brand small{display:block;margin-top:4px;font-weight:800;font-size:11px;letter-spacing:.16em;color:var(--mut)}
 .who{color:var(--mut);font-size:14px;text-align:right}
 h1{font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:clamp(28px,6vw,44px);line-height:1;margin:0 0 6px;text-transform:uppercase}
 h1 span{color:var(--red)}
 .sub{color:var(--mut);margin:0 0 20px}
 .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(min-width:760px){.kpis{grid-template-columns:repeat(5,1fr)}}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--rnv-sombra)}
 .kpi small{display:block;color:var(--mut);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .kpi .v{font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:30px;margin-top:6px;line-height:1}
 .kpi .d{font-size:13px;font-weight:700;margin-top:6px;color:var(--mut)}
-.d.good{color:var(--ok)}.d.bad{color:#FF6B6B}
+.d.good{color:var(--ok)}.d.bad{color:var(--bad)}
 .grid{display:grid;gap:12px;margin-top:12px}
 @media(min-width:760px){.grid.two{grid-template-columns:2fr 1fr}.grid.half{grid-template-columns:1fr 1fr}}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--rnv-sombra)}
 .panel h2{font-size:15px;margin:0 0 12px;letter-spacing:.04em;text-transform:uppercase}
 .panel h2 b{color:var(--red)}
 .chart{position:relative;height:240px}
 .ring{position:relative;height:200px}
 .tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
 .tab{flex:none;border:1px solid var(--line);background:transparent;color:var(--txt);border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer}
-.tab.on{background:var(--red);border-color:var(--red)}
+.tab.on{background:var(--red);border-color:var(--red);color:#fff}
 .tab.done::after{content:" ✓";color:var(--ok)}
 .tab.on.done::after{color:#fff}
 .form{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 @media(min-width:760px){.form{grid-template-columns:repeat(4,1fr)}}
 label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.04em;text-transform:uppercase}
-input,select{background:#121416;border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:11px 12px;font:600 16px Inter,sans-serif;width:100%}
+input,select{background:var(--bg);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:11px 12px;font:600 16px Inter,sans-serif;width:100%}
 input:focus,select:focus{outline:2px solid var(--red);border-color:transparent}
 .sec{grid-column:1/-1;margin:8px 0 0;font-size:13px;font-weight:800;color:var(--txt);letter-spacing:.06em;text-transform:uppercase;border-top:1px solid var(--line);padding-top:12px}
 .lift{grid-column:1/-1;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:8px;align-items:end}
@@ -52,11 +53,11 @@ input:focus,select:focus{outline:2px solid var(--red);border-color:transparent}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
 .note{color:var(--mut);font-size:13px;margin-top:10px}
 .photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:520px}
-.ph{aspect-ratio:3/4;border:1px dashed var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;cursor:pointer;background:#121416}
+.ph{aspect-ratio:3/4;border:1px dashed var(--rnv-turquesa-borde);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;cursor:pointer;background:var(--soft)}
 .ph img{width:100%;height:100%;object-fit:cover}
-.ph span{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.6);padding:4px 8px;border-radius:6px;font-size:12px;font-weight:800}
+.ph span{position:absolute;left:8px;top:8px;color:#fff;background:var(--red2);padding:4px 8px;border-radius:6px;font-size:12px;font-weight:800}
 .ph em{color:var(--mut);font-style:normal;font-size:13px;text-align:center;padding:10px}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ok);color:#06210f;font-weight:800;padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ok);color:#fff;font-weight:800;padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.show{opacity:1}
 .setup{max-width:560px}
 footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
@@ -64,7 +65,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
 </head>
 <body>
 <div class="wrap">
-  <header><div class="brand">MÉTODO <b>40</b></div><div class="who" id="who"></div></header>
+  <header><div class="brand"><img src="/*LOGO*/" alt="RENOVA"><small>MÉTODO 40</small></div><div class="who" id="who"></div></header>
   <h1>Mi <span>progreso</span></h1>
   <p class="sub" id="sub">8 semanas de fuerza. Cargá tus datos y mirá cómo cambia todo.</p>
 
@@ -126,7 +127,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
       <p class="note">“Guardar copia” descarga un archivo con todo. Si cambiás de celular, abrí el tablero en el nuevo y tocá “Recuperar copia”.</p>
     </section>
   </main>
-  <footer>MÉTODO 40 · Ignacio Portillo · Tus datos quedan en este dispositivo.</footer>
+  <footer>RENOVA · MÉTODO 40 · Ignacio Portillo · Tus datos quedan en este dispositivo.</footer>
 </div>
 <div class="toast" id="toast">Guardado</div>
 
@@ -210,8 +211,9 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
   }
 
   // ---------- gráficos
-  Chart.defaults.color = '#9CA1A6'; Chart.defaults.font.family = 'Inter, sans-serif'; Chart.defaults.borderColor = '#2C2F33';
-  const RED = getComputedStyle(document.documentElement).getPropertyValue('--m40-rojo').trim() || '#D62828';
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const RED = css('--rnv-turquesa-titulo'), INK = css('--rnv-tinta'), GRIS = css('--rnv-turquesa-borde'), LINEA = css('--rnv-linea');
+  Chart.defaults.color = css('--rnv-gris'); Chart.defaults.font.family = 'Inter, sans-serif'; Chart.defaults.borderColor = LINEA;
   function chart(id, cfg) { if (charts[id]) charts[id].destroy(); charts[id] = new Chart($(id), cfg); }
 
   function render() {
@@ -235,19 +237,19 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     const W = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'];
     chart('c-cuerpo', { type: 'line', data: { labels: W, datasets: [
       { label: 'Peso (kg)', data: peso, borderColor: RED, backgroundColor: RED, tension: .35, spanGaps: true, yAxisID: 'y', pointRadius: 4 },
-      { label: 'Cintura (cm)', data: cin, borderColor: '#F2F3F4', backgroundColor: '#F2F3F4', tension: .35, spanGaps: true, yAxisID: 'y1', pointRadius: 4, borderDash: [6, 4] }] },
+      { label: 'Cintura (cm)', data: cin, borderColor: INK, backgroundColor: INK, tension: .35, spanGaps: true, yAxisID: 'y1', pointRadius: 4, borderDash: [6, 4] }] },
       options: { maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { labels: { boxWidth: 12 } } },
         scales: { y: { position: 'left', grace: '5%' }, y1: { position: 'right', grace: '5%', grid: { drawOnChartArea: false } } } } });
-    chart('c-ses', { type: 'doughnut', data: { labels: ['Hechas', 'Faltan'], datasets: [{ data: [done, Math.max(0, 24 - done)], backgroundColor: [RED, '#2C2F33'], borderWidth: 0 }] },
+    chart('c-ses', { type: 'doughnut', data: { labels: ['Hechas', 'Faltan'], datasets: [{ data: [done, Math.max(0, 24 - done)], backgroundColor: [RED, LINEA], borderWidth: 0 }] },
       options: { maintainAspectRatio: false, cutout: '72%', plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } } } });
     const lifts = LIFTS[S.perfil.modo];
     chart('c-fza', { type: 'bar', data: { labels: lifts, datasets: [
-      { label: f0 ? 'Semana ' + fw[0] : 'Inicio', data: f0 ? f0.map(x => x && Math.round(x)) : [], backgroundColor: '#5E6368', borderRadius: 6 },
+      { label: f0 ? 'Semana ' + fw[0] : 'Inicio', data: f0 ? f0.map(x => x && Math.round(x)) : [], backgroundColor: GRIS, borderRadius: 6 },
       { label: f1 && fw.length > 1 ? 'Semana ' + fw[fw.length - 1] : 'Último', data: f1 && fw.length > 1 ? f1.map(x => x && Math.round(x)) : [], backgroundColor: RED, borderRadius: 6 }] },
       options: { maintainAspectRatio: false, plugins: { legend: { labels: { boxWidth: 12 } } }, scales: { y: { beginAtZero: true } } } });
     const p0 = PER.map(([k]) => first(serie(k))), p1 = PER.map(([k]) => last(serie(k)));
     chart('c-per', { type: 'bar', data: { labels: PER.map(p => p[1]), datasets: [
-      { label: 'Semana 1', data: p0, backgroundColor: '#5E6368', borderRadius: 6 }, { label: 'Última', data: p1, backgroundColor: RED, borderRadius: 6 }] },
+      { label: 'Semana 1', data: p0, backgroundColor: GRIS, borderRadius: 6 }, { label: 'Última', data: p1, backgroundColor: RED, borderRadius: 6 }] },
       options: { maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { labels: { boxWidth: 12 } } }, scales: { x: { beginAtZero: false, grace: '8%' } } } });
     tabs(); form(); fotos();
   }
