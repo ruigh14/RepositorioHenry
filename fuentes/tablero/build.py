@@ -21,7 +21,24 @@ def data_uri(ruta):
         return "data:image/png;base64," + base64.b64encode(f.read()).decode()
 
 
+import json
+import runpy
+import sys
+
+
+def ejercicios():
+    """Ejercicios de cada rutina (sin zona media) sacados de fuentes/ebook/hombres.py, para que el tablero no se desfase del ebook."""
+    out, argv = {}, sys.argv
+    for ed in ("casa", "gym"):
+        sys.argv = ["hombres.py", ed]
+        g = runpy.run_path(os.path.join(HERE, "..", "ebook", "hombres.py"), run_name="tablero")
+        out[ed] = {r: [{"n": g["E"][k][1], "t": g["TIPO"][t]} for k, t in g["RUT"][r] if t != "Z"] for r in "ABC"}
+    sys.argv = argv
+    return out
+
+
 html = (open(os.path.join(HERE, "tablero.html"), encoding="utf-8").read().replace("/*TOKENS*/", raiz)
+        .replace("/*EJERCICIOS*/", json.dumps(ejercicios(), ensure_ascii=False))
         .replace("/*LOGO*/", data_uri(os.path.join(HERE, "logo_renova.png")))                              # logo RENOVA (480 px)
         .replace("/*FAVICON*/", data_uri(os.path.join(HERE, "..", "landing", "img", "favicon_180.png"))))   # ícono de la landing
 os.makedirs(os.path.join(HERE, "dist"), exist_ok=True)

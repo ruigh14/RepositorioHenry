@@ -60,6 +60,31 @@ input:focus,select:focus{outline:2px solid var(--red);border-color:transparent}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ok);color:#fff;font-weight:800;padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.show{opacity:1}
 .setup{max-width:560px}
+.rtabs{display:flex;gap:6px;margin:4px 0 10px}
+.ex{grid-column:1/-1;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:8px;align-items:end;padding:8px 0;border-bottom:1px solid var(--line)}
+.ex .n{font-weight:700;font-size:14px;padding-bottom:12px}
+.ex .n small{display:block;color:var(--mut);font-weight:600;font-size:11px;margin-top:2px}
+@media(max-width:520px){.ex{grid-template-columns:1fr 1fr 1fr}.ex .n{grid-column:1/-1;padding-bottom:0}}
+.sel{max-width:420px;margin-bottom:10px}
+#reporte{position:fixed;left:-10000px;top:0;width:820px;background:#fff;color:var(--rnv-tinta);font-family:Inter,sans-serif;padding:34px}
+#reporte .rh{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--red);padding-bottom:14px;margin-bottom:18px}
+#reporte .rh img{height:40px}
+#reporte .rh b{display:block;font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:26px;text-transform:uppercase}
+#reporte .rh span{color:var(--mut);font-size:13px}
+#reporte .rk{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
+#reporte .rk div{border:1px solid var(--line);border-radius:10px;padding:10px}
+#reporte .rk small{display:block;font-size:10px;font-weight:800;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+#reporte .rk strong{display:block;font-family:"Inter Tight",Inter,sans-serif;font-size:22px;margin-top:4px}
+#reporte .rk em{display:block;font-style:normal;font-size:11px;font-weight:700;margin-top:3px;color:var(--mut)}
+#reporte .rg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+#reporte .rg img{width:100%;border:1px solid var(--line);border-radius:10px;padding:6px;background:#fff}
+#reporte h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:6px 0 8px;color:var(--red2)}
+#reporte table{width:100%;border-collapse:collapse;font-size:12px}
+#reporte th{background:var(--red2);color:#fff;text-align:left;padding:6px 8px;font-size:11px}
+#reporte td{border-bottom:1px solid var(--line);padding:5px 8px}
+#reporte .rf{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+#reporte .rf img{width:100%;height:300px;object-fit:cover;border-radius:10px}
+#reporte .rp{margin-top:14px;font-size:11px;color:var(--mut);text-align:center}
 footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
 </style>
 </head>
@@ -108,6 +133,20 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     </section>
 
     <section class="panel" style="margin-top:12px">
+      <h2>Mis <b>cargas</b></h2>
+      <p class="note" style="margin-top:0">Anotá la <b>última serie</b> de cada ejercicio: peso, repeticiones y RIR. Semana <b id="cw">1</b> (cambiala arriba, en “Cargar semana”).</p>
+      <div class="rtabs" id="rtabs"></div>
+      <div class="form" id="cargas"></div>
+      <div class="btns"><button class="btn" id="savec">Guardar cargas</button></div>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
+      <h2>Progreso por <b>ejercicio</b></h2>
+      <select class="sel" id="exsel"></select>
+      <div class="chart"><canvas id="c-ex"></canvas></div>
+    </section>
+
+    <section class="panel" style="margin-top:12px">
       <h2>Fotos <b>antes y después</b></h2>
       <div class="photos">
         <div class="ph" data-k="f1"><span>Semana 1</span><em>Tocá para subir tu foto</em></div>
@@ -119,30 +158,35 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     <section class="panel" style="margin-top:12px">
       <h2>Tus <b>datos</b></h2>
       <div class="btns">
-        <button class="btn" id="export">Guardar copia</button>
+        <button class="btn" id="reporteBtn">Exportar reporte</button>
+        <button class="btn ghost" id="export">Guardar copia</button>
         <button class="btn ghost" id="import">Recuperar copia</button>
         <button class="btn ghost" id="config">Cambiar nombre o altura</button>
       </div>
       <input type="file" id="importfile" accept="application/json,.json" hidden>
-      <p class="note">“Guardar copia” descarga un archivo con todo. Si cambiás de celular, abrí el tablero en el nuevo y tocá “Recuperar copia”.</p>
+      <p class="note"><b>Exportar reporte</b> arma un PDF con tu progreso para mandarlo por mail o WhatsApp. <b>Guardar copia</b> descarga un archivo de respaldo: si cambiás de celular, abrí el tablero en el nuevo y tocá “Recuperar copia”.</p>
     </section>
   </main>
   <footer>RENOVA · MÉTODO 40 · Ignacio Portillo · Tus datos quedan en este dispositivo.</footer>
 </div>
 <div class="toast" id="toast">Guardado</div>
+<div id="reporte"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
 (function () {
   const KEY = 'metodo40-progreso-v1';
   const LIFTS = { casa: ['Sentadilla en copa', 'Flexiones', 'Remo con mancuerna'], gym: ['Sentadilla con barra', 'Press plano', 'Remo en polea baja'] };
   const PER = [['cintura', 'Cintura'], ['cadera', 'Cadera'], ['pecho', 'Pecho'], ['brazo', 'Brazo'], ['muslo', 'Muslo']];
   const $ = id => document.getElementById(id);
-  let S = load(), week = 1, charts = {};
+  const RUTINAS = /*EJERCICIOS*/;   // de fuentes/ebook/hombres.py (build.py)
+  let S = load(), week = 1, rut = 'A', charts = {};
 
   function load() {
     try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.weeks) return s; } catch (e) {}
-    return { perfil: null, weeks: {}, fotos: {} };
+    return { perfil: null, weeks: {}, fotos: {}, cargas: {} };
   }
   function save() {
     try { localStorage.setItem(KEY, JSON.stringify(S)); return true; }
@@ -170,7 +214,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
       const w = i + 1, d = S.weeks[w] && Object.keys(S.weeks[w]).length;
       return `<button class="tab ${w === week ? 'on' : ''} ${d ? 'done' : ''}" data-w="${w}">Semana ${w}${w === 4 || w === 8 ? ' · desc.' : ''}</button>`;
     }).join('');
-    $('tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { week = +b.dataset.w; tabs(); form(); });
+    $('tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { week = +b.dataset.w; tabs(); form(); cargas(); });
   }
   function form() {
     const d = S.weeks[week] || {}, lifts = LIFTS[(S.perfil && S.perfil.modo) || 'casa'];
@@ -185,6 +229,44 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
         <label>RIR<input data-k="l${i}x" inputmode="numeric" value="${v('l' + i + 'x')}"></label></div>`).join('');
     $('form').innerHTML = h;
   }
+  // ---------- cargas por ejercicio (última serie de cada ejercicio, por semana)
+  const exId = (r, i) => r + i;
+  function cargas() {
+    S.cargas = S.cargas || {};
+    $('cw').textContent = week;
+    $('rtabs').innerHTML = 'ABC'.split('').map(r => `<button class="tab ${r === rut ? 'on' : ''}" data-r="${r}">Rutina ${r}</button>`).join('');
+    $('rtabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { rut = b.dataset.r; cargas(); });
+    const d = (S.cargas[week] || {}), lista = RUTINAS[S.perfil.modo][rut];
+    $('cargas').innerHTML = lista.map((e, i) => { const v = d[exId(rut, i)] || {};
+      return `<div class="ex"><span class="n">${e.n}<small>${e.t}</small></span>
+        <label>Peso (kg)<input data-i="${i}" data-f="p" inputmode="decimal" value="${v.p ?? ''}" placeholder="${/Flexiones|Fondos/.test(e.n) ? 'sin peso' : ''}"></label>
+        <label>Reps<input data-i="${i}" data-f="r" inputmode="numeric" value="${v.r ?? ''}"></label>
+        <label>RIR<input data-i="${i}" data-f="x" inputmode="numeric" value="${v.x ?? ''}"></label></div>`; }).join('');
+  }
+  $('savec').onclick = () => {
+    S.cargas = S.cargas || {}; const d = S.cargas[week] = S.cargas[week] || {};
+    RUTINAS[S.perfil.modo][rut].forEach((e, i) => { d[exId(rut, i)] = {}; });
+    $('cargas').querySelectorAll('input').forEach(inp => { const n = num(inp.value); if (n != null) d[exId(rut, inp.dataset.i)][inp.dataset.f] = n; });
+    Object.keys(d).forEach(k => { if (!Object.keys(d[k]).length) delete d[k]; });
+    if (save()) toast('Cargas de la rutina ' + rut + ' guardadas'); render();
+  };
+  function exSerie(id) { return Array.from({ length: 8 }, (_, i) => { const c = (S.cargas || {})[i + 1]; return c && c[id] ? c[id] : null; }); }
+  function exOpciones() {
+    const sel = $('exsel'), prev = sel.value;
+    sel.innerHTML = 'ABC'.split('').map(r => `<optgroup label="Rutina ${r}">` + RUTINAS[S.perfil.modo][r].map((e, i) =>
+      `<option value="${exId(r, i)}">${e.n}</option>`).join('') + '</optgroup>').join('');
+    if (prev) sel.value = prev;
+    sel.onchange = exChart;
+  }
+  function exChart() {
+    const s = exSerie($('exsel').value), sinPeso = s.every(x => !x || !x.p);
+    chart('c-ex', { type: 'line', data: { labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'], datasets: sinPeso
+      ? [{ label: 'Repeticiones posibles (reps + RIR)', data: s.map(x => x && x.r ? x.r + (x.x || 0) : null), borderColor: RED, backgroundColor: RED, tension: .3, spanGaps: true }]
+      : [{ label: 'Peso (kg)', data: s.map(x => x && x.p ? x.p : null), borderColor: RED, backgroundColor: RED, tension: .3, spanGaps: true },
+         { label: '1RM estimado (kg)', data: s.map(x => x && x.p && x.r ? Math.round(e1rm(x.p, x.r, x.x)) : null), borderColor: INK, backgroundColor: INK, borderDash: [6, 4], tension: .3, spanGaps: true }] },
+      options: { maintainAspectRatio: false, plugins: { legend: { labels: { boxWidth: 12 } } }, scales: { y: { grace: '10%' } } } });
+  }
+
   $('save').onclick = () => {
     const d = {};
     $('form').querySelectorAll('input').forEach(i => { const n = num(i.value); if (n != null) d[i.dataset.k] = n; });
@@ -251,7 +333,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     chart('c-per', { type: 'bar', data: { labels: PER.map(p => p[1]), datasets: [
       { label: 'Semana 1', data: p0, backgroundColor: GRIS, borderRadius: 6 }, { label: 'Última', data: p1, backgroundColor: RED, borderRadius: 6 }] },
       options: { maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { labels: { boxWidth: 12 } } }, scales: { x: { beginAtZero: false, grace: '8%' } } } });
-    tabs(); form(); fotos();
+    tabs(); form(); cargas(); exOpciones(); exChart(); fotos();
   }
 
   // ---------- fotos (se achican antes de guardar)
@@ -274,6 +356,55 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
       if (save()) toast('Foto guardada'); fotos(); e.target.value = '';
     };
     img.src = url;
+  };
+
+  // ---------- reporte PDF (se arma en el navegador; en el celular se comparte por mail o WhatsApp)
+  function filasCargas() {
+    const out = [];
+    'ABC'.split('').forEach(r => RUTINAS[S.perfil.modo][r].forEach((e, i) => {
+      const s = exSerie(exId(r, i)).map((x, w) => x && (x.p || x.r) ? { w: w + 1, ...x } : null).filter(Boolean);
+      if (!s.length) return;
+      const a = s[0], b = s[s.length - 1], txt = x => (x.p ? fmt(x.p, x.p % 1 ? 1 : 0) + ' kg × ' : '') + (x.r || '–') + (x.x != null ? ' @' + x.x : '');
+      const va = a.p ? e1rm(a.p, a.r, a.x) : (a.r || 0) + (a.x || 0), vb = b.p ? e1rm(b.p, b.r, b.x) : (b.r || 0) + (b.x || 0);
+      const pct = s.length > 1 && va ? Math.round((vb - va) / va * 100) : null;
+      out.push(`<tr><td>${r} · ${e.n}</td><td>S${a.w}: ${txt(a)}</td><td>${s.length > 1 ? 'S' + b.w + ': ' + txt(b) : '–'}</td><td>${pct == null ? '–' : (pct > 0 ? '+' : '') + pct + '%'}</td></tr>`);
+    }));
+    return out.join('');
+  }
+  $('reporteBtn').onclick = async () => {
+    const btn = $('reporteBtn'); btn.disabled = true; btn.textContent = 'Armando el reporte…';
+    try {
+      const k = id => $(id).textContent, logo = document.querySelector('.brand img').src;
+      const filas = filasCargas(), f1 = S.fotos.f1, f8 = S.fotos.f8;
+      $('reporte').innerHTML = `
+        <div class="rh"><div><img src="${logo}" alt="RENOVA"><b>Reporte de progreso</b><span>MÉTODO 40 · ${S.perfil.modo === 'gym' ? 'Gimnasio' : 'Casa'}</span></div>
+          <span>${S.perfil.nombre || ''}<br>${new Date().toLocaleDateString('es-AR')}</span></div>
+        <div class="rk">
+          <div><small>Peso</small><strong>${k('k-peso')}</strong><em>${k('d-peso')}</em></div>
+          <div><small>Cintura</small><strong>${k('k-cin')}</strong><em>${k('d-cin')}</em></div>
+          <div><small>Fuerza</small><strong>${k('k-fza')}</strong><em>${k('d-fza')}</em></div>
+          <div><small>Sesiones</small><strong>${k('k-ses')}</strong><em>${k('d-ses')}</em></div>
+          <div><small>Cintura / altura</small><strong>${k('k-ict')}</strong><em>${k('d-ict')}</em></div></div>
+        <div class="rg"><div><h3>Peso y cintura</h3><img src="${charts['c-cuerpo'].toBase64Image()}"></div><div><h3>Fuerza estimada</h3><img src="${charts['c-fza'].toBase64Image()}"></div></div>
+        ${filas ? `<h3>Mis cargas: primera semana vs última</h3><table><thead><tr><th>Ejercicio</th><th>Inicio</th><th>Última</th><th>Cambio</th></tr></thead><tbody>${filas}</tbody></table>` : ''}
+        ${f1 || f8 ? `<h3 style="margin-top:14px">Fotos</h3><div class="rf">${f1 ? `<img src="${f1}">` : '<div></div>'}${f8 ? `<img src="${f8}">` : '<div></div>'}</div>` : ''}
+        <p class="rp">RENOVA · MÉTODO 40 · Ignacio Portillo</p>`;
+      await new Promise(r => setTimeout(r, 300));
+      const canvas = await html2canvas($('reporte'), { scale: 2, backgroundColor: '#ffffff', useCORS: true });
+      const { jsPDF } = window.jspdf, W = 210, H = canvas.height * W / canvas.width;
+      const pdf = new jsPDF({ unit: 'mm', format: [W, Math.max(297, H)] });
+      pdf.addImage(canvas.toDataURL('image/jpeg', .9), 'JPEG', 0, 0, W, H);
+      const nombre = 'reporte-metodo40' + (S.perfil.nombre ? '-' + S.perfil.nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-') : '') + '.pdf';
+      const file = new File([pdf.output('blob')], nombre, { type: 'application/pdf' });
+      const movil = matchMedia('(pointer: coarse)').matches;   // celular o tablet: compartir; compu: descargar
+      if (movil && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'Mi progreso', text: 'Mi reporte de progreso de MÉTODO 40' }).catch(() => {});
+      } else {
+        const a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = nombre; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1500);
+        toast('Reporte descargado');
+      }
+    } catch (e) { alert('No se pudo armar el reporte. Probá de nuevo.'); }
+    btn.disabled = false; btn.textContent = 'Exportar reporte';
   };
 
   // ---------- copia de seguridad
