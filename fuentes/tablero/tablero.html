@@ -85,6 +85,9 @@ input:focus,select:focus{outline:2px solid var(--red);border-color:transparent}
 .parts button.on{background:var(--red);border-color:var(--red);color:#fff}.parts button.on small{color:#e6f6f8}
 .parts button.done{border-color:var(--ok)}
 .pnav{display:flex;gap:10px;margin-top:12px}.pnav .btn{flex:1;justify-content:center;padding:14px}
+.zcl{margin:0;padding-left:18px;font-size:14px;line-height:1.5}
+.exc .in.one{grid-template-columns:1fr}
+.tab.rec{border-color:var(--red)}
 .calor{display:flex;flex-wrap:wrap;gap:8px}
 .calor a{background:var(--soft);color:var(--red2);font-weight:700;font-size:13px;padding:8px 12px;border-radius:999px;text-decoration:none}
 /* fotos */
@@ -157,7 +160,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
 
   <main id="app" hidden>
     <nav class="views" id="views">
-      <button data-v="entrenar">Entrenar</button><button data-v="progreso">Progreso</button><button data-v="medidas">Medidas</button>
+      <button data-v="entrenar">Entrenar</button><button data-v="zona" id="nav-zona">Zona media</button><button data-v="progreso">Progreso</button><button data-v="medidas">Medidas</button>
     </nav>
 
     <!-- ENTRENAR -->
@@ -173,6 +176,30 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
       <div class="excs" id="excs"></div>
       <div class="pnav" id="pnav"></div>
       <p class="note">En la parte central anotá la <b>última serie</b> de cada ejercicio (peso, repeticiones y RIR): se guarda sola. Al terminar la elongación, tocá <b>Terminar sesión</b>.</p>
+    </section>
+
+    <!-- ZONA MEDIA (upsell: se destraba con el código del ebook Zona media fuerte) -->
+    <section id="v-zona" hidden>
+      <h1>Zona <span>media</span></h1>
+      <div class="panel setup" id="z-lock" hidden>
+        <h2>🔒 Destrabá tu <b>zona media</b></h2>
+        <p class="note" style="margin-top:0">Es el complemento <b>Zona media fuerte</b> de MÉTODO 40: 4 rutinas de 15 minutos con sus videos y tu plan de 8 semanas. El código está en ese ebook, en la hoja “Zona media en tu app”.</p>
+        <label>Código<input id="z-code" autocomplete="off" autocapitalize="characters" placeholder="Código de zona media"></label>
+        <div class="btns"><button class="btn" id="z-ok">Destrabar</button></div>
+        <p class="note" id="z-err" hidden style="color:var(--bad)">Ese código no es correcto. Revisalo en tu ebook Zona media fuerte.</p>
+      </div>
+      <div id="z-app" hidden>
+        <div class="top-sel">
+          <label>Semana<select id="z-wsel"></select></label>
+          <div class="tabs" id="z-tabs" style="margin:0"></div>
+        </div>
+        <p class="sub" id="z-foco" style="margin-bottom:6px"></p>
+        <div class="presc" id="z-presc"></div>
+        <div class="panel" style="margin:0 0 12px;padding:12px 14px"><h2 style="margin-bottom:6px">Claves de <b>esta rutina</b></h2><ul class="zcl" id="z-claves"></ul></div>
+        <div class="excs" id="z-excs"></div>
+        <div class="pnav"><button class="btn" id="z-fin">Terminar rutina ✓</button></div>
+        <p class="note">Hacé los 4 ejercicios seguidos, sin descanso entre ejercicios, y descansá al terminar cada vuelta. Anotá lo que lograste en la última vuelta (segundos o repeticiones): se guarda solo. <b>Cuándo:</b> 2 veces por semana, al final de una sesión de MÉTODO 40.</p>
+      </div>
     </section>
 
     <!-- PROGRESO -->
@@ -255,10 +282,12 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
   const KEY = 'metodo40-progreso-v1', KEY_OK = 'metodo40-acceso';
   const DATA = /*EJERCICIOS*/;   // rutinas, calentamiento y plan, de fuentes/ebook/hombres.py (build.py)
   const HASH = '/*HASH*/';       // huella SHA-256 del código de acceso (CODIGO_APP en hombres.py)
+  const ZONA = /*ZONA*/;         // rutinas de zona media CIFRADAS con CODIGO_ABD (build.py): se abren solo con ese código
+  const KEY_ZONA = 'metodo40-zona';
   const LIFTS = { casa: ['Sentadilla en copa', 'Flexiones', 'Remo con mancuerna'], gym: ['Sentadilla con barra', 'Press plano', 'Remo en polea baja'] };
   const PER = [['cintura', 'Cintura'], ['cadera', 'Cadera'], ['pecho', 'Pecho'], ['brazo', 'Brazo'], ['muslo', 'Muslo']];
   const $ = id => document.getElementById(id);
-  let S = load(), week = 1, rut = 'A', view = 'entrenar', parte = 0, charts = {};
+  let S = load(), week = 1, rut = 'A', view = 'entrenar', parte = 0, charts = {}, Z = null, zr = null;
   const PARTES = [['Entrada en calor', '8 min'], ['Parte central 1', ''], ['Parte central 2', ''], ['Elongación', '5 min']];
 
   function load() {
@@ -371,6 +400,82 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     parte = 0; render(); window.scrollTo(0, 0);
   }
 
+  // ---------- ZONA MEDIA (upsell): descifrado con el código del ebook (mismo esquema que build.py)
+  const b64 = t => Uint8Array.from(atob(t), c => c.charCodeAt(0));
+  const junta = (...a) => { const o = new Uint8Array(a.reduce((n, x) => n + x.length, 0)); let i = 0; a.forEach(x => { o.set(x, i); i += x.length; }); return o; };
+  async function descifrar(codigo) {
+    try {
+      const enc = new TextEncoder(), base = await crypto.subtle.importKey('raw', enc.encode(codigo.trim().toUpperCase()), 'PBKDF2', false, ['deriveBits']);
+      const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', salt: b64(ZONA.sal), iterations: 150000, hash: 'SHA-256' }, base, 256);
+      const k = await crypto.subtle.importKey('raw', bits, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+      const firma = async d => new Uint8Array(await crypto.subtle.sign('HMAC', k, d));
+      const nonce = b64(ZONA.nonce), ct = b64(ZONA.cifrado), sello = b64(ZONA.sello);
+      const t = await firma(junta(enc.encode('tag'), nonce, ct));
+      if (t.length !== sello.length || t.some((x, i) => x !== sello[i])) return null;   // código incorrecto
+      const bloques = await Promise.all(Array.from({ length: Math.ceil(ct.length / 32) }, (_, i) => firma(junta(nonce, new Uint8Array([i >>> 24, (i >>> 16) & 255, (i >>> 8) & 255, i & 255])))));
+      const flujo = junta(...bloques);
+      return JSON.parse(new TextDecoder().decode(ct.map((x, i) => x ^ flujo[i])));
+    } catch (e) { return null; }
+  }
+  const zRec = w => w % 2 ? ['1', '2'] : ['3', '4'];   // semanas impares: rutinas 1 y 2; pares: 3 y 4
+  const zHecha = (w, r) => !!(S.zfin && S.zfin[w] && S.zfin[w][r]);
+  function zDosis(tipo) {
+    const p = Z.plan[week - 1];
+    return { 'tiempo': p[1], 'tiempo por lado': p[1] + ' por lado', 'reps': p[2] + ' reps', 'reps por lado': p[2] + ' por lado' }[tipo] || p[2];
+  }
+  function zTarjeta(e) {
+    const v = ((S.zona || {})[week] || {})[zr + ':' + e.img], tiempo = /tiempo/.test(e.dosis);
+    let prev = '';
+    for (let w = week - 1; w >= 1 && !prev; w--) { const c = ((S.zona || {})[w] || {})[zr + ':' + e.img]; if (c != null) prev = 'Semana ' + w + ': ' + c + (tiempo ? ' s' : ' reps'); }
+    return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">Zona media</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener">▶ Video</a></div>
+      <div class="bd"><h3>${e.n}</h3><div class="mus">${e.mus} · ${e.mat}</div><span class="dose">${zDosis(e.dosis)}</span>
+      <details><summary>Cómo se hace</summary><p>${e.how}</p>${e.evita ? `<p class="ev"><b>Evitá:</b> ${e.evita}</p>` : ''}${e.princ ? `<p><b>Más fácil:</b> ${e.princ}</p>` : ''}<p><b>Más difícil:</b> ${e.mas}</p></details>
+      <div class="in one"><label>Logré en la última vuelta (${tiempo ? 'segundos' : 'repeticiones'})<input data-z="${e.img}" inputmode="numeric" value="${v ?? ''}"></label></div>
+      ${prev ? `<div class="prev">Última vez · ${prev}</div>` : ''}</div></article>`;
+  }
+  async function zona() {
+    if (!Z) {
+      let c = null; try { c = localStorage.getItem(KEY_ZONA); } catch (e) {}
+      if (c) Z = await descifrar(c);
+      if (!Z) { $('z-lock').hidden = false; $('z-app').hidden = true; return; }
+      $('nav-zona').textContent = 'Zona media';
+    }
+    $('z-lock').hidden = true; $('z-app').hidden = false;
+    if (!zr || !Z.rutinas[zr]) zr = zRec(week).find(r => !zHecha(week, r)) || zRec(week)[0];
+    $('z-wsel').innerHTML = Array.from({ length: 8 }, (_, i) => { const w = i + 1, n = '1234'.split('').filter(r => zHecha(w, r)).length;
+      return `<option value="${w}" ${w === week ? 'selected' : ''}>Semana ${w}${w === 4 || w === 8 ? ' · descarga' : ''}${n ? ' · ' + n + ' ✓' : ''}</option>`; }).join('');
+    $('z-wsel').onchange = () => { week = +$('z-wsel').value; zr = null; render(); };
+    $('z-tabs').innerHTML = '1234'.split('').map(r => `<button class="tab ${r === zr ? 'on' : ''} ${zHecha(week, r) ? 'done' : ''} ${zRec(week).includes(r) ? 'rec' : ''}" data-r="${r}">Rutina ${r}</button>`).join('');
+    $('z-tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { zr = b.dataset.r; render(); });
+    const R = Z.rutinas[zr], p = Z.plan[week - 1], rec = zRec(week);
+    $('z-foco').textContent = 'Rutina ' + zr + ': ' + R.foco.toLowerCase() + ' · esta semana tocan la ' + rec[0] + ' y la ' + rec[1] + (week === 4 || week === 8 ? ' · semana de descarga' : '');
+    $('z-presc').innerHTML = ['Antes: 5 respiraciones 360°', p[0] + ' vueltas', 'Sin pausa entre ejercicios', 'Descanso entre vueltas: ' + p[3]].map(t => `<span>${t}</span>`).join('');
+    $('z-claves').innerHTML = R.claves.map(t => `<li>${t}</li>`).join('');
+    $('z-excs').innerHTML = R.ejs.map(zTarjeta).join('');
+  }
+  $('z-ok').onclick = async () => {
+    const btn = $('z-ok'); btn.disabled = true; btn.textContent = 'Revisando…';
+    const d = await descifrar($('z-code').value);
+    btn.disabled = false; btn.textContent = 'Destrabar';
+    if (!d) { $('z-err').hidden = false; return; }
+    Z = d; try { localStorage.setItem(KEY_ZONA, $('z-code').value.trim().toUpperCase()); } catch (e) {}
+    $('z-err').hidden = true; toast('¡Zona media destrabada!'); render();
+  };
+  $('z-code').onkeydown = e => { if (e.key === 'Enter') $('z-ok').click(); };
+  document.addEventListener('input', ev => {
+    const inp = ev.target; if (!inp.matches('#z-excs input[data-z]')) return;
+    const d = (S.zona = S.zona || {})[week] = (S.zona[week] || {}), k = zr + ':' + inp.dataset.z, n = num(inp.value);
+    if (n == null) delete d[k]; else d[k] = n;
+    save();
+  });
+  $('z-fin').onclick = () => {
+    S.zfin = S.zfin || {}; S.zfin[week] = S.zfin[week] || {}; S.zfin[week][zr] = true;
+    if (save()) toast('¡Rutina ' + zr + ' de zona media terminada!');
+    const sig = zRec(week).find(r => !zHecha(week, r));
+    if (sig) zr = sig; else if (week < 8 && zRec(week).every(r => zHecha(week, r))) { week++; zr = null; }
+    render(); window.scrollTo(0, 0);
+  };
+
   // ---------- MEDIDAS
   function tabs() {
     $('tabs').innerHTML = Array.from({ length: 8 }, (_, i) => {
@@ -471,8 +576,10 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     if (!S.perfil) return setup(true);
     $('who').textContent = (S.perfil.nombre ? S.perfil.nombre + ' · ' : '') + (modo() === 'gym' ? 'Gimnasio' : 'Casa');
     $('views').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === view));
-    ['entrenar', 'progreso', 'medidas'].forEach(v => $('v-' + v).hidden = v !== view);
+    ['entrenar', 'zona', 'progreso', 'medidas'].forEach(v => $('v-' + v).hidden = v !== view);
+    $('nav-zona').textContent = (Z ? '' : '🔒 ') + 'Zona media';
     if (view === 'entrenar') entrenar();
+    if (view === 'zona') zona();
     if (view === 'progreso') progreso();
     if (view === 'medidas') { tabs(); form(); fotos(); }
   }

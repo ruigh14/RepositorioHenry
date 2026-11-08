@@ -38,6 +38,7 @@ AUTOR = "Ignacio Portillo"
 AUTOR_TIT = "Licenciado en Alto Rendimiento Deportivo · Preparador físico de fútbol profesional"   # Racing: solo con autorización
 LINK_TABLERO = "https://metodo40-progreso.metodo40.workers.dev"   # app web publicada en Cloudflare (fuentes/tablero/, ver PUBLICAR.md)
 CODIGO_APP = "RENOVA40"   # código de acceso a la app (rutinas + progreso); fuentes/tablero/build.py lo toma de acá
+CODIGO_ABD = "ZONA40"     # código del upsell Zona media: destraba esa parte de la app (va solo en el ebook de zona media)
 PAGES, TOC = [], []
 INDICE_EXTRA = []   # bloques que se suman debajo del índice
 
@@ -622,6 +623,9 @@ ABD_CLAVES = {1: ["En los cuatro ejercicios, la zona lumbar no se arquea.", "En 
               2: ["Tu trabajo es que el tronco no gire ni se incline.", "En el Pallof, los brazos se estiran pero el pecho queda de frente.", "En el remo en plancha, abrí los pies para estar más estable."],
               3: ["Toda la rutina es en plancha alta: hombros arriba de las manos.", "Al tocar el hombro o estirar el brazo, la cadera no se mueve.", "En la caminata de manos, llegá solo hasta donde mantengas la línea."],
               4: ["Las flexiones declinadas son las más exigentes: técnica antes que repeticiones.", "En el bicho muerto con peso, la zona lumbar sigue pegada al piso.", "Repetís dos ejercicios: buscá hacerlos mejor que en la rutina 1 y 2."]}
+# plan de 8 semanas de zona media: (vueltas, planchas, repeticiones, descanso); la 4 y la 8 son de descarga
+ABD_PLAN = [("3", "20–30 s", "8", "60 s"), ("3", "30 s", "10", "60 s"), ("4", "30–40 s", "10", "60 s"), ("2", "20 s", "8", "60 s"),
+            ("3", "40 s", "12", "45 s"), ("4", "40 s", "12", "45 s"), ("4", "45 s", "15", "45 s"), ("2", "30 s", "10", "60 s")]
 ABD_DOSIS = {"plancha_frontal": "tiempo", "plancha_lateral": "tiempo por lado", "plancha_alta": "tiempo", "flexiones": "reps", "flex_toque": "reps",
              "flex_declinadas": "reps", "bicho_alt": "reps por lado", "bird_dog": "reps por lado", "bicho_muerto_botella": "reps por lado",
              "press_pallof": "reps por lado", "renegade_row": "reps por lado", "plancha_alta_din": "reps por lado", "mountain": "reps por lado", "caminata_manos": "reps"}
@@ -746,13 +750,27 @@ def abdomen():
 
     page(f'''
 {chap_head("06", 'Tu plan de <span class="t">8 semanas</span>', "La misma lógica ondulada de MÉTODO 40: sube cada semana y descarga en la 4 y la 8.")}
-{table(["Semana", "Vueltas", "Planchas", "Repeticiones", "Descanso"], [
- ["<b>1</b>", "3", "20–30 s", "8", "60 s"], ["<b>2</b>", "3", "30 s", "10", "60 s"], ["<b>3</b>", "4", "30–40 s", "10", "60 s"],
- ["<b>4 · descarga</b>", "2", "20 s", "8", "60 s"], ["<b>5</b>", "3", "40 s", "12", "45 s"], ["<b>6</b>", "4", "40 s", "12", "45 s"],
- ["<b>7</b>", "4", "45 s", "15", "45 s"], ["<b>8 · descarga</b>", "2", "30 s", "10", "60 s"]], first="22%")}
+{table(["Semana", "Vueltas", "Planchas", "Repeticiones", "Descanso"], [[f"<b>{w}{' · descarga' if w in (4, 8) else ''}</b>", *ABD_PLAN[w - 1]] for w in range(1, 9)], first="22%")}
 <p class="small">“Repeticiones” vale por lado en los ejercicios alternados. Las flexiones, con RIR 2: si llegás al número del plan con más reserva, pasá a la variante más difícil.</p>
 {box("<b>Progresá con variantes, no con tiempo:</b> si una plancha de 45 segundos te sale fácil, pasá a la plancha alta con alcance o subí los pies.", "soft")}
 ''', chapter="06 · Plan", pid="plan", toc="06 · Tu plan de 8 semanas")
+
+    page(f'''
+{eyebrow("TU APP")}
+<h1 class="h1">Zona media <span class="t">en tu app</span></h1>
+<div class="bio-m appz"><img src="img/m40/app_zona.jpg" alt="Zona media en la app de MÉTODO 40"><div>
+<p class="lead">Las 4 rutinas también están en la app de MÉTODO 40, con sus videos y la dosis de cada semana ya calculada.</p>
+<ol class="steps-ol">
+<li><b>Abrí la app</b> con el botón de abajo.</li>
+<li><b>Tocá “Zona media”.</b></li>
+<li><b>Ingresá tu código</b> una sola vez.</li>
+<li><b>Elegí la semana</b> y la rutina que toca, y anotá lo que lograste.</li>
+</ol>
+{box(f"<b>Tu código de zona media: {CODIGO_ABD}</b>", "note")}
+</div></div>
+{boton_tablero()}
+<p class="small">Si todavía no usás la app, primero entrá con el código de tu ebook de MÉTODO 40. Tus datos quedan solo en tu celular.</p>
+''', chapter="Tu app", pid="app", toc="Zona media en tu app")
 
     ERR = [("Cola arriba en la plancha", "La cadera va en línea con hombros y talones."), ("Zona lumbar hundida", "Apretá glúteos y llevá las costillas hacia abajo."),
            ("Mountain climber a toda velocidad", "Primero controlado: la cadera no rebota."), ("Aguantar el aire", "Respirá corto y continuo."),

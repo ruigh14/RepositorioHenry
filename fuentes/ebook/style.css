@@ -1133,3 +1133,5 @@ body.m40{--tq:var(--m40-rojo);--tq-t:var(--m40-rojo);--tq-d:var(--m40-rojo-oscur
 .m40g .mx p{font-size:12pt;line-height:1.28;margin-bottom:.8mm}
 .m40g .mx .mus{margin:.8mm 0 1mm;font-size:9.6pt}
 .m40 .tall2 .grid-t td{height:17mm}
+.appz img{width:62mm;height:auto;border-radius:4mm;border:.4mm solid var(--line)}
+.appz .steps-ol{margin:3mm 0}
