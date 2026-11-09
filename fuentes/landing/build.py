@@ -5,8 +5,10 @@
 - Mueve el <style> dentro del <body> (por si la tienda descarta el <head>).
 - Cambia img/... por la URL pública de GitHub (fijada al último commit de img/), así las imágenes cargan desde cualquier lado.
 
-Uso:  cd fuentes/landing && python3 build.py      tienda.html → tienda/landing-impultienda.html
-Se pega en Impultienda: Diseño de tienda → HTML propio.
+Uso:  cd fuentes/landing && python3 build.py           tienda.html → tienda/landing-impultienda.html (mujeres, RENOVA)
+      cd fuentes/landing && python3 build.py hombres   tienda_hombres.html → tienda/landing-metodo40.html (MÉTODO 40)
+La de hombres usa TODO el CSS de tienda.html y le suma el <style> propio de tienda_hombres.html (paleta MÉTODO 40):
+el diseño es uno solo. Se pega en Impultienda: Diseño de tienda → HTML propio (cada una en su tienda).
 """
 import re
 import subprocess
@@ -83,14 +85,18 @@ def scope(css):
     return out
 
 
-SRC, OUT = "tienda.html", Path("tienda") / "landing-impultienda.html"
+HOM = len(sys.argv) > 1 and sys.argv[1] == "hombres"
+SRC, OUT = ("tienda_hombres.html", Path("tienda") / "landing-metodo40.html") if HOM else ("tienda.html", Path("tienda") / "landing-impultienda.html")
+TITULO = "MÉTODO 40" if HOM else "Método RENOVA"   # nombre de la pestaña (lo pone landing.js)
 src = (HERE / SRC).read_text()
 css = re.search(r"<style>(.*?)</style>", src, re.S).group(1)
+if HOM:   # mismo diseño que la de mujeres + lo que cambia en la de hombres
+    css = re.search(r"<style>(.*?)</style>", (HERE / "tienda.html").read_text(), re.S).group(1) + css
 css = ds_css(str(HERE), fuentes=False) + css
 css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
 head = re.sub(r"<style>.*?</style>\s*", "", src.split("<body>")[0], flags=re.S)
 body = src.split("<body>", 1)[1].split("</body>")[0]
-html = (head + "<body>\n<div id=\"rnv\">\n<style>@import url(\"" + FONTS + "\");\n"
+html = (head + "<body>\n<div id=\"rnv\" data-titulo=\"" + TITULO + "\">\n<style>@import url(\"" + FONTS + "\");\n"
         + scope(css).strip() + "\n</style>\n" + body.strip() + "\n</div>\n</body>\n</html>\n")
 html = re.sub(r'<source src="img/([^"]+)" type="video/mp4"/>',
               lambda m: f'<source src="{CDN}{m[1]}" type="video/mp4"/><source src="{RAW}{m[1]}" type="video/mp4"/>', html)

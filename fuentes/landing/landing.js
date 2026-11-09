@@ -4,7 +4,7 @@
   root.classList.add('js');
 
   // Pestaña del navegador: nombre y logo de RENOVA (Impultienda pone el título de la tienda)
-  document.title = 'Método RENOVA';
+  document.title = root.getAttribute('data-titulo') || 'Método RENOVA';   // build.py: RENOVA o MÉTODO 40
   var F = 'https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@main/fuentes/landing/img/favicon.png';
   [].forEach.call(document.querySelectorAll('link[rel~="icon"],link[rel="apple-touch-icon"]'), function(l){ l.parentNode.removeChild(l); });
   ['icon', 'apple-touch-icon'].forEach(function(r){ var l = document.createElement('link'); l.rel = r; l.href = F; document.head.appendChild(l); });
