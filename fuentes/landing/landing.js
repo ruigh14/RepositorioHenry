@@ -95,6 +95,7 @@
   }
   carrusel(document.getElementById('msgs'), document.getElementById('msgs-dots'));
   carrusel(document.getElementById('team'), document.getElementById('team-dots'));
+  carrusel(document.getElementById('entrenan'), document.getElementById('entrenan-dots'));   // landing MÉTODO 40
 
   // Barra de compra en el celular: aparece apenas el botón de la portada sale de la pantalla
   // (Clarity: casi nadie baja del 15-35%) y se esconde sobre la caja de precio
