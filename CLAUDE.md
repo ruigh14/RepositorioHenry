@@ -10,6 +10,7 @@ Hay **una sola landing**, la de la tienda (renova.impultienda.ar; dominio propio
 ```
 tienda/
   landing-impultienda.html   → la landing de renova.impultienda.ar (se pega en Diseño de tienda → HTML propio)
+  landing-metodo40.html      → la landing de MÉTODO 40 (hombres 40+), para la otra tienda de Impultienda
 entrena-desde-casa/          Ebook 1
   Ebook_Entrena_desde_casa_RENOVA.pdf
 entrena-en-el-gimnasio/      Ebook 2: misma lógica, rutinas de gimnasio nivel inicial
@@ -82,6 +83,7 @@ cd fuentes/ebook && python3 hombres.py casa && node export.js hombres_casa  # M�
 cd fuentes/ebook && python3 hombres.py gym && node export.js hombres_gym    # MÉTODO 40 en el gimnasio
 cd fuentes/ebook && python3 nutricion.py hombres && node export.js hombres_nutricion  # MÉTODO 40: Alimentación Inteligente
 cd fuentes/landing && python3 build.py                                     # la landing de la tienda
+cd fuentes/landing && python3 build.py hombres                             # la landing de MÉTODO 40 (tienda_hombres.html: usa todo el CSS de tienda.html + su paleta)
 cd fuentes/design-system/creativos && python3 generar.py && node exportar.js   # creativos (imagen | video)
 cd fuentes/design-system && python3 muestra.py && node muestra.js           # muestra.pdf del design system
 ```
@@ -117,6 +119,7 @@ Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nuev
 
 ## Pendientes
 
+- Landing MÉTODO 40 (tienda/landing-metodo40.html, 9/11/2026): misma landing que la de mujeres con paleta MÉTODO 40, fotos y videos de HOMBRES/ (copias livianas en fuentes/landing/img/m40_*). Falta: textos reales de resultados de Nico, Vic, Dani y el otro alumno (hoy solo dicen "antes y después de entrenar con Nacho"; nombre del 4.º y del de la bici), confirmar que tengan 40+, precio y valor total en la tienda de hombres, cargar Zona media como upsell 1, confirmar garantía de 7 días y el WhatsApp de soporte (hoy wa.link/hewha8), y si va VSL.
 - MÉTODO 40 Alimentación Inteligente (ebook-hombres/, 62 hojas, listo el 8/11/2026): que Eugenia revise las 5 hojas nuevas para hombres (entrenamiento, combinaciones, testosterona, asado y alcohol, ajustes en 14 días) Va dentro del pack (casa + gimnasio + métricas + alimentación): cargar los 4 PDF en el producto de la tienda de hombres.
 - MÉTODO 40 upsell Zona media fuerte: que Nacho lo revise y definir precio en la tienda de hombres.
 - MÉTODO 40 (hombres 40+): 3 PDF (casa y gimnasio de 28 hojas con elongación de 5 minutos, y guía de métricas gratis; `python3 hombres.py metricas && node export.js hombres_metricas`), piernas solo bipodales, brazos en cada rutina del gimnasio, plan ondulado con RIR y descarga en semanas 4 y 8. App web de MÉTODO 40 (rutinas de casa y gimnasio para entrenar desde el celular con carga de kilos, progreso, medidas y reporte PDF para compartir; código de acceso CODIGO_APP = RENOVA40 en hombres.py, que figura en los ebooks) publicada en https://metodo40-progreso.metodo40.workers.dev desde fuentes/tablero/ (`python3 build.py` → dist/index.html); FALTA publicarlo (ver fuentes/tablero/PUBLICAR.md) y completar LINK_TABLERO en hombres.py, Además: que Nacho revise rutinas y textos; confirmar si se puede nombrar a Racing (hoy dice "preparador físico de fútbol profesional"); confirmar el nombre de la marca; armar la tienda/landing en la otra cuenta de Impultienda y definir precio; después: upsell de nutrición para hombres.
