@@ -34,7 +34,8 @@
 .post .one.sq{aspect-ratio:1}
 .post .one.sq img{object-fit:contain;background:#0b2c62}
 /* carrusel "Así se entrena" (mismo carrusel que el equipo) */
-.team-track .post{flex:0 0 min(320px,80%);scroll-snap-align:center}
+.slide{position:relative;flex:0 0 min(300px,78%);scroll-snap-align:center;margin:0;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#0E0F10;box-shadow:var(--sh2)}
+.slide video,.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 /* VSL (espacio reservado hasta que esté el video) */
 .vsl{border:1px solid rgba(214,40,40,.5);box-shadow:0 0 40px rgba(214,40,40,.22),0 26px 60px rgba(0,0,0,.45)}
 .vsl-ph{position:absolute;inset:0;background:linear-gradient(90deg,#0E0F10 30%,rgba(14,15,16,.2) 75%),url('img/m40_nacho.jpg') right 30%/auto 130% no-repeat #0E0F10;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;padding:0 6%;text-align:left}
@@ -180,21 +181,12 @@
       </div>
     </div>
     <h3 class="msgs-t rv">Así se entrena con <span class="b">MÉTODO 40</span></h3>
-    <!-- Fabián es testimonio (resultado real). Flexiones y bici son material ilustrativo: sin nombre ni resultado. -->
+    <!-- Carrusel de material: solo fotos y videos, sin nombres ni textos -->
     <div class="msgs rv"><div class="team-track" id="entrenan">
-      <div class="post post-vid">
-        <div class="who"><img src="img/m40_fabian.jpg" alt=""/><div><b>Fabián</b><span class="stars">★★★★★</span></div></div>
-        <p>Bajó <b>15 kg de grasa</b>.</p>
-        <div class="one"><video muted loop playsinline preload="none" poster="img/m40_fabian_poster.jpg"><source src="img/m40_fabian.mp4" type="video/mp4"/></video></div>
-      </div>
-      <div class="post post-vid">
-        <p>Fuerza <b>en casa</b>, con tu propio peso y pocos elementos.</p>
-        <div class="one"><video muted loop playsinline preload="none" poster="img/m40_flexiones_poster.jpg"><source src="img/m40_flexiones.mp4" type="video/mp4"/></video></div>
-      </div>
-      <div class="post">
-        <p>Más fuerza para <b>lo que te gusta hacer</b>.</p>
-        <div class="one"><img src="img/m40_bici.jpg" alt="Hombre en bicicleta"/></div>
-      </div>
+      <figure class="slide"><video muted loop playsinline preload="none" poster="img/m40_fabian_poster.jpg"><source src="img/m40_fabian.mp4" type="video/mp4"/></video></figure>
+      <figure class="slide"><video muted loop playsinline preload="none" poster="img/m40_flexiones_poster.jpg"><source src="img/m40_flexiones.mp4" type="video/mp4"/></video></figure>
+      <figure class="slide"><img src="img/m40_fabian.jpg" alt=""/></figure>
+      <figure class="slide"><img src="img/m40_bici.jpg" alt=""/></figure>
     </div>
     <div class="msgs-dots" id="entrenan-dots"></div>
     </div>
