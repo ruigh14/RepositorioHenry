@@ -4,6 +4,9 @@
 sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, imagen del producto y cartel de oferta.
 
 **Entradas**
+- Videos grandes: que Nacho los suba a Google Drive y pase el link. Se bajan con
+  `curl -L -o .tmp/<nombre>/original.mp4 "https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t"`
+  (host habilitado en el entorno RepositorioHenry; no usar el conector de Drive, que devuelve el archivo en base64).
 - Video vertical 1080×1920 (el .mov del iPhone sirve tal cual). Copiarlo a `.tmp/<nombre>/original.mov`.
 - Imagen del producto (mockup o tapa) en `.tmp/<nombre>/`. Los mockups están en `main`: `pack-renova/*.png` y `fuentes/landing/img/tapa_*.jpg`.
 - Un archivo de configuración `execution/reels/<nombre>.json` (copiar `te-cuesta-comer-bien.json` como modelo).
@@ -36,6 +39,7 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
 
 **Casos extremos y aprendizajes**
 - Whisper a veces pega una toma anterior al principio (ej. "Más cinco bonos de regalo" + 2 s de silencio): mirar siempre la transcripción y mover `inicio`.
+- `correcciones` con valor vacío borra la palabra (Whisper separa "e-books" en "e" + "-books": `"e": "E-BOOKS", "books": ""`).
 - Escribe "Hace clic", "conoce" sin tilde: corregir el voseo en `correcciones`.
 - Red: el modelo se baja de huggingface.co y us.aws.cdn.hf.co; con `HF_HUB_DISABLE_XET=1` evita cas-server.xethub.hf.co (bloqueado).
 - La versión de PyAV instalada falla con `decode_audio` de faster-whisper: el script le pasa el audio ya decodificado con ffmpeg.

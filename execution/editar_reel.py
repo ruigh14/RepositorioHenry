@@ -121,6 +121,8 @@ def ass(cfg, palabras, cortes, dur):
         for p in g:
             w = fix.get(norm(p["w"]), p["w"])
             w = re.sub(r"[.,]$", "", w).upper()
+            if not w:   # corrección vacía = palabra que se borra (ej. "e" + "-books" → "E-BOOKS")
+                continue
             partes.append(f"{{\\c{TURQUESA}}}{w}{{\\c&HFFFFFF&}}" if norm(p["w"]) in destacar else w)
         pop = "{\\fscx82\\fscy82\\t(0,90,\\fscx100\\fscy100)}"
         lineas.append(f"Dialogue: 0,{ts(ini)},{ts(fin)},Sub,,0,0,0,,{pop}{' '.join(partes)}")

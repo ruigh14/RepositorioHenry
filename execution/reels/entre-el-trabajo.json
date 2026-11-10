@@ -1,0 +1,66 @@
+{
+  "video": "../../.tmp/entre-el-trabajo/original.mp4",
+  "salida": ".tmp/entre-el-trabajo.mp4",
+  "inicio": 0,
+  "fin": 49.1,
+  "pausa_max": 0.2,
+  "margen": 0.1,
+  "subtitulos_y": 1550,
+  "correcciones": {
+    "quedas": "quedás",
+    "arrancas": "arrancás",
+    "mira": "Mirá,",
+    "e": "E-BOOKS",
+    "books": "",
+    "hace": "Hacé",
+    "esta": "este",
+    "anuncia": "anuncio",
+    "conoce": "conocé"
+  },
+  "destacar": [
+    "último",
+    "lugar",
+    "fuerza.",
+    "casa.",
+    "8",
+    "semanas",
+    "15",
+    "minutos",
+    "sin",
+    "dietas",
+    "músculo",
+    "peso.",
+    "Renova."
+  ],
+  "carteles": [
+    {
+      "texto": "¿SIEMPRE EN ÚLTIMO LUGAR?",
+      "tamano": 80,
+      "desde": null,
+      "hasta": 6.0
+    }
+  ],
+  "imagenes": [
+    {
+      "archivo": "../../.tmp/entre-el-trabajo/pack_completo_recorte.png",
+      "desde": 21.8,
+      "hasta": 33.1,
+      "bajar": 90,
+      "alto": 700,
+      "fondo": "#0b1214"
+    },
+    {
+      "archivo": "../../.tmp/entre-el-trabajo/libro_alimentacion.png",
+      "desde": 35.9,
+      "hasta": 39.9,
+      "fondo": "#081416",
+      "zoom": 1.35
+    }
+  ],
+  "cierre": {
+    "archivo": "../../.tmp/entre-el-trabajo/pack_1.png",
+    "duracion": 2.5,
+    "transicion": 0.4,
+    "efecto": "fade"
+  }
+}
