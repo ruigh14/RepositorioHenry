@@ -34,6 +34,10 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
   así un mockup horizontal se ve grande sin tapar la cabeza. Para el pack completo (ebooks + bonus + talleres) usar `pack-renova/pack_completo.png`
   recortado (`pack_completo_recorte.png`: del logo a los productos, sin la fila de etiquetas) con `bajar` 190, `alto` 700, `fondo` #0b1214 y `hasta` null (queda hasta el cierre). Bajar los subtítulos a `subtitulos_y` 1550 para que no tapen el mentón.
 - Subtítulos: un número nunca queda solo, va en el mismo bloque que la palabra siguiente ("8 SEMANAS", "35 AÑOS").
+- `clips`: videos a pantalla completa (ej. clientas entrenando fuerza) con `archivo`, `inicio_clip`, `desde`/`hasta` (s del original);
+  `entra`/`sale` false quitan el fundido para encadenar dos clips sin que se vea el video de fondo entre ellos. La voz sigue y los subtítulos van encima.
+- `transiciones`: lista de segundos del original donde hay un cambio de tema (ej. "Soy Nacho Portillo", antes de "Hacé clic"): zoom de 7% que se relaja + destello leve.
+- En pantalla dividida, `ancho` centra una imagen más chica sobre `fondo` (foto del equipo: `fuentes/landing/img/equipo_tapa_limpia.png`, `ancho` 760, `alto` 830, 2 s).
 - Regla de Nacho: ninguna imagen puede tapar ni cortar la cabeza. Revisar cuadros con la cabeza más alta antes de entregar.
 - Subtítulos: Inter Display Black, blanco con borde negro, palabras clave en turquesa #14B1C7, a 1440 px (encima de la zona segura de abajo de 340 px).
 

@@ -169,7 +169,12 @@ def main():
     for i, (a, b) in enumerate(cortes):
         f.append(f"[0:v]trim={a:.3f}:{b:.3f},setpts=PTS-STARTPTS[v{i}];[0:a]atrim={a:.3f}:{b:.3f},asetpts=PTS-STARTPTS[a{i}]")
     f.append("".join(f"[v{i}][a{i}]" for i in range(len(cortes))) + f"concat=n={len(cortes)}:v=1:a=1[vc][ac]")
-    f.append(f"[vc]scale={W}:{H},fps={FPS},eq=contrast=1.04:saturation=1.08[vb]")
+    # Transiciones sutiles en un cambio de tema: zoom que entra un 7% y se relaja, con un destello leve.
+    marcas = [a_nuevo(t, cortes) for t in cfg.get("transiciones", [])]
+    zoom = "+".join(f"0.07*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*4)" for m in marcas) or "0"
+    luz = "+".join(f"0.16*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*18)" for m in marcas) or "0"   # max(): sin él, exp() se desborda antes de la marca y da NaN (imagen negra)
+    f.append(f"[vc]scale={W}:{H},fps={FPS},scale=w='trunc({W}*(1+{zoom})/2)*2':h=-2:eval=frame,crop={W}:{H},"
+             f"eq=contrast=1.04:saturation=1.08:brightness='{luz}':eval=frame[vb]")
     entradas = ["-i", str(video)]
     ult = "vb"
     for k, img in enumerate(cfg.get("imagenes", []), start=1):
@@ -183,8 +188,9 @@ def main():
             r = f"(clip((t-{a:.3f})/0.3,0,1)*{sale})"
             f.append(f"color=c={fondo}:s={W}x{H}:r={FPS}[lienzo{k}]")
             f.append(f"[lienzo{k}][{ult}]overlay=0:'{baja}*{r}':shortest=1[vd{k}]")
-            f.append(f"[{k}:v]scale={W}:-2,pad={W}:{alto}:0:oh-ih:color={fondo},fps={FPS},setsar=1,"
-                     f"setpts=PTS-STARTPTS+{a:.3f}/TB[im{k}]")
+            f.append(f"color=c={fondo}:s={W}x{alto}:r={FPS}:d={d:.3f}[pf{k}]")
+            f.append(f"[{k}:v]scale={img.get('ancho', W)}:-2,fps={FPS},format=rgba[ps{k}]")
+            f.append(f"[pf{k}][ps{k}]overlay=(W-w)/2:H-h:shortest=1,setsar=1,setpts=PTS-STARTPTS+{a:.3f}/TB[im{k}]")
             f.append(f"[vd{k}][im{k}]overlay=0:'-{alto}*(1-{r})':eof_action=pass:enable='between(t,{a:.3f},{b:.3f})'[vo{k}]")
             ult = f"vo{k}"
             continue
@@ -200,6 +206,18 @@ def main():
                  f"setpts=PTS-STARTPTS+{a:.3f}/TB[im{k}]")
         f.append(f"[{ult}][im{k}]overlay=0:0:eof_action=pass:enable='between(t,{a:.3f},{b:.3f})'[vo{k}]")
         ult = f"vo{k}"
+    # Clips a pantalla completa (ej. clientas entrenando): tapan el video, la voz sigue y los subtítulos van encima.
+    for j, c in enumerate(cfg.get("clips", [])):
+        a, b = a_nuevo(c["desde"], cortes), a_nuevo(c["hasta"], cortes)
+        d = b - a
+        n = sum(1 for x in entradas if x == "-i")
+        entradas += ["-ss", f"{c.get('inicio_clip', 0):.3f}", "-t", f"{d:.3f}", "-i", str((base / c["archivo"]).resolve())]
+        fades = (f",fade=in:st=0:d=0.25:alpha=1" if c.get("entra", True) else "") + \
+                (f",fade=out:st={d - 0.25:.3f}:d=0.25:alpha=1" if c.get("sale", True) else "")
+        f.append(f"[{n}:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,"
+                 f"eq=contrast=1.04:saturation=1.08,format=yuva420p{fades},setpts=PTS-STARTPTS+{a:.3f}/TB[cl{j}]")
+        f.append(f"[{ult}][cl{j}]overlay=0:0:eof_action=pass:enable='between(t,{a:.3f},{b:.3f})'[vcl{j}]")
+        ult = f"vcl{j}"
     ass_path = str(tmp / "subs.ass").replace(":", "\\:")
     total = dur
     cierre = cfg.get("cierre")
