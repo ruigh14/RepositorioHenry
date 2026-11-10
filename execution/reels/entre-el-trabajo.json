@@ -34,8 +34,8 @@
   ],
   "carteles": [
     {
-      "texto": "¿SIEMPRE EN ÚLTIMO LUGAR?",
-      "tamano": 64,
+      "texto": "¿SIEMPRE EN\nÚLTIMO LUGAR?",
+      "tamano": 92,
       "desde": null,
       "hasta": 6.0
     }
@@ -74,6 +74,7 @@
   },
   "transiciones": [
     15.0,
+    34.5,
     46.1
   ],
   "clips": [

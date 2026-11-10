@@ -26,7 +26,8 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
 - `imagenes`: imagen a pantalla completa con zoom lento entre `desde` y `hasta`; `zoom` agranda (1,35 para los mockups de 1080×1350 con fondo oscuro).
   Con `ancho` (y opcional `y`) la imagen va superpuesta en esa posición en vez de a pantalla completa: usar PNG con transparencia
   recortado al contenido (ej. `pack_libros.png` recortado, `ancho` 580, `y` 255 queda justo sobre la cabeza sin salir de la zona segura).
-- `carteles[].tamano`: tamaño de letra del cartel. En una sola línea entran ~21 caracteres a 84 px dentro de los márgenes.
+- `carteles[].tamano`: tamaño de letra del cartel. Preferencia de Nacho: el gancho del principio va al mismo tamaño que los subtítulos (92);
+  si no entra en una línea dentro de la zona segura (más de ~16 caracteres), partirlo en dos líneas con `\n`. Dejar margen a los costados: el recuadro no puede tocar los bordes.
 - `cierre`: placa final a pantalla completa (`archivo`, `duracion` 2,5 s, `transicion` 0,4 s, `efecto` de xfade: `fade`, `slideup`…).
   El script estira el último tramo lo que dura la transición, así el fundido no tapa la última frase: poner `fin` al final real del video.
   Para "todo lo que ofrecemos" usar `pack-renova/pack_1.png` (vertical, 3 ebooks + 5 bonus).
