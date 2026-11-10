@@ -124,6 +124,8 @@ def ass(cfg, palabras, cortes, dur):
         ini = 0 if c.get("desde") is None else a_nuevo(c["desde"], cortes)
         fin = dur if c.get("hasta") is None else a_nuevo(c["hasta"], cortes)
         texto = c["texto"].replace("\n", "\\N")
+        if c.get("tamano"):
+            texto = f"{{\\fs{c['tamano']}}}" + texto
         entra = "{\\fad(120,120)\\fscx90\\fscy90\\t(0,140,\\fscx100\\fscy100)}"
         lineas.append(f"Dialogue: 1,{ts(ini)},{ts(fin)},Cartel,,0,0,0,,{entra}{texto}")
     return "\n".join(lineas) + "\n"
@@ -151,6 +153,8 @@ def main():
         sys.exit("ERROR: no quedan palabras entre inicio y fin")
 
     cortes = tramos(palabras, cfg.get("pausa_max", 0.3), cfg.get("margen", 0.1))
+    if cfg.get("cierre"):   # que la transición empiece cuando termina de hablar, no encima de la última frase
+        cortes[-1][1] = min(cortes[-1][1] + cfg["cierre"].get("transicion", 0.4), fin)
     dur = sum(b - a for a, b in cortes)
     (tmp / "subs.ass").write_text(ass(cfg, palabras, cortes, dur))
 
@@ -166,6 +170,12 @@ def main():
         a, b = a_nuevo(img["desde"], cortes), a_nuevo(img["hasta"], cortes)
         d = b - a
         entradas += ["-loop", "1", "-t", f"{d:.3f}", "-i", str((base / img["archivo"]).resolve())]
+        if img.get("ancho"):   # imagen con transparencia en una posición fija (ej. mockup sobre la cabeza)
+            f.append(f"[{k}:v]scale={img['ancho']}:-2,fps={FPS},format=rgba,"
+                     f"fade=in:st=0:d=0.2:alpha=1,fade=out:st={d - 0.2:.3f}:d=0.2:alpha=1,setpts=PTS-STARTPTS+{a:.3f}/TB[im{k}]")
+            f.append(f"[{ult}][im{k}]overlay=(W-w)/2:{img.get('y', ZONA_ARRIBA)}:eof_action=pass:enable='between(t,{a:.3f},{b:.3f})'[vo{k}]")
+            ult = f"vo{k}"
+            continue
         f.append(f"[{k}:v]scale={W}:-2,pad={W}:{H}:0:(oh-ih)/2:color={img.get('fondo', '#081416')},"
                  f"zoompan=z='{img.get("zoom", 1)}+0.0016*on':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS},"
                  f"format=yuva420p,fade=in:st=0:d=0.12:alpha=1,fade=out:st={d - 0.12:.3f}:d=0.12:alpha=1,"
@@ -173,14 +183,26 @@ def main():
         f.append(f"[{ult}][im{k}]overlay=0:0:eof_action=pass:enable='between(t,{a:.3f},{b:.3f})'[vo{k}]")
         ult = f"vo{k}"
     ass_path = str(tmp / "subs.ass").replace(":", "\\:")
-    f.append(f"[{ult}]ass='{ass_path}'[vout]")
-    f.append("[ac]highpass=f=80,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[aout]")
+    total = dur
+    cierre = cfg.get("cierre")
+    if cierre:   # placa final a pantalla completa con fundido desde el video
+        tr, dc = cierre.get("transicion", 0.4), cierre.get("duracion", 2.5)
+        n = sum(1 for x in entradas if x == "-i")
+        entradas += ["-loop", "1", "-t", f"{dc + tr:.3f}", "-i", str((base / cierre["archivo"]).resolve())]
+        f.append(f"[{ult}]ass='{ass_path}'[vs]")
+        f.append(f"[{n}:v]scale={W}:{H}:force_original_aspect_ratio=decrease,pad={W}:{H}:(ow-iw)/2:(oh-ih)/2:color={cierre.get('fondo', '#081416')},"
+                 f"zoompan=z='1+0.0008*on':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS},format=yuv420p,setsar=1[cz]")
+        f.append(f"[vs]format=yuv420p,setsar=1[vs2];[vs2][cz]xfade=transition={cierre.get('efecto', 'fade')}:duration={tr}:offset={dur - tr:.3f}[vout]")
+        total = dur + dc
+    else:
+        f.append(f"[{ult}]ass='{ass_path}'[vout]")
+    f.append(f"[ac]highpass=f=80,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000,apad=whole_dur={total:.3f}[aout]")
 
     salida.parent.mkdir(parents=True, exist_ok=True)
     run(["ffmpeg", "-v", "error", "-y", *entradas, "-filter_complex", ";".join(f), "-map", "[vout]", "-map", "[aout]",
          "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-profile:v", "high",
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(salida)])
-    print(f"OK: {salida.relative_to(ROOT)} ({dur:.1f} s, {len(cortes)} tramos)")
+    print(f"OK: {salida.relative_to(ROOT)} ({total:.1f} s, {len(cortes)} tramos)")
 
 
 if __name__ == "__main__":

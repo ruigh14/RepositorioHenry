@@ -2,16 +2,59 @@
   "video": "../../.tmp/te-cuesta-comer-bien/original.mov",
   "salida": ".tmp/te-cuesta-comer-bien.mp4",
   "inicio": 4.3,
-  "fin": 25.9,
+  "fin": 26.25,
   "pausa_max": 0.2,
   "margen": 0.1,
-  "correcciones": {"hace": "Hacé", "conoce": "conocé"},
-  "destacar": ["35", "años", "comer", "bien?", "Alimentación", "Inteligente", "8", "semanas.", "bonos", "regalo", "limitado."],
+  "correcciones": {
+    "hace": "Hacé",
+    "conoce": "conocé"
+  },
+  "destacar": [
+    "35",
+    "años",
+    "comer",
+    "bien?",
+    "Alimentación",
+    "Inteligente",
+    "8",
+    "semanas.",
+    "bonos",
+    "regalo",
+    "limitado."
+  ],
   "carteles": [
-    {"texto": "¿TE CUESTA\nCOMER BIEN?", "desde": null, "hasta": 9.72},
-    {"texto": "+5 BONOS DE REGALO\n{\\fs50}POR TIEMPO LIMITADO", "desde": 18.56, "hasta": null}
+    {
+      "texto": "¿TE CUESTA COMER BIEN?",
+      "tamano": 84,
+      "desde": null,
+      "hasta": 9.72
+    },
+    {
+      "texto": "+5 BONOS DE REGALO\n{\\fs50}POR TIEMPO LIMITADO",
+      "desde": 18.56,
+      "hasta": 21.38
+    }
   ],
   "imagenes": [
-    {"archivo": "../../.tmp/te-cuesta-comer-bien/libro_alimentacion.png", "desde": 10.2, "hasta": 12.6, "fondo": "#081416", "zoom": 1.35}
-  ]
+    {
+      "archivo": "../../.tmp/te-cuesta-comer-bien/libro_alimentacion.png",
+      "desde": 10.2,
+      "hasta": 12.6,
+      "fondo": "#081416",
+      "zoom": 1.35
+    },
+    {
+      "archivo": "../../.tmp/te-cuesta-comer-bien/pack_libros_recorte.png",
+      "desde": 21.38,
+      "hasta": 26.25,
+      "ancho": 580,
+      "y": 255
+    }
+  ],
+  "cierre": {
+    "archivo": "../../.tmp/te-cuesta-comer-bien/pack_1.png",
+    "duracion": 2.5,
+    "transicion": 0.4,
+    "efecto": "fade"
+  }
 }
