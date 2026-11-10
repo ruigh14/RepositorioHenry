@@ -661,7 +661,10 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     $('vbox').classList.toggle('vert', /shorts\//.test(url));
     $('vtit').textContent = titulo || '';
     $('vyt').href = url;
-    $('vfr').innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="${titulo || 'Video'}"></iframe>`;
+    // youtube.com (no youtube-nocookie: sin cookies YouTube pide "confirmá que no sos un robot" en muchos celulares),
+    // con origin y referrer: YouTube los exige para dejar reproducir videos insertados en otra página.
+    const org = encodeURIComponent(location.origin);
+    $('vfr').innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&playsinline=1&enablejsapi=1&origin=${org}&widget_referrer=${org}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share" allowfullscreen title="${titulo || 'Video'}"></iframe>`;
     $('vmodal').hidden = false; document.body.style.overflow = 'hidden';
   }
   function cerrarVideo() { $('vfr').innerHTML = ''; $('vmodal').hidden = true; document.body.style.overflow = ''; }

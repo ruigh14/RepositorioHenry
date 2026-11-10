@@ -92,4 +92,8 @@ html = (open(os.path.join(HERE, "tablero.html"), encoding="utf-8").read().replac
 os.makedirs(os.path.join(HERE, "dist"), exist_ok=True)
 with open(os.path.join(HERE, "dist", "index.html"), "w", encoding="utf-8") as f:
     f.write(html)
+# Cabecera para que YouTube reciba de qué página viene el video insertado (sin eso, en algunos celulares pide
+# "confirmá que no sos un robot" o no reproduce). Cloudflare la aplica a todo lo publicado desde dist/.
+with open(os.path.join(HERE, "dist", "_headers"), "w", encoding="utf-8") as f:
+    f.write("/*\n  Referrer-Policy: strict-origin-when-cross-origin\n")
 print("dist/index.html ·", len(html) // 1024, "KB")
