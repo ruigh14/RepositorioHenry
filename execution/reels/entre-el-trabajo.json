@@ -5,7 +5,7 @@
   "fin": 49.1,
   "pausa_max": 0.2,
   "margen": 0.1,
-  "subtitulos_y": 1550,
+  "subtitulos_y": 1490,
   "correcciones": {
     "quedas": "quedás",
     "arrancas": "arrancás",
@@ -35,7 +35,7 @@
   "carteles": [
     {
       "texto": "¿SIEMPRE EN ÚLTIMO LUGAR?",
-      "tamano": 80,
+      "tamano": 64,
       "desde": null,
       "hasta": 6.0
     }
