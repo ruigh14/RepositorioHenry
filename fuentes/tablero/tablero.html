@@ -131,6 +131,56 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
 #reporte .rf{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
 #reporte .rf img{width:100%;height:300px;object-fit:cover;border-radius:10px}
 #reporte .rp{margin-top:14px;font-size:11px;color:var(--mut);text-align:center}
+/* ===== prolijidad: todo centrado y alineado ===== */
+h1,.sub,#foco,#z-foco{text-align:center}
+.panel h2{text-align:center}
+.note{text-align:center}
+.tabs{justify-content:safe center}
+.presc{justify-content:center}
+.btns{justify-content:center}
+.top-sel{grid-template-columns:1fr!important;justify-items:center}
+.top-sel label{width:100%;max-width:420px}
+.top-sel label,.msel{text-align:center}
+.sel{display:block;margin:0 auto 10px}
+.setup{margin-left:auto;margin-right:auto}
+.photos{margin:0 auto}
+.pnav{max-width:640px;margin-left:auto;margin-right:auto}
+nav.views button{white-space:nowrap;padding:11px 4px;font-size:13.5px}
+@media(min-width:760px){nav.views{justify-content:center}nav.views button{padding:10px 18px}}
+@media(max-width:759px){.kpis .kpi:last-child:nth-child(odd){grid-column:1/-1;text-align:center}}
+.kpi{text-align:center}
+/* play grande en el centro de cada video */
+.exc .im .vid{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:0;border-radius:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.28));font-size:13px;letter-spacing:.03em}
+.exc .im .vid i{width:66px;height:66px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 6px 22px rgba(0,0,0,.35),0 0 0 6px rgba(255,255,255,.28);transition:transform .15s}
+.exc .im .vid i::after{content:"";border-left:21px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
+.exc .im .vid b{background:rgba(0,0,0,.55);padding:4px 12px;border-radius:999px}
+.exc .im .vid:active i{transform:scale(.92)}
+.exc .im .tp{z-index:2;pointer-events:none}
+/* medidas */
+.msel{max-width:420px;margin:0 auto 14px}
+.ses-info{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:var(--soft);border-radius:10px;padding:8px;text-align:center}
+.ses-info small{font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.04em;text-transform:uppercase}
+.ses-info b{font-family:"Inter Tight",Inter,sans-serif;font-size:22px;color:var(--red2)}
+.ses-info span{display:flex;gap:6px}
+.ses-info i{font-style:normal;font-weight:800;font-size:12px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--mut);border:1px solid var(--line)}
+.ses-info i.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.lifts{grid-column:1/-1;display:grid;gap:8px}
+.lh,.lr{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:8px;align-items:center}
+.lh span{font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.04em;text-transform:uppercase;text-align:center}
+.lh span:first-child{text-align:left}
+.lr .n{font-weight:700;font-size:14px}
+.lr input{text-align:center}
+/* tabla de entrenamientos */
+.tbl-wrap{overflow-x:auto}
+table.ent{width:100%;border-collapse:collapse;font-size:14px;text-align:center}
+table.ent th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);padding:8px 6px;border-bottom:2px solid var(--line)}
+table.ent td{padding:9px 6px;border-bottom:1px solid var(--line)}
+table.ent td:first-child,table.ent th:first-child{text-align:left;font-weight:700}
+table.ent .ok{color:var(--ok);font-weight:800}
+table.ent .ok small{display:block;color:var(--mut);font-weight:600;font-size:11px}
+table.ent .no{color:#c3c8cc}
+table.ent tr.hoy td{background:var(--soft)}
+table.ent td.tot{font-weight:800}
 </style>
 </head>
 <body>
@@ -216,7 +266,12 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
         <div class="panel" style="margin-top:0"><h2>Peso y <b>cintura</b></h2><div class="chart"><canvas id="c-cuerpo"></canvas></div></div>
         <div class="panel" style="margin-top:0"><h2>Sesiones <b>cumplidas</b></h2><div class="ring"><canvas id="c-ses"></canvas></div></div>
       </div>
-      <div class="grid half">
+      <section class="panel">
+        <h2>Mis <b>entrenamientos</b></h2>
+        <div class="tbl-wrap"><table class="ent" id="ent"></table></div>
+        <p class="note">Se completa solo cuando tocás “Terminar sesión” (o “Terminar rutina” en zona media).</p>
+      </section>
+      <div class="grid half" style="margin-top:12px">
         <div class="panel" style="margin-top:0"><h2>Fuerza estimada <b>(1RM)</b></h2><div class="chart"><canvas id="c-fza"></canvas></div></div>
         <div class="panel" style="margin-top:0"><h2>Perímetros <b>semana 1 vs última</b></h2><div class="chart"><canvas id="c-per"></canvas></div></div>
       </div>
@@ -237,10 +292,10 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
       <h1>Mis <span>medidas</span></h1>
       <section class="panel" style="margin-top:0">
         <h2>Cargar <b>semana</b></h2>
-        <div class="tabs" id="tabs"></div>
+        <label class="msel">Semana<select id="msel"></select></label>
         <div class="form" id="form"></div>
         <div class="btns"><button class="btn" id="save">Guardar medidas</button></div>
-        <p class="note">Peso: el promedio de tus 3 pesadas de la semana. Perímetros y fotos: semanas 1, 4 y 8. Fuerza: tu test de las semanas 1 y 8 (peso, repeticiones y RIR).</p>
+        <p class="note">Peso: el promedio de tus 3 pesadas de la semana. Perímetros y fotos: semanas 1, 4 y 8. Fuerza: tu test de las semanas 1 y 8 (peso y repeticiones). Los entrenamientos se cuentan solos al tocar “Terminar sesión”.</p>
       </section>
       <section class="panel">
         <h2>Fotos <b>antes y después</b></h2>
@@ -306,6 +361,8 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
   const rutinas = () => DATA[modo()].rutinas;
   const conCarga = r => rutinas()[r].map((e, i) => ({ e, i })).filter(x => x.e.t !== 'Z');   // índice estable de cargas (sin zona media)
   const exId = (r, j) => r + j;
+  const hoy = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+  const ddmm = f => typeof f === 'string' && f.length >= 10 ? f.slice(8, 10) + '/' + f.slice(5, 7) : '';
 
   // ---------- acceso con código (barrera simple: el código está en el ebook)
   async function sha(t) { const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t.trim().toUpperCase())); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join(''); }
@@ -339,7 +396,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     const items = lista.map((e, i) => ({ e, j: idx[i] })), m = Math.ceil(items.length / 2);
     return [items.slice(0, m), items.slice(m)];
   }
-  const hechas = w => 'ABC'.split('').filter(r => (S.fin && S.fin[w] && S.fin[w][r]) || (S.cargas[w] && Object.keys(S.cargas[w]).some(k => k[0] === r)));
+  const hechas = w => 'ABC'.split('').filter(r => S.fin && S.fin[w] && S.fin[w][r]);   // una rutina cuenta cuando se toca “Terminar sesión”
   function tarjeta(e, dose, j) {
     const cw = S.cargas[week] || {}, v = j != null ? (cw[exId(rut, j)] || {}) : {};
     const tipo = { P: 'Principal', A: 'Accesorio', Z: 'Zona media' }[e.t] || (parte === 0 ? 'Entrada en calor' : 'Elongación');
@@ -350,7 +407,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
         <label>Reps<input data-j="${j}" data-f="r" inputmode="numeric" value="${v.r ?? ''}"></label>
         <label>RIR<input data-j="${j}" data-f="x" inputmode="numeric" value="${v.x ?? ''}"></label></div>
       ${prev ? `<div class="prev">Última vez · ${prev}</div>` : ''}`;
-    return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">${tipo}</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener">▶ Video</a></div>
+    return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">${tipo}</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener" aria-label="Ver video: ${e.n}"><i></i><b>Ver video</b></a></div>
       <div class="bd"><h3>${e.n}</h3><div class="mus">${e.mus} · ${e.mat}</div><span class="dose">${dose}</span>
       <details><summary>Cómo se hace</summary><p>${e.how}</p>${e.evita ? `<p class="ev"><b>Evitá:</b> ${e.evita}</p>` : ''}${e.princ ? `<p><b>Principiante:</b> ${e.princ}</p>` : ''}</details>
       ${inputs}</div></article>`;
@@ -392,8 +449,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     save();
   });
   function terminar() {
-    S.fin = S.fin || {}; S.fin[week] = S.fin[week] || {}; S.fin[week][rut] = true;
-    S.weeks[week] = S.weeks[week] || {}; S.weeks[week].sesiones = Math.max(S.weeks[week].sesiones || 0, hechas(week).length);   // las sesiones se cuentan solas
+    S.fin = S.fin || {}; S.fin[week] = S.fin[week] || {}; S.fin[week][rut] = hoy();   // fecha en que la terminó: las sesiones se cuentan solas
     if (save()) toast('¡Rutina ' + rut + ' de la semana ' + week + ' terminada!');
     const sig = 'ABC'.split('').find(r => !hechas(week).includes(r));
     if (sig) rut = sig; else if (week < 8) { week++; rut = 'A'; }
@@ -427,7 +483,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     const v = ((S.zona || {})[week] || {})[zr + ':' + e.img], tiempo = /tiempo/.test(e.dosis);
     let prev = '';
     for (let w = week - 1; w >= 1 && !prev; w--) { const c = ((S.zona || {})[w] || {})[zr + ':' + e.img]; if (c != null) prev = 'Semana ' + w + ': ' + c + (tiempo ? ' s' : ' reps'); }
-    return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">Zona media</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener">▶ Video</a></div>
+    return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">Zona media</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener" aria-label="Ver video: ${e.n}"><i></i><b>Ver video</b></a></div>
       <div class="bd"><h3>${e.n}</h3><div class="mus">${e.mus} · ${e.mat}</div><span class="dose">${zDosis(e.dosis)}</span>
       <details><summary>Cómo se hace</summary><p>${e.how}</p>${e.evita ? `<p class="ev"><b>Evitá:</b> ${e.evita}</p>` : ''}${e.princ ? `<p><b>Más fácil:</b> ${e.princ}</p>` : ''}<p><b>Más difícil:</b> ${e.mas}</p></details>
       <div class="in one"><label>Logré en la última vuelta (${tiempo ? 'segundos' : 'repeticiones'})<input data-z="${e.img}" inputmode="numeric" value="${v ?? ''}"></label></div>
@@ -469,7 +525,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
     save();
   });
   $('z-fin').onclick = () => {
-    S.zfin = S.zfin || {}; S.zfin[week] = S.zfin[week] || {}; S.zfin[week][zr] = true;
+    S.zfin = S.zfin || {}; S.zfin[week] = S.zfin[week] || {}; S.zfin[week][zr] = hoy();
     if (save()) toast('¡Rutina ' + zr + ' de zona media terminada!');
     const sig = zRec(week).find(r => !zHecha(week, r));
     if (sig) zr = sig; else if (week < 8 && zRec(week).every(r => zHecha(week, r))) { week++; zr = null; }
@@ -477,24 +533,34 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
   };
 
   // ---------- MEDIDAS
-  function tabs() {
-    $('tabs').innerHTML = Array.from({ length: 8 }, (_, i) => {
+  function tabs() {   // semana de medidas en lista desplegable
+    $('msel').innerHTML = Array.from({ length: 8 }, (_, i) => {
       const w = i + 1, d = S.weeks[w] && Object.keys(S.weeks[w]).some(k => k !== 'sesiones');
-      return `<button class="tab ${w === week ? 'on' : ''} ${d ? 'done' : ''}" data-w="${w}">Semana ${w}</button>`;
+      return `<option value="${w}" ${w === week ? 'selected' : ''}>Semana ${w}${d ? ' · cargada ✓' : ''}</option>`;
     }).join('');
-    $('tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { week = +b.dataset.w; render(); });
+    $('msel').onchange = () => { week = +$('msel').value; render(); };
   }
   function form() {
-    const d = S.weeks[week] || {}, lifts = LIFTS[modo()], v = k => d[k] != null ? d[k] : '';
+    const d = S.weeks[week] || {}, lifts = LIFTS[modo()], v = k => d[k] != null ? d[k] : '', h0 = hechas(week);
     let h = `<label>Peso promedio (kg)<input data-k="peso" inputmode="decimal" value="${v('peso')}"></label>
-             <label>Sesiones hechas (0–3)<input data-k="sesiones" type="number" min="0" max="3" inputmode="numeric" value="${v('sesiones')}"></label>`;
+             <div class="ses-info"><small>Entrenamientos</small><b>${h0.length}/3</b><span>${'ABC'.split('').map(r => `<i class="${h0.includes(r) ? 'on' : ''}">${r}</i>`).join('')}</span></div>`;
     h += `<div class="sec">Perímetros (cm)</div>` + PER.map(([k, t]) => `<label>${t}<input data-k="${k}" inputmode="decimal" value="${v(k)}"></label>`).join('');
-    h += `<div class="sec">Test de fuerza: peso · repeticiones · RIR</div>` + lifts.map((n, i) =>
-      `<div class="lift"><span class="n">${n}</span>
-        <label>Peso (kg)<input data-k="l${i}p" inputmode="decimal" value="${v('l' + i + 'p')}" placeholder="${i === 1 && modo() === 'casa' ? 'sin peso' : ''}"></label>
-        <label>Reps<input data-k="l${i}r" inputmode="numeric" value="${v('l' + i + 'r')}"></label>
-        <label>RIR<input data-k="l${i}x" inputmode="numeric" value="${v('l' + i + 'x')}"></label></div>`).join('');
+    h += `<div class="sec">Test de fuerza: peso y repeticiones</div><div class="lifts"><div class="lh"><span>Ejercicio</span><span>Peso (kg)</span><span>Reps</span></div>` +
+      lifts.map((n, i) => `<div class="lr"><span class="n">${n}</span>
+        <input data-k="l${i}p" inputmode="decimal" aria-label="Peso ${n}" value="${v('l' + i + 'p')}" placeholder="${i === 1 && modo() === 'casa' ? 'sin peso' : ''}">
+        <input data-k="l${i}r" inputmode="numeric" aria-label="Repeticiones ${n}" value="${v('l' + i + 'r')}"></div>`).join('') + '</div>';
     $('form').innerHTML = h;
+  }
+  function entTabla() {   // semana × rutinas, con la fecha en que se terminó cada una
+    const zona = !!Z || (S.zfin && Object.keys(S.zfin).length);
+    let h = `<thead><tr><th>Semana</th><th>A</th><th>B</th><th>C</th>${zona ? '<th>Zona media</th>' : ''}<th>Total</th></tr></thead><tbody>`;
+    for (let w = 1; w <= 8; w++) {
+      const f = (S.fin && S.fin[w]) || {}, hh = hechas(w);
+      const cel = r => hh.includes(r) ? `<td class="ok">✓<small>${ddmm(f[r])}</small></td>` : '<td class="no">–</td>';
+      const zn = zona ? '1234'.split('').filter(r => zHecha(w, r)).length : 0;
+      h += `<tr class="${w === week ? 'hoy' : ''}"><td>S${w}${w === 4 || w === 8 ? ' · desc.' : ''}</td>${'ABC'.split('').map(cel).join('')}${zona ? `<td class="${zn ? 'ok' : 'no'}">${zn ? zn + '/2' : '–'}</td>` : ''}<td class="tot">${hh.length}/3</td></tr>`;
+    }
+    $('ent').innerHTML = h + '</tbody>';
   }
   $('save').onclick = () => {
     const d = {};
@@ -510,7 +576,7 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
   const last = a => [...a].reverse().find(x => x != null) ?? null;
   function fuerza(w) {
     const d = S.weeks[w]; if (!d) return null;
-    const v = [0, 1, 2].map(i => e1rm(d['l' + i + 'p'], d['l' + i + 'r'], d['l' + i + 'x']));
+    const v = [0, 1, 2].map(i => e1rm(d['l' + i + 'p'], d['l' + i + 'r'], 0));   // test de fuerza: peso y repeticiones (el RIR es de los entrenamientos)
     return v.some(x => x != null) ? v : null;
   }
   function delta(el, a, b, unit, goodDown) {
@@ -528,7 +594,8 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
   function chart(id, cfg) { if (charts[id]) charts[id].destroy(); charts[id] = new Chart($(id), cfg); }
 
   function progreso() {
-    const peso = serie('peso'), cin = serie('cintura'), ses = serie('sesiones');
+    const peso = serie('peso'), cin = serie('cintura'), ses = Array.from({ length: 8 }, (_, i) => hechas(i + 1).length);   // de lo que completó
+    entTabla();
     $('k-peso').textContent = last(peso) != null ? fmt(last(peso)) + ' kg' : '–'; delta($('d-peso'), first(peso), last(peso), 'kg', true);
     $('k-cin').textContent = last(cin) != null ? fmt(last(cin)) + ' cm' : '–'; delta($('d-cin'), first(cin), last(cin), 'cm', true);
     const done = ses.reduce((a, b) => a + (b || 0), 0);
@@ -633,7 +700,8 @@ footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
           <div><small>Sesiones</small><strong>${k('k-ses')}</strong><em>${k('d-ses')}</em></div>
           <div><small>Cintura / altura</small><strong>${k('k-ict')}</strong><em>${k('d-ict')}</em></div></div>
         <div class="rg"><div><h3>Peso y cintura</h3><img src="${charts['c-cuerpo'].toBase64Image()}"></div><div><h3>Fuerza estimada</h3><img src="${charts['c-fza'].toBase64Image()}"></div></div>
-        ${filas ? `<h3>Mis cargas: primera semana vs última</h3><table><thead><tr><th>Ejercicio</th><th>Inicio</th><th>Última</th><th>Cambio</th></tr></thead><tbody>${filas}</tbody></table>` : ''}
+        <h3>Mis entrenamientos</h3><table class="ent">${$('ent').innerHTML}</table>
+        ${filas ? `<h3 style="margin-top:14px">Mis cargas: primera semana vs última</h3><table><thead><tr><th>Ejercicio</th><th>Inicio</th><th>Última</th><th>Cambio</th></tr></thead><tbody>${filas}</tbody></table>` : ''}
         ${f1 || f8 ? `<h3 style="margin-top:14px">Fotos</h3><div class="rf">${f1 ? `<img src="${f1}">` : '<div></div>'}${f8 ? `<img src="${f8}">` : '<div></div>'}</div>` : ''}
         <p class="rp">RENOVA · MÉTODO 40 · Ignacio Portillo</p>`;
       await new Promise(r => setTimeout(r, 300));

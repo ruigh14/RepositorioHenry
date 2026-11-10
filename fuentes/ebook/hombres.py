@@ -11,7 +11,7 @@ la carga sube cada semana (1→2→3 y 5→6→7) con descarga en la 4 y en la 8
 El esfuerzo se controla con RIR (repeticiones en reserva). Miembros inferiores: solo ejercicios bipodales.
 Gimnasio: cada rutina suma un ejercicio de brazos.
 Cada ejercicio usa un video propio de Ignacio en Harbiz (con la marca LEVEL UP: Nacho decidió dejarla) y una captura
-de ese video (img/m40/). La guía de métricas enseña a medir (balanza, cinta, fotos), a evaluar la fuerza con RIR y a
+de ese video (img/m40/). La guía de métricas enseña a medir (balanza, cinta, fotos), a evaluar la fuerza con un test de repeticiones (sin RIR: el RIR es el control de carga de los entrenamientos) y a
 usar el tablero web (fuentes/tablero/). Paleta: tokens --m40-* (body.m40 en style.css).
 Cada hoja se arma completa a mano: ningún bloque partido entre hojas y sin huecos grandes (ver FREE de export.js).
 """
@@ -452,7 +452,7 @@ def metricas():
  ["<b>Peso</b>", "Balanza", "3 veces por semana (promedio semanal)"],
  ["<b>Perímetros</b>", "Cinta métrica", "Semanas 1, 4 y 8"],
  ["<b>Fotos</b>", "Celular", "Semanas 1, 4 y 8"],
- ["<b>Fuerza</b>", "Test de repeticiones con RIR", "Semanas 1 y 8"],
+ ["<b>Fuerza</b>", "Test de repeticiones", "Semanas 1 y 8"],
 ])}
 <h2>Cómo usar esta guía</h2>
 {checks(["Leela entera antes de tu primera medición: son 15 minutos.", "Cargá cada dato en tu <b>tablero de progreso</b> (capítulo 07): calcula y grafica todo solo.",
@@ -522,14 +522,13 @@ def metricas():
 ''', chapter="03 · Fotos", pid="c3", toc="03 · Fotos de progreso")
 
     page(f'''
-{chap_head("04", 'Evaluación <span class="t">de fuerza</span>', "No hace falta levantar el máximo: con un test de repeticiones y el RIR estimás tu fuerza sin riesgo.")}
-<h2>Qué es el RIR</h2>
-<p>RIR son las <b>repeticiones en reserva</b>: las que te quedan al terminar la serie. Es la forma de medir el esfuerzo sin llegar al fallo.</p>
-{table(["RIR", "Cómo se siente"], [["4", "Podrías hacer 4 más. Esfuerzo moderado."], ["2", "Te quedan 2. Exigente, técnica perfecta."], ["1", "Te queda 1 sola."], ["0", "Fallo. No lo usamos."]], first="20%")}
-<h2>Cómo aprender a usarlo</h2>
-{checks(["Al principio vas a calcular de menos: casi todos creen que les quedan menos repeticiones de las que les quedan.",
-         "Probá en una serie: cuando creas que te quedan 2, hacé 1 más y fijate si acertaste.",
-         "En 2 o 3 semanas vas a calcularlo bien. Anotá siempre el RIR junto al peso."])}
+{chap_head("04", 'Evaluación <span class="t">de fuerza</span>', "No hace falta levantar el máximo: con un test de repeticiones estimás tu fuerza sin riesgo.")}
+<p>La balanza y la cinta te dicen cómo cambia tu cuerpo. El test de fuerza te dice <b>cuánto más podés levantar</b>: es la prueba más directa de que el programa funciona.</p>
+<h2>Qué ejercicios testear</h2>
+{table(["Testeá", "En casa", "En el gimnasio"], [["Piernas", "Sentadilla en copa", "Sentadilla con barra"], ["Empuje", "Flexiones (repeticiones)", "Press plano con barra"], ["Tirón", "Remo con mancuerna", "Remo en polea baja"]], first="18%")}
+<h2>Cuándo</h2>
+{checks(["<b>Semana 1:</b> con prudencia, para tener tu punto de partida.", "<b>Semana 8:</b> en la semana de descarga, descansado, para ver cuánto mejoraste.", "Nunca con dolor, enfermo o después de una noche sin dormir."])}
+{box("<b>El test no es un entrenamiento.</b> En el test anotás solo peso y repeticiones. El RIR es otra cosa: es el control de carga de tus entrenamientos (capítulo 05).", "note")}
 ''', chapter="04 · Fuerza", pid="c4", toc="04 · Evaluación de fuerza")
 
     page(f'''
@@ -538,29 +537,42 @@ def metricas():
 <ol class="steps-ol">
 <li>Hacé el calentamiento completo y 2 series de aproximación (50 % y 75 % del peso que vas a usar).</li>
 <li>Elegí un peso con el que creas poder hacer <b>entre 6 y 10 repeticiones</b>.</li>
-<li>Hacé una sola serie hasta quedarte con <b>RIR 1</b>: frená cuando te quede una sola en reserva.</li>
-<li>Anotá el peso, las repeticiones que hiciste y el RIR.</li>
+<li>Hacé una sola serie y <b>frená en la última repetición con técnica perfecta</b>: si la siguiente te sale fea o lenta, no la hagas.</li>
+<li>Anotá el peso y las repeticiones que hiciste.</li>
 <li>Descansá 3 minutos y pasá al ejercicio siguiente.</li>
 </ol>
-{table(["Testeá", "En casa", "En el gimnasio"], [["Piernas", "Sentadilla en copa", "Sentadilla con barra"], ["Empuje", "Flexiones (repeticiones)", "Press plano con barra"], ["Tirón", "Remo con mancuerna", "Remo en polea baja"]], first="18%")}
 <h2>Frená el test si…</h2>
-{checks(["Perdés la técnica, aunque te queden repeticiones.", "Aparece un dolor articular (no el cansancio muscular).", "Te mareás o te falta el aire."])}
-{box("<b>Cuándo:</b> en la semana 1, con prudencia, y en la semana 8 (descarga). Nunca hagas el test si te duele algo o dormiste muy mal.", "note")}
+{checks(["Perdés la técnica, aunque sientas que podés seguir.", "Aparece un dolor articular (no el cansancio muscular).", "Te mareás o te falta el aire."])}
+<h2>Para que el test sea comparable</h2>
+{checks(["Mismo ejercicio y misma técnica en la semana 1 y en la 8.", "Mismo calentamiento y mismo descanso entre series.", "Si es posible, a la misma hora del día."])}
+{box("<b>Nunca al fallo:</b> el objetivo es comparar la semana 1 con la 8, no romper un récord. Si te duele algo o dormiste muy mal, pasá el test a otro día.", "note")}
 ''', chapter="04 · Fuerza", pid="c4b")
 
     page(f'''
 {eyebrow("EVALUACIÓN DE FUERZA")}
 <h1 class="h1">Tu fuerza <span class="t">estimada</span></h1>
 <p class="lead">Con el test calculás tu máximo estimado para una repetición (1RM), sin levantarlo nunca.</p>
-<div class="box"><b>1RM estimado = peso × (1 + (repeticiones + RIR) ÷ 30)</b></div>
-{table(["Ejemplo", "Cuenta", "1RM estimado"], [["60 kg × 8 repeticiones con RIR 1", "60 × (1 + 9 ÷ 30)", "<b>78 kg</b>"]])}
-<p>No te preocupes por la cuenta: <b>tu tablero la hace solo</b>. Lo que importa es comparar el número de la semana 8 con el de la semana 1.</p>
+<div class="box"><b>1RM estimado = peso × (1 + repeticiones ÷ 30)</b></div>
+{table(["Ejemplo", "Cuenta", "1RM estimado"], [["60 kg × 8 repeticiones", "60 × (1 + 8 ÷ 30)", "<b>76 kg</b>"]])}
+<p>No te preocupes por la cuenta: <b>tu app la hace sola</b>. Lo que importa es comparar el número de la semana 8 con el de la semana 1. En las flexiones se comparan directamente las repeticiones.</p>
 <h2>Tu registro</h2>
-<div class="tall">{table(["Ejercicio", "Semana 1 (peso × reps · RIR)", "Semana 8 (peso × reps · RIR)"], [["Piernas", "", ""], ["Empuje", "", ""], ["Tirón", "", ""]], first="22%")}</div>
+<div class="tall">{table(["Ejercicio", "Semana 1 (peso × reps)", "Semana 8 (peso × reps)"], [["Piernas", "", ""], ["Empuje", "", ""], ["Tirón", "", ""]], first="22%")}</div>
 ''', chapter="04 · Fuerza", pid="c4c")
 
     page(f'''
-{chap_head("05", 'El RIR para <span class="t">progresar</span>', "El RIR no solo mide: te dice cuándo subir el peso. Así funciona tu plan de 8 semanas.")}
+{chap_head("05", 'RIR: el <span class="t">control de carga</span>', "El RIR no es una evaluación: es cómo controlás el esfuerzo de cada entrenamiento y decidís cuándo subir el peso.")}
+<h2>Qué es el RIR</h2>
+<p>RIR son las <b>repeticiones en reserva</b>: las que te quedan al terminar la serie. Es la forma de dosificar el esfuerzo sin llegar al fallo.</p>
+{table(["RIR", "Cómo se siente"], [["4", "Podrías hacer 4 más. Esfuerzo moderado."], ["2", "Te quedan 2. Exigente, técnica perfecta."], ["1", "Te queda 1 sola."], ["0", "Fallo. No lo usamos."]], first="20%")}
+<h2>Cómo aprender a usarlo</h2>
+{checks(["Al principio vas a calcular de menos: casi todos creen que les quedan menos repeticiones de las que les quedan.",
+         "Probá en una serie: cuando creas que te quedan 2, hacé 1 más y fijate si acertaste.",
+         "En 2 o 3 semanas vas a calcularlo bien. En la app anotá el RIR junto al peso de cada entrenamiento."])}
+''', chapter="05 · RIR", pid="c5a", toc="05 · RIR: el control de carga")
+
+    page(f'''
+{eyebrow("RIR · CONTROL DE CARGA")}
+<h1 class="h1">El RIR para <span class="t">progresar</span></h1>
 {table(["Si en la serie te quedaron…", "Entonces"], [
  ["Más repeticiones que el RIR del plan", "Subí el peso en la serie siguiente."],
  ["Justo el RIR del plan", "Es el peso correcto: mantenelo."],
@@ -571,7 +583,7 @@ def metricas():
 <p class="small">La carga sube cada semana y en la 4 y la 8 descargás. La semana 8 es la de tu evaluación final.</p>
 <h2>Un ejemplo real</h2>
 {table(["Semana", "Sentadilla", "RIR", "Decisión"], [["1", "16 kg × 12", "4", "Sobraron: subir"], ["2", "20 kg × 10", "3", "Correcto"], ["3", "22 kg × 8", "2", "Correcto"], ["4", "16 kg × 10", "4", "Descarga"]])}
-''', chapter="05 · RIR", pid="c5", toc="05 · El RIR para progresar")
+''', chapter="05 · RIR", pid="c5")
 
     page(f'''
 {chap_head("06", 'Cómo leer <span class="t">tus datos</span>', "Lo que importa es la combinación, no un número suelto.")}
