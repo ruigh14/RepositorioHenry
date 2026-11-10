@@ -82,9 +82,13 @@ def norm(w):
 
 def bloques(palabras, max_pal, max_car):
     grupo = []
-    for p in palabras:
-        texto = " ".join(x["w"] for x in grupo + [p])
-        if grupo and (len(grupo) >= max_pal or len(texto) > max_car):
+    for i, p in enumerate(palabras):
+        # Un número va siempre en el mismo bloque que la palabra siguiente ("8 SEMANAS", "35 AÑOS").
+        sigue = [palabras[i + 1]] if re.fullmatch(r"\d+", p["w"]) and i + 1 < len(palabras) else []
+        texto = " ".join(x["w"] for x in grupo + [p] + sigue)
+        if grupo and re.fullmatch(r"\d+", grupo[-1]["w"]):
+            pass
+        elif grupo and (len(grupo) + len(sigue) >= max_pal or len(texto) > max_car):
             yield grupo
             grupo = []
         grupo.append(p)

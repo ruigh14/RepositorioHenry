@@ -44,11 +44,11 @@
       "zoom": 1.35
     },
     {
-      "archivo": "../../.tmp/te-cuesta-comer-bien/pack_completo.png",
+      "archivo": "../../.tmp/te-cuesta-comer-bien/pack_completo_recorte.png",
       "desde": 21.38,
       "hasta": null,
-      "bajar": 340,
-      "alto": 880,
+      "bajar": 190,
+      "alto": 700,
       "fondo": "#0b1214"
     }
   ],
