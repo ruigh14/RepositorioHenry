@@ -44,11 +44,12 @@
       "zoom": 1.35
     },
     {
-      "archivo": "../../.tmp/te-cuesta-comer-bien/pack_libros_recorte.png",
+      "archivo": "../../.tmp/te-cuesta-comer-bien/pack_completo.png",
       "desde": 21.38,
-      "hasta": 26.25,
-      "ancho": 580,
-      "y": 255
+      "hasta": null,
+      "bajar": 340,
+      "alto": 880,
+      "fondo": "#0b1214"
     }
   ],
   "cierre": {
@@ -56,5 +57,6 @@
     "duracion": 2.5,
     "transicion": 0.4,
     "efecto": "fade"
-  }
+  },
+  "subtitulos_y": 1550
 }

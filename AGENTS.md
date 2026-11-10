@@ -21,6 +21,7 @@
 
 ### Registro de aprendizajes
 
+- **2026-11-10 — Preferencias de Nacho en reels:** nunca tapar ni cortar la cabeza con imágenes; para mostrar "todo lo que ofrecemos" prefiere el mockup completo con fondo azul (`pack-renova/pack_completo.png`, incluye los talleres) en pantalla dividida. **Por qué importa:** aplicarlo por defecto en cada reel nuevo (ver `directives/editar_reel.md`).
 - **2026-11-10 — Edición de reels:** `execution/editar_reel.py` + `directives/editar_reel.md` hacen la edición completa con un JSON por reel; Whisper necesita huggingface.co y us.aws.cdn.hf.co habilitados en el entorno y `HF_HUB_DISABLE_XET=1`. **Por qué importa:** antes de editar a mano, copiar el JSON de ejemplo, revisar la transcripción para sacar tomas falsas y correr el script.
 - **2026-10-13 — Sincronización de CLAUDE.md / AGENTS.md / GEMINI.md:** Los tres archivos deben ser idénticos byte a byte; la sincronización se hace con `execution/sync_agent_files.py` (toma como fuente el modificado más recientemente, o la indicada con `--source`). **Por qué importa:** nunca edites los tres a mano por separado; edita uno, ejecuta el script y verifica con `--check` antes de hacer commit.
 

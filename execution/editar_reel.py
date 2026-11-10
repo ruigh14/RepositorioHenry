@@ -167,9 +167,21 @@ def main():
     entradas = ["-i", str(video)]
     ult = "vb"
     for k, img in enumerate(cfg.get("imagenes", []), start=1):
-        a, b = a_nuevo(img["desde"], cortes), a_nuevo(img["hasta"], cortes)
+        a = a_nuevo(img["desde"], cortes)
+        b = dur if img.get("hasta") is None else a_nuevo(img["hasta"], cortes)
         d = b - a
         entradas += ["-loop", "1", "-t", f"{d:.3f}", "-i", str((base / img["archivo"]).resolve())]
+        if img.get("bajar"):   # pantalla dividida: la imagen entra desde arriba y el video baja, sin tapar la cabeza
+            fondo, alto, baja = img.get("fondo", "#0b1214"), img.get("alto", 880), img["bajar"]
+            sale = "1" if img.get("hasta") is None else f"clip(({b:.3f}-t)/0.3,0,1)"
+            r = f"(clip((t-{a:.3f})/0.3,0,1)*{sale})"
+            f.append(f"color=c={fondo}:s={W}x{H}:r={FPS}[lienzo{k}]")
+            f.append(f"[lienzo{k}][{ult}]overlay=0:'{baja}*{r}':shortest=1[vd{k}]")
+            f.append(f"[{k}:v]scale={W}:-2,pad={W}:{alto}:0:oh-ih:color={fondo},fps={FPS},setsar=1,"
+                     f"setpts=PTS-STARTPTS+{a:.3f}/TB[im{k}]")
+            f.append(f"[vd{k}][im{k}]overlay=0:'-{alto}*(1-{r})':eof_action=pass:enable='between(t,{a:.3f},{b:.3f})'[vo{k}]")
+            ult = f"vo{k}"
+            continue
         if img.get("ancho"):   # imagen con transparencia en una posición fija (ej. mockup sobre la cabeza)
             f.append(f"[{k}:v]scale={img['ancho']}:-2,fps={FPS},format=rgba,"
                      f"fade=in:st=0:d=0.2:alpha=1,fade=out:st={d - 0.2:.3f}:d=0.2:alpha=1,setpts=PTS-STARTPTS+{a:.3f}/TB[im{k}]")

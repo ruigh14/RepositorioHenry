@@ -27,6 +27,10 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
 - `cierre`: placa final a pantalla completa (`archivo`, `duracion` 2,5 s, `transicion` 0,4 s, `efecto` de xfade: `fade`, `slideup`…).
   El script estira el último tramo lo que dura la transición, así el fundido no tapa la última frase: poner `fin` al final real del video.
   Para "todo lo que ofrecemos" usar `pack-renova/pack_1.png` (vertical, 3 ebooks + 5 bonus).
+- Pantalla dividida (`imagenes[]` con `bajar`): la imagen entra deslizando desde arriba (alto `alto`, fondo `fondo`) y el video baja `bajar` px,
+  así un mockup horizontal se ve grande sin tapar la cabeza. Para el pack completo (ebooks + bonus + talleres) usar `pack-renova/pack_completo.png`
+  con `bajar` 340, `alto` 880, `fondo` #0b1214 y `hasta` null (queda hasta el cierre). Bajar los subtítulos a `subtitulos_y` 1550 para que no tapen el mentón.
+- Regla de Nacho: ninguna imagen puede tapar ni cortar la cabeza. Revisar cuadros con la cabeza más alta antes de entregar.
 - Subtítulos: Inter Display Black, blanco con borde negro, palabras clave en turquesa #14B1C7, a 1440 px (encima de la zona segura de abajo de 340 px).
 
 **Casos extremos y aprendizajes**
