@@ -1,6 +1,6 @@
 # Ebook "Sin TACC Inteligente" — para revisar con Eugenia (11/11/2026)
 
-PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (41 páginas). Fuente: `fuentes/ebook/sintacc.py`.
+PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (39 páginas). Fuente: `fuentes/ebook/sintacc.py`.
 
 ## Antes que nada
 - **Nombre:** Lic. María Eugenia Aldrey, M.N. 11773 (confirmado por Nacho el 11/11/2026; corregido en todos los ebooks y landings).
@@ -38,6 +38,8 @@ PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (41 páginas).
 
 - Oferta final: ahora es una **consulta nutricional Sin TACC con Euge** (el plan integral con Nacho queda como opción).
   Usa el mismo WhatsApp de RENOVA (wa.link/1asjt1). ¿Euge tiene lugar para estas consultas? ¿Hay precio o beneficio por haber comprado la guía?
+
+- Sin referencias bibliográficas (pedido de Nacho, 11/11): se sacó la página de fuentes y la cita del cap. 2; la aclaración médica pasó a la bienvenida. Las fuentes siguen en investigacion/sin-tacc/etapa2.
 
 ## Pendiente de Nacho
 - Landing propia (con el código de precios de Impultienda) y mockups del ebook.

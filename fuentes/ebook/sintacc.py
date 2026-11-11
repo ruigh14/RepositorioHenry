@@ -157,6 +157,7 @@ page(f'''
      "<b>Usá la lista de compras y el plan 80/20 todas las semanas.</b> Están también en versión imprimible al final.",
      "<b>Cociná las recetas</b> y repetí las que más te gusten.",
      "<b>No reemplaza a tu médico/a ni a tu nutricionista:</b> es una guía práctica para el día a día."])}
+{box("<b>Material educativo general.</b> Esta guía no reemplaza la consulta médica ni nutricional. La alimentación sin TACC es para personas con celiaquía diagnosticada. Ante síntomas, dudas o medicación, consultá con tu equipo de salud.", "note")}
 ''', chapter="Bienvenida", pid="bienvenida")
 
 page("__TOC__", chapter="Índice", pid="indice")
@@ -191,14 +192,13 @@ page(f'''
 {checks(["La base de tu semana son <b>alimentos naturalmente sin TACC</b>: verduras, frutas, carnes, huevos, legumbres, arroz, papa, batata, quinoa, lácteos.",
          "Los envasados aptos los usás <b>para resolver</b>, no como base: un pan para el desayuno, una galletita para la cartera.",
          "Cuando compres uno, <b>leé la etiqueta</b> y elegí el que tenga menos ingredientes, menos azúcar y más fibra."])}
-<p class="small">Fuentes: Melini y Melini, <i>Nutrients</i> 2019 (revisión); comparación de productos sin gluten y con gluten, 2024. Ver página <span class="pref" data-ref="fuentes"></span>.</p>
 ''', chapter="02 · Los envasados", pid="c2", toc="02 · La trampa de los envasados sin gluten")
 
 # ================================================================== 03
 page(f'''
 {chap_head("03", 'Leer la etiqueta <span class="t">Sin TACC</span>', "En 30 segundos sabés si un producto es apto y si te conviene. Basado en el taller de Eugenia en la comunidad RENOVA.")}
 <h2>Paso 1 · ¿Es apto?</h2>
-{checks(["Buscá el <b>logo oficial</b>: hoy conviven el anterior, <b>\"Sin T.A.C.C.\"</b>, y el nuevo, <b>\"sin GLUTEN\"</b> (Resolución Conjunta 32/2023, con 3 años para adecuarse). Los dos son válidos.",
+{checks(["Buscá el <b>logo oficial</b>: hoy conviven el anterior, <b>\"Sin T.A.C.C.\"</b>, y el nuevo, <b>\"sin GLUTEN\"</b> (desde fines de 2023 conviven los dos). Los dos son válidos.",
          f"<b>Comprobá que el producto figure vigente</b> en el Listado Integrado de Alimentos Libres de Gluten de ANMAT (<a href=\"{LINK_ANMAT}\">listadoalg.anmat.gob.ar</a>): hubo productos con logos que no correspondían.",
          "<b>No compres sueltos, a granel ni artesanales sin rótulo</b>: no hay forma de saber si se contaminaron."])}
 <h2>Paso 2 · ¿Me conviene?</h2>
@@ -400,23 +400,6 @@ page(f'''
 <p class="small">Completalo el día de cocina y revisalo antes de la próxima compra.</p>
 {table(["Lo que dejé preparado", "Para cuántas comidas", "Lo que falta reponer", "Receta para repetir"], [["", "", "", ""] for _ in range(6)])}
 ''', chapter="Imprimibles", pid="imp-registro", toc="Imprimible: registro 80/20 y organización")
-
-# ================================================================== FUENTES
-page(f'''
-{eyebrow("FUENTES")}
-<h1 class="h1">Fuentes <span class="t">y aclaraciones</span></h1>
-{ul(["ANMAT. <i>La enfermedad celíaca: consideraciones generales y normativa vigente</i>. anmat.gob.ar/Alimentos/celiacos_y_alimentos.pdf",
-     f"ANMAT. <i>Listado Integrado de Alimentos Libres de Gluten</i>. {LINK_ANMAT}",
-     "Ministerio de Salud de la Nación. <i>Celiaquía: guía rápida para consumidores</i>. argentina.gob.ar",
-     "Resolución Conjunta 32/2023 (Boletín Oficial, 1/12/2023): modifica los artículos 1383 y 1383 bis del Código Alimentario Argentino (nuevo logo \"sin GLUTEN\").",
-     "Ley 26.588 de Celiaquía y modificatoria Ley 27.196.",
-     "Ministerio de Salud de la Nación (2016). <i>Guías Alimentarias para la Población Argentina</i>.",
-     "Melini, V., y Melini, F. (2019). Gluten-free diet: gaps and needs for a healthier diet. <i>Nutrients</i>, 11(1), 170. doi:10.3390/nu11010170",
-     "Comparación de productos sin gluten y con gluten disponibles en EE. UU. (2024). PubMed 39666134.",
-     "Lic. en Nutrición del equipo RENOVA. Taller \"Cómo leer y elegir productos en el súper\" y pautas de fibra."])}
-{box("<b>Material educativo general.</b> Esta guía no reemplaza la consulta médica ni nutricional. La alimentación sin TACC es para personas con celiaquía diagnosticada. Ante síntomas, dudas o medicación, consultá con tu equipo de salud.", "note")}
-<p class="small">Autores: {AUTOR} y Lic. {NUTRI} ({MATRICULA}) · Equipo RENOVA.</p>
-''', chapter="Fuentes", pid="fuentes", toc="Fuentes y aclaraciones")
 
 # ================================================================== CIERRE
 page(f'''
