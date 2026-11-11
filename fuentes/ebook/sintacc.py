@@ -60,11 +60,11 @@ def receta(titulo, **cambios):
 
 
 RECETAS = [
-    receta("Pancake de coco", ing=["2 huevos (o 1 huevo y 1 clara)", "5 cdas de coco rallado", "1 cdita de polvo de hornear con logo Sin TACC", "Esencia de vainilla y gotas de stevia"],
+    receta("Pancake de coco", ing=["2 huevos (o 1 huevo y 1 clara)", "5 cdas de coco rallado", "1 cdita de polvo de hornear con logo oficial", "Esencia de vainilla y gotas de stevia"],
            cambio="coco por harina de almendras; stevia por fruta pisada."),
     receta("Granola de quinoa", ing=["1 taza de quinoa cocida (⅓ taza cruda)", "¼ taza de semillas de girasol y zapallo", "¼ taza de frutos secos picados", "¼ taza de coco rallado y canela"],
            cambio="si la querés más dulce, 2 dátiles picados en lugar de miel o azúcar."),
-    receta("Galletitas de 4 ingredientes sin azúcar", ing=["¼ taza de harina de garbanzos con logo Sin TACC", "2 cdas de pasta de maní", "4 dátiles sin carozo (remojados si están secos)", "4 nueces picadas, 3 cdas de agua y ½ cdita de polvo de hornear Sin TACC"]),
+    receta("Galletitas de 4 ingredientes sin azúcar", ing=["¼ taza de harina de garbanzos con logo oficial", "2 cdas de pasta de maní", "4 dátiles sin carozo (remojados si están secos)", "4 nueces picadas, 3 cdas de agua y ½ cdita de polvo de hornear Sin TACC"]),
     receta("Crackers de semillas"),
     receta("Ensalada tibia de vegetales, legumbres y pollo"),
     receta("Pescado al horno con papas y vegetales"),
@@ -72,8 +72,8 @@ RECETAS = [
     receta("Batatas rellenas de pollo y queso"),
     receta("Tortilla de verduras en sartén"),
     receta("Pollo con calabaza en una sola fuente"),
-    receta("Crema de zapallo con lentejas rojas", ing=["500 g de zapallo en cubos", "½ taza de lentejas rojas", "1 cebolla", "Caldo casero o agua (si usás caldo en cubo, con logo Sin TACC), sal y comino"]),
-    receta("Milanesas de berenjena", ing=["1 berenjena grande en rodajas", "2 huevos batidos", "Rebozador o pan rallado con logo Sin TACC, polenta o semillas, con orégano", "Queso y tomate para napolitana (opcional)"],
+    receta("Crema de zapallo con lentejas rojas", ing=["500 g de zapallo en cubos", "½ taza de lentejas rojas", "1 cebolla", "Caldo casero o agua (si usás caldo en cubo, con logo oficial), sal y comino"]),
+    receta("Milanesas de berenjena", ing=["1 berenjena grande en rodajas", "2 huevos batidos", "Rebozador o pan rallado con logo oficial, polenta o semillas, con orégano", "Queso y tomate para napolitana (opcional)"],
            cambio="berenjena por zucchini o pechuga de pollo; acompañá con una proteína."),
 ]
 
@@ -115,7 +115,7 @@ page(f'''
 <h2>Qué es TACC</h2>
 <div class="tips10">
   <div><span>T</span><h3>Trigo</h3><p>Harina, pan, fideos, galletitas, rebozadores.</p></div>
-  <div><span>A</span><h3>Avena</h3><p>En Argentina no se considera apta: queda fuera, aunque diga "sin gluten".</p></div>
+  <div><span>A</span><h3>Avena</h3><p>Solo si el producto está autorizado y figura vigente en el listado de ANMAT. Si no, afuera.</p></div>
   <div><span>C</span><h3>Cebada</h3><p>Malta, cerveza, algunas bebidas y extractos.</p></div>
   <div><span>C</span><h3>Centeno</h3><p>Panes y galletas de centeno.</p></div>
 </div>
@@ -146,8 +146,8 @@ page(f'''
 page(f'''
 {chap_head("03", 'Leer la etiqueta <span class="t">Sin TACC</span>', "En 30 segundos sabés si un producto es apto y si te conviene. Basado en el taller de Eugenia en la comunidad RENOVA.")}
 <h2>Paso 1 · ¿Es apto?</h2>
-{checks(["Buscá el <b>logo oficial Sin TACC</b> y la leyenda \"Sin TACC\" o \"libre de gluten\".",
-         f"Si tenés dudas, buscalo en el <b>Listado Integrado de Alimentos Libres de Gluten de ANMAT</b> (<a href=\"{LINK_ANMAT}\">listadoalg.anmat.gob.ar</a>): hubo productos con logos que no correspondían.",
+{checks(["Buscá el <b>logo oficial</b>: hoy conviven el anterior, <b>\"Sin T.A.C.C.\"</b>, y el nuevo, <b>\"sin GLUTEN\"</b> (Resolución Conjunta 32/2023, con 3 años para adecuarse). Los dos son válidos.",
+         f"<b>Comprobá que el producto figure vigente</b> en el Listado Integrado de Alimentos Libres de Gluten de ANMAT (<a href=\"{LINK_ANMAT}\">listadoalg.anmat.gob.ar</a>): hubo productos con logos que no correspondían.",
          "<b>No compres sueltos, a granel ni artesanales sin rótulo</b>: no hay forma de saber si se contaminaron."])}
 <h2>Paso 2 · ¿Me conviene?</h2>
 {table(["Mirá", "Qué buscar"], [
@@ -164,13 +164,13 @@ page(f'''
 {eyebrow("LEER LA ETIQUETA")}
 <h1 class="h1">Marketing <span class="t">que confunde</span></h1>
 {table(["Lo que dice el envase", "Lo que tenés que saber"], [
- ["\"Sin gluten\" sin logo oficial", "No alcanza: buscá el logo Sin TACC o el producto en el listado de ANMAT."],
+ ["\"Sin gluten\" escrito, sin logo oficial", "No alcanza: buscá el logo oficial y el producto en el listado de ANMAT."],
  ["\"Natural\", \"light\", \"0%\"", "No significa saludable ni apto. Leé la etiqueta."],
- ["\"Avena sin gluten\"", "En Argentina la avena no se rotula Sin TACC. Dejala afuera."],
+ ["\"Avena sin gluten\"", "Solo si tiene logo oficial y figura vigente en el listado de ANMAT. Si no lo encontrás, no la compres."],
  ["\"Puede contener trazas de trigo\"", "No es apto."],
  ["\"Integral\" o \"multicereal\"", "Si es de trigo, avena, cebada o centeno, no es apto aunque sea integral."],
 ])}
-<div class="cols2 keep"><div class="esen"><h3>Elegí</h3>{checks(["Productos con logo y pocos ingredientes", "Harinas de legumbres, arroz integral, quinoa, trigo sarraceno con logo", "Yogur natural, quesos con logo", "Frutos secos y semillas envasados con logo"])}</div>
+<div class="cols2 keep"><div class="esen"><h3>Elegí</h3>{checks(["Productos con logo y pocos ingredientes", "Harinas de legumbres, arroz integral, quinoa, trigo sarraceno con logo oficial", "Yogur natural, quesos con logo", "Frutos secos y semillas envasados con logo"])}</div>
 <div class="esen"><h3>Limitá</h3>{ul(["Panificados y galletitas dulces aptos de todos los días", "Snacks y rebozados industriales", "Productos con muchos octógonos", "Lo suelto o sin rótulo: no comprar"])}</div></div>
 ''', chapter="03 · Leer la etiqueta", pid="c3b")
 
@@ -182,6 +182,11 @@ page(f'''
   <div><span>02</span><h3>Primero lo Sin TACC</h3><p>Cociná primero lo apto y después lo demás. Lavá bien sartenes y mesada entre una cosa y otra.</p></div>
   <div><span>03</span><h3>Aceite y agua aparte</h3><p>No frías en el aceite donde se hizo algo rebozado ni hiervas fideos aptos en el agua de los comunes.</p></div>
 </div>
+<h2>Antes de cocinar</h2>
+{checks(["<b>Lavate las manos</b> antes de empezar y después de tocar algo con gluten.",
+         "<b>Limpiá la mesada</b> con un trapo o esponja propios.",
+         "<b>Separá lo ya preparado</b> Sin TACC: tapado y lejos de harinas y pan.",
+         "<b>Licuadora, procesadora y mixer:</b> si no se pueden desarmar y lavar bien, conviene que sean solo para lo Sin TACC."])}
 <h2>Si en tu casa se come con gluten</h2>
 {checks(["Un estante de la alacena y otro de la heladera solo Sin TACC, arriba (para que no caigan migas).",
          "Frascos propios de manteca, dulces y untables: un cuchillo con migas los contamina.",
@@ -203,7 +208,7 @@ page(f'''
  ["<b>Frutos secos</b> (envasados con logo)", "✓", "✓"],
 ])}
 {ul(["<b>Sumá fibra de a poco:</b> si de golpe agregás mucha, puede hincharte. Subí de a una porción por semana.",
-     "<b>Tomá agua:</b> 2 a 3 litros por día ayudan a que la fibra funcione.",
+     "<b>Tomá agua:</b> la fibra necesita líquido. Como referencia general se habla de unos 2 litros de líquidos por día, sobre todo agua; tu necesidad depende de tu actividad, el clima y tu salud.",
      "<b>Proteína en cada comida:</b> huevo, yogur, queso, carne, pescado o legumbres."])}
 <p class="small">Como referencia general se recomiendan 20 a 35 g de fibra por día. Tu cantidad la ajusta tu nutricionista.</p>
 ''', chapter="05 · Fibra y proteína", pid="c5", toc="05 · Fibra y proteína sin gluten")
@@ -237,18 +242,18 @@ GONDOLAS = [
     ("Verdulería", "Naturalmente sin TACC", ["Verduras de hoja: lechuga, espinaca, acelga, rúcula", "Zapallo, calabaza, zanahoria, brócoli, coliflor, zucchini, berenjena, morrón, tomate", "Papa, batata, choclo, cebolla, ajo", "Frutas de estación", "Hierbas frescas"]),
     ("Carnicería y pescadería", "Naturalmente sin TACC (frescos, sin condimentar)", ["Carne vacuna magra, pollo, cerdo magro", "Pescado fresco o congelado al natural", "Evitá: milanesas, hamburguesas y embutidos sin logo"]),
     ("Lácteos y huevos", "Con logo los quesos y yogures", ["Huevos", "Leche y yogur natural con logo", "Quesos con logo: untable, fresco, port salut, ricota"]),
-    ("Almacén", "Siempre con logo Sin TACC", ["Arroz (blanco, integral, yamaní), quinoa, polenta", "Fideos y harinas Sin TACC (de arroz, garbanzo, almendras, premezcla)", "Legumbres secas o en lata con logo", "Atún y caballa al natural", "Aceite de oliva, vinagre", "Especias, caldos y salsas con logo (salsa de soja: solo con logo)", "Polvo de hornear y levadura con logo"]),
-    ("Desayuno y colaciones", "Siempre con logo Sin TACC", ["Galletas de arroz", "Pan Sin TACC (mejor si tiene semillas o más fibra)", "Frutos secos y semillas envasados", "Pasta de maní", "Cacao amargo"]),
+    ("Almacén", "Siempre con logo oficial", ["Arroz (blanco, integral, yamaní), quinoa, polenta", "Fideos y harinas Sin TACC (de arroz, garbanzo, almendras, premezcla)", "Legumbres secas o en lata con logo", "Atún y caballa al natural", "Aceite de oliva, vinagre", "Especias, caldos y salsas con logo (salsa de soja: solo con logo)", "Polvo de hornear y levadura con logo"]),
+    ("Desayuno y colaciones", "Siempre con logo oficial", ["Galletas de arroz", "Pan Sin TACC (mejor si tiene semillas o más fibra)", "Frutos secos y semillas envasados", "Pasta de maní", "Cacao amargo"]),
     ("Freezer", "Con logo o al natural", ["Verduras congeladas al natural", "Frutas congeladas", "Pescado al natural"]),
 ]
 gond = table(["Góndola", "Qué comprar"], [[f"<b>{g}</b><br><span class=\"small\">{nota}</span>", " · ".join(items)] for g, nota, items in GONDOLAS])
 page(f'''
 {chap_head("07", 'Tu lista de compras <span class="t">Sin TACC</span>', "Ordenada por góndola, para hacer la compra de la semana sin pensar.")}
-{box("<b>La regla:</b> lo fresco y natural (verdura, fruta, carne, huevo) es apto sin logo. <b>Todo lo envasado, con logo Sin TACC.</b>", "soft")}
+{box("<b>La regla:</b> lo fresco y natural (verdura, fruta, carne, huevo) es apto sin logo. <b>Todo lo envasado, con logo oficial (\"Sin T.A.C.C.\" o \"sin GLUTEN\") y vigente en el listado de ANMAT.</b>", "soft")}
 {gond}
 <h2>Qué no va al carrito</h2>
 {ul(["Productos sueltos o a granel (frutos secos, legumbres, especias) sin rótulo.",
-     "Cualquier cosa con avena, aunque diga \"sin gluten\".",
+     "Avena o productos con avena que no figuren en el listado de ANMAT.",
      "Envasados sin logo, aunque \"no tengan harina\" en los ingredientes.",
      "Panificados de panaderías comunes."])}
 <p class="small">La lista imprimible está en la página <span class="pref" data-ref="imp-lista"></span>.</p>
@@ -260,14 +265,14 @@ page(f'''
 <div class="tips10 t3">
   <div><span>28</span><h3>comidas por semana</h3><p>4 por día (desayuno, almuerzo, merienda y cena) × 7 días.</p></div>
   <div><span>23</span><h3>planificadas</h3><p>Caseras, con el plato RENOVA y la lista de compras.</p></div>
-  <div><span>5</span><h3>flexibles</h3><p>Una salida, una picada, un postre. Siempre Sin TACC.</p></div>
+  <div><span>5</span><h3>a elección</h3><p>Una salida, una picada, un postre. <b>Siempre Sin TACC.</b></p></div>
 </div>
-<figure class="mfig"><img src="img/sintacc/comida_1.jpg" alt="Picada" style="max-height:62mm;object-fit:cover"><figcaption>Una comida flexible también puede ser Sin TACC: quesos y fiambres con logo, y snacks aptos.</figcaption></figure>
+{box("<b>El 80/20 es sobre organización, nunca sobre el gluten.</b> En celiaquía no hay 20% de permiso: las 28 comidas de la semana son Sin TACC. Lo que cambia en las 5 a elección es que no las planificás ni las cocinás vos.", "note")}
 <h2>Cómo organizarte</h2>
 {checks(["<b>El fin de semana:</b> elegí el menú (página <span class=\"pref\" data-ref=\"menu\"></span>) y armá la lista.",
          "<b>Un día de cocina (60 a 90 min):</b> una proteína al horno, una olla de legumbres y una bandeja de vegetales asados. Te resuelven 3 o 4 comidas.",
          "<b>Viandas:</b> porcioná y rotulá \"Sin TACC\" con la fecha.",
-         "<b>Las 5 flexibles las elegís vos:</b> marcalas en el registro (página <span class=\"pref\" data-ref=\"imp-registro\"></span>)."])}
+         "<b>Las 5 a elección las decidís vos:</b> marcalas en el registro (página <span class=\"pref\" data-ref=\"imp-registro\"></span>)."])}
 ''', chapter="08 · Semana 80/20", pid="c8", toc="08 · Tu semana 80/20")
 
 page(f'''
@@ -278,22 +283,22 @@ page(f'''
  ["Mar", "Sobras de ensalada tibia + arroz", "Pescado al horno con papas y vegetales"],
  ["Mié", "Batatas rellenas de pollo y queso", "Crema de zapallo con lentejas rojas"],
  ["Jue", "Tortilla de verduras + ensalada", "Pollo con calabaza en una sola fuente"],
- ["Vie", "Arroz + huevo + vegetales asados", "<b>Flexible:</b> salida o pizza Sin TACC"],
- ["Sáb", "Milanesas de berenjena + ensalada", "<b>Flexible:</b> picada con productos aptos"],
+ ["Vie", "Arroz + huevo + vegetales asados", "<b>A elección (Sin TACC):</b> salida o pizza Sin TACC"],
+ ["Sáb", "Milanesas de berenjena + ensalada", "<b>A elección (Sin TACC):</b> picada con productos aptos"],
  ["Dom", "Asado o almuerzo en familia (carne sin condimentar, ensaladas)", "Crema de zapallo + queso"],
 ])}
-<p class="small">Desayunos y meriendas: elegí de las ideas de la página <span class="pref" data-ref="c6"></span>. En esta semana quedan 2 comidas flexibles más para usar cuando quieras.</p>
+<p class="small">Desayunos y meriendas: elegí de las ideas de la página <span class="pref" data-ref="c6"></span>. En esta semana quedan 3 comidas a elección más, siempre Sin TACC.</p>
 ''', chapter="08 · Semana 80/20", pid="menu", toc="Menú de ejemplo")
 
 # ================================================================== 09 RECETAS
 page(f'''
-{chap_head("09", '12 recetas <span class="t">Sin TACC</span>', "Caseras, sin azúcar agregada y con proteína y fibra. Todos los envasados que uses, con logo Sin TACC.")}
+{chap_head("09", '12 recetas <span class="t">Sin TACC</span>', "Caseras, sin azúcar agregada y con proteína y fibra. Todos los envasados que uses, con logo oficial.")}
 {"".join(NUT.ficha(r, i + 1) for i, r in enumerate(RECETAS))}
 ''', chapter="09 · Recetas", pid="recetas", toc="09 · 12 recetas Sin TACC")
 
 # ================================================================== 10 COMER AFUERA
 page(f'''
-{chap_head("10", 'Comer afuera <span class="t">y en reuniones</span>', "Tus comidas flexibles también tienen que ser seguras.")}
+{chap_head("10", 'Comer afuera <span class="t">y en reuniones</span>', "Tus comidas a elección también tienen que ser 100% seguras.")}
 {checks(["<b>Restaurantes:</b> elegí lugares con menú Sin TACC y preguntá cómo lo cocinan (aceite, plancha, horno aparte).",
          "<b>Pedí simple:</b> carne o pescado a la plancha con ensalada o papas hervidas es más seguro que algo rebozado o con salsa.",
          "<b>En una casa:</b> avisá antes y ofrecé llevar un plato tuyo para compartir.",
@@ -301,27 +306,6 @@ page(f'''
          "<b>Llevá algo en la cartera:</b> frutos secos o galletas de arroz con logo, para no quedarte sin opción."])}
 {box("<b>Si no estás segura, no lo comas.</b> Una comida que te salteás no arruina tu semana; una contaminación sí te puede hacer mal.", "note")}
 ''', chapter="10 · Comer afuera", pid="c10", toc="10 · Comer afuera y en reuniones")
-
-# ================================================================== TESTIMONIOS
-page(f'''
-{eyebrow("RESULTADOS DEL EQUIPO RENOVA")}
-<h1 class="h1">Mujeres que trabajan <span class="t">con nuestro equipo</span></h1>
-<p class="lead">Son resultados del programa RENOVA en general, no de esta guía en particular. Cada persona es distinta.</p>
-<div class="res3">
-  <div class="rc"><div class="rc-img two"><div><img src="img/mari_a.jpg" alt="" style="object-position:52% 50%"><span>ANTES</span></div><div><img src="img/mari_d.jpg" alt="" style="object-position:58% 50%"><span class="d">DESPUÉS</span></div></div>
-    <p>Bajó 8 kg de grasa y 10 cm de cintura.</p></div>
-  <div class="rc"><div class="rc-img two"><div><img src="img/moni_d.jpg" alt="" style="object-position:43% 50%"><span>ANTES</span></div><div><img src="img/moni_a.jpg" alt="" style="object-position:52% 50%"><span class="d">DESPUÉS</span></div></div>
-    <p>Bajó 6 kg y logró el hábito de entrenar.</p></div>
-  <div class="rc"><div class="rc-img"><img src="img/ba_romi.jpg" alt="" style="object-position:50% 45%"><span class="d">RESULTADO</span></div>
-    <p>Volvió a correr y sostiene sus hábitos.</p></div>
-</div>
-<h2>Así comen las mujeres del equipo RENOVA</h2>
-<div class="res3">
-  <div class="rc"><div class="rc-img"><img src="img/sintacc/comida_2.jpg" alt=""></div><p>Ensalada completa con legumbres y pollo.</p></div>
-  <div class="rc"><div class="rc-img"><img src="img/sintacc/comida_3.jpg" alt=""></div><p>Vianda armada con el plato RENOVA.</p></div>
-  <div class="rc"><div class="rc-img"><img src="img/sintacc/comida_1.jpg" alt=""></div><p>Una comida flexible del fin de semana.</p></div>
-</div>
-''', chapter="Resultados", pid="testimonios", toc="Resultados del equipo RENOVA")
 
 # ================================================================== BONUS SKOOL
 page(f'''
@@ -356,7 +340,7 @@ page(f'''
 page(f'''
 {eyebrow("IMPRIMIBLE")}
 <h1 class="h1">Registro <span class="t">semanal 80/20</span></h1>
-<p class="small">Marcá con una cruz tus comidas flexibles. Objetivo: 23 planificadas y hasta 5 flexibles. Semana N°: ______</p>
+<p class="small">Marcá con una cruz tus comidas a elección (siempre Sin TACC). Objetivo: 23 planificadas y hasta 5 a elección. Semana N°: ______</p>
 {table(["", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], [[m] + [""] * 7 for m in ["Desayuno", "Almuerzo", "Merienda", "Cena"]])}
 <h2>Seguimiento cada 4 semanas</h2>
 <p class="small"><b>Índice cintura/talla</b> = cintura (cm) ÷ altura (cm). Menos de 0,5 se considera saludable; 0,5 o más indica mayor riesgo cardiometabólico. Medí la cintura siempre igual, a la altura del ombligo.</p>
@@ -370,7 +354,9 @@ page(f'''
 {ul(["ANMAT. <i>La enfermedad celíaca: consideraciones generales y normativa vigente</i>. anmat.gob.ar/Alimentos/celiacos_y_alimentos.pdf",
      f"ANMAT. <i>Listado Integrado de Alimentos Libres de Gluten</i>. {LINK_ANMAT}",
      "Ministerio de Salud de la Nación. <i>Celiaquía: guía rápida para consumidores</i>. argentina.gob.ar",
+     "Resolución Conjunta 32/2023 (Boletín Oficial, 1/12/2023): modifica los artículos 1383 y 1383 bis del Código Alimentario Argentino (nuevo logo \"sin GLUTEN\").",
      "Ley 26.588 de Celiaquía y modificatoria Ley 27.196.",
+     "Ministerio de Salud de la Nación (2016). <i>Guías Alimentarias para la Población Argentina</i>.",
      "Melini, V., y Melini, F. (2019). Gluten-free diet: gaps and needs for a healthier diet. <i>Nutrients</i>, 11(1), 170. doi:10.3390/nu11010170",
      "Comparación de productos sin gluten y con gluten disponibles en EE. UU. (2024). PubMed 39666134.",
      "Lic. en Nutrición del equipo RENOVA. Taller \"Cómo leer y elegir productos en el súper\" y pautas de fibra."])}
