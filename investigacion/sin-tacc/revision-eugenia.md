@@ -1,6 +1,6 @@
 # Ebook "Sin TACC Inteligente" — para revisar con Eugenia (11/11/2026)
 
-PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (35 páginas). Fuente: `fuentes/ebook/sintacc.py`.
+PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (41 páginas). Fuente: `fuentes/ebook/sintacc.py`.
 
 ## Antes que nada
 - **Nombre:** Lic. María Eugenia Aldrey, M.N. 11773 (confirmado por Nacho el 11/11/2026; corregido en todos los ebooks y landings).
@@ -21,6 +21,11 @@ PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (35 páginas).
    legumbres y pollo, pescado al horno, omelette de espinaca, batatas rellenas, tortilla de verduras, pollo con calabaza,
    crema de zapallo con lentejas, milanesas de berenjena (rebozador Sin TACC o polenta).
    Se sacaron por TACC: todas las de avena, pan, fideos, wrap, budines con harina común.
+8b. **Recetas 13 a 18 — BORRADOR para que Euge corrija** (sin foto: hay un recuadro "FOTO PENDIENTE"):
+   pizza de fainá (harina de garbanzos), empanadas de carne con masa de premezcla, tarta de verduras con masa de garbanzo
+   o premezcla, pan casero de semillas, ñoquis de papa con fécula de mandioca, budín de banana sin azúcar.
+   Revisar proporciones, tiempos, si hace falta goma xántica y que no tengan azúcar agregada.
+   Al aprobarlas: en `sintacc.py` sacar " · BORRADOR" (variable `B`), el aviso y poner las fotos (`foto="pendiente"`).
 9. **Imprimibles:** lista de compras, registro 80/20 y organización de la semana.
 10. **Aclaración médica** (cap. 1 y fuentes): "solo para celiaquía diagnosticada; no dejar el gluten antes del diagnóstico".
 
@@ -30,6 +35,9 @@ PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (35 páginas).
 
 - Portada: "Guía práctica · Celiaquía" y "Para vos y tu familia" (antes "Mujeres 35+").
 - Imprimible: el seguimiento de cintura/talla se reemplazó por "Organización de la semana" (preparado, porciones, reposición, receta para repetir).
+
+- Oferta final: ahora es una **consulta nutricional Sin TACC con Euge** (el plan integral con Nacho queda como opción).
+  Usa el mismo WhatsApp de RENOVA (wa.link/1asjt1). ¿Euge tiene lugar para estas consultas? ¿Hay precio o beneficio por haber comprado la guía?
 
 ## Pendiente de Nacho
 - Landing propia (con el código de precios de Impultienda) y mockups del ebook.
