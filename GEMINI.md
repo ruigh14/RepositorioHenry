@@ -21,6 +21,7 @@
 
 ### Registro de aprendizajes
 
+- **2026-11-11 — Ebook Sin TACC:** producto aparte; recetas tomadas de `nutricion.py` vía import (no duplicar), sin avena (en Argentina TACC incluye avena); testimonios del programa RENOVA en general, sin nombre y aclarado como tal; nada de precios en el ebook ni en la landing salvo los tokens de Impultienda. **Por qué importa:** cualquier producto nuevo para celíacos sigue estas reglas; ver `investigacion/sin-tacc/`.
 - **2026-11-11 — Rama de trabajo unida a main:** esta rama ya incluye todo `main` (ebooks en `fuentes/`, landing, PDF); las notas del proyecto RENOVA de `main` van al final de este archivo, debajo del `---`. **Por qué importa:** al traer cambios de `main`, resolver CLAUDE.md conservando las dos partes y volver a sincronizar AGENTS.md y GEMINI.md.
 - **2026-11-10 — ffmpeg: exp() en expresiones por cuadro:** `gte(t,T)*exp(-(t-T)*k)` da NaN antes de T cuando el exponente pasa de ~709 (0·inf) y la imagen sale negra; usar `exp(-max(t-T,0)*k)`. **Por qué importa:** cualquier efecto animado con exp() en `eq`/`scale` con `eval=frame` necesita el `max()`.
 - **2026-11-10 — Preferencias de Nacho en reels:** nunca tapar ni cortar la cabeza con imágenes; para mostrar "todo lo que ofrecemos" prefiere el mockup completo con fondo azul (`pack-renova/pack_completo.png`, incluye los talleres) en pantalla dividida. **Por qué importa:** aplicarlo por defecto en cada reel nuevo (ver `directives/editar_reel.md`).
@@ -116,6 +117,7 @@ entrena-siendo-mama/         Ebook 3: mamás que vuelven a entrenar (respiració
   Ebook_Entrena_siendo_mama_RENOVA.pdf
 alimentacion-inteligente/    Plan de nutrición de 8 semanas (lo vende la landing): educación breve + organización + programa de 8 semanas con 32 recetas. Lo genera fuentes/ebook/nutricion.py (nutricionista: Lic. María Eugenia Ballini, M.N. 11773; suma 6 recetas, reemplazos e imágenes de su recetario y su catálogo de productos en img/eve/ e img/prod/)
   Ebook_Alimentacion_Inteligente_RENOVA.pdf
+sin-tacc-inteligente/        Producto aparte: "Sin TACC Inteligente" (36 hojas): lista de compras Sin TACC, etiquetas, cocina segura, fibra y proteína, plato, semana 80/20, 12 recetas (de Alimentación Inteligente, adaptadas), testimonios sin nombre, bonus Skool, imprimibles. Lo genera fuentes/ebook/sintacc.py. Estrategia y revisión: investigacion/sin-tacc/
 nutricion-menopausia/        Upsell: Nutrición en la menopausia (30 hojas, registro de 14 días, hábitos prioritarios, 10 capítulos, perimenopausia, nutrientes clave, casos, guía de consulta, referencias con DOI, etapas, fotos en img/meno/, registro de síntomas; revisión Eugenia). Lo genera fuentes/ebook/menopausia.py
   Ebook_Nutricion_Menopausia_RENOVA.pdf
 gluteos-fuertes/             Upsell: Glúteos Fuertes, 2 ebooks que se entregan juntos (24 hojas cada uno, cada hoja armada completa: sin cortes ni huecos). El día extra de RENOVA para mujeres 40+: un día por semana (3.º si entrena 2 veces, 4.º si entrena 3), 8 semanas, 3 rutinas que rotan (1 empuje de cadera, 2 bisagra, 3 una pierna; máximo 2 ejercicios repetidos entre rutinas) + sesión express; sin test (Nacho lo sacó); progresión (en casa, sin más peso: bajada lenta, pausa o versión a una pierna), 8 errores, proteína, sesión express, planilla de cargas, 50% off plan integral. Casa: mancuernas, banda, silla, escalón + capítulo "Mantenete activa" (10 consejos: entrenar no compensa 9 horas sentada; pausa activa). Gimnasio: barra, máquinas, prensa + "10 consejos para el gimnasio" y plan B si la máquina está ocupada. Solo ejercicios con ilustración y video de Harbiz ya existentes. Los genera fuentes/ebook/gluteos.py casa|gym
@@ -174,6 +176,7 @@ cd fuentes/ebook && python3 build.py pausa && node export.js pausa         # Bon
 cd fuentes/ebook && python3 build.py && node export.js                     # Programa RENOVA completo
 cd fuentes/ebook && python3 nutricion.py && node export.js nutricion        # Alimentación Inteligente (nutrición 8 semanas)
 cd fuentes/ebook && python3 menopausia.py && node export.js menopausia      # Upsell: Nutrición en la menopausia
+cd fuentes/ebook && python3 sintacc.py && node export.js sintacc            # Sin TACC Inteligente (producto aparte)
 cd fuentes/ebook && python3 gluteos.py casa && node export.js gluteos_casa  # Upsell: Glúteos Fuertes en casa
 cd fuentes/ebook && python3 gluteos.py gym && node export.js gluteos_gym    # Upsell: Glúteos Fuertes en el gimnasio
 cd fuentes/ebook && python3 hombres.py casa && node export.js hombres_casa  # MÉTODO 40 en casa
