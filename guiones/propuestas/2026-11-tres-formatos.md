@@ -24,7 +24,7 @@ distinto cada uno. Los tres llevan al pack RENOVA de la landing. Duración: 35 a
 
 ## 2 · "Probá esto hoy" (demostración) · ángulo: no tengo tiempo
 
-**Formato:** Nacho muestra en 4 cortes rápidos la **sesión express de 15 minutos** del ebook de casa, con un timer en pantalla. Es la sesión real del ebook: sentadilla en copa, flexiones de brazo, remo inclinado y plancha prona.
+**Formato:** Nacho a cámara + demostración. Muestra en 4 cortes rápidos la **sesión express de 15 minutos** del ebook de casa, con un timer en pantalla. Es la sesión real del ebook: sentadilla en copa, flexiones de brazo, remo inclinado y plancha prona.
 
 | Plano | Nacho dice | En pantalla |
 |---|---|---|
@@ -33,7 +33,10 @@ distinto cada uno. Los tres llevan al pack RENOVA de la landing. Duración: 35 a
 | 3 | Flexiones de brazo: 40 segundos. Apoyando las rodillas o contra la pared, también vale. | Demostración (versión fácil en un recuadro) |
 | 4 | Remo inclinado, con mancuernas o con dos botellas de agua: 40 segundos. | Demostración |
 | 5 | Plancha: 40 segundos. Descansás 20 entre ejercicios y repetís 3 vueltas. | "3 VUELTAS · 40 s / 20 s" |
-| 6 | Esta es una de las sesiones de RENOVA, el plan de 8 semanas que armamos con mi equipo para mujeres de más de 40. Tiene todos los días resueltos, con la versión más fácil de cada ejercicio. Tocá el link y empezá hoy. | Mockup del pack + "LINK" |
+| 6 | Esta es una de las sesiones de RENOVA: un plan de 8 semanas para mujeres de más de 40, con entrenamientos para casa y gimnasio, alternativas para adaptar los ejercicios y una guía para saber qué hacer cada día. | Mockup del pack |
+| 7 | Y esta sesión express viene de regalo, junto con la pausa activa, la rutina de abdominales y el acceso a los talleres de RENOVA, donde vemos hábitos, mindfulness y gestión de la ansiedad y el estrés. | "BONUS" + lista de los bonus |
+| 8 | Como en esta etapa el entrenamiento solo no alcanza, también tenés la guía de nutrición de 8 semanas de nuestra nutricionista, sin dietas restrictivas. *(Opcional: sacarla si se quiere más corto.)* | Mockup de Alimentación Inteligente |
+| 9 | Así que, si llegaste hasta acá, tocá el link, conseguí tu pack RENOVA y empezá hoy mismo. | "EMPEZÁ HOY · LINK" |
 
 **Notas de filmación:** cámara fija a lo ancho (que se vea todo el cuerpo), ropa de entrenamiento, una toma por ejercicio con la versión fácil al lado. Guardar las botellas de agua en cuadro: muestra que no hace falta equipo.
 
