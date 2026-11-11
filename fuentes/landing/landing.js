@@ -106,3 +106,13 @@
   };
   window.addEventListener('scroll', upd, { passive: true });
 })();
+
+// Menú lateral: se cierra al tocar una sección o el botón, y con Escape.
+(function () {
+  var chk = document.getElementById('nav-chk');
+  if (!chk) return;
+  document.querySelectorAll('#rnv .nav-link, #rnv .nav-dbtn').forEach(function (el) {
+    el.addEventListener('click', function () { chk.checked = false; });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && chk.checked) chk.checked = false; });
+})();
