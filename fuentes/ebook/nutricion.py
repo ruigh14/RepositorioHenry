@@ -18,7 +18,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "design-system"))
 from design_system import css as ds_css, esc, ICON_ARROW, ICON_HAND, eyebrow, chap_head, ul, checks, box
 
-NUTRI = "María Eugenia Ballini"
+NUTRI = "María Eugenia Aldrey"
 NUTRI_TITULO = "Lic. en Nutrición"
 MATRICULA = "M.N. 11773"
 LINK_PLAN = "https://wa.link/1asjt1"   # WhatsApp de Nacho: plan integral personalizado 1 a 1

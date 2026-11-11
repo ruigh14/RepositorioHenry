@@ -20,9 +20,19 @@
   --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
   --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
   --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  --rnv-turquesa-claro:#6FD8E6;    /* acentos sobre fondo oscuro (portada de la landing) */
   /* ---- Color: logo (solo portada y logo, no para texto corrido) */
   --rnv-azul:#0033A0;
   --rnv-rojo:#E63333;
+  --rnv-rojo-fondo:#FCEBEB;   /* fondo rojo claro (tapa de Glúteos Fuertes en el gimnasio) */
+  /* MÉTODO 40 (submarca para hombres 40+): negro, grises y rojo */
+  --m40-negro:#0E0F10;
+  --m40-grafito:#1C1E21;
+  --m40-gris:#5E6368;
+  --m40-gris-claro:#F2F3F4;
+  --m40-borde:#DADDE0;
+  --m40-rojo:#D62828;
+  --m40-rojo-oscuro:#A11D1D;
   /* ---- Color: sello de garantía (solo el sello dorado) */
   --rnv-oro:#E2A928;
   --rnv-oro-claro:#F9DE7E;
@@ -1157,6 +1167,68 @@ body.grande{font-size:16.5pt;line-height:1.48}
 #bienvenida .mimg{height:42mm}#bienvenida .nutri-card{margin:3mm 0}
 #registro .ntab td{height:10mm}
 #habitos .ntab td{height:11mm}
+.frz{display:inline-block;background:var(--tq-l);color:var(--tq-dd);border-radius:99px;padding:.3mm 2.5mm;font-size:10.5pt;font-weight:800;margin-left:1mm}
+
+/* Glúteos Fuertes (gluteos.py) */
+.cv3.glut{--c3-a:var(--tq-d);--c3-b:var(--ink);--c3-l:var(--tq-b)}
+.glut .c3-title{font-size:84pt}
+.tall .grid-t td{height:20mm}
+.cv3.glut.gym{--c3-a:var(--tq-dd);--c3-b:var(--tq-d);--c3-l:var(--tq-b)}
+.c3-lugar{display:inline-block;margin-top:4mm;padding:2mm 9mm;border-radius:2mm;background:var(--c3-a);color:#fff;font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:30pt;letter-spacing:.06em}
+.cv3.glut.gym{background:var(--rnv-rojo-fondo);border-color:var(--ink)}   /* mismo contorno que la de casa */
+.glut.gym .c3-lugar{background:var(--rnv-rojo)}
+.glut.gym .c3-sub{background:transparent}
+
+/* ===== MÉTODO 40 (hombres 40+, hombres.py): misma maqueta, paleta negro, grises y rojo ===== */
+body.m40{--tq:var(--m40-rojo);--tq-t:var(--m40-rojo);--tq-d:var(--m40-rojo-oscuro);--tq-dd:var(--m40-negro);
+  --tq-l:var(--m40-gris-claro);--tq-b:var(--m40-borde);--ink:var(--m40-negro);--mut:var(--m40-gris);--line:var(--m40-borde);--bg2:var(--m40-gris-claro)}
+.m40 .hdr b{color:var(--m40-rojo)}
+/* portada */
+.mcv{position:relative;height:297mm;background:var(--m40-negro);color:#fff;overflow:hidden;font-family:"InterTightW","InterW",sans-serif}
+.mcv-foto{position:absolute;right:-18mm;bottom:0;height:178mm;width:auto}
+.mcv-fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--m40-negro) 38%,rgba(14,15,16,0) 70%),linear-gradient(0deg,var(--m40-negro) 0,rgba(14,15,16,0) 22%),linear-gradient(180deg,var(--m40-negro) 42%,rgba(14,15,16,0) 56%)}
+.mcv-in{position:relative;z-index:2;padding:18mm 16mm 0}
+.mcv-brand{font-weight:900;font-size:22pt;letter-spacing:.14em}
+.mcv-brand b{color:var(--m40-rojo)}
+.mcv-bar{width:26mm;height:2mm;background:var(--m40-rojo);margin:9mm 0 7mm}
+.mcv h1{font-weight:900;font-size:50pt;line-height:.95;letter-spacing:-.01em;margin:0;text-transform:uppercase}
+.mcv h1 span{color:var(--m40-rojo)}
+.mcv-lugar{display:inline-block;margin-top:9mm;background:var(--m40-rojo);color:#fff;font-weight:900;font-size:24pt;letter-spacing:.08em;padding:2.5mm 8mm;border-radius:1.5mm}
+.mcv-sub{margin-top:7mm;font-size:16pt;font-weight:700;color:#D9DBDE;line-height:1.4;max-width:95mm}
+.mcv-autor{position:absolute;z-index:2;left:16mm;bottom:16mm;font-weight:800;font-size:15pt;letter-spacing:.06em}
+.mcv-autor small{display:block;font-weight:600;font-size:11pt;letter-spacing:0;color:#B9BCC0;margin-top:1mm}
+/* tarjeta de ejercicio */
+.mx{display:grid;grid-template-columns:62mm 1fr;gap:5mm;border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm;margin-bottom:4mm;break-inside:avoid}
+.mx-im{width:62mm;height:35mm;background:var(--m40-negro);border-radius:2mm;overflow:hidden}
+.mx-im img{width:100%;height:100%;object-fit:contain;display:block}
+.mx-l .mat{margin-top:1.6mm;display:block;text-align:center}
+.mx h4{margin:0;font-size:14.5pt;line-height:1.15}
+.mx .mus{display:inline-block;margin:1.2mm 0 1.4mm;background:var(--m40-gris-claro);color:var(--m40-grafito);font-weight:700;font-size:10pt;padding:.6mm 2.4mm;border-radius:99px}
+.mx p{margin:0 0 1.2mm;font-size:12.6pt;line-height:1.35}
+.mx .ev{color:var(--m40-rojo-oscuro)}
+.mx .vbtn-sm{margin-top:1mm}
+.m40 .grid-t thead th{background:var(--m40-negro);color:#fff}
+.m40 .grid-t td{height:auto}
+.m40 .tall .grid-t td{height:18mm}
+.bio-m{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:start}
+.bio-m img{width:62mm;border-radius:3mm;display:block}
+.m40 .mid .grid-t td{height:12mm}
+.m40 .mcv h1{color:#fff;font-family:"InterTightW","InterW",sans-serif}
+.m40 .t2{color:#FF6B6B}
+.m40 .quote.dark{background:var(--m40-negro)}
+.mx-h{display:flex;align-items:flex-start;justify-content:space-between;gap:3mm}
+.mx-h .vbtn-sm{margin-top:0;flex:none}
+/* MÉTODO 40: casa 3 ejercicios por hoja con fotos más grandes; gimnasio 4 por hoja, tarjeta compacta */
+.m40c .mx{grid-template-columns:70mm 1fr}
+.m40c .mx-im{width:70mm;height:40mm}
+.m40g .mx{grid-template-columns:52mm 1fr;gap:4mm;padding:3mm;margin-bottom:3mm}
+.m40g .mx-im{width:52mm;height:29mm}
+.m40g .mx h4{font-size:13.6pt}
+.m40g .mx p{font-size:12pt;line-height:1.28;margin-bottom:.8mm}
+.m40g .mx .mus{margin:.8mm 0 1mm;font-size:9.6pt}
+.m40 .tall2 .grid-t td{height:17mm}
+.appz img{width:62mm;height:auto;border-radius:4mm;border:.4mm solid var(--line)}
+.appz .steps-ol{margin:3mm 0}
 </style></head><body class="grande"><section class="page p-cover" id="portada"><div class="body">
 <div class="cv3 meno">
   <div class="c3-in">
@@ -1172,7 +1244,7 @@ body.grande{font-size:16.5pt;line-height:1.48}
 <span class="pill">BIENVENIDA</span>
 <h1 class="h1">Una etapa, <span class="t">no un problema</span></h1>
 <p class="lead">Para mujeres en <b>perimenopausia, menopausia o posmenopausia</b>. La menopausia no es una enfermedad: es una etapa de la vida. Pero trae cambios reales en el cuerpo, y entenderlos te ayuda a tomar mejores decisiones.</p>
-<div class="nutri-card"><img src="img/eugenia.jpg" alt="María Eugenia Ballini"><div><span class="pill">TE GUÍA</span><h3>María Eugenia Ballini</h3><p class="nc-t">Lic. en Nutrición · M.N. 11773 · Equipo RENOVA</p>
+<div class="nutri-card"><img src="img/eugenia.jpg" alt="María Eugenia Aldrey"><div><span class="pill">TE GUÍA</span><h3>María Eugenia Aldrey</h3><p class="nc-t">Lic. en Nutrición · M.N. 11773 · Equipo RENOVA</p>
 <p>En esta guía te explico, con evidencia y sin mitos, cómo la alimentación puede acompañar tu músculo, tus huesos, tu corazón y tu energía en esta etapa.</p></div></div>
 <h2>Cómo leer esta guía</h2>
 <ul class="list"><li><b>Cada capítulo es corto</b> y termina con acciones concretas.</li><li><b>Marcamos el nivel de evidencia:</b> sólida, limitada o no demostrada, para que sepas qué está probado.</li><li><b>No es un tratamiento:</b> es educación. Las indicaciones individuales las da tu equipo de salud.</li><li><b>Complementa a Alimentación Inteligente:</b> allá te organizás y tenés las recetas; acá entendés la etapa.</li></ul>
@@ -1305,7 +1377,7 @@ body.grande{font-size:16.5pt;line-height:1.48}
 <h1 class="h1">Fuentes <span class="t">y aclaraciones</span></h1>
 <ul class="list"><li>Ministerio de Salud de la Nación (2016). <i>Guías Alimentarias para la Población Argentina</i>. argentina.gob.ar/salud</li><li>Organización Mundial de la Salud (2024). <i>Menopausia</i> (nota descriptiva). who.int/news-room/fact-sheets/detail/menopause</li><li>The North American Menopause Society (2022). The 2022 hormone therapy position statement. <i>Menopause</i>, 29(7), 767–794. doi:10.1097/GME.0000000000002028</li><li>The Menopause Society (2023). The 2023 nonhormone therapy position statement. <i>Menopause</i>, 30(6), 573–590. doi:10.1097/GME.0000000000002200</li><li>El Khoudary, S. R., et al. (2020). Menopause transition and cardiovascular disease risk. <i>Circulation</i>, 142(25), e506–e532. doi:10.1161/CIR.0000000000000912</li><li>International Osteoporosis Foundation. <i>Nutrition and bone health</i>. osteoporosis.foundation</li></ul>
 <div class="box note"><b>Material educativo general.</b> Esta guía no reemplaza la consulta médica, ginecológica ni nutricional. No indica tratamientos, dosis de suplementos ni cantidades individuales de nutrientes. Ante síntomas, enfermedades o medicación, consultá con tu equipo de salud.</div>
-<p class="small">Revisión de contenidos: María Eugenia Ballini, Lic. en Nutrición · M.N. 11773.</p>
+<p class="small">Revisión de contenidos: María Eugenia Aldrey, Lic. en Nutrición · M.N. 11773.</p>
 </div></section><section class="page " id="metodo"><div class="hdr"><span>NUTRICIÓN EN LA MENOPAUSIA · <b>RENOVA</b></span><span>Plan integral</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
 <div class="bio metodo">
   <span class="pill">PLAN INTEGRAL RENOVA</span>

@@ -1,6 +1,6 @@
 """Ebook upsell "Nutrición en la menopausia" (Nutrición Femenina 35+): profundiza en la etapa hormonal.
 No repite "Alimentación Inteligente" (organización y recetas): explica qué cambia y cómo acompañarlo desde la alimentación.
-Material educativo: sin dosis, sin tratamientos, con indicación de consultar. Revisión: Lic. María Eugenia Ballini.
+Material educativo: sin dosis, sin tratamientos, con indicación de consultar. Revisión: Lic. María Eugenia Aldrey.
 
 Uso:  cd fuentes/ebook && python3 menopausia.py && node export.js menopausia
       → nutricion-menopausia/Ebook_Nutricion_Menopausia_RENOVA.pdf
@@ -12,7 +12,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "design-system"))
 from design_system import css as ds_css, esc, ICON_ARROW, ICON_HAND, eyebrow, chap_head, ul, checks, box
 
-NUTRI, NUTRI_TIT = "María Eugenia Ballini", "Lic. en Nutrición · M.N. 11773"
+NUTRI, NUTRI_TIT = "María Eugenia Aldrey", "Lic. en Nutrición · M.N. 11773"
 LINK_PLAN = "https://wa.link/1asjt1"
 PAGES, TOC = [], []
 

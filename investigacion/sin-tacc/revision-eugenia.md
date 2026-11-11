@@ -3,7 +3,7 @@
 PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (36 páginas). Fuente: `fuentes/ebook/sintacc.py`.
 
 ## Antes que nada
-- **Apellido y matrícula:** en los ebooks publicados figura "María Eugenia Ballini, M.N. 11773"; en sus PDF (taller, pautas, catálogo) dice "María Eugenia Aldrey, MN 11773". ¿Cuál va?
+- **Nombre:** Lic. María Eugenia Aldrey, M.N. 11773 (confirmado por Nacho el 11/11/2026; corregido en todos los ebooks y landings).
 
 ## Qué revisar
 1. **Índice y enfoque** (11 capítulos + resultados + bonus + imprimibles).
