@@ -21,6 +21,7 @@
 
 ### Registro de aprendizajes
 
+- **2026-11-11 — Guiones ganadores:** los guiones que funcionaron se guardan en `guiones/ganadores/` (con el texto y el análisis de por qué funciona) y los nuevos en `guiones/propuestas/`. **Por qué importa:** antes de escribir cualquier guion o copy para Nacho, leer los ganadores y replicar su estructura y su voz.
 - **2026-11-11 — Ebook Sin TACC:** producto aparte; recetas tomadas de `nutricion.py` vía import (no duplicar), sin avena (en Argentina TACC incluye avena); testimonios del programa RENOVA en general, sin nombre y aclarado como tal; nada de precios en el ebook ni en la landing salvo los tokens de Impultienda. **Por qué importa:** cualquier producto nuevo para celíacos sigue estas reglas; ver `investigacion/sin-tacc/`.
 - **2026-11-11 — Rama de trabajo unida a main:** esta rama ya incluye todo `main` (ebooks en `fuentes/`, landing, PDF); las notas del proyecto RENOVA de `main` van al final de este archivo, debajo del `---`. **Por qué importa:** al traer cambios de `main`, resolver CLAUDE.md conservando las dos partes y volver a sincronizar AGENTS.md y GEMINI.md.
 - **2026-11-10 — ffmpeg: exp() en expresiones por cuadro:** `gte(t,T)*exp(-(t-T)*k)` da NaN antes de T cuando el exponente pasa de ~709 (0·inf) y la imagen sale negra; usar `exp(-max(t-T,0)*k)`. **Por qué importa:** cualquier efecto animado con exp() en `eq`/`scale` con `eval=frame` necesita el `max()`.
@@ -137,6 +138,7 @@ pausa-activa/                Bonus (PDF aparte) de casa y gimnasio: explicación
 programa-renova-completo/    Entrenamiento + alimentación + descanso (base de los upsell)
   Ebook_Programa_RENOVA.pdf
 investigacion/               material de referencia (VSL del competidor, etc.)
+guiones/                     guiones para filmar: ganadores/ (los que funcionaron: referencia de voz) y propuestas/
 fuentes/
   design-system/             tokens, tipografías, componentes y plantillas de creativos (ver su README.md)
   ebook/                     genera los 3 PDF
