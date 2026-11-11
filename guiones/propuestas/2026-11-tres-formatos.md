@@ -7,38 +7,40 @@ distinto cada uno. Los tres llevan al pack RENOVA de la landing. Duración: 35 a
 
 ## 1 · "3 errores" (a cámara + texto en pantalla) · ángulo: por qué abandonás
 
-**Formato:** Nacho a cámara en el gimnasio o en casa; cada error aparece como título grande arriba ("ERROR 1", "ERROR 2", "ERROR 3").
+**Formato:** Nacho a cámara en el gimnasio o en casa; cada error aparece como título grande arriba.
+**Duración:** 117 palabras ≈ 47 segundos.
 
 | Plano | Nacho dice | En pantalla |
 |---|---|---|
-| 1 | Si tenés más de 40 y empezaste a entrenar varias veces y siempre lo dejaste, probablemente cometiste alguno de estos 3 errores. | "3 ERRORES AL ENTRENAR DESPUÉS DE LOS 40" |
-| 2 | Uno: hacer solo cardio. Caminar está buenísimo, pero después de los 40 lo que más te ayuda a cuidar músculo y huesos es la fuerza. | "ERROR 1 · SOLO CARDIO" + clip de clienta con mancuernas |
-| 3 | Dos: copiar rutinas de internet. No están pensadas para tu nivel ni tienen progresión, por eso no ves cambios y abandonás. | "ERROR 2 · RUTINAS DE INTERNET" |
-| 4 | Tres: arrancar a full. Te matás la primera semana y a la segunda ya no podés. | "ERROR 3 · ARRANCAR A FULL" |
-| 5 | Por eso con mi equipo creamos RENOVA: un plan de 8 semanas, en casa o en el gimnasio, que te dice qué hacer cada día, con una versión más fácil para empezar y una sesión express de 15 minutos para las semanas complicadas. | Mockup del pack (pantalla dividida, sin tapar la cabeza) |
-| 6 | Si te viste en alguno de estos errores, tocá el link y empezá hoy con tu pack RENOVA. | "EMPEZÁ HOY · LINK" |
+| 1 | ¿Tenés más de 40 y siempre terminás dejando de entrenar? Seguramente cometiste alguno de estos tres errores. | "3 ERRORES AL ENTRENAR DESPUÉS DE LOS 40" |
+| 2 | Uno: hacer solo cardio. Caminar suma, pero lo que más cuida tus músculos y tus huesos es la fuerza. | "ERROR 1 · SOLO CARDIO" + clip de clienta con mancuernas |
+| 3 | Dos: copiar rutinas de internet, que no están pensadas para tu nivel. | "ERROR 2 · RUTINAS DE INTERNET" |
+| 4 | Tres: arrancar a full y abandonar a las dos semanas. | "ERROR 3 · ARRANCAR A FULL" |
+| 5 | Por eso, con mi equipo creamos RENOVA: un plan de 8 semanas para entrenar en casa o en el gimnasio, con una versión más fácil de cada ejercicio. | Mockup del pack (pantalla dividida, sin tapar la cabeza) |
+| 6 | Además, incluye una guía de nutrición sin dietas restrictivas y, de regalo, los talleres de RENOVA. | "+ NUTRICIÓN + TALLERES DE REGALO" |
+| 7 | Si llegaste hasta acá, tocá el link, conseguí tu pack RENOVA y empezá hoy mismo. | "EMPEZÁ HOY · LINK" |
 
-**Notas de filmación:** plano medio, mirando a cámara, una sola toma por error (después se corta). Material de edición: clips de clientas de fuerza (los del reel "Entre el trabajo") y el pack completo recortado.
+**Notas de filmación:** plano medio, mirando a cámara, una toma por plano (después se corta). Material de edición: clips de clientas de fuerza y el pack completo recortado.
 
 ---
 
-## 2 · "Probá esto hoy" (demostración) · ángulo: no tengo tiempo
+## 2 · "Probá esto hoy" (a cámara + demostración) · ángulo: no tengo tiempo
 
-**Formato:** Nacho a cámara + demostración. Muestra en 4 cortes rápidos la **sesión express de 15 minutos** del ebook de casa, con un timer en pantalla. Es la sesión real del ebook: sentadilla en copa, flexiones de brazo, remo inclinado y plancha prona.
+**Formato:** Nacho a cámara y demostración de la **sesión express de 15 minutos** del ebook de casa (sentadilla en copa, flexiones de brazos, remo inclinado y plancha), con timer en pantalla. La sesión express es uno de los 5 bonus de la landing.
+**Duración:** 122 palabras ≈ 49 segundos (se habla mientras se muestra cada ejercicio).
 
 | Plano | Nacho dice | En pantalla |
 |---|---|---|
-| 1 | ¿No tenés tiempo para entrenar? Esto te lleva 15 minutos y lo hacés en el living. | "15 MINUTOS · EN CASA" + timer |
-| 2 | Sentadilla en copa: 40 segundos. Si te cuesta, la hacés sentándote en una silla. | Demostración + "40 s" |
-| 3 | Flexiones de brazo: 40 segundos. Apoyando las rodillas o contra la pared, también vale. | Demostración (versión fácil en un recuadro) |
-| 4 | Remo inclinado, con mancuernas o con dos botellas de agua: 40 segundos. | Demostración |
-| 5 | Plancha: 40 segundos. Descansás 20 entre ejercicios y repetís 3 vueltas. | "3 VUELTAS · 40 s / 20 s" |
-| 6 | Esta es una de las sesiones de RENOVA: un plan de 8 semanas para mujeres de más de 40, con entrenamientos para casa y gimnasio, alternativas para adaptar los ejercicios y una guía para saber qué hacer cada día. | Mockup del pack |
-| 7 | Y esta sesión express viene de regalo, junto con la pausa activa, la rutina de abdominales y el acceso a los talleres de RENOVA, donde vemos hábitos, mindfulness y gestión de la ansiedad y el estrés. | "BONUS" + lista de los bonus |
-| 8 | Como en esta etapa el entrenamiento solo no alcanza, también tenés la guía de nutrición de 8 semanas de nuestra nutricionista, sin dietas restrictivas. *(Opcional: sacarla si se quiere más corto.)* | Mockup de Alimentación Inteligente |
-| 9 | Así que, si llegaste hasta acá, tocá el link, conseguí tu pack RENOVA y empezá hoy mismo. | "EMPEZÁ HOY · LINK" |
+| 1 | ¿No tenés tiempo para entrenar? Te muestro una sesión de 15 minutos que podés hacer en el living. | "15 MINUTOS · EN CASA" + timer |
+| 2 | Sentadilla en copa: 40 segundos. Si te cuesta, sentate y levantate de una silla. | Demostración + versión fácil en un recuadro |
+| 3 | Flexiones de brazos: 40 segundos. Podés apoyar las rodillas o hacerlas contra la pared. | Demostración + versión fácil |
+| 4 | Remo inclinado: 40 segundos. Si no tenés mancuernas, usá dos botellas de agua. | Demostración con botellas |
+| 5 | Plancha: 40 segundos. Descansás 20 entre ejercicios y hacés tres vueltas. | "3 VUELTAS · 40 s / 20 s" |
+| 6 | Esta sesión es uno de los regalos de RENOVA, el plan de 8 semanas para mujeres de más de 40, en casa o en el gimnasio. | Mockup del pack |
+| 7 | Además, incluye la guía de nutrición y los talleres de RENOVA. | "+ NUTRICIÓN + TALLERES" |
+| 8 | Si llegaste hasta acá, tocá el link, conseguí tu pack RENOVA y empezá hoy mismo. | "EMPEZÁ HOY · LINK" |
 
-**Notas de filmación:** cámara fija a lo ancho (que se vea todo el cuerpo), ropa de entrenamiento, una toma por ejercicio con la versión fácil al lado. Guardar las botellas de agua en cuadro: muestra que no hace falta equipo.
+**Notas de filmación:** cámara fija a lo ancho (que se vea todo el cuerpo), ropa de entrenamiento, una toma por ejercicio con la versión fácil. Las botellas de agua en cuadro: muestran que no hace falta equipo.
 
 ---
 
