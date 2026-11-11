@@ -413,6 +413,25 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 /* BARRA FIJA CELULAR */
 .mbar{display:none}
 
+/* BONUS COMPACTOS: los 5 entran en una pantalla del celular (Clarity: después del video se lee en diagonal) */
+.blist{list-style:none;max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.blist li{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);padding:10px 14px 10px 10px}
+.blist img{flex:none;width:76px;height:76px;object-fit:cover;border-radius:10px}
+.blist img.tall{object-position:50% 0}
+.blist i{display:inline-block;font-style:normal;font-weight:800;font-size:11.5px;letter-spacing:.06em;color:#fff;background:var(--grad);padding:3px 9px;border-radius:6px;margin-bottom:4px}
+.blist b{display:block;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:17px;line-height:1.2;color:var(--ink)}
+.blist span{display:block;font-size:14.5px;line-height:1.35;color:var(--ink);opacity:.82;margin-top:2px}
+.blist li:last-child:nth-child(odd){grid-column:1/-1}
+.bmas{max-width:980px;margin:12px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.bmas summary{list-style:none;cursor:pointer;font-weight:700;font-size:15.5px;color:var(--ink);padding:13px 50px 13px 16px;position:relative}
+.bmas summary::-webkit-details-marker{display:none}
+.bmas summary::after{content:"+";position:absolute;right:14px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:19px;font-weight:700;transition:transform .25s}
+.bmas[open] summary::after{transform:rotate(45deg)}
+.bmas ul{list-style:none;display:grid;gap:8px;padding:0 16px 14px}
+.bmas li{display:flex;gap:10px;font-size:15px;line-height:1.4;color:var(--ink)}
+.bmas li .ic{color:var(--br);stroke-width:3;margin-top:3px;flex:none}
+@media (max-width:760px){.blist{grid-template-columns:1fr;gap:9px}.blist li{padding:8px 12px 8px 8px}.blist img{width:68px;height:68px}.blist b{font-size:16px}.blist span{font-size:14px}}
+
 /* APARICIÓN (solo si corre el JavaScript) */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .js .rv.in{opacity:1;transform:none}
@@ -702,23 +721,21 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 <div class="sec" id="bonus">
   <div class="wrap">
     <div class="bhead rv"><h2>Bonos gratuitos</h2><span class="val big"><b>TODO INCLUIDO</b></span></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #1</i><span>Planes de pausa activa</span><em>INCLUIDO</em></div>
-      <div class="bb"><img src="img/tapa_pausa.jpg" alt="Bonus Pausa activa" class="tall"/><div><p><b>Ejercicios para relajar el cuerpo y mantenerte activa durante el trabajo</b>, con tu propio cuerpo: 4 rutinas de 10 minutos.</p></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #2</i><span>Rutinas express de 15 minutos</span><em>INCLUIDO</em></div>
-      <div class="bb"><img src="img/foto_subidas.jpg" alt=""/><div><p><b>Para sostener el proceso</b> cuando viajás o tenés poco tiempo.</p></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #3</i><span>Rutinas de abdominales</span><em>INCLUIDO</em></div>
-      <div class="bb"><img src="img/foto_abdominales.jpg" alt="" style="aspect-ratio:4/3"/><div><p><b>Cómo hacerlas correctamente</b> y mejorar tu zona media.</p></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #4</i><span>Talleres del equipo RENOVA, grabados y en vivo</span><em>INCLUIDO</em></div>
-      <div class="bb"><div class="two"><img src="img/taller_super.jpg" alt=""/><img src="img/taller_ansiedad.jpg" alt=""/></div><div>
-        <p><b>Talleres grabados para ver cuando quieras</b> con nuestra nutricionista y nuestra psicóloga, y <b>talleres nuevos que podés ver en vivo</b>. Trabajá los pilares clave: hábitos, nutrición y entrenamiento.</p>
-        <ul>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de hábitos:</b> con nuestra psicóloga Agostina, apoyo para el estrés y para mejorar tus hábitos.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de nutrición:</b> aprendé a ordenar tu heladera, elegir mejor en el súper y mucho más.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Conectar con el momento presente:</b> un curso completo de mindfulness para disfrutar el proceso y conectar con vos misma.</span></li>
-          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Mejorar la higiene del sueño:</b> hábitos que te ayudan a descansar mejor.</span></li>
-        </ul></div></div></div>
-    <div class="bono rv"><div class="bt"><i>BONUS #5</i><span>Acceso de por vida a la comunidad RENOVA</span><em>INCLUIDO</em></div>
-      <div class="bb"><img src="img/comunidad.jpg" alt="Comunidad RENOVA"/><div><p><b>Una comunidad de mujeres que están en tu misma situación</b>, en Skool: ahí están los cursos y talleres, y participar es opcional.</p></div></div></div>
+    <ul class="blist rv">
+      <li><img src="img/tapa_pausa.jpg" alt="" class="tall"/><div><i>BONUS #1</i><b>Pausa activa</b><span>4 rutinas de 10 minutos para relajar el cuerpo y mantenerte activa en el trabajo.</span></div></li>
+      <li><img src="img/foto_subidas.jpg" alt=""/><div><i>BONUS #2</i><b>Rutinas express de 15 minutos</b><span>Para no cortar el proceso cuando viajás o tenés poco tiempo.</span></div></li>
+      <li><img src="img/foto_abdominales.jpg" alt=""/><div><i>BONUS #3</i><b>Rutinas de abdominales</b><span>Cómo hacerlas bien y fortalecer tu zona media.</span></div></li>
+      <li><img src="img/taller_super.jpg" alt=""/><div><i>BONUS #4</i><b>Talleres grabados y en vivo</b><span>Con nuestra nutricionista y nuestra psicóloga Agostina: hábitos, nutrición, mindfulness y sueño.</span></div></li>
+      <li><img src="img/comunidad.jpg" alt=""/><div><i>BONUS #5</i><b>Comunidad RENOVA de por vida</b><span>Mujeres en tu misma situación, en Skool. Participar es opcional.</span></div></li>
+    </ul>
+    <details class="bmas rv"><summary>Ver qué incluyen los talleres</summary>
+      <ul>
+        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Hábitos:</b> con Agostina, apoyo para el estrés y para mejorar tus hábitos.</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Nutrición:</b> ordenar tu heladera, elegir mejor en el súper y mucho más.</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Mindfulness:</b> un curso completo para conectar con el presente y disfrutar el proceso.</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Sueño:</b> hábitos que te ayudan a descansar mejor.</span></li>
+      </ul>
+    </details>
     <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </div>
 </div>

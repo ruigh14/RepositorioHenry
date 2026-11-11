@@ -498,6 +498,25 @@ html{scroll-behavior:smooth}
 #rnv .mbar{display:none}
 
 
+#rnv .blist{list-style:none;max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#rnv .blist li{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);padding:10px 14px 10px 10px}
+#rnv .blist img{flex:none;width:76px;height:76px;object-fit:cover;border-radius:10px}
+#rnv .blist img.tall{object-position:50% 0}
+#rnv .blist i{display:inline-block;font-style:normal;font-weight:800;font-size:11.5px;letter-spacing:.06em;color:#fff;background:var(--grad);padding:3px 9px;border-radius:6px;margin-bottom:4px}
+#rnv .blist b{display:block;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:17px;line-height:1.2;color:var(--ink)}
+#rnv .blist span{display:block;font-size:14.5px;line-height:1.35;color:var(--ink);opacity:.82;margin-top:2px}
+#rnv .blist li:last-child:nth-child(odd){grid-column:1/-1}
+#rnv .bmas{max-width:980px;margin:12px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+#rnv .bmas summary{list-style:none;cursor:pointer;font-weight:700;font-size:15.5px;color:var(--ink);padding:13px 50px 13px 16px;position:relative}
+#rnv .bmas summary::-webkit-details-marker{display:none}
+#rnv .bmas summary::after{content:"+";position:absolute;right:14px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:19px;font-weight:700;transition:transform .25s}
+#rnv .bmas[open] summary::after{transform:rotate(45deg)}
+#rnv .bmas ul{list-style:none;display:grid;gap:8px;padding:0 16px 14px}
+#rnv .bmas li{display:flex;gap:10px;font-size:15px;line-height:1.4;color:var(--ink)}
+#rnv .bmas li .ic{color:var(--br);stroke-width:3;margin-top:3px;flex:none}
+@media (max-width:760px){#rnv .blist{grid-template-columns:1fr;gap:9px}#rnv .blist li{padding:8px 12px 8px 8px}#rnv .blist img{width:68px;height:68px}#rnv .blist b{font-size:16px}#rnv .blist span{font-size:14px}}
+
+
 #rnv.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 #rnv.js .rv.in{opacity:1;transform:none}
 
