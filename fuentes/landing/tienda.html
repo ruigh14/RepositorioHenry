@@ -417,7 +417,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .blist{list-style:none;max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .blist li{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh);padding:10px 14px 10px 10px}
 .blist img{flex:none;width:76px;height:76px;object-fit:cover;border-radius:10px}
-.blist img.tall{object-position:50% 0}
+.blist img.tall{width:54px;height:76px;margin:0 11px;object-fit:contain;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 .blist i{display:inline-block;font-style:normal;font-weight:800;font-size:11.5px;letter-spacing:.06em;color:#fff;background:var(--grad);padding:3px 9px;border-radius:6px;margin-bottom:4px}
 .blist b{display:block;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:17px;line-height:1.2;color:var(--ink)}
 .blist span{display:block;font-size:14.5px;line-height:1.35;color:var(--ink);opacity:.82;margin-top:2px}
@@ -430,7 +430,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .bmas ul{list-style:none;display:grid;gap:8px;padding:0 16px 14px}
 .bmas li{display:flex;gap:10px;font-size:15px;line-height:1.4;color:var(--ink)}
 .bmas li .ic{color:var(--br);stroke-width:3;margin-top:3px;flex:none}
-@media (max-width:760px){.blist{grid-template-columns:1fr;gap:9px}.blist li{padding:8px 12px 8px 8px}.blist img{width:68px;height:68px}.blist b{font-size:16px}.blist span{font-size:14px}}
+@media (max-width:760px){.blist{grid-template-columns:1fr;gap:9px}.blist li{padding:8px 12px 8px 8px}.blist img{width:68px;height:68px}.blist img.tall{width:48px;height:68px;margin:0 10px}.blist b{font-size:16px}.blist span{font-size:14px}}
 
 /* APARICIÓN (solo si corre el JavaScript) */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
@@ -720,7 +720,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 <!-- BONOS -->
 <div class="sec" id="bonus">
   <div class="wrap">
-    <div class="bhead rv"><h2>Bonos gratuitos</h2><span class="val big"><b>TODO INCLUIDO</b></span></div>
+    <div class="bhead rv"><h2>Bonus gratuitos</h2><span class="val big"><b>TODO INCLUIDO</b></span></div>
     <ul class="blist rv">
       <li><img src="img/tapa_pausa.jpg" alt="" class="tall"/><div><i>BONUS #1</i><b>Pausa activa</b><span>4 rutinas de 10 minutos para relajar el cuerpo y mantenerte activa en el trabajo.</span></div></li>
       <li><img src="img/foto_subidas.jpg" alt=""/><div><i>BONUS #2</i><b>Rutinas express de 15 minutos</b><span>Para no cortar el proceso cuando viajás o tenés poco tiempo.</span></div></li>
