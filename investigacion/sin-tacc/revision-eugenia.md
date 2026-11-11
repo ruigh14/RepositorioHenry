@@ -21,12 +21,15 @@ PDF: `sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf` (35 páginas).
    legumbres y pollo, pescado al horno, omelette de espinaca, batatas rellenas, tortilla de verduras, pollo con calabaza,
    crema de zapallo con lentejas, milanesas de berenjena (rebozador Sin TACC o polenta).
    Se sacaron por TACC: todas las de avena, pan, fideos, wrap, budines con harina común.
-9. **Imprimibles:** índice cintura/talla (< 0,5 saludable; ≥ 0,5 riesgo cardiometabólico), como en su placa.
+9. **Imprimibles:** lista de compras, registro 80/20 y organización de la semana.
 10. **Aclaración médica** (cap. 1 y fuentes): "solo para celiaquía diagnosticada; no dejar el gluten antes del diagnóstico".
 
 ## Cambios del 11/11 (devolución de otra IA, analizada)
 - Testimonios de pérdida de peso: **sacados** (no corresponden a este producto).
 - Avena/logo, cocina segura, 80/20 e hidratación: corregidos (ver arriba).
+
+- Portada: "Guía práctica · Celiaquía" y "Para vos y tu familia" (antes "Mujeres 35+").
+- Imprimible: el seguimiento de cintura/talla se reemplazó por "Organización de la semana" (preparado, porciones, reposición, receta para repetir).
 
 ## Pendiente de Nacho
 - Landing propia (con el código de precios de Impultienda) y mockups del ebook.

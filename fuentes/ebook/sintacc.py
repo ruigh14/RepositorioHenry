@@ -82,10 +82,10 @@ page('''
 <div class="cv3 nutri">
   <div class="c3-in">
     <img class="c3-logo" src="img/logo_renova.png" alt="RENOVA">
-    <span class="c3-pill">MÉTODO RENOVA · MUJERES 35+</span>
+    <span class="c3-pill">GUÍA PRÁCTICA · CELIAQUÍA</span>
     <h1 class="c3-title">SIN TACC<br>INTELIGENTE</h1>
     <p class="c3-claim">TU SEMANA, <b><span>RESUELTA.</span></b></p>
-    <p class="c3-sub"><b>Qué comprar</b>, <em>qué cocinar</em> y cómo organizarte<br><span><mark>lista de compras</mark>, <mark>12 recetas</mark> y plan 80/20.</span></p>
+    <p class="c3-sub">Para vos y tu familia: <b>qué comprar</b>,<br><span><em>qué cocinar</em> y <mark>cómo organizarte</mark>.</span></p>
   </div>
   <div class="c3-team"><img src="img/equipo_tapa.png" alt="Equipo RENOVA"></div>
 </div>
@@ -342,10 +342,10 @@ page(f'''
 <h1 class="h1">Registro <span class="t">semanal 80/20</span></h1>
 <p class="small">Marcá con una cruz tus comidas a elección (siempre Sin TACC). Objetivo: 23 planificadas y hasta 5 a elección. Semana N°: ______</p>
 {table(["", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"], [[m] + [""] * 7 for m in ["Desayuno", "Almuerzo", "Merienda", "Cena"]])}
-<h2>Seguimiento cada 4 semanas</h2>
-<p class="small"><b>Índice cintura/talla</b> = cintura (cm) ÷ altura (cm). Menos de 0,5 se considera saludable; 0,5 o más indica mayor riesgo cardiometabólico. Medí la cintura siempre igual, a la altura del ombligo.</p>
-{table(["Fecha", "Cintura (cm)", "Altura (cm)", "Cintura/talla", "Energía (1–10)", "Intestino (1–10)"], [["", "", "", "", "", ""] for _ in range(4)])}
-''', chapter="Imprimibles", pid="imp-registro", toc="Imprimible: registro 80/20 y seguimiento")
+<h2>Organización de la semana</h2>
+<p class="small">Completalo el día de cocina y revisalo antes de la próxima compra.</p>
+{table(["Lo que dejé preparado", "Para cuántas comidas", "Lo que falta reponer", "Receta para repetir"], [["", "", "", ""] for _ in range(6)])}
+''', chapter="Imprimibles", pid="imp-registro", toc="Imprimible: registro 80/20 y organización")
 
 # ================================================================== FUENTES
 page(f'''
