@@ -1,0 +1,9 @@
+/* RENOVA · design system — tipografías locales.
+   FONTS/ se reemplaza por la ruta a fuentes/design-system/fonts/ (lo hace design_system.css()). */
+@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("FONTS/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("FONTS/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("FONTS/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("FONTS/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("FONTS/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("FONTS/inter-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"InterTightW";font-weight:100 900;font-style:normal;src:url("FONTS/inter-tight-latin-var.woff2") format("woff2")}

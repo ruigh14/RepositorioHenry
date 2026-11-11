@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Volvé a sentirte fuerte | Método RENOVA</title>
+<meta name="description" content="Plan de 8 semanas para mujeres de 35+: entrenamiento en casa y en el gimnasio (con video de cada ejercicio), plan de nutrición y 5 bonus."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{   /* alias de la landing sobre los tokens del design system (fuentes/design-system/tokens.css) */
+  --br:var(--rnv-turquesa); --br2:var(--rnv-turquesa-titulo); --brd:var(--rnv-turquesa-oscuro); --brdd:var(--rnv-turquesa-profundo);
+  --brl:var(--rnv-turquesa-fondo); --brb:var(--rnv-turquesa-borde); --brll:var(--rnv-fondo);
+  --grad:var(--rnv-degrade);
+  --navy:var(--rnv-oscuro); --ink:var(--rnv-tinta); --txt:var(--rnv-texto); --mut:var(--rnv-gris);
+  --red:var(--rnv-rojo); --gray:var(--rnv-fondo); --line:var(--rnv-linea);
+  --sh:var(--rnv-sombra); --sh2:var(--rnv-sombra-fuerte);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--txt);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+.b{color:var(--br)}
+.wrap{width:min(1100px,calc(100% - 32px));margin-inline:auto}
+.narrow{width:min(820px,calc(100% - 32px));margin-inline:auto}
+.ic{width:1em;height:1em;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- BOTONES ---------- */
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:20px;letter-spacing:.01em;text-transform:uppercase;color:#fff;background:var(--grad);padding:16px 40px;border-radius:14px;border:0;cursor:pointer;box-shadow:var(--rnv-sombra-boton);transition:transform .2s,filter .2s;animation:pulse 2.4s ease-in-out infinite}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3.6s ease-in-out infinite}
+.btn:hover{transform:translateY(-3px);filter:saturate(1.1)}
+.btn .ic{width:22px;height:22px;stroke-width:2.6}
+.btn.white{background:#fff;color:var(--br2);box-shadow:0 14px 30px rgba(0,0,0,.22)}
+.btn.big{font-size:22px;padding:18px 48px}
+@keyframes shine{0%,55%{left:-80%}100%{left:130%}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+.cta{text-align:center;margin-top:34px}
+.cta small{display:flex;justify-content:center;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-size:13.5px;color:var(--mut)}
+.cta small span{display:inline-flex;align-items:center;gap:6px}
+.cta small .ic{color:var(--br)}
+
+/* ---------- BARRA DE OFERTA (fija arriba, toda la barra lleva al carrito) ---------- */
+.top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 12px;padding:9px 12px;background:var(--navy);color:#fff;text-align:center;line-height:1.2}
+.tb-tag{background:var(--red);color:#fff;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;animation:pulse 2.4s ease-in-out infinite}
+.tb-p{font-family:"Inter Tight",Inter,sans-serif;font-size:18px}
+.tb-p s{color:var(--mut);font-size:14px;margin-right:4px}
+.tb-p b{color:var(--br);font-weight:900}
+.tb-x{font-size:13.5px;color:var(--brb)}
+.tb-t{font-size:12.5px;color:var(--mut);letter-spacing:.02em}
+.tb-t b{font-family:"Inter Tight",Inter,sans-serif;font-weight:700;color:#fff;font-variant-numeric:tabular-nums;margin-left:3px}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;background:var(--grad);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 20%,rgba(255,255,255,.2),transparent 55%)}
+.hero .wrap{position:relative;padding:48px 0 60px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+.eyebrow{display:inline-block;background:#fff;color:var(--br2);border-radius:999px;padding:9px 18px;font-weight:800;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 8px 22px rgba(0,0,0,.12);margin-bottom:18px}
+.hero h1{color:#fff;font-size:clamp(40px,6.4vw,72px);font-weight:900;letter-spacing:-.03em;line-height:.98;text-transform:uppercase;text-shadow:0 4px 18px rgba(0,0,0,.18)}
+.hero h1 em{font-style:normal;display:inline-block;background:#fff;color:var(--br2);padding:0 12px;border-radius:10px;transform:rotate(-2deg);text-shadow:none}
+.hero .sub{font-family:"Inter Tight",Inter,sans-serif;font-weight:500;font-size:clamp(19px,2.3vw,24px);margin:18px 0 14px;line-height:1.3}
+.dos{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:7px 16px;font-size:15px;font-weight:600}
+.hero .cta{text-align:left;margin-top:26px}
+.proof{display:flex;align-items:center;gap:10px;margin-top:14px;font-size:15px;font-weight:600}
+.stars{color:#FFD24A;letter-spacing:2px;font-size:18px}
+.proof .faces{display:flex}
+.proof .faces img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid #fff;margin-left:-8px}
+.proof .faces img:first-child{margin-left:0}
+
+/* ---------- TAPAS (mockup del ebook) ---------- */
+.books{position:relative;height:460px;perspective:1400px}
+.book{position:absolute;width:56%;aspect-ratio:210/297;border-radius:3px 8px 8px 3px;overflow:hidden;background:#fff;box-shadow:18px 24px 44px rgba(0,0,0,.35),inset 4px 0 0 rgba(0,0,0,.08);transition:transform .35s}
+.book img{width:100%;height:100%;object-fit:cover}
+.book::after{content:"";position:absolute;inset:0 auto 0 0;width:7%;background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(255,255,255,.12) 60%,transparent)}
+.books .b1{left:0;top:30px;transform:rotateY(14deg) rotate(-5deg);z-index:2}
+.books .b2{right:0;top:30px;transform:rotateY(-14deg) rotate(5deg);z-index:2}
+.books .b3{left:20%;width:60%;top:0;z-index:3;transform:translateY(8px)}
+.books .b1{width:48%;top:50px}
+.books:hover .b1{transform:rotateY(14deg) rotate(-8deg) translateX(-10px)}
+.books:hover .b2{transform:rotateY(-14deg) rotate(8deg) translateX(10px)}
+.books .tag{position:absolute;z-index:5;left:50%;bottom:-6px;transform:translateX(-50%);background:var(--navy);color:#fff;font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+
+/* ---------- SECCIONES ---------- */
+.sec{padding:80px 0}
+.sec.gray{background:var(--gray)}
+.sec.tint{background:var(--brl)}
+.sec.dark{background:var(--navy);color:#E3ECEE}
+.sec.dark h2,.sec.dark h3{color:#fff}
+.h2{font-size:clamp(28px,3.8vw,44px);text-align:center;margin-bottom:16px;text-transform:uppercase;letter-spacing:-.025em}
+.lead{text-align:center;color:var(--mut);font-size:18px;max-width:720px;margin:0 auto 36px}
+.dark .lead{color:var(--brb)}
+
+/* DOLORES */
+.pains{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pain{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px}
+.pain .ic{width:42px;height:42px;padding:9px;border-radius:12px;background:rgba(20,177,199,.18);color:var(--br)}
+.pain p{font-size:16.5px;line-height:1.45;color:#fff}
+.pain p b{color:var(--br)}
+
+/* NO ES TU CULPA */
+.fault{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.fault h2{text-align:left}
+.fault p{font-size:17.5px;margin-bottom:14px}
+.fault p b{color:var(--ink)}
+.know{background:#fff;border-radius:16px;overflow:hidden;box-shadow:var(--sh2)}
+.know h3{background:var(--grad);color:#fff;text-align:center;font-size:24px;padding:14px}
+.know ul{list-style:none;padding:22px 24px;display:grid;gap:14px}
+.know li{display:flex;gap:12px;font-size:16px;align-items:flex-start}
+.know li b{color:var(--ink)}
+.know li em{font-style:normal;font-weight:800;color:var(--br2)}
+.ix{flex:0 0 24px;height:24px;border-radius:6px;display:grid;place-items:center;font-weight:900;font-size:14px;margin-top:1px}
+.ix.no{color:var(--red);background:#FDECEC}
+.ix.si{background:var(--br);color:#fff}
+
+/* BENEFICIOS */
+.bens{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ben{background:#fff;border-radius:16px;padding:22px;box-shadow:var(--sh);border-top:4px solid var(--br)}
+.ben .ic{width:40px;height:40px;padding:8px;border-radius:50%;background:var(--br);color:#fff;stroke-width:3;margin-bottom:12px}
+.ben h3{font-size:19px;margin-bottom:6px}
+.ben p{font-size:15.5px;color:var(--mut);line-height:1.5}
+
+/* CLIPS DE EJERCICIOS */
+.clips{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:10px}
+.clip{position:relative;border-radius:14px;overflow:hidden;background:var(--navy);aspect-ratio:4/5;box-shadow:var(--sh)}
+.clip video{width:100%;height:100%;object-fit:cover}
+.clip span{position:absolute;left:8px;right:8px;bottom:8px;background:rgba(20,20,20,.78);color:#fff;font-size:12.5px;font-weight:700;padding:5px 8px;border-radius:8px;text-align:center;line-height:1.25}
+
+/* PRODUCTO + PRECIO */
+.offer{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:center}
+.offer .books{height:420px}
+.card{background:#fff;border-radius:20px;border:2px solid var(--brb);box-shadow:var(--sh2);padding:28px 24px;text-align:center}
+.card h3{font-size:clamp(24px,3vw,30px);text-transform:uppercase}
+.card .cc{font-size:15.5px;color:var(--mut);margin:6px 0 16px}
+.price{display:flex;flex-direction:column;align-items:center;gap:2px;margin:6px 0 10px}
+.price s{color:var(--mut);font-size:19px}
+.price b{font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(44px,7vw,58px);font-weight:900;color:var(--ink);line-height:1}
+.save{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:14px;letter-spacing:.04em;padding:5px 14px;border-radius:999px;margin-bottom:18px}
+.incl{list-style:none;text-align:left;display:grid;gap:8px;margin:0 0 18px;padding:16px;background:var(--brll);border-radius:14px}
+.incl li{display:flex;gap:10px;font-size:15.5px;line-height:1.4}
+.incl li .ic{color:var(--br);stroke-width:3;margin-top:3px}
+.trust{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13.5px;color:var(--mut)}
+.trust span{display:inline-flex;align-items:center;gap:6px}
+.trust .ic{color:var(--br)}
+.gmini{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;border-radius:12px;background:var(--brl);text-align:left;font-size:14.5px;color:var(--ink)}
+.gmini .ic{width:34px;height:34px;color:var(--brd)}
+.ups{display:grid;grid-template-columns:86px 1fr;gap:14px;text-align:left;background:var(--brll);border:2px dashed var(--br);border-radius:14px;padding:14px;margin-bottom:16px}
+.ups-img{width:86px;height:120px;object-fit:contain;border-radius:10px;box-shadow:0 6px 14px rgba(0,0,0,.12);background:#fff}
+.ups-tag{display:inline-block;background:var(--grad);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:6px}
+.ups-tx{min-width:0}
+.ups h4{font-size:17px;margin-bottom:3px;letter-spacing:-.01em}
+.ups p{font-size:13.5px;color:var(--mut);line-height:1.45}
+.ups-f{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:10px}
+.ups-f s{color:var(--mut);font-size:13px}
+.ups-f b{font-family:"Inter Tight",Inter,sans-serif;font-size:20px;color:var(--ink)}
+.ups-btn{border:2px solid var(--br);background:#fff;color:var(--br2);border-radius:999px;padding:9px 16px;font-family:Inter,sans-serif;font-weight:800;font-size:13px;cursor:pointer;white-space:nowrap;transition:transform .2s,background .2s,color .2s}
+.ups-btn:hover{transform:translateY(-2px)}
+.ups-btn .ok{display:none}
+.ups-btn.is-selected{background:var(--grad);color:#fff;border-color:transparent}
+.ups-btn.is-selected .add{display:none}
+.ups-btn.is-selected .ok{display:inline}
+.tot{display:flex;justify-content:space-between;align-items:center;background:var(--gray);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-weight:800;color:var(--ink)}
+.tot b{font-family:"Inter Tight",Inter,sans-serif;font-size:22px}
+
+/* QUÉ INCLUYE */
+.inc{display:grid;grid-template-columns:.7fr 1.3fr;gap:36px;align-items:center;background:#fff;border-radius:20px;box-shadow:var(--sh);padding:28px;margin-bottom:24px}
+.inc .book{position:relative;width:min(240px,100%);margin:0 auto;transform:rotateY(12deg) rotate(-2deg)}
+.inc .tagp{display:inline-block;background:var(--grad);color:#fff;font-weight:800;font-size:12px;letter-spacing:.12em;padding:4px 12px;border-radius:999px;margin-bottom:8px}
+.inc h3{font-size:clamp(24px,3vw,30px);text-transform:uppercase;margin-bottom:12px}
+.inc ul{list-style:none;display:grid;gap:9px}
+.inc li{display:flex;gap:10px;font-size:16px;line-height:1.45}
+.inc li .ic{color:var(--br);stroke-width:3;margin-top:4px}
+
+/* BONUS */
+.bonuses{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.bonus{position:relative;background:#fff;border-radius:18px;box-shadow:var(--sh);overflow:hidden;display:flex;flex-direction:column}
+.bonus .bim{position:relative;aspect-ratio:16/9;background:var(--brl);display:flex;align-items:center;justify-content:center;gap:8px;padding:12px}
+.bonus .bim img{height:100%;width:auto;border-radius:8px;box-shadow:0 8px 18px rgba(0,0,0,.18);object-fit:cover}
+.bonus .bim img.full{width:100%;object-fit:cover}
+.bonus .num{position:absolute;left:12px;top:12px;background:var(--navy);color:#fff;font-weight:800;font-size:12px;letter-spacing:.1em;padding:5px 12px;border-radius:999px;z-index:2}
+.bonus .bt{padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.bonus h3{font-size:20px}
+.bonus p{font-size:15.5px;color:var(--mut)}
+.bonus .bv{margin-top:auto;display:flex;align-items:center;gap:10px;font-weight:800}
+.bonus .bv s{color:var(--mut);font-weight:500}
+.bonus .bv b{background:var(--brl);color:var(--brd);padding:4px 12px;border-radius:999px;font-size:14px;letter-spacing:.04em}
+
+/* PORTADA CON VSL */
+.hero .wrap.hero-in{display:block;padding:40px 0 54px;text-align:center;max-width:900px}
+.hero-in h1{font-size:clamp(42px,7vw,78px)}
+.hero-in .sub{max-width:700px;margin:14px auto 22px}
+.vsl{position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;border:5px solid #fff;box-shadow:0 26px 60px rgba(0,0,0,.35);background:#fff}
+.vsl img,.vsl iframe,.vsl video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.hero-in .cta{text-align:center}
+.hero-in .proof{justify-content:center}
+
+/* PILARES */
+.pil{display:grid;grid-template-columns:1.2fr .8fr;background:var(--brl);border-radius:18px;overflow:hidden;box-shadow:var(--sh);margin:0 auto 24px;max-width:980px}
+.pil-tx h3{background:var(--grad);color:#fff;font-size:24px;text-transform:uppercase;padding:16px 22px 14px}
+.pil-tx h3 small{display:block;text-transform:none;font-family:Inter,sans-serif;font-size:15px;font-weight:500;opacity:.95;margin-top:4px}
+.pil-tx ul{list-style:none;padding:18px 22px 22px;display:grid;gap:12px}
+.pil-tx li{display:flex;gap:10px;font-size:16px;line-height:1.5;color:var(--ink)}
+.pil-tx li .ic{color:var(--br);stroke-width:3;margin-top:4px}
+.pil-im{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:10px;background:#fff;align-content:center}
+.pil-im img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px}
+.pil-im.one{grid-template-columns:1fr}
+.pil-im.one img{aspect-ratio:16/10}
+.band{background:var(--brl);border-top:4px solid var(--br);border-radius:90px 90px 0 0;padding:40px 24px;text-align:center}
+.band h2{font-size:clamp(20px,2.8vw,30px);max-width:920px;margin:0 auto;text-transform:uppercase;letter-spacing:-.02em}
+
+/* QUÉ INCLUYE (ítems) */
+.item{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;background:#fff;border-radius:20px;box-shadow:var(--sh);padding:26px;margin-bottom:24px}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.trio figure{margin:0}
+.trio figcaption{background:var(--br);color:#fff;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:4px;border-radius:6px 6px 0 0}
+.trio img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:0 0 8px 8px}
+.duo{display:flex;justify-content:center;gap:14px;margin-top:16px}
+.duo img{width:42%;border-radius:3px 8px 8px 3px;box-shadow:12px 16px 30px rgba(20,20,20,.25)}
+.item .mock{width:100%;border-radius:14px}
+.item-h{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}
+.item-h h3{font-size:clamp(22px,2.6vw,28px);text-transform:uppercase}
+.val{flex:none;background:var(--brl);color:var(--brd);border:1px solid var(--br);font-weight:800;font-size:14px;padding:4px 12px;border-radius:999px;white-space:nowrap}
+.val.big{font-size:20px;padding:6px 16px;background:#FFE58A;border-color:#E9C548;color:var(--ink)}
+.item-tx p{font-size:16.5px;margin-bottom:12px;color:var(--ink)}
+.item-tx ul,.bono ul{list-style:none;display:grid;gap:9px}
+.item-tx li,.bono li{display:flex;gap:10px;font-size:16px;line-height:1.45;color:var(--ink)}
+.item-tx li .ic,.bono li .ic{color:var(--br);stroke-width:3;margin-top:4px}
+
+.lleva{text-align:left;margin:20px auto 4px;max-width:440px;color:var(--mut);font-size:15px}
+.lleva p{font-weight:600;color:var(--ink);margin:0 0 8px;font-size:15px}
+.lleva ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.lleva li{display:flex;gap:8px;align-items:flex-start;line-height:1.35}
+.lleva li .ic{width:16px;height:16px;flex:none;margin-top:2px;color:var(--br)}
+.lleva b{color:var(--ink);font-weight:600}
+.hero-tr{margin-top:12px;font-size:15px;font-weight:700;letter-spacing:.04em;color:#fff;opacity:.95}
+.vsl-on{position:absolute;inset:0;z-index:3;border:0;background:transparent;cursor:pointer;display:flex;align-items:flex-end;justify-content:center;padding:0 0 22px;transition:opacity .3s}
+.vsl-on span{display:inline-flex;align-items:center;gap:10px;background:var(--rnv-turquesa);color:#fff;font:800 19px "Inter Tight",Inter,sans-serif;letter-spacing:.02em;padding:12px 24px;border-radius:999px;box-shadow:0 8px 22px rgba(0,0,0,.3)}
+.vsl-on .ic{width:22px;height:22px}
+.vsl-on.off{opacity:0;pointer-events:none}
+@media (max-width:640px){.vsl-on{padding-bottom:12px}.vsl-on span{font-size:15px;padding:9px 16px}.vsl-on .ic{width:18px;height:18px}}
+
+/* PORTADA (formato tipo VSL: equipo arriba, promesa, video y botón en la primera pantalla) */
+.hero{background:linear-gradient(165deg,#06343b 0%,var(--rnv-turquesa-profundo) 55%,var(--rnv-turquesa-oscuro) 100%)}
+.hero::before{background:radial-gradient(circle at 80% 10%,rgba(20,177,199,.28),transparent 55%)}
+.hero .wrap.hero-in{padding:34px 0 40px}
+.hero-in .sub b{color:var(--rnv-turquesa-claro);font-weight:700}
+.hero-team{display:block;height:clamp(150px,22vw,230px);width:auto;max-width:92%;margin:8px auto -6px;-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent);mask-image:linear-gradient(180deg,#000 70%,transparent)}
+.eyebrow{background:transparent;color:var(--rnv-turquesa-claro);box-shadow:none;border:2px solid var(--rnv-turquesa-claro);font-size:13.5px;padding:8px 18px;margin-bottom:16px}
+@media (max-width:640px){.hero .eyebrow{font-size:11.5px;padding:6px 14px;letter-spacing:.1em;border-width:1.5px}}
+.hero-in h1{text-transform:none;font-weight:800;font-size:clamp(38px,6vw,66px);letter-spacing:-.02em;line-height:1.05;text-shadow:none}
+.hero h1 em{background:none;color:var(--rnv-turquesa-claro);transform:none;padding:0;font-style:normal}
+.hero-in .sub{font-weight:400;color:rgba(255,255,255,.88);font-size:clamp(16px,2vw,20px);margin:12px auto 18px}
+.hero-lbl{font:800 13px "Inter Tight",Inter,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin:0 0 12px}
+.hero-lbl b{color:var(--rnv-turquesa)}
+.vsl{border:1px solid rgba(20,177,199,.45);box-shadow:0 0 40px rgba(20,177,199,.25),0 26px 60px rgba(0,0,0,.45)}
+.hero-btn{flex-direction:column;gap:2px;width:min(560px,100%);padding:14px 20px;background:linear-gradient(135deg,var(--rnv-turquesa),var(--rnv-turquesa-titulo));box-shadow:0 0 30px rgba(20,177,199,.55),0 14px 30px rgba(0,0,0,.35)}
+.hero-btn span{display:inline-flex;align-items:center;gap:10px}
+.hero .btn.big.hero-btn{font-size:19px;padding:13px 20px;min-height:52px}
+@media (max-width:640px){.hero .btn.big.hero-btn{font-size:17px;padding:12px 16px;min-height:48px}}
+.hero-btn small{display:block;margin:0;font:600 12.5px Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:.92}
+.hero .cta{margin-top:20px}
+.hero .proof{color:#fff}
+.tm .mat{display:block;margin-top:4px;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--rnv-turquesa-oscuro)}
+/* BONOS */
+.bhead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 22px;max-width:980px;border-bottom:2px solid var(--line);padding-bottom:12px}
+.bhead h2{font-size:clamp(30px,4vw,44px);text-transform:uppercase}
+.bono{max-width:980px;margin:0 auto 20px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);overflow:hidden}
+.bono .bt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--brl);padding:16px 20px 16px 140px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:19px;text-transform:uppercase;color:var(--ink)}
+.bono .bt i{position:absolute;left:0;top:50%;transform:translateY(-50%);background:var(--grad);color:#fff;font-style:normal;font-size:14px;padding:6px 16px;border-radius:0 6px 6px 0}
+.bono .bb{display:grid;grid-template-columns:.7fr 1.3fr;gap:24px;align-items:center;padding:20px 24px}
+.bono .bb>img{width:100%;max-width:260px;aspect-ratio:1;object-fit:cover;border-radius:12px;margin:0 auto;box-shadow:0 10px 24px rgba(0,0,0,.15)}
+.bono .bb>img.tall{aspect-ratio:210/297;max-width:190px}
+.bono .bb p{font-size:16.5px;margin-bottom:10px;color:var(--ink)}
+.bono .bb .val{display:inline-block;margin-top:10px}
+.bono .two{display:flex;flex-direction:column;gap:8px}
+.bono .two img{width:100%;max-width:280px;margin:0 auto;border-radius:10px}
+
+.bono .bt em{flex:none;font-style:normal;background:var(--navy);color:#fff;font-size:14px;letter-spacing:.06em;padding:8px 14px;border-radius:10px;text-align:center;line-height:1.2}
+.bono .bt em small{display:block;font-size:11.5px;font-weight:600;letter-spacing:0;text-transform:none;color:var(--brb)}
+
+.val.big{display:inline-flex;flex-direction:column;align-items:center;line-height:1.15;padding:8px 18px}
+.val.big s{font-weight:600;font-size:15px;color:var(--mut);text-decoration-thickness:1.5px;text-decoration-color:rgba(20,20,20,.55)}
+.val.big b{font-weight:900;font-size:20px;color:var(--ink);letter-spacing:.04em}
+
+/* EQUIPO */
+.team-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 4px 18px;scrollbar-width:none}
+.team-track::-webkit-scrollbar{display:none}
+.tm{flex:0 0 min(300px,72%);scroll-snap-align:center;margin:0;background:#fff;border-radius:16px;box-shadow:var(--sh);padding:12px;text-align:center}
+.tm img,.tm-ph{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 25%;border-radius:12px;margin-bottom:10px}
+.tm-ph{display:grid;place-items:center;background:var(--brl);color:var(--br);font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:56px}
+.tm b{display:block;color:var(--ink);font-size:16px}
+.tm span{font-size:13.5px;color:var(--mut)}
+.collage{width:100%;max-width:980px;margin:0 auto;border-radius:20px;box-shadow:var(--sh2)}
+
+/* PRECIO (dos columnas) */
+.pr2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 12px}
+.pr2>div{border:2px solid var(--line);border-radius:12px;padding:10px;min-width:0;container-type:inline-size}
+.pr2 small{display:block;font-size:13px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.pr2 s{font-size:24px;color:var(--mut)}
+.pr2 .on{border-color:var(--br);background:var(--brl)}
+.pr2 b{font-family:"Inter Tight",Inter,sans-serif;font-size:clamp(26px,4vw,44px);font-size:min(44px,15cqw);font-weight:900;color:var(--ink);line-height:1.1;white-space:nowrap}
+.pr2 s{font-size:min(24px,10cqw)}
+.pr2.inv{max-width:460px;margin:10px auto}
+.pr2.inv>div{border-color:rgba(255,255,255,.5)}
+.pr2.inv small,.pr2.inv s{color:#fff}
+.pr2.inv .on{background:#fff}
+.pr2.inv .on small{color:var(--brd)}
+#comprar .h2{font-size:clamp(22px,3vw,32px);max-width:900px;margin:0 auto 26px}
+#comprar .card{max-width:560px;margin:0 auto}
+
+/* AUTOR */
+.coach{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;max-width:960px;margin:0 auto}
+.ring{width:min(320px,100%);aspect-ratio:1;border-radius:50%;border:5px solid var(--br);padding:6px;margin:0 auto;box-shadow:var(--sh2)}
+.ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 25%}
+.coach .nm{text-align:center;font-weight:900;margin-top:12px;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.coach .nm span{color:var(--br)}
+.coach h2{font-size:clamp(30px,4vw,42px);text-transform:uppercase;margin-bottom:12px}
+.coach p{font-size:16.5px;margin-bottom:12px}
+.roles{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.roles span{background:var(--brl);color:var(--brd);font-weight:800;font-size:13.5px;padding:6px 12px;border-radius:999px}
+.team{margin-top:16px;border-radius:16px;overflow:hidden;background:var(--brl)}
+.team img{width:100%}
+
+/* TESTIMONIOS */
+.posts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
+.post{display:flex;flex-direction:column;background:#fff;border-radius:16px;box-shadow:var(--sh);padding:14px}
+.post .who{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.post .who img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.post .who b{font-size:15px;color:var(--ink);display:block;line-height:1.2}
+.post .who .stars{font-size:13px;letter-spacing:1px}
+.post p{font-size:15.5px;color:var(--ink);line-height:1.45;margin-bottom:10px}
+.post .ba,.post .one{position:relative;margin:auto 0 0;aspect-ratio:4/5}
+.post .ba{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.post .ba div{position:relative}
+.post .ba img,.post .one img,.post .one video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:8px}
+.post .tag{position:absolute;left:6px;top:6px;background:rgba(20,20,20,.85);color:#fff;font-size:10.5px;font-weight:900;letter-spacing:.08em;padding:3px 7px;border-radius:4px}
+.post .tag.d{background:var(--br)}
+.msgs-t{text-align:center;font-size:clamp(22px,3vw,30px);text-transform:uppercase;margin:50px 0 18px}
+.msgs{position:relative;max-width:1040px;margin:0 auto}
+.msgs-track{display:flex;align-items:center;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 4px 18px;scrollbar-width:none}
+.msgs-track::-webkit-scrollbar{display:none}
+.msg{flex:0 0 min(420px,82%);scroll-snap-align:center;margin:0;background:#fff;border-radius:18px;box-shadow:var(--sh2);padding:12px}
+.msg img{width:100%;border-radius:12px}
+.msg figcaption{font-size:13px;font-weight:700;color:var(--mut);text-align:center;margin-top:10px}
+.msgs-dots{display:flex;justify-content:center;gap:8px}
+.msgs-dots button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer}
+.msgs-dots button.on{background:var(--br);width:26px;border-radius:6px}
+.disc{text-align:center;font-size:13.5px;color:var(--mut);max-width:680px;margin:10px auto 0;font-style:italic}
+
+.post-vid{background:linear-gradient(180deg,var(--brl),#fff 70%);border:2px solid var(--brb);box-shadow:0 10px 26px rgba(20,177,199,.22)}
+
+/* VALOR */
+.stack{max-width:680px;margin:0 auto;background:#fff;border-radius:20px;box-shadow:var(--sh2);overflow:hidden}
+.stack .row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--line);font-size:16.5px}
+.stack .row span{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:600}
+.stack .row span .ic{color:var(--br);stroke-width:3}
+.stack .row em{font-style:normal;font-weight:800;color:var(--mut);white-space:nowrap}
+.stack .row em.free{color:var(--brd)}
+.stack .sumv{background:var(--brll)}
+.stack .sumv span,.stack .sumv em{font-size:18px;color:var(--ink)}
+.stack .sumv em s{color:var(--mut)}
+.stack .hoy{background:var(--navy);color:#fff;border:0;padding:18px 22px}
+.stack .hoy span{color:#fff;font-size:20px;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;text-transform:uppercase}
+.stack .hoy b{font-family:"Inter Tight",Inter,sans-serif;font-size:34px;color:var(--br);font-weight:900}
+
+/* GARANTÍA */
+.guar{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;max-width:860px;margin:0 auto;background:#fff;border:2px solid var(--brb);border-radius:22px;padding:34px;box-shadow:var(--sh2)}
+.seal{width:150px;height:150px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;text-align:center;font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;line-height:1.1;box-shadow:0 0 0 6px #fff,0 0 0 9px var(--br),0 18px 34px rgba(20,177,199,.35)}
+.seal b{display:block;font-size:52px;letter-spacing:-.02em;line-height:1}
+.guar h2{text-align:left;font-size:clamp(26px,3.4vw,36px);text-transform:uppercase;margin-bottom:10px}
+.guar p{font-size:16.5px;margin-bottom:10px}
+.guar .sig{font-weight:800;color:var(--ink)}
+
+/* GARANTÍA (formato Menofit) */
+.gar{position:relative;max-width:1000px;margin:30px auto 0;border-radius:16px;overflow:visible;box-shadow:var(--sh2);background:var(--br2) url('img/nacho.jpg') right 30%/auto 120% no-repeat;color:#fff}
+.gar::before{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(90deg,var(--rnv-turquesa) 0%,var(--rnv-turquesa-titulo) 55%,rgba(14,157,178,.35) 80%,rgba(14,157,178,0) 100%)}
+.gseal{position:absolute;left:-30px;top:-40px;width:170px;height:170px;z-index:3;filter:drop-shadow(0 10px 18px rgba(0,0,0,.3))}
+.gar-tx{position:relative;padding:48px 40px 40px 170px;max-width:720px}
+.gar h2{color:#fff;font-size:clamp(28px,3.6vw,42px);line-height:1.05;margin-bottom:16px}
+.gar p{font-size:17px;margin-bottom:14px;color:#fff}
+.gar .sig{font-weight:800;font-size:18px}
+
+/* FAQ */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
+.faq details{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 4px 14px rgba(20,20,20,.07);border:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;color:var(--ink);font-weight:700;font-size:16.5px;padding:17px 56px 17px 18px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:16px;top:50%;width:28px;height:28px;margin-top:-14px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:700;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 18px 18px;font-size:16px;color:var(--txt)}
+
+/* CTA FINAL */
+.final{position:relative;color:#fff;text-align:center;border-radius:28px;padding:52px 24px;overflow:hidden;
+  background:radial-gradient(circle at 15% 0%,rgba(20,177,199,.45),transparent 50%),radial-gradient(circle at 90% 100%,rgba(226,169,40,.22),transparent 45%),var(--navy);
+  border:2px solid transparent;background-clip:padding-box;box-shadow:0 0 0 2px var(--rnv-oro),0 0 0 7px rgba(226,169,40,.18),0 30px 70px rgba(20,20,20,.35)}
+.final h2 .gold,.final .gold{color:var(--rnv-oro-claro)}
+.final .pr2.inv .on{background:linear-gradient(135deg,var(--rnv-oro-claro),var(--rnv-oro));border-color:var(--rnv-oro)}
+.final .pr2.inv .on small,.final .pr2.inv .on b{color:var(--ink)}
+.final .btn.white{background:linear-gradient(135deg,var(--rnv-turquesa),var(--rnv-turquesa-titulo));color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.15),0 16px 34px rgba(20,177,199,.45)}
+.final h2{color:#fff;font-size:clamp(28px,4vw,44px);text-transform:uppercase;margin-bottom:12px}
+.final p{font-size:18px;max-width:640px;margin:0 auto 18px}
+.final .price b{color:#fff}
+.final .price s{color:var(--brl)}
+.final .cta small,.final .cta small .ic{color:#fff}
+
+/* PIE */
+.foot{background:var(--navy);color:var(--line);padding:40px 0 26px;font-size:14px;text-align:center}
+.foot img{height:28px;width:auto;filter:brightness(0) invert(1);margin:0 auto 12px}
+.foot p{margin-bottom:8px}
+.foot a{text-decoration:underline}
+.foot .legal{font-size:12.5px;color:var(--brb)}
+
+/* BARRA FIJA CELULAR */
+.mbar{display:none}
+
+/* APARICIÓN (solo si corre el JavaScript) */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero .wrap,.fault,.offer,.coach,.pil,.item,.bono .bb{grid-template-columns:1fr}
+  .books,.offer .books{height:380px;max-width:440px;width:100%;margin:0 auto}
+  .pains,.bens{grid-template-columns:1fr 1fr}
+  .clips{grid-template-columns:repeat(3,1fr)}
+  .posts{grid-template-columns:1fr 1fr}
+  .fault h2{text-align:center}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .sec{padding:56px 0}
+  .tb-x{width:100%;font-size:12px}
+  .band{border-radius:40px 40px 0 0;padding:28px 16px}
+  .bono .bt{padding:46px 16px 14px;font-size:17px;flex-direction:column;align-items:flex-start}
+  .bono .bt i{top:12px;transform:none}
+  .bhead{flex-direction:column}
+  .item{padding:18px;min-width:0}
+  .item>*{min-width:0}
+  .trio figcaption{font-size:10px;letter-spacing:.02em}
+  .tm{flex-basis:72%}
+  .hero .wrap{padding:30px 0 46px;gap:26px}
+  .hero .cta{text-align:center}
+  .proof{justify-content:center;flex-wrap:wrap}
+  .books,.offer .books{height:300px}
+  .books .tag{font-size:11px}
+  .btn{width:100%;padding:16px 18px;font-size:19px}
+  .btn.big{font-size:20px;padding:17px 18px}
+  .pains,.bens,.bonuses,.posts{grid-template-columns:1fr}
+  .clips{grid-template-columns:1fr 1fr}
+  .clips .clip:last-child{grid-column:1/-1;aspect-ratio:16/10}
+  .inc{grid-template-columns:1fr;padding:22px}
+  .inc .book{width:180px}
+  .gar{background-size:0 0}
+  .gar::before{background:var(--grad)}
+  .gseal{left:50%;margin-left:-60px;top:-50px;width:120px;height:120px}
+  .gar-tx{padding:84px 20px 26px}
+  .guar{grid-template-columns:1fr;text-align:center;padding:26px 20px}
+  .guar h2{text-align:center}
+  .seal{margin:0 auto;width:124px;height:124px}
+  .seal b{font-size:42px}
+  .stack .row{padding:12px 16px;font-size:15px}
+  .stack .hoy b{font-size:28px}
+  .ups{grid-template-columns:64px 1fr;gap:12px;padding:12px}
+  .ups-img{width:64px;height:64px}
+  .ups-f{flex-wrap:wrap}
+  .ups-btn{width:100%}
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;box-shadow:0 -8px 24px rgba(0,0,0,.14);padding:10px 14px;align-items:center;gap:12px;transform:translateY(110%);transition:transform .3s}
+  .mbar.show{transform:none}
+  .mbar div{line-height:1.1;font-family:"Inter Tight",Inter,sans-serif}
+  .mbar b{font-size:22px;color:var(--ink)}
+  .mbar s{font-size:13px;color:var(--mut);margin-left:4px}
+  .mbar small{display:block;font-family:Inter,sans-serif;font-size:12px;color:var(--br2);font-weight:800}
+  .mbar .btn{flex:1;width:auto;min-height:50px;padding:12px 10px;font-size:17px;animation:none}
+  .foot{padding-bottom:100px}
+  .mbar{gap:10px;padding:10px 12px}
+  .mbar div{min-width:0;flex:1}
+  .mbar b{font-size:19px;white-space:nowrap}
+  .mbar s{font-size:12px;white-space:nowrap}
+  .mbar small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mbar .btn{flex:none;width:auto;white-space:nowrap;padding:12px 16px;font-size:16px}
+  .pr2>div{padding:8px 6px;min-width:0}
+  .pr2 b{font-size:min(32px,15cqw)}
+  .item-h{flex-wrap:wrap}
+  .final{padding:40px 14px}
+  .pr2{gap:8px}
+  .ups{grid-template-columns:70px 1fr}
+  .ups-img{width:70px;height:100px}
+  .pr2 s{font-size:min(16px,10cqw);white-space:nowrap}
+  .btn{white-space:nowrap}
+  .tb-p{white-space:nowrap}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24"><rect x="2" y="7" width="17" height="10" rx="2"/><path d="M22 11v2M6 10v4"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M4 21h16M6 21V9a6 6 0 0 1 12 0v12"/><path d="M12 9l2-2"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .8-1 1.5V14M12 17.5h.01"/></symbol>
+  <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-bone" viewBox="0 0 24 24"><path d="M7 4a2.5 2.5 0 0 0-2 4L16 19a2.5 2.5 0 1 0 4-2 2.5 2.5 0 1 0-2-4L7 2a2.5 2.5 0 1 0-4 2 2.5 2.5 0 1 0 4 0z" transform="translate(0 1)"/></symbol>
+  <symbol id="i-muscle" viewBox="0 0 24 24"><path d="M4 15c0-5 3-11 6-11 2 0 2 2 1 3l-2 2c2 0 4 1 5 3 2-2 6-1 6 3 0 3-3 5-8 5H8c-2 0-4-1-4-5z"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol>
+</svg>
+
+<!-- BARRA DE OFERTA (fija): toda la barra lleva al carrito -->
+<a class="top" href="/checkout">
+  <span class="tb-tag">Oferta de lanzamiento</span>
+  <span class="tb-t">Termina en <b id="tmr">00:15:00</b></span>
+  <span class="tb-x">3 ebooks + 5 bonus + comunidad de por vida</span>
+</a>
+
+<!-- PORTADA -->
+<div class="hero">
+  <div class="wrap hero-in">
+    <a class="eyebrow" href="#incluido">Método RENOVA · Mujeres 35+</a>
+    <h1>VOLVÉ A SENTIRTE UNA MUJER <em>FUERTE</em></h1>
+    <p class="sub">Rutinas de 30 minutos, diseñadas para recuperar <b>tu energía</b> y la <b>confianza en tu cuerpo</b> en la perimenopausia o la menopausia.</p>
+    <p class="hero-lbl">Programa <b>interdisciplinario</b></p>
+    <!-- VSL: cuando esté el video, reemplazar la imagen por el iframe del video (16:9) dentro de .vsl -->
+    <div class="vsl rv" id="vsl" data-wistia="9xn7yk66az"><div class="wistia_embed wistia_async_9xn7yk66az autoPlay=true muted=true silentAutoPlay=true endVideoBehavior=loop playbar=false controlsVisibleOnLoad=false videoFoam=false" style="position:absolute;inset:0;width:100%;height:100%">&nbsp;</div><button type="button" class="vsl-on" id="vsl-on" aria-label="Activar sonido"><span><svg class="ic" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor" stroke="none"/></svg>Tocá para activar el sonido</span></button></div>
+    <div class="cta">
+      <a class="btn big hero-btn" href="/checkout"><span>Empezá ahora <svg class="ic"><use href="#i-arrow"/></svg></span></a>
+      <div class="proof">
+        <div class="faces"><img src="img/mari_d.jpg" alt=""/><img src="img/ba_romi.jpg" alt=""/><img src="img/moni_a.jpg" alt=""/></div>
+        <span><span class="stars">★★★★★</span><br/>Más de <b>150 alumnas</b> ya entrenaron con RENOVA</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DOLORES -->
+<div class="sec dark">
+  <div class="wrap">
+    <h2 class="h2 rv">¿Te pasa <span class="b">esto?</span></h2>
+    <p class="lead rv">Si te sentís identificada con alguna, este plan es para vos.</p>
+    <div class="pains">
+      <div class="pain rv"><svg class="ic"><use href="#i-battery"/></svg><p>Llegás al final del día <b>sin energía</b> y te cansás más que antes.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-muscle"/></svg><p>Te mirás al espejo y <b>no reconocés el cuerpo</b> que te gustaría.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-scale"/></svg><p>La ropa te ajusta en la <b>cintura</b> y te sentís <b>más hinchada</b>.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-help"/></svg><p>Querés entrenar pero <b>no sabés por dónde empezar</b>, o el gimnasio te intimida.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-repeat"/></svg><p>Probaste rutinas de internet y <b>las dejaste a las dos semanas</b>.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-clock"/></svg><p>Entre el trabajo, la casa y la familia, <b>vos quedás última</b>.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-heart"/></svg><p>Sentís que tu <b>metabolismo se puso más lento</b> y lo que antes te funcionaba ya no.</p></div>
+      <div class="pain rv"><svg class="ic"><use href="#i-bone"/></svg><p>Te da <b>miedo lastimarte</b> las rodillas o la espalda si empezás a entrenar.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- NO ES TU CULPA -->
+<div class="sec">
+  <div class="wrap fault">
+    <div class="rv">
+      <h2 class="h2">No es tu culpa: <span class="b">tu cuerpo cambió</span></h2>
+      <p>Con los años, si no entrenás fuerza, perdés músculo, y con los cambios hormonales ese proceso <b>puede acelerarse</b>. Por eso lo que antes te funcionaba hoy no alcanza.</p>
+      <p>La mayoría de las rutinas no están pensadas para tu etapa actual: no tienen en cuenta tu poco tiempo ni tu estado, y <b>no ves resultados porque no tienen progresiones</b>. No las dejás por falta de voluntad, sino por falta de resultados.</p>
+      <p>RENOVA pone el foco en tu estado actual: <b>sesiones cortas y eficientes</b> para que recuperes fuerza, energía y confianza para moverte en tu día a día.</p>
+    </div>
+    <div class="know rv">
+      <h3>¿Sabías que…?</h3>
+      <ul>
+        <li><span class="ix no">✕</span><span>Con los años perdemos <b>masa muscular</b>, y en la menopausia ese proceso <b>se acelera</b>.</span></li>
+        <li><span class="ix si">✓</span><span>Las mujeres que <em>entrenan fuerza</em> mantienen su músculo y cuidan su <em>densidad ósea</em>.</span></li>
+        <li><span class="ix si">✓</span><span>Combinar <em>fuerza y caminatas</em> puede ayudarte a <em>reducir la grasa abdominal</em>.</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIOS -->
+<div class="sec gray" id="resultados">
+  <div class="wrap">
+    <h2 class="h2 rv">Para una mujer en perimenopausia y/o menopausia el entrenamiento de fuerza <span class="b">no es opcional, ¡es preventivo!</span></h2>
+    <p class="lead rv">Mujeres reales que entrenaron con el método RENOVA.</p>
+    <div class="posts">
+      <div class="post rv">
+        <div class="who"><img src="img/mari_d.jpg" alt=""/><div><b>Mari</b><span class="stars">★★★★★</span></div></div>
+        <p>Bajó <b>8 kg de grasa</b> y <b>10 cm de cintura</b>.</p>
+        <div class="ba"><div><img src="img/mari_a.jpg" alt="Mari antes" style="object-position:52% 50%"/><span class="tag">ANTES</span></div><div><img src="img/mari_d.jpg" alt="Mari después" style="object-position:58% 50%"/><span class="tag d">DESPUÉS</span></div></div>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="img/moni_a.jpg" alt=""/><div><b>Moni</b><span class="stars">★★★★★</span></div></div>
+        <p>Bajó <b>6 kg</b> y logró <b>el hábito de entrenar</b>.</p>
+        <div class="ba"><div><img src="img/moni_antes_al.jpg" alt="Moni antes"/><span class="tag">ANTES</span></div><div><img src="img/moni_despues_al.jpg" alt="Moni después"/><span class="tag d">DESPUÉS</span></div></div>
+      </div>
+      <div class="post rv">
+        <div class="who"><img src="img/ba_romi.jpg" alt=""/><div><b>Romi</b><span class="stars">★★★★★</span></div></div>
+        <p>Ganó <b>masa muscular</b> y volvió a <b>correr sin dolores</b>.</p>
+        <div class="one"><img src="img/ba_romi.jpg" alt="Romi"/></div>
+      </div>
+      <div class="post post-vid rv">
+        <div class="who"><img src="img/hero_entrenan.jpg" alt=""/><div><b>Alumnas RENOVA</b></div></div>
+        <p>Así entrenan <b>nuestras alumnas</b>.</p>
+        <div class="one"><video muted loop playsinline preload="none" poster="img/hero_entrenan.jpg"><source src="img/hero_entrenan.mp4" type="video/mp4"/></video></div>
+      </div>
+    </div>
+    <h3 class="msgs-t rv">Lo que nos escriben</h3>
+    <!-- Mensajes de clientas: para sumar uno, agregá otra <figure class="msg"> con la captura en img/. -->
+    <div class="msgs rv">
+      <div class="msgs-track" id="msgs">
+        <figure class="msg"><img src="img/msg_1.jpg" alt="Mensaje de Romi: comencé el gym hace 2 semanas y me siento bárbara en todos los deportes"/><figcaption>Romi · por WhatsApp</figcaption></figure>
+        <figure class="msg"><img src="img/msg_2.jpg" alt="Mensaje de una alumna: el ebook me resultó muy fácil de seguir y adaptar a mi rutina"/><figcaption>Alumna RENOVA · por WhatsApp</figcaption></figure>
+      </div>
+      <div class="msgs-dots" id="msgs-dots"></div>
+    </div>
+    <p class="disc">Los resultados dependen de cada persona: tu punto de partida, tu constancia y tu situación de salud.</p>
+    <div class="cta rv"><a class="btn" href="/checkout">Quiero empezar <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</div>
+
+<!-- PILARES (oculta, no borrar) -->
+<div class="sec" style="display:none">
+  <div class="wrap">
+    <h2 class="h2 rv">Resultados como estos son la razón por la que creé <span class="b">RENOVA</span> para vos…</h2>
+    <div class="pil rv">
+      <div class="pil-tx">
+        <h3>Entrenamiento de fuerza de bajo impacto<small>Progresivo y pensado para tu etapa</small></h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Fortalecimiento general:</b> ejercicios básicos que progresan de a poco, para ganar músculo de forma segura y fortalecer tus huesos.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Movimiento diario:</b> la clave no es solo entrenar, es lo que hacés en el día. Por eso te damos estrategias y ejercicios para que te mantengas activa durante tu jornada laboral.</span></li>
+        </ul>
+      </div>
+      <div class="pil-im"><img src="img/foto_subidas.jpg" alt=""/><img src="img/foto_pesomuerto.jpg" alt=""/><img src="img/foto_remo.jpg" alt=""/><img src="img/foto_abduccion.jpg" alt=""/></div>
+    </div>
+    <div class="pil rv">
+      <div class="pil-tx">
+        <h3>Ingesta de nutrientes y simplicidad<small>Te ayudamos a tener una alimentación consciente y práctica</small></h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Aporte óptimo de fibra:</b> priorizala en tu día para cuidar tu microbiota intestinal, mejorar tu digestión y sostener tu energía.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Proteína de calidad:</b> los bloques esenciales para preservar tu masa muscular, cuidar tu densidad ósea y recuperarte mejor.</span></li>
+        </ul>
+      </div>
+      <div class="pil-im"><img src="img/comida_01.jpg" alt=""/><img src="img/comida_05.jpg" alt=""/><img src="img/comida_09.jpg" alt=""/><img src="img/comida_14.jpg" alt=""/></div>
+    </div>
+    <div class="pil rv">
+      <div class="pil-tx">
+        <h3>Mejorá tus hábitos y la gestión del estrés<small>El pilar invisible que sostiene todo lo demás</small></h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Cuidar tus hábitos, aprender a regular el estrés y <b>descansar de verdad</b> hace que tu entrenamiento y tu nutrición funcionen sin desgastarte ni frustrarte.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Herramientas para <b>salir del piloto automático</b>, dejar de vivir en tensión y disfrutar del proceso, conectando con el presente.</span></li>
+        </ul>
+      </div>
+      <div class="pil-im one"><img src="img/habitos.jpg" alt="Taller del equipo RENOVA"/></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap"><div class="band rv"><h2>RENOVA te da todo esto en un programa <span class="b">práctico y fácil</span>.<br/>Esto es lo que incluye:</h2></div></div>
+
+<!-- QUÉ INCLUYE -->
+<div class="sec tint" id="incluido">
+  <div class="wrap">
+    <h2 class="h2 rv">Dos formas de entrenar. <span class="b">Un mismo objetivo.</span></h2>
+    <p class="lead rv">No importa si preferís entrenar en casa o en el gimnasio: con RENOVA tenés los dos programas completos y lo adaptás a tu agenda y a tu momento.</p>
+    <div class="item rv">
+      <div class="item-im">
+        <div class="trio"><figure><figcaption>Gimnasio</figcaption><img src="img/foto_remo.jpg" alt=""/></figure><figure><figcaption>Casa</figcaption><img src="img/foto_patada.jpg" alt=""/></figure><figure><figcaption>Mancuernas</figcaption><img src="img/foto_estocada.jpg" alt=""/></figure></div>
+        <div class="duo"><img src="img/tapa_casa.jpg" alt="Ebook Entrená desde casa"/><img src="img/tapa_gym.jpg" alt="Ebook Entrená en el gimnasio"/></div>
+      </div>
+      <div class="item-tx">
+        <div class="item-h"><h3>Programa de entrenamiento de 8 semanas</h3><span class="val">Incluido</span></div>
+        <p>Tu programa de entrenamiento de bajo impacto, completo y diseñado para mujeres en etapa de cambios hormonales:</p>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Plan para la casa</b>, con peso corporal o pocos elementos.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Plan para el gimnasio</b>, con todas las explicaciones para comenzar o retomar después de mucho tiempo.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Video de cada ejercicio</b>, explicado por Nacho, y una variante más fácil.</span></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Clips de ejercicios: ocultos por pedido de Nacho (sacar el style para volver a mostrarlos) -->
+    <div class="clips rv" style="display:none">
+      <div class="clip"><video muted loop playsinline preload="none" poster="img/clip_abduccion.jpg"><source src="img/clip_abduccion.mp4" type="video/mp4"/></video><span>Abducción de cadera</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="img/clip_remo.jpg"><source src="img/clip_remo.mp4" type="video/mp4"/></video><span>Remo en polea</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="img/clip_baston.jpg"><source src="img/clip_baston.mp4" type="video/mp4"/></video><span>Movilidad con bastón</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="img/clip_skipping.jpg"><source src="img/clip_skipping.mp4" type="video/mp4"/></video><span>Skipping en el lugar</span></div>
+      <div class="clip"><video muted loop playsinline preload="none" poster="img/clip_tobillo.jpg"><source src="img/clip_tobillo.mp4" type="video/mp4"/></video><span>Movilidad de tobillo</span></div>
+    </div>
+    <div class="item rv">
+      <div class="item-im"><img class="mock" src="img/mock_nutricion.jpg" alt="Plan de nutrición RENOVA"/></div>
+      <div class="item-tx">
+        <div class="item-h"><h3>Plan de nutrición de 8 semanas</h3><span class="val">Incluido</span></div>
+        <p>Alimentá tu entrenamiento y tu cuerpo con un enfoque pensado para tu situación actual: más proteína, más fibra, comidas más simples, mejores resultados.</p>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Recetario RENOVA</b> con recetas ricas en proteína y fibra: fáciles y ricas, para alcanzar tus objetivos.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Menús semanales de 8 semanas:</b> sin adivinar qué comer, con todos los nutrientes importantes.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Listas de compras:</b> aprendé a comprar mejor y más rápido en el súper.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</div>
+
+<!-- BONOS -->
+<div class="sec" id="bonus">
+  <div class="wrap">
+    <div class="bhead rv"><h2>Bonos gratuitos</h2><span class="val big"><b>TODO INCLUIDO</b></span></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #1</i><span>Planes de pausa activa</span><em>INCLUIDO</em></div>
+      <div class="bb"><img src="img/tapa_pausa.jpg" alt="Bonus Pausa activa" class="tall"/><div><p><b>Ejercicios para relajar el cuerpo y mantenerte activa durante el trabajo</b>, con tu propio cuerpo: 4 rutinas de 10 minutos.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #2</i><span>Rutinas express de 15 minutos</span><em>INCLUIDO</em></div>
+      <div class="bb"><img src="img/foto_subidas.jpg" alt=""/><div><p><b>Para sostener el proceso</b> cuando viajás o tenés poco tiempo.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #3</i><span>Rutinas de abdominales</span><em>INCLUIDO</em></div>
+      <div class="bb"><img src="img/foto_abdominales.jpg" alt="" style="aspect-ratio:4/3"/><div><p><b>Cómo hacerlas correctamente</b> y mejorar tu zona media.</p></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #4</i><span>Talleres del equipo RENOVA, grabados y en vivo</span><em>INCLUIDO</em></div>
+      <div class="bb"><div class="two"><img src="img/taller_super.jpg" alt=""/><img src="img/taller_ansiedad.jpg" alt=""/></div><div>
+        <p><b>Talleres grabados para ver cuando quieras</b> con nuestra nutricionista y nuestra psicóloga, y <b>talleres nuevos que podés ver en vivo</b>. Trabajá los pilares clave: hábitos, nutrición y entrenamiento.</p>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de hábitos:</b> con nuestra psicóloga Agostina, apoyo para el estrés y para mejorar tus hábitos.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Talleres de nutrición:</b> aprendé a ordenar tu heladera, elegir mejor en el súper y mucho más.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Conectar con el momento presente:</b> un curso completo de mindfulness para disfrutar el proceso y conectar con vos misma.</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span><b>Mejorar la higiene del sueño:</b> hábitos que te ayudan a descansar mejor.</span></li>
+        </ul></div></div></div>
+    <div class="bono rv"><div class="bt"><i>BONUS #5</i><span>Acceso de por vida a la comunidad RENOVA</span><em>INCLUIDO</em></div>
+      <div class="bb"><img src="img/comunidad.jpg" alt="Comunidad RENOVA"/><div><p><b>Una comunidad de mujeres que están en tu misma situación</b>, en Skool: ahí están los cursos y talleres, y participar es opcional.</p></div></div></div>
+    <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</div>
+
+<!-- QUIÉN SOY + EQUIPO -->
+<div class="sec tint">
+  <div class="coach">
+    <div class="rv"><div class="ring"><img src="img/nacho.jpg" alt="Nacho Portillo"/></div><p class="nm">Coach <span>Nacho Portillo</span></p></div>
+    <div class="rv">
+      <h2>¡Conocé a tu <span class="b">entrenador</span>!</h2>
+      <p>Soy Ignacio Portillo, <b>Licenciado en Alto Rendimiento Deportivo</b>, con más de 15 años de experiencia en el entrenamiento y la preparación física.</p>
+      <p>Trabajé en clubes de primer nivel y hoy soy <b>preparador físico en Racing Club</b>. Durante años también hice evaluaciones antropométricas, y eso me permitió conocer en profundidad cómo responde el cuerpo, cómo evoluciona la composición corporal y por qué cada persona necesita un abordaje diferente.</p>
+      <p>Toda esa experiencia me llevó a crear RENOVA: un método que combina <b>entrenamiento de fuerza, nutrición y hábitos</b>, pensado para las necesidades y posibilidades de cada mujer.</p>
+      <p>Mi objetivo es que mejores tu composición corporal, recuperes fuerza y construyas hábitos que puedas sostener, sin métodos extremos ni soluciones genéricas.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <h3 class="msgs-t rv">El equipo <span class="b">RENOVA</span></h3>
+    <p class="lead rv">Un método creado por profesionales de entrenamiento, nutrición, medicina deportiva y psicología.</p>
+    <!-- Equipo RENOVA: foto en img/equipo_*.jpg, nombre y profesión. -->
+    <div class="msgs rv">
+    <div class="team-track" id="team">
+      <figure class="tm"><img src="img/nacho.jpg" alt="Nacho Portillo"/><b>Nacho Portillo</b><span>Entrenador · creador de RENOVA</span></figure>
+      <figure class="tm"><img src="img/equipo_eugenia.jpg" alt="Lic. María Eugenia Ballini"/><b>Lic. María Eugenia Ballini</b><span>Lic. en Nutrición</span><small class="mat">M.N. 11773</small></figure>
+      <figure class="tm"><img src="img/equipo_agostina.jpg" alt="Lic. Agostina Galiani"/><b>Lic. Agostina Galiani</b><span>Lic. en Psicología</span><small class="mat">M.N. 68738</small></figure>
+      <figure class="tm"><img src="img/equipo_rodrigo.jpg" alt="Dr. Rodrigo Portillo Ruffa"/><b>Dr. Rodrigo Portillo Ruffa</b><span>Médico traumatólogo y deportólogo</span><small class="mat">M.P. 5657</small></figure>
+    </div>
+    <div class="msgs-dots" id="team-dots"></div>
+    </div>
+  </div>
+</div>
+
+<!-- VALOR + PRECIO -->
+<div class="sec gray" id="comprar">
+  <div class="wrap">
+    <h2 class="h2 rv">Programa RENOVA de 8 semanas + <span class="b">5 bonificaciones</span></h2>
+    <div class="card rv">
+      <h3>Método <span class="b">RENOVA</span></h3>
+      <div class="pr2"><div><small>Valor total</small><s>{{original_price}}</s></div><div class="on"><small>Hoy</small><b>{{price}}</b></div></div>
+      <span class="save">Ahorrás {{savings}}</span>
+      <div class="lleva">
+        <p>En total te llevás:</p>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Ebook <b>Entrená desde casa</b> (8 semanas)</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Ebook <b>Entrená en el gimnasio</b> (8 semanas)</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Ebook <b>Alimentación Inteligente</b>: plan de nutrición de 8 semanas</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: planes de pausa activa</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: rutinas express de 15 minutos</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: rutinas de abdominales</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: talleres del equipo RENOVA, grabados y en vivo</span></li>
+          <li><svg class="ic"><use href="#i-check"/></svg><span>Bonus: acceso de por vida a la comunidad RENOVA</span></li>
+        </ul>
+      </div>
+      <div class="ups" id="ups">
+        <img class="ups-img" src="img/tapa_menopausia.jpg" alt="Ebook Nutrición en la menopausia" style="object-fit:contain"/>
+        <div class="ups-tx">
+          <span class="ups-tag">Sumalo a tu compra</span>
+          <h4>Nutrición en la menopausia</h4>
+          <p>Qué cambia en la perimenopausia y la menopausia y cómo cuidar tu músculo, tus huesos, tu corazón y tu energía desde la alimentación. Con evidencia, sin mitos, de la mano de nuestra nutricionista.</p>
+          <div class="ups-f">
+            <div><b>{{upsell_1_price}}</b></div>
+            <button type="button" class="ups-btn" data-upsell-toggle="1"><span class="add">＋ Agregar</span><span class="ok">✓ Agregado</span></button>
+          </div>
+        </div>
+      </div>
+      <a class="btn big" href="/checkout">Comprar ahora <svg class="ic"><use href="#i-arrow"/></svg></a>
+      <div class="trust">
+        <span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro</span>
+        <span><svg class="ic"><use href="#i-bolt"/></svg>Acceso inmediato</span>
+        <span><svg class="ic"><use href="#i-check"/></svg>100% digital</span>
+      </div>
+      <div class="gmini"><svg class="ic"><use href="#i-shield"/></svg><span><b>Garantía de 7 días.</b> Si no te gusta el material, te devolvemos el dinero.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- GARANTÍA -->
+<div class="sec">
+  <div class="wrap">
+    <div class="gar rv">
+      <svg class="gseal" viewBox="0 0 200 200" aria-hidden="true">
+        <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--rnv-oro-claro)"/><stop offset=".55" style="stop-color:var(--rnv-oro)"/><stop offset="1" style="stop-color:var(--rnv-oro-oscuro)"/></linearGradient>
+        <path id="garc" d="M100 100 m-62 0 a62 62 0 1 1 124 0 a62 62 0 1 1 -124 0"/></defs>
+        <polygon fill="url(#gg)" points="100,2 112,22 133,8 138,32 162,26 158,50 182,52 170,73 192,85 174,100 192,115 170,127 182,148 158,150 162,174 138,168 133,192 112,178 100,198 88,178 67,192 62,168 38,174 42,150 18,148 30,127 8,115 26,100 8,85 30,73 18,52 42,50 38,26 62,32 67,8 88,22"/>
+        <circle cx="100" cy="100" r="74" fill="var(--rnv-tinta)"/><circle cx="100" cy="100" r="66" fill="none" stroke="url(#gg)" stroke-width="3"/>
+        <circle cx="100" cy="100" r="44" fill="url(#gg)"/>
+        <text font-family="Inter Tight,Inter,sans-serif" font-weight="900" font-size="15" letter-spacing="2" fill="url(#gg)"><textPath href="#garc" startOffset="0">GARANTÍA · DEVOLUCIÓN · GARANTÍA · DEVOLUCIÓN ·</textPath></text>
+        <text x="100" y="98" text-anchor="middle" font-family="Inter Tight,Inter,sans-serif" font-weight="900" font-size="34" fill="var(--rnv-tinta)">100%</text>
+        <text x="100" y="120" text-anchor="middle" font-family="Inter Tight,Inter,sans-serif" font-weight="800" font-size="13" fill="var(--rnv-tinta)">7 DÍAS</text>
+      </svg>
+      <div class="gar-tx">
+        <h2>Garantía de devolución del 100% del dinero</h2>
+        <p>Sé que este programa puede tener un impacto muy positivo en tu vida, porque lo veo todos los días en las mujeres que entrenan con RENOVA.</p>
+        <p>Sé que ya recorriste un largo camino para llegar hasta acá, y confío en que sabés lo que te conviene. Si esto no es lo que buscás o no genera un cambio en tu vida, no te preocupes: podés pedir la devolución dentro de los <b>7 días</b> y recuperar tu dinero, sin preguntas.</p>
+        <p class="sig">Nacho Portillo<br/>Creador de RENOVA</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="sec" id="preguntas">
+  <div class="wrap">
+    <h2 class="h2 rv">Preguntas <span class="b">frecuentes</span></h2>
+    <div class="faq rv">
+      <details><summary>¿Cuál me conviene, casa o gimnasio?</summary><p>No tenés que elegir, porque te llevás los dos programas completos. Si tenés poco tiempo o preferís no salir, empezá por el de casa, con rutinas de 30 a 40 minutos, tu propio peso y pocos elementos. Si ya vas al gimnasio o querés empezar a ir, usá el de gimnasio, que te dice qué máquina usar, cuántas series hacer y con cuánto peso. Y si una semana se te complica, podés alternarlos sin perder el avance.</p></details>
+      <details><summary>¿Sirve si hace años que no entreno?</summary><p>Sí, y es justamente para vos. Las primeras semanas son de adaptación, así que aprendés la técnica sin cargas pesadas y le das tiempo al cuerpo a acostumbrarse. Cada ejercicio tiene un video explicativo y una versión más fácil, para que empieces desde tu nivel y avances de a poco. Lo importante es la constancia, no la intensidad del primer día.</p></details>
+      <details><summary>¿Y si tengo más de 50?</summary><p>Sirve igual, y nunca es tarde para empezar. A cualquier edad el músculo responde al entrenamiento de fuerza, y ganar fuerza te ayuda a cuidar tus huesos, tu equilibrio y tu energía. El plan arranca con ejercicios simples y de bajo impacto, con una versión más fácil de cada uno, y la exigencia aumenta recién cuando tu cuerpo está preparado.</p></details>
+      <details><summary>¿Sirve si estoy en la perimenopausia o la menopausia?</summary><p>Sí, y es la etapa para la que lo armamos. Con la baja de estrógenos se pierde músculo y densidad ósea más rápido, cuesta más mantener el peso y la energía cambia. El entrenamiento de fuerza es una de las herramientas más recomendadas para contrarrestarlo, y el plan de nutrición prioriza la proteína, la fibra y el calcio que tu cuerpo necesita ahora. Además, en los talleres trabajamos el sueño, el estrés y los hábitos, que en esta etapa pesan tanto como el entrenamiento.</p></details>
+      <details><summary>Tengo dolor de rodilla o de espalda, ¿puedo hacerlo?</summary><p>En la mayoría de los casos sí, porque el plan es de bajo impacto. Cada ejercicio tiene una versión más fácil, los que llevan salto tienen una opción sin salto y la carga sube de a poco. Fortalecer piernas, glúteos y zona media suele ayudar a que la rodilla y la espalda trabajen con más sostén. Si un ejercicio te molesta, usá la versión más fácil o saltealo. Y si tenés una lesión o alguna condición de salud, consultá antes con tu médico.</p></details>
+      <details><summary>¿Cómo y cuándo lo recibo?</summary><p>Al instante. Apenas se aprueba el pago te llega un correo con los PDF para descargar en tu celular, tablet o computadora, y con el acceso a la comunidad RENOVA, donde están los talleres. Son tuyos para siempre, así que podés empezar hoy mismo o cuando te quede cómodo, y volver a verlos cuantas veces quieras. Si no ves el correo, revisá la carpeta de spam o promociones.</p></details>
+      <details><summary>¿Y si tengo un problema con mi compra?</summary><p>Escribinos por WhatsApp y lo resolvemos. Si no te llegó el correo, no podés descargar los PDF o no lográs entrar a la comunidad, mandanos el correo con el que compraste y te reenviamos todo. Respondemos rápido y no te quedás sin tu material.</p></details>
+    </div>
+  </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="final rv">
+      <h2>Empezá hoy a sentirte <span class="gold">fuerte</span></h2>
+      <p>Entrenamiento en casa y en el gimnasio + plan de nutrición + 5 bonus. Acceso inmediato y 7 días de garantía.</p>
+      <div class="pr2 inv"><div><small>Valor total</small><s>{{original_price}}</s></div><div class="on"><small>Hoy</small><b>{{price}}</b></div></div>
+      <div class="cta" style="margin-top:14px">
+        <a class="btn white big" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <small><span><svg class="ic"><use href="#i-lock"/></svg>Pago seguro</span><span><svg class="ic"><use href="#i-bolt"/></svg>Acceso inmediato</span><span><svg class="ic"><use href="#i-shield"/></svg>Garantía de 7 días</span></small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PIE -->
+<div class="foot">
+  <div class="wrap">
+    <img src="img/logo.png" alt="RENOVA"/>
+    <p>¿Problemas con tu compra? <a href="https://wa.link/hewha8" target="_blank" rel="noopener">Escribinos por WhatsApp</a> y lo resolvemos.</p>
+    <p class="legal">© RENOVA · Nacho Portillo · <a href="https://www.nachoportillo.com/" target="_blank" rel="noopener">nachoportillo.com</a><br/>Material educativo general. No sustituye la consulta médica.</p>
+  </div>
+</div>
+
+<div class="mbar" id="mbar">
+  <div><b>{{price}}</b><s>{{original_price}}</s><small>Ahorrás {{savings}}</small></div>
+  <a class="btn" href="/checkout">Lo quiero</a>
+</div>
+
+<script src="landing.js"></script>
+
+</body>
+</html>

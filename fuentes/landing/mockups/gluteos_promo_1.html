@@ -1,0 +1,119 @@
+<!doctype html><meta charset="utf-8"><style>/* RENOVA · design system — tipografías locales.
+   ../../design-system/fonts/ se reemplaza por la ruta a fuentes/design-system/fonts/ (lo hace design_system.css()). */
+@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("../../design-system/fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("../../design-system/fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("../../design-system/fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("../../design-system/fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("../../design-system/fonts/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("../../design-system/fonts/inter-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"InterTightW";font-weight:100 900;font-style:normal;src:url("../../design-system/fonts/inter-tight-latin-var.woff2") format("woff2")}
+
+/* RENOVA · design system — tokens
+   Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
+   Paleta = la del ebook (medida en el PDF). Landings, creativos y videos usan exactamente estos colores.
+   Ver README.md para el uso de cada uno. */
+:root{
+  /* ---- Color: turquesa de marca (el de nachoportillo.com) */
+  --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
+  --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
+  --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
+  --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
+  --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
+  --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  --rnv-turquesa-claro:#6FD8E6;    /* acentos sobre fondo oscuro (portada de la landing) */
+  /* ---- Color: logo (solo portada y logo, no para texto corrido) */
+  --rnv-azul:#0033A0;
+  --rnv-rojo:#E63333;
+  /* ---- Color: sello de garantía (solo el sello dorado) */
+  --rnv-oro:#E2A928;
+  --rnv-oro-claro:#F9DE7E;
+  --rnv-oro-oscuro:#8A5A0B;
+  /* ---- Color: neutros */
+  --rnv-tinta:#141414;             /* títulos */
+  --rnv-texto:#2A2F33;             /* cuerpo */
+  --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
+  --rnv-linea:#E3ECEE;             /* separadores */
+  --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
+  --rnv-oscuro:#141414;            /* barras, pie y recuadros oscuros (el negro del ebook) */
+  --rnv-blanco:#FFFFFF;
+
+  /* ---- Degradés y sombras */
+  --rnv-degrade:linear-gradient(135deg,#14B1C7 0%,#0E9DB2 100%);   /* solo turquesas del ebook */
+  --rnv-sombra:0 10px 30px rgba(20,20,20,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(20,20,20,.16);
+  --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
+
+  /* ---- Tipografía */
+  --rnv-fuente:"InterW","Inter",system-ui,sans-serif;            /* todo el texto */
+  --rnv-fuente-display:"InterTightW","Inter Tight","InterW",sans-serif; /* titulares de web y redes */
+
+  /* Escala del ebook (A4, se lee en el celular: cuerpo mínimo 15 pt) */
+  --rnv-pdf-portada:37pt;
+  --rnv-pdf-h1:26pt;
+  --rnv-pdf-h2:18pt;
+  --rnv-pdf-h3:16pt;
+  --rnv-pdf-cuerpo:16pt;
+  --rnv-pdf-chico:13pt;
+  --rnv-pdf-etiqueta:7.6pt;
+
+  /* Escala web (landing) */
+  --rnv-web-h1:clamp(46px,7vw,80px);
+  --rnv-web-h2:clamp(28px,3.6vw,42px);
+  --rnv-web-cuerpo:17px;
+  --rnv-web-chico:14px;
+
+  /* Escala redes (lienzo de 1080 px de ancho: se ve a ~36% en el celular) */
+  --rnv-red-gancho:104px;   /* titular principal */
+  --rnv-red-titulo:72px;
+  --rnv-red-subtitulo:48px;
+  --rnv-red-cuerpo:40px;    /* mínimo para que se lea en el celular */
+  --rnv-red-etiqueta:28px;
+
+  /* ---- Espacios y radios */
+  --rnv-esp-1:8px; --rnv-esp-2:16px; --rnv-esp-3:24px; --rnv-esp-4:40px; --rnv-esp-5:64px;
+  --rnv-radio:14px;
+  --rnv-radio-grande:24px;
+  --rnv-radio-pill:999px;
+
+  /* ---- Página A4 del ebook */
+  --rnv-a4-margen:21mm 17mm 17mm;
+
+  /* ---- Zonas seguras de Instagram y Facebook en 1080×1920 (historias y reels) */
+  --rnv-zona-arriba:250px;
+  --rnv-zona-abajo:340px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:var(--w);height:var(--h);overflow:hidden;position:relative;font-family:var(--rnv-fuente);color:var(--rnv-tinta)}
+.disp{font-family:var(--rnv-fuente-display);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;line-height:.88}
+.pill{display:inline-block;border-radius:99px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+/* libro 3D (mismo estilo que libros3d.py) */
+.st{position:absolute;inset:0;perspective:2400px}
+.bk{position:absolute;transform-style:preserve-3d}
+.fr{position:absolute;inset:0;border-radius:5px 16px 16px 5px;overflow:hidden;
+ box-shadow:0 0 0 3px var(--rnv-turquesa),0 0 0 8px rgba(20,177,199,.22),0 0 60px rgba(20,177,199,.6),40px 60px 90px rgba(0,0,0,.45)}
+.fr img{width:100%;height:100%;object-fit:cover;display:block}
+.fr::before{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(115deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,0) 30%,rgba(255,255,255,0) 72%,rgba(255,255,255,.12))}
+.fr::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4%;z-index:2;background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(255,255,255,.28),transparent)}
+.sp{position:absolute;left:0;top:0;height:100%;transform-origin:left;transform:rotateY(90deg);backface-visibility:hidden;border-radius:4px;
+ background:linear-gradient(90deg,var(--rnv-turquesa-profundo),var(--rnv-turquesa-titulo) 45%,var(--rnv-turquesa) 55%,var(--rnv-turquesa-profundo));box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+.sp span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-90deg);white-space:nowrap;font:900 var(--fs) InterTightW,sans-serif;letter-spacing:.18em;color:#fff}
+.shadow{position:absolute;height:60px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%)}
+.ill{background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:var(--rnv-sombra-fuerte)}
+.ill img{width:88%;height:88%;object-fit:contain}
+body{--w:1080px;--h:1350px}
+body{background:radial-gradient(ellipse 60% 45% at 50% 58%,rgba(20,177,199,.45),transparent 70%),#0b1214;color:#fff}
+.top{position:absolute;top:64px;left:0;right:0;text-align:center}
+.top img{height:46px;filter:brightness(0) invert(1)}
+.top .pill{margin-top:26px;background:var(--rnv-turquesa);color:#fff;font-size:24px;padding:12px 30px}
+.top h1{font-size:104px;margin-top:22px}
+.top h1 span{color:var(--rnv-turquesa-claro)}
+.bot{position:absolute;bottom:60px;left:0;right:0;text-align:center}
+.bot p{font-size:36px;font-weight:700}
+.bot .row{margin-top:20px;display:flex;gap:14px;justify-content:center}
+.bot .row span{border:2px solid var(--rnv-turquesa);color:#fff;font-size:24px;padding:10px 24px;border-radius:99px;font-weight:700}
+</style>
+<div class="top"><img src="../../ebook/img/logo_renova.png"><br><span class="pill">Nuevo · 2 ebooks · Método RENOVA</span><h1 class="disp">Glúteos <span>fuertes</span></h1></div>
+<div class="st"><div class="shadow s" style="left:130.5px;top:982px;width:430.5px"></div><div class="bk " style="left:110px;top:420px;width:410px;height:580px;transform:rotateY(22deg)"><div class="sp" style="width:41px;--fs:18px"><span>GLÚTEOS FUERTES · GIMNASIO</span></div><div class="fr"><img src="pack/tapa_gluteos_gym.jpg"></div></div><div class="shadow s" style="left:571.0px;top:976px;width:441.0px"></div><div class="bk " style="left:550px;top:400px;width:420px;height:594px;transform:rotateY(-22deg)"><div class="sp" style="width:42px;--fs:19px"><span>GLÚTEOS FUERTES · EN CASA</span></div><div class="fr"><img src="pack/tapa_gluteos_casa.jpg"></div></div></div>
+<div class="bot"><p>Tu día extra: 8 semanas para glúteos y cadera</p>
+<div class="row"><span>En casa + en el gimnasio</span><span>Mujeres 40+</span><span>Plan de 8 semanas</span></div></div>

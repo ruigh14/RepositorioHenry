@@ -1,0 +1,1524 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Alimentación Inteligente · RENOVA</title><style>/* RENOVA · design system — tipografías locales.
+   ../design-system/fonts/ se reemplaza por la ruta a fuentes/design-system/fonts/ (lo hace design_system.css()). */
+@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("../design-system/fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("../design-system/fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("../design-system/fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("../design-system/fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("../design-system/fonts/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("../design-system/fonts/inter-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"InterTightW";font-weight:100 900;font-style:normal;src:url("../design-system/fonts/inter-tight-latin-var.woff2") format("woff2")}
+
+/* RENOVA · design system — tokens
+   Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
+   Paleta = la del ebook (medida en el PDF). Landings, creativos y videos usan exactamente estos colores.
+   Ver README.md para el uso de cada uno. */
+:root{
+  /* ---- Color: turquesa de marca (el de nachoportillo.com) */
+  --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
+  --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
+  --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
+  --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
+  --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
+  --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  --rnv-turquesa-claro:#6FD8E6;    /* acentos sobre fondo oscuro (portada de la landing) */
+  /* ---- Color: logo (solo portada y logo, no para texto corrido) */
+  --rnv-azul:#0033A0;
+  --rnv-rojo:#E63333;
+  --rnv-rojo-fondo:#FCEBEB;   /* fondo rojo claro (tapa de Glúteos Fuertes en el gimnasio) */
+  /* MÉTODO 40 (submarca para hombres 40+): negro, grises y rojo */
+  --m40-negro:#0E0F10;
+  --m40-grafito:#1C1E21;
+  --m40-gris:#5E6368;
+  --m40-gris-claro:#F2F3F4;
+  --m40-borde:#DADDE0;
+  --m40-rojo:#D62828;
+  --m40-rojo-oscuro:#A11D1D;
+  /* ---- Color: sello de garantía (solo el sello dorado) */
+  --rnv-oro:#E2A928;
+  --rnv-oro-claro:#F9DE7E;
+  --rnv-oro-oscuro:#8A5A0B;
+  /* ---- Color: neutros */
+  --rnv-tinta:#141414;             /* títulos */
+  --rnv-texto:#2A2F33;             /* cuerpo */
+  --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
+  --rnv-linea:#E3ECEE;             /* separadores */
+  --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
+  --rnv-oscuro:#141414;            /* barras, pie y recuadros oscuros (el negro del ebook) */
+  --rnv-blanco:#FFFFFF;
+
+  /* ---- Degradés y sombras */
+  --rnv-degrade:linear-gradient(135deg,#14B1C7 0%,#0E9DB2 100%);   /* solo turquesas del ebook */
+  --rnv-sombra:0 10px 30px rgba(20,20,20,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(20,20,20,.16);
+  --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
+
+  /* ---- Tipografía */
+  --rnv-fuente:"InterW","Inter",system-ui,sans-serif;            /* todo el texto */
+  --rnv-fuente-display:"InterTightW","Inter Tight","InterW",sans-serif; /* titulares de web y redes */
+
+  /* Escala del ebook (A4, se lee en el celular: cuerpo mínimo 15 pt) */
+  --rnv-pdf-portada:37pt;
+  --rnv-pdf-h1:26pt;
+  --rnv-pdf-h2:18pt;
+  --rnv-pdf-h3:16pt;
+  --rnv-pdf-cuerpo:16pt;
+  --rnv-pdf-chico:13pt;
+  --rnv-pdf-etiqueta:7.6pt;
+
+  /* Escala web (landing) */
+  --rnv-web-h1:clamp(46px,7vw,80px);
+  --rnv-web-h2:clamp(28px,3.6vw,42px);
+  --rnv-web-cuerpo:17px;
+  --rnv-web-chico:14px;
+
+  /* Escala redes (lienzo de 1080 px de ancho: se ve a ~36% en el celular) */
+  --rnv-red-gancho:104px;   /* titular principal */
+  --rnv-red-titulo:72px;
+  --rnv-red-subtitulo:48px;
+  --rnv-red-cuerpo:40px;    /* mínimo para que se lea en el celular */
+  --rnv-red-etiqueta:28px;
+
+  /* ---- Espacios y radios */
+  --rnv-esp-1:8px; --rnv-esp-2:16px; --rnv-esp-3:24px; --rnv-esp-4:40px; --rnv-esp-5:64px;
+  --rnv-radio:14px;
+  --rnv-radio-grande:24px;
+  --rnv-radio-pill:999px;
+
+  /* ---- Página A4 del ebook */
+  --rnv-a4-margen:21mm 17mm 17mm;
+
+  /* ---- Zonas seguras de Instagram y Facebook en 1080×1920 (historias y reels) */
+  --rnv-zona-arriba:250px;
+  --rnv-zona-abajo:340px;
+}
+
+/* PROGRAMA RENOVA — estilos del ebook (A4) */
+:root{   /* alias cortos de los tokens del design system (fuentes/design-system/tokens.css) */
+  --tq:var(--rnv-turquesa);
+  --tq-t:var(--rnv-turquesa-titulo);
+  --tq-d:var(--rnv-turquesa-oscuro);
+  --tq-dd:var(--rnv-turquesa-profundo);
+  --tq-l:var(--rnv-turquesa-fondo);
+  --tq-b:var(--rnv-turquesa-borde);
+  --ink:var(--rnv-tinta);
+  --txt:var(--rnv-texto);
+  --mut:var(--rnv-gris);
+  --line:var(--rnv-linea);
+  --bg2:var(--rnv-fondo);
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:"InterW",sans-serif;color:var(--txt);font-size:11.2pt;line-height:1.52;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;break-after:page;padding:21mm 17mm 17mm;background:#fff}
+.page:last-child{page-break-after:auto;break-after:auto}
+.body{height:259mm;overflow:hidden;position:relative}
+.hdr{position:absolute;top:8.5mm;left:17mm;right:17mm;display:flex;justify-content:space-between;align-items:center;font-size:7pt;letter-spacing:.18em;color:var(--mut);text-transform:uppercase;border-bottom:.3mm solid var(--tq-b);padding-bottom:2.2mm}
+.hdr b{color:var(--ink);font-weight:900}
+.ftr{position:absolute;bottom:7mm;left:17mm;right:17mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--mut)}
+.ftr a{color:var(--tq-d);text-decoration:none;font-weight:600}
+.ftr span{font-weight:700;color:var(--ink)}
+a{color:var(--tq-d)}
+
+h1,h2,h3,h4,h5{color:var(--ink);margin:0;font-family:"InterW",sans-serif}
+.h1{font-size:29pt;font-weight:900;line-height:1.06;letter-spacing:-.02em;margin:3mm 0 4mm}
+.h1.big{font-size:36pt}
+h2{font-size:15.5pt;font-weight:800;margin:5mm 0 2mm;letter-spacing:-.01em}
+h3{font-size:12.2pt;font-weight:800;margin:3.6mm 0 1.2mm}
+h3:first-child,h2:first-child{margin-top:0}
+p{margin:0 0 2.2mm}
+.t{color:var(--tq-t)}
+.lead{font-size:13pt;line-height:1.5;color:var(--mut);margin-bottom:4mm}
+.small{font-size:9.4pt;color:var(--mut)}
+.center{text-align:center}
+.pill{display:inline-block;padding:1.6mm 4.5mm;border:.45mm solid var(--tq-b);border-radius:99px;color:var(--tq-d);font-weight:800;font-size:7.6pt;letter-spacing:.16em;background:#fff}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em}
+
+.list{margin:0 0 2mm;padding-left:4.5mm}
+.list li{margin:0 0 1.2mm}
+.list li::marker{color:var(--tq)}
+.checks{list-style:none;padding:0;margin:0 0 2mm}
+.checks li{display:flex;gap:2.5mm;align-items:flex-start;margin-bottom:1.6mm}
+.checks .ic{flex:none;color:#fff;background:var(--tq);border-radius:50%;padding:.8mm;width:4.6mm;height:4.6mm;margin-top:.3mm}
+
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+.box{border-radius:3mm;padding:4mm 5mm;margin:3.5mm 0;font-size:10.2pt;line-height:1.45}
+.box.note{background:var(--bg2);border:.35mm solid var(--tq-b)}
+.box.soft{background:var(--tq-l)}
+
+/* capítulos */
+.chead{border-bottom:.4mm solid var(--tq-b);padding-bottom:4mm;margin-bottom:4mm}
+.cnum{display:block;font-family:"InterW";font-weight:900;font-size:46pt;line-height:1;color:var(--tq)}
+.chead h1{font-size:30pt;font-weight:900;line-height:1.05;letter-spacing:-.02em;margin:2mm 0 3mm}
+.chead .lead{margin:0}
+
+/* portada */
+.p-cover{padding:0}
+.p-cover .body{height:297mm}
+.cover{height:281mm;display:flex;flex-direction:column;padding:16mm 17mm 0;background-color:#fff;background-image:linear-gradient(#EEF4F5 .25mm,transparent .25mm),linear-gradient(90deg,#EEF4F5 .25mm,transparent .25mm);background-size:10mm 10mm}
+.brand{font-size:10pt;letter-spacing:.32em;color:var(--ink);margin-bottom:7mm}
+.brand b{font-weight:900}
+.cover-title{font-size:38pt;font-weight:900;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;margin:6mm 0 4mm}
+.cover-sub{font-size:13pt;color:var(--mut);max-width:150mm;margin:0}
+.cover-photo{flex:1;margin-top:9mm;border-radius:6mm 6mm 0 0;overflow:hidden;border:.5mm solid var(--tq-b);border-bottom:0;position:relative}
+.cover-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.cover-foot{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;padding:4mm 6mm;font-size:8.5pt;letter-spacing:.12em;border-radius:0}
+.cover-foot span:first-child{font-weight:800}
+.band{height:16mm;background:var(--tq);color:#fff;font-weight:800;letter-spacing:.42em;font-size:10pt;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+
+/* bienvenida */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:2mm}
+.pillar{border:.35mm solid var(--line);border-radius:3.5mm;padding:4mm}
+.pillar .pn{font-weight:900;font-size:18pt;color:var(--tq);line-height:1}
+.pillar h3{margin:2mm 0 1.5mm;font-size:11.6pt}
+.pillar p{font-size:10pt;color:var(--mut);margin:0}
+
+/* índice */
+.tocl{display:flex;flex-direction:column;gap:0;margin-top:4mm}
+.tocr{display:flex;align-items:baseline;gap:3mm;padding:4.6mm 0;border-bottom:.3mm solid var(--line);text-decoration:none;color:var(--ink);font-size:13.5pt;font-weight:700}
+.tocr .dots{flex:1}
+.tocr .pg{font-weight:900;color:var(--tq-d);min-width:9mm;text-align:right}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:2mm 0 1mm}
+.step{background:var(--bg2);border-radius:3mm;padding:3.5mm}
+.step span{display:inline-flex;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:800;align-items:center;justify-content:center;font-size:9pt;margin-bottom:1.5mm}
+.step b{display:block;color:var(--ink);font-size:11pt}
+.step p{font-size:10pt;color:var(--mut);margin:1mm 0 0}
+
+/* parámetros y ejercicios */
+.params{display:grid;grid-template-columns:repeat(4,1fr);border:.35mm solid var(--tq-b);border-radius:3mm;overflow:hidden;margin:1mm 0 3mm}
+.params div{padding:2.6mm 3.5mm;border-right:.3mm solid var(--tq-b)}
+.params div:last-child{border-right:0}
+.params span{display:block;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:var(--tq-d);font-weight:700}
+.params b{font-size:10pt;color:var(--ink)}
+.exlist{display:flex;flex-direction:column;gap:3.2mm}
+.ex{display:grid;grid-template-columns:42mm 1fr;gap:5mm;border:.35mm solid var(--line);border-radius:3.5mm;padding:3.5mm;align-items:center}
+.exim{height:40mm;display:flex;align-items:center;justify-content:center;background:var(--bg2);border-radius:2.5mm;padding:2mm}
+.exim img{max-width:100%;max-height:100%;object-fit:contain}
+.exh{display:flex;justify-content:space-between;align-items:baseline;gap:3mm;margin-bottom:1.2mm}
+.exh h4{font-size:12pt;font-weight:800}
+.dose{flex:none;background:var(--tq-l);color:var(--tq-dd);font-weight:700;font-size:8.4pt;padding:.8mm 2.6mm;border-radius:99px}
+.extx p{font-size:9.8pt;margin:0 0 1.2mm}
+.easy{color:var(--mut)}
+.easy b{color:var(--tq-d)}
+.ojo{color:var(--ink);margin-top:1mm}
+.ojo b{color:var(--tq-d)}
+.exgrid{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.ex-c{grid-template-columns:30mm 1fr;gap:3.5mm;padding:3mm}
+.ex-c .exim{height:30mm}
+.ex-c .exh{flex-direction:column;align-items:flex-start;gap:.8mm}
+.ex-c .exh h4{font-size:10.4pt}
+.ex-c .extx p{font-size:9.4pt}
+.g4 .ex-c .exim{height:26mm}
+.g4 .ex-c{grid-template-columns:28mm 1fr}
+.rowend{display:flex;justify-content:flex-end;align-items:center;gap:3mm;margin-top:3mm}
+.endrow{display:grid;grid-template-columns:1fr auto;gap:5mm;align-items:center;margin-top:4mm}
+.endrow .box{margin:0}
+.vbtn{display:inline-flex;align-items:center;gap:2mm;background:var(--ink);color:#fff;font-weight:800;font-size:8.4pt;letter-spacing:.06em;padding:2.6mm 4.5mm;border-radius:2.5mm;text-decoration:none}
+.vbtn .ic{fill:currentColor;stroke:none}
+.marker{display:block;font-family:"DejaVu Sans Mono",monospace;font-size:7pt;color:#B4232A;margin-top:1.2mm}
+.box .vbtn{margin-top:2mm}
+
+/* calendario */
+.cal{width:100%;border-collapse:separate;border-spacing:1.6mm;margin:0 -1.6mm 1mm;table-layout:fixed}
+.cal th{font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:700;padding:1mm}
+.cal tbody th{text-align:left;color:var(--ink);font-size:8.6pt;letter-spacing:.04em;width:20mm}
+.cal td{height:15mm;border:.35mm solid var(--line);border-radius:2.5mm;text-align:center;vertical-align:middle}
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:9mm;height:7mm;border-radius:99px;font-weight:800;font-size:8.4pt;padding:0 2mm}
+.c1{background:var(--tq);color:#fff}
+.c2{background:var(--ink);color:#fff}
+.c3{background:var(--tq-dd);color:#fff}
+.ca{background:var(--tq-l);color:var(--tq-dd);border:.35mm solid var(--tq-b)}
+.cd{background:#F1F3F4;color:var(--mut);font-weight:600;font-size:7pt}
+.ce{color:#9AA3A8;font-weight:500;font-size:7pt}
+.legend{display:flex;flex-wrap:wrap;gap:5mm;font-size:9.6pt;color:var(--mut);margin:1mm 0 3mm}
+.legend>span{display:inline-flex;align-items:center;gap:1.5mm}
+.grid-t,.track{width:100%;border-collapse:collapse;table-layout:fixed;margin-bottom:2mm}
+.grid-t th,.grid-t td,.track th,.track td{border:.3mm solid #C9D6D9;padding:1.6mm}
+.grid-t thead th,.track thead th{background:var(--tq-l);color:var(--tq-dd);font-size:7.8pt;letter-spacing:.08em;text-transform:uppercase}
+.grid-t tbody th,.track tbody th{text-align:left;font-size:8.4pt;font-weight:700;color:var(--ink);width:38mm}
+.grid-t td{height:11mm}
+h3.wk{margin:4mm 0 1.5mm;font-size:9.6pt;color:var(--tq-dd)}
+.track tbody th{width:46mm}
+.track td{height:17mm}
+
+/* alimentación */
+.plate-wrap{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:center;margin:2mm 0 2mm}
+.plate{width:60mm;height:60mm;border-radius:50%;border:2mm solid var(--tq-b);position:relative;overflow:hidden;background:#fff}
+.plate div{position:absolute;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:8.6pt;text-align:center}
+.pl-veg{left:0;top:0;width:50%;height:100%;background:var(--tq);color:#fff}
+.pl-pro{right:0;top:0;width:50%;height:50%;background:var(--ink);color:#fff}
+.pl-car{right:0;bottom:0;width:50%;height:50%;background:var(--tq-l);color:var(--tq-dd)}
+.eq{width:100%;border-collapse:collapse;font-size:10pt;margin:1mm 0 3mm}
+.eq th{background:var(--tq-l);color:var(--tq-dd);text-align:left;padding:2mm 3mm;font-size:8pt;letter-spacing:.06em;text-transform:uppercase}
+.eq td{border-bottom:.3mm solid var(--line);padding:2mm 3mm}
+.eq td:first-child{font-weight:700;color:var(--ink);width:55mm}
+.menu{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8.4pt;line-height:1.35;margin-top:2mm}
+.menu thead th{background:var(--ink);color:#fff;padding:2.6mm 2mm;font-size:7.8pt;letter-spacing:.1em;text-transform:uppercase}
+.menu thead th:first-child{background:#fff;width:13mm}
+.menu tbody th{background:var(--tq);color:#fff;font-size:8pt;letter-spacing:.06em;text-transform:uppercase;width:13mm}
+.menu td{border:.3mm solid #D3E3E6;padding:2.4mm 2.2mm;vertical-align:middle;height:31mm;text-align:center;color:var(--ink)}
+.menu tbody tr:nth-child(even) td{background:var(--bg2)}
+.rmark{display:inline-flex;align-items:center;justify-content:center;width:3.8mm;height:3.8mm;border-radius:50%;background:var(--tq-l);color:var(--tq-dd);font-size:6.4pt;font-weight:800;vertical-align:.3mm;border:.25mm solid var(--tq-b)}
+
+/* recetas */
+.rindex{columns:1;margin:0;padding-left:6mm;font-size:10.4pt}
+.rindex li{margin-bottom:.9mm}
+.rindex li::marker{color:var(--tq-d);font-weight:700}
+.rindex a{color:var(--ink);text-decoration:none}
+.rec{border:.35mm solid var(--line);border-radius:4mm;overflow:hidden;margin-bottom:5mm}
+.rech{background:var(--bg2);padding:4mm 5mm 3.5mm;border-bottom:.35mm solid var(--line)}
+.rcat{font-size:7pt;letter-spacing:.16em;color:var(--tq-d);font-weight:800}
+.rech h2{margin:1mm 0 1.5mm;font-size:16pt}
+.rmeta{display:flex;gap:6mm;font-size:9.8pt;color:var(--mut)}
+.rmeta b{color:var(--ink)}
+.recb{display:grid;grid-template-columns:66mm 1fr;gap:6mm;padding:4mm 5mm}
+.recb h5{font-size:7.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-d);margin-bottom:1.5mm}
+.ing{margin:0;padding-left:4mm;font-size:10.2pt}
+.ing li{margin-bottom:.8mm}
+.ing li::marker{color:var(--tq)}
+.steps-ol{margin:0;padding-left:5mm;font-size:10.2pt}
+.steps-ol li{margin-bottom:1.2mm}
+.steps-ol li::marker{color:var(--tq-d);font-weight:800}
+.tip{background:var(--tq-l);border-radius:2mm;padding:2.4mm 3.4mm;font-size:9.6pt;margin-top:2mm}
+
+/* organización */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;margin-bottom:2mm}
+.tile{border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm 4mm}
+.tile h3{margin:0 0 1.2mm;font-size:11.4pt}
+.tile p{font-size:10pt;margin:0;color:var(--txt)}
+.cbox{display:grid;grid-template-columns:1fr 1fr;gap:1.6mm 6mm;border:.35mm solid var(--tq-b);border-radius:3mm;padding:4mm}
+.cb{display:flex;gap:2.5mm;align-items:flex-start;font-size:10.2pt;margin-bottom:.6mm}
+.sq{flex:none;width:3.8mm;height:3.8mm;border:.4mm solid var(--tq-d);border-radius:.8mm;margin-top:.5mm}
+.shopgrid{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.shop{margin-bottom:4mm}
+.shop h3{border-bottom:.4mm solid var(--tq);padding-bottom:1mm;margin:0 0 2mm;font-size:11.2pt}
+.shop .cb{font-size:9.8pt}
+
+/* seguimiento */
+.notes h3{font-size:9.6pt}
+.lines{height:48mm;background-image:linear-gradient(transparent 7.6mm,#C9D6D9 7.6mm,#C9D6D9 7.9mm,transparent 7.9mm);background-size:100% 8mm}
+
+/* cierre */
+.quote{margin-top:7mm;border-top:.4mm solid var(--tq-b);border-bottom:.4mm solid var(--tq-b);padding:6mm 0;font-family:"InterW";font-weight:900;font-size:19pt;line-height:1.15;color:var(--ink);letter-spacing:-.01em;text-align:center}
+.quote.dark{background:var(--ink);color:#fff;border:0;border-radius:4mm;padding:6mm 8mm;font-size:15pt}
+.t2{color:#4FD3E5}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:3mm;background:var(--tq-t);color:#fff;font-weight:800;letter-spacing:.04em;font-size:10pt;padding:4mm 7mm;border-radius:3.5mm;text-decoration:none;box-shadow:0 0 0 1.2mm var(--tq-b)}
+.btn-big{font-size:12.5pt;padding:5.5mm 10mm}
+.btnwrap{display:inline-flex;flex-direction:column;align-items:center}
+.btnwrap .marker{margin-top:3mm;font-size:7.6pt}
+.cta-center{display:flex;justify-content:center;margin:8mm 0 3mm}
+
+/* talleres */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:5mm 0 2mm}
+.wcard{border:.4mm solid var(--tq-b);border-radius:4mm;padding:5mm}
+.wtag{font-size:7pt;letter-spacing:.16em;color:var(--tq-d);font-weight:800}
+.wcard h3{margin:1.5mm 0 1.5mm;font-size:13.5pt}
+.wcard p{font-size:10.2pt;color:var(--mut);margin:0}
+.bonus .cols2{margin-top:4mm;background:var(--bg2);border-radius:4mm;padding:5mm}
+
+/* referencias */
+.refs{padding-left:5mm;font-size:10pt}
+.refs li{margin-bottom:2mm}
+
+/* bio */
+.bio-top{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:start}
+.bio-photo{height:80mm;border-radius:4mm;overflow:hidden;border:.5mm solid var(--tq-b)}
+.bio-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.role{font-weight:700;color:var(--tq-d);margin-top:-2mm}
+.what{margin-top:6mm;background:var(--bg2);border-radius:4mm;padding:5mm 6mm}
+.what h2{margin-top:0}
+.pills4{display:flex;gap:2.5mm;margin-top:2mm}
+.pills4 span{border:.4mm solid var(--tq-b);background:#fff;color:var(--tq-dd);font-weight:700;font-size:8.4pt;padding:1.2mm 4mm;border-radius:99px}
+.bio .quote{margin-top:6mm}
+.bio .cta-center{margin-top:6mm}
+
+/* agregados */
+.firstweek{margin-top:6mm;background:var(--ink);color:#fff;border-radius:4mm;padding:5mm 6mm}
+.firstweek h2{color:#fff;margin:0 0 3mm}
+.fw{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.fw span{display:inline-flex;width:7mm;height:7mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:800;align-items:center;justify-content:center;font-size:9.5pt}
+.fw b{display:block;margin:1.5mm 0 1mm;font-size:11pt}
+.fw p{font-size:9.6pt;color:#D5DDE0;margin:0}
+.dayex{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.dayex div{border:.35mm solid var(--tq-b);border-radius:3mm;padding:3.5mm 4mm}
+.dayex span{display:block;font-size:7.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-d);font-weight:800;margin-bottom:1mm}
+.dayex b{font-size:10.4pt;color:var(--ink);font-weight:600}
+.minplan{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.minplan div{background:var(--tq-l);border-radius:3mm;padding:3.5mm}
+.minplan span{display:block;font-size:7.6pt;letter-spacing:.12em;text-transform:uppercase;color:var(--tq-dd);font-weight:800;margin-bottom:1.2mm}
+.minplan p{font-size:9.8pt;margin:0;color:var(--ink)}
+.p-spread .body{display:flex;flex-direction:column}
+.p-spread .cta-center{margin-top:auto;margin-bottom:auto}
+.p-spread .wcard{min-height:40mm}
+.p-spread .bonus{display:flex;flex-direction:column;height:100%}
+.gloss{display:grid;grid-template-columns:48mm 1fr;gap:2mm 5mm;font-size:10pt;margin:0}
+.gloss dt{font-weight:800;color:var(--ink)}
+.gloss dd{margin:0;color:var(--txt)}
+
+.p-spread .pill{align-self:flex-start}
+.plate div{padding:0 2mm;hyphens:manual;line-height:1.15}
+.ctapanel{margin-top:auto;margin-bottom:auto;background:var(--tq-l);border:.4mm solid var(--tq-b);border-radius:5mm;padding:9mm 8mm;display:flex;flex-direction:column;align-items:center}
+.ctatitle{font-weight:900;font-size:17pt;color:var(--ink);margin:0 0 1mm}
+.ctapanel .btn{margin-top:4mm}
+.bio-photo{height:100mm}
+.bio-top{grid-template-columns:70mm 1fr}
+.bio-top p{font-size:11.2pt}
+.what{margin-top:9mm;padding:7mm}
+.what p{font-size:11pt}
+.bio .quote{margin-top:9mm;font-size:17pt;padding:8mm}
+.bio .cta-center{margin-top:10mm}
+
+/* v2: una sola columna para textos explicativos */
+.cols2{display:block}
+.cols2>div+div{margin-top:3mm}
+.cols2.keep{display:grid}
+.cols2.keep>div+div{margin-top:0}
+.rpe{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:2mm}
+.rpe div{border:.35mm solid var(--line);border-radius:3mm;padding:4mm}
+.rpe div.on{background:var(--tq);border-color:var(--tq);color:#fff}
+.rpe b{display:block;font-size:20pt;font-weight:900;line-height:1}
+.rpe span{display:block;font-weight:800;margin:1.5mm 0 1mm}
+.rpe p{font-size:9.8pt;margin:0}
+.rpe div.on p{color:#fff}
+/* imágenes de ejercicios: llenan el recuadro */
+.ex{grid-template-columns:38mm 1fr}
+.exim{width:38mm;height:38mm;padding:2mm;background:var(--bg2)}
+.exim img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;display:block}
+.endrow{grid-template-columns:1fr}
+/* portada: foto completa, sin recortar la cara */
+.cover-photo{background:#0B0D11}
+.cover-photo img{object-fit:cover;object-position:50% 30%}
+.bio-photo{background:#0B0D11}
+.bio-photo img{object-position:50% 20%}
+
+/* v3: lectura en celular — letra más grande y más aire */
+body{font-size:12.4pt;line-height:1.6}
+.lead{font-size:14pt;line-height:1.55}
+h2{font-size:17pt;margin:6mm 0 2.5mm}
+h3{font-size:13.6pt;margin:5mm 0 1.8mm}
+.small{font-size:10.4pt}
+.list li,.checks li{margin-bottom:2mm}
+.box{font-size:11.4pt;padding:5mm 6mm;margin:5mm 0}
+.h1{font-size:30pt;margin:3mm 0 5mm}
+.chead{margin-bottom:6mm}
+.ex{grid-template-columns:42mm 1fr;padding:4mm;gap:6mm;margin-bottom:4mm;break-inside:avoid}
+.exim{width:42mm;height:42mm}
+.exh h4{font-size:13.6pt}
+.dose{font-size:9.6pt}
+.extx p{font-size:11pt;line-height:1.5}
+.vbtn-sm{display:inline-flex;align-items:center;gap:1.6mm;margin-top:1.5mm;background:var(--tq-t);color:#fff;font-weight:800;font-size:8.6pt;letter-spacing:.08em;padding:1.8mm 3.6mm;border-radius:99px;text-decoration:none}
+.vbtn-sm .ic{fill:currentColor;stroke:none;width:.9em;height:.9em}
+.vbtn-sm.inline{margin:0 .5mm;vertical-align:.3mm;font-size:8pt;padding:1mm 2.8mm}
+.params b{font-size:11pt}
+.params span{font-size:7.6pt}
+.box.end{margin-top:2mm}
+.recw{margin-bottom:6mm}
+.rec{margin-bottom:0}
+.ing,.steps-ol{font-size:11pt;line-height:1.5}
+.steps-ol li{margin-bottom:1.8mm}
+.ing li{margin-bottom:1.2mm}
+.tip{font-size:10.4pt}
+.rech h2{font-size:18pt}
+.tile p{font-size:11pt}
+.tile h3{font-size:12.4pt}
+.tiles{gap:4.5mm}
+.tile{padding:4.5mm 5mm}
+.cb{font-size:11pt;margin-bottom:1.2mm}
+.shop .cb{font-size:10.6pt}
+.wcard p{font-size:11pt}
+.cal td{height:17mm}
+.chip{font-size:9.4pt;height:8mm;min-width:10mm}
+.legend{font-size:10.4pt}
+.dayex b{font-size:11.4pt}
+.dayex div{padding:4.5mm 5mm}
+.pillar p{font-size:10.8pt}
+.fw p{font-size:10.4pt}
+.minplan p{font-size:10.8pt}
+.eq{font-size:11pt}
+.eq td{padding:2.6mm 3mm}
+.tocr{font-size:14.5pt;padding:5mm 0}
+.rpe p{font-size:10.6pt}
+.step p{font-size:10.8pt}
+.bio-top p{font-size:11.6pt}
+.what p{font-size:11.6pt}
+.team{display:grid;grid-template-columns:70mm 1fr;gap:6mm;align-items:center;margin-top:4mm;border:.4mm solid var(--tq-b);border-radius:4mm;padding:4mm}
+.team img,.team-ph{width:70mm;height:46mm;border-radius:3mm;object-fit:cover}
+.team-ph{background:var(--tq-l);border:.5mm dashed var(--tq);color:var(--tq-dd);font-weight:800;font-size:9pt;letter-spacing:.12em;display:flex;align-items:center;justify-content:center;text-align:center}
+.team-tx p{font-size:11pt;margin:1.5mm 0 2mm}
+.p-spread .wcard{min-height:34mm}
+
+/* v3b: ajuste fino para evitar páginas casi vacías */
+body{font-size:11.8pt;line-height:1.58}
+.lead{font-size:13.4pt}
+h3{font-size:13pt;margin:4.5mm 0 1.6mm}
+h2{font-size:16pt}
+.box{font-size:11pt;padding:4.5mm 5.5mm;margin:4mm 0}
+.ex{grid-template-columns:36mm 1fr;padding:3mm 4mm;gap:5mm;margin-bottom:3.2mm}
+.exim{width:36mm;height:36mm;padding:1.5mm}
+.exh{margin-bottom:.8mm}
+.exh h4{font-size:12.6pt}
+.extx p{font-size:10.4pt;line-height:1.42;margin-bottom:1mm}
+.menu td{height:27mm;font-size:9pt}
+.grid-t td{height:9.5mm}
+h3.wk{margin:3mm 0 1.2mm}
+.list li,.checks li{margin-bottom:1.6mm}
+.tocr{font-size:13pt;padding:3.4mm 0}
+.tiles{gap:3mm}.tile{padding:3.5mm 4.5mm}.tile p{font-size:10.4pt;line-height:1.45}.tile h3{font-size:11.8pt}
+.cbox{padding:3.5mm 4mm;gap:1mm 6mm}.cbox .cb{font-size:10.4pt}
+.shop .cb{font-size:10pt;margin-bottom:.8mm;line-height:1.4}.shop{margin-bottom:3mm}
+.track td{height:15mm}
+.bio-photo{height:78mm}.bio-top{grid-template-columns:62mm 1fr}
+.what{margin-top:6mm;padding:5.5mm}.bio .quote{margin-top:6mm;padding:6mm;font-size:15pt}.bio .cta-center{margin-top:7mm}
+.bio-top p,.what p{font-size:11pt}
+.recimg{height:62mm;overflow:hidden;background:var(--tq-l)}
+.recimg img{width:100%;height:100%;object-fit:cover;display:block}
+.recimg.ph{display:flex;align-items:center;justify-content:center;border-bottom:.5mm dashed var(--tq)}
+.recimg.ph span{font-weight:800;font-size:9pt;letter-spacing:.12em;color:var(--tq-dd)}
+.recimg{height:88mm}
+.chimg{height:70mm;border-radius:4mm;overflow:hidden;margin:2mm 0 5mm}.chimg img{width:100%;height:100%;object-fit:cover;display:block}
+.chimg{height:48mm;margin:0 0 4mm}
+
+/* v4: portada nueva */
+.cv{height:297mm;display:flex;flex-direction:column;background-color:#fff;background-image:linear-gradient(#EEF4F5 .25mm,transparent .25mm),linear-gradient(90deg,#EEF4F5 .25mm,transparent .25mm);background-size:10mm 10mm}
+.cv-top{padding:12mm 15mm 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cv-logo{height:24mm;width:auto;margin-bottom:4mm}
+.cv-pill{display:inline-block;padding:1.5mm 4mm;border:.45mm solid var(--tq-b);border-radius:99px;color:var(--tq-d);font-weight:800;font-size:7pt;letter-spacing:.14em;background:#fff}
+.cv-title{font-size:33pt;font-weight:900;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;margin:4mm 0 3mm;color:var(--ink)}
+.cv-sub{font-size:12.6pt;line-height:1.45;color:var(--mut);max-width:165mm;margin:0}
+.cv-mid{display:grid;grid-template-columns:72mm 1fr;gap:7mm;padding:7mm 15mm 0;align-items:stretch}
+.cv-photo{position:relative;border-radius:4mm;overflow:hidden;background:#0B0D11;height:92mm;border:.5mm solid var(--tq-b)}
+.cv-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.cv-name{position:absolute;left:0;right:0;bottom:0;padding:3mm 4mm;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;display:flex;flex-direction:column}
+.cv-name b{font-size:10.5pt;letter-spacing:.1em}
+.cv-name span{font-size:8pt;color:#DCE4E6}
+.cv-why{display:flex;flex-direction:column;justify-content:center}
+.cv-k{font-size:8pt;letter-spacing:.16em;font-weight:800;color:var(--tq-d);margin-bottom:2.5mm}
+.cv-why .checks li{font-size:10.6pt;line-height:1.4;margin-bottom:2.2mm}
+.cv-for{margin:2mm 0 0;font-size:10pt;color:var(--ink);font-weight:600;border-left:1mm solid var(--tq);padding-left:3mm}
+.cv-team{position:relative;margin:7mm 0 0;flex:1;overflow:hidden;background:#fff}
+.cv-team img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block}
+.cv-team-tx{position:absolute;left:0;right:0;bottom:0;background:var(--tq);color:#fff;padding:3mm 15mm;display:flex;justify-content:space-between;align-items:center}
+.cv-team-tx b{font-size:11pt;letter-spacing:.2em}
+.cv-team-tx span{font-size:9.5pt}
+
+/* v5: portada editorial */
+.cv2{height:297mm;box-sizing:border-box;padding:14mm 16mm 12mm;display:flex;flex-direction:column;background:#fff;
+  --blue:var(--rnv-azul);--red:var(--rnv-rojo)}
+.c2-top{display:flex;flex-direction:column;align-items:center;gap:5mm}
+.c2-logo{height:21mm;width:auto}
+.c2-kick{font-size:8pt;letter-spacing:.22em;font-weight:700;color:var(--blue)}
+.c2-title{margin:11mm 0 0;text-align:center;font-weight:900;font-size:37pt;line-height:1.03;letter-spacing:-.02em;color:var(--blue)}
+.c2-t{color:var(--tq-t)}
+.c2-r{color:var(--red)}
+.c2-bar{width:24mm;height:1.4mm;background:var(--red);border-radius:1mm;margin:7mm auto 6mm}
+.c2-sub{text-align:center;font-size:16pt;font-weight:800;color:var(--ink);margin:0}
+.c2-desc{text-align:center;font-size:11.4pt;line-height:1.5;color:var(--mut);max-width:150mm;margin:3mm auto 0}
+.c2-photos{margin-top:auto;display:grid;grid-template-columns:70mm 1fr;gap:6mm;align-items:end}
+.c2-photos figure{margin:0;display:flex;flex-direction:column;gap:2.5mm}
+.c2-img{border-radius:4mm;overflow:hidden;height:88mm;border:.4mm solid #DCE6E8}
+.c2-img img{width:100%;height:100%;object-fit:cover;display:block}
+.c2-me .c2-img{background:#0B0D11}
+.c2-me .c2-img img{object-position:50% 12%}
+.c2-team .c2-img img{object-position:50% 0%}
+.c2-photos figcaption{display:flex;flex-direction:column;border-left:1.2mm solid var(--tq);padding-left:3mm}
+.c2-team figcaption{border-left-color:var(--blue)}
+.c2-photos figcaption b{font-size:10pt;letter-spacing:.14em;color:var(--blue)}
+.c2-photos figcaption span{font-size:9pt;color:var(--mut)}
+.c2-title{font-size:42pt;margin-top:13mm}
+.c2-sub{font-size:17pt}
+.c2-desc{font-size:12pt}
+.c2-img{height:112mm}
+.c2-photos{grid-template-columns:74mm 1fr}
+.c2-title{font-size:39pt;white-space:nowrap;margin-top:16mm}
+.c2-bar{margin:9mm auto 7mm}
+.c2-img{height:94mm}
+.c2-photos{grid-template-columns:62mm 1fr}
+.c2-team .c2-img img{object-position:50% 30%}
+.c2-title{margin-top:24mm}
+.c2-bar{margin:11mm auto 9mm}
+.c2-desc{margin-top:4mm}
+.c2-sub{font-size:21pt}
+.c2-desc{font-size:14pt;line-height:1.45;max-width:165mm}
+.c2-title{margin-top:18mm}
+.c2-photos.one{display:flex;flex-direction:column;gap:3mm}
+.c2-photos.one .c2-img{height:118mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 0%}
+.c2-photos.one figcaption{flex-direction:row;align-items:baseline;gap:4mm}
+.c2-photos.one figcaption b{font-size:11pt}
+.c2-photos.one figcaption span{font-size:10pt}
+.c2-roles{display:flex;justify-content:space-between;gap:3mm}
+.c2-roles span{flex:1;text-align:center;background:var(--tq-l);color:var(--blue);font-weight:800;font-size:10pt;letter-spacing:.06em;padding:2.4mm 0;border-radius:99px;border:.35mm solid var(--tq-b)}
+.c2-photos.one{align-items:stretch}
+.c2-photos.one .c2-img{height:108mm}
+.c2-title{margin-top:14mm}
+.c2-bar{margin:9mm auto 7mm}
+.c2-photos.one .c2-img{height:119mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 50%}
+.c2-title{margin-top:11mm}
+.c2-top{gap:4mm}
+.c2-bar{margin:7mm auto 6mm}
+.c2-photos.one .c2-img{height:136mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 0%}
+.cv2{padding-top:11mm;padding-bottom:9mm}
+.c2-logo{height:18mm}
+.c2-title{margin-top:8mm;font-size:37pt}
+.c2-bar{margin:5mm auto 5mm}
+.c2-sub{font-size:19pt}
+.c2-desc{font-size:13pt;margin-top:2.5mm}
+.c2-photos.one{gap:2.5mm}
+.c2-photos.one .c2-img{height:140mm}
+.c2-photos.one .c2-team .c2-img img{object-fit:cover;object-position:50% 50%}
+
+/* v6: lectura en celular — todo más grande */
+body{font-size:13.2pt;line-height:1.55}
+.lead{font-size:15pt}
+.h1{font-size:32pt}
+h2{font-size:18.5pt}
+h3{font-size:15pt}
+.small{font-size:11.4pt}
+.box{font-size:12.6pt}
+.list li,.checks li{margin-bottom:2mm}
+.extx p{font-size:12pt;line-height:1.45}
+.exh h4{font-size:14.5pt}
+.dose{font-size:10.6pt}
+.vbtn-sm{font-size:9.6pt;padding:2.2mm 4mm}
+.params b{font-size:12.4pt}.params span{font-size:8.4pt}
+.ing,.steps-ol{font-size:12.4pt}
+.tip{font-size:11.6pt}
+.rech h2{font-size:20pt}.rmeta{font-size:11pt}.rcat{font-size:8.4pt}
+.menu{font-size:10.4pt}.menu thead th{font-size:9pt}.menu tbody th{font-size:9pt}
+.tile p{font-size:12pt}.tile h3{font-size:13.6pt}
+.cb,.cbox .cb{font-size:12pt}.shop .cb{font-size:11.6pt}.shop h3{font-size:13pt}
+.eq{font-size:12pt}
+.wcard p{font-size:12pt}.wcard h3{font-size:15pt}
+.dayex b{font-size:12.6pt}.minplan p{font-size:12pt}.minplan span{font-size:8.6pt}
+.pillar p{font-size:11.8pt}.pillar h3{font-size:13pt}
+.fw p{font-size:11.4pt}.fw b{font-size:12.4pt}
+.step p{font-size:11.8pt}.step b{font-size:12.4pt}
+.rpe p{font-size:11.6pt}
+.tocr{font-size:14.5pt}
+.legend{font-size:11pt}.chip{font-size:10pt}
+.grid-t tbody th,.track tbody th{font-size:9.8pt}
+.team-tx p{font-size:12pt}
+.bio-top p,.what p{font-size:12.4pt}
+.quote{font-size:21pt}
+.rindex{font-size:11.6pt}
+.gloss{font-size:11.6pt}
+/* portada */
+.c2-kick{font-size:9.4pt;letter-spacing:.16em}
+.c2-sub{font-size:21pt}
+.c2-desc{font-size:14.6pt}
+.c2-photos.one figcaption b{font-size:12.6pt}
+.c2-photos.one figcaption span{font-size:11.6pt}
+.c2-roles span{font-size:11.4pt}
+.recimg{height:76mm}
+.p-spread .wcard{min-height:0}
+.wgrid{margin:4mm 0 2mm}
+.bio-photo{height:70mm}
+.bio .quote{font-size:15pt;padding:5mm}
+.what{margin-top:5mm}
+body{font-size:12.8pt}
+.extx p{font-size:11.6pt}
+.ex{grid-template-columns:34mm 1fr;padding:3mm 4mm;margin-bottom:3mm}
+.exim{width:34mm;height:34mm}
+.grid-t td{height:9mm}
+.track td{height:14mm}
+.shop .cb{font-size:10.8pt;margin-bottom:.6mm;line-height:1.3}.shop h3{font-size:12pt}.shop{margin-bottom:2.5mm}
+.lines{height:36mm}
+#cap10 .quote{margin-top:4mm;padding:4mm 0;font-size:17pt}
+.claim{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:4mm 0 6mm}
+.claim div{background:var(--tq);color:#fff;border-radius:4mm;padding:6mm 4mm;text-align:center;display:flex;flex-direction:column}
+.claim b{font-size:24pt;font-weight:900;line-height:1.05}
+.claim span{font-size:11pt;opacity:.95}
+.tvids,.tba{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:4mm}
+.tvid{display:flex;flex-direction:column;align-items:center;gap:2.5mm}
+.tvid-ph{width:100%;height:62mm;border-radius:4mm;background:#141414;color:#C9D3D6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3mm;font-size:8.6pt;font-weight:800;letter-spacing:.1em}
+.tvid-ph .play{width:13mm;height:13mm;border-radius:50%;background:var(--tq);color:#fff;display:flex;align-items:center;justify-content:center}
+.tvid-ph .play .ic{fill:currentColor;stroke:none;width:6mm;height:6mm}
+.ba-ph{height:52mm;display:grid;grid-template-columns:1fr 1fr;gap:1.5mm}
+.ba-ph div{border-radius:3mm;background:var(--tq-l);border:.5mm dashed var(--tq);display:flex;align-items:center;justify-content:center;font-size:8pt;font-weight:800;letter-spacing:.12em;color:var(--tq-dd)}
+.ba p{font-size:10pt;text-align:center;color:var(--mut);margin:2mm 0 0}
+.keytips{margin:0 5mm 5mm;background:var(--tq-l);border-radius:3mm;padding:4mm 5mm;border-left:1.4mm solid var(--tq)}
+.keytips h5{font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-dd);margin:0 0 2mm}
+.keytips ul{margin:0;padding-left:5mm}
+.keytips li{font-size:12pt;line-height:1.45;margin-bottom:1.6mm}
+.keytips li::marker{color:var(--tq-d)}
+.recimg{height:56mm}
+.rech{padding:3mm 5mm 2.5mm}
+.recb{padding:3mm 5mm;gap:5mm}
+.ing,.steps-ol{font-size:11.6pt;line-height:1.42}
+.steps-ol li{margin-bottom:1.2mm}.ing li{margin-bottom:.8mm}
+.keytips{margin:0 5mm 4mm;padding:3mm 4.5mm}
+.keytips li{font-size:11.2pt;line-height:1.38;margin-bottom:1mm}
+.ba-img{position:relative;height:96mm;border-radius:3.5mm;overflow:hidden;background:#eee}
+.ba-img img{width:100%;height:100%;object-fit:cover;display:block}
+.ba-img span{position:absolute;top:2mm;background:rgba(20,20,20,.8);color:#fff;font-size:7pt;font-weight:800;letter-spacing:.12em;padding:1mm 2.2mm;border-radius:99px}
+.ba-img .bl{left:2mm}.ba-img .br{right:2mm;background:var(--tq)}
+.ba p{font-size:11pt;line-height:1.35;color:var(--ink);text-align:left;margin:2.2mm 0 0}
+.tvlinks{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.tvl{display:flex;align-items:center;gap:3mm;padding:4mm;border-radius:3.5mm;background:#141414;color:#fff;text-decoration:none}
+.tvl .play{flex:none;width:11mm;height:11mm;border-radius:50%;background:var(--tq);display:flex;align-items:center;justify-content:center}
+.tvl .play .ic{fill:#fff;stroke:none;width:5mm;height:5mm}
+.tvl span:last-child{display:flex;flex-direction:column;font-size:10pt;color:#C9D3D6}
+.tvl b{font-size:12.5pt;color:#fff}
+.tba2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:2mm}
+.tba2 .ba-img{height:92mm;background:#fff;border:.35mm solid var(--line)}
+.tba2 .ba-img img{object-fit:contain}
+.romi{display:grid;grid-template-columns:44mm 1fr;gap:5mm;align-items:center;margin:5mm 0 2mm;border:.35mm solid var(--line);border-radius:3.5mm;padding:3mm}
+.romi .ba-img{height:58mm}
+.romi .ba-img img{object-position:50% 45%}
+.romi p{font-size:13pt;margin:1.5mm 0 0}
+.res3{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:2mm 0 5mm}
+.rc{display:flex;flex-direction:column}
+.rc-img{position:relative;height:92mm;border-radius:3.5mm;overflow:hidden;background:#eee}
+.rc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.rc-img.two{display:grid;grid-template-columns:1fr 1fr;gap:.8mm;background:#fff}
+.rc-img.two>div{position:relative;overflow:hidden}
+.rc-img span{position:absolute;left:50%;transform:translateX(-50%);bottom:2mm;background:rgba(20,20,20,.82);color:#fff;font-size:6.6pt;font-weight:800;letter-spacing:.1em;padding:1mm 2mm;border-radius:99px;white-space:nowrap}
+.rc-img span.d{background:var(--tq)}
+.rc p{margin:2.5mm 0 0;font-size:11pt;line-height:1.35;color:var(--txt);display:flex;flex-direction:column;min-height:16mm}
+.rc p b{font-size:13pt;color:var(--ink)}
+.vc{display:flex;flex-direction:column;gap:2.5mm;text-decoration:none}
+.vc-img{height:52mm;border-radius:3.5mm;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm;color:#fff}
+.vc-img .play{width:15mm;height:15mm;border-radius:50%;background:var(--tq);display:flex;align-items:center;justify-content:center;margin-bottom:1mm}
+.vc-img .play .ic{fill:#fff;stroke:none;width:7mm;height:7mm}
+.vc-n{font-size:15pt;font-weight:900}
+.vc-t{font-size:9pt;color:#C9D3D6}
+.vc-btn{align-self:center;display:inline-flex;align-items:center;gap:1.6mm;background:var(--tq-t);color:#fff;font-weight:800;font-size:9pt;letter-spacing:.08em;padding:2mm 4mm;border-radius:99px}
+.vc-btn .ic{fill:#fff;stroke:none;width:.9em;height:.9em}
+.keytips{margin:5mm 0 0;padding:4.5mm 6mm;border-left:1.6mm solid var(--tq);border-radius:3.5mm}
+.keytips h5{font-size:10pt;margin-bottom:2.5mm}
+.keytips li{font-size:11.6pt;line-height:1.45;margin-bottom:1.8mm}
+.keytips li b{color:var(--ink)}
+.recimg{height:64mm}
+.recimg{height:48mm}
+.keytips{margin-top:4mm;padding:3.5mm 5mm}
+.keytips li{font-size:11pt;line-height:1.38;margin-bottom:1.2mm}
+.ing,.steps-ol{font-size:11.2pt;line-height:1.38}
+.c2-roles span{font-size:10.4pt;letter-spacing:.02em}.c2-roles span:nth-child(2){flex:1.5}.pills4{flex-wrap:wrap}
+.bio-photo{height:62mm}.what{padding:5mm 5.5mm}.what p{font-size:11.8pt}.bio .cta-center{margin-top:5mm}
+.bio .quote{margin-top:4mm;padding:4mm 6mm}
+
+/* Ebook 1 · Entrená desde casa: plan de 8 semanas */
+.plan8{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8.6pt;line-height:1.3;margin:4mm 0 2mm}
+.plan8 thead th{background:var(--ink);color:#fff;padding:2.2mm 1.6mm;font-size:7pt;letter-spacing:.08em;text-transform:uppercase;text-align:left}
+.plan8 thead th:first-child{width:11mm;text-align:center}
+.plan8 thead th:nth-child(2){width:25mm}
+.plan8 thead th:nth-child(4){width:16mm}
+.plan8 thead th:nth-child(6){width:15mm}
+.plan8 thead th:nth-child(7){width:16mm}
+.plan8 tbody th{background:var(--tq);color:#fff;font-size:11pt;font-weight:900;text-align:center}
+.plan8 td{border-bottom:.3mm solid #D3E3E6;padding:2.4mm 1.6mm;color:var(--ink);vertical-align:middle}
+.plan8 tbody tr:nth-child(even) td{background:var(--bg2)}
+.plan8 tbody tr.dl td{background:var(--tq-l);color:var(--tq-dd);font-weight:600}
+.cal8 td{height:11mm}
+.loads td{height:9mm}
+.wk8 thead th:first-child,.loads thead th:first-child,.feel thead th:first-child{width:42mm}
+.wk8 td{height:8.5mm}
+.wk8 tbody th{font-size:8pt}
+.feel td{height:11mm}
+.tips10{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.tips10 div{border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm 4mm}
+.tips10 span{display:block;font-weight:900;font-size:16pt;line-height:1;color:var(--tq);margin-bottom:1.5mm}
+.tips10 h3{margin:0 0 1mm;font-size:11.4pt}
+.tips10 p{font-size:10pt;margin:0;color:var(--txt)}
+
+/* v7: títulos más chicos y texto desarrollado más grande */
+body{font-size:13.8pt;line-height:1.55}
+.h1{font-size:24pt;margin:2mm 0 4mm}
+.h1.big{font-size:27pt}
+.chead h1{font-size:24pt;margin:1.5mm 0 2.5mm}
+.cnum{font-size:32pt}
+h2{font-size:16pt}
+h3{font-size:14pt}
+.lead{font-size:14.8pt}
+.small{font-size:12pt}
+.box{font-size:13.2pt}
+.extx p{font-size:12.6pt}
+.exh h4{font-size:14pt}
+.pillar p,.step p,.tile p,.minplan p,.tips10 p{font-size:12.6pt}
+.recw{font-size:12.8pt}
+.steps4{grid-template-columns:repeat(4,1fr)}
+
+/* rutinas en bloques: entrada en calor compacta + bloques en dos columnas */
+.blk{display:flex;align-items:center;gap:3mm;flex-wrap:wrap;border-bottom:.4mm solid var(--tq-b);padding-bottom:1.6mm;margin:4mm 0 2.6mm}
+.blk span{background:var(--ink);color:#fff;font-weight:800;font-size:9pt;letter-spacing:.14em;padding:1.2mm 3.2mm;border-radius:99px}
+.blk p{margin:0;font-size:11pt;color:var(--mut)}
+.warm{display:grid;grid-template-columns:repeat(6,1fr);gap:2mm}
+.wc{border:.35mm solid var(--line);border-radius:2.5mm;padding:2mm 1.5mm;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1mm}
+.wcim{width:100%;height:19mm;background:var(--bg2);border-radius:2mm;display:flex;align-items:center;justify-content:center}
+.wcim img{max-width:100%;max-height:100%;object-fit:contain}
+.wc b{font-size:9pt;line-height:1.2;color:var(--ink)}
+.wc .dose{font-size:7.8pt}
+.wc .vbtn-sm{font-size:7pt;padding:1mm 2.4mm;margin-top:auto}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.bgrid .ex{grid-template-columns:27mm 1fr;gap:3mm;padding:3mm;margin:0;align-items:start}
+.bgrid .exim{width:27mm;height:27mm;padding:1mm}
+.bgrid .exh{flex-direction:column;align-items:flex-start;gap:1mm;margin-bottom:1mm}
+.bgrid .exh h4{font-size:12.8pt;line-height:1.2}
+.bgrid .extx p{font-size:11.6pt;line-height:1.38;margin-bottom:1mm}
+.bgrid .dose{font-size:9.6pt}
+.bgrid .vbtn-sm{font-size:8.6pt;padding:1.6mm 3mm}
+/* tarjetas de bloque en fila */
+.bgrid{display:flex;flex-direction:column;gap:2.6mm}
+.bgrid .ex.exrow{grid-template-columns:27mm 1fr;gap:4mm;padding:2.6mm 3.5mm;margin:0;align-items:center}
+.bgrid .exim{width:27mm;height:27mm;padding:1mm}
+.exrow .exh{flex-direction:row;align-items:center;gap:2.5mm;margin-bottom:.8mm;justify-content:flex-start}
+.exrow .exh h4{font-size:13.4pt;line-height:1.2;margin-right:auto}
+.exrow .exh .vbtn-sm{margin:0;font-size:8.4pt;padding:1.4mm 3mm;flex:none}
+.bgrid .extx p{font-size:12pt;line-height:1.38;margin-bottom:.6mm}
+.bgrid .dose{font-size:9.6pt;flex:none}
+.tips10{gap:2.6mm}
+.tips10 div{padding:3mm 3.6mm}
+.tips10 span{font-size:13pt;margin-bottom:1mm}
+.tips10 h3{font-size:12.4pt}
+.tips10 p{font-size:11.6pt;line-height:1.4}
+.wcim{height:14mm}
+.wc{padding:1.6mm 1.2mm;gap:.8mm}
+.bgrid{gap:2mm}
+.bgrid .ex.exrow{grid-template-columns:22mm 1fr;gap:3.5mm;padding:2.2mm 3.2mm}
+.bgrid .exim{width:22mm;height:22mm}
+.bgrid .extx p{font-size:11.8pt;line-height:1.34}
+.blk{margin:3mm 0 2.2mm}
+
+/* v8: lectura en celular — letra más grande en todo el ebook */
+body{font-size:15pt;line-height:1.5}
+.lead{font-size:16pt}
+.small{font-size:13pt}
+.box{font-size:14.4pt}
+h1.h1,.h1{font-size:26pt}
+.chead h1{font-size:26pt}
+h2{font-size:18pt}
+h3{font-size:16pt}
+.list li,.checks li{margin-bottom:1.6mm}
+.extx p{font-size:14pt;line-height:1.42}
+.exh h4{font-size:16pt}
+.dose{font-size:11.4pt}
+.vbtn-sm{font-size:10.4pt}
+.pillar p,.step p,.tile p,.minplan p,.tips10 p,.fw p,.rpe p{font-size:13.8pt}
+.pillar h3,.step b,.tile h3,.fw b,.tips10 h3{font-size:14.6pt}
+.params b{font-size:13.6pt}.params span{font-size:9.4pt}
+.cb,.cbox .cb{font-size:13.4pt}
+.wcard p,.team-tx p,.bio-top p,.what p{font-size:13.6pt}
+.tocr{font-size:15.5pt}
+.plan8{font-size:10.4pt}.plan8 thead th{font-size:8pt}
+.legend{font-size:12.4pt}
+.grid-t tbody th,.track tbody th{font-size:11pt}
+.blk span{font-size:10.4pt}.blk p{font-size:12.6pt}
+/* tarjetas de ejercicio en fila (rutinas): directas en la página para que la paginación las reparta */
+.ex.exrow{grid-template-columns:30mm 1fr;gap:4mm;padding:3mm 4mm;margin:0 0 2.6mm;align-items:center}
+.ex.exrow .exim{width:30mm;height:30mm;padding:1mm}
+.exrow .exh .vbtn-sm{font-size:9.6pt;padding:1.6mm 3.2mm}
+.exrow .extx p{font-size:13.6pt;line-height:1.38;margin-bottom:.8mm}
+.exrow .exh h4{font-size:15.5pt}
+.tips10 p{font-size:12.8pt}.tips10 h3{font-size:13.6pt}
+.bio-top p,.what p{font-size:12.6pt}
+h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
+.ex.exrow .exim{width:26mm;height:26mm}
+.ex.exrow{grid-template-columns:26mm 1fr}
+.ex.exrow{padding:2.2mm 3.6mm;margin-bottom:2.2mm}
+.blk p{font-size:12pt}
+.phases{display:flex;flex-wrap:wrap;gap:2mm;margin:1mm 0 2mm}
+.phases span{background:var(--tq-l);border-radius:99px;padding:1.6mm 4mm;font-size:12pt;color:var(--tq-dd)}
+.phases b{color:var(--ink)}
+#talleres .wcard p,#talleres .team-tx p{font-size:12.6pt}#talleres .wcard h3{font-size:14pt}
+/* botón de índice al pie */
+.ftr{bottom:6mm;align-items:center}
+.ftr a.toidx{display:inline-flex;align-items:center;gap:1.8mm;font-size:10.4pt;font-weight:700;color:var(--tq-dd);background:var(--tq-l);border:.35mm solid var(--tq-b);border-radius:99px;padding:1.2mm 3.6mm 1.2mm 2.6mm}
+.ftr a.toidx .ic{width:4.6mm;height:4.6mm;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ftr span.pgnum{font-size:10.4pt}
+/* peso y cintura */
+.meas{display:grid;grid-template-columns:52mm 1fr;gap:6mm;align-items:center}
+.meas figure{margin:0;background:var(--bg2);border-radius:3mm;padding:2mm}
+.meas img{width:100%;display:block}
+.meas-t td{height:11mm}
+.meas{grid-template-columns:58mm 1fr}
+.meas .steps-ol{font-size:13.8pt;line-height:1.42}
+.meas .steps-ol li{margin-bottom:1.6mm}
+/* talleres (Ebook 1) */
+.tcard{display:grid;grid-template-columns:62mm 1fr;gap:5mm;align-items:center;border:.4mm solid var(--tq-b);border-radius:4mm;padding:3.5mm;margin-bottom:4mm}
+.tim{position:relative;width:62mm;height:46mm;border-radius:3mm;overflow:hidden;background:var(--bg2)}
+.tim img{width:100%;height:100%;object-fit:cover;display:block}
+.tcard.locked{background:var(--bg2)}
+.tcard.locked .tim img{filter:grayscale(1) blur(1.2px);opacity:.55}
+.tlock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.tlock .ic{width:20mm;height:20mm;padding:4.5mm;border-radius:50%;background:var(--ink);color:#fff;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ttx h3{margin:1.2mm 0 1.4mm;font-size:16pt;line-height:1.2}
+.ttx p{font-size:13pt;line-height:1.4;color:var(--txt);margin:0 0 3mm}
+.ttx .wtag{font-size:9pt}
+.btn.tbtn{font-size:11pt;padding:2.4mm 5mm}
+.btn.tbtn .ic{width:4mm;height:4mm}
+/* carátula de los bonus (Ebook 1) */
+.divider{height:297mm;background:var(--ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20mm}
+.dv-logo{width:62mm;background:#fff;border-radius:4mm;padding:3mm 5mm;margin-bottom:14mm}
+.dv-kick{font-size:11pt;letter-spacing:.2em;font-weight:800;color:var(--tq);margin:0 0 4mm}
+.dv-title{font-size:96pt;font-weight:900;line-height:1;letter-spacing:-.02em;color:#fff;margin:0}
+.dv-sub{font-size:28pt;font-weight:800;color:var(--tq);margin:3mm 0 0}
+.dv-bar{width:30mm;height:1.6mm;background:#E8384F;border-radius:1mm;margin:8mm 0}
+.dv-desc{font-size:15pt;color:#C9D3D6;max-width:130mm;margin:0 0 10mm}
+.dv-list{display:flex;flex-direction:column;gap:4mm;width:130mm}
+.dv-list a{display:grid;grid-template-columns:12mm 1fr auto;align-items:center;gap:4mm;background:#1F2326;border:.4mm solid #33393D;border-radius:4mm;padding:4mm 5mm;color:#fff;text-decoration:none;text-align:left}
+.dv-list a > span{width:10mm;height:10mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:900;font-size:14pt;display:flex;align-items:center;justify-content:center}
+.dv-list b{font-size:16pt}
+.dv-list em{font-style:normal;font-size:12pt;color:#AEB8BC}
+
+/* correcciones: material, variante con video, glosario, índice, llamados */
+.exl{display:flex;flex-direction:column;align-items:center;gap:1.2mm}
+.mat{display:block;font-size:9pt;font-weight:700;color:var(--tq-dd);background:var(--tq-l);border-radius:99px;padding:.6mm 2.4mm;text-align:center;line-height:1.25;max-width:100%}
+.ex .exl{width:auto}
+.vbtn-xs{display:inline-flex;align-items:center;gap:1.2mm;margin-left:1mm;background:#fff;border:.35mm solid var(--tq-t);color:var(--tq-dd);font-weight:800;font-size:8.6pt;letter-spacing:.06em;padding:.8mm 2.6mm;border-radius:99px;text-decoration:none;vertical-align:.3mm;white-space:nowrap}
+.vbtn-xs .ic{width:.9em;height:.9em;fill:currentColor;stroke:none}
+.plus{font-size:12.4pt;margin:.6mm 0 0;color:var(--ink)}
+.plus b{color:#C2410C}
+.glos{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.glos div{border:.35mm solid var(--line);border-radius:3mm;padding:3mm 3.6mm}
+.glos b{display:block;font-size:13.6pt;color:var(--tq-dd);margin-bottom:.8mm}
+.glos p{margin:0;font-size:12.4pt;line-height:1.4}
+.idxhead{display:flex;align-items:center;gap:6mm;flex-wrap:wrap}
+.idxhead .h1{margin:2mm 0}
+.idxtip{display:flex;align-items:center;gap:2mm;flex:1;min-width:80mm;margin:0;font-size:12pt;color:var(--tq-dd);background:var(--tq-l);border-radius:3mm;padding:2.4mm 3.6mm}
+.idxtip .ic{flex:none;width:6mm;height:6mm;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cta-plan{margin:5mm 0}
+.cta-plan .ctatitle{font-size:18pt}
+.cta-plan .off{margin:4mm 0 0;font-size:13pt;text-align:center}
+.cta-plan .off b{color:#C2410C}
+.dv-btn{margin-top:8mm;font-size:11pt}
+.team-big img{width:100%;height:78mm;object-fit:cover;border-radius:4mm;display:block;margin:2mm 0 5mm}
+.metodo p{font-size:13.6pt}
+/* cuadro del plan: anchos fijos para que no se pisen los títulos */
+.plan8{table-layout:fixed}
+.plan8 thead th{letter-spacing:.02em;font-size:7.6pt;line-height:1.2;vertical-align:bottom}
+.plan8 thead th:nth-child(1){width:10mm}
+.plan8 thead th:nth-child(2){width:25mm}
+.plan8 thead th:nth-child(3){width:23mm}
+.plan8 thead th:nth-child(4){width:16mm}
+.plan8 thead th:nth-child(6){width:15mm}
+.plan8 thead th:nth-child(7){width:19mm}
+.plan8 thead th:nth-child(8){width:25mm}
+.ex.exrow{grid-template-columns:24mm 1fr}
+.ex.exrow .exim{width:24mm;height:22mm}
+.glos{gap:2.4mm}.glos div{padding:2.4mm 3.2mm}.glos b{font-size:13pt}.glos p{font-size:12pt;line-height:1.36}
+.h1.rt{margin:0 0 1mm}
+.mat{white-space:nowrap;font-size:8.2pt;padding:.5mm 2mm}
+.ex.exrow{grid-template-columns:27mm 1fr;gap:3.4mm}
+.ex.exrow .exim{width:27mm;height:21mm}
+/* portada Ebook 1: resultado visible */
+.c2-res{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:3mm;margin:4mm 0 0}
+.c2-res div{border:.5mm solid var(--tq-b);border-radius:3.5mm;padding:2.6mm 3mm;text-align:center;background:#fff}
+.c2-res b{display:block;font-size:24pt;font-weight:900;line-height:1;color:var(--tq-t)}
+.c2-res span{display:block;font-size:8.6pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-dd)}
+.c2-res p{margin:1.2mm 0 0;font-size:11.8pt;font-weight:800;line-height:1.2;color:var(--ink)}
+.c2-res .on{background:var(--ink);border-color:var(--ink)}
+.c2-res .on b{color:#3FD0E3}.c2-res .on span{color:#C9D3D6}.c2-res .on p{color:#fff}
+.cv-ent .c2-photos.one .c2-img{height:96mm}
+.cv-ent .c2-photos.one .c2-img{height:112mm}.cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 8%}
+.cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 28%}
+/* bio: la foto ocupa todo el alto de la columna de texto */
+.bio-top{align-items:stretch}
+.bio-photo{height:auto;min-height:62mm}
+.bio-photo img{object-position:50% 30%}
+.bio-ent .bio-top{grid-template-columns:82mm 1fr;gap:6mm}
+.bio-ent .bio-photo{min-height:105mm}
+.bio-ent .what{margin-top:7mm}
+.bio-ent .quote{margin-top:7mm}
+/* glosario: un concepto debajo del otro */
+.glosr{display:grid;grid-template-columns:44mm 1fr;align-items:stretch;border:.4mm solid var(--tq-b);border-radius:3mm;overflow:hidden;margin-bottom:2.4mm}
+.glosr b{display:flex;align-items:center;background:var(--tq-t);color:#fff;font-size:13.6pt;font-weight:800;line-height:1.2;padding:3mm 3.6mm}
+.glosr p{margin:0;padding:3mm 4mm;font-size:13pt;line-height:1.4;background:#fff}
+.glosr{margin-bottom:1.8mm}
+.glosr b,.glosr p{padding-top:2.2mm;padding-bottom:2.2mm}
+
+/* ===== Ebook Talleres RENOVA (talleres.py) ===== */
+.tl-cover .c2-photos.one .c2-img{height:112mm}
+.tl-cover .c2-photos.one .c2-team .c2-img img{object-position:50% 8%}
+.tl-card{display:grid;grid-template-columns:44mm 1fr;gap:6mm;align-items:start;border:.4mm solid var(--tq-b);border-radius:5mm;padding:5mm;margin-bottom:5mm;background:#fff;box-shadow:0 2mm 6mm rgba(0,0,0,.06)}
+.tl-who{text-align:center}
+.tl-who img,.tl-ph{width:40mm;height:40mm;border-radius:50%;object-fit:cover;border:1.2mm solid var(--tq);margin:0 auto 3mm}
+.tl-ph{display:flex;align-items:center;justify-content:center;background:var(--tq-l);color:var(--tq-d);font-weight:800;font-size:11pt;letter-spacing:.14em;border-style:dashed}
+.tl-who b{display:block;font-size:12pt;color:var(--ink);line-height:1.2}
+.tl-who span{display:block;font-size:10pt;color:var(--mut);line-height:1.3;margin-top:1mm}
+.tl-tx .wtag{font-size:9pt}
+.tl-tx h2{font-size:19pt;margin:1mm 0 2mm;line-height:1.1}
+.tl-tx p{margin:0 0 2mm}
+.tl-tx .checks{margin:0 0 3mm}
+.tl-cta{display:flex;flex-direction:column;min-height:100%}
+.tl-opts{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 5mm}
+.tl-opt{border:.4mm solid var(--tq-b);border-radius:5mm;padding:5mm;background:#fff}
+.tl-opt.on{border:.8mm solid var(--tq);background:var(--tq-l)}
+.tl-opt .wtag{font-size:8.5pt}
+.tl-opt h2{font-size:17pt;margin:1.5mm 0 2mm;line-height:1.1}
+.tl-cta .quote{margin-bottom:5mm}
+
+/* plan de 8 semanas en tarjetas */
+.p8c{border:.35mm solid var(--tq-b);border-radius:3.5mm;overflow:hidden;margin-bottom:3.5mm}
+.p8ch{display:flex;justify-content:space-between;align-items:baseline;background:var(--tq);color:#fff;padding:2.6mm 5mm}
+.p8ch b{font-size:15pt;font-weight:900}
+.p8ch span{font-size:11.5pt;font-weight:700;letter-spacing:.04em}
+.p8c.dl .p8ch{background:var(--ink)}
+.p8cg{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm 5mm;padding:3mm 5mm}
+.p8cg span{display:block;font-size:9pt;letter-spacing:.06em;text-transform:uppercase;color:var(--tq-d);font-weight:700}
+.p8cg b{font-size:13pt;color:var(--ink);font-weight:700;line-height:1.25}
+.p8c{display:grid;grid-template-columns:30mm 1fr;margin-bottom:2.6mm}
+.p8ch{flex-direction:column;justify-content:center;align-items:flex-start;gap:.6mm;padding:2mm 3.5mm}
+.p8ch b{font-size:13.5pt}
+.p8ch span{font-size:10pt}
+.p8cg{gap:1.6mm 4mm;padding:2.2mm 4mm}
+.p8cg span{font-size:8.2pt}
+.p8cg b{font-size:12pt}
+.p8c{grid-template-columns:26mm 1fr}
+.p8ch{align-items:center;text-align:center;gap:0}
+.p8ch small{font-size:7.5pt;letter-spacing:.14em;font-weight:800;opacity:.9}
+.p8ch b{font-size:22pt;line-height:1}
+.p8ch span{font-size:8.6pt}
+.p8cg{gap:1.2mm 4mm;padding:2mm 4mm}
+.p8cg span{font-size:7.8pt;letter-spacing:.04em}
+.p8cg b{font-size:11.6pt}
+/* Bonus talleres: dos talleres incluidos + acceso a Skool */
+.tk2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 5mm}
+.tk2>div{border:.4mm solid var(--tq-b);border-radius:4mm;padding:3mm}
+.tk2 img{width:100%;height:36mm;object-fit:cover;border-radius:3mm;display:block;margin-bottom:2.5mm}
+.tk2 .wtag{font-size:9pt}
+.tk2 h3{margin:1mm 0 1.2mm;font-size:15pt;line-height:1.2}
+.tk2 p{margin:0;font-size:12.5pt;line-height:1.4;color:var(--txt)}
+.skool{display:grid;grid-template-columns:104mm 1fr;align-items:center;text-decoration:none;color:#fff;background:var(--tq-dd);border-radius:5mm;overflow:hidden}
+.skool img{width:100%;height:auto;display:block;background:#fff}
+.skx{padding:5mm 4mm;text-align:center}
+.skx .wtag{color:#9FE6F0;font-size:9pt}
+.skx h3{color:#fff;font-size:17pt;margin:1.5mm 0 2mm;line-height:1.2}
+.skx p{color:#E3F6F9;font-size:12.5pt;line-height:1.4;margin:0 0 4.5mm}
+.skx .btn{padding:4.5mm 5mm;background:#fff;color:var(--tq-dd);box-shadow:0 0 0 1.2mm rgba(255,255,255,.3)}
+.skx .btn .ic{stroke:currentColor}
+
+/* ---- tapa de casa y gimnasio (cada ebook con su tono de turquesa) */
+.cv3{--c3-a:var(--tq);--c3-b:var(--tq);--c3-l:var(--tq-l);position:relative;height:297mm;box-sizing:border-box;border:1.2mm solid var(--c3-b);background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.cv3.pausa{--c3-a:var(--tq-t);--c3-b:var(--ink);--c3-l:var(--tq-l)}
+.pausa .c3-title{font-size:92pt}
+.pausa .c3-claim b span{text-shadow:1.2mm 1.2mm 0 var(--tq)}
+.cv3.gym{--c3-a:var(--tq-d);--c3-b:var(--tq-dd);--c3-l:var(--tq-b)}
+.c3-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8mm 12mm 0}
+.c3-logo{height:13mm;width:auto;margin-bottom:5mm}
+.c3-pill{display:inline-block;background:var(--c3-b);color:#fff;font-weight:800;font-size:19pt;letter-spacing:.06em;padding:3.4mm 10mm;border-radius:99px}
+.c3-title{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:78pt;line-height:.9;letter-spacing:-.02em;color:var(--c3-a);margin:6mm 0 0;text-transform:uppercase}
+.gym .c3-title{font-size:67pt}
+.c3-claim{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:34pt;line-height:1.05;color:var(--ink);margin:5mm 0 0;letter-spacing:-.005em}
+.c3-claim b{display:block;font-size:50pt;line-height:1;letter-spacing:-.01em;margin-top:1mm}
+.c3-claim b span{display:inline-block;transform:rotate(-2.5deg);padding:0 4mm;background:linear-gradient(transparent 58%,var(--c3-l) 58%,var(--c3-l) 92%,transparent 92%);text-shadow:1.2mm 1.2mm 0 var(--c3-b)}
+.cv3 .c3-claim b span{color:var(--ink)}
+.c3-sub{font-family:"InterTightW","InterW",sans-serif;font-size:21pt;line-height:1.3;color:var(--ink);font-weight:600;letter-spacing:.005em;margin:5mm 0 0;padding:3mm 4mm 0;width:178mm;box-sizing:border-box;background:rgba(255,255,255,.75);border-top:1.4mm double var(--c3-b);}
+.c3-sub span{white-space:nowrap}
+.c3-sub em{font-style:normal;font-weight:900;color:var(--c3-a)}
+.c3-sub b{font-weight:900;color:#fff;background:var(--c3-b);padding:0 2.2mm;border-radius:1.6mm}
+.c3-sub mark{font-weight:800;color:var(--ink);background:linear-gradient(transparent 55%,var(--c3-l) 55%,var(--c3-l) 92%,transparent 92%);padding:0 .6mm}
+.c3-team{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:flex-end;justify-content:center;margin-top:3mm}
+.c3-team img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
+
+/* v9: casa, gimnasio y pausa activa: letra y dibujos más grandes en el desarrollo (lectura en celular).
+   Los títulos quedan igual; si algo no entra, paginate.js lo pasa a otra hoja. */
+body.grande{font-size:16.5pt;line-height:1.48}
+.grande .lead{font-size:17pt}
+.grande .small{font-size:14pt}
+.grande .box{font-size:15.5pt}
+.grande .list li,.grande .checks li{margin-bottom:2mm}
+.grande .ex.exrow{grid-template-columns:36mm 1fr;gap:3.5mm;padding:2.2mm 3.2mm;margin-bottom:2mm}
+.grande .ex.exrow .exim{width:36mm;height:32mm;padding:1mm}
+.grande .mat{font-size:9.5pt;white-space:normal;padding:.4mm 2mm}
+.grande .exrow .exh h4{font-size:17pt}
+.grande .exrow .extx p{font-size:15.5pt;line-height:1.36;margin-bottom:.8mm}
+.grande .dose{font-size:12.4pt}
+.grande .exrow .exh .vbtn-sm,.grande .vbtn-sm{font-size:10.5pt;padding:1.4mm 3mm}
+.grande .vbtn-xs{font-size:10pt}
+.grande .blk{margin:2.5mm 0 1.8mm;padding-bottom:1.2mm}
+.grande .blk span{font-size:11pt}.grande .blk p{font-size:13pt}
+.grande .wcim{height:24mm}
+.grande .wc b{font-size:11.4pt}.grande .wc .dose{font-size:9.6pt}.grande .wc .vbtn-sm{font-size:9pt;padding:1.2mm 2.6mm}
+.grande .pillar p,.grande .step p,.grande .tile p,.grande .minplan p,.grande .tips10 p,.grande .fw p,.grande .rpe p{font-size:15pt}
+.grande .pillar h3,.grande .step b,.grande .tile h3,.grande .fw b,.grande .tips10 h3{font-size:16pt}
+.grande .cb,.grande .cbox .cb{font-size:15pt}
+.grande .wcard p,.grande .team-tx p,.grande .bio-top p,.grande .what p,.grande #talleres .wcard p,.grande #talleres .team-tx p{font-size:15pt}
+.grande .legend{font-size:13.6pt}
+.grande .phases span{font-size:13.4pt}
+.grande .meas .steps-ol{font-size:15pt}
+.grande .ttx p{font-size:14.6pt}
+.grande #express .ex.exrow{grid-template-columns:30mm 1fr}
+.grande #express .ex.exrow .exim{width:30mm;height:30mm}
+.grande .meas{grid-template-columns:44mm 1fr}
+.grande .meas-t td{height:8.5mm}
+
+/* v10: textos en negro (antes gris); encabezado y pie de página siguen en gris */
+:root{--txt:var(--rnv-tinta);--mut:var(--rnv-tinta)}
+.hdr,.ftr,.ftr span.pgnum{color:var(--rnv-gris)}
+.grande .exrow .extx p{line-height:1.3}
+.grande .ex.exrow{padding:1.8mm 3mm;margin-bottom:1.6mm}
+.grande .ex.exrow .exim{height:28mm}
+.grande .ex.exrow{padding:1.2mm 3mm;margin-bottom:1mm}.grande .exrow .exh{margin-bottom:.3mm}.grande .exrow .extx p{line-height:1.27;margin-bottom:.4mm}
+.tk10{display:grid;grid-template-columns:1fr 1fr;gap:5mm;align-items:center;border:.4mm solid var(--tq-b);border-radius:4mm;padding:4mm;margin:2mm 0 5mm;background:var(--tq-l)}
+.tk10-im{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
+.tk10-im img{width:100%;height:40mm;object-fit:cover;border-radius:3mm;display:block}
+.tk10-tx h3{margin:1.5mm 0 2mm;font-size:17pt;line-height:1.2}
+.tk10-tx p{margin:0;font-size:13pt;color:var(--txt)}
+.cta-plan.deco{position:relative;background:linear-gradient(180deg,var(--tq-l) 0%,#fff 100%);border:.5mm solid var(--tq-b);box-shadow:0 0 0 2mm #fff,0 0 0 2.4mm var(--tq-b);padding-top:12mm;overflow:visible}
+.cta-plan.deco::before,.cta-plan.deco::after{content:"";position:absolute;width:14mm;height:14mm;border:.7mm solid var(--tq);opacity:.55}
+.cta-plan.deco::before{top:3mm;left:3mm;border-right:0;border-bottom:0;border-radius:3mm 0 0 0}
+.cta-plan.deco::after{bottom:3mm;right:3mm;border-left:0;border-top:0;border-radius:0 0 3mm 0}
+.cp-face{width:30mm;height:30mm;border-radius:50%;object-fit:cover;object-position:50% 20%;border:1.2mm solid #fff;box-shadow:0 0 0 .7mm var(--tq);margin:0 0 3mm}
+.cp-eye{font-size:9pt;font-weight:800;letter-spacing:.18em;color:var(--tq-d);margin-bottom:2mm}
+.cp-pills{display:flex;gap:2.5mm;justify-content:center;margin:5mm 0 1mm}
+.cp-pills span{background:#fff;border:.35mm solid var(--tq-b);border-radius:99px;padding:1.4mm 4mm;font-size:11pt;font-weight:700;color:var(--tq-dd)}
+.cp-quote{margin-top:12mm}
+
+/* ---- Ebook de nutrición (nutricion.py) */
+.cv3.nutri{--c3-a:var(--tq-t);--c3-b:var(--tq-dd);--c3-l:var(--tq-l)}
+.nutri .c3-title{font-size:72pt}
+.nutri-card{display:grid;grid-template-columns:42mm 1fr;gap:6mm;align-items:center;background:var(--tq-l);border:.4mm solid var(--tq-b);border-radius:5mm;padding:5mm;margin:5mm 0}
+.nutri-card img{width:42mm;height:42mm;border-radius:50%;object-fit:cover;border:1.2mm solid #fff;box-shadow:0 0 0 .6mm var(--tq)}
+.nutri-card h3{margin:2mm 0 0;font-size:20pt}
+.nutri-card .nc-t{color:var(--tq-d);font-weight:700;margin:0 0 2mm;font-size:13pt}
+.nutri-card p{margin:0}
+.ntab{width:100%;border-collapse:collapse;margin:3mm 0 4mm;font-size:13pt}
+.ntab th{background:var(--tq);color:#fff;text-align:left;padding:2mm 2.5mm;font-size:11pt;letter-spacing:.04em}
+.ntab td{border-bottom:.3mm solid var(--tq-b);padding:2mm 2.5mm;vertical-align:top;line-height:1.3}
+.ntab tbody tr:nth-child(even) td{background:var(--rnv-fondo)}
+.semtab td:first-child{font-weight:800;color:var(--tq-d);width:14mm}
+.semtab{font-size:12.4pt}
+.plan-in td{height:16mm}
+.tips10.t4{grid-template-columns:1fr 1fr}
+.tips10.t3{grid-template-columns:1fr 1fr 1fr}
+.semhead{border-bottom:.5mm solid var(--tq-b);padding-bottom:3mm;margin-bottom:3mm}
+.semn{display:inline-block;background:var(--tq-dd);color:#fff;font-weight:900;letter-spacing:.16em;font-size:11pt;padding:1.6mm 5mm;border-radius:99px;margin-bottom:2mm}
+.semorg,.semshop{background:var(--tq-l);border-radius:4mm;padding:3mm 4mm}
+.semorg h3,.semshop h3{margin-top:0}
+.semq{margin-top:5mm;font-size:16pt}
+.semrh{margin:0 0 3mm}
+.nrec{display:grid;grid-template-columns:1fr;border:.4mm solid var(--tq-b);border-radius:4mm;padding:3.5mm 4mm;margin:0 0 4mm;break-inside:avoid}
+.nrec.con-img{grid-template-columns:38mm 1fr;gap:4mm}
+.nr-img img{width:38mm;height:38mm;object-fit:cover;border-radius:3mm;display:block}
+.nr-h{display:flex;gap:3mm;align-items:flex-start;margin-bottom:2mm}
+.nr-n{flex:none;background:var(--tq);color:#fff;font-weight:900;font-size:13pt;width:10mm;height:10mm;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nr-cat{font-size:9pt;font-weight:800;letter-spacing:.12em;color:var(--tq-d)}
+.nr-h h3{margin:.5mm 0 0;font-size:16pt;line-height:1.15}
+.nr-meta{margin:.5mm 0 0;font-size:11.5pt;color:var(--rnv-gris)}
+.nr-cols{display:grid;grid-template-columns:1fr 1.25fr;gap:4mm}
+.nr-cols h5{margin:0 0 1mm;font-size:10pt;letter-spacing:.1em;text-transform:uppercase;color:var(--tq-d)}
+.nr-cols ul,.nr-cols ol{margin:0;padding-left:5mm;font-size:13pt;line-height:1.3}
+.nr-cols li{margin-bottom:.8mm}
+.nr-x{margin:2mm 0 0;font-size:12.5pt}
+.nr-x b{color:var(--tq-d)}
+.esen{background:var(--tq-l);border-radius:4mm;padding:3mm 4mm;margin-top:4mm}
+.dv8 .dv-list a{padding:1.6mm 4mm}.dv8 .dv-list b{font-size:12pt}.dv8 .dv-desc{margin-bottom:3mm}.dv8 .dv-title{font-size:72pt}
+.semorg li,.semshop li{font-size:13pt;line-height:1.35;margin-bottom:1mm}
+.semoc{margin-top:2mm}
+.semtab td,.semtab th{padding:2.2mm 2.5mm}
+.prodg{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:3mm}
+.prodf{margin:0;border:.4mm solid var(--tq-b);border-radius:3mm;overflow:hidden;background:#fff}
+.prodf img{width:100%;height:auto;display:block}
+.prodf figcaption{font-size:11pt;font-weight:800;color:var(--tq-dd);padding:1.5mm 3mm;background:var(--tq-l)}
+.semtab td,.semtab th{padding:1.3mm 2.2mm;font-size:11.8pt;line-height:1.22}
+.semhead .lead{font-size:14pt;margin-bottom:1mm}
+.semorg li,.semshop li{font-size:12pt;line-height:1.28;margin-bottom:.6mm}
+.semorg h3,.semshop h3{font-size:14pt;margin-bottom:1mm}
+.semap{margin-top:3mm;background:var(--tq-dd);color:#fff;border-radius:3mm;padding:2.5mm 4mm;font-size:13pt}
+.semap b{color:#fff}
+.prodf img{height:100mm;width:auto;margin:0 auto}
+.prodf img{height:90mm}
+.semtab td,.semtab th{padding:1mm 2mm;font-size:11.2pt;line-height:1.18}.semhead .h1{font-size:22pt}.semap{padding:2mm 3.5mm;font-size:12.5pt;margin-top:2mm}.semorg li,.semshop li{font-size:11.6pt;line-height:1.22;margin-bottom:.3mm}
+.cv3.meno{--c3-a:var(--tq-dd);--c3-b:var(--ink);--c3-l:var(--tq-l)}
+.meno .c3-title{font-size:58pt}
+.ev{margin:3mm 0;padding:2mm 3.5mm;border-left:1.6mm solid;border-radius:2mm;font-size:12.5pt}
+.ev-ok{border-color:var(--tq);background:var(--tq-l)}
+.ev-mid{border-color:var(--rnv-oro);background:#FFF8E5}
+.ev-no{border-color:var(--rnv-rojo);background:#FDECEC}
+.mitos{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.mitos>div{border:.4mm solid var(--tq-b);border-radius:3mm;padding:3mm;font-size:13pt}
+.mitos>div>b{color:var(--rnv-rojo)}
+.mitos p{margin:1.5mm 0 0;font-size:12.5pt}
+.mitos p b{color:var(--tq-d)}
+.tocl.tc .tocr{padding:2.6mm 0;font-size:14pt}
+.fuentes4{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin:3mm 0 4mm}
+.fuentes4 figure{margin:0;border:.4mm solid var(--tq-b);border-radius:3mm;overflow:hidden;background:#fff}
+.fuentes4 img{width:100%;height:34mm;object-fit:cover;display:block}
+.fuentes4 figcaption{padding:2mm 3mm;font-size:11.5pt;line-height:1.25}
+.fuentes4 figcaption b{display:block;color:var(--tq-d);font-size:13pt}
+.hela{display:grid;grid-template-columns:52mm 1fr;gap:4mm;align-items:start}
+.hela img{width:52mm;border-radius:3mm;display:block}
+.sabores{display:flex;flex-wrap:wrap;gap:2.5mm;margin:2mm 0}
+.sabores span{background:var(--tq-l);border:.35mm solid var(--tq-b);border-radius:99px;padding:1.5mm 4mm;font-weight:700;color:var(--tq-dd);font-size:12.5pt}
+.semthumbs{float:right;display:flex;gap:2mm;margin-left:3mm}
+.semthumbs img{width:20mm;height:20mm;border-radius:50%;object-fit:cover;border:.8mm solid #fff;box-shadow:0 0 0 .4mm var(--tq-b)}
+.semeva{border:.5mm dashed var(--tq);border-radius:4mm;padding:3mm 4mm;margin-top:2mm}
+.semeva h3{margin:0 0 1.5mm}
+.semeva li{font-size:12.5pt}
+.semeva p{margin:1.5mm 0 0;font-size:12.5pt}
+.semeva{padding:2mm 4mm;margin-top:3mm}.semeva h3{font-size:14pt}.semeva li{font-size:11.6pt;margin-bottom:.3mm}
+#seguimiento .ntab td{height:15mm}
+.tocl.tc .tocr{padding:1.8mm 0;font-size:13pt}.tocl.tc{margin-top:2mm}
+.etapas{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin:4mm 0;border-radius:3mm;overflow:hidden}
+.et{padding:3mm;color:#fff;font-size:11.5pt;line-height:1.25;position:relative}
+.et b{display:block;font-size:13pt;margin-bottom:1mm}
+.e1{background:var(--tq)}.e2{background:var(--tq-d)}.e3{background:var(--tq-dd)}
+.mimg{width:100%;height:60mm;object-fit:cover;border-radius:4mm;display:block;margin:2mm 0 3mm}
+.mfig{margin:3mm 0;display:grid;grid-template-columns:62mm 1fr;gap:4mm;align-items:center;background:var(--tq-l);border-radius:4mm;padding:3mm}
+.mfig img{width:62mm;height:46mm;object-fit:cover;border-radius:3mm;display:block}
+.mfig figcaption{font-size:12.5pt;line-height:1.35}
+#registro .ntab td{height:17mm}
+#bienvenida .mimg{height:42mm}#bienvenida .nutri-card{margin:3mm 0}
+#registro .ntab td{height:10mm}
+#habitos .ntab td{height:11mm}
+.frz{display:inline-block;background:var(--tq-l);color:var(--tq-dd);border-radius:99px;padding:.3mm 2.5mm;font-size:10.5pt;font-weight:800;margin-left:1mm}
+
+/* Glúteos Fuertes (gluteos.py) */
+.cv3.glut{--c3-a:var(--tq-d);--c3-b:var(--ink);--c3-l:var(--tq-b)}
+.glut .c3-title{font-size:84pt}
+.tall .grid-t td{height:20mm}
+.cv3.glut.gym{--c3-a:var(--tq-dd);--c3-b:var(--tq-d);--c3-l:var(--tq-b)}
+.c3-lugar{display:inline-block;margin-top:4mm;padding:2mm 9mm;border-radius:2mm;background:var(--c3-a);color:#fff;font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:30pt;letter-spacing:.06em}
+.cv3.glut.gym{background:var(--rnv-rojo-fondo);border-color:var(--ink)}   /* mismo contorno que la de casa */
+.glut.gym .c3-lugar{background:var(--rnv-rojo)}
+.glut.gym .c3-sub{background:transparent}
+
+/* ===== MÉTODO 40 (hombres 40+, hombres.py): misma maqueta, paleta negro, grises y rojo ===== */
+body.m40{--tq:var(--m40-rojo);--tq-t:var(--m40-rojo);--tq-d:var(--m40-rojo-oscuro);--tq-dd:var(--m40-negro);
+  --tq-l:var(--m40-gris-claro);--tq-b:var(--m40-borde);--ink:var(--m40-negro);--mut:var(--m40-gris);--line:var(--m40-borde);--bg2:var(--m40-gris-claro)}
+.m40 .hdr b{color:var(--m40-rojo)}
+/* portada */
+.mcv{position:relative;height:297mm;background:var(--m40-negro);color:#fff;overflow:hidden;font-family:"InterTightW","InterW",sans-serif}
+.mcv-foto{position:absolute;right:-18mm;bottom:0;height:178mm;width:auto}
+.mcv-fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--m40-negro) 38%,rgba(14,15,16,0) 70%),linear-gradient(0deg,var(--m40-negro) 0,rgba(14,15,16,0) 22%),linear-gradient(180deg,var(--m40-negro) 42%,rgba(14,15,16,0) 56%)}
+.mcv-in{position:relative;z-index:2;padding:18mm 16mm 0}
+.mcv-brand{font-weight:900;font-size:22pt;letter-spacing:.14em}
+.mcv-brand b{color:var(--m40-rojo)}
+.mcv-bar{width:26mm;height:2mm;background:var(--m40-rojo);margin:9mm 0 7mm}
+.mcv h1{font-weight:900;font-size:50pt;line-height:.95;letter-spacing:-.01em;margin:0;text-transform:uppercase}
+.mcv h1 span{color:var(--m40-rojo)}
+.mcv-lugar{display:inline-block;margin-top:9mm;background:var(--m40-rojo);color:#fff;font-weight:900;font-size:24pt;letter-spacing:.08em;padding:2.5mm 8mm;border-radius:1.5mm}
+.mcv-sub{margin-top:7mm;font-size:16pt;font-weight:700;color:#D9DBDE;line-height:1.4;max-width:95mm}
+.mcv-autor{position:absolute;z-index:2;left:16mm;bottom:16mm;font-weight:800;font-size:15pt;letter-spacing:.06em}
+.mcv-autor small{display:block;font-weight:600;font-size:11pt;letter-spacing:0;color:#B9BCC0;margin-top:1mm}
+/* tarjeta de ejercicio */
+.mx{display:grid;grid-template-columns:62mm 1fr;gap:5mm;border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm;margin-bottom:4mm;break-inside:avoid}
+.mx-im{width:62mm;height:35mm;background:var(--m40-negro);border-radius:2mm;overflow:hidden}
+.mx-im img{width:100%;height:100%;object-fit:contain;display:block}
+.mx-l .mat{margin-top:1.6mm;display:block;text-align:center}
+.mx h4{margin:0;font-size:14.5pt;line-height:1.15}
+.mx .mus{display:inline-block;margin:1.2mm 0 1.4mm;background:var(--m40-gris-claro);color:var(--m40-grafito);font-weight:700;font-size:10pt;padding:.6mm 2.4mm;border-radius:99px}
+.mx p{margin:0 0 1.2mm;font-size:12.6pt;line-height:1.35}
+.mx .ev{color:var(--m40-rojo-oscuro)}
+.mx .vbtn-sm{margin-top:1mm}
+.m40 .grid-t thead th{background:var(--m40-negro);color:#fff}
+.m40 .grid-t td{height:auto}
+.m40 .tall .grid-t td{height:18mm}
+.bio-m{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:start}
+.bio-m img{width:62mm;border-radius:3mm;display:block}
+.m40 .mid .grid-t td{height:12mm}
+.m40 .mcv h1{color:#fff;font-family:"InterTightW","InterW",sans-serif}
+.m40 .t2{color:#FF6B6B}
+.m40 .quote.dark{background:var(--m40-negro)}
+.mx-h{display:flex;align-items:flex-start;justify-content:space-between;gap:3mm}
+.mx-h .vbtn-sm{margin-top:0;flex:none}
+/* MÉTODO 40: casa 3 ejercicios por hoja con fotos más grandes; gimnasio 4 por hoja, tarjeta compacta */
+.m40c .mx{grid-template-columns:70mm 1fr}
+.m40c .mx-im{width:70mm;height:40mm}
+.m40g .mx{grid-template-columns:52mm 1fr;gap:4mm;padding:3mm;margin-bottom:3mm}
+.m40g .mx-im{width:52mm;height:29mm}
+.m40g .mx h4{font-size:13.6pt}
+.m40g .mx p{font-size:12pt;line-height:1.28;margin-bottom:.8mm}
+.m40g .mx .mus{margin:.8mm 0 1mm;font-size:9.6pt}
+.m40 .tall2 .grid-t td{height:17mm}
+</style></head><body class="grande"><section class="page p-cover" id="portada"><div class="body">
+<div class="cv3 nutri">
+  <div class="c3-in">
+    <img class="c3-logo" src="img/logo_renova.png" alt="RENOVA">
+    <span class="c3-pill">MÉTODO RENOVA · MUJERES 35+</span>
+    <h1 class="c3-title">ALIMENTACIÓN<br>INTELIGENTE</h1>
+    <p class="c3-claim">COMÉ MEJOR, <b><span>SIN DIETAS.</span></b></p>
+    <p class="c3-sub"><b>8 semanas</b> de plan práctico con <em>38 recetas</em>,<br><span><mark>menús</mark> y <mark>listas de compras</mark> para tu semana real.</span></p>
+  </div>
+  <div class="c3-team"><img src="img/equipo_tapa.png" alt="Equipo RENOVA"></div>
+</div>
+</div></section><section class="page " id="bienvenida"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Bienvenida</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">BIENVENIDA</span>
+<h1 class="h1">Comer mejor, <span class="t">sin vivir a dieta</span></h1>
+<p class="lead">Esta guía no busca que cocines todo el domingo, peses cada alimento ni sigas un menú rígido. Busca que tengas <b>decisiones resueltas antes de que llegue el momento de comer</b>.</p>
+<div class="nutri-card"><img src="img/eugenia.jpg" alt="María Eugenia Ballini"><div><span class="pill">TE GUÍA</span><h3>María Eugenia Ballini</h3><p class="nc-t">Lic. en Nutrición · M.N. 11773 · Equipo RENOVA</p>
+<p>Armé esta guía para mujeres con poco tiempo que quieren comer mejor y acompañar su entrenamiento, con comidas simples y alimentos que conseguís en cualquier súper.</p></div></div>
+<h2>Cómo usar esta guía</h2>
+<div class="pillars">
+  <div class="pillar"><span class="pn">01</span><h3>Aprendé lo básico</h3><p>Capítulos cortos para entender qué poner en el plato.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Organizate</h3><p>Planificá, comprá y prepará con un sistema simple.</p></div>
+  <div class="pillar"><span class="pn">03</span><h3>Aplicalo 8 semanas</h3><p>Cada semana: recetas, cómo combinarlas y lista de compras.</p></div>
+</div>
+</div></section><section class="page " id="indice"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Índice</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><span class="pill">CONTENIDO</span><div class="idxhead"><h1 class="h1">Índice</h1><p class="idxtip"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic donde quieras ir. Para volver al índice, abajo de cada página tenés el botón.</p></div><div class="tocl tc"><a class="tocr" href="#cap1"><span class="tt">01 · Un sistema, no otra dieta</span><span class="dots"></span><span class="pg">4</span></a><a class="tocr" href="#cap2"><span class="tt">02 · Armá tu plato</span><span class="dots"></span><span class="pg">5</span></a><a class="tocr" href="#cap3"><span class="tt">03 · Porciones y etiquetas</span><span class="dots"></span><span class="pg">8</span></a><a class="tocr" href="#cap4"><span class="tt">04 · Planificá tu semana</span><span class="dots"></span><span class="pg">9</span></a><a class="tocr" href="#cap5"><span class="tt">05 · Compras inteligentes</span><span class="dots"></span><span class="pg">10</span></a><a class="tocr" href="#cap6"><span class="tt">06 · Meal prep</span><span class="dots"></span><span class="pg">11</span></a><a class="tocr" href="#cap7"><span class="tt">07 · Heladera, freezer y seguridad</span><span class="dots"></span><span class="pg">12</span></a><a class="tocr" href="#cap8"><span class="tt">08 · Comer fuera de casa</span><span class="dots"></span><span class="pg">14</span></a><a class="tocr" href="#cap7c"><span class="tt">Técnicas de cocción</span><span class="dots"></span><span class="pg">15</span></a><a class="tocr" href="#programa"><span class="tt">09 · Tu programa de 8 semanas</span><span class="dots"></span><span class="pg">16</span></a><a class="tocr" href="#extras"><span class="tt">Extra: desayunos y meriendas</span><span class="dots"></span><span class="pg">34</span></a><a class="tocr" href="#reemplazos"><span class="tt">Extra: reemplazos saludables</span><span class="dots"></span><span class="pg">35</span></a><a class="tocr" href="#prod0"><span class="tt">Extra: productos recomendados</span><span class="dots"></span><span class="pg">36</span></a><a class="tocr" href="#cap10"><span class="tt">10 · Cuando la semana no sale</span><span class="dots"></span><span class="pg">38</span></a><a class="tocr" href="#seguimiento"><span class="tt">Herramientas: seguimiento semanal</span><span class="dots"></span><span class="pg">39</span></a><a class="tocr" href="#plantilla1"><span class="tt">Herramientas: planificador y lista</span><span class="dots"></span><span class="pg">40</span></a><a class="tocr" href="#fuentes"><span class="tt">Fuentes y aclaraciones</span><span class="dots"></span><span class="pg">42</span></a><a class="tocr" href="#metodo"><span class="tt">Tu plan integral 1 a 1</span><span class="dots"></span><span class="pg">43</span></a></div></div></section><section class="page " id="cap1"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>01 · Un sistema, no una dieta</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">01</span><h1>Un sistema, <span class="t">no otra dieta</span></h1><p class="lead">Organizar tu alimentación sirve para reducir decisiones de último momento, no para llenar tu agenda de reglas.</p></div>
+<p>Organizarse es decidir con anticipación lo que suele aparecer cuando ya tenés hambre y poco tiempo: <b>qué hay en casa, qué vas a llevar al trabajo, qué falta comprar</b> y qué podés resolver en 15 minutos. Pensalo como un guardarropa: no usás siempre la misma combinación, pero tenés prendas que combinan entre sí.</p>
+<h2>Las cuatro piezas del sistema</h2>
+<div class="tips10 t4">
+  <div><span>01</span><h3>Planificar</h3><p>Mirar la agenda real y elegir qué comidas necesitan resolverse antes.</p></div>
+  <div><span>02</span><h3>Comprar</h3><p>Lo que vas a usar, en cantidades razonables y con alternativas.</p></div>
+  <div><span>03</span><h3>Preparar</h3><p>Adelantar componentes, no necesariamente platos completos.</p></div>
+  <div><span>04</span><h3>Revisar</h3><p>Ver qué funcionó, qué sobró y qué cambiar la semana siguiente.</p></div>
+</div>
+<div class="box soft"><b>Empezá por una sola comida.</b> La que más improvisás. Prepará una opción principal y otra de respaldo, y probalo una semana.</div>
+</div></section><section class="page " id="cap2"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>02 · Armá tu plato</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">02</span><h1>Armá <span class="t">tu plato</span></h1><p class="lead">No hace falta memorizar listas de alimentos permitidos: alcanza con reconocer qué aporta cada grupo y combinarlo.</p></div>
+<div class="plate-wrap">
+  <div class="plate" aria-hidden="true">
+    <div class="pl-veg">½ Verduras</div><div class="pl-pro">¼ Proteína</div><div class="pl-car">¼ Carbohi&shy;dratos</div>
+  </div>
+  <div>
+    <ul class="list"><li><b>Mitad del plato:</b> verduras crudas o cocidas, de distintos colores.</li><li><b>Un cuarto:</b> proteína: carne, pollo, pescado, huevo, lácteos, legumbres o tofu.</li><li><b>Un cuarto:</b> energía: arroz, papa, batata, pan, pastas, choclo, avena o legumbres.</li><li><b>Un toque de grasas:</b> aceite de oliva, palta, frutos secos o semillas.</li><li><b>Para tomar:</b> agua.</li></ul>
+  </div>
+</div>
+<h3>Paso a paso</h3>
+<ol class="steps-ol">
+<li><b>Elegí la proteína</b> que tengas disponible.</li>
+<li><b>Sumá vegetales:</b> frescos, congelados o de lata.</li>
+<li><b>Definí la fuente de energía</b> según tu hambre y tu actividad.</li>
+<li><b>Dale sabor:</b> hierbas, especias, limón o un poco de aceite.</li>
+</ol>
+<div class="box note"><b>El plato es una guía, no una regla exacta.</b> Si entrenás, tenés mucha actividad o poco apetito, la distribución puede cambiar. Lo que importa es el conjunto del día.</div>
+</div></section><section class="page " id="cap2b"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>02 · Armá tu plato</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">ARMÁ TU PLATO</span>
+<h1 class="h1">Los nutrientes, <span class="t">en una hoja</span></h1>
+<table class="grid-t ntab"><thead><tr><th></th><th>Para qué sirve</th><th>Dónde está</th><th>Cómo sumarla</th></tr></thead><tbody><tr><td><b>Proteínas</b></td><td>Forman y reparan tejidos, incluido el músculo.</td><td>Huevo, carnes, pescado, lácteos, legumbres, soja.</td><td>Una fuente en cada comida, no todo en la cena.</td></tr><tr><td><b>Carbohidratos</b></td><td>Energía para el día y para entrenar.</td><td>Arroz, avena, pan, pastas, papa, batata, legumbres, frutas.</td><td>Preferí integrales y no los elimines.</td></tr><tr><td><b>Grasas</b></td><td>Necesarias para el cuerpo; aportan mucha energía.</td><td>Aceite de oliva, palta, frutos secos, semillas, pescados.</td><td>Usalas como toque, medidas con cuchara.</td></tr><tr><td><b>Fibra</b></td><td>Saciedad, tránsito intestinal y salud digestiva.</td><td>Verduras, frutas, legumbres, avena, integrales.</td><td>Aumentala de a poco y con más agua.</td></tr></tbody></table>
+<div class="fuentes4">
+  <figure><img src="img/nutri/proteinas.jpg" alt=""><figcaption><b>Proteínas</b>Huevo, carnes, pescado, lácteos, legumbres, tofu</figcaption></figure>
+  <figure><img src="img/nutri/carbohidratos.jpg" alt=""><figcaption><b>Carbohidratos</b>Avena, arroz, pan y pastas integrales, papa, batata, fruta</figcaption></figure>
+  <figure><img src="img/nutri/grasas.jpg" alt=""><figcaption><b>Grasas</b>Aceite de oliva, palta, frutos secos, semillas, pescado</figcaption></figure>
+  <figure><img src="img/nutri/fibra.jpg" alt=""><figcaption><b>Fibra</b>Verduras, frutas, legumbres, avena, integrales</figcaption></figure>
+</div>
+<h2>Proteína después de los 35</h2>
+<p>La proteína ayuda a mantener el músculo, sobre todo si entrenás fuerza. <b>No hay una cantidad universal</b>: depende de tu peso, tu actividad y tu salud. Revisá que cada comida tenga alguna fuente de proteína y, si querés una cifra para vos, consultala con un profesional. No hace falta empezar con suplementos.</p>
+<div class="box soft"><b>Error frecuente:</b> sacar el arroz, la papa, el pan o las frutas por miedo a los carbohidratos. Si entrenás, restringir energía sin criterio perjudica el rendimiento y la recuperación.</div>
+</div></section><section class="page " id="cap2c"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>02 · Armá tu plato</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">ARMÁ TU PLATO</span>
+<h1 class="h1">Frutas, verduras <span class="t">y agua</span></h1>
+<p>Variar colores y tipos amplía los nutrientes que recibís. Frescas, congeladas o cocidas: todas suman.</p>
+<table class="grid-t ntab"><thead><tr><th>Color</th><th>Ejemplos</th><th>Cómo usarlos</th></tr></thead><tbody><tr><td><b>Verde</b></td><td>Espinaca, acelga, brócoli, rúcula</td><td>Ensaladas, tortillas, salteados</td></tr><tr><td><b>Rojo</b></td><td>Tomate, morrón, frutilla, sandía</td><td>Frescos, asados o en salsas</td></tr><tr><td><b>Naranja</b></td><td>Zanahoria, zapallo, naranja, durazno</td><td>Purés, bastones, colaciones</td></tr><tr><td><b>Violeta</b></td><td>Berenjena, repollo morado, arándanos</td><td>Asados, salteados, frescos</td></tr><tr><td><b>Blanco</b></td><td>Coliflor, cebolla, ajo, pera</td><td>Base de preparaciones y sabor</td></tr></tbody></table>
+<h2>Hidratación</h2>
+<ul class="list"><li><b>Tené una botella a la vista</b> y tomá de a poco durante el día.</li><li><b>Agua como bebida principal</b>; sumá infusiones o agua saborizada natural (con limón o menta).</li><li><b>Más agua si entrenás</b>, hace calor o sumás fibra.</li><li>Si tenés indicaciones médicas sobre líquidos, seguí las de tu profesional.</li></ul>
+</div></section><section class="page " id="cap3"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>03 · Porciones y etiquetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">03</span><h1>Porciones y <span class="t">etiquetas</span></h1><p class="lead">Referencias simples para servir y comprar, sin balanza ni calculadora.</p></div>
+<h2>Tu mano como medida</h2>
+<table class="grid-t ntab"><thead><tr><th>Grupo</th><th>Referencia orientativa</th></tr></thead><tbody><tr><td><b>Proteína</b> (carne, pollo, pescado)</td><td>La palma de tu mano, sin los dedos</td></tr><tr><td><b>Carbohidratos</b> (arroz, pastas, papa)</td><td>Lo que entra en tu mano cerrada</td></tr><tr><td><b>Verduras</b></td><td>Dos manos abiertas, o medio plato</td></tr><tr><td><b>Grasas</b> (aceite, frutos secos)</td><td>La punta del pulgar o un puñado chico</td></tr></tbody></table>
+<p class="small">Son referencias para empezar, no cantidades obligatorias: ajustalas a tu hambre, tu actividad y la indicación de tu profesional.</p>
+<h2>Cómo leer una etiqueta</h2>
+<ol class="steps-ol">
+<li><b>Porción y contenido neto:</b> mirá a qué cantidad corresponden los números.</li>
+<li><b>Ingredientes:</b> van de mayor a menor cantidad. Mirá los primeros.</li>
+<li><b>Tabla nutricional:</b> compará por 100 g productos de la misma categoría.</li>
+<li><b>Sellos (octógonos):</b> advierten excesos de nutrientes críticos. Son una alerta, no una prohibición.</li>
+</ol>
+<div class="box soft"><b>“Light”, “diet” o “con proteínas”</b> no dicen todo: revisá qué se redujo o agregó, la porción y el resto de la composición.</div>
+</div></section><section class="page " id="cap4"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>04 · Planificá tu semana</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">04</span><h1>Planificá <span class="t">tu semana</span></h1><p class="lead">El menú útil no es el que se cumple al pie de la letra: es el que tiene alternativas cuando la semana cambia.</p></div>
+<h2>Primero la agenda, después el menú</h2>
+<p>Mirá el calendario: días de oficina, home office, reuniones, actividades familiares. Marcá cada comida como <b>en casa</b>, <b>para llevar</b> o <b>comprar afuera</b>. Eso define qué necesitás preparar.</p>
+<h2>El plan A, B y C</h2>
+<div class="tips10 t3">
+  <div><span>A</span><h3>Día normal</h3><p>Tenés tiempo: usás el menú planificado.</p></div>
+  <div><span>B</span><h3>Día complicado</h3><p>Vianda del freezer o una combinación de alacena.</p></div>
+  <div><span>C</span><h3>Día afuera</h3><p>Sabés dónde comprar o llevás algo transportable.</p></div>
+</div>
+<div class="box note"><b>Ejemplo:</b> Mariana, 47 años, trabaja desde casa lunes y miércoles. Planifica solo tres almuerzos para llevar, deja una porción congelada para un imprevisto y decide antes dónde almorzar el viernes. Un plan menos ambicioso, y más fácil de cumplir.</div>
+</div></section><section class="page " id="cap5"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>05 · Compras inteligentes</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">05</span><h1>Compras <span class="t">inteligentes</span></h1><p class="lead">La buena compra empieza antes de entrar al súper: con tu agenda, tu heladera y tu despensa.</p></div>
+<h2>La revisión de 5 minutos</h2>
+<ul class="list"><li><b>Heladera:</b> qué hay que usar pronto.</li><li><b>Freezer y alacena:</b> legumbres, cereales, conservas, porciones listas.</li><li><b>Tu semana:</b> cuántas comidas necesitás resolver.</li><li><b>Lista con cantidades:</b> no “verduras”, sino cuáles y para qué.</li></ul>
+<h2>Económico y práctico</h2>
+<table class="grid-t ntab"><thead><tr><th>Recurso</th><th>Por qué conviene</th></tr></thead><tbody><tr><td><b>Verduras congeladas</b></td><td>Duran, no se desperdician y salen en minutos.</td></tr><tr><td><b>Legumbres secas o en lata</b></td><td>Proteína y fibra económicas. Las de lata, enjuagadas.</td></tr><tr><td><b>Atún, caballa o sardinas</b></td><td>Proteína lista para una comida de emergencia.</td></tr><tr><td><b>Frutas y verduras de estación</b></td><td>Más baratas y en mejor estado. Preguntá en la verdulería.</td></tr><tr><td><b>Precio por kilo</b></td><td>Compará envases distintos, pero comprá lo que vas a usar.</td></tr></tbody></table>
+<div class="box soft"><b>Cadena de frío:</b> dejá carnes, pescados y lácteos para el final de la compra y llevalos a la heladera sin demoras.</div>
+</div></section><section class="page " id="cap6"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>06 · Meal prep</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">06</span><h1>Meal prep <span class="t">sin pasar el domingo en la cocina</span></h1><p class="lead">Adelantar parte de las comidas no exige cocinar siete platos: alcanza con preparar componentes.</p></div>
+<div class="tips10 t3">
+  <div><span>1</span><h3>Ingredientes listos</h3><p>Lavar y cortar vegetales, porcionar frutos secos.</p></div>
+  <div><span>2</span><h3>Componentes cocidos</h3><p>Una proteína, un cereal y una bandeja de vegetales.</p></div>
+  <div><span>3</span><h3>Comidas completas</h3><p>Algunas viandas listas para heladera o freezer.</p></div>
+</div>
+<h2>El método de 60 a 90 minutos</h2>
+<ol class="steps-ol">
+<li><b>Revisá agenda y heladera</b> (10 min): cuántas comidas necesitás.</li>
+<li><b>Elegí dos componentes base</b>, por ejemplo vegetales y legumbres.</li>
+<li><b>Empezá por lo que tarda más:</b> horno u olla de legumbres.</li>
+<li><b>Mientras se cocina,</b> lavá y cortá, con tablas separadas para crudos.</li>
+<li><b>Porcioná y rotulá</b> con nombre y fecha.</li>
+</ol>
+<div class="box soft"><b>Para que no todo tenga el mismo gusto:</b> condimentá distinto al servir (limón y hierbas; ajo y pimentón; comino) y guardá aderezos y hojas aparte.</div>
+</div></section><section class="page " id="cap7"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>07 · Heladera y seguridad</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">07</span><h1>Heladera, freezer <span class="t">y seguridad</span></h1><p class="lead">Una comida organizada también tiene que ser segura. El olor no alcanza para saber si un alimento está bien.</p></div>
+<div class="tips10">
+  <div><span>01</span><h3>Limpiar</h3><p>Manos, mesadas, tablas y utensilios.</p></div>
+  <div><span>02</span><h3>Separar</h3><p>Crudos lejos de cocidos y listos para comer.</p></div>
+  <div><span>03</span><h3>Cocinar bien</h3><p>Carnes, pollo, pescado y huevo, cocidos hasta el centro.</p></div>
+  <div><span>04</span><h3>Enfriar rápido</h3><p>No más de 2 horas a temperatura ambiente.</p></div>
+</div>
+<div class="hela"><img src="img/nutri/heladera.jpg" alt="Heladera organizada"><div><table class="grid-t ntab"><thead><tr><th>Zona de la heladera</th><th>Qué va</th></tr></thead><tbody><tr><td><b>Estantes de arriba y del medio</b></td><td>Listos para comer, lácteos y preparaciones tapadas.</td></tr><tr><td><b>Estante de abajo</b></td><td>Carnes y pescados crudos, en recipientes.</td></tr><tr><td><b>Cajones</b></td><td>Frutas y verduras.</td></tr><tr><td><b>Puerta</b></td><td>Condimentos y lo que tolera cambios de temperatura.</td></tr></tbody></table></div></div>
+</div></section><section class="page " id="cap7b"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>07 · Heladera y seguridad</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">HELADERA Y SEGURIDAD</span>
+<h1 class="h1">Cuánto <span class="t">guardar</span></h1>
+<table class="grid-t ntab"><thead><tr><th>Alimento</th><th>Heladera (4 °C o menos)</th></tr></thead><tbody><tr><td>Carnes crudas y cocidas</td><td>2 a 3 días</td></tr><tr><td>Verduras cocidas</td><td>3 a 4 días</td></tr><tr><td>Platos cocinados</td><td>3 a 5 días, según la preparación</td></tr></tbody></table>
+<p class="small">Tiempos orientativos de SENASA. Ante la duda, consumí antes o congelá a tiempo.</p>
+<h2>Freezer a tu favor</h2>
+<ul class="list"><li><b>Congelá</b> lo que no vas a comer en los próximos días.</li><li><b>Rotulá</b> con nombre y fecha.</li><li><b>Descongelá en la heladera</b>, no sobre la mesada.</li><li><b>No vuelvas a congelar</b> un alimento crudo ya descongelado.</li></ul>
+<h2>Viandas</h2>
+<p>Llevalas en bolsa térmica con refrigerantes y guardalas en la heladera apenas llegues. Al recalentar, que quede bien caliente en todas partes: revolvé a mitad si usás microondas.</p>
+</div></section><section class="page " id="cap8"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>08 · Fuera de casa</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">08</span><h1>Comer <span class="t">fuera de casa</span></h1><p class="lead">Oficina, reuniones, restaurantes, delivery y viajes: la misma estructura, en otro lugar.</p></div>
+<table class="grid-t ntab"><thead><tr><th>Situación</th><th>Cómo resolverla</th></tr></thead><tbody><tr><td><b>Oficina</b></td><td>Vianda de componentes o un menú del día con plancha y ensalada.</td></tr><tr><td><b>Reuniones</b></td><td>Servite un plato con proteína y vegetales, comé tranquila y disfrutá.</td></tr><tr><td><b>Restaurante</b></td><td>Mirá la carta antes; elegí una proteína, sumá vegetales y compartí el postre si querés.</td></tr><tr><td><b>Delivery</b></td><td>Wok, ensaladas completas, sushi o carnes con guarnición de vegetales.</td></tr><tr><td><b>Viajes</b></td><td>Llevá snacks: fruta, frutos secos, yogur, talitas. Hidratate.</td></tr><tr><td><b>Día sin planificar</b></td><td>Menú de emergencia: huevo o atún + vegetal + pan, arroz o papa.</td></tr></tbody></table>
+<div class="box soft"><b>Sin compensar:</b> una comida diferente no se “paga” salteando la siguiente ni con ejercicio extra. Volvé a tu estructura en la próxima comida.</div>
+</div></section><section class="page " id="cap7c"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>07 · Técnicas de cocción</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">COCINAR CON ESTRATEGIA</span>
+<h1 class="h1">Técnicas de cocción <span class="t">para ganar tiempo</span></h1>
+<table class="grid-t ntab"><thead><tr><th>Técnica</th><th>Cuándo conviene</th><th>Qué cuidar</th></tr></thead><tbody><tr><td><b>Horno</b></td><td>Varias porciones de vegetales o proteínas a la vez.</td><td>Una sola capa, sin amontonar.</td></tr><tr><td><b>Vapor</b></td><td>Vegetales tiernos que mantienen color y textura.</td><td>Controlá el tiempo para que no se ablanden de más.</td></tr><tr><td><b>Hervido</b></td><td>Legumbres, cereales, papas.</td><td>Agua suficiente; cada alimento tiene su tiempo.</td></tr><tr><td><b>Salteado</b></td><td>Vegetales y proteínas en minutos.</td><td>Todo cortado antes de empezar, sartén amplia.</td></tr><tr><td><b>Plancha</b></td><td>Porciones individuales de carne, pollo, pescado o vegetales.</td><td>Que el centro quede bien cocido.</td></tr><tr><td><b>Guisado</b></td><td>Legumbres y vegetales en una preparación completa.</td><td>Enfriá en porciones chicas antes de guardar.</td></tr></tbody></table>
+<h3>La secuencia que ahorra tiempo</h3>
+<p><b>Leé toda la receta</b> y empezá por lo que tarda más; <b>cortá y medí antes</b> de prender el fuego; usá horno y hornalla a la vez y condimentá por capas.</p>
+<h3>Familias de sabor</h3>
+<div class="sabores"><span>Limón + hierbas</span><span>Ajo + pimentón</span><span>Comino + curry</span><span>Mostaza + pimienta</span><span>Vinagre + orégano</span></div>
+<p class="small">Una misma bandeja de vegetales, con tres condimentos distintos, son tres comidas diferentes.</p>
+</div></section><section class="page p-cover" id="programa"><div class="body">
+<div class="divider dv8">
+  <img class="dv-logo" src="img/logo_renova.png" alt="RENOVA">
+  <p class="dv-kick">TU PROGRAMA PRÁCTICO</p>
+  <h1 class="dv-title">8 SEMANAS</h1>
+  <p class="dv-sub">38 recetas · menús · listas de compras</p>
+  <div class="dv-bar"></div>
+  <p class="dv-desc">Cada semana tiene un objetivo, 4 recetas, una idea de cómo combinarlas los 7 días, cómo organizarte y tu lista de compras.</p>
+  <div class="dv-list">
+    <a href="#sem1"><span>1</span><b>Aprendé a armar tu plato</b><em>Página <span class="pref" data-ref="sem1"></span></em></a><a href="#sem2"><span>2</span><b>Más proteína en cada comida</b><em>Página <span class="pref" data-ref="sem2"></span></em></a><a href="#sem3"><span>3</span><b>Más vegetales y fibra</b><em>Página <span class="pref" data-ref="sem3"></span></em></a><a href="#sem4"><span>4</span><b>Carbohidratos y energía</b><em>Página <span class="pref" data-ref="sem4"></span></em></a><a href="#sem5"><span>5</span><b>Cocinar con poco tiempo</b><em>Página <span class="pref" data-ref="sem5"></span></em></a><a href="#sem6"><span>6</span><b>Organización y meal prep</b><em>Página <span class="pref" data-ref="sem6"></span></em></a><a href="#sem7"><span>7</span><b>Flexibilidad y vida social</b><em>Página <span class="pref" data-ref="sem7"></span></em></a><a href="#sem8"><span>8</span><b>Autonomía y continuidad</b><em>Página <span class="pref" data-ref="sem8"></span></em></a>
+  </div>
+</div>
+</div></section><section class="page " id="prog-como"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Programa de 8 semanas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">TU PROGRAMA</span>
+<h1 class="h1">Cómo usar <span class="t">las 8 semanas</span></h1>
+<ul class="list"><li><b>Una semana, un objetivo:</b> no cambies todo junto; sumá un hábito por semana.</li><li><b>4 recetas por semana</b> que se reutilizan: lo que cocinás para el almuerzo sirve para otra comida.</li><li><b>El cuadro de los 7 días es una idea,</b> no una obligación. Movelo según tu agenda.</li><li><b>Desayunos y meriendas:</b> elegí entre las opciones de la semana o las anteriores.</li><li><b>Las cantidades son orientativas</b> y para personas sanas. Ajustalas a tu hambre y actividad.</li></ul>
+<div class="box note"><b>Aclaración:</b> estas semanas son etapas para aprender hábitos, no un tratamiento nutricional. Si tenés una enfermedad, tomás medicación, estás embarazada o tenés antecedentes de trastornos de la conducta alimentaria, consultá con un profesional antes de cambiar tu alimentación.</div>
+<div class="quote">Pequeños cambios sostenidos <span class="t">valen más que una semana perfecta.</span></div>
+</div></section><section class="page " id="sem1"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 1</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="semhead"><div class="semthumbs"><img src="img/food/yogur.jpg" alt=""><img src="img/food/11.jpg" alt=""><img src="img/food/n01.jpg" alt=""></div><span class="semn">SEMANA 1</span><h1 class="h1">Aprendé a armar <span class="t">tu plato</span></h1>
+<p class="lead"><b>Objetivo:</b> Combinar alimentos para armar comidas completas: proteína, vegetales y una fuente de energía en cada plato.</p><p class="semap"><b>Aprendizaje:</b> No necesitás comer siempre lo mismo: necesitás aprender a combinar.</p></div>
+<h3>Tu semana, combinada</h3>
+<table class="grid-t ntab semtab"><thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead><tbody><tr><td>Lun</td><td>Ensalada tibia (receta 2)</td><td>Pescado al horno (receta 3)</td></tr><tr><td>Mar</td><td>Sobrante de pescado + ensalada</td><td>Tortilla simple + vegetales</td></tr><tr><td>Mié</td><td>Ensalada tibia</td><td>Carne magra + puré de zapallo</td></tr><tr><td>Jue</td><td>Milanesa al horno + ensalada</td><td>Sobras recalentadas + vegetales</td></tr><tr><td>Vie</td><td>Arroz + huevo + vegetales</td><td>Pescado al horno</td></tr><tr><td>Sáb</td><td>Comida libre en familia</td><td>Tostadas completas (receta 4)</td></tr><tr><td>Dom</td><td>Asado o almuerzo social</td><td>Sopa de verduras + queso</td></tr></tbody></table>
+<p class="small"><b>Desayunos y meriendas:</b> Bowl de yogur, avena y fruta, Tostadas con queso, huevo y tomate, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3><ul class="list"><li>Cociná una fuente de proteína para dos comidas.</li><li>Lavá y dejá listas las hojas verdes.</li><li>Hacé una bandeja de vegetales para usar en 2 o 3 platos.</li></ul></div>
+<div class="semshop"><h3>Lista de compras</h3><ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pollo, merluza, huevos</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Yogur natural, queso untable</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Garbanzos o lentejas</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Papas, zapallo, zucchini, morrón, brócoli, tomates, hojas</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Frutas de estación</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Avena, pan integral, semillas</span></li></ul></div></div>
+</div></section><section class="page " id="sem1r"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 1 · Recetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><h2 class="semrh">Recetas de la semana 1</h2><article class="nrec con-img"><div class="nr-img"><img src="img/food/yogur.jpg" alt="Bowl de yogur, avena y fruta"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">01</span><div><span class="nr-cat">DESAYUNO O MERIENDA</span><h3>Bowl de yogur, avena y fruta</h3><p class="nr-meta">5 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 pote de yogur natural (190 g)</li><li>3 cdas de avena</li><li>1 fruta picada (banana, manzana o frutillas)</li><li>1 cda de semillas o nueces picadas</li><li>Canela a gusto</li></ul></div><div><h5>Preparación</h5><ol><li>Poné el yogur en un bowl.</li><li>Sumá la avena y la fruta.</li><li>Terminá con semillas o nueces y canela.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> yogur griego para más proteína; queso untable con tostadas si preferís salado.</p><p class="nr-x"><b>Conservación:</b> armalo en el momento.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/11.jpg" alt="Ensalada tibia de vegetales, legumbres y pollo"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">02</span><div><span class="nr-cat">ALMUERZO O VIANDA</span><h3>Ensalada tibia de vegetales, legumbres y pollo</h3><p class="nr-meta">25 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 pechuga de pollo en cubos</li><li>1 taza de garbanzos o lentejas cocidos</li><li>2 tazas de vegetales en cubos (zapallo, zanahoria, brócoli)</li><li>Hojas verdes</li><li>1 cda de aceite de oliva, limón, sal y pimienta</li></ul></div><div><h5>Preparación</h5><ol><li>Asá los vegetales en el horno o la sartén hasta que estén tiernos.</li><li>Cociná el pollo hasta que no quede rosado en el centro.</li><li>Mezclá con las legumbres y las hojas, y condimentá al servir.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> pollo por atún, huevo duro o más legumbres.</p><p class="nr-x"><b>Conservación:</b> 2 a 3 días en heladera, con el aderezo aparte.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n01.jpg" alt="Pescado al horno con papas y vegetales"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">03</span><div><span class="nr-cat">CENA</span><h3>Pescado al horno con papas y vegetales</h3><p class="nr-meta">35 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 filetes de merluza o el pescado que consigas</li><li>2 papas medianas en rodajas finas</li><li>1 zucchini y 1 morrón en tiras</li><li>1 cda de aceite, limón, ajo y perejil</li></ul></div><div><h5>Preparación</h5><ol><li>Horneá las papas con el aceite 15 minutos en horno medio-alto.</li><li>Sumá los vegetales y el pescado con limón, ajo y perejil.</li><li>Horneá 12 a 15 minutos más, hasta que el pescado se separe en láminas.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> pescado por pollo (cocción más larga); papa por batata.</p><p class="nr-x"><b>Conservación:</b> 1 a 2 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n02.jpg" alt="Tostadas con queso, huevo y tomate"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">04</span><div><span class="nr-cat">DESAYUNO SALADO</span><h3>Tostadas con queso, huevo y tomate</h3><p class="nr-meta">10 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 rebanadas de pan integral</li><li>2 cdas de queso untable</li><li>1 huevo</li><li>1 tomate en rodajas</li><li>Orégano</li></ul></div><div><h5>Preparación</h5><ol><li>Tostá el pan y untá el queso.</li><li>Cociná el huevo a la plancha, duro o revuelto, bien cocido.</li><li>Armá con el tomate y el orégano.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> huevo por queso fresco o atún; pan por galletas de arroz.</p></div></article></div></section><section class="page " id="sem2"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 2</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="semhead"><div class="semthumbs"><img src="img/food/01.jpg" alt=""><img src="img/food/n03.jpg" alt=""><img src="img/food/15.jpg" alt=""></div><span class="semn">SEMANA 2</span><h1 class="h1">Más <span class="t">proteína</span> en cada comida</h1>
+<p class="lead"><b>Objetivo:</b> Sumar una fuente de proteína en desayuno, almuerzo, merienda y cena, variando entre animales y vegetales.</p><p class="semap"><b>Aprendizaje:</b> La proteína rinde más repartida en todas las comidas que concentrada en la cena.</p></div>
+<h3>Tu semana, combinada</h3>
+<table class="grid-t ntab semtab"><thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead><tbody><tr><td>Lun</td><td>Wok de pollo (receta 3)</td><td>Omelette + ensalada</td></tr><tr><td>Mar</td><td>Albóndigas + arroz</td><td>Sobras del wok</td></tr><tr><td>Mié</td><td>Ensalada con atún y huevo</td><td>Albóndigas + puré</td></tr><tr><td>Jue</td><td>Albóndigas (freezer)</td><td>Pescado + vegetales</td></tr><tr><td>Vie</td><td>Legumbres + vegetales asados</td><td>Omelette (receta 2)</td></tr><tr><td>Sáb</td><td>Almuerzo libre</td><td>Tarta de verduras</td></tr><tr><td>Dom</td><td>Pollo al horno + ensalada</td><td>Sopa + queso</td></tr></tbody></table>
+<p class="small"><b>Desayunos y meriendas:</b> Pancake de avena, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3><ul class="list"><li>Hacé doble porción de albóndigas y congelá la mitad.</li><li>Tené huevos y yogur siempre en la heladera.</li><li>Sumá una lata de atún o de legumbres a la alacena.</li></ul></div>
+<div class="semshop"><h3>Lista de compras</h3><ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Huevos, pollo, carne picada magra, atún</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Yogur, queso</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Arroz, avena</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Espinaca, morrón, zanahoria, zucchini, cebolla</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tomate triturado, salsa de soja</span></li></ul></div></div>
+</div></section><section class="page " id="sem2r"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 2 · Recetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><h2 class="semrh">Recetas de la semana 2</h2><article class="nrec con-img"><div class="nr-img"><img src="img/food/01.jpg" alt="Pancake de avena"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">05</span><div><span class="nr-cat">DESAYUNO O MERIENDA</span><h3>Pancake de avena</h3><p class="nr-meta">10 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 huevo</li><li>3 cdas de avena</li><li>1 cda de leche o bebida vegetal</li><li>1 cdita de polvo de hornear</li><li>Esencia de vainilla</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá todo en un bowl.</li><li>Volcá en sartén antiadherente a fuego bajo.</li><li>Cuando aparezcan burbujas, dalo vuelta y cociná del otro lado.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> sumá yogur o queso untable arriba para más proteína.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n03.jpg" alt="Omelette de espinaca y queso"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">06</span><div><span class="nr-cat">CENA RÁPIDA</span><h3>Omelette de espinaca y queso</h3><p class="nr-meta">10 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 huevos</li><li>1 puñado de espinaca o acelga</li><li>1 feta o 30 g de queso</li><li>Sal, pimienta y nuez moscada</li></ul></div><div><h5>Preparación</h5><ol><li>Saltéa la espinaca 1 minuto.</li><li>Batí los huevos, volcalos en la sartén y sumá la espinaca y el queso.</li><li>Doblá y cociná hasta que el huevo esté firme.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> espinaca por champiñones o tomate; acompañá con pan o una papa.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/15.jpg" alt="Wok de verduras con arroz y pollo"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">07</span><div><span class="nr-cat">ALMUERZO O VIANDA</span><h3>Wok de verduras con arroz y pollo</h3><p class="nr-meta">30 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 pechuga de pollo en tiras</li><li>1 taza de arroz cocido</li><li>2 tazas de verduras en tiras (morrón, zanahoria, cebolla, zucchini)</li><li>1 cda de aceite y 1 cda de salsa de soja</li></ul></div><div><h5>Preparación</h5><ol><li>Saltéa el pollo hasta que esté bien cocido.</li><li>Sumá las verduras y cociná a fuego fuerte 5 minutos.</li><li>Agregá el arroz y la salsa de soja, y mezclá.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> pollo por carne, langostinos o tofu.</p><p class="nr-x"><b>Conservación:</b> 2 a 3 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n04.jpg" alt="Albóndigas en salsa de tomate"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">08</span><div><span class="nr-cat">CENA O VIANDA</span><h3>Albóndigas en salsa de tomate</h3><p class="nr-meta">35 min · 3 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>400 g de carne picada magra</li><li>1 huevo</li><li>2 cdas de avena o pan rallado</li><li>Ajo, perejil y sal</li><li>1 lata de tomate triturado y cebolla</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá la carne con huevo, avena y condimentos, y formá bolitas.</li><li>Rehogá la cebolla, sumá el tomate y llevá a hervor.</li><li>Cociná las albóndigas en la salsa 20 minutos, hasta que estén cocidas por dentro.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> carne por pollo picado; servilas con arroz, fideos o puré.</p><p class="nr-x"><b>Conservación:</b> 3 días en heladera o 3 meses en freezer. <span class="frz">❄ Se puede freezar</span></p></div></article></div></section><section class="page " id="sem3"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 3</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="semhead"><div class="semthumbs"><img src="img/food/03.jpg" alt=""><img src="img/food/n05.jpg" alt=""><img src="img/food/13.jpg" alt=""></div><span class="semn">SEMANA 3</span><h1 class="h1">Más <span class="t">vegetales y fibra</span></h1>
+<p class="lead"><b>Objetivo:</b> Llegar a vegetales en almuerzo y cena, sumar legumbres 2 o 3 veces y frutas todos los días.</p><p class="semap"><b>Aprendizaje:</b> Más fibra, de a poco y con agua: así la panza la tolera mejor.</p></div>
+<h3>Tu semana, combinada</h3>
+<table class="grid-t ntab semtab"><thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead><tbody><tr><td>Lun</td><td>Ensalada de garbanzos (receta 2)</td><td>Crema de zapallo (receta 4)</td></tr><tr><td>Mar</td><td>Budín de brócoli + ensalada</td><td>Pollo + vegetales asados</td></tr><tr><td>Mié</td><td>Ensalada de garbanzos</td><td>Budín de brócoli</td></tr><tr><td>Jue</td><td>Carne + ensalada de colores</td><td>Crema de zapallo + huevo</td></tr><tr><td>Vie</td><td>Legumbres + arroz + vegetales</td><td>Pescado + vegetales al vapor</td></tr><tr><td>Sáb</td><td>Almuerzo libre</td><td>Tortilla de verduras</td></tr><tr><td>Dom</td><td>Pastas + salsa de verduras</td><td>Crema de zapallo (freezer)</td></tr></tbody></table>
+<p class="small"><b>Desayunos y meriendas:</b> Porridge de avena, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3><ul class="list"><li>Cociná una olla de legumbres o usá de lata enjuagadas.</li><li>Elegí 3 colores de verduras para la semana.</li><li>Sumá la fibra de a poco y tomá más agua.</li></ul></div>
+<div class="semshop"><h3>Lista de compras</h3><ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Garbanzos, lentejas rojas</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Huevos, queso, pollo, pescado</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Zapallo, brócoli, tomate, pepino, cebolla morada, hojas</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Frutas variadas</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Avena, semillas</span></li></ul></div></div>
+</div></section><section class="page " id="sem3r"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 3 · Recetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><h2 class="semrh">Recetas de la semana 3</h2><article class="nrec con-img"><div class="nr-img"><img src="img/food/03.jpg" alt="Porridge de avena"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">09</span><div><span class="nr-cat">DESAYUNO</span><h3>Porridge de avena</h3><p class="nr-meta">10 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>¼ taza de avena</li><li>1 taza de leche o bebida vegetal</li><li>Canela y vainilla</li><li>Fruta y semillas para servir</li></ul></div><div><h5>Preparación</h5><ol><li>Cociná la avena con la leche a fuego bajo 5 minutos, revolviendo.</li><li>Perfumá con canela y vainilla.</li><li>Serví con fruta y semillas.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> sumá 1 cda de pasta de maní o yogur para más proteína.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n05.jpg" alt="Ensalada completa de garbanzos"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">10</span><div><span class="nr-cat">ALMUERZO O VIANDA</span><h3>Ensalada completa de garbanzos</h3><p class="nr-meta">15 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 taza y ½ de garbanzos cocidos</li><li>1 tomate, ½ pepino y ½ cebolla morada</li><li>1 huevo duro o 60 g de queso fresco en cubos</li><li>Perejil, limón, aceite de oliva y comino</li></ul></div><div><h5>Preparación</h5><ol><li>Cortá los vegetales en cubos chicos.</li><li>Mezclá con los garbanzos y el huevo o queso.</li><li>Condimentá al servir.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> garbanzos por lentejas o porotos.</p><p class="nr-x"><b>Conservación:</b> 2 días en heladera, sin condimentar.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/13.jpg" alt="Budín de brócoli"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">11</span><div><span class="nr-cat">ALMUERZO O CENA</span><h3>Budín de brócoli</h3><p class="nr-meta">45 min · 3 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 brócoli grande hervido y picado</li><li>3 huevos</li><li>½ taza de queso rallado o en cubos</li><li>Cebolla rehogada, sal y nuez moscada</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá el brócoli con la cebolla, los huevos y el queso.</li><li>Volcá en un molde aceitado.</li><li>Horneá 30 minutos en horno medio, hasta que esté firme.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> brócoli por espinaca, acelga o zapallitos.</p><p class="nr-x"><b>Conservación:</b> 3 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n06.jpg" alt="Crema de zapallo con lentejas rojas"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">12</span><div><span class="nr-cat">CENA</span><h3>Crema de zapallo con lentejas rojas</h3><p class="nr-meta">30 min · 3 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>500 g de zapallo en cubos</li><li>½ taza de lentejas rojas</li><li>1 cebolla</li><li>Caldo casero o agua, sal y comino</li></ul></div><div><h5>Preparación</h5><ol><li>Rehogá la cebolla, sumá el zapallo, las lentejas y líquido hasta cubrir.</li><li>Cociná 20 minutos, hasta que todo esté tierno.</li><li>Procesá y ajustá la sal. Serví con semillas o queso.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> lentejas rojas por porotos blancos cocidos.</p><p class="nr-x"><b>Conservación:</b> 3 días en heladera o 3 meses en freezer. <span class="frz">❄ Se puede freezar</span></p></div></article></div></section><section class="page " id="sem4"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 4</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="semhead"><div class="semthumbs"><img src="img/food/07.jpg" alt=""><img src="img/food/n07.jpg" alt=""><img src="img/food/17.jpg" alt=""></div><span class="semn">SEMANA 4</span><h1 class="h1">Carbohidratos y <span class="t">energía</span></h1>
+<p class="lead"><b>Objetivo:</b> Incluir carbohidratos de calidad sin miedo: son energía para el día y para entrenar.</p><p class="semap"><b>Aprendizaje:</b> No hay que eliminar los carbohidratos: hay que elegirlos y acompañarlos bien.</p></div>
+<h3>Tu semana, combinada</h3>
+<table class="grid-t ntab semtab"><thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead><tbody><tr><td>Lun</td><td>Fideos con atún (receta 2)</td><td>Batatas rellenas (receta 4)</td></tr><tr><td>Mar</td><td>Pastel de lentejas</td><td>Omelette + pan</td></tr><tr><td>Mié</td><td>Arroz + pollo + vegetales</td><td>Pastel de lentejas</td></tr><tr><td>Jue</td><td>Fideos con atún</td><td>Pescado + papas</td></tr><tr><td>Vie</td><td>Pastel de lentejas (freezer)</td><td>Batatas rellenas</td></tr><tr><td>Sáb</td><td>Almuerzo libre</td><td>Pizza casera + ensalada</td></tr><tr><td>Dom</td><td>Asado o almuerzo social</td><td>Sopa + tostadas</td></tr></tbody></table>
+<p class="small"><b>Desayunos y meriendas:</b> Granola casera, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3><ul class="list"><li>Cociná batatas o papas de más para otra comida.</li><li>Hacé la granola el fin de semana.</li><li>Tené fideos y arroz para resolver en 15 minutos.</li></ul></div>
+<div class="semshop"><h3>Lista de compras</h3><ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pollo, atún, huevos, pescado</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Queso untable, queso rallado</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Fideos integrales, arroz, avena</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Batatas, papas, zucchini, tomates cherry, cebolla, zanahoria, morrón</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Lentejas, frutos secos, semillas</span></li></ul></div></div>
+</div></section><section class="page " id="sem4r"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 4 · Recetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><h2 class="semrh">Recetas de la semana 4</h2><article class="nrec con-img"><div class="nr-img"><img src="img/food/07.jpg" alt="Granola casera"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">13</span><div><span class="nr-cat">DESAYUNO O MERIENDA</span><h3>Granola casera</h3><p class="nr-meta">30 min · Aprox. 8 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 tazas de avena</li><li>½ taza de frutos secos picados</li><li>2 cdas de semillas</li><li>2 cdas de miel</li><li>1 cda de aceite y canela</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá todo en una placa.</li><li>Horneá a temperatura baja 20 minutos, revolviendo a mitad de cocción.</li><li>Dejá enfriar antes de guardar.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> miel por puré de banana.</p><p class="nr-x"><b>Conservación:</b> 2 semanas en frasco cerrado.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n07.jpg" alt="Fideos integrales con atún y vegetales"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">14</span><div><span class="nr-cat">ALMUERZO O VIANDA</span><h3>Fideos integrales con atún y vegetales</h3><p class="nr-meta">20 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>160 g de fideos integrales</li><li>1 lata de atún al natural</li><li>1 zucchini y 10 tomates cherry</li><li>Ajo, aceite de oliva y albahaca</li></ul></div><div><h5>Preparación</h5><ol><li>Herví los fideos según el paquete.</li><li>Saltéa el ajo, el zucchini y los tomates.</li><li>Sumá el atún y los fideos, y mezclá.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> atún por pollo desmenuzado o garbanzos.</p><p class="nr-x"><b>Conservación:</b> 2 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/17.jpg" alt="Pastel veggie de lentejas"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">15</span><div><span class="nr-cat">ALMUERZO O CENA</span><h3>Pastel veggie de lentejas</h3><p class="nr-meta">1 h · 4 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 taza de lentejas cocidas</li><li>1 cebolla, 1 zanahoria y 1 morrón picados</li><li>Tomate triturado</li><li>4 papas o batatas para el puré</li><li>Queso rallado</li></ul></div><div><h5>Preparación</h5><ol><li>Rehogá las verduras, sumá las lentejas y el tomate, y cociná 10 minutos.</li><li>Hacé un puré con las papas.</li><li>Armá en una fuente: lentejas abajo, puré arriba y queso. Gratiná 15 minutos.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> lentejas por carne picada magra.</p><p class="nr-x"><b>Conservación:</b> 3 días en heladera o 3 meses en freezer. <span class="frz">❄ Se puede freezar</span></p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n08.jpg" alt="Batatas rellenas de pollo y queso"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">16</span><div><span class="nr-cat">CENA</span><h3>Batatas rellenas de pollo y queso</h3><p class="nr-meta">45 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 batatas medianas</li><li>1 taza de pollo cocido desmenuzado</li><li>2 cdas de queso untable</li><li>Cebolla de verdeo y pimentón</li></ul></div><div><h5>Preparación</h5><ol><li>Horneá las batatas pinchadas 35 a 40 minutos, hasta que estén tiernas.</li><li>Abrilas y mezclá la pulpa con el pollo, el queso y la cebolla de verdeo.</li><li>Rellená y gratiná 5 minutos.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> pollo por atún o porotos negros.</p><p class="nr-x"><b>Conservación:</b> 2 días en heladera.</p></div></article></div></section><section class="page " id="sem5"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 5</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="semhead"><div class="semthumbs"><img src="img/food/n09.jpg" alt=""><img src="img/food/n10.jpg" alt=""><img src="img/food/18.jpg" alt=""></div><span class="semn">SEMANA 5</span><h1 class="h1">Cocinar con <span class="t">poco tiempo</span></h1>
+<p class="lead"><b>Objetivo:</b> Resolver comidas en 10 a 20 minutos con ingredientes de heladera, freezer y alacena.</p><p class="semap"><b>Aprendizaje:</b> Con 5 ingredientes de emergencia, una comida completa sale en 15 minutos.</p></div>
+<h3>Tu semana, combinada</h3>
+<table class="grid-t ntab semtab"><thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead><tbody><tr><td>Lun</td><td>Wrap de pollo (receta 4)</td><td>Tortilla de verduras (receta 2)</td></tr><tr><td>Mar</td><td>Sobrante de tortilla + ensalada</td><td>Milanesas de berenjena + huevo</td></tr><tr><td>Mié</td><td>Wrap de atún</td><td>Fideos rápidos con verduras</td></tr><tr><td>Jue</td><td>Arroz + huevo + vegetales congelados</td><td>Milanesas de berenjena</td></tr><tr><td>Vie</td><td>Ensalada de lata: atún, choclo y arvejas</td><td>Tortilla de verduras</td></tr><tr><td>Sáb</td><td>Almuerzo libre</td><td>Huevos revueltos + pan</td></tr><tr><td>Dom</td><td>Pollo al horno</td><td>Sopa + queso</td></tr></tbody></table>
+<p class="small"><b>Desayunos y meriendas:</b> Huevos revueltos con palta y tostada, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3><ul class="list"><li>Armá tu alacena de emergencia: atún, legumbres, choclo, arvejas, tomate.</li><li>Tené verduras congeladas para una tortilla.</li><li>Dejá pollo cocido para wraps y ensaladas.</li></ul></div>
+<div class="semshop"><h3>Lista de compras</h3><ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Huevos, pollo, atún</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Queso untable, queso</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Tortillas o rapiditas integrales, pan integral</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Berenjena, palta, tomate, hojas, zanahoria</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Verduras congeladas, choclo y arvejas en lata</span></li></ul></div></div>
+</div></section><section class="page " id="sem5r"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 5 · Recetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><h2 class="semrh">Recetas de la semana 5</h2><article class="nrec con-img"><div class="nr-img"><img src="img/food/n09.jpg" alt="Huevos revueltos con palta y tostada"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">17</span><div><span class="nr-cat">DESAYUNO</span><h3>Huevos revueltos con palta y tostada</h3><p class="nr-meta">8 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 huevos</li><li>¼ palta</li><li>1 rebanada de pan integral</li><li>Tomate, sal y pimienta</li></ul></div><div><h5>Preparación</h5><ol><li>Revolvé los huevos a fuego bajo hasta que estén bien cocidos.</li><li>Tostá el pan y pisá la palta encima.</li><li>Serví con el tomate.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> palta por queso untable; pan por una fruta.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n10.jpg" alt="Tortilla de verduras en sartén"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">18</span><div><span class="nr-cat">ALMUERZO O CENA</span><h3>Tortilla de verduras en sartén</h3><p class="nr-meta">20 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>4 huevos</li><li>2 tazas de verduras congeladas o picadas</li><li>1 cebolla</li><li>Sal, pimienta y orégano</li></ul></div><div><h5>Preparación</h5><ol><li>Saltéa la cebolla y las verduras.</li><li>Volcá los huevos batidos y cociná tapado a fuego bajo.</li><li>Dala vuelta con un plato y cociná 2 minutos más.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> sumá papa hervida o queso; verduras de lata escurridas.</p><p class="nr-x"><b>Conservación:</b> 2 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/18.jpg" alt="Milanesas de berenjena"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">19</span><div><span class="nr-cat">ALMUERZO O CENA</span><h3>Milanesas de berenjena</h3><p class="nr-meta">30 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 berenjena grande en rodajas</li><li>2 huevos batidos</li><li>Pan rallado o avena con orégano</li><li>Queso y tomate para napolitana (opcional)</li></ul></div><div><h5>Preparación</h5><ol><li>Pasá las rodajas por huevo y por el rebozador.</li><li>Horneá en placa aceitada 20 minutos, dando vuelta a mitad.</li><li>Si querés, sumá tomate y queso y gratiná.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> berenjena por zucchini; acompañá con una proteína.</p><p class="nr-x"><b>Conservación:</b> 2 días en heladera o congeladas crudas. <span class="frz">❄ Se puede freezar</span></p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n11.jpg" alt="Wrap de pollo y vegetales"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">20</span><div><span class="nr-cat">ALMUERZO PARA LLEVAR</span><h3>Wrap de pollo y vegetales</h3><p class="nr-meta">10 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 rapidita o tortilla integral</li><li>½ taza de pollo cocido</li><li>Hojas verdes, zanahoria rallada y tomate</li><li>1 cda de queso untable o hummus</li></ul></div><div><h5>Preparación</h5><ol><li>Untá la tortilla con el queso o el hummus.</li><li>Sumá el pollo y los vegetales.</li><li>Enrollá apretando y cortá al medio.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> pollo por atún o huevo duro.</p><p class="nr-x"><b>Conservación:</b> llevalo con bolsa térmica y comelo en el día.</p></div></article></div></section><section class="page " id="sem6"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 6</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="semhead"><div class="semthumbs"><img src="img/food/n12.jpg" alt=""><img src="img/food/n13.jpg" alt=""><img src="img/food/n14.jpg" alt=""></div><span class="semn">SEMANA 6</span><h1 class="h1">Organización y <span class="t">meal prep</span></h1>
+<p class="lead"><b>Objetivo:</b> Preparar bases en 60 a 90 minutos y combinarlas durante la semana.</p><p class="semap"><b>Aprendizaje:</b> Preparar componentes rinde más que preparar platos idénticos.</p></div>
+<h3>Tu semana, combinada</h3>
+<table class="grid-t ntab semtab"><thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead><tbody><tr><td>Lun</td><td>Pollo + legumbres + vegetales asados</td><td>Wrap de pollo + hummus</td></tr><tr><td>Mar</td><td>Ensalada de legumbres + huevo</td><td>Pollo + vegetales + arroz</td></tr><tr><td>Mié</td><td>Bowl de legumbres y vegetales</td><td>Tortilla con vegetales asados</td></tr><tr><td>Jue</td><td>Pollo + ensalada</td><td>Sopa con legumbres</td></tr><tr><td>Vie</td><td>Bowl libre con las bases</td><td>Pescado + vegetales asados</td></tr><tr><td>Sáb</td><td>Almuerzo libre</td><td>Tostadas con hummus y huevo</td></tr><tr><td>Dom</td><td>Asado o almuerzo social</td><td>Bases que sobraron</td></tr></tbody></table>
+<p class="small"><b>Desayunos y meriendas:</b> Hummus de garbanzos, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3><ul class="list"><li>Reservá 60 a 90 minutos un día de la semana.</li><li>Prepará primero lo que tarda más (horno y legumbres).</li><li>Rotulá con nombre y fecha; congelá lo que no uses en 3 días.</li></ul></div>
+<div class="semshop"><h3>Lista de compras</h3><ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Pollo (1 kg), huevos, pescado</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Legumbres secas o en lata</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Zapallo, zanahoria, cebolla, morrón, brócoli, hojas</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Limón, ajo, especias, tahini o sésamo</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Arroz, pan integral</span></li></ul></div></div>
+</div></section><section class="page " id="sem6r"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 6 · Recetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><h2 class="semrh">Recetas de la semana 6</h2><article class="nrec con-img"><div class="nr-img"><img src="img/food/n12.jpg" alt="Base: pollo al horno desmenuzado"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">21</span><div><span class="nr-cat">BASE DE PROTEÍNA</span><h3>Base: pollo al horno desmenuzado</h3><p class="nr-meta">40 min · 4 a 5 usos</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 kg de pechuga o muslos de pollo</li><li>Ajo, pimentón, limón y sal</li><li>1 cda de aceite</li></ul></div><div><h5>Preparación</h5><ol><li>Condimentá el pollo y horneá en una fuente 35 minutos, hasta que no quede rosado.</li><li>Dejá entibiar y desmenuzá.</li><li>Porcioná en recipientes y rotulá.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> pollo por carne magra al horno.</p><p class="nr-x"><b>Conservación:</b> 3 días en heladera o 3 meses en freezer. <span class="frz">❄ Se puede freezar</span></p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n13.jpg" alt="Base: legumbres cocidas"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">22</span><div><span class="nr-cat">BASE DE PROTEÍNA VEGETAL</span><h3>Base: legumbres cocidas</h3><p class="nr-meta">1 h + remojo · 6 a 8 usos</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>500 g de garbanzos, porotos o lentejas</li><li>Agua y 1 hoja de laurel</li></ul></div><div><h5>Preparación</h5><ol><li>Remojá garbanzos o porotos de 8 a 12 horas (las lentejas no hace falta).</li><li>Cociná en agua nueva hasta que estén tiernas: lentejas 25 min, garbanzos y porotos 1 h o más.</li><li>Escurrí, enfriá y porcioná.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> legumbres de lata, enjuagadas.</p><p class="nr-x"><b>Conservación:</b> 3 días en heladera o 3 meses en freezer. <span class="frz">❄ Se puede freezar</span></p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n14.jpg" alt="Base: bandeja de vegetales asados"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">23</span><div><span class="nr-cat">BASE DE VEGETALES</span><h3>Base: bandeja de vegetales asados</h3><p class="nr-meta">40 min · 4 usos</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 kg de vegetales (zapallo, zanahoria, cebolla, morrón, brócoli)</li><li>1 cda de aceite</li><li>Sal y especias</li></ul></div><div><h5>Preparación</h5><ol><li>Cortá en trozos parecidos y distribuí en una sola capa.</li><li>Horneá 30 a 35 minutos en horno medio-alto.</li><li>Dividí en recipientes y condimentá distinto al servir.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> cualquier verdura de estación.</p><p class="nr-x"><b>Conservación:</b> 3 a 4 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/10.jpg" alt="Hummus de garbanzos"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">24</span><div><span class="nr-cat">MERIENDA O PARA UNTAR</span><h3>Hummus de garbanzos</h3><p class="nr-meta">10 min · 4 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 taza y ½ de garbanzos cocidos</li><li>1 cda de pasta de sésamo (tahini) o semillas de sésamo</li><li>Jugo de ½ limón, ajo, comino y sal</li><li>Agua fría</li></ul></div><div><h5>Preparación</h5><ol><li>Procesá todo, sumando agua de a poco.</li><li>Ajustá sal y limón.</li><li>Serví con bastones de vegetales o tostadas.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> garbanzos por porotos blancos.</p><p class="nr-x"><b>Conservación:</b> 3 a 4 días en heladera.</p></div></article></div></section><section class="page " id="sem7"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 7</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="semhead"><div class="semthumbs"><img src="img/food/09.jpg" alt=""><img src="img/food/16.jpg" alt=""><img src="img/food/n15.jpg" alt=""></div><span class="semn">SEMANA 7</span><h1 class="h1">Flexibilidad y <span class="t">vida social</span></h1>
+<p class="lead"><b>Objetivo:</b> Sostener tus hábitos con reuniones, salidas, delivery y viajes, sin compensar ni prohibirte nada.</p><p class="semap"><b>Aprendizaje:</b> Una comida diferente no arruina la semana: volvé a tu estructura en la siguiente.</p></div>
+<h3>Tu semana, combinada</h3>
+<table class="grid-t ntab semtab"><thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead><tbody><tr><td>Lun</td><td>Bowl de atún (receta 3)</td><td>Cena con amigas: elegí proteína + vegetales</td></tr><tr><td>Mar</td><td>Vianda de bases</td><td>Croquetas + ensalada + huevo</td></tr><tr><td>Mié</td><td>Menú del día: plancha + ensalada</td><td>Sopa casera</td></tr><tr><td>Jue</td><td>Bowl de atún</td><td>Delivery: pedí una opción con proteína y vegetales</td></tr><tr><td>Vie</td><td>Viaje: talitas + fruta + yogur</td><td>Comida simple con lo que haya</td></tr><tr><td>Sáb</td><td>Asado o reunión</td><td>Cena liviana: tostadas + queso + fruta</td></tr><tr><td>Dom</td><td>Almuerzo libre</td><td>Cheesecake en taza de postre</td></tr></tbody></table>
+<p class="small"><b>Desayunos y meriendas:</b> Talitas de garbanzos, Cheesecake en taza, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3><ul class="list"><li>Mirá la carta antes de ir y elegí con calma.</li><li>En reuniones, servite un plato y disfrutalo sin culpa.</li><li>En viajes, llevá un snack: talitas, frutos secos, fruta o yogur.</li></ul></div>
+<div class="semshop"><h3>Lista de compras</h3><ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Atún, huevos, queso untable, yogur</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Harina de garbanzos, avena, arroz</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Zucchini, palta, pepino, zanahoria, choclo</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Frutas fáciles de llevar</span></li></ul></div></div>
+</div></section><section class="page " id="sem7r"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 7 · Recetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><h2 class="semrh">Recetas de la semana 7</h2><article class="nrec con-img"><div class="nr-img"><img src="img/food/09.jpg" alt="Talitas de garbanzos"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">25</span><div><span class="nr-cat">SNACK PARA LLEVAR</span><h3>Talitas de garbanzos</h3><p class="nr-meta">35 min · 1 placa</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 taza de harina de garbanzos</li><li>1 taza de agua</li><li>1 cda de aceite</li><li>Sal, pimienta y romero</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá la harina con el agua y dejá reposar 10 minutos.</li><li>Volcá en una placa aceitada en capa fina.</li><li>Horneá 20 minutos en horno medio-alto y cortá en bastones.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> sumá semillas o especias.</p><p class="nr-x"><b>Conservación:</b> 4 días en recipiente cerrado.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/16.jpg" alt="Croquetas de zucchini"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">26</span><div><span class="nr-cat">PARA COMPARTIR</span><h3>Croquetas de zucchini</h3><p class="nr-meta">35 min · 2 a 3 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 zucchinis rallados y escurridos</li><li>1 huevo</li><li>½ taza de queso rallado</li><li>3 cdas de avena</li><li>Ajo y perejil</li></ul></div><div><h5>Preparación</h5><ol><li>Escurrí bien el zucchini apretándolo con un repasador.</li><li>Mezclá con el resto y formá croquetas.</li><li>Horneá 20 minutos en placa aceitada, dando vuelta a mitad.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> zucchini por zanahoria o calabaza rallada.</p><p class="nr-x"><b>Conservación:</b> 2 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n15.jpg" alt="Bowl de atún, arroz y palta"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">27</span><div><span class="nr-cat">ALMUERZO O VIANDA</span><h3>Bowl de atún, arroz y palta</h3><p class="nr-meta">15 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>½ taza de arroz cocido</li><li>1 lata chica de atún al natural</li><li>¼ palta</li><li>Pepino, zanahoria rallada y choclo</li><li>Limón y salsa de soja</li></ul></div><div><h5>Preparación</h5><ol><li>Poné el arroz en la base.</li><li>Sumá el atún y los vegetales.</li><li>Terminá con la palta, el limón y la soja.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> atún por salmón cocido, pollo o huevo.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/23.jpg" alt="Cheesecake en taza"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">28</span><div><span class="nr-cat">POSTRE</span><h3>Cheesecake en taza</h3><p class="nr-meta">5 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 cdas de queso untable</li><li>1 huevo</li><li>1 cda de yogur</li><li>Esencia de vainilla y endulzante a gusto</li><li>Galletitas de avena trituradas para la base (opcional)</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá queso, huevo, yogur y vainilla.</li><li>Volcá en una taza apta para microondas.</li><li>Cociná 1 a 2 minutos, hasta que esté firme. Dejá enfriar.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> sumá frutos rojos arriba.</p><p class="nr-x"><b>Conservación:</b> 1 día en heladera.</p></div></article></div></section><section class="page " id="sem8"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 8</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="semhead"><div class="semthumbs"><img src="img/food/05.jpg" alt=""><img src="img/food/12.jpg" alt=""><img src="img/food/n16.jpg" alt=""></div><span class="semn">SEMANA 8</span><h1 class="h1">Autonomía y <span class="t">continuidad</span></h1>
+<p class="lead"><b>Objetivo:</b> Armar tu propia semana combinando lo aprendido, sin depender de un menú cerrado.</p><p class="semap"><b>Aprendizaje:</b> El objetivo no es seguir un menú: es saber armarlo vos.</p></div>
+<h3>Tu semana, combinada</h3>
+<table class="grid-t ntab semtab"><thead><tr><th>Día</th><th>Almuerzo</th><th>Cena</th></tr></thead><tbody><tr><td>Lun</td><td>Armado propio</td><td>Armado propio</td></tr><tr><td>Mar</td><td>Armado propio</td><td>Armado propio</td></tr><tr><td>Mié</td><td>Armado propio</td><td>Armado propio</td></tr><tr><td>Jue</td><td>Armado propio</td><td>Armado propio</td></tr><tr><td>Vie</td><td>Armado propio</td><td>Armado propio</td></tr><tr><td>Sáb</td><td>Almuerzo libre</td><td>Armado propio</td></tr><tr><td>Dom</td><td>Asado o almuerzo social</td><td>Armado propio</td></tr></tbody></table>
+<p class="small"><b>Desayunos y meriendas:</b> Barritas de avena caseras, o yogur con fruta, tostadas con queso y huevo, fruta con frutos secos.</p>
+<div class="cols2 keep semoc"><div class="semorg"><h3>Organizate</h3><ul class="list"><li>Elegí tus 4 recetas favoritas de las 8 semanas.</li><li>Completá el planificador del final con tu agenda real.</li><li>Repetí lo que te funcionó: no hace falta innovar cada semana.</li></ul></div>
+<div class="semshop"><h3>Lista de compras</h3><ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Armá tu lista con la plantilla del final</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Base fija: huevos, legumbres, yogur, avena, verduras de estación, una proteína para cocinar</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Sumá lo que pidan tus 4 recetas</span></li></ul></div></div>
+</div></section><section class="page " id="sem8r"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>09 · Semana 8 · Recetas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><h2 class="semrh">Recetas de la semana 8</h2><article class="nrec con-img"><div class="nr-img"><img src="img/food/05.jpg" alt="Barritas de avena caseras"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">29</span><div><span class="nr-cat">MERIENDA</span><h3>Barritas de avena caseras</h3><p class="nr-meta">35 min + enfriado · 8 barritas</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 tazas de avena</li><li>2 bananas maduras pisadas</li><li>2 cdas de pasta de maní</li><li>Semillas o frutos secos picados</li><li>Canela</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá todo hasta integrar.</li><li>Estirá en un molde con papel manteca, de 1 cm de alto.</li><li>Horneá 20 a 25 minutos, dejá enfriar y cortá.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> pasta de maní por miel; sumá chips de chocolate amargo.</p><p class="nr-x"><b>Conservación:</b> 5 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/12.jpg" alt="Tarta de verduras con masa de avena"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">30</span><div><span class="nr-cat">ALMUERZO O CENA</span><h3>Tarta de verduras con masa de avena</h3><p class="nr-meta">50 min · 4 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>Masa: 1 taza de avena, 1 huevo, 3 cdas de agua y sal</li><li>Relleno: 1 atado de acelga o espinaca, 1 cebolla</li><li>2 huevos y ½ taza de queso</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá la masa, estirala en un molde y precocinala 10 minutos.</li><li>Rehogá la cebolla y la verdura, y mezclá con huevos y queso.</li><li>Rellená y horneá 25 a 30 minutos.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> acelga por zapallitos o calabaza.</p><p class="nr-x"><b>Conservación:</b> 3 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/n16.jpg" alt="Pollo con calabaza en una sola fuente"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">31</span><div><span class="nr-cat">CENA</span><h3>Pollo con calabaza en una sola fuente</h3><p class="nr-meta">45 min · 3 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>3 muslos o 2 pechugas de pollo</li><li>½ calabaza en cubos</li><li>1 cebolla morada</li><li>Romero, ajo, aceite y limón</li></ul></div><div><h5>Preparación</h5><ol><li>Poné todo en una fuente con los condimentos.</li><li>Horneá 35 a 40 minutos, dando vuelta a mitad.</li><li>Verificá que el pollo no quede rosado en el centro.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> calabaza por papa o batata.</p><p class="nr-x"><b>Conservación:</b> 3 días en heladera.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/food/14.jpg" alt="Puré de coliflor con merluza"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">32</span><div><span class="nr-cat">CENA</span><h3>Puré de coliflor con merluza</h3><p class="nr-meta">25 min · 2 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>½ coliflor en ramitos</li><li>1 papa chica</li><li>2 filetes de merluza</li><li>Leche, nuez moscada, sal y limón</li></ul></div><div><h5>Preparación</h5><ol><li>Herví la coliflor y la papa hasta que estén tiernas, y hacé un puré con un chorrito de leche.</li><li>Cociná la merluza a la plancha con limón.</li><li>Serví juntos.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> merluza por huevo, pollo o lentejas.</p><p class="nr-x"><b>Conservación:</b> 2 días en heladera.</p></div></article></div></section><section class="page " id="extras"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Extra · Recetario</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">EXTRA · RECETARIO DE EUGENIA</span>
+<h1 class="h1">Desayunos y <span class="t">meriendas extra</span></h1>
+<p class="lead">Seis recetas del recetario de María Eugenia Ballini para sumar variedad a tus mañanas y tardes.</p>
+<article class="nrec con-img"><div class="nr-img"><img src="img/eve/r5.jpg" alt="Pancake de coco"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">33</span><div><span class="nr-cat">DESAYUNO O MERIENDA</span><h3>Pancake de coco</h3><p class="nr-meta">10 min · 1 porción</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>2 huevos (o 1 huevo y 1 clara)</li><li>5 cdas de coco rallado</li><li>1 cdita de polvo de hornear</li><li>Esencia de vainilla y gotas de stevia</li></ul></div><div><h5>Preparación</h5><ol><li>Batí todo enérgicamente para que no queden grumos.</li><li>Volcá en una sartén aceitada a fuego mínimo.</li><li>Cociná vuelta y vuelta. Toppings: fruta, frutos secos o pasta de maní.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> coco por avena; stevia por fruta pisada.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/eve/r18.jpg" alt="Galletitas de 4 ingredientes sin azúcar"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">34</span><div><span class="nr-cat">MERIENDA</span><h3>Galletitas de 4 ingredientes sin azúcar</h3><p class="nr-meta">30 min · 8 a 10 galletitas</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>¼ taza de harina de garbanzos</li><li>2 cdas de pasta de maní</li><li>4 dátiles sin carozo (remojados si están secos)</li><li>4 nueces picadas, 3 cdas de agua y ½ cdita de polvo de hornear</li></ul></div><div><h5>Preparación</h5><ol><li>Mezclá todo hasta formar una masa (si hace falta, enfriala un rato).</li><li>Formá las galletitas sobre una placa.</li><li>Horneá a 200 °C unos 20 minutos, hasta que estén doradas.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> dátiles por pasas remojadas; nueces por almendras.</p><p class="nr-x"><b>Conservación:</b> 3 a 4 días en recipiente hermético o 2 meses en freezer. <span class="frz">❄ Se puede freezar</span></p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/eve/r15.jpg" alt="Granola de quinoa"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">35</span><div><span class="nr-cat">DESAYUNO O MERIENDA</span><h3>Granola de quinoa</h3><p class="nr-meta">35 min · Aprox. 6 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 taza de quinoa cocida (⅓ taza cruda)</li><li>¼ taza de semillas de girasol y zapallo</li><li>¼ taza de frutos secos picados</li><li>¼ taza de coco rallado y 2 cdas de miel</li></ul></div><div><h5>Preparación</h5><ol><li>Lavá bien la quinoa, hervila hasta que esté transparente, colala y enfriala.</li><li>Mezclá con semillas, frutos secos, coco y miel.</li><li>Horneá en placa con papel manteca a 180 °C, revolviendo cada 5 minutos, unos 15 minutos.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> miel por azúcar mascabo o dulce de dátiles.</p><p class="nr-x"><b>Conservación:</b> 2 semanas en frasco cerrado.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/eve/r23.jpg" alt="Budín de manzana, canela y nuez"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">36</span><div><span class="nr-cat">MERIENDA</span><h3>Budín de manzana, canela y nuez</h3><p class="nr-meta">45 min · 1 budín (6 porciones)</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>3 a 4 cdas de avena</li><li>3 claras y 1 huevo</li><li>1 manzana en láminas finas</li><li>1 puñado de nueces, canela, stevia y 1 cdita de polvo de hornear</li></ul></div><div><h5>Preparación</h5><ol><li>Precalentá el horno a 180 °C.</li><li>Licuá todo menos la manzana y las nueces, y volcá en una budinera.</li><li>Acomodá la manzana y las nueces arriba y horneá unos 40 minutos.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> manzana por banana o pera.</p><p class="nr-x"><b>Conservación:</b> 3 a 4 días en heladera o 2 meses en freezer. <span class="frz">❄ Se puede freezar</span></p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/eve/r26.jpg" alt="Crackers de semillas"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">37</span><div><span class="nr-cat">SNACK SALADO</span><h3>Crackers de semillas</h3><p class="nr-meta">1 h + hidratación · Aprox. 30 crackers</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>½ taza de harina de garbanzos + ½ taza de agua</li><li>1 taza de chía y lino</li><li>1 taza y ½ de semillas de girasol, zapallo y sésamo</li><li>1 cda de aceite de oliva, ajo en polvo y curry</li></ul></div><div><h5>Preparación</h5><ol><li>Hidratá la harina de garbanzos con el agua entre 1 y 8 horas.</li><li>Mezclá con las semillas, el aceite y los condimentos.</li><li>Estirá fino en placa con papel manteca, marcá los cortes y horneá a 180 °C hasta que estén secos y dorados.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> condimentos a elección: orégano, pimentón, sésamo negro.</p><p class="nr-x"><b>Conservación:</b> 2 semanas en recipiente hermético.</p></div></article><article class="nrec con-img"><div class="nr-img"><img src="img/eve/r28.jpg" alt="Snack de garbanzos tostados"></div><div class="nr-tx"><div class="nr-h"><span class="nr-n">38</span><div><span class="nr-cat">SNACK SALADO</span><h3>Snack de garbanzos tostados</h3><p class="nr-meta">35 min · 3 porciones</p></div></div><div class="nr-cols"><div><h5>Ingredientes</h5><ul><li>1 lata de garbanzos (o 150 g secos, remojados y hervidos)</li><li>2 cdas de aceite de oliva</li><li>Orégano, pimienta, comino y sal</li></ul></div><div><h5>Preparación</h5><ol><li>Escurrí y secá muy bien los garbanzos.</li><li>Mezclalos con el aceite y los condimentos.</li><li>Horneá en placa con papel manteca a horno moderado 30 minutos, hasta que estén crocantes.</li></ol></div></div><p class="nr-x"><b>Cambialo por:</b> probá con pimentón ahumado o curry.</p><p class="nr-x"><b>Conservación:</b> 4 a 5 días en frasco cerrado.</p></div></article>
+<div class="box soft"><b>Conservación de lo casero (sin conservantes):</b> lo horneado y seco (granola, crackers, galletitas, garbanzos tostados) dura 1 a 2 semanas en frasco hermético a temperatura ambiente; lo húmedo (budines, pancakes) va a la heladera y dura 3 a 4 días. Todo se puede freezar hasta 2 meses. Antes de comer, un golpe de horno de 5 minutos.</div>
+</div></section><section class="page " id="reemplazos"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Extra · Reemplazos</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">EXTRA</span>
+<h1 class="h1">Reemplazos <span class="t">saludables</span></h1>
+<p>No se trata de prohibir ni de que un reemplazo sea automáticamente “más sano”: son <b>alternativas según la preparación</b>. Usalas cuando te sirvan.</p>
+<table class="grid-t ntab"><thead><tr><th>En vez de…</th><th>Probá con…</th></tr></thead><tbody><tr><td><b>Azúcar</b></td><td>Stevia, dulce de dátiles o pasas, o fruta madura (banana, manzana).</td></tr><tr><td><b>Harina blanca</b></td><td>Harina integral, de avena o de garbanzos (o una mezcla).</td></tr><tr><td><b>Manteca</b></td><td>Aceite de oliva o de girasol, palta o pasta de maní.</td></tr><tr><td><b>Crema o mayonesa</b></td><td>Yogur natural, queso untable o palta pisada.</td></tr><tr><td><b>Snacks de paquete</b></td><td>Garbanzos tostados, crackers de semillas, frutos secos o fruta.</td></tr><tr><td><b>Gaseosas y jugos</b></td><td>Agua, agua con frutas o menta, infusiones frías.</td></tr><tr><td><b>Pan rallado</b></td><td>Avena, semillas o harina de garbanzos.</td></tr><tr><td><b>Huevo (en budines)</b></td><td>Gel de chía o lino: 1 cda de semillas + 3 cdas de agua, 20 min.</td></tr></tbody></table>
+<div class="box note"><b>Endulzantes:</b> la equivalencia con el azúcar depende de cada producto (stevia en polvo, líquida o en sobres): seguí la indicación del envase. Dátiles, pasas y miel también aportan azúcares: usalos con moderación. La idea es ir usando cada vez menos para que tu paladar se adapte.</div>
+</div></section><section class="page " id="prod0"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Extra · Productos</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">EXTRA · PRODUCTOS RECOMENDADOS</span>
+<h1 class="h1">Qué comprar <span class='t'>en el súper</span></h1>
+<p class='small'>Selección de María Eugenia Ballini. <b>Las marcas cambian:</b> usá estos criterios con cualquier producto — ingredientes cortos, integral o con fibra como primer ingrediente, poca azúcar agregada y sodio moderado, y compará por 100 g. Hacé zoom para ver cada producto.</p>
+<div class="prodg"><figure class="prodf"><img src="img/prod/c2.jpg" alt="Panes, galletas y granolas"><figcaption>Panes, galletas y granolas</figcaption></figure><figure class="prodf"><img src="img/prod/c3.jpg" alt="Granos integrales y harinas"><figcaption>Granos integrales y harinas</figcaption></figure><figure class="prodf"><img src="img/prod/c4.jpg" alt="Avena y fideos"><figcaption>Avena y fideos</figcaption></figure><figure class="prodf"><img src="img/prod/c8.jpg" alt="Crackers y snacks salados"><figcaption>Crackers y snacks salados</figcaption></figure></div>
+</div></section><section class="page " id="prod4"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Extra · Productos</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">EXTRA · PRODUCTOS RECOMENDADOS</span>
+<h1 class="h1">Más productos <span class='t'>recomendados</span></h1>
+
+<div class="prodg"><figure class="prodf"><img src="img/prod/c16.jpg" alt="Lácteos"><figcaption>Lácteos</figcaption></figure><figure class="prodf"><img src="img/prod/c17.jpg" alt="Yogures"><figcaption>Yogures</figcaption></figure><figure class="prodf"><img src="img/prod/c21.jpg" alt="Congelados y semillas"><figcaption>Congelados y semillas</figcaption></figure><figure class="prodf"><img src="img/prod/c22.jpg" alt="Proteínas"><figcaption>Proteínas</figcaption></figure></div>
+</div></section><section class="page " id="cap10"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>10 · Sostener el cambio</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">10</span><h1>Cuando la semana <span class="t">no sale como esperabas</span></h1><p class="lead">La constancia no se construye con semanas perfectas, sino con una estructura que te deje volver a empezar sin castigos.</p></div>
+<h2>La trampa del todo o nada</h2>
+<p>Una comida improvisada no arruina una semana. <b>Volvé a la próxima decisión posible:</b> si no llevaste vianda, elegí algo razonable donde estés; si no pudiste cocinar, usá tu menú de emergencia.</p>
+<h2>Una pausa antes de decidir</h2>
+<ul class="list"><li><b>Frená un momento</b> y alejate de la pantalla.</li><li><b>¿Qué necesitás?</b> ¿Hambre, cansancio, aburrimiento, un descanso?</li><li><b>Respondé a eso:</b> si es hambre, comé; si es cansancio, pausá.</li><li><b>Sin compensar:</b> no saltees comidas ni sumes ejercicio como castigo.</li></ul>
+<h2>La revisión de 10 minutos</h2>
+<p>Un día por semana: ¿qué preparación usé más?, ¿qué sobró?, ¿qué momento fue difícil?, ¿qué cambio chico hago la semana que viene?</p>
+<div class="box note"><b>Cuándo pedir ayuda:</b> si tenés una enfermedad, tomás medicación que cambia el apetito o la glucemia, estás embarazada o amamantando, o tenés una relación angustiante con la comida, necesitás una orientación individual. Los talleres de gestión de la ansiedad de RENOVA también te pueden ayudar.</div>
+</div></section><section class="page " id="seguimiento"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Herramientas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">HERRAMIENTAS</span>
+<h1 class="h1">¿Cómo te fue <span class="t">cada semana?</span></h1>
+<p class="small">Al terminar cada semana, marcá con un ✓ y anotá lo que querés mantener.</p>
+<table class="grid-t ntab"><thead><tr><th>Semana</th><th>Apliqué el objetivo</th><th>Preparé 2+ recetas</th><th>Tuve plan B</th><th>Lo que mantengo</th></tr></thead><tbody><tr><td><b>1</b></td><td></td><td></td><td></td><td></td></tr><tr><td><b>2</b></td><td></td><td></td><td></td><td></td></tr><tr><td><b>3</b></td><td></td><td></td><td></td><td></td></tr><tr><td><b>4</b></td><td></td><td></td><td></td><td></td></tr><tr><td><b>5</b></td><td></td><td></td><td></td><td></td></tr><tr><td><b>6</b></td><td></td><td></td><td></td><td></td></tr><tr><td><b>7</b></td><td></td><td></td><td></td><td></td></tr><tr><td><b>8</b></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+</div></section><section class="page " id="plantilla1"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Herramientas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">HERRAMIENTAS</span>
+<h1 class="h1">Tu <span class="t">planificador semanal</span></h1>
+<p class="small">Completalo en 10 minutos, una vez por semana. Usá el lápiz: se cambia.</p>
+<table class="grid-t ntab plan-in"><thead><tr><th>Día</th><th>Agenda</th><th>Almuerzo</th><th>Cena</th><th>Plan B</th></tr></thead><tbody><tr><td>Lunes</td><td></td><td></td><td></td><td></td></tr><tr><td>Martes</td><td></td><td></td><td></td><td></td></tr><tr><td>Miércoles</td><td></td><td></td><td></td><td></td></tr><tr><td>Jueves</td><td></td><td></td><td></td><td></td></tr><tr><td>Viernes</td><td></td><td></td><td></td><td></td></tr><tr><td>Sábado</td><td></td><td></td><td></td><td></td></tr><tr><td>Domingo</td><td></td><td></td><td></td><td></td></tr></tbody></table>
+</div></section><section class="page " id="plantilla2"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Herramientas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">HERRAMIENTAS</span>
+<h1 class="h1">Tu <span class="t">lista de compras</span></h1>
+<table class="grid-t ntab plan-in"><thead><tr><th>Grupo</th><th>Ya tengo</th><th>Necesito</th><th>Para qué comida</th></tr></thead><tbody><tr><td>Verduras</td><td></td><td></td><td></td></tr><tr><td>Frutas</td><td></td><td></td><td></td></tr><tr><td>Proteínas</td><td></td><td></td><td></td></tr><tr><td>Legumbres y cereales</td><td></td><td></td><td></td></tr><tr><td>Lácteos</td><td></td><td></td><td></td></tr><tr><td>Alacena</td><td></td><td></td><td></td></tr><tr><td>Freezer</td><td></td><td></td><td></td></tr></tbody></table>
+<h2>Auditoría rápida de heladera</h2>
+<ul class="checks"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Está fría y el aire circula.</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Todo tapado y rotulado.</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Crudos separados de cocidos; carnes abajo.</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Lo más viejo adelante.</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Nada sin fecha ni contenido conocido.</span></li></ul>
+</div></section><section class="page " id="fuentes"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Fuentes</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">FUENTES</span>
+<h1 class="h1">Fuentes <span class="t">y aclaraciones</span></h1>
+<ul class="list"><li><b>Ministerio de Salud de la Nación</b> — Guías Alimentarias para la Población Argentina y gráfica de alimentación saludable.</li><li><b>ANMAT</b> — Recomendaciones para la manipulación segura de los alimentos.</li><li><b>SENASA / Argentina.gob.ar</b> — Pautas de refrigeración y tiempos orientativos de conservación.</li><li><b>Argentina.gob.ar</b> — Manipulación de alimentos y cadena de frío.</li><li><b>Ley 27.642</b> de Promoción de la Alimentación Saludable — etiquetado frontal de alimentos.</li></ul>
+<div class="box note"><b>Material educativo general.</b> Esta guía no reemplaza una consulta con un/a licenciado/a en Nutrición ni una evaluación médica. No establece calorías, porciones obligatorias, objetivos de peso ni cantidades individuales de nutrientes. Las necesidades cambian según tu historia clínica, actividad, preferencias, medicación y etapa de vida.</div>
+<p class="small">Revisión de contenidos: María Eugenia Ballini, Lic. en Nutrición · M.N. 11773.</p>
+</div></section><section class="page " id="metodo"><div class="hdr"><span>ALIMENTACIÓN INTELIGENTE · <b>RENOVA</b></span><span>Plan integral</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="bio metodo">
+  <span class="pill">PLAN INTEGRAL RENOVA</span>
+  <h1 class="h1 big">Tu plan integral <span class="t">1 a 1 con Nacho</span></h1>
+  <div class="team-big"><img src="img/equipo2.jpg" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>
+  <p class="lead center"><b>Consultá por tu plan integral personalizado 1 a 1 con Nacho:</b> entrenamiento y nutrición armados para vos, con el equipo RENOVA.</p>
+  <div class="cta-center"><a class="btn btn-big" href="https://wa.link/1asjt1">CONSULTÁ POR TU PLAN <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  <div class="quote dark">No necesitás una semana perfecta. <span class="t2">Necesitás herramientas para la semana que tenés.</span></div>
+</div>
+</div></section><script src="paginate.js"></script></body></html>

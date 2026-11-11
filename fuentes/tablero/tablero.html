@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MÉTODO 40 · RENOVA</title>
+<meta name="theme-color" content="#0E9DB2">
+<link rel="icon" href="/*FAVICON*/">
+<link rel="apple-touch-icon" href="/*FAVICON*/">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
+<style>
+/*TOKENS*/
+:root{--bg:var(--rnv-fondo);--card:var(--rnv-blanco);--line:var(--rnv-linea);--txt:var(--rnv-tinta);--mut:var(--rnv-gris);--red:var(--rnv-turquesa-titulo);--red2:var(--rnv-turquesa-profundo);--ok:#1E9E62;--bad:var(--rnv-rojo);--soft:var(--rnv-turquesa-fondo)}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:16px 16px 90px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0 14px}
+.brand img{height:34px;width:auto;display:block}
+.brand small{display:block;margin-top:4px;font-weight:800;font-size:11px;letter-spacing:.16em;color:var(--mut)}
+.who{color:var(--mut);font-size:14px;text-align:right}
+h1{font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:clamp(28px,6vw,44px);line-height:1;margin:0 0 6px;text-transform:uppercase}
+h1 span{color:var(--red)}
+.sub{color:var(--mut);margin:0 0 16px}
+nav.views{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;gap:6px;padding:10px 10px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);backdrop-filter:blur(8px)}
+nav.views button{flex:1;max-width:200px;border:0;border-radius:12px;padding:11px 8px;font:800 14px Inter,sans-serif;color:var(--mut);background:transparent;cursor:pointer}
+nav.views button.on{background:var(--red);color:#fff}
+@media(min-width:760px){nav.views{position:static;background:transparent;border:0;justify-content:flex-start;padding:0 0 16px}nav.views button{flex:none;border:1px solid var(--line);background:#fff}}
+.kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:760px){.kpis{grid-template-columns:repeat(5,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--rnv-sombra)}
+.kpi small{display:block;color:var(--mut);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.kpi .v{font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:30px;margin-top:6px;line-height:1}
+.kpi .d{font-size:13px;font-weight:700;margin-top:6px;color:var(--mut)}
+.d.good{color:var(--ok)}.d.bad{color:var(--bad)}
+.grid{display:grid;gap:12px;margin-top:12px}
+@media(min-width:760px){.grid.two{grid-template-columns:2fr 1fr}.grid.half{grid-template-columns:1fr 1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--rnv-sombra);margin-top:12px}
+.panel h2{font-size:15px;margin:0 0 12px;letter-spacing:.04em;text-transform:uppercase}
+.panel h2 b{color:var(--red)}
+.chart{position:relative;height:240px}
+.ring{position:relative;height:200px}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
+.tab{flex:none;border:1px solid var(--line);background:#fff;color:var(--txt);border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;cursor:pointer}
+.tab.on{background:var(--red);border-color:var(--red);color:#fff}
+.tab.done::after{content:" ✓";color:var(--ok)}
+.tab.on.done::after{color:#fff}
+.form{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:760px){.form{grid-template-columns:repeat(4,1fr)}}
+label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.04em;text-transform:uppercase}
+input,select{background:var(--bg);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:11px 12px;font:600 16px Inter,sans-serif;width:100%}
+input:focus,select:focus{outline:2px solid var(--red);border-color:transparent}
+.sec{grid-column:1/-1;margin:8px 0 0;font-size:13px;font-weight:800;color:var(--txt);letter-spacing:.06em;text-transform:uppercase;border-top:1px solid var(--line);padding-top:12px}
+.lift{grid-column:1/-1;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:8px;align-items:end}
+.lift .n{font-weight:700;font-size:14px;padding-bottom:12px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{border:0;border-radius:10px;padding:12px 16px;font:800 14px Inter,sans-serif;cursor:pointer;color:#fff;background:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.ghost{background:#fff;border:1px solid var(--line);color:var(--txt)}
+.btn.big{width:100%;justify-content:center;padding:15px;font-size:16px}
+.note{color:var(--mut);font-size:13px;margin-top:10px}
+/* entrenar */
+.presc{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 12px}
+.presc span{background:var(--soft);color:var(--red2);font-weight:800;font-size:13px;padding:6px 10px;border-radius:999px}
+.exc{border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:12px;background:#fff}
+.exc .im{position:relative;background:#0E0F10;aspect-ratio:16/9}
+.exc .im img{width:100%;height:100%;object-fit:contain;display:block}
+.exc .im .vid{position:absolute;right:10px;bottom:10px;background:var(--red);color:#fff;font-weight:800;font-size:13px;padding:8px 12px;border-radius:999px;text-decoration:none}
+.exc .im .tp{position:absolute;left:10px;top:10px;background:rgba(255,255,255,.92);color:var(--red2);font-weight:800;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border-radius:999px}
+.exc .bd{padding:12px 14px 14px}
+.exc h3{margin:0;font-size:18px}
+.exc .mus{color:var(--mut);font-size:13px;font-weight:600;margin:2px 0 8px}
+.exc .dose{display:inline-block;background:var(--red2);color:#fff;font-weight:800;font-size:14px;padding:6px 11px;border-radius:8px;margin-bottom:8px}
+.exc details{margin:4px 0 10px;font-size:14px;line-height:1.45}
+.exc summary{cursor:pointer;font-weight:700;color:var(--red)}
+.exc details p{margin:6px 0 0}
+.exc .ev{color:var(--bad)}
+.exc .in{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.exc .prev{font-size:12px;color:var(--mut);margin-top:6px}
+@media(min-width:760px){.excs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.exc{margin:0}}
+.top-sel{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:10px}
+@media(min-width:760px){.top-sel{grid-template-columns:260px 1fr;align-items:end}}
+.parts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0 12px}
+.parts button{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 4px;font:800 12px Inter,sans-serif;color:var(--txt);cursor:pointer;line-height:1.2}
+.parts button small{display:block;font-weight:600;color:var(--mut);font-size:10px;margin-top:2px}
+.parts button.on{background:var(--red);border-color:var(--red);color:#fff}.parts button.on small{color:#e6f6f8}
+.parts button.done{border-color:var(--ok)}
+.pnav{display:flex;gap:10px;margin-top:12px}.pnav .btn{flex:1;justify-content:center;padding:14px}
+.zcl{margin:0;padding-left:18px;font-size:14px;line-height:1.5}
+.exc .in.one{grid-template-columns:1fr}
+.tab.rec{border-color:var(--red)}
+.calor{display:flex;flex-wrap:wrap;gap:8px}
+.calor a{background:var(--soft);color:var(--red2);font-weight:700;font-size:13px;padding:8px 12px;border-radius:999px;text-decoration:none}
+/* fotos */
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:520px}
+.ph{aspect-ratio:3/4;border:1px dashed var(--rnv-turquesa-borde);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;cursor:pointer;background:var(--soft)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph span{position:absolute;left:8px;top:8px;color:#fff;background:var(--red2);padding:4px 8px;border-radius:6px;font-size:12px;font-weight:800}
+.ph em{color:var(--mut);font-style:normal;font-size:13px;text-align:center;padding:10px}
+.toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);background:var(--ok);color:#fff;font-weight:800;padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:30}
+.toast.show{opacity:1}
+.setup{max-width:560px}
+.vmodal{position:fixed;inset:0;z-index:50;background:rgba(10,12,14,.88);display:flex;align-items:center;justify-content:center;padding:16px}
+.vmodal[hidden]{display:none}
+.vbox{width:min(100%,900px);display:flex;flex-direction:column;gap:10px}
+.vbox.vert{width:min(100%,380px)}
+.vtop{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#fff;font-weight:800}
+.vtop button{border:0;background:#fff;color:var(--txt);width:40px;height:40px;border-radius:50%;font-size:20px;font-weight:900;cursor:pointer;flex:none}
+.vfr{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.vbox.vert .vfr{aspect-ratio:9/16;max-height:78vh}
+.vfr iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vbox a{color:#cfd3d6;font-size:13px;text-align:center}
+.sel{max-width:420px;margin-bottom:10px}
+footer{color:var(--mut);font-size:12px;margin-top:24px;text-align:center}
+/* reporte (fuera de pantalla, se convierte en PDF) */
+#reporte{position:fixed;left:-10000px;top:0;width:820px;background:#fff;color:var(--rnv-tinta);font-family:Inter,sans-serif;padding:34px}
+#reporte .rh{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid var(--red);padding-bottom:14px;margin-bottom:18px}
+#reporte .rh img{height:40px}
+#reporte .rh b{display:block;font-family:"Inter Tight",Inter,sans-serif;font-weight:900;font-size:26px;text-transform:uppercase}
+#reporte .rh span{color:var(--mut);font-size:13px}
+#reporte .rk{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px}
+#reporte .rk div{border:1px solid var(--line);border-radius:10px;padding:10px}
+#reporte .rk small{display:block;font-size:10px;font-weight:800;color:var(--mut);letter-spacing:.08em;text-transform:uppercase}
+#reporte .rk strong{display:block;font-family:"Inter Tight",Inter,sans-serif;font-size:22px;margin-top:4px}
+#reporte .rk em{display:block;font-style:normal;font-size:11px;font-weight:700;margin-top:3px;color:var(--mut)}
+#reporte .rg{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+#reporte .rg img{width:100%;border:1px solid var(--line);border-radius:10px;padding:6px;background:#fff}
+#reporte h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:6px 0 8px;color:var(--red2)}
+#reporte table{width:100%;border-collapse:collapse;font-size:12px}
+#reporte th{background:var(--red2);color:#fff;text-align:left;padding:6px 8px;font-size:11px}
+#reporte td{border-bottom:1px solid var(--line);padding:5px 8px}
+#reporte .rf{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+#reporte .rf img{width:100%;height:300px;object-fit:cover;border-radius:10px}
+#reporte .rp{margin-top:14px;font-size:11px;color:var(--mut);text-align:center}
+/* ===== prolijidad: todo centrado y alineado ===== */
+h1,.sub,#foco,#z-foco{text-align:center}
+.panel h2{text-align:center}
+.note{text-align:center}
+.tabs{justify-content:safe center}
+.presc{justify-content:center}
+.btns{justify-content:center}
+.top-sel{grid-template-columns:1fr!important;justify-items:center}
+.top-sel label{width:100%;max-width:420px}
+.top-sel label,.msel{text-align:center}
+.sel{display:block;margin:0 auto 10px}
+.setup{margin-left:auto;margin-right:auto}
+.photos{margin:0 auto}
+.pnav{max-width:640px;margin-left:auto;margin-right:auto}
+nav.views button{white-space:nowrap;padding:11px 4px;font-size:13.5px}
+@media(min-width:760px){nav.views{justify-content:center}nav.views button{padding:10px 18px}}
+@media(max-width:759px){.kpis .kpi:last-child:nth-child(odd){grid-column:1/-1;text-align:center}}
+.kpi{text-align:center}
+/* play grande en el centro de cada video */
+.exc .im .vid{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:0;border-radius:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.28));font-size:13px;letter-spacing:.03em}
+.exc .im .vid i{width:66px;height:66px;border-radius:50%;background:var(--red);display:grid;place-items:center;box-shadow:0 6px 22px rgba(0,0,0,.35),0 0 0 6px rgba(255,255,255,.28);transition:transform .15s}
+.exc .im .vid i::after{content:"";border-left:21px solid #fff;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
+.exc .im .vid b{background:rgba(0,0,0,.55);padding:4px 12px;border-radius:999px}
+.exc .im .vid:active i{transform:scale(.92)}
+.exc .im .tp{z-index:2;pointer-events:none}
+/* medidas */
+.msel{max-width:420px;margin:0 auto 14px}
+.ses-info{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:var(--soft);border-radius:10px;padding:8px;text-align:center}
+.ses-info small{font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.04em;text-transform:uppercase}
+.ses-info b{font-family:"Inter Tight",Inter,sans-serif;font-size:22px;color:var(--red2)}
+.ses-info span{display:flex;gap:6px}
+.ses-info i{font-style:normal;font-weight:800;font-size:12px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#fff;color:var(--mut);border:1px solid var(--line)}
+.ses-info i.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.lifts{grid-column:1/-1;display:grid;gap:8px}
+.lh,.lr{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:8px;align-items:center}
+.lh span{font-size:12px;font-weight:700;color:var(--mut);letter-spacing:.04em;text-transform:uppercase;text-align:center}
+.lh span:first-child{text-align:left}
+.lr .n{font-weight:700;font-size:14px}
+.lr input{text-align:center}
+/* tabla de entrenamientos */
+.tbl-wrap{overflow-x:auto}
+table.ent{width:100%;border-collapse:collapse;font-size:14px;text-align:center}
+table.ent th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);padding:8px 6px;border-bottom:2px solid var(--line)}
+table.ent td{padding:9px 6px;border-bottom:1px solid var(--line)}
+table.ent td:first-child,table.ent th:first-child{text-align:left;font-weight:700}
+table.ent .ok{color:var(--ok);font-weight:800}
+table.ent .ok small{display:block;color:var(--mut);font-weight:600;font-size:11px}
+table.ent .no{color:#c3c8cc}
+table.ent tr.hoy td{background:var(--soft)}
+table.ent td.tot{font-weight:800}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><div class="brand"><img src="/*LOGO*/" alt="RENOVA"><small>MÉTODO 40</small></div><div class="who" id="who"></div></header>
+
+  <!-- Código de acceso -->
+  <section class="panel setup" id="gate" hidden>
+    <h2>Tu código <b>de acceso</b></h2>
+    <p class="note" style="margin-top:0">Está en tu ebook de MÉTODO 40, en la página de bienvenida. Lo ingresás una sola vez en este celular.</p>
+    <label>Código<input id="g-code" autocomplete="off" autocapitalize="characters" placeholder="Tu código"></label>
+    <div class="btns"><button class="btn" id="g-ok">Entrar</button></div>
+    <p class="note" id="g-err" hidden style="color:var(--bad)">Ese código no es correcto. Revisalo en tu ebook.</p>
+  </section>
+
+  <!-- Configuración inicial -->
+  <section class="panel setup" id="setup" hidden>
+    <h2>Antes de <b>empezar</b></h2>
+    <div class="form" style="grid-template-columns:1fr 1fr">
+      <label>Tu nombre<input id="s-nombre" autocomplete="given-name"></label>
+      <label>Altura (cm)<input id="s-altura" type="number" inputmode="decimal" placeholder="176"></label>
+      <label style="grid-column:1/-1">Dónde entrenás<select id="s-modo"><option value="casa">En casa</option><option value="gym">En el gimnasio</option></select></label>
+    </div>
+    <div class="btns"><button class="btn" id="s-ok">Empezar</button></div>
+    <p class="note">Tus datos se guardan solo en este celular o computadora. Nadie más los ve.</p>
+  </section>
+
+  <main id="app" hidden>
+    <nav class="views" id="views">
+      <button data-v="entrenar">Entrenar</button><button data-v="zona" id="nav-zona">Zona media</button><button data-v="progreso">Progreso</button><button data-v="medidas">Medidas</button>
+    </nav>
+
+    <!-- ENTRENAR -->
+    <section id="v-entrenar">
+      <h1>Entrenar <span>hoy</span></h1>
+      <div class="top-sel">
+        <label>Semana<select id="wsel"></select></label>
+        <div class="tabs" id="rtabs" style="margin:0"></div>
+      </div>
+      <p class="sub" id="foco" style="margin-bottom:6px"></p>
+      <div class="parts" id="parts"></div>
+      <div class="presc" id="presc"></div>
+      <div class="excs" id="excs"></div>
+      <div class="pnav" id="pnav"></div>
+      <p class="note">En la parte central anotá la <b>última serie</b> de cada ejercicio (peso, repeticiones y RIR): se guarda sola. Al terminar la elongación, tocá <b>Terminar sesión</b>.</p>
+    </section>
+
+    <!-- ZONA MEDIA (upsell: se destraba con el código del ebook Zona media fuerte) -->
+    <section id="v-zona" hidden>
+      <h1>Zona <span>media</span></h1>
+      <div class="panel setup" id="z-lock" hidden>
+        <h2>🔒 Destrabá tu <b>zona media</b></h2>
+        <p class="note" style="margin-top:0">Es el complemento <b>Zona media fuerte</b> de MÉTODO 40: 4 rutinas de 15 minutos con sus videos y tu plan de 8 semanas. El código está en ese ebook, en la hoja “Zona media en tu app”.</p>
+        <label>Código<input id="z-code" autocomplete="off" autocapitalize="characters" placeholder="Código de zona media"></label>
+        <div class="btns"><button class="btn" id="z-ok">Destrabar</button></div>
+        <p class="note" id="z-err" hidden style="color:var(--bad)">Ese código no es correcto. Revisalo en tu ebook Zona media fuerte.</p>
+      </div>
+      <div id="z-app" hidden>
+        <div class="top-sel">
+          <label>Semana<select id="z-wsel"></select></label>
+          <div class="tabs" id="z-tabs" style="margin:0"></div>
+        </div>
+        <p class="sub" id="z-foco" style="margin-bottom:6px"></p>
+        <div class="presc" id="z-presc"></div>
+        <div class="panel" style="margin:0 0 12px;padding:12px 14px"><h2 style="margin-bottom:6px">Claves de <b>esta rutina</b></h2><ul class="zcl" id="z-claves"></ul></div>
+        <div class="excs" id="z-excs"></div>
+        <div class="pnav"><button class="btn" id="z-fin">Terminar rutina ✓</button></div>
+        <p class="note">Hacé los 4 ejercicios seguidos, sin descanso entre ejercicios, y descansá al terminar cada vuelta. Anotá lo que lograste en la última vuelta (segundos o repeticiones): se guarda solo. <b>Cuándo:</b> 2 veces por semana, al final de una sesión de MÉTODO 40.</p>
+      </div>
+    </section>
+
+    <!-- PROGRESO -->
+    <section id="v-progreso" hidden>
+      <h1>Mi <span>progreso</span></h1>
+      <div class="kpis">
+        <div class="kpi"><small>Peso</small><div class="v" id="k-peso">–</div><div class="d" id="d-peso"></div></div>
+        <div class="kpi"><small>Cintura</small><div class="v" id="k-cin">–</div><div class="d" id="d-cin"></div></div>
+        <div class="kpi"><small>Fuerza</small><div class="v" id="k-fza">–</div><div class="d" id="d-fza"></div></div>
+        <div class="kpi"><small>Sesiones</small><div class="v" id="k-ses">–</div><div class="d" id="d-ses"></div></div>
+        <div class="kpi"><small>Cintura / altura</small><div class="v" id="k-ict">–</div><div class="d" id="d-ict"></div></div>
+      </div>
+      <div class="grid two">
+        <div class="panel" style="margin-top:0"><h2>Peso y <b>cintura</b></h2><div class="chart"><canvas id="c-cuerpo"></canvas></div></div>
+        <div class="panel" style="margin-top:0"><h2>Sesiones <b>cumplidas</b></h2><div class="ring"><canvas id="c-ses"></canvas></div></div>
+      </div>
+      <section class="panel">
+        <h2>Mis <b>entrenamientos</b></h2>
+        <div class="tbl-wrap"><table class="ent" id="ent"></table></div>
+        <p class="note">Se completa solo cuando tocás “Terminar sesión” (o “Terminar rutina” en zona media).</p>
+      </section>
+      <div class="grid half" style="margin-top:12px">
+        <div class="panel" style="margin-top:0"><h2>Fuerza estimada <b>(1RM)</b></h2><div class="chart"><canvas id="c-fza"></canvas></div></div>
+        <div class="panel" style="margin-top:0"><h2>Perímetros <b>semana 1 vs última</b></h2><div class="chart"><canvas id="c-per"></canvas></div></div>
+      </div>
+      <section class="panel">
+        <h2>Progreso por <b>ejercicio</b></h2>
+        <select class="sel" id="exsel"></select>
+        <div class="chart"><canvas id="c-ex"></canvas></div>
+      </section>
+      <section class="panel">
+        <h2>Mi <b>reporte</b></h2>
+        <div class="btns" style="margin-top:0"><button class="btn" id="reporteBtn">Exportar reporte</button></div>
+        <p class="note">Arma un PDF con tu progreso. En el celular se abre “Compartir” para mandarlo por mail o WhatsApp; en la compu se descarga.</p>
+      </section>
+    </section>
+
+    <!-- MEDIDAS -->
+    <section id="v-medidas" hidden>
+      <h1>Mis <span>medidas</span></h1>
+      <section class="panel" style="margin-top:0">
+        <h2>Cargar <b>semana</b></h2>
+        <label class="msel">Semana<select id="msel"></select></label>
+        <div class="form" id="form"></div>
+        <div class="btns"><button class="btn" id="save">Guardar medidas</button></div>
+        <p class="note">Peso: el promedio de tus 3 pesadas de la semana. Perímetros y fotos: semanas 1, 4 y 8. Fuerza: tu test de las semanas 1 y 8 (peso y repeticiones). Los entrenamientos se cuentan solos al tocar “Terminar sesión”.</p>
+      </section>
+      <section class="panel">
+        <h2>Fotos <b>antes y después</b></h2>
+        <div class="photos">
+          <div class="ph" data-k="f1"><span>Semana 1</span><em>Tocá para subir tu foto</em></div>
+          <div class="ph" data-k="f8"><span>Semana 8</span><em>Tocá para subir tu foto</em></div>
+        </div>
+        <input type="file" id="photo" accept="image/*" hidden>
+      </section>
+      <section class="panel">
+        <h2>Tus <b>datos</b></h2>
+        <div class="btns">
+          <button class="btn ghost" id="export">Guardar copia</button>
+          <button class="btn ghost" id="import">Recuperar copia</button>
+          <button class="btn ghost" id="config">Cambiar nombre, altura o lugar</button>
+        </div>
+        <input type="file" id="importfile" accept="application/json,.json" hidden>
+        <p class="note">“Guardar copia” descarga un archivo de respaldo. Si cambiás de celular, abrí la app en el nuevo y tocá “Recuperar copia”.</p>
+      </section>
+    </section>
+  </main>
+  <footer>RENOVA · MÉTODO 40 · Ignacio Portillo · Tus datos quedan en este dispositivo.</footer>
+</div>
+<div class="toast" id="toast">Guardado</div>
+<div id="reporte"></div>
+<div class="vmodal" id="vmodal" hidden>
+  <div class="vbox" id="vbox">
+    <div class="vtop"><span id="vtit"></span><button id="vclose" aria-label="Cerrar">✕</button></div>
+    <div class="vfr" id="vfr"></div>
+    <a id="vyt" href="#" target="_blank" rel="noopener">¿No se ve? Abrilo en YouTube</a>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+(function () {
+  const KEY = 'metodo40-progreso-v1', KEY_OK = 'metodo40-acceso';
+  const DATA = /*EJERCICIOS*/;   // rutinas, calentamiento y plan, de fuentes/ebook/hombres.py (build.py)
+  const HASH = '/*HASH*/';       // huella SHA-256 del código de acceso (CODIGO_APP en hombres.py)
+  const ZONA = /*ZONA*/;         // rutinas de zona media CIFRADAS con CODIGO_ABD (build.py): se abren solo con ese código
+  const KEY_ZONA = 'metodo40-zona';
+  const LIFTS = { casa: ['Sentadilla en copa', 'Flexiones', 'Remo con mancuerna'], gym: ['Sentadilla con barra', 'Press plano', 'Remo en polea baja'] };
+  const PER = [['cintura', 'Cintura'], ['cadera', 'Cadera'], ['pecho', 'Pecho'], ['brazo', 'Brazo'], ['muslo', 'Muslo']];
+  const $ = id => document.getElementById(id);
+  let S = load(), week = 1, rut = 'A', view = 'entrenar', parte = 0, charts = {}, Z = null, zr = null;
+  const PARTES = [['Entrada en calor', '8 min'], ['Parte central 1', ''], ['Parte central 2', ''], ['Elongación', '5 min']];
+
+  function load() {
+    try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.weeks) return Object.assign({ fotos: {}, cargas: {} }, s); } catch (e) {}
+    return { perfil: null, weeks: {}, fotos: {}, cargas: {} };
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(S)); return true; }
+    catch (e) { alert('No se pudo guardar en este navegador. Usá “Guardar copia” para no perder tus datos.'); return false; }
+  }
+  function toast(t) { const el = $('toast'); el.textContent = t; el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 1700); }
+  const num = v => { const n = parseFloat(String(v).replace(',', '.')); return isFinite(n) ? n : null; };
+  const fmt = (n, d = 1) => n == null ? '–' : n.toLocaleString('es-AR', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const e1rm = (p, r, rir) => (p && r) ? p * (1 + (r + (rir || 0)) / 30) : (r && !p ? r + (rir || 0) : null);
+  const modo = () => (S.perfil && S.perfil.modo) || 'casa';
+  const rutinas = () => DATA[modo()].rutinas;
+  const conCarga = r => rutinas()[r].map((e, i) => ({ e, i })).filter(x => x.e.t !== 'Z');   // índice estable de cargas (sin zona media)
+  const exId = (r, j) => r + j;
+  const hoy = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
+  const ddmm = f => typeof f === 'string' && f.length >= 10 ? f.slice(8, 10) + '/' + f.slice(5, 7) : '';
+
+  // ---------- acceso con código (barrera simple: el código está en el ebook)
+  async function sha(t) { const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t.trim().toUpperCase())); return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join(''); }
+  function tieneAcceso() { try { return localStorage.getItem(KEY_OK) === HASH; } catch (e) { return false; } }
+  $('g-ok').onclick = async () => {
+    if (await sha($('g-code').value) === HASH) { try { localStorage.setItem(KEY_OK, HASH); } catch (e) {} arrancar(); }
+    else $('g-err').hidden = false;
+  };
+  $('g-code').onkeydown = e => { if (e.key === 'Enter') $('g-ok').click(); };
+
+  // ---------- configuración
+  function setup(show) {
+    $('gate').hidden = true; $('setup').hidden = !show; $('app').hidden = show;
+    if (show && S.perfil) { $('s-nombre').value = S.perfil.nombre || ''; $('s-altura').value = S.perfil.altura || ''; $('s-modo').value = S.perfil.modo || 'casa'; }
+  }
+  $('s-ok').onclick = () => { S.perfil = { nombre: $('s-nombre').value.trim(), altura: num($('s-altura').value), modo: $('s-modo').value }; save(); setup(false); render(); };
+  $('config').onclick = () => setup(true);
+
+  // ---------- vistas
+  $('views').querySelectorAll('button').forEach(b => b.onclick = () => { view = b.dataset.v; render(); window.scrollTo(0, 0); });
+
+  // ---------- ENTRENAR
+  function dosis(t) {
+    const p = DATA.plan[week - 1], desc = week === 4 || week === 8;
+    if (t === 'P') return p.sr + ' @RIR ' + p.rir;
+    if (t === 'A') return desc ? '2 × 12 @RIR 4' : '3 × 12–15 @RIR 2';
+    return desc ? '2 × 30 s' : (week <= 4 ? '3 × 30 s' : '3 × 45 s');
+  }
+  function centrales() {   // la rutina se parte en dos mitades (con su índice de carga)
+    const lista = rutinas()[rut], idx = {}; conCarga(rut).forEach((x, j) => idx[x.i] = j);
+    const items = lista.map((e, i) => ({ e, j: idx[i] })), m = Math.ceil(items.length / 2);
+    return [items.slice(0, m), items.slice(m)];
+  }
+  const hechas = w => 'ABC'.split('').filter(r => S.fin && S.fin[w] && S.fin[w][r]);   // una rutina cuenta cuando se toca “Terminar sesión”
+  function tarjeta(e, dose, j) {
+    const cw = S.cargas[week] || {}, v = j != null ? (cw[exId(rut, j)] || {}) : {};
+    const tipo = { P: 'Principal', A: 'Accesorio', Z: 'Zona media' }[e.t] || (parte === 0 ? 'Entrada en calor' : 'Elongación');
+    let prev = '';
+    if (j != null) for (let w = week - 1; w >= 1 && !prev; w--) { const c = S.cargas[w] && S.cargas[w][exId(rut, j)]; if (c && (c.p || c.r)) prev = 'Semana ' + w + ': ' + (c.p ? fmt(c.p, c.p % 1 ? 1 : 0) + ' kg × ' : '') + (c.r || '–') + (c.x != null ? ' @' + c.x : ''); }
+    const inputs = j == null ? '' : `<div class="in">
+        <label>Peso (kg)<input data-j="${j}" data-f="p" inputmode="decimal" value="${v.p ?? ''}" placeholder="${/Flexiones|Fondos/.test(e.n) ? 'sin peso' : ''}"></label>
+        <label>Reps<input data-j="${j}" data-f="r" inputmode="numeric" value="${v.r ?? ''}"></label>
+        <label>RIR<input data-j="${j}" data-f="x" inputmode="numeric" value="${v.x ?? ''}"></label></div>
+      ${prev ? `<div class="prev">Última vez · ${prev}</div>` : ''}`;
+    return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">${tipo}</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener" aria-label="Ver video: ${e.n}"><i></i><b>Ver video</b></a></div>
+      <div class="bd"><h3>${e.n}</h3><div class="mus">${e.mus} · ${e.mat}</div><span class="dose">${dose}</span>
+      <details><summary>Cómo se hace</summary><p>${e.how}</p>${e.evita ? `<p class="ev"><b>Evitá:</b> ${e.evita}</p>` : ''}${e.princ ? `<p><b>Principiante:</b> ${e.princ}</p>` : ''}</details>
+      ${inputs}</div></article>`;
+  }
+  function entrenar() {
+    const D = DATA[modo()], [c1, c2] = centrales();
+    $('wsel').innerHTML = Array.from({ length: 8 }, (_, i) => { const w = i + 1, n = hechas(w).length;
+      return `<option value="${w}" ${w === week ? 'selected' : ''}>Semana ${w}${w === 4 || w === 8 ? ' · descarga' : ''}${n ? ' · ' + n + '/3 ✓' : ''}</option>`; }).join('');
+    $('wsel').onchange = () => { week = +$('wsel').value; parte = 0; render(); };
+    $('rtabs').innerHTML = 'ABC'.split('').map(r => `<button class="tab ${r === rut ? 'on' : ''} ${hechas(week).includes(r) ? 'done' : ''}" data-r="${r}">Rutina ${r}</button>`).join('');
+    $('rtabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { rut = b.dataset.r; parte = 0; render(); });
+    $('foco').textContent = 'Rutina ' + rut + ': ' + D.foco[rut] + (week === 4 || week === 8 ? ' · semana de descarga' : '');
+    const sub = [D.calor.length + ' ejercicios', c1.length + ' ejercicios', c2.length + ' ejercicios', D.elong.length + ' estiramientos'];
+    $('parts').innerHTML = PARTES.map(([t], k) => `<button class="${k === parte ? 'on' : ''}" data-p="${k}">${t}<small>${sub[k]}</small></button>`).join('');
+    $('parts').querySelectorAll('button').forEach(b => b.onclick = () => { parte = +b.dataset.p; render(); window.scrollTo(0, 0); });
+    const presc = [['1 vuelta', '45 s cada ejercicio', 'Después: series de aproximación'],
+                   ['Principales: ' + dosis('P'), 'Accesorios: ' + dosis('A'), 'Descanso: ' + D.desc.P + ' / ' + D.desc.A],
+                   ['Principales: ' + dosis('P'), 'Accesorios: ' + dosis('A'), 'Zona media: ' + dosis('Z')],
+                   ['30 s cada uno', 'Por lado si corresponde', 'Sin dolor ni rebotes']][parte];
+    $('presc').innerHTML = presc.map(t => `<span>${t}</span>`).join('');
+    let html = '';
+    if (parte === 0) html = D.calor.map(e => tarjeta(e, '45 s', null)).join('');
+    if (parte === 1 || parte === 2) html = (parte === 1 ? c1 : c2).map(x => tarjeta(x.e, dosis(x.e.t), x.e.t === 'Z' ? null : x.j)).join('');
+    if (parte === 3) html = D.elong.map(e => tarjeta(e, '30 s', null)).join('');
+    $('excs').innerHTML = html;
+    const atras = parte > 0 ? `<button class="btn ghost" id="p-prev">← ${PARTES[parte - 1][0]}</button>` : '';
+    const adelante = parte < 3 ? `<button class="btn" id="p-next">${PARTES[parte + 1][0]} →</button>` : `<button class="btn" id="p-fin">Terminar sesión ✓</button>`;
+    $('pnav').innerHTML = atras + adelante;
+    if ($('p-prev')) $('p-prev').onclick = () => { parte--; render(); window.scrollTo(0, 0); };
+    if ($('p-next')) $('p-next').onclick = () => { parte++; render(); window.scrollTo(0, 0); };
+    if ($('p-fin')) $('p-fin').onclick = terminar;
+  }
+  // los kilos se guardan solos al escribirlos (no se pierden al cambiar de parte)
+  document.addEventListener('input', ev => {
+    const inp = ev.target; if (!inp.matches('#excs input[data-j]')) return;
+    const d = S.cargas[week] = S.cargas[week] || {}, id = exId(rut, inp.dataset.j), c = d[id] = d[id] || {}, n = num(inp.value);
+    if (n == null) delete c[inp.dataset.f]; else c[inp.dataset.f] = n;
+    if (!Object.keys(c).length) delete d[id];
+    save();
+  });
+  function terminar() {
+    S.fin = S.fin || {}; S.fin[week] = S.fin[week] || {}; S.fin[week][rut] = hoy();   // fecha en que la terminó: las sesiones se cuentan solas
+    if (save()) toast('¡Rutina ' + rut + ' de la semana ' + week + ' terminada!');
+    const sig = 'ABC'.split('').find(r => !hechas(week).includes(r));
+    if (sig) rut = sig; else if (week < 8) { week++; rut = 'A'; }
+    parte = 0; render(); window.scrollTo(0, 0);
+  }
+
+  // ---------- ZONA MEDIA (upsell): descifrado con el código del ebook (mismo esquema que build.py)
+  const b64 = t => Uint8Array.from(atob(t), c => c.charCodeAt(0));
+  const junta = (...a) => { const o = new Uint8Array(a.reduce((n, x) => n + x.length, 0)); let i = 0; a.forEach(x => { o.set(x, i); i += x.length; }); return o; };
+  async function descifrar(codigo) {
+    try {
+      const enc = new TextEncoder(), base = await crypto.subtle.importKey('raw', enc.encode(codigo.trim().toUpperCase()), 'PBKDF2', false, ['deriveBits']);
+      const bits = await crypto.subtle.deriveBits({ name: 'PBKDF2', salt: b64(ZONA.sal), iterations: 150000, hash: 'SHA-256' }, base, 256);
+      const k = await crypto.subtle.importKey('raw', bits, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+      const firma = async d => new Uint8Array(await crypto.subtle.sign('HMAC', k, d));
+      const nonce = b64(ZONA.nonce), ct = b64(ZONA.cifrado), sello = b64(ZONA.sello);
+      const t = await firma(junta(enc.encode('tag'), nonce, ct));
+      if (t.length !== sello.length || t.some((x, i) => x !== sello[i])) return null;   // código incorrecto
+      const bloques = await Promise.all(Array.from({ length: Math.ceil(ct.length / 32) }, (_, i) => firma(junta(nonce, new Uint8Array([i >>> 24, (i >>> 16) & 255, (i >>> 8) & 255, i & 255])))));
+      const flujo = junta(...bloques);
+      return JSON.parse(new TextDecoder().decode(ct.map((x, i) => x ^ flujo[i])));
+    } catch (e) { return null; }
+  }
+  const zRec = w => w % 2 ? ['1', '2'] : ['3', '4'];   // semanas impares: rutinas 1 y 2; pares: 3 y 4
+  const zHecha = (w, r) => !!(S.zfin && S.zfin[w] && S.zfin[w][r]);
+  function zDosis(tipo) {
+    const p = Z.plan[week - 1];
+    return { 'tiempo': p[1], 'tiempo por lado': p[1] + ' por lado', 'reps': p[2] + ' reps', 'reps por lado': p[2] + ' por lado' }[tipo] || p[2];
+  }
+  function zTarjeta(e) {
+    const v = ((S.zona || {})[week] || {})[zr + ':' + e.img], tiempo = /tiempo/.test(e.dosis);
+    let prev = '';
+    for (let w = week - 1; w >= 1 && !prev; w--) { const c = ((S.zona || {})[w] || {})[zr + ':' + e.img]; if (c != null) prev = 'Semana ' + w + ': ' + c + (tiempo ? ' s' : ' reps'); }
+    return `<article class="exc"><div class="im"><img src="img/${e.img}.jpg" alt=""><span class="tp">Zona media</span><a class="vid" href="${e.url}" data-t="${e.n}" target="_blank" rel="noopener" aria-label="Ver video: ${e.n}"><i></i><b>Ver video</b></a></div>
+      <div class="bd"><h3>${e.n}</h3><div class="mus">${e.mus} · ${e.mat}</div><span class="dose">${zDosis(e.dosis)}</span>
+      <details><summary>Cómo se hace</summary><p>${e.how}</p>${e.evita ? `<p class="ev"><b>Evitá:</b> ${e.evita}</p>` : ''}${e.princ ? `<p><b>Más fácil:</b> ${e.princ}</p>` : ''}<p><b>Más difícil:</b> ${e.mas}</p></details>
+      <div class="in one"><label>Logré en la última vuelta (${tiempo ? 'segundos' : 'repeticiones'})<input data-z="${e.img}" inputmode="numeric" value="${v ?? ''}"></label></div>
+      ${prev ? `<div class="prev">Última vez · ${prev}</div>` : ''}</div></article>`;
+  }
+  async function zona() {
+    if (!Z) {
+      let c = null; try { c = localStorage.getItem(KEY_ZONA); } catch (e) {}
+      if (c) Z = await descifrar(c);
+      if (!Z) { $('z-lock').hidden = false; $('z-app').hidden = true; return; }
+      $('nav-zona').textContent = 'Zona media';
+    }
+    $('z-lock').hidden = true; $('z-app').hidden = false;
+    if (!zr || !Z.rutinas[zr]) zr = zRec(week).find(r => !zHecha(week, r)) || zRec(week)[0];
+    $('z-wsel').innerHTML = Array.from({ length: 8 }, (_, i) => { const w = i + 1, n = '1234'.split('').filter(r => zHecha(w, r)).length;
+      return `<option value="${w}" ${w === week ? 'selected' : ''}>Semana ${w}${w === 4 || w === 8 ? ' · descarga' : ''}${n ? ' · ' + n + ' ✓' : ''}</option>`; }).join('');
+    $('z-wsel').onchange = () => { week = +$('z-wsel').value; zr = null; render(); };
+    $('z-tabs').innerHTML = '1234'.split('').map(r => `<button class="tab ${r === zr ? 'on' : ''} ${zHecha(week, r) ? 'done' : ''} ${zRec(week).includes(r) ? 'rec' : ''}" data-r="${r}">Rutina ${r}</button>`).join('');
+    $('z-tabs').querySelectorAll('.tab').forEach(b => b.onclick = () => { zr = b.dataset.r; render(); });
+    const R = Z.rutinas[zr], p = Z.plan[week - 1], rec = zRec(week);
+    $('z-foco').textContent = 'Rutina ' + zr + ': ' + R.foco.toLowerCase() + ' · esta semana tocan la ' + rec[0] + ' y la ' + rec[1] + (week === 4 || week === 8 ? ' · semana de descarga' : '');
+    $('z-presc').innerHTML = ['Antes: 5 respiraciones 360°', p[0] + ' vueltas', 'Sin pausa entre ejercicios', 'Descanso entre vueltas: ' + p[3]].map(t => `<span>${t}</span>`).join('');
+    $('z-claves').innerHTML = R.claves.map(t => `<li>${t}</li>`).join('');
+    $('z-excs').innerHTML = R.ejs.map(zTarjeta).join('');
+  }
+  $('z-ok').onclick = async () => {
+    const btn = $('z-ok'); btn.disabled = true; btn.textContent = 'Revisando…';
+    const d = await descifrar($('z-code').value);
+    btn.disabled = false; btn.textContent = 'Destrabar';
+    if (!d) { $('z-err').hidden = false; return; }
+    Z = d; try { localStorage.setItem(KEY_ZONA, $('z-code').value.trim().toUpperCase()); } catch (e) {}
+    $('z-err').hidden = true; toast('¡Zona media destrabada!'); render();
+  };
+  $('z-code').onkeydown = e => { if (e.key === 'Enter') $('z-ok').click(); };
+  document.addEventListener('input', ev => {
+    const inp = ev.target; if (!inp.matches('#z-excs input[data-z]')) return;
+    const d = (S.zona = S.zona || {})[week] = (S.zona[week] || {}), k = zr + ':' + inp.dataset.z, n = num(inp.value);
+    if (n == null) delete d[k]; else d[k] = n;
+    save();
+  });
+  $('z-fin').onclick = () => {
+    S.zfin = S.zfin || {}; S.zfin[week] = S.zfin[week] || {}; S.zfin[week][zr] = hoy();
+    if (save()) toast('¡Rutina ' + zr + ' de zona media terminada!');
+    const sig = zRec(week).find(r => !zHecha(week, r));
+    if (sig) zr = sig; else if (week < 8 && zRec(week).every(r => zHecha(week, r))) { week++; zr = null; }
+    render(); window.scrollTo(0, 0);
+  };
+
+  // ---------- MEDIDAS
+  function tabs() {   // semana de medidas en lista desplegable
+    $('msel').innerHTML = Array.from({ length: 8 }, (_, i) => {
+      const w = i + 1, d = S.weeks[w] && Object.keys(S.weeks[w]).some(k => k !== 'sesiones');
+      return `<option value="${w}" ${w === week ? 'selected' : ''}>Semana ${w}${d ? ' · cargada ✓' : ''}</option>`;
+    }).join('');
+    $('msel').onchange = () => { week = +$('msel').value; render(); };
+  }
+  function form() {
+    const d = S.weeks[week] || {}, lifts = LIFTS[modo()], v = k => d[k] != null ? d[k] : '', h0 = hechas(week);
+    let h = `<label>Peso promedio (kg)<input data-k="peso" inputmode="decimal" value="${v('peso')}"></label>
+             <div class="ses-info"><small>Entrenamientos</small><b>${h0.length}/3</b><span>${'ABC'.split('').map(r => `<i class="${h0.includes(r) ? 'on' : ''}">${r}</i>`).join('')}</span></div>`;
+    h += `<div class="sec">Perímetros (cm)</div>` + PER.map(([k, t]) => `<label>${t}<input data-k="${k}" inputmode="decimal" value="${v(k)}"></label>`).join('');
+    h += `<div class="sec">Test de fuerza: peso y repeticiones</div><div class="lifts"><div class="lh"><span>Ejercicio</span><span>Peso (kg)</span><span>Reps</span></div>` +
+      lifts.map((n, i) => `<div class="lr"><span class="n">${n}</span>
+        <input data-k="l${i}p" inputmode="decimal" aria-label="Peso ${n}" value="${v('l' + i + 'p')}" placeholder="${i === 1 && modo() === 'casa' ? 'sin peso' : ''}">
+        <input data-k="l${i}r" inputmode="numeric" aria-label="Repeticiones ${n}" value="${v('l' + i + 'r')}"></div>`).join('') + '</div>';
+    $('form').innerHTML = h;
+  }
+  function entTabla() {   // semana × rutinas, con la fecha en que se terminó cada una
+    const zona = !!Z || (S.zfin && Object.keys(S.zfin).length);
+    let h = `<thead><tr><th>Semana</th><th>A</th><th>B</th><th>C</th>${zona ? '<th>Zona media</th>' : ''}<th>Total</th></tr></thead><tbody>`;
+    for (let w = 1; w <= 8; w++) {
+      const f = (S.fin && S.fin[w]) || {}, hh = hechas(w);
+      const cel = r => hh.includes(r) ? `<td class="ok">✓<small>${ddmm(f[r])}</small></td>` : '<td class="no">–</td>';
+      const zn = zona ? '1234'.split('').filter(r => zHecha(w, r)).length : 0;
+      h += `<tr class="${w === week ? 'hoy' : ''}"><td>S${w}${w === 4 || w === 8 ? ' · desc.' : ''}</td>${'ABC'.split('').map(cel).join('')}${zona ? `<td class="${zn ? 'ok' : 'no'}">${zn ? zn + '/2' : '–'}</td>` : ''}<td class="tot">${hh.length}/3</td></tr>`;
+    }
+    $('ent').innerHTML = h + '</tbody>';
+  }
+  $('save').onclick = () => {
+    const d = {};
+    $('form').querySelectorAll('input').forEach(i => { const n = num(i.value); if (n != null) d[i.dataset.k] = n; });
+    if (d.sesiones != null) d.sesiones = Math.max(0, Math.min(3, Math.round(d.sesiones)));
+    S.weeks[week] = d; if (save()) toast('Medidas de la semana ' + week + ' guardadas');
+    render();
+  };
+
+  // ---------- cálculos
+  const serie = k => Array.from({ length: 8 }, (_, i) => { const w = S.weeks[i + 1]; return w && w[k] != null ? w[k] : null; });
+  const first = a => a.find(x => x != null) ?? null;
+  const last = a => [...a].reverse().find(x => x != null) ?? null;
+  function fuerza(w) {
+    const d = S.weeks[w]; if (!d) return null;
+    const v = [0, 1, 2].map(i => e1rm(d['l' + i + 'p'], d['l' + i + 'r'], 0));   // test de fuerza: peso y repeticiones (el RIR es de los entrenamientos)
+    return v.some(x => x != null) ? v : null;
+  }
+  function delta(el, a, b, unit, goodDown) {
+    if (a == null || b == null) { el.textContent = 'Cargá más semanas'; el.className = 'd'; return; }
+    const x = b - a, good = goodDown ? x < 0 : x > 0;
+    el.textContent = (x > 0 ? '▲ +' : x < 0 ? '▼ ' : '= ') + fmt(x) + ' ' + unit + ' desde la semana 1';
+    el.className = 'd ' + (x === 0 ? '' : good ? 'good' : 'bad');
+  }
+  const exSerie = id => Array.from({ length: 8 }, (_, i) => { const c = S.cargas[i + 1]; return c && c[id] ? c[id] : null; });
+
+  // ---------- gráficos
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const RED = css('--rnv-turquesa-titulo'), INK = css('--rnv-tinta'), GRIS = css('--rnv-turquesa-borde'), LINEA = css('--rnv-linea');
+  Chart.defaults.color = css('--rnv-gris'); Chart.defaults.font.family = 'Inter, sans-serif'; Chart.defaults.borderColor = LINEA;
+  function chart(id, cfg) { if (charts[id]) charts[id].destroy(); charts[id] = new Chart($(id), cfg); }
+
+  function progreso() {
+    const peso = serie('peso'), cin = serie('cintura'), ses = Array.from({ length: 8 }, (_, i) => hechas(i + 1).length);   // de lo que completó
+    entTabla();
+    $('k-peso').textContent = last(peso) != null ? fmt(last(peso)) + ' kg' : '–'; delta($('d-peso'), first(peso), last(peso), 'kg', true);
+    $('k-cin').textContent = last(cin) != null ? fmt(last(cin)) + ' cm' : '–'; delta($('d-cin'), first(cin), last(cin), 'cm', true);
+    const done = ses.reduce((a, b) => a + (b || 0), 0);
+    $('k-ses').textContent = done + '/24'; $('d-ses').textContent = Math.round(done / 24 * 100) + '% del programa'; $('d-ses').className = 'd ' + (done ? 'good' : '');
+    const h = S.perfil.altura, ict = h && last(cin) ? last(cin) / h : null;
+    $('k-ict').textContent = ict ? fmt(ict, 2) : '–';
+    $('d-ict').textContent = ict ? (ict < .5 ? 'Rango de referencia' : ict <= .6 ? 'Conviene bajar la cintura' : 'Prioridad: bajar la cintura') : 'Cargá altura y cintura';
+    $('d-ict').className = 'd ' + (ict ? (ict < .5 ? 'good' : 'bad') : '');
+    const fw = [1, 2, 3, 4, 5, 6, 7, 8].filter(w => fuerza(w)), f0 = fw.length ? fuerza(fw[0]) : null, f1 = fw.length ? fuerza(fw[fw.length - 1]) : null;
+    if (f0 && f1 && fw.length > 1) {
+      const pct = [0, 1, 2].filter(i => f0[i] && f1[i]).map(i => (f1[i] - f0[i]) / f0[i] * 100), avg = pct.reduce((a, b) => a + b, 0) / (pct.length || 1);
+      $('k-fza').textContent = (avg > 0 ? '+' : '') + fmt(avg, 0) + '%'; $('d-fza').textContent = 'semana ' + fw[0] + ' → semana ' + fw[fw.length - 1]; $('d-fza').className = 'd ' + (avg > 0 ? 'good' : avg < 0 ? 'bad' : '');
+    } else { $('k-fza').textContent = '–'; $('d-fza').textContent = 'Cargá tu test de las semanas 1 y 8'; $('d-fza').className = 'd'; }
+    const W = ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'];
+    chart('c-cuerpo', { type: 'line', data: { labels: W, datasets: [
+      { label: 'Peso (kg)', data: peso, borderColor: RED, backgroundColor: RED, tension: .35, spanGaps: true, yAxisID: 'y', pointRadius: 4 },
+      { label: 'Cintura (cm)', data: cin, borderColor: INK, backgroundColor: INK, tension: .35, spanGaps: true, yAxisID: 'y1', pointRadius: 4, borderDash: [6, 4] }] },
+      options: { maintainAspectRatio: false, interaction: { mode: 'index', intersect: false }, plugins: { legend: { labels: { boxWidth: 12 } } },
+        scales: { y: { position: 'left', grace: '5%' }, y1: { position: 'right', grace: '5%', grid: { drawOnChartArea: false } } } } });
+    chart('c-ses', { type: 'doughnut', data: { labels: ['Hechas', 'Faltan'], datasets: [{ data: [done, Math.max(0, 24 - done)], backgroundColor: [RED, LINEA], borderWidth: 0 }] },
+      options: { maintainAspectRatio: false, cutout: '72%', plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } } } });
+    chart('c-fza', { type: 'bar', data: { labels: LIFTS[modo()], datasets: [
+      { label: f0 ? 'Semana ' + fw[0] : 'Inicio', data: f0 ? f0.map(x => x && Math.round(x)) : [], backgroundColor: GRIS, borderRadius: 6 },
+      { label: f1 && fw.length > 1 ? 'Semana ' + fw[fw.length - 1] : 'Último', data: f1 && fw.length > 1 ? f1.map(x => x && Math.round(x)) : [], backgroundColor: RED, borderRadius: 6 }] },
+      options: { maintainAspectRatio: false, plugins: { legend: { labels: { boxWidth: 12 } } }, scales: { y: { beginAtZero: true } } } });
+    const p0 = PER.map(([k]) => first(serie(k))), p1 = PER.map(([k]) => last(serie(k)));
+    chart('c-per', { type: 'bar', data: { labels: PER.map(p => p[1]), datasets: [
+      { label: 'Semana 1', data: p0, backgroundColor: GRIS, borderRadius: 6 }, { label: 'Última', data: p1, backgroundColor: RED, borderRadius: 6 }] },
+      options: { maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { labels: { boxWidth: 12 } } }, scales: { x: { beginAtZero: false, grace: '8%' } } } });
+    const sel = $('exsel'), prev = sel.value;
+    sel.innerHTML = 'ABC'.split('').map(r => `<optgroup label="Rutina ${r}">` + conCarga(r).map((x, j) => `<option value="${exId(r, j)}">${x.e.n}</option>`).join('') + '</optgroup>').join('');
+    if (prev) sel.value = prev;
+    sel.onchange = exChart; exChart();
+  }
+  function exChart() {
+    const s = exSerie($('exsel').value), sinPeso = s.every(x => !x || !x.p);
+    chart('c-ex', { type: 'line', data: { labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'], datasets: sinPeso
+      ? [{ label: 'Repeticiones posibles (reps + RIR)', data: s.map(x => x && x.r ? x.r + (x.x || 0) : null), borderColor: RED, backgroundColor: RED, tension: .3, spanGaps: true }]
+      : [{ label: 'Peso (kg)', data: s.map(x => x && x.p ? x.p : null), borderColor: RED, backgroundColor: RED, tension: .3, spanGaps: true },
+         { label: '1RM estimado (kg)', data: s.map(x => x && x.p && x.r ? Math.round(e1rm(x.p, x.r, x.x)) : null), borderColor: INK, backgroundColor: INK, borderDash: [6, 4], tension: .3, spanGaps: true }] },
+      options: { maintainAspectRatio: false, plugins: { legend: { labels: { boxWidth: 12 } } }, scales: { y: { grace: '10%' } } } });
+  }
+
+  function render() {
+    if (!S.perfil) return setup(true);
+    $('who').textContent = (S.perfil.nombre ? S.perfil.nombre + ' · ' : '') + (modo() === 'gym' ? 'Gimnasio' : 'Casa');
+    $('views').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === view));
+    ['entrenar', 'zona', 'progreso', 'medidas'].forEach(v => $('v-' + v).hidden = v !== view);
+    $('nav-zona').textContent = (Z ? '' : '🔒 ') + 'Zona media';
+    if (view === 'entrenar') entrenar();
+    if (view === 'zona') zona();
+    if (view === 'progreso') progreso();
+    if (view === 'medidas') { tabs(); form(); fotos(); }
+  }
+
+  // ---------- fotos (se achican antes de guardar)
+  let fotoKey = null;
+  function fotos() {
+    document.querySelectorAll('.ph').forEach(el => {
+      const k = el.dataset.k, src = S.fotos[k], lab = k === 'f1' ? 'Semana 1' : 'Semana 8';
+      el.innerHTML = `<span>${lab}</span>` + (src ? `<img src="${src}" alt="${lab}">` : '<em>Tocá para subir tu foto</em>');
+      el.onclick = () => { fotoKey = k; $('photo').click(); };
+    });
+  }
+  $('photo').onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    const img = new Image(), url = URL.createObjectURL(f);
+    img.onload = () => {
+      const c = document.createElement('canvas'), s = Math.min(1, 720 / Math.max(img.width, img.height));
+      c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      S.fotos[fotoKey] = c.toDataURL('image/jpeg', .72); URL.revokeObjectURL(url);
+      if (save()) toast('Foto guardada'); fotos(); e.target.value = '';
+    };
+    img.src = url;
+  };
+
+  // ---------- reporte PDF
+  function filasCargas() {
+    const out = [];
+    'ABC'.split('').forEach(r => conCarga(r).forEach((x, j) => {
+      const s = exSerie(exId(r, j)).map((c, w) => c && (c.p || c.r) ? { w: w + 1, ...c } : null).filter(Boolean);
+      if (!s.length) return;
+      const a = s[0], b = s[s.length - 1], txt = c => (c.p ? fmt(c.p, c.p % 1 ? 1 : 0) + ' kg × ' : '') + (c.r || '–') + (c.x != null ? ' @' + c.x : '');
+      const va = a.p ? e1rm(a.p, a.r, a.x) : (a.r || 0) + (a.x || 0), vb = b.p ? e1rm(b.p, b.r, b.x) : (b.r || 0) + (b.x || 0);
+      const pct = s.length > 1 && va ? Math.round((vb - va) / va * 100) : null;
+      out.push(`<tr><td>${r} · ${x.e.n}</td><td>S${a.w}: ${txt(a)}</td><td>${s.length > 1 ? 'S' + b.w + ': ' + txt(b) : '–'}</td><td>${pct == null ? '–' : (pct > 0 ? '+' : '') + pct + '%'}</td></tr>`);
+    }));
+    return out.join('');
+  }
+  $('reporteBtn').onclick = async () => {
+    const btn = $('reporteBtn'); btn.disabled = true; btn.textContent = 'Armando el reporte…';
+    try {
+      const k = id => $(id).textContent, logo = document.querySelector('.brand img').src, filas = filasCargas(), f1 = S.fotos.f1, f8 = S.fotos.f8;
+      $('reporte').innerHTML = `
+        <div class="rh"><div><img src="${logo}" alt="RENOVA"><b>Reporte de progreso</b><span>MÉTODO 40 · ${modo() === 'gym' ? 'Gimnasio' : 'Casa'}</span></div>
+          <span>${S.perfil.nombre || ''}<br>${new Date().toLocaleDateString('es-AR')}</span></div>
+        <div class="rk">
+          <div><small>Peso</small><strong>${k('k-peso')}</strong><em>${k('d-peso')}</em></div>
+          <div><small>Cintura</small><strong>${k('k-cin')}</strong><em>${k('d-cin')}</em></div>
+          <div><small>Fuerza</small><strong>${k('k-fza')}</strong><em>${k('d-fza')}</em></div>
+          <div><small>Sesiones</small><strong>${k('k-ses')}</strong><em>${k('d-ses')}</em></div>
+          <div><small>Cintura / altura</small><strong>${k('k-ict')}</strong><em>${k('d-ict')}</em></div></div>
+        <div class="rg"><div><h3>Peso y cintura</h3><img src="${charts['c-cuerpo'].toBase64Image()}"></div><div><h3>Fuerza estimada</h3><img src="${charts['c-fza'].toBase64Image()}"></div></div>
+        <h3>Mis entrenamientos</h3><table class="ent">${$('ent').innerHTML}</table>
+        ${filas ? `<h3 style="margin-top:14px">Mis cargas: primera semana vs última</h3><table><thead><tr><th>Ejercicio</th><th>Inicio</th><th>Última</th><th>Cambio</th></tr></thead><tbody>${filas}</tbody></table>` : ''}
+        ${f1 || f8 ? `<h3 style="margin-top:14px">Fotos</h3><div class="rf">${f1 ? `<img src="${f1}">` : '<div></div>'}${f8 ? `<img src="${f8}">` : '<div></div>'}</div>` : ''}
+        <p class="rp">RENOVA · MÉTODO 40 · Ignacio Portillo</p>`;
+      await new Promise(r => setTimeout(r, 300));
+      const canvas = await html2canvas($('reporte'), { scale: 2, backgroundColor: '#ffffff', useCORS: true });
+      const { jsPDF } = window.jspdf, W = 210, H = canvas.height * W / canvas.width;
+      const pdf = new jsPDF({ unit: 'mm', format: [W, Math.max(297, H)] });
+      pdf.addImage(canvas.toDataURL('image/jpeg', .9), 'JPEG', 0, 0, W, H);
+      const nombre = 'reporte-metodo40' + (S.perfil.nombre ? '-' + S.perfil.nombre.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-') : '') + '.pdf';
+      const file = new File([pdf.output('blob')], nombre, { type: 'application/pdf' });
+      const movil = matchMedia('(pointer: coarse)').matches;   // celular o tablet: compartir; compu: descargar
+      if (movil && navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'Mi progreso', text: 'Mi reporte de progreso de MÉTODO 40' }).catch(() => {});
+      } else {
+        const a = document.createElement('a'); a.href = URL.createObjectURL(file); a.download = nombre; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1500);
+        toast('Reporte descargado');
+      }
+    } catch (e) { alert('No se pudo armar el reporte. Probá de nuevo.'); }
+    btn.disabled = false; btn.textContent = 'Exportar reporte';
+  };
+
+  // ---------- videos dentro de la app (YouTube insertado, sin salir)
+  const ytId = u => { const m = String(u).match(/(?:youtu\.be\/|shorts\/|[?&]v=)([\w-]{11})/); return m && m[1]; };
+  function abrirVideo(url, titulo) {
+    const id = ytId(url); if (!id) return window.open(url, '_blank');
+    $('vbox').classList.toggle('vert', /shorts\//.test(url));
+    $('vtit').textContent = titulo || '';
+    $('vyt').href = url;
+    // youtube.com (no youtube-nocookie: sin cookies YouTube pide "confirmá que no sos un robot" en muchos celulares),
+    // con origin y referrer: YouTube los exige para dejar reproducir videos insertados en otra página.
+    const org = encodeURIComponent(location.origin);
+    $('vfr').innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&playsinline=1&enablejsapi=1&origin=${org}&widget_referrer=${org}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share" allowfullscreen title="${titulo || 'Video'}"></iframe>`;
+    $('vmodal').hidden = false; document.body.style.overflow = 'hidden';
+  }
+  function cerrarVideo() { $('vfr').innerHTML = ''; $('vmodal').hidden = true; document.body.style.overflow = ''; }
+  document.addEventListener('click', ev => {
+    const a = ev.target.closest('a[data-t]'); if (!a) return;
+    ev.preventDefault(); abrirVideo(a.href, a.dataset.t);
+  });
+  $('vclose').onclick = cerrarVideo;
+  $('vmodal').onclick = ev => { if (ev.target === $('vmodal')) cerrarVideo(); };
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && !$('vmodal').hidden) cerrarVideo(); });
+
+  // ---------- copia de seguridad
+  $('export').onclick = () => {
+    const b = new Blob([JSON.stringify(S)], { type: 'application/json' }), a = document.createElement('a');
+    a.href = URL.createObjectURL(b); a.download = 'metodo40-mi-progreso.json'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
+  $('import').onclick = () => $('importfile').click();
+  $('importfile').onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    f.text().then(t => { const d = JSON.parse(t); if (!d.weeks) throw 0; S = Object.assign({ fotos: {}, cargas: {} }, d); save(); render(); toast('Copia recuperada'); })
+      .catch(() => alert('Ese archivo no es una copia de la app.'));
+  };
+
+  function arrancar() {
+    $('gate').hidden = true;
+    // arranca en la semana y rutina que tocan: la primera semana sin las 3 sesiones
+    for (let w = 1; w <= 8; w++) { const faltan = 'ABC'.split('').filter(r => !hechas(w).includes(r)); if (faltan.length) { week = w; rut = faltan[0]; break; } }
+    S.perfil ? (setup(false), render()) : setup(true);
+  }
+  if (tieneAcceso()) arrancar(); else { $('gate').hidden = false; $('app').hidden = true; $('setup').hidden = true; }
+})();
+</script>
+</body>
+</html>

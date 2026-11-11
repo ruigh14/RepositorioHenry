@@ -1,0 +1,1329 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Entrená en el gimnasio · RENOVA</title><style>/* RENOVA · design system — tipografías locales.
+   ../design-system/fonts/ se reemplaza por la ruta a fuentes/design-system/fonts/ (lo hace design_system.css()). */
+@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("../design-system/fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("../design-system/fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("../design-system/fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("../design-system/fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("../design-system/fonts/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("../design-system/fonts/inter-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"InterTightW";font-weight:100 900;font-style:normal;src:url("../design-system/fonts/inter-tight-latin-var.woff2") format("woff2")}
+
+/* RENOVA · design system — tokens
+   Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
+   Paleta = la del ebook (medida en el PDF). Landings, creativos y videos usan exactamente estos colores.
+   Ver README.md para el uso de cada uno. */
+:root{
+  /* ---- Color: turquesa de marca (el de nachoportillo.com) */
+  --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
+  --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
+  --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
+  --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
+  --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
+  --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  /* ---- Color: logo (solo portada y logo, no para texto corrido) */
+  --rnv-azul:#0033A0;
+  --rnv-rojo:#E63333;
+  /* ---- Color: sello de garantía (solo el sello dorado) */
+  --rnv-oro:#E2A928;
+  --rnv-oro-claro:#F9DE7E;
+  --rnv-oro-oscuro:#8A5A0B;
+  /* ---- Color: neutros */
+  --rnv-tinta:#141414;             /* títulos */
+  --rnv-texto:#2A2F33;             /* cuerpo */
+  --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
+  --rnv-linea:#E3ECEE;             /* separadores */
+  --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
+  --rnv-oscuro:#141414;            /* barras, pie y recuadros oscuros (el negro del ebook) */
+  --rnv-blanco:#FFFFFF;
+
+  /* ---- Degradés y sombras */
+  --rnv-degrade:linear-gradient(135deg,#14B1C7 0%,#0E9DB2 100%);   /* solo turquesas del ebook */
+  --rnv-sombra:0 10px 30px rgba(20,20,20,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(20,20,20,.16);
+  --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
+
+  /* ---- Tipografía */
+  --rnv-fuente:"InterW","Inter",system-ui,sans-serif;            /* todo el texto */
+  --rnv-fuente-display:"InterTightW","Inter Tight","InterW",sans-serif; /* titulares de web y redes */
+
+  /* Escala del ebook (A4, se lee en el celular: cuerpo mínimo 15 pt) */
+  --rnv-pdf-portada:37pt;
+  --rnv-pdf-h1:26pt;
+  --rnv-pdf-h2:18pt;
+  --rnv-pdf-h3:16pt;
+  --rnv-pdf-cuerpo:16pt;
+  --rnv-pdf-chico:13pt;
+  --rnv-pdf-etiqueta:7.6pt;
+
+  /* Escala web (landing) */
+  --rnv-web-h1:clamp(46px,7vw,80px);
+  --rnv-web-h2:clamp(28px,3.6vw,42px);
+  --rnv-web-cuerpo:17px;
+  --rnv-web-chico:14px;
+
+  /* Escala redes (lienzo de 1080 px de ancho: se ve a ~36% en el celular) */
+  --rnv-red-gancho:104px;   /* titular principal */
+  --rnv-red-titulo:72px;
+  --rnv-red-subtitulo:48px;
+  --rnv-red-cuerpo:40px;    /* mínimo para que se lea en el celular */
+  --rnv-red-etiqueta:28px;
+
+  /* ---- Espacios y radios */
+  --rnv-esp-1:8px; --rnv-esp-2:16px; --rnv-esp-3:24px; --rnv-esp-4:40px; --rnv-esp-5:64px;
+  --rnv-radio:14px;
+  --rnv-radio-grande:24px;
+  --rnv-radio-pill:999px;
+
+  /* ---- Página A4 del ebook */
+  --rnv-a4-margen:21mm 17mm 17mm;
+
+  /* ---- Zonas seguras de Instagram y Facebook en 1080×1920 (historias y reels) */
+  --rnv-zona-arriba:250px;
+  --rnv-zona-abajo:340px;
+}
+
+/* PROGRAMA RENOVA — estilos del ebook (A4) */
+:root{   /* alias cortos de los tokens del design system (fuentes/design-system/tokens.css) */
+  --tq:var(--rnv-turquesa);
+  --tq-t:var(--rnv-turquesa-titulo);
+  --tq-d:var(--rnv-turquesa-oscuro);
+  --tq-dd:var(--rnv-turquesa-profundo);
+  --tq-l:var(--rnv-turquesa-fondo);
+  --tq-b:var(--rnv-turquesa-borde);
+  --ink:var(--rnv-tinta);
+  --txt:var(--rnv-texto);
+  --mut:var(--rnv-gris);
+  --line:var(--rnv-linea);
+  --bg2:var(--rnv-fondo);
+}
+@page{size:A4;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff}
+body{font-family:"InterW",sans-serif;color:var(--txt);font-size:11.2pt;line-height:1.52;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;break-after:page;padding:21mm 17mm 17mm;background:#fff}
+.page:last-child{page-break-after:auto;break-after:auto}
+.body{height:259mm;overflow:hidden;position:relative}
+.hdr{position:absolute;top:8.5mm;left:17mm;right:17mm;display:flex;justify-content:space-between;align-items:center;font-size:7pt;letter-spacing:.18em;color:var(--mut);text-transform:uppercase;border-bottom:.3mm solid var(--tq-b);padding-bottom:2.2mm}
+.hdr b{color:var(--ink);font-weight:900}
+.ftr{position:absolute;bottom:7mm;left:17mm;right:17mm;display:flex;justify-content:space-between;font-size:7.5pt;color:var(--mut)}
+.ftr a{color:var(--tq-d);text-decoration:none;font-weight:600}
+.ftr span{font-weight:700;color:var(--ink)}
+a{color:var(--tq-d)}
+
+h1,h2,h3,h4,h5{color:var(--ink);margin:0;font-family:"InterW",sans-serif}
+.h1{font-size:29pt;font-weight:900;line-height:1.06;letter-spacing:-.02em;margin:3mm 0 4mm}
+.h1.big{font-size:36pt}
+h2{font-size:15.5pt;font-weight:800;margin:5mm 0 2mm;letter-spacing:-.01em}
+h3{font-size:12.2pt;font-weight:800;margin:3.6mm 0 1.2mm}
+h3:first-child,h2:first-child{margin-top:0}
+p{margin:0 0 2.2mm}
+.t{color:var(--tq-t)}
+.lead{font-size:13pt;line-height:1.5;color:var(--mut);margin-bottom:4mm}
+.small{font-size:9.4pt;color:var(--mut)}
+.center{text-align:center}
+.pill{display:inline-block;padding:1.6mm 4.5mm;border:.45mm solid var(--tq-b);border-radius:99px;color:var(--tq-d);font-weight:800;font-size:7.6pt;letter-spacing:.16em;background:#fff}
+.ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.12em}
+
+.list{margin:0 0 2mm;padding-left:4.5mm}
+.list li{margin:0 0 1.2mm}
+.list li::marker{color:var(--tq)}
+.checks{list-style:none;padding:0;margin:0 0 2mm}
+.checks li{display:flex;gap:2.5mm;align-items:flex-start;margin-bottom:1.6mm}
+.checks .ic{flex:none;color:#fff;background:var(--tq);border-radius:50%;padding:.8mm;width:4.6mm;height:4.6mm;margin-top:.3mm}
+
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:8mm}
+.box{border-radius:3mm;padding:4mm 5mm;margin:3.5mm 0;font-size:10.2pt;line-height:1.45}
+.box.note{background:var(--bg2);border:.35mm solid var(--tq-b)}
+.box.soft{background:var(--tq-l)}
+
+/* capítulos */
+.chead{border-bottom:.4mm solid var(--tq-b);padding-bottom:4mm;margin-bottom:4mm}
+.cnum{display:block;font-family:"InterW";font-weight:900;font-size:46pt;line-height:1;color:var(--tq)}
+.chead h1{font-size:30pt;font-weight:900;line-height:1.05;letter-spacing:-.02em;margin:2mm 0 3mm}
+.chead .lead{margin:0}
+
+/* portada */
+.p-cover{padding:0}
+.p-cover .body{height:297mm}
+.cover{height:281mm;display:flex;flex-direction:column;padding:16mm 17mm 0;background-color:#fff;background-image:linear-gradient(#EEF4F5 .25mm,transparent .25mm),linear-gradient(90deg,#EEF4F5 .25mm,transparent .25mm);background-size:10mm 10mm}
+.brand{font-size:10pt;letter-spacing:.32em;color:var(--ink);margin-bottom:7mm}
+.brand b{font-weight:900}
+.cover-title{font-size:38pt;font-weight:900;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;margin:6mm 0 4mm}
+.cover-sub{font-size:13pt;color:var(--mut);max-width:150mm;margin:0}
+.cover-photo{flex:1;margin-top:9mm;border-radius:6mm 6mm 0 0;overflow:hidden;border:.5mm solid var(--tq-b);border-bottom:0;position:relative}
+.cover-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+.cover-foot{display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;padding:4mm 6mm;font-size:8.5pt;letter-spacing:.12em;border-radius:0}
+.cover-foot span:first-child{font-weight:800}
+.band{height:16mm;background:var(--tq);color:#fff;font-weight:800;letter-spacing:.42em;font-size:10pt;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+
+/* bienvenida */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:2mm}
+.pillar{border:.35mm solid var(--line);border-radius:3.5mm;padding:4mm}
+.pillar .pn{font-weight:900;font-size:18pt;color:var(--tq);line-height:1}
+.pillar h3{margin:2mm 0 1.5mm;font-size:11.6pt}
+.pillar p{font-size:10pt;color:var(--mut);margin:0}
+
+/* índice */
+.tocl{display:flex;flex-direction:column;gap:0;margin-top:4mm}
+.tocr{display:flex;align-items:baseline;gap:3mm;padding:4.6mm 0;border-bottom:.3mm solid var(--line);text-decoration:none;color:var(--ink);font-size:13.5pt;font-weight:700}
+.tocr .dots{flex:1}
+.tocr .pg{font-weight:900;color:var(--tq-d);min-width:9mm;text-align:right}
+
+/* pasos */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:2mm 0 1mm}
+.step{background:var(--bg2);border-radius:3mm;padding:3.5mm}
+.step span{display:inline-flex;width:6.5mm;height:6.5mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:800;align-items:center;justify-content:center;font-size:9pt;margin-bottom:1.5mm}
+.step b{display:block;color:var(--ink);font-size:11pt}
+.step p{font-size:10pt;color:var(--mut);margin:1mm 0 0}
+
+/* parámetros y ejercicios */
+.params{display:grid;grid-template-columns:repeat(4,1fr);border:.35mm solid var(--tq-b);border-radius:3mm;overflow:hidden;margin:1mm 0 3mm}
+.params div{padding:2.6mm 3.5mm;border-right:.3mm solid var(--tq-b)}
+.params div:last-child{border-right:0}
+.params span{display:block;font-size:7pt;letter-spacing:.12em;text-transform:uppercase;color:var(--tq-d);font-weight:700}
+.params b{font-size:10pt;color:var(--ink)}
+.exlist{display:flex;flex-direction:column;gap:3.2mm}
+.ex{display:grid;grid-template-columns:42mm 1fr;gap:5mm;border:.35mm solid var(--line);border-radius:3.5mm;padding:3.5mm;align-items:center}
+.exim{height:40mm;display:flex;align-items:center;justify-content:center;background:var(--bg2);border-radius:2.5mm;padding:2mm}
+.exim img{max-width:100%;max-height:100%;object-fit:contain}
+.exh{display:flex;justify-content:space-between;align-items:baseline;gap:3mm;margin-bottom:1.2mm}
+.exh h4{font-size:12pt;font-weight:800}
+.dose{flex:none;background:var(--tq-l);color:var(--tq-dd);font-weight:700;font-size:8.4pt;padding:.8mm 2.6mm;border-radius:99px}
+.extx p{font-size:9.8pt;margin:0 0 1.2mm}
+.easy{color:var(--mut)}
+.easy b{color:var(--tq-d)}
+.ojo{color:var(--ink);margin-top:1mm}
+.ojo b{color:var(--tq-d)}
+.exgrid{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.ex-c{grid-template-columns:30mm 1fr;gap:3.5mm;padding:3mm}
+.ex-c .exim{height:30mm}
+.ex-c .exh{flex-direction:column;align-items:flex-start;gap:.8mm}
+.ex-c .exh h4{font-size:10.4pt}
+.ex-c .extx p{font-size:9.4pt}
+.g4 .ex-c .exim{height:26mm}
+.g4 .ex-c{grid-template-columns:28mm 1fr}
+.rowend{display:flex;justify-content:flex-end;align-items:center;gap:3mm;margin-top:3mm}
+.endrow{display:grid;grid-template-columns:1fr auto;gap:5mm;align-items:center;margin-top:4mm}
+.endrow .box{margin:0}
+.vbtn{display:inline-flex;align-items:center;gap:2mm;background:var(--ink);color:#fff;font-weight:800;font-size:8.4pt;letter-spacing:.06em;padding:2.6mm 4.5mm;border-radius:2.5mm;text-decoration:none}
+.vbtn .ic{fill:currentColor;stroke:none}
+.marker{display:block;font-family:"DejaVu Sans Mono",monospace;font-size:7pt;color:#B4232A;margin-top:1.2mm}
+.box .vbtn{margin-top:2mm}
+
+/* calendario */
+.cal{width:100%;border-collapse:separate;border-spacing:1.6mm;margin:0 -1.6mm 1mm;table-layout:fixed}
+.cal th{font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:700;padding:1mm}
+.cal tbody th{text-align:left;color:var(--ink);font-size:8.6pt;letter-spacing:.04em;width:20mm}
+.cal td{height:15mm;border:.35mm solid var(--line);border-radius:2.5mm;text-align:center;vertical-align:middle}
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:9mm;height:7mm;border-radius:99px;font-weight:800;font-size:8.4pt;padding:0 2mm}
+.c1{background:var(--tq);color:#fff}
+.c2{background:var(--ink);color:#fff}
+.c3{background:var(--tq-dd);color:#fff}
+.ca{background:var(--tq-l);color:var(--tq-dd);border:.35mm solid var(--tq-b)}
+.cd{background:#F1F3F4;color:var(--mut);font-weight:600;font-size:7pt}
+.ce{color:#9AA3A8;font-weight:500;font-size:7pt}
+.legend{display:flex;flex-wrap:wrap;gap:5mm;font-size:9.6pt;color:var(--mut);margin:1mm 0 3mm}
+.legend>span{display:inline-flex;align-items:center;gap:1.5mm}
+.grid-t,.track{width:100%;border-collapse:collapse;table-layout:fixed;margin-bottom:2mm}
+.grid-t th,.grid-t td,.track th,.track td{border:.3mm solid #C9D6D9;padding:1.6mm}
+.grid-t thead th,.track thead th{background:var(--tq-l);color:var(--tq-dd);font-size:7.8pt;letter-spacing:.08em;text-transform:uppercase}
+.grid-t tbody th,.track tbody th{text-align:left;font-size:8.4pt;font-weight:700;color:var(--ink);width:38mm}
+.grid-t td{height:11mm}
+h3.wk{margin:4mm 0 1.5mm;font-size:9.6pt;color:var(--tq-dd)}
+.track tbody th{width:46mm}
+.track td{height:17mm}
+
+/* alimentación */
+.plate-wrap{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:center;margin:2mm 0 2mm}
+.plate{width:60mm;height:60mm;border-radius:50%;border:2mm solid var(--tq-b);position:relative;overflow:hidden;background:#fff}
+.plate div{position:absolute;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:8.6pt;text-align:center}
+.pl-veg{left:0;top:0;width:50%;height:100%;background:var(--tq);color:#fff}
+.pl-pro{right:0;top:0;width:50%;height:50%;background:var(--ink);color:#fff}
+.pl-car{right:0;bottom:0;width:50%;height:50%;background:var(--tq-l);color:var(--tq-dd)}
+.eq{width:100%;border-collapse:collapse;font-size:10pt;margin:1mm 0 3mm}
+.eq th{background:var(--tq-l);color:var(--tq-dd);text-align:left;padding:2mm 3mm;font-size:8pt;letter-spacing:.06em;text-transform:uppercase}
+.eq td{border-bottom:.3mm solid var(--line);padding:2mm 3mm}
+.eq td:first-child{font-weight:700;color:var(--ink);width:55mm}
+.menu{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8.4pt;line-height:1.35;margin-top:2mm}
+.menu thead th{background:var(--ink);color:#fff;padding:2.6mm 2mm;font-size:7.8pt;letter-spacing:.1em;text-transform:uppercase}
+.menu thead th:first-child{background:#fff;width:13mm}
+.menu tbody th{background:var(--tq);color:#fff;font-size:8pt;letter-spacing:.06em;text-transform:uppercase;width:13mm}
+.menu td{border:.3mm solid #D3E3E6;padding:2.4mm 2.2mm;vertical-align:middle;height:31mm;text-align:center;color:var(--ink)}
+.menu tbody tr:nth-child(even) td{background:var(--bg2)}
+.rmark{display:inline-flex;align-items:center;justify-content:center;width:3.8mm;height:3.8mm;border-radius:50%;background:var(--tq-l);color:var(--tq-dd);font-size:6.4pt;font-weight:800;vertical-align:.3mm;border:.25mm solid var(--tq-b)}
+
+/* recetas */
+.rindex{columns:1;margin:0;padding-left:6mm;font-size:10.4pt}
+.rindex li{margin-bottom:.9mm}
+.rindex li::marker{color:var(--tq-d);font-weight:700}
+.rindex a{color:var(--ink);text-decoration:none}
+.rec{border:.35mm solid var(--line);border-radius:4mm;overflow:hidden;margin-bottom:5mm}
+.rech{background:var(--bg2);padding:4mm 5mm 3.5mm;border-bottom:.35mm solid var(--line)}
+.rcat{font-size:7pt;letter-spacing:.16em;color:var(--tq-d);font-weight:800}
+.rech h2{margin:1mm 0 1.5mm;font-size:16pt}
+.rmeta{display:flex;gap:6mm;font-size:9.8pt;color:var(--mut)}
+.rmeta b{color:var(--ink)}
+.recb{display:grid;grid-template-columns:66mm 1fr;gap:6mm;padding:4mm 5mm}
+.recb h5{font-size:7.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-d);margin-bottom:1.5mm}
+.ing{margin:0;padding-left:4mm;font-size:10.2pt}
+.ing li{margin-bottom:.8mm}
+.ing li::marker{color:var(--tq)}
+.steps-ol{margin:0;padding-left:5mm;font-size:10.2pt}
+.steps-ol li{margin-bottom:1.2mm}
+.steps-ol li::marker{color:var(--tq-d);font-weight:800}
+.tip{background:var(--tq-l);border-radius:2mm;padding:2.4mm 3.4mm;font-size:9.6pt;margin-top:2mm}
+
+/* organización */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;margin-bottom:2mm}
+.tile{border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm 4mm}
+.tile h3{margin:0 0 1.2mm;font-size:11.4pt}
+.tile p{font-size:10pt;margin:0;color:var(--txt)}
+.cbox{display:grid;grid-template-columns:1fr 1fr;gap:1.6mm 6mm;border:.35mm solid var(--tq-b);border-radius:3mm;padding:4mm}
+.cb{display:flex;gap:2.5mm;align-items:flex-start;font-size:10.2pt;margin-bottom:.6mm}
+.sq{flex:none;width:3.8mm;height:3.8mm;border:.4mm solid var(--tq-d);border-radius:.8mm;margin-top:.5mm}
+.shopgrid{display:grid;grid-template-columns:1fr 1fr;gap:6mm}
+.shop{margin-bottom:4mm}
+.shop h3{border-bottom:.4mm solid var(--tq);padding-bottom:1mm;margin:0 0 2mm;font-size:11.2pt}
+.shop .cb{font-size:9.8pt}
+
+/* seguimiento */
+.notes h3{font-size:9.6pt}
+.lines{height:48mm;background-image:linear-gradient(transparent 7.6mm,#C9D6D9 7.6mm,#C9D6D9 7.9mm,transparent 7.9mm);background-size:100% 8mm}
+
+/* cierre */
+.quote{margin-top:7mm;border-top:.4mm solid var(--tq-b);border-bottom:.4mm solid var(--tq-b);padding:6mm 0;font-family:"InterW";font-weight:900;font-size:19pt;line-height:1.15;color:var(--ink);letter-spacing:-.01em;text-align:center}
+.quote.dark{background:var(--ink);color:#fff;border:0;border-radius:4mm;padding:6mm 8mm;font-size:15pt}
+.t2{color:#4FD3E5}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;gap:3mm;background:var(--tq-t);color:#fff;font-weight:800;letter-spacing:.04em;font-size:10pt;padding:4mm 7mm;border-radius:3.5mm;text-decoration:none;box-shadow:0 0 0 1.2mm var(--tq-b)}
+.btn-big{font-size:12.5pt;padding:5.5mm 10mm}
+.btnwrap{display:inline-flex;flex-direction:column;align-items:center}
+.btnwrap .marker{margin-top:3mm;font-size:7.6pt}
+.cta-center{display:flex;justify-content:center;margin:8mm 0 3mm}
+
+/* talleres */
+.wgrid{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:5mm 0 2mm}
+.wcard{border:.4mm solid var(--tq-b);border-radius:4mm;padding:5mm}
+.wtag{font-size:7pt;letter-spacing:.16em;color:var(--tq-d);font-weight:800}
+.wcard h3{margin:1.5mm 0 1.5mm;font-size:13.5pt}
+.wcard p{font-size:10.2pt;color:var(--mut);margin:0}
+.bonus .cols2{margin-top:4mm;background:var(--bg2);border-radius:4mm;padding:5mm}
+
+/* referencias */
+.refs{padding-left:5mm;font-size:10pt}
+.refs li{margin-bottom:2mm}
+
+/* bio */
+.bio-top{display:grid;grid-template-columns:62mm 1fr;gap:7mm;align-items:start}
+.bio-photo{height:80mm;border-radius:4mm;overflow:hidden;border:.5mm solid var(--tq-b)}
+.bio-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.role{font-weight:700;color:var(--tq-d);margin-top:-2mm}
+.what{margin-top:6mm;background:var(--bg2);border-radius:4mm;padding:5mm 6mm}
+.what h2{margin-top:0}
+.pills4{display:flex;gap:2.5mm;margin-top:2mm}
+.pills4 span{border:.4mm solid var(--tq-b);background:#fff;color:var(--tq-dd);font-weight:700;font-size:8.4pt;padding:1.2mm 4mm;border-radius:99px}
+.bio .quote{margin-top:6mm}
+.bio .cta-center{margin-top:6mm}
+
+/* agregados */
+.firstweek{margin-top:6mm;background:var(--ink);color:#fff;border-radius:4mm;padding:5mm 6mm}
+.firstweek h2{color:#fff;margin:0 0 3mm}
+.fw{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.fw span{display:inline-flex;width:7mm;height:7mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:800;align-items:center;justify-content:center;font-size:9.5pt}
+.fw b{display:block;margin:1.5mm 0 1mm;font-size:11pt}
+.fw p{font-size:9.6pt;color:#D5DDE0;margin:0}
+.dayex{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.dayex div{border:.35mm solid var(--tq-b);border-radius:3mm;padding:3.5mm 4mm}
+.dayex span{display:block;font-size:7.6pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-d);font-weight:800;margin-bottom:1mm}
+.dayex b{font-size:10.4pt;color:var(--ink);font-weight:600}
+.minplan{display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}
+.minplan div{background:var(--tq-l);border-radius:3mm;padding:3.5mm}
+.minplan span{display:block;font-size:7.6pt;letter-spacing:.12em;text-transform:uppercase;color:var(--tq-dd);font-weight:800;margin-bottom:1.2mm}
+.minplan p{font-size:9.8pt;margin:0;color:var(--ink)}
+.p-spread .body{display:flex;flex-direction:column}
+.p-spread .cta-center{margin-top:auto;margin-bottom:auto}
+.p-spread .wcard{min-height:40mm}
+.p-spread .bonus{display:flex;flex-direction:column;height:100%}
+.gloss{display:grid;grid-template-columns:48mm 1fr;gap:2mm 5mm;font-size:10pt;margin:0}
+.gloss dt{font-weight:800;color:var(--ink)}
+.gloss dd{margin:0;color:var(--txt)}
+
+.p-spread .pill{align-self:flex-start}
+.plate div{padding:0 2mm;hyphens:manual;line-height:1.15}
+.ctapanel{margin-top:auto;margin-bottom:auto;background:var(--tq-l);border:.4mm solid var(--tq-b);border-radius:5mm;padding:9mm 8mm;display:flex;flex-direction:column;align-items:center}
+.ctatitle{font-weight:900;font-size:17pt;color:var(--ink);margin:0 0 1mm}
+.ctapanel .btn{margin-top:4mm}
+.bio-photo{height:100mm}
+.bio-top{grid-template-columns:70mm 1fr}
+.bio-top p{font-size:11.2pt}
+.what{margin-top:9mm;padding:7mm}
+.what p{font-size:11pt}
+.bio .quote{margin-top:9mm;font-size:17pt;padding:8mm}
+.bio .cta-center{margin-top:10mm}
+
+/* v2: una sola columna para textos explicativos */
+.cols2{display:block}
+.cols2>div+div{margin-top:3mm}
+.cols2.keep{display:grid}
+.cols2.keep>div+div{margin-top:0}
+.rpe{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin-top:2mm}
+.rpe div{border:.35mm solid var(--line);border-radius:3mm;padding:4mm}
+.rpe div.on{background:var(--tq);border-color:var(--tq);color:#fff}
+.rpe b{display:block;font-size:20pt;font-weight:900;line-height:1}
+.rpe span{display:block;font-weight:800;margin:1.5mm 0 1mm}
+.rpe p{font-size:9.8pt;margin:0}
+.rpe div.on p{color:#fff}
+/* imágenes de ejercicios: llenan el recuadro */
+.ex{grid-template-columns:38mm 1fr}
+.exim{width:38mm;height:38mm;padding:2mm;background:var(--bg2)}
+.exim img{width:100%;height:100%;max-width:none;max-height:none;object-fit:contain;display:block}
+.endrow{grid-template-columns:1fr}
+/* portada: foto completa, sin recortar la cara */
+.cover-photo{background:#0B0D11}
+.cover-photo img{object-fit:cover;object-position:50% 30%}
+.bio-photo{background:#0B0D11}
+.bio-photo img{object-position:50% 20%}
+
+/* v3: lectura en celular — letra más grande y más aire */
+body{font-size:12.4pt;line-height:1.6}
+.lead{font-size:14pt;line-height:1.55}
+h2{font-size:17pt;margin:6mm 0 2.5mm}
+h3{font-size:13.6pt;margin:5mm 0 1.8mm}
+.small{font-size:10.4pt}
+.list li,.checks li{margin-bottom:2mm}
+.box{font-size:11.4pt;padding:5mm 6mm;margin:5mm 0}
+.h1{font-size:30pt;margin:3mm 0 5mm}
+.chead{margin-bottom:6mm}
+.ex{grid-template-columns:42mm 1fr;padding:4mm;gap:6mm;margin-bottom:4mm;break-inside:avoid}
+.exim{width:42mm;height:42mm}
+.exh h4{font-size:13.6pt}
+.dose{font-size:9.6pt}
+.extx p{font-size:11pt;line-height:1.5}
+.vbtn-sm{display:inline-flex;align-items:center;gap:1.6mm;margin-top:1.5mm;background:var(--tq-t);color:#fff;font-weight:800;font-size:8.6pt;letter-spacing:.08em;padding:1.8mm 3.6mm;border-radius:99px;text-decoration:none}
+.vbtn-sm .ic{fill:currentColor;stroke:none;width:.9em;height:.9em}
+.vbtn-sm.inline{margin:0 .5mm;vertical-align:.3mm;font-size:8pt;padding:1mm 2.8mm}
+.params b{font-size:11pt}
+.params span{font-size:7.6pt}
+.box.end{margin-top:2mm}
+.recw{margin-bottom:6mm}
+.rec{margin-bottom:0}
+.ing,.steps-ol{font-size:11pt;line-height:1.5}
+.steps-ol li{margin-bottom:1.8mm}
+.ing li{margin-bottom:1.2mm}
+.tip{font-size:10.4pt}
+.rech h2{font-size:18pt}
+.tile p{font-size:11pt}
+.tile h3{font-size:12.4pt}
+.tiles{gap:4.5mm}
+.tile{padding:4.5mm 5mm}
+.cb{font-size:11pt;margin-bottom:1.2mm}
+.shop .cb{font-size:10.6pt}
+.wcard p{font-size:11pt}
+.cal td{height:17mm}
+.chip{font-size:9.4pt;height:8mm;min-width:10mm}
+.legend{font-size:10.4pt}
+.dayex b{font-size:11.4pt}
+.dayex div{padding:4.5mm 5mm}
+.pillar p{font-size:10.8pt}
+.fw p{font-size:10.4pt}
+.minplan p{font-size:10.8pt}
+.eq{font-size:11pt}
+.eq td{padding:2.6mm 3mm}
+.tocr{font-size:14.5pt;padding:5mm 0}
+.rpe p{font-size:10.6pt}
+.step p{font-size:10.8pt}
+.bio-top p{font-size:11.6pt}
+.what p{font-size:11.6pt}
+.team{display:grid;grid-template-columns:70mm 1fr;gap:6mm;align-items:center;margin-top:4mm;border:.4mm solid var(--tq-b);border-radius:4mm;padding:4mm}
+.team img,.team-ph{width:70mm;height:46mm;border-radius:3mm;object-fit:cover}
+.team-ph{background:var(--tq-l);border:.5mm dashed var(--tq);color:var(--tq-dd);font-weight:800;font-size:9pt;letter-spacing:.12em;display:flex;align-items:center;justify-content:center;text-align:center}
+.team-tx p{font-size:11pt;margin:1.5mm 0 2mm}
+.p-spread .wcard{min-height:34mm}
+
+/* v3b: ajuste fino para evitar páginas casi vacías */
+body{font-size:11.8pt;line-height:1.58}
+.lead{font-size:13.4pt}
+h3{font-size:13pt;margin:4.5mm 0 1.6mm}
+h2{font-size:16pt}
+.box{font-size:11pt;padding:4.5mm 5.5mm;margin:4mm 0}
+.ex{grid-template-columns:36mm 1fr;padding:3mm 4mm;gap:5mm;margin-bottom:3.2mm}
+.exim{width:36mm;height:36mm;padding:1.5mm}
+.exh{margin-bottom:.8mm}
+.exh h4{font-size:12.6pt}
+.extx p{font-size:10.4pt;line-height:1.42;margin-bottom:1mm}
+.menu td{height:27mm;font-size:9pt}
+.grid-t td{height:9.5mm}
+h3.wk{margin:3mm 0 1.2mm}
+.list li,.checks li{margin-bottom:1.6mm}
+.tocr{font-size:13pt;padding:3.4mm 0}
+.tiles{gap:3mm}.tile{padding:3.5mm 4.5mm}.tile p{font-size:10.4pt;line-height:1.45}.tile h3{font-size:11.8pt}
+.cbox{padding:3.5mm 4mm;gap:1mm 6mm}.cbox .cb{font-size:10.4pt}
+.shop .cb{font-size:10pt;margin-bottom:.8mm;line-height:1.4}.shop{margin-bottom:3mm}
+.track td{height:15mm}
+.bio-photo{height:78mm}.bio-top{grid-template-columns:62mm 1fr}
+.what{margin-top:6mm;padding:5.5mm}.bio .quote{margin-top:6mm;padding:6mm;font-size:15pt}.bio .cta-center{margin-top:7mm}
+.bio-top p,.what p{font-size:11pt}
+.recimg{height:62mm;overflow:hidden;background:var(--tq-l)}
+.recimg img{width:100%;height:100%;object-fit:cover;display:block}
+.recimg.ph{display:flex;align-items:center;justify-content:center;border-bottom:.5mm dashed var(--tq)}
+.recimg.ph span{font-weight:800;font-size:9pt;letter-spacing:.12em;color:var(--tq-dd)}
+.recimg{height:88mm}
+.chimg{height:70mm;border-radius:4mm;overflow:hidden;margin:2mm 0 5mm}.chimg img{width:100%;height:100%;object-fit:cover;display:block}
+.chimg{height:48mm;margin:0 0 4mm}
+
+/* v4: portada nueva */
+.cv{height:297mm;display:flex;flex-direction:column;background-color:#fff;background-image:linear-gradient(#EEF4F5 .25mm,transparent .25mm),linear-gradient(90deg,#EEF4F5 .25mm,transparent .25mm);background-size:10mm 10mm}
+.cv-top{padding:12mm 15mm 0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.cv-logo{height:24mm;width:auto;margin-bottom:4mm}
+.cv-pill{display:inline-block;padding:1.5mm 4mm;border:.45mm solid var(--tq-b);border-radius:99px;color:var(--tq-d);font-weight:800;font-size:7pt;letter-spacing:.14em;background:#fff}
+.cv-title{font-size:33pt;font-weight:900;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;margin:4mm 0 3mm;color:var(--ink)}
+.cv-sub{font-size:12.6pt;line-height:1.45;color:var(--mut);max-width:165mm;margin:0}
+.cv-mid{display:grid;grid-template-columns:72mm 1fr;gap:7mm;padding:7mm 15mm 0;align-items:stretch}
+.cv-photo{position:relative;border-radius:4mm;overflow:hidden;background:#0B0D11;height:92mm;border:.5mm solid var(--tq-b)}
+.cv-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;display:block}
+.cv-name{position:absolute;left:0;right:0;bottom:0;padding:3mm 4mm;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;display:flex;flex-direction:column}
+.cv-name b{font-size:10.5pt;letter-spacing:.1em}
+.cv-name span{font-size:8pt;color:#DCE4E6}
+.cv-why{display:flex;flex-direction:column;justify-content:center}
+.cv-k{font-size:8pt;letter-spacing:.16em;font-weight:800;color:var(--tq-d);margin-bottom:2.5mm}
+.cv-why .checks li{font-size:10.6pt;line-height:1.4;margin-bottom:2.2mm}
+.cv-for{margin:2mm 0 0;font-size:10pt;color:var(--ink);font-weight:600;border-left:1mm solid var(--tq);padding-left:3mm}
+.cv-team{position:relative;margin:7mm 0 0;flex:1;overflow:hidden;background:#fff}
+.cv-team img{width:100%;height:100%;object-fit:cover;object-position:50% 0%;display:block}
+.cv-team-tx{position:absolute;left:0;right:0;bottom:0;background:var(--tq);color:#fff;padding:3mm 15mm;display:flex;justify-content:space-between;align-items:center}
+.cv-team-tx b{font-size:11pt;letter-spacing:.2em}
+.cv-team-tx span{font-size:9.5pt}
+
+/* v5: portada editorial */
+.cv2{height:297mm;box-sizing:border-box;padding:14mm 16mm 12mm;display:flex;flex-direction:column;background:#fff;
+  --blue:var(--rnv-azul);--red:var(--rnv-rojo)}
+.c2-top{display:flex;flex-direction:column;align-items:center;gap:5mm}
+.c2-logo{height:21mm;width:auto}
+.c2-kick{font-size:8pt;letter-spacing:.22em;font-weight:700;color:var(--blue)}
+.c2-title{margin:11mm 0 0;text-align:center;font-weight:900;font-size:37pt;line-height:1.03;letter-spacing:-.02em;color:var(--blue)}
+.c2-t{color:var(--tq-t)}
+.c2-r{color:var(--red)}
+.c2-bar{width:24mm;height:1.4mm;background:var(--red);border-radius:1mm;margin:7mm auto 6mm}
+.c2-sub{text-align:center;font-size:16pt;font-weight:800;color:var(--ink);margin:0}
+.c2-desc{text-align:center;font-size:11.4pt;line-height:1.5;color:var(--mut);max-width:150mm;margin:3mm auto 0}
+.c2-photos{margin-top:auto;display:grid;grid-template-columns:70mm 1fr;gap:6mm;align-items:end}
+.c2-photos figure{margin:0;display:flex;flex-direction:column;gap:2.5mm}
+.c2-img{border-radius:4mm;overflow:hidden;height:88mm;border:.4mm solid #DCE6E8}
+.c2-img img{width:100%;height:100%;object-fit:cover;display:block}
+.c2-me .c2-img{background:#0B0D11}
+.c2-me .c2-img img{object-position:50% 12%}
+.c2-team .c2-img img{object-position:50% 0%}
+.c2-photos figcaption{display:flex;flex-direction:column;border-left:1.2mm solid var(--tq);padding-left:3mm}
+.c2-team figcaption{border-left-color:var(--blue)}
+.c2-photos figcaption b{font-size:10pt;letter-spacing:.14em;color:var(--blue)}
+.c2-photos figcaption span{font-size:9pt;color:var(--mut)}
+.c2-title{font-size:42pt;margin-top:13mm}
+.c2-sub{font-size:17pt}
+.c2-desc{font-size:12pt}
+.c2-img{height:112mm}
+.c2-photos{grid-template-columns:74mm 1fr}
+.c2-title{font-size:39pt;white-space:nowrap;margin-top:16mm}
+.c2-bar{margin:9mm auto 7mm}
+.c2-img{height:94mm}
+.c2-photos{grid-template-columns:62mm 1fr}
+.c2-team .c2-img img{object-position:50% 30%}
+.c2-title{margin-top:24mm}
+.c2-bar{margin:11mm auto 9mm}
+.c2-desc{margin-top:4mm}
+.c2-sub{font-size:21pt}
+.c2-desc{font-size:14pt;line-height:1.45;max-width:165mm}
+.c2-title{margin-top:18mm}
+.c2-photos.one{display:flex;flex-direction:column;gap:3mm}
+.c2-photos.one .c2-img{height:118mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 0%}
+.c2-photos.one figcaption{flex-direction:row;align-items:baseline;gap:4mm}
+.c2-photos.one figcaption b{font-size:11pt}
+.c2-photos.one figcaption span{font-size:10pt}
+.c2-roles{display:flex;justify-content:space-between;gap:3mm}
+.c2-roles span{flex:1;text-align:center;background:var(--tq-l);color:var(--blue);font-weight:800;font-size:10pt;letter-spacing:.06em;padding:2.4mm 0;border-radius:99px;border:.35mm solid var(--tq-b)}
+.c2-photos.one{align-items:stretch}
+.c2-photos.one .c2-img{height:108mm}
+.c2-title{margin-top:14mm}
+.c2-bar{margin:9mm auto 7mm}
+.c2-photos.one .c2-img{height:119mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 50%}
+.c2-title{margin-top:11mm}
+.c2-top{gap:4mm}
+.c2-bar{margin:7mm auto 6mm}
+.c2-photos.one .c2-img{height:136mm}
+.c2-photos.one .c2-team .c2-img img{object-position:50% 0%}
+.cv2{padding-top:11mm;padding-bottom:9mm}
+.c2-logo{height:18mm}
+.c2-title{margin-top:8mm;font-size:37pt}
+.c2-bar{margin:5mm auto 5mm}
+.c2-sub{font-size:19pt}
+.c2-desc{font-size:13pt;margin-top:2.5mm}
+.c2-photos.one{gap:2.5mm}
+.c2-photos.one .c2-img{height:140mm}
+.c2-photos.one .c2-team .c2-img img{object-fit:cover;object-position:50% 50%}
+
+/* v6: lectura en celular — todo más grande */
+body{font-size:13.2pt;line-height:1.55}
+.lead{font-size:15pt}
+.h1{font-size:32pt}
+h2{font-size:18.5pt}
+h3{font-size:15pt}
+.small{font-size:11.4pt}
+.box{font-size:12.6pt}
+.list li,.checks li{margin-bottom:2mm}
+.extx p{font-size:12pt;line-height:1.45}
+.exh h4{font-size:14.5pt}
+.dose{font-size:10.6pt}
+.vbtn-sm{font-size:9.6pt;padding:2.2mm 4mm}
+.params b{font-size:12.4pt}.params span{font-size:8.4pt}
+.ing,.steps-ol{font-size:12.4pt}
+.tip{font-size:11.6pt}
+.rech h2{font-size:20pt}.rmeta{font-size:11pt}.rcat{font-size:8.4pt}
+.menu{font-size:10.4pt}.menu thead th{font-size:9pt}.menu tbody th{font-size:9pt}
+.tile p{font-size:12pt}.tile h3{font-size:13.6pt}
+.cb,.cbox .cb{font-size:12pt}.shop .cb{font-size:11.6pt}.shop h3{font-size:13pt}
+.eq{font-size:12pt}
+.wcard p{font-size:12pt}.wcard h3{font-size:15pt}
+.dayex b{font-size:12.6pt}.minplan p{font-size:12pt}.minplan span{font-size:8.6pt}
+.pillar p{font-size:11.8pt}.pillar h3{font-size:13pt}
+.fw p{font-size:11.4pt}.fw b{font-size:12.4pt}
+.step p{font-size:11.8pt}.step b{font-size:12.4pt}
+.rpe p{font-size:11.6pt}
+.tocr{font-size:14.5pt}
+.legend{font-size:11pt}.chip{font-size:10pt}
+.grid-t tbody th,.track tbody th{font-size:9.8pt}
+.team-tx p{font-size:12pt}
+.bio-top p,.what p{font-size:12.4pt}
+.quote{font-size:21pt}
+.rindex{font-size:11.6pt}
+.gloss{font-size:11.6pt}
+/* portada */
+.c2-kick{font-size:9.4pt;letter-spacing:.16em}
+.c2-sub{font-size:21pt}
+.c2-desc{font-size:14.6pt}
+.c2-photos.one figcaption b{font-size:12.6pt}
+.c2-photos.one figcaption span{font-size:11.6pt}
+.c2-roles span{font-size:11.4pt}
+.recimg{height:76mm}
+.p-spread .wcard{min-height:0}
+.wgrid{margin:4mm 0 2mm}
+.bio-photo{height:70mm}
+.bio .quote{font-size:15pt;padding:5mm}
+.what{margin-top:5mm}
+body{font-size:12.8pt}
+.extx p{font-size:11.6pt}
+.ex{grid-template-columns:34mm 1fr;padding:3mm 4mm;margin-bottom:3mm}
+.exim{width:34mm;height:34mm}
+.grid-t td{height:9mm}
+.track td{height:14mm}
+.shop .cb{font-size:10.8pt;margin-bottom:.6mm;line-height:1.3}.shop h3{font-size:12pt}.shop{margin-bottom:2.5mm}
+.lines{height:36mm}
+#cap10 .quote{margin-top:4mm;padding:4mm 0;font-size:17pt}
+.claim{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:4mm 0 6mm}
+.claim div{background:var(--tq);color:#fff;border-radius:4mm;padding:6mm 4mm;text-align:center;display:flex;flex-direction:column}
+.claim b{font-size:24pt;font-weight:900;line-height:1.05}
+.claim span{font-size:11pt;opacity:.95}
+.tvids,.tba{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:4mm}
+.tvid{display:flex;flex-direction:column;align-items:center;gap:2.5mm}
+.tvid-ph{width:100%;height:62mm;border-radius:4mm;background:#141414;color:#C9D3D6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3mm;font-size:8.6pt;font-weight:800;letter-spacing:.1em}
+.tvid-ph .play{width:13mm;height:13mm;border-radius:50%;background:var(--tq);color:#fff;display:flex;align-items:center;justify-content:center}
+.tvid-ph .play .ic{fill:currentColor;stroke:none;width:6mm;height:6mm}
+.ba-ph{height:52mm;display:grid;grid-template-columns:1fr 1fr;gap:1.5mm}
+.ba-ph div{border-radius:3mm;background:var(--tq-l);border:.5mm dashed var(--tq);display:flex;align-items:center;justify-content:center;font-size:8pt;font-weight:800;letter-spacing:.12em;color:var(--tq-dd)}
+.ba p{font-size:10pt;text-align:center;color:var(--mut);margin:2mm 0 0}
+.keytips{margin:0 5mm 5mm;background:var(--tq-l);border-radius:3mm;padding:4mm 5mm;border-left:1.4mm solid var(--tq)}
+.keytips h5{font-size:9pt;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-dd);margin:0 0 2mm}
+.keytips ul{margin:0;padding-left:5mm}
+.keytips li{font-size:12pt;line-height:1.45;margin-bottom:1.6mm}
+.keytips li::marker{color:var(--tq-d)}
+.recimg{height:56mm}
+.rech{padding:3mm 5mm 2.5mm}
+.recb{padding:3mm 5mm;gap:5mm}
+.ing,.steps-ol{font-size:11.6pt;line-height:1.42}
+.steps-ol li{margin-bottom:1.2mm}.ing li{margin-bottom:.8mm}
+.keytips{margin:0 5mm 4mm;padding:3mm 4.5mm}
+.keytips li{font-size:11.2pt;line-height:1.38;margin-bottom:1mm}
+.ba-img{position:relative;height:96mm;border-radius:3.5mm;overflow:hidden;background:#eee}
+.ba-img img{width:100%;height:100%;object-fit:cover;display:block}
+.ba-img span{position:absolute;top:2mm;background:rgba(20,20,20,.8);color:#fff;font-size:7pt;font-weight:800;letter-spacing:.12em;padding:1mm 2.2mm;border-radius:99px}
+.ba-img .bl{left:2mm}.ba-img .br{right:2mm;background:var(--tq)}
+.ba p{font-size:11pt;line-height:1.35;color:var(--ink);text-align:left;margin:2.2mm 0 0}
+.tvlinks{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}
+.tvl{display:flex;align-items:center;gap:3mm;padding:4mm;border-radius:3.5mm;background:#141414;color:#fff;text-decoration:none}
+.tvl .play{flex:none;width:11mm;height:11mm;border-radius:50%;background:var(--tq);display:flex;align-items:center;justify-content:center}
+.tvl .play .ic{fill:#fff;stroke:none;width:5mm;height:5mm}
+.tvl span:last-child{display:flex;flex-direction:column;font-size:10pt;color:#C9D3D6}
+.tvl b{font-size:12.5pt;color:#fff}
+.tba2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:2mm}
+.tba2 .ba-img{height:92mm;background:#fff;border:.35mm solid var(--line)}
+.tba2 .ba-img img{object-fit:contain}
+.romi{display:grid;grid-template-columns:44mm 1fr;gap:5mm;align-items:center;margin:5mm 0 2mm;border:.35mm solid var(--line);border-radius:3.5mm;padding:3mm}
+.romi .ba-img{height:58mm}
+.romi .ba-img img{object-position:50% 45%}
+.romi p{font-size:13pt;margin:1.5mm 0 0}
+.res3{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin:2mm 0 5mm}
+.rc{display:flex;flex-direction:column}
+.rc-img{position:relative;height:92mm;border-radius:3.5mm;overflow:hidden;background:#eee}
+.rc-img img{width:100%;height:100%;object-fit:cover;display:block}
+.rc-img.two{display:grid;grid-template-columns:1fr 1fr;gap:.8mm;background:#fff}
+.rc-img.two>div{position:relative;overflow:hidden}
+.rc-img span{position:absolute;left:50%;transform:translateX(-50%);bottom:2mm;background:rgba(20,20,20,.82);color:#fff;font-size:6.6pt;font-weight:800;letter-spacing:.1em;padding:1mm 2mm;border-radius:99px;white-space:nowrap}
+.rc-img span.d{background:var(--tq)}
+.rc p{margin:2.5mm 0 0;font-size:11pt;line-height:1.35;color:var(--txt);display:flex;flex-direction:column;min-height:16mm}
+.rc p b{font-size:13pt;color:var(--ink)}
+.vc{display:flex;flex-direction:column;gap:2.5mm;text-decoration:none}
+.vc-img{height:52mm;border-radius:3.5mm;background:#141414;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2mm;color:#fff}
+.vc-img .play{width:15mm;height:15mm;border-radius:50%;background:var(--tq);display:flex;align-items:center;justify-content:center;margin-bottom:1mm}
+.vc-img .play .ic{fill:#fff;stroke:none;width:7mm;height:7mm}
+.vc-n{font-size:15pt;font-weight:900}
+.vc-t{font-size:9pt;color:#C9D3D6}
+.vc-btn{align-self:center;display:inline-flex;align-items:center;gap:1.6mm;background:var(--tq-t);color:#fff;font-weight:800;font-size:9pt;letter-spacing:.08em;padding:2mm 4mm;border-radius:99px}
+.vc-btn .ic{fill:#fff;stroke:none;width:.9em;height:.9em}
+.keytips{margin:5mm 0 0;padding:4.5mm 6mm;border-left:1.6mm solid var(--tq);border-radius:3.5mm}
+.keytips h5{font-size:10pt;margin-bottom:2.5mm}
+.keytips li{font-size:11.6pt;line-height:1.45;margin-bottom:1.8mm}
+.keytips li b{color:var(--ink)}
+.recimg{height:64mm}
+.recimg{height:48mm}
+.keytips{margin-top:4mm;padding:3.5mm 5mm}
+.keytips li{font-size:11pt;line-height:1.38;margin-bottom:1.2mm}
+.ing,.steps-ol{font-size:11.2pt;line-height:1.38}
+.c2-roles span{font-size:10.4pt;letter-spacing:.02em}.c2-roles span:nth-child(2){flex:1.5}.pills4{flex-wrap:wrap}
+.bio-photo{height:62mm}.what{padding:5mm 5.5mm}.what p{font-size:11.8pt}.bio .cta-center{margin-top:5mm}
+.bio .quote{margin-top:4mm;padding:4mm 6mm}
+
+/* Ebook 1 · Entrená desde casa: plan de 8 semanas */
+.plan8{width:100%;border-collapse:collapse;table-layout:fixed;font-size:8.6pt;line-height:1.3;margin:4mm 0 2mm}
+.plan8 thead th{background:var(--ink);color:#fff;padding:2.2mm 1.6mm;font-size:7pt;letter-spacing:.08em;text-transform:uppercase;text-align:left}
+.plan8 thead th:first-child{width:11mm;text-align:center}
+.plan8 thead th:nth-child(2){width:25mm}
+.plan8 thead th:nth-child(4){width:16mm}
+.plan8 thead th:nth-child(6){width:15mm}
+.plan8 thead th:nth-child(7){width:16mm}
+.plan8 tbody th{background:var(--tq);color:#fff;font-size:11pt;font-weight:900;text-align:center}
+.plan8 td{border-bottom:.3mm solid #D3E3E6;padding:2.4mm 1.6mm;color:var(--ink);vertical-align:middle}
+.plan8 tbody tr:nth-child(even) td{background:var(--bg2)}
+.plan8 tbody tr.dl td{background:var(--tq-l);color:var(--tq-dd);font-weight:600}
+.cal8 td{height:11mm}
+.loads td{height:9mm}
+.wk8 thead th:first-child,.loads thead th:first-child,.feel thead th:first-child{width:42mm}
+.wk8 td{height:8.5mm}
+.wk8 tbody th{font-size:8pt}
+.feel td{height:11mm}
+.tips10{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.tips10 div{border:.35mm solid var(--line);border-radius:3mm;padding:3.5mm 4mm}
+.tips10 span{display:block;font-weight:900;font-size:16pt;line-height:1;color:var(--tq);margin-bottom:1.5mm}
+.tips10 h3{margin:0 0 1mm;font-size:11.4pt}
+.tips10 p{font-size:10pt;margin:0;color:var(--txt)}
+
+/* v7: títulos más chicos y texto desarrollado más grande */
+body{font-size:13.8pt;line-height:1.55}
+.h1{font-size:24pt;margin:2mm 0 4mm}
+.h1.big{font-size:27pt}
+.chead h1{font-size:24pt;margin:1.5mm 0 2.5mm}
+.cnum{font-size:32pt}
+h2{font-size:16pt}
+h3{font-size:14pt}
+.lead{font-size:14.8pt}
+.small{font-size:12pt}
+.box{font-size:13.2pt}
+.extx p{font-size:12.6pt}
+.exh h4{font-size:14pt}
+.pillar p,.step p,.tile p,.minplan p,.tips10 p{font-size:12.6pt}
+.recw{font-size:12.8pt}
+.steps4{grid-template-columns:repeat(4,1fr)}
+
+/* rutinas en bloques: entrada en calor compacta + bloques en dos columnas */
+.blk{display:flex;align-items:center;gap:3mm;flex-wrap:wrap;border-bottom:.4mm solid var(--tq-b);padding-bottom:1.6mm;margin:4mm 0 2.6mm}
+.blk span{background:var(--ink);color:#fff;font-weight:800;font-size:9pt;letter-spacing:.14em;padding:1.2mm 3.2mm;border-radius:99px}
+.blk p{margin:0;font-size:11pt;color:var(--mut)}
+.warm{display:grid;grid-template-columns:repeat(6,1fr);gap:2mm}
+.wc{border:.35mm solid var(--line);border-radius:2.5mm;padding:2mm 1.5mm;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1mm}
+.wcim{width:100%;height:19mm;background:var(--bg2);border-radius:2mm;display:flex;align-items:center;justify-content:center}
+.wcim img{max-width:100%;max-height:100%;object-fit:contain}
+.wc b{font-size:9pt;line-height:1.2;color:var(--ink)}
+.wc .dose{font-size:7.8pt}
+.wc .vbtn-sm{font-size:7pt;padding:1mm 2.4mm;margin-top:auto}
+.bgrid{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.bgrid .ex{grid-template-columns:27mm 1fr;gap:3mm;padding:3mm;margin:0;align-items:start}
+.bgrid .exim{width:27mm;height:27mm;padding:1mm}
+.bgrid .exh{flex-direction:column;align-items:flex-start;gap:1mm;margin-bottom:1mm}
+.bgrid .exh h4{font-size:12.8pt;line-height:1.2}
+.bgrid .extx p{font-size:11.6pt;line-height:1.38;margin-bottom:1mm}
+.bgrid .dose{font-size:9.6pt}
+.bgrid .vbtn-sm{font-size:8.6pt;padding:1.6mm 3mm}
+/* tarjetas de bloque en fila */
+.bgrid{display:flex;flex-direction:column;gap:2.6mm}
+.bgrid .ex.exrow{grid-template-columns:27mm 1fr;gap:4mm;padding:2.6mm 3.5mm;margin:0;align-items:center}
+.bgrid .exim{width:27mm;height:27mm;padding:1mm}
+.exrow .exh{flex-direction:row;align-items:center;gap:2.5mm;margin-bottom:.8mm;justify-content:flex-start}
+.exrow .exh h4{font-size:13.4pt;line-height:1.2;margin-right:auto}
+.exrow .exh .vbtn-sm{margin:0;font-size:8.4pt;padding:1.4mm 3mm;flex:none}
+.bgrid .extx p{font-size:12pt;line-height:1.38;margin-bottom:.6mm}
+.bgrid .dose{font-size:9.6pt;flex:none}
+.tips10{gap:2.6mm}
+.tips10 div{padding:3mm 3.6mm}
+.tips10 span{font-size:13pt;margin-bottom:1mm}
+.tips10 h3{font-size:12.4pt}
+.tips10 p{font-size:11.6pt;line-height:1.4}
+.wcim{height:14mm}
+.wc{padding:1.6mm 1.2mm;gap:.8mm}
+.bgrid{gap:2mm}
+.bgrid .ex.exrow{grid-template-columns:22mm 1fr;gap:3.5mm;padding:2.2mm 3.2mm}
+.bgrid .exim{width:22mm;height:22mm}
+.bgrid .extx p{font-size:11.8pt;line-height:1.34}
+.blk{margin:3mm 0 2.2mm}
+
+/* v8: lectura en celular — letra más grande en todo el ebook */
+body{font-size:15pt;line-height:1.5}
+.lead{font-size:16pt}
+.small{font-size:13pt}
+.box{font-size:14.4pt}
+h1.h1,.h1{font-size:26pt}
+.chead h1{font-size:26pt}
+h2{font-size:18pt}
+h3{font-size:16pt}
+.list li,.checks li{margin-bottom:1.6mm}
+.extx p{font-size:14pt;line-height:1.42}
+.exh h4{font-size:16pt}
+.dose{font-size:11.4pt}
+.vbtn-sm{font-size:10.4pt}
+.pillar p,.step p,.tile p,.minplan p,.tips10 p,.fw p,.rpe p{font-size:13.8pt}
+.pillar h3,.step b,.tile h3,.fw b,.tips10 h3{font-size:14.6pt}
+.params b{font-size:13.6pt}.params span{font-size:9.4pt}
+.cb,.cbox .cb{font-size:13.4pt}
+.wcard p,.team-tx p,.bio-top p,.what p{font-size:13.6pt}
+.tocr{font-size:15.5pt}
+.plan8{font-size:10.4pt}.plan8 thead th{font-size:8pt}
+.legend{font-size:12.4pt}
+.grid-t tbody th,.track tbody th{font-size:11pt}
+.blk span{font-size:10.4pt}.blk p{font-size:12.6pt}
+/* tarjetas de ejercicio en fila (rutinas): directas en la página para que la paginación las reparta */
+.ex.exrow{grid-template-columns:30mm 1fr;gap:4mm;padding:3mm 4mm;margin:0 0 2.6mm;align-items:center}
+.ex.exrow .exim{width:30mm;height:30mm;padding:1mm}
+.exrow .exh .vbtn-sm{font-size:9.6pt;padding:1.6mm 3.2mm}
+.exrow .extx p{font-size:13.6pt;line-height:1.38;margin-bottom:.8mm}
+.exrow .exh h4{font-size:15.5pt}
+.tips10 p{font-size:12.8pt}.tips10 h3{font-size:13.6pt}
+.bio-top p,.what p{font-size:12.6pt}
+h2.bh{margin:0 0 1mm;font-size:22pt;font-weight:900;letter-spacing:-.02em}
+.ex.exrow .exim{width:26mm;height:26mm}
+.ex.exrow{grid-template-columns:26mm 1fr}
+.ex.exrow{padding:2.2mm 3.6mm;margin-bottom:2.2mm}
+.blk p{font-size:12pt}
+.phases{display:flex;flex-wrap:wrap;gap:2mm;margin:1mm 0 2mm}
+.phases span{background:var(--tq-l);border-radius:99px;padding:1.6mm 4mm;font-size:12pt;color:var(--tq-dd)}
+.phases b{color:var(--ink)}
+#talleres .wcard p,#talleres .team-tx p{font-size:12.6pt}#talleres .wcard h3{font-size:14pt}
+/* botón de índice al pie */
+.ftr{bottom:6mm;align-items:center}
+.ftr a.toidx{display:inline-flex;align-items:center;gap:1.8mm;font-size:10.4pt;font-weight:700;color:var(--tq-dd);background:var(--tq-l);border:.35mm solid var(--tq-b);border-radius:99px;padding:1.2mm 3.6mm 1.2mm 2.6mm}
+.ftr a.toidx .ic{width:4.6mm;height:4.6mm;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ftr span.pgnum{font-size:10.4pt}
+/* peso y cintura */
+.meas{display:grid;grid-template-columns:52mm 1fr;gap:6mm;align-items:center}
+.meas figure{margin:0;background:var(--bg2);border-radius:3mm;padding:2mm}
+.meas img{width:100%;display:block}
+.meas-t td{height:11mm}
+.meas{grid-template-columns:58mm 1fr}
+.meas .steps-ol{font-size:13.8pt;line-height:1.42}
+.meas .steps-ol li{margin-bottom:1.6mm}
+/* talleres (Ebook 1) */
+.tcard{display:grid;grid-template-columns:62mm 1fr;gap:5mm;align-items:center;border:.4mm solid var(--tq-b);border-radius:4mm;padding:3.5mm;margin-bottom:4mm}
+.tim{position:relative;width:62mm;height:46mm;border-radius:3mm;overflow:hidden;background:var(--bg2)}
+.tim img{width:100%;height:100%;object-fit:cover;display:block}
+.tcard.locked{background:var(--bg2)}
+.tcard.locked .tim img{filter:grayscale(1) blur(1.2px);opacity:.55}
+.tlock{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.tlock .ic{width:20mm;height:20mm;padding:4.5mm;border-radius:50%;background:var(--ink);color:#fff;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ttx h3{margin:1.2mm 0 1.4mm;font-size:16pt;line-height:1.2}
+.ttx p{font-size:13pt;line-height:1.4;color:var(--txt);margin:0 0 3mm}
+.ttx .wtag{font-size:9pt}
+.btn.tbtn{font-size:11pt;padding:2.4mm 5mm}
+.btn.tbtn .ic{width:4mm;height:4mm}
+/* carátula de los bonus (Ebook 1) */
+.divider{height:297mm;background:var(--ink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20mm}
+.dv-logo{width:62mm;background:#fff;border-radius:4mm;padding:3mm 5mm;margin-bottom:14mm}
+.dv-kick{font-size:11pt;letter-spacing:.2em;font-weight:800;color:var(--tq);margin:0 0 4mm}
+.dv-title{font-size:96pt;font-weight:900;line-height:1;letter-spacing:-.02em;color:#fff;margin:0}
+.dv-sub{font-size:28pt;font-weight:800;color:var(--tq);margin:3mm 0 0}
+.dv-bar{width:30mm;height:1.6mm;background:#E8384F;border-radius:1mm;margin:8mm 0}
+.dv-desc{font-size:15pt;color:#C9D3D6;max-width:130mm;margin:0 0 10mm}
+.dv-list{display:flex;flex-direction:column;gap:4mm;width:130mm}
+.dv-list a{display:grid;grid-template-columns:12mm 1fr auto;align-items:center;gap:4mm;background:#1F2326;border:.4mm solid #33393D;border-radius:4mm;padding:4mm 5mm;color:#fff;text-decoration:none;text-align:left}
+.dv-list a > span{width:10mm;height:10mm;border-radius:50%;background:var(--tq);color:#fff;font-weight:900;font-size:14pt;display:flex;align-items:center;justify-content:center}
+.dv-list b{font-size:16pt}
+.dv-list em{font-style:normal;font-size:12pt;color:#AEB8BC}
+
+/* correcciones: material, variante con video, glosario, índice, llamados */
+.exl{display:flex;flex-direction:column;align-items:center;gap:1.2mm}
+.mat{display:block;font-size:9pt;font-weight:700;color:var(--tq-dd);background:var(--tq-l);border-radius:99px;padding:.6mm 2.4mm;text-align:center;line-height:1.25;max-width:100%}
+.ex .exl{width:auto}
+.vbtn-xs{display:inline-flex;align-items:center;gap:1.2mm;margin-left:1mm;background:#fff;border:.35mm solid var(--tq-t);color:var(--tq-dd);font-weight:800;font-size:8.6pt;letter-spacing:.06em;padding:.8mm 2.6mm;border-radius:99px;text-decoration:none;vertical-align:.3mm;white-space:nowrap}
+.vbtn-xs .ic{width:.9em;height:.9em;fill:currentColor;stroke:none}
+.plus{font-size:12.4pt;margin:.6mm 0 0;color:var(--ink)}
+.plus b{color:#C2410C}
+.glos{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.glos div{border:.35mm solid var(--line);border-radius:3mm;padding:3mm 3.6mm}
+.glos b{display:block;font-size:13.6pt;color:var(--tq-dd);margin-bottom:.8mm}
+.glos p{margin:0;font-size:12.4pt;line-height:1.4}
+.idxhead{display:flex;align-items:center;gap:6mm;flex-wrap:wrap}
+.idxhead .h1{margin:2mm 0}
+.idxtip{display:flex;align-items:center;gap:2mm;flex:1;min-width:80mm;margin:0;font-size:12pt;color:var(--tq-dd);background:var(--tq-l);border-radius:3mm;padding:2.4mm 3.6mm}
+.idxtip .ic{flex:none;width:6mm;height:6mm;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cta-plan{margin:5mm 0}
+.cta-plan .ctatitle{font-size:18pt}
+.cta-plan .off{margin:4mm 0 0;font-size:13pt;text-align:center}
+.cta-plan .off b{color:#C2410C}
+.dv-btn{margin-top:8mm;font-size:11pt}
+.team-big img{width:100%;height:78mm;object-fit:cover;border-radius:4mm;display:block;margin:2mm 0 5mm}
+.metodo p{font-size:13.6pt}
+/* cuadro del plan: anchos fijos para que no se pisen los títulos */
+.plan8{table-layout:fixed}
+.plan8 thead th{letter-spacing:.02em;font-size:7.6pt;line-height:1.2;vertical-align:bottom}
+.plan8 thead th:nth-child(1){width:10mm}
+.plan8 thead th:nth-child(2){width:25mm}
+.plan8 thead th:nth-child(3){width:23mm}
+.plan8 thead th:nth-child(4){width:16mm}
+.plan8 thead th:nth-child(6){width:15mm}
+.plan8 thead th:nth-child(7){width:19mm}
+.plan8 thead th:nth-child(8){width:25mm}
+.ex.exrow{grid-template-columns:24mm 1fr}
+.ex.exrow .exim{width:24mm;height:22mm}
+.glos{gap:2.4mm}.glos div{padding:2.4mm 3.2mm}.glos b{font-size:13pt}.glos p{font-size:12pt;line-height:1.36}
+.h1.rt{margin:0 0 1mm}
+.mat{white-space:nowrap;font-size:8.2pt;padding:.5mm 2mm}
+.ex.exrow{grid-template-columns:27mm 1fr;gap:3.4mm}
+.ex.exrow .exim{width:27mm;height:21mm}
+/* portada Ebook 1: resultado visible */
+.c2-res{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:3mm;margin:4mm 0 0}
+.c2-res div{border:.5mm solid var(--tq-b);border-radius:3.5mm;padding:2.6mm 3mm;text-align:center;background:#fff}
+.c2-res b{display:block;font-size:24pt;font-weight:900;line-height:1;color:var(--tq-t)}
+.c2-res span{display:block;font-size:8.6pt;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--tq-dd)}
+.c2-res p{margin:1.2mm 0 0;font-size:11.8pt;font-weight:800;line-height:1.2;color:var(--ink)}
+.c2-res .on{background:var(--ink);border-color:var(--ink)}
+.c2-res .on b{color:#3FD0E3}.c2-res .on span{color:#C9D3D6}.c2-res .on p{color:#fff}
+.cv-ent .c2-photos.one .c2-img{height:96mm}
+.cv-ent .c2-photos.one .c2-img{height:112mm}.cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 8%}
+.cv-ent .c2-photos.one .c2-team .c2-img img{object-position:50% 28%}
+/* bio: la foto ocupa todo el alto de la columna de texto */
+.bio-top{align-items:stretch}
+.bio-photo{height:auto;min-height:62mm}
+.bio-photo img{object-position:50% 30%}
+.bio-ent .bio-top{grid-template-columns:82mm 1fr;gap:6mm}
+.bio-ent .bio-photo{min-height:105mm}
+.bio-ent .what{margin-top:7mm}
+.bio-ent .quote{margin-top:7mm}
+/* glosario: un concepto debajo del otro */
+.glosr{display:grid;grid-template-columns:44mm 1fr;align-items:stretch;border:.4mm solid var(--tq-b);border-radius:3mm;overflow:hidden;margin-bottom:2.4mm}
+.glosr b{display:flex;align-items:center;background:var(--tq-t);color:#fff;font-size:13.6pt;font-weight:800;line-height:1.2;padding:3mm 3.6mm}
+.glosr p{margin:0;padding:3mm 4mm;font-size:13pt;line-height:1.4;background:#fff}
+.glosr{margin-bottom:1.8mm}
+.glosr b,.glosr p{padding-top:2.2mm;padding-bottom:2.2mm}
+
+/* ===== Ebook Talleres RENOVA (talleres.py) ===== */
+.tl-cover .c2-photos.one .c2-img{height:112mm}
+.tl-cover .c2-photos.one .c2-team .c2-img img{object-position:50% 8%}
+.tl-card{display:grid;grid-template-columns:44mm 1fr;gap:6mm;align-items:start;border:.4mm solid var(--tq-b);border-radius:5mm;padding:5mm;margin-bottom:5mm;background:#fff;box-shadow:0 2mm 6mm rgba(0,0,0,.06)}
+.tl-who{text-align:center}
+.tl-who img,.tl-ph{width:40mm;height:40mm;border-radius:50%;object-fit:cover;border:1.2mm solid var(--tq);margin:0 auto 3mm}
+.tl-ph{display:flex;align-items:center;justify-content:center;background:var(--tq-l);color:var(--tq-d);font-weight:800;font-size:11pt;letter-spacing:.14em;border-style:dashed}
+.tl-who b{display:block;font-size:12pt;color:var(--ink);line-height:1.2}
+.tl-who span{display:block;font-size:10pt;color:var(--mut);line-height:1.3;margin-top:1mm}
+.tl-tx .wtag{font-size:9pt}
+.tl-tx h2{font-size:19pt;margin:1mm 0 2mm;line-height:1.1}
+.tl-tx p{margin:0 0 2mm}
+.tl-tx .checks{margin:0 0 3mm}
+.tl-cta{display:flex;flex-direction:column;min-height:100%}
+.tl-opts{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 5mm}
+.tl-opt{border:.4mm solid var(--tq-b);border-radius:5mm;padding:5mm;background:#fff}
+.tl-opt.on{border:.8mm solid var(--tq);background:var(--tq-l)}
+.tl-opt .wtag{font-size:8.5pt}
+.tl-opt h2{font-size:17pt;margin:1.5mm 0 2mm;line-height:1.1}
+.tl-cta .quote{margin-bottom:5mm}
+
+/* plan de 8 semanas en tarjetas */
+.p8c{border:.35mm solid var(--tq-b);border-radius:3.5mm;overflow:hidden;margin-bottom:3.5mm}
+.p8ch{display:flex;justify-content:space-between;align-items:baseline;background:var(--tq);color:#fff;padding:2.6mm 5mm}
+.p8ch b{font-size:15pt;font-weight:900}
+.p8ch span{font-size:11.5pt;font-weight:700;letter-spacing:.04em}
+.p8c.dl .p8ch{background:var(--ink)}
+.p8cg{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4mm 5mm;padding:3mm 5mm}
+.p8cg span{display:block;font-size:9pt;letter-spacing:.06em;text-transform:uppercase;color:var(--tq-d);font-weight:700}
+.p8cg b{font-size:13pt;color:var(--ink);font-weight:700;line-height:1.25}
+.p8c{display:grid;grid-template-columns:30mm 1fr;margin-bottom:2.6mm}
+.p8ch{flex-direction:column;justify-content:center;align-items:flex-start;gap:.6mm;padding:2mm 3.5mm}
+.p8ch b{font-size:13.5pt}
+.p8ch span{font-size:10pt}
+.p8cg{gap:1.6mm 4mm;padding:2.2mm 4mm}
+.p8cg span{font-size:8.2pt}
+.p8cg b{font-size:12pt}
+.p8c{grid-template-columns:26mm 1fr}
+.p8ch{align-items:center;text-align:center;gap:0}
+.p8ch small{font-size:7.5pt;letter-spacing:.14em;font-weight:800;opacity:.9}
+.p8ch b{font-size:22pt;line-height:1}
+.p8ch span{font-size:8.6pt}
+.p8cg{gap:1.2mm 4mm;padding:2mm 4mm}
+.p8cg span{font-size:7.8pt;letter-spacing:.04em}
+.p8cg b{font-size:11.6pt}
+/* Bonus talleres: dos talleres incluidos + acceso a Skool */
+.tk2{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin:2mm 0 5mm}
+.tk2>div{border:.4mm solid var(--tq-b);border-radius:4mm;padding:3mm}
+.tk2 img{width:100%;height:36mm;object-fit:cover;border-radius:3mm;display:block;margin-bottom:2.5mm}
+.tk2 .wtag{font-size:9pt}
+.tk2 h3{margin:1mm 0 1.2mm;font-size:15pt;line-height:1.2}
+.tk2 p{margin:0;font-size:12.5pt;line-height:1.4;color:var(--txt)}
+.skool{display:grid;grid-template-columns:104mm 1fr;align-items:center;text-decoration:none;color:#fff;background:var(--tq-dd);border-radius:5mm;overflow:hidden}
+.skool img{width:100%;height:auto;display:block;background:#fff}
+.skx{padding:5mm 4mm;text-align:center}
+.skx .wtag{color:#9FE6F0;font-size:9pt}
+.skx h3{color:#fff;font-size:17pt;margin:1.5mm 0 2mm;line-height:1.2}
+.skx p{color:#E3F6F9;font-size:12.5pt;line-height:1.4;margin:0 0 4.5mm}
+.skx .btn{padding:4.5mm 5mm;background:#fff;color:var(--tq-dd);box-shadow:0 0 0 1.2mm rgba(255,255,255,.3)}
+.skx .btn .ic{stroke:currentColor}
+
+/* ---- tapa de casa y gimnasio (cada ebook con su tono de turquesa) */
+.cv3{--c3-a:var(--tq);--c3-b:var(--tq);--c3-l:var(--tq-l);position:relative;height:297mm;box-sizing:border-box;border:1.2mm solid var(--c3-b);background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.cv3.pausa{--c3-a:var(--tq-t);--c3-b:var(--ink);--c3-l:var(--tq-l)}
+.pausa .c3-title{font-size:92pt}
+.pausa .c3-claim b span{text-shadow:1.2mm 1.2mm 0 var(--tq)}
+.cv3.gym{--c3-a:var(--tq-d);--c3-b:var(--tq-dd);--c3-l:var(--tq-b)}
+.c3-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8mm 12mm 0}
+.c3-logo{height:13mm;width:auto;margin-bottom:5mm}
+.c3-pill{display:inline-block;background:var(--c3-b);color:#fff;font-weight:800;font-size:19pt;letter-spacing:.06em;padding:3.4mm 10mm;border-radius:99px}
+.c3-title{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:78pt;line-height:.9;letter-spacing:-.02em;color:var(--c3-a);margin:6mm 0 0;text-transform:uppercase}
+.gym .c3-title{font-size:67pt}
+.c3-claim{font-family:"InterTightW","InterW",sans-serif;font-weight:900;font-size:34pt;line-height:1.05;color:var(--ink);margin:5mm 0 0;letter-spacing:-.005em}
+.c3-claim b{display:block;font-size:50pt;line-height:1;letter-spacing:-.01em;margin-top:1mm}
+.c3-claim b span{display:inline-block;transform:rotate(-2.5deg);padding:0 4mm;background:linear-gradient(transparent 58%,var(--c3-l) 58%,var(--c3-l) 92%,transparent 92%);text-shadow:1.2mm 1.2mm 0 var(--c3-b)}
+.cv3 .c3-claim b span{color:var(--ink)}
+.c3-sub{font-family:"InterTightW","InterW",sans-serif;font-size:21pt;line-height:1.3;color:var(--ink);font-weight:600;letter-spacing:.005em;margin:5mm 0 0;padding:3mm 4mm 0;width:178mm;box-sizing:border-box;background:rgba(255,255,255,.75);border-top:1.4mm double var(--c3-b);}
+.c3-sub span{white-space:nowrap}
+.c3-sub em{font-style:normal;font-weight:900;color:var(--c3-a)}
+.c3-sub b{font-weight:900;color:#fff;background:var(--c3-b);padding:0 2.2mm;border-radius:1.6mm}
+.c3-sub mark{font-weight:800;color:var(--ink);background:linear-gradient(transparent 55%,var(--c3-l) 55%,var(--c3-l) 92%,transparent 92%);padding:0 .6mm}
+.c3-team{position:relative;z-index:1;flex:1;min-height:0;display:flex;align-items:flex-end;justify-content:center;margin-top:3mm}
+.c3-team img{width:100%;height:100%;object-fit:contain;object-position:center bottom;display:block}
+
+/* v9: casa, gimnasio y pausa activa: letra y dibujos más grandes en el desarrollo (lectura en celular).
+   Los títulos quedan igual; si algo no entra, paginate.js lo pasa a otra hoja. */
+body.grande{font-size:16.5pt;line-height:1.48}
+.grande .lead{font-size:17pt}
+.grande .small{font-size:14pt}
+.grande .box{font-size:15.5pt}
+.grande .list li,.grande .checks li{margin-bottom:2mm}
+.grande .ex.exrow{grid-template-columns:36mm 1fr;gap:3.5mm;padding:2.2mm 3.2mm;margin-bottom:2mm}
+.grande .ex.exrow .exim{width:36mm;height:32mm;padding:1mm}
+.grande .mat{font-size:9.5pt;white-space:normal;padding:.4mm 2mm}
+.grande .exrow .exh h4{font-size:17pt}
+.grande .exrow .extx p{font-size:15.5pt;line-height:1.36;margin-bottom:.8mm}
+.grande .dose{font-size:12.4pt}
+.grande .exrow .exh .vbtn-sm,.grande .vbtn-sm{font-size:10.5pt;padding:1.4mm 3mm}
+.grande .vbtn-xs{font-size:10pt}
+.grande .blk{margin:2.5mm 0 1.8mm;padding-bottom:1.2mm}
+.grande .blk span{font-size:11pt}.grande .blk p{font-size:13pt}
+.grande .wcim{height:24mm}
+.grande .wc b{font-size:11.4pt}.grande .wc .dose{font-size:9.6pt}.grande .wc .vbtn-sm{font-size:9pt;padding:1.2mm 2.6mm}
+.grande .pillar p,.grande .step p,.grande .tile p,.grande .minplan p,.grande .tips10 p,.grande .fw p,.grande .rpe p{font-size:15pt}
+.grande .pillar h3,.grande .step b,.grande .tile h3,.grande .fw b,.grande .tips10 h3{font-size:16pt}
+.grande .cb,.grande .cbox .cb{font-size:15pt}
+.grande .wcard p,.grande .team-tx p,.grande .bio-top p,.grande .what p,.grande #talleres .wcard p,.grande #talleres .team-tx p{font-size:15pt}
+.grande .legend{font-size:13.6pt}
+.grande .phases span{font-size:13.4pt}
+.grande .meas .steps-ol{font-size:15pt}
+.grande .ttx p{font-size:14.6pt}
+.grande #express .ex.exrow{grid-template-columns:30mm 1fr}
+.grande #express .ex.exrow .exim{width:30mm;height:30mm}
+.grande .meas{grid-template-columns:44mm 1fr}
+.grande .meas-t td{height:8.5mm}
+
+/* v10: textos en negro (antes gris); encabezado y pie de página siguen en gris */
+:root{--txt:var(--rnv-tinta);--mut:var(--rnv-tinta)}
+.hdr,.ftr,.ftr span.pgnum{color:var(--rnv-gris)}
+.grande .exrow .extx p{line-height:1.3}
+.grande .ex.exrow{padding:1.8mm 3mm;margin-bottom:1.6mm}
+.grande .ex.exrow .exim{height:28mm}
+.grande .ex.exrow{padding:1.2mm 3mm;margin-bottom:1mm}.grande .exrow .exh{margin-bottom:.3mm}.grande .exrow .extx p{line-height:1.27;margin-bottom:.4mm}
+.tk10{display:grid;grid-template-columns:1fr 1fr;gap:5mm;align-items:center;border:.4mm solid var(--tq-b);border-radius:4mm;padding:4mm;margin:2mm 0 5mm;background:var(--tq-l)}
+.tk10-im{display:grid;grid-template-columns:1fr 1fr;gap:2mm}
+.tk10-im img{width:100%;height:40mm;object-fit:cover;border-radius:3mm;display:block}
+.tk10-tx h3{margin:1.5mm 0 2mm;font-size:17pt;line-height:1.2}
+.tk10-tx p{margin:0;font-size:13pt;color:var(--txt)}
+.cta-plan.deco{position:relative;background:linear-gradient(180deg,var(--tq-l) 0%,#fff 100%);border:.5mm solid var(--tq-b);box-shadow:0 0 0 2mm #fff,0 0 0 2.4mm var(--tq-b);padding-top:12mm;overflow:visible}
+.cta-plan.deco::before,.cta-plan.deco::after{content:"";position:absolute;width:14mm;height:14mm;border:.7mm solid var(--tq);opacity:.55}
+.cta-plan.deco::before{top:3mm;left:3mm;border-right:0;border-bottom:0;border-radius:3mm 0 0 0}
+.cta-plan.deco::after{bottom:3mm;right:3mm;border-left:0;border-top:0;border-radius:0 0 3mm 0}
+.cp-face{width:30mm;height:30mm;border-radius:50%;object-fit:cover;object-position:50% 20%;border:1.2mm solid #fff;box-shadow:0 0 0 .7mm var(--tq);margin:0 0 3mm}
+.cp-eye{font-size:9pt;font-weight:800;letter-spacing:.18em;color:var(--tq-d);margin-bottom:2mm}
+.cp-pills{display:flex;gap:2.5mm;justify-content:center;margin:5mm 0 1mm}
+.cp-pills span{background:#fff;border:.35mm solid var(--tq-b);border-radius:99px;padding:1.4mm 4mm;font-size:11pt;font-weight:700;color:var(--tq-dd)}
+.cp-quote{margin-top:12mm}
+</style></head><body class="grande"><section class="page p-cover" id="portada"><div class="body">
+<div class="cv3 gym">
+  <div class="c3-in">
+    <img class="c3-logo" src="img/logo_renova.png" alt="RENOVA">
+    <span class="c3-pill">MÉTODO RENOVA · MUJERES 35+</span>
+    <h1 class="c3-title">ENTRENÁ EN EL<br>GIMNASIO</h1>
+    <p class="c3-claim">VOLVÉ A SENTIRTE <b><span>FUERTE.</span></b></p>
+    <p class="c3-sub">Más <em>fuerza</em> y <em>energía</em> en <b>8 semanas</b>,<br><span>con sesiones <mark>cortas</mark> y de <mark>bajo impacto</mark>.</span></p>
+  </div>
+  <div class="c3-team"><img src="img/equipo_tapa.png" alt="Equipo RENOVA"></div>
+</div>
+</div></section><section class="page " id="bienvenida"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>Bienvenida</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">BIENVENIDA</span>
+<h1 class="h1">Te damos la bienvenida a <span class="t">Entrená en el gimnasio</span></h1>
+<p class="lead">Un plan de 8 semanas para entrenar en el gimnasio desde cero si tenés poco tiempo: a las 2 semanas vas a tener <b>más energía</b>, a las 4 <b>más fuerza</b> y a las 8 <b>el hábito logrado</b>.</p>
+<h2>Qué necesitás</h2>
+<p>Un gimnasio con máquinas, mancuernas y poleas; al principio, pedile al profesor de sala que te ayude a regularlas. Sesiones de 45 a 60 min, 2 o 3 veces por semana.</p>
+<div class="firstweek">
+  <h2>Empezá esta semana</h2>
+  <div class="fw">
+    <div><span>1</span><b>Agendá</b><p>Elegí 2 o 3 días para la fuerza y 2 para caminar.</p></div>
+    <div><span>2</span><b>Leé</b><p><a href="#como">Cómo se hace cada rutina</a>: es una sola hoja.</p></div>
+    <div><span>3</span><b>Entrená</b><p>Hacé la <a href="#rutina1">Rutina 1</a> (página <span class="pref" data-ref="rutina1"></span>).</p></div>
+    <div><span>4</span><b>Anotá</b><p>Marcá la sesión en <a href="#cargas">tu registro</a>.</p></div>
+  </div>
+</div>
+<div class="box note"><b>Antes de empezar.</b> Si sentís dolor articular, mareos, falta de aire o dolor en el pecho, frená. Si tenés una lesión o una condición médica, consultá antes con un profesional.</div>
+<p class="small"><b>Semana 1:</b> Rutina 1 y 2, con 2 vueltas por bloque y un día de descanso entre ambas. Después, <a href="#plan8t1">tu plan</a> (página <span class="pref" data-ref="plan8t1"></span>). Antes de empezar, <a href="#eval">medí tu cintura</a>.</p>
+</div></section><section class="page " id="indice"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>Índice</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body"><span class="pill">CONTENIDO</span><div class="idxhead"><h1 class="h1">Índice</h1><p class="idxtip"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic donde quieras ir. Para volver al índice, abajo de cada página tenés el botón.</p></div><div class="tocl"><a class="tocr" href="#antes-gym"><span class="tt">01 · Antes de entrenar</span><span class="dots"></span><span class="pg">4</span></a><a class="tocr" href="#como"><span class="tt">02 · Cómo entrenar</span><span class="dots"></span><span class="pg">5</span></a><a class="tocr" href="#rutina1"><span class="tt">03 · Rutinas</span><span class="dots"></span><span class="pg">6</span></a><a class="tocr" href="#core"><span class="tt">04 · Rutinas extras</span><span class="dots"></span><span class="pg">16</span></a><a class="tocr" href="#express"><span class="tt">Sesión express de 15 minutos</span><span class="dots"></span><span class="pg">17</span></a><a class="tocr" href="#plan8t1"><span class="tt">05 · Tu plan de 8 semanas</span><span class="dots"></span><span class="pg">18</span></a><a class="tocr" href="#cap5e"><span class="tt">06 · Semanas con poco tiempo</span><span class="dots"></span><span class="pg">20</span></a><a class="tocr" href="#eval"><span class="tt">07 · Medí tu progreso</span><span class="dots"></span><span class="pg">21</span></a><a class="tocr" href="#cap7e"><span class="tt">08 · Después de las 8 semanas</span><span class="dots"></span><span class="pg">23</span></a><a class="tocr" href="#claves"><span class="tt">09 · 10 cuidados en el gimnasio</span><span class="dots"></span><span class="pg">24</span></a><a class="tocr" href="#talleres"><span class="tt">Bonus: talleres y comunidad</span><span class="dots"></span><span class="pg">26</span></a><a class="tocr" href="#testimonios"><span class="tt">Resultados reales</span><span class="dots"></span><span class="pg">27</span></a><a class="tocr" href="#metodo"><span class="tt">Tu plan integral 1 a 1</span><span class="dots"></span><span class="pg">28</span></a></div></div></section><section class="page " id="antes-gym"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>01 · Antes de entrenar</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">01</span><h1>Antes de <span class="t">entrenar</span></h1><p class="lead">Cuatro claves para entrenar seguro y ver resultados.</p></div>
+<h3>¿Por qué fuerza después de los 35?</h3>
+<p>Desde los 35 perdés músculo de a poco y, con los cambios hormonales de la perimenopausia y la menopausia, también hueso. <b>El entrenamiento de fuerza es lo que más ayuda a frenarlo:</b> cuida tus huesos y articulaciones, mejora tu metabolismo y te da energía para el día a día.</p>
+<h3>Cómo sube la carga</h3>
+<p>En las semanas 1 a 4 aprendés la técnica y sumás vueltas. La semana 5 es de <b>descarga</b>: bajás el volumen para que el cuerpo se recupere y se adapte. En las semanas 6 a 8 <b>subís el peso</b>: cuando hacés 12 repeticiones con facilidad, sumá una placa o 1 kg.</p>
+<h3>Primero, la técnica</h3>
+<p>Antes de cada ejercicio, <b>mirá su video</b> (tocá VER VIDEO) y aprendé el movimiento con poco peso. La técnica va antes que la carga: si no te sale, usá la variante más fácil.</p>
+<h3>No saltees la entrada en calor</h3>
+<p>Los 5 a 10 minutos de cinta o bici y la movilidad de cada rutina preparan músculos y articulaciones y <b>bajan el riesgo de lesiones</b>. Es parte del entrenamiento, no un extra.</p>
+</div></section><section class="page " id="como"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>02 · Cómo entrenar</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">02</span><h1>Cómo se hace <span class="t">cada rutina</span></h1><p class="lead">Leé esta hoja una vez y ya podés empezar.</p></div>
+
+<div class="steps steps4">
+  <div class="step"><span>1</span><b>Entrada en calor</b><p>10 a 15 min</p></div>
+  <div class="step"><span>2</span><b>Bloque 1</b><p>4 ejercicios</p></div>
+  <div class="step"><span>3</span><b>Bloque 2</b><p>4 ejercicios</p></div>
+  <div class="step"><span>4</span><b>Elongación</b><p>5 min</p></div>
+</div>
+<h3>Cómo se hace un bloque</h3>
+<ul class="list"><li>Hacé los 4 ejercicios seguidos: eso es <b>una vuelta</b>. Repetí las vueltas que indica tu semana.</li><li>Pausas: 60 a 90 s entre ejercicios, 1 min entre vueltas y 2 min entre el bloque 1 y el 2.</li></ul>
+<h3>Con qué esfuerzo y con qué peso</h3><p>Terminá cada vuelta sintiendo que podrías hacer <b>2 o 3 repeticiones más</b>: un 6 a 7 de 10. Elegí el peso de cada máquina con ese criterio desde la primera semana.</p>
+<h3>Cuándo subir de nivel</h3>
+<p>Cuando hacés <b>12 repeticiones</b> en todas las vueltas con esfuerzo 7 o menos, <b>dos sesiones seguidas</b>: subí una placa en la máquina o 1 kg en las mancuernas. Si algo duele, volvé a la variante más fácil.</p>
+</div></section><section class="page " id="rutina1"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<h1 class="h1 rt">Rutina 1: <span class="t">cuerpo completo</span></h1>
+<div class="blk"><span>ENTRADA EN CALOR</span><p>5–10 min de aeróbico y después 1 o 2 vueltas de movilidad · 20–30 s de pausa</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_cinta.png" alt=""></div><span class="mat">Cinta o bici</span></div><div class="extx"><div class="exh"><h4>Cinta, bici o elíptica</h4><span class="dose">5–10 min</span><a class="vbtn-sm" href="https://youtu.be/ccHvlKNkCME"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Aeróbico suave en cinta o bicicleta. Mantené un ritmo continuo que te permita hablar.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_1.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Movilidad de brazos</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/2LWFYoBjS5I"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De pie, elevá brazos y hacé círculos amplios hacia adelante y atrás. Podés usar un bastón.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_apertura.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Apertura de tren superior</h4><span class="dose">8 por lado</span><a class="vbtn-sm" href="https://youtu.be/S9S-1-3E4rE"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>En cuatro apoyos, mano a la nuca. Llevá codo abajo y girá abriendo el pecho al techo.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_4.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Movilidad de cadera acostada</h4><span class="dose">10–12 por lado</span><a class="vbtn-sm" href="https://youtu.be/9ayi-DrA98o"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De costado con rodillas flexionadas, abrí y cerrá la rodilla superior sin separar pies.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_psoas.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Psoas dinámico</h4><span class="dose">8 por lado</span><a class="vbtn-sm" href="https://youtu.be/s85XuGH1uk4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Una rodilla en piso y otra pierna adelante. Llevá cadera al frente con torso erguido.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_6.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Bird dog</h4><span class="dose">10–12 por lado</span><a class="vbtn-sm" href="https://youtu.be/kyNrWqz1iqs"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>En cuatro apoyos, estirá brazo y pierna contraria en línea recta. Sostené 1 s y volvé. <span class="ojo"><b>Cuidá:</b> espalda quieta, cadera sin rotar.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/rot_tronco_pie.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Rotación de tronco de pie</h4><span class="dose">8 por lado</span><a class="vbtn-sm" href="https://youtu.be/8ZhHlY4Aq_Y"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De pie con pies al ancho de cadera y brazos cruzados al pecho. Girá el tronco a un lado y al otro con la cadera al frente. <span class="ojo"><b>Cuidá:</b> cadera fija al frente, girá solo el tronco.</span></p></div></div>
+</div></section><section class="page " id="rutina1b1"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="blk"><span>RUTINA 1 · BLOQUE 1</span><p>2 o 3 vueltas, según tu semana · 60–90 s entre ejercicios · 1 min entre vueltas · La plancha: 15–20 s. Al terminar, 2 min de pausa y pasá al bloque 2.</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_prensa.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Prensa</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/ddfmGBWmB88"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Espalda apoyada y pies al ancho de cadera. Bajá a 90° y empujá sin bloquear rodillas. <span class="ojo"><b>Cuidá:</b> lumbar apoyada, sin trabar rodillas.</span></p><p class="easy"><b>Más fácil:</b> menos peso y menos recorrido.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_presspecho.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Press de pecho en máquina</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/NwxHu5BSiKQ"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Asiento a la altura del pecho. Empujá adelante sin trabar codos y volvé lento. <span class="ojo"><b>Cuidá:</b> hombros apoyados, sin bloquear codos.</span></p><p class="easy"><b>Más fácil:</b> menos peso y recorrido corto.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_extcuad.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Extensión de cuádriceps</h4><span class="dose">12</span><a class="vbtn-sm" href="https://youtu.be/xxGUzhNzyh4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Sentada con rodillo sobre tobillos. Estirá piernas, pausá 1 s arriba y bajá lento. <span class="ojo"><b>Cuidá:</b> movimiento fluido sin golpear placas.</span></p><p class="easy"><b>Más fácil:</b> menos peso, bajando controlado.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r1_7.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Plancha prona</h4><span class="dose">15–20 s</span><a class="vbtn-sm" href="https://youtu.be/nd0qbgESlao"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Antebrazos y puntas apoyadas, cuerpo alineado. Apretá abdomen y glúteos firme. <span class="ojo"><b>Cuidá:</b> cadera alineada, respirá continuo.</span></p><p class="easy"><b>Más fácil:</b> con rodillas apoyadas.</p></div></div>
+
+</div></section><section class="page " id="rutina1b2"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="blk"><span>RUTINA 1 · BLOQUE 2</span><p>2 o 3 vueltas, según tu semana · 60–90 s entre ejercicios · 1 min entre vueltas · La plancha: 15–20 s. Al terminar, hacé la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_remomaq.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Remo en máquina</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/2ybm7nnYbyg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Pecho apoyado, agarre neutro. Tirá codos atrás juntando omóplatos y volvé lento. <span class="ojo"><b>Cuidá:</b> pecho apoyado, tirá llevando codos atrás.</span></p><p class="easy"><b>Más fácil:</b> menos peso y menor recorrido.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_curlisq.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Curl de isquiotibiales sentada</h4><span class="dose">12</span><a class="vbtn-sm" href="https://youtu.be/8I7lYLxvAf0"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Rodillas al borde del asiento. Flexioná bajando el rodillo y volvé con control. <span class="ojo"><b>Cuidá:</b> rodillas en eje, cadera en asiento.</span></p><p class="easy"><b>Más fácil:</b> menos peso o puente en piso.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_vuelolat.png" alt=""></div><span class="mat">2 mancuernas y banco</span></div><div class="extx"><div class="exh"><h4>Elevaciones laterales sentada</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/SfQ7Iostut8"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Sentada con mancuernas y tronco derecho. Elevá brazos a los lados hasta hombros y bajá lento. <span class="ojo"><b>Cuidá:</b> subí hasta hombros sin balancear.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_bichodisco.png" alt=""></div><span class="mat">Disco y colchoneta</span></div><div class="extx"><div class="exh"><h4>Bicho muerto con disco</h4><span class="dose">8–10</span><a class="vbtn-sm" href="https://youtu.be/fKAKLkzfhvQ"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Boca arriba con disco al techo y rodillas a 90°. Bajá extremidades con lumbar pegada. <span class="ojo"><b>Cuidá:</b> lumbar pegada al piso en todo momento.</span></p><p class="easy"><b>Más fácil:</b> sin disco, alternando lados.</p></div></div>
+
+</div></section><section class="page " id="rutina2"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<h1 class="h1 rt">Rutina 2: <span class="t">cuerpo completo</span></h1>
+<div class="blk"><span>ENTRADA EN CALOR</span><p>5–10 min de aeróbico y después 1 o 2 vueltas de movilidad · 20–30 s de pausa</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_cinta.png" alt=""></div><span class="mat">Cinta o bici</span></div><div class="extx"><div class="exh"><h4>Cinta, bici o elíptica</h4><span class="dose">5–10 min</span><a class="vbtn-sm" href="https://youtu.be/ccHvlKNkCME"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Aeróbico suave en cinta o bicicleta. Mantené un ritmo continuo que te permita hablar.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_gatovaca.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Gato-vaca</h4><span class="dose">8–10</span><a class="vbtn-sm" href="https://youtu.be/rEosL__rD5k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>En cuatro apoyos, redondeá espalda al exhalar con mentón al pecho y arqueala suave al inhalar.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_4.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Movilidad de cadera acostada</h4><span class="dose">10–12 por lado</span><a class="vbtn-sm" href="https://youtu.be/9ayi-DrA98o"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De costado con rodillas flexionadas, abrí y cerrá la rodilla superior sin separar pies.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_psoas.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Psoas dinámico</h4><span class="dose">8 por lado</span><a class="vbtn-sm" href="https://youtu.be/s85XuGH1uk4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Una rodilla en piso y otra pierna adelante. Llevá cadera al frente con torso erguido.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_5.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Elevación de cadera</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/YopfscyxtK0"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Boca arriba con rodillas flexionadas, elevá la cadera apretando glúteos y bajá lento.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_1.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Movilidad de brazos</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/2LWFYoBjS5I"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De pie, elevá brazos y hacé círculos amplios hacia adelante y atrás. Podés usar un bastón.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_circcadera.png" alt=""></div><span class="mat">Máquina o pared</span></div><div class="extx"><div class="exh"><h4>Circunducción de cadera</h4><span class="dose">8 por lado</span><a class="vbtn-sm" href="https://youtu.be/T-v_pylMgfk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De pie y tomada de una máquina o pared, subí una rodilla y hacé un círculo hacia afuera.</p></div></div>
+</div></section><section class="page " id="rutina2b1"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="blk"><span>RUTINA 2 · BLOQUE 1</span><p>2 o 3 vueltas, según tu semana · 60–90 s entre ejercicios · 1 min entre vueltas · Plancha lateral: 15–20 s por lado. Al terminar, 2 min de pausa y pasá al bloque 2.</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r3_5b.png" alt=""></div><span class="mat">2 mancuernas</span></div><div class="extx"><div class="exh"><h4>Peso muerto con mancuernas</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/W5FS9E0Lib4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Pies ancho de cadera. Llevá cadera atrás con espalda recta, bajá mancuernas y subí con glúteos. <span class="ojo"><b>Cuidá:</b> espalda recta, pesas pegadas a piernas.</span></p><p class="easy"><b>Más fácil:</b> con un bastón para aprender la técnica.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_jalon.png" alt=""></div><span class="mat">Polea alta</span></div><div class="extx"><div class="exh"><h4>Jalón al pecho</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/Vfeh314bQX4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Piernas trabadas y agarre ancho. Bajá barra al pecho alto con torso erguido; subí lento. <span class="ojo"><b>Cuidá:</b> no balancees el cuerpo al bajar la barra; tronco lo más derecho posible.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_aductores.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Aductores en máquina</h4><span class="dose">12</span><a class="vbtn-sm" href="https://youtu.be/Zjn_nxVnNTc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Piernas en apoyos. Cerrá apretando cara interna, pausá 1 s y abrí despacio. <span class="ojo"><b>Cuidá:</b> apertura controlada sin tirones.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r3_2.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Plancha lateral</h4><span class="dose">15–20 s por lado</span><a class="vbtn-sm" href="https://youtu.be/bxQgU1eK4dc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De costado sobre antebrazo con codo bajo hombro. Elevá cadera y sostené cuerpo recto. <span class="ojo"><b>Cuidá:</b> codo bajo hombro, cadera elevada.</span></p><p class="easy"><b>Más fácil:</b> con rodillas apoyadas.</p></div></div>
+
+</div></section><section class="page " id="rutina2b2"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="blk"><span>RUTINA 2 · BLOQUE 2</span><p>2 o 3 vueltas, según tu semana · 60–90 s entre ejercicios · 1 min entre vueltas · Plancha lateral: 15–20 s por lado. Al terminar, hacé la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r1_2_mancuernas.png" alt=""></div><span class="mat">2 mancuernas</span></div><div class="extx"><div class="exh"><h4>Estocada split con mancuernas</h4><span class="dose">10 por pierna</span><a class="vbtn-sm" href="https://youtu.be/JOQYcHKf83I"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Mancuernas en mano, un pie adelante y otro atrás. Bajá a 90° y empujá con talón frontal. <span class="ojo"><b>Cuidá:</b> tronco vertical, rodilla alineada.</span></p><p class="easy"><b>Más fácil:</b> sin mancuernas y con apoyo.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_apertura.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Apertura de pecho en máquina</h4><span class="dose">12</span><a class="vbtn-sm" href="https://youtu.be/wXMyuaHLumo"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Espalda apoyada y brazos abiertos. Juntá brazos al frente con codos semiflexionados y abrí lento. <span class="ojo"><b>Cuidá:</b> codos semiflexionados, sin forzar atrás.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_triceps.png" alt=""></div><span class="mat">Polea y soga</span></div><div class="extx"><div class="exh"><h4>Extensión de tríceps con soga</h4><span class="dose">12</span><a class="vbtn-sm" href="https://youtu.be/E5-R8s44Ix4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Frente a polea alta con codos fijos. Empujá la soga abajo abriendo al final y volvé lento. <span class="ojo"><b>Cuidá:</b> codos fijos a costados, empujá abajo.</span></p><p class="easy"><b>Más fácil:</b> menos peso y recorrido corto.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r1_8.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Crunch abdominal</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/dCXP5MiZQNc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Boca arriba con rodillas flexionadas. Despegá hombros llevando costillas a cadera sin tirar del cuello. <span class="ojo"><b>Cuidá:</b> subí con el abdomen, sin tirar del cuello.</span></p></div></div>
+
+</div></section><section class="page " id="rutina3"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<h1 class="h1 rt">Rutina 3: <span class="t">cuerpo completo</span></h1>
+<div class="blk"><span>ENTRADA EN CALOR</span><p>5–10 min de aeróbico y después 1 o 2 vueltas de movilidad · 20–30 s de pausa</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_cinta.png" alt=""></div><span class="mat">Cinta o bici</span></div><div class="extx"><div class="exh"><h4>Cinta, bici o elíptica</h4><span class="dose">5–10 min</span><a class="vbtn-sm" href="https://youtu.be/ccHvlKNkCME"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Aeróbico suave en cinta o bicicleta. Mantené un ritmo continuo que te permita hablar.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_1.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Movilidad de brazos</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/2LWFYoBjS5I"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De pie, elevá brazos y hacé círculos amplios hacia adelante y atrás. Podés usar un bastón.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_gatovaca.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Gato-vaca</h4><span class="dose">8–10</span><a class="vbtn-sm" href="https://youtu.be/rEosL__rD5k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>En cuatro apoyos, redondeá espalda al exhalar con mentón al pecho y arqueala suave al inhalar.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_circcadera.png" alt=""></div><span class="mat">Máquina o pared</span></div><div class="extx"><div class="exh"><h4>Circunducción de cadera</h4><span class="dose">8 por lado</span><a class="vbtn-sm" href="https://youtu.be/T-v_pylMgfk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De pie y tomada de una máquina o pared, subí una rodilla y hacé un círculo hacia afuera.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_3.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Sentadilla lateral</h4><span class="dose">10–12 por lado</span><a class="vbtn-sm" href="https://www.youtube.com/watch?v=AhPJmY4v3Z4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Pies separados. Llevá peso a una pierna flexionando rodilla con la otra estirada; alterná.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_5.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Elevación de cadera</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/YopfscyxtK0"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Boca arriba con rodillas flexionadas, elevá la cadera apretando glúteos y bajá lento.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/rot_tronco_pie.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Rotación de tronco de pie</h4><span class="dose">8 por lado</span><a class="vbtn-sm" href="https://youtu.be/8ZhHlY4Aq_Y"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De pie con pies al ancho de cadera y brazos cruzados al pecho. Girá el tronco a un lado y al otro con la cadera al frente. <span class="ojo"><b>Cuidá:</b> cadera fija al frente, girá solo el tronco.</span></p></div></div>
+</div></section><section class="page " id="rutina3b1"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="blk"><span>RUTINA 3 · BLOQUE 1</span><p>2 o 3 vueltas, según tu semana · 60–90 s entre ejercicios · 1 min entre vueltas · Bird dog: sostené 2 s en cada repetición. Al terminar, 2 min de pausa y pasá al bloque 2.</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r1_1.png" alt=""></div><span class="mat">1 mancuerna</span></div><div class="extx"><div class="exh"><h4>Sentadilla en copa</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/4vdE4BQJdIM"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Pies ancho de hombros con peso al pecho. Bajá con cadera atrás y pecho erguido; subí con fuerza. <span class="ojo"><b>Cuidá:</b> espalda derecha, rodillas alineadas.</span></p><p class="easy"><b>Más fácil:</b> sentadilla al banco sin peso.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_remopolea.png" alt=""></div><span class="mat">Polea baja</span></div><div class="extx"><div class="exh"><h4>Remo bajo en polea</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/hkFC0uc7G6A"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Sentada con rodillas semiflexionadas. Tirá del agarre al ombligo con codos pegados y volvé lento. <span class="ojo"><b>Cuidá:</b> espalda derecha, sin tironear con el tronco.</span></p><p class="easy"><b>Más fácil:</b> menos peso sin inclinar tronco.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_hipthrust.png" alt=""></div><span class="mat">Banco y barra o disco</span></div><div class="extx"><div class="exh"><h4>Hip thrust</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/dLX0Uob8y4k"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Espalda en banco y barra sobre cadera. Empujá con talones hasta alinear torso y apretá glúteos arriba. <span class="ojo"><b>Cuidá:</b> mentón al pecho, empujá con talones.</span></p><p class="easy"><b>Más fácil:</b> puente en colchoneta sin peso.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/calor_6.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Bird dog</h4><span class="dose">8–10 por lado</span><a class="vbtn-sm" href="https://youtu.be/kyNrWqz1iqs"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>En cuatro apoyos, estirá brazo y pierna contraria en línea recta. Sostené 2 s y volvé firme. <span class="ojo"><b>Cuidá:</b> espalda quieta, cadera sin rotar.</span></p><p class="easy"><b>Más fácil:</b> mové solo brazo o pierna.</p></div></div>
+
+</div></section><section class="page " id="rutina3b2"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="blk"><span>RUTINA 3 · BLOQUE 2</span><p>2 o 3 vueltas, según tu semana · 60–90 s entre ejercicios · 1 min entre vueltas · Bird dog: sostené 2 s en cada repetición. Al terminar, hacé la <a href="#elong">elongación</a> (página <span class="pref" data-ref="elong"></span>).</p></div>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_presshombro.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Press de hombros en máquina</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/epNNDB486H4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Espalda apoyada y manijas a hombros. Empujá arriba sin bloquear codos y bajá a 90°. <span class="ojo"><b>Cuidá:</b> espalda apoyada, sin arquear lumbar.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_abduccion.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Abducción en máquina</h4><span class="dose">12</span><a class="vbtn-sm" href="https://youtu.be/fyVNH7X5wv4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Sentada con piernas en apoyos externos. Abrí con fuerza de glúteo medio y cerrá despacio. <span class="ojo"><b>Cuidá:</b> apertura firme y regreso pausado.</span></p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r3_6.png" alt=""></div><span class="mat">2 mancuernas</span></div><div class="extx"><div class="exh"><h4>Bíceps con mancuernas</h4><span class="dose">10–12</span><a class="vbtn-sm" href="https://youtu.be/ToxLEnNgKXA"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>De pie con codos fijos a costados. Flexioná subiendo mancuernas a hombros y bajá lento. <span class="ojo"><b>Cuidá:</b> codos quietos a los costados.</span></p><p class="easy"><b>Más fácil:</b> mancuernas más livianas de a una.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_facepull.png" alt=""></div><span class="mat">Polea y soga</span></div><div class="extx"><div class="exh"><h4>Face pull</h4><span class="dose">12</span><a class="vbtn-sm" href="https://youtu.be/R1FeK4isaHE"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Polea alta a la cara. Tirá la soga hacia la frente con codos bien altos y regresá controlado. <span class="ojo"><b>Cuidá:</b> codos altos hacia la cara.</span></p><p class="easy"><b>Más fácil:</b> menos peso y recorrido cómodo.</p></div></div>
+
+</div></section><section class="page " id="elong"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>03 · Rutinas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">AL TERMINAR CADA RUTINA</span>
+<h1 class="h1">Rutina de <span class="t">elongación</span></h1>
+<p class="small">1 vuelta · 15–30 s cada postura · suave, sin dolor y sin rebotes. Al terminar, anotá la sesión en tu registro.</p>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/elong_1.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Isquiotibiales a una pierna</h4><span class="dose">15–30 s</span><a class="vbtn-sm" href="https://youtu.be/50BsrPx3-mU"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Sentada, una pierna estirada y la otra flexionada. Inclinate hacia adelante desde la cadera, con la espalda larga.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/elong_3.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Espalda baja</h4><span class="dose">15–30 s</span><a class="vbtn-sm" href="https://youtu.be/gswS7KoAjMc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Boca arriba, llevá una rodilla hacia el pecho y sostenela con las manos. Cambiá de lado.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/elong_4.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Aductores</h4><span class="dose">15–30 s</span><a class="vbtn-sm" href="https://youtu.be/RYs_nKnDzx4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Sentada, juntá las plantas de los pies y dejá caer las rodillas hacia los costados.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/elong_5.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Espalda e isquiotibiales</h4><span class="dose">15–30 s</span><a class="vbtn-sm" href="https://youtu.be/7t7SIeQrmxY"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Manos y pies en el piso, llevá la cadera hacia arriba y atrás formando una V invertida. Podés flexionar las rodillas.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/elong_6.png" alt=""></div><span class="mat">Pared</span></div><div class="extx"><div class="exh"><h4>Pectoral en pared</h4><span class="dose">15–30 s</span><a class="vbtn-sm" href="https://youtu.be/5reQDGL1cA4"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Apoyá el antebrazo en una pared y girá suavemente el cuerpo hacia el lado contrario.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/elong_7.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Hombros</h4><span class="dose">15–30 s</span><a class="vbtn-sm" href="https://youtu.be/ecGClH49zxk"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Cruzá un brazo por delante del pecho y sostenelo con el otro, sin elevar el hombro.</p></div></div>
+</div></section><section class="page " id="core"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>04 · Rutinas extras</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">04</span><h1>Rutinas <span class="t">extras</span></h1><p class="lead">Para sumar cuando quieras: la rutina de zona media y la sesión express de 15 minutos para los días con poco tiempo.</p></div><h2>Rutina de zona media</h2>
+<p class="lead">Seis ejercicios simples para fortalecer el abdomen y la espalda baja. Pensada para nivel inicial: sin saltos y sin cargar el cuello.</p>
+<div class="params"><div><span>Cuándo</span><b>2 o 3 veces por semana</b></div><div><span>Vueltas</span><b>2 (3 desde la semana 5)</b></div><div><span>Pausa</span><b>30 s entre ejercicios</b></div><div><span>Duración</span><b>8–10 min</b></div></div>
+<p class="small">Hacela al terminar el bloque 2, antes de elongar, o en un día de aeróbico.</p>
+<div class="ex"><div class="exl"><div class="exim"><img src="img/core_bicho.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Bicho muerto alternado</h4><span class="dose">6–10 por lado</span></div><p>Boca arriba, brazos al techo y rodillas a 90°. Estirá brazo y pierna contraria sin despegar lumbar del piso. Alterná lados. <span class="ojo"><b>Cuidá:</b> lumbar pegada al piso todo el tiempo.</span></p><p class="easy"><b>Cómo avanzar:</b> <b>S1–2:</b> solo piernas, 6 por lado. <b>S3–4:</b> brazo y pierna, 8 por lado. <b>S5–8:</b> 10 por lado.</p><a class="vbtn-sm" href="https://youtu.be/kgG0lb4XfMQ"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div></div><div class="ex"><div class="exl"><div class="exim"><img src="img/r1_7.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Plancha</h4><span class="dose">15–30 s</span></div><p>Antebrazos bajo hombros, cuerpo recto. Apretá abdomen y glúteos respirando continuo sin arquear la cintura. <span class="ojo"><b>Cuidá:</b> cadera alineada, respirá continuo.</span></p><p class="easy"><b>Cómo avanzar:</b> <b>S1–2:</b> rodillas apoyadas, 15 s. <b>S3–4:</b> rodillas, 25 s. <b>S5–6:</b> completa, 20 s. <b>S7–8:</b> 30 s.</p><a class="vbtn-sm" href="https://youtu.be/nd0qbgESlao"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div></div><div class="ex"><div class="exl"><div class="exim"><img src="img/r3_2.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Plancha lateral</h4><span class="dose">10–25 s por lado</span></div><p>De costado sobre antebrazo con codo bajo hombro. Elevá cadera y sostené el cuerpo alineado. <span class="ojo"><b>Cuidá:</b> codo bajo hombro, cadera elevada.</span></p><p class="easy"><b>Cómo avanzar:</b> <b>S1–2:</b> rodillas flexionadas, 10 s. <b>S3–4:</b> rodillas, 15 s. <b>S5–6:</b> piernas estiradas, 15 s. <b>S7–8:</b> 25 s.</p><a class="vbtn-sm" href="https://youtu.be/bxQgU1eK4dc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div></div><div class="ex"><div class="exl"><div class="exim"><img src="img/calor_6.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Bird dog</h4><span class="dose">6–10 por lado</span></div><p>En cuatro apoyos, estirá brazo y pierna contraria en línea recta. Sostené 2 s y volvé con control. <span class="ojo"><b>Cuidá:</b> espalda quieta, cadera sin rotar.</span></p><p class="easy"><b>Cómo avanzar:</b> <b>S1–2:</b> 6 por lado. <b>S3–4:</b> 8 por lado. <b>S5–8:</b> 10 por lado sosteniendo 3 s.</p><a class="vbtn-sm" href="https://youtu.be/kyNrWqz1iqs"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div></div><div class="ex"><div class="exl"><div class="exim"><img src="img/r2_2.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Mountain climber</h4><span class="dose">15–30 s</span></div><p>En plancha alta con manos bajo hombros, llevá las rodillas al pecho de forma alternada con la cadera firme. <span class="ojo"><b>Cuidá:</b> manos bajo hombros, cadera estable.</span></p><p class="easy"><b>Cómo avanzar:</b> <b>S1–2:</b> lento, 15 s. <b>S3–4:</b> 20 s. <b>S5–8:</b> 30 s, más rápido.</p><a class="vbtn-sm" href="https://youtu.be/k9_dNW743ng"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div></div><div class="ex"><div class="exl"><div class="exim"><img src="img/r3_7.png" alt=""></div><span class="mat">Propio cuerpo</span></div><div class="extx"><div class="exh"><h4>Plancha oso</h4><span class="dose">10–20 s</span></div><p>En cuatro apoyos, despegá rodillas a 3 cm del piso. Sostené espalda plana y abdomen firme. <span class="ojo"><b>Cuidá:</b> espalda plana, rodillas apenas despegadas.</span></p><p class="easy"><b>Cómo avanzar:</b> <b>S1–2:</b> rodillas apoyadas. <b>S3–4:</b> 10 s. <b>S5–8:</b> 15–20 s.</p><a class="vbtn-sm" href="https://www.youtube.com/shorts/poQj12MCTJQ"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div></div>
+<div class="box soft"><b>Regla simple para variar:</b> cada 2 semanas, sumá 5 segundos o 2 repeticiones por ejercicio. Si sentís molestia en la zona lumbar o en el cuello, volvé al paso anterior.</div>
+</div></section><section class="page " id="express"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>04 · Rutinas extras</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<h1 class="h1">Sesión express de <span class="t">15 minutos</span></h1>
+<p class="small"><b>3 vueltas · 40 s por ejercicio · 20 s de pausa · 1 min entre vueltas.</b></p>
+<p class="small">Antes, 3 minutos de cinta o bici y movilidad de brazos. Usá la variante y el peso de tu semana del plan.</p>
+<div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_prensa.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Prensa</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/ddfmGBWmB88"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Espalda apoyada y pies al ancho de cadera. Bajá a 90° y empujá sin bloquear rodillas.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_presspecho.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Press de pecho en máquina</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/NwxHu5BSiKQ"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Asiento a la altura del pecho. Empujá adelante sin trabar codos y volvé lento.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/r1_7.png" alt=""></div><span class="mat">Colchoneta</span></div><div class="extx"><div class="exh"><h4>Plancha prona</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/nd0qbgESlao"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Antebrazos y puntas apoyadas, cuerpo alineado. Apretá abdomen y glúteos firme.</p></div></div><div class="ex exrow"><div class="exl"><div class="exim"><img src="img/gym_remomaq.png" alt=""></div><span class="mat">Máquina</span></div><div class="extx"><div class="exh"><h4>Remo en máquina</h4><span class="dose">40 s</span><a class="vbtn-sm" href="https://youtu.be/2ybm7nnYbyg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> VER VIDEO</a></div><p>Pecho apoyado, agarre neutro. Tirá codos atrás juntando omóplatos y volvé lento.</p></div></div>
+</div></section><section class="page " id="plan8t1"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>05 · Tu plan de 8 semanas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">PLAN DE 8 SEMANAS</span>
+<h1 class="h1">Semanas 1 a 4: <span class="t">aprendé y construí tu base</span></h1>
+<table class="grid-t plan4"><thead><tr><th>Semana</th><th>Rutinas</th><th>Vueltas</th><th>Repeticiones · planchas</th><th>Esfuerzo</th></tr></thead><tbody><tr><th>1</th><td>R1 · R2</td><td>2</td><td>10 · 15 s</td><td>5–6 de 10</td></tr><tr><th>2</th><td>R1 · R2 · R3</td><td>2</td><td>10–12 · 15–20 s</td><td>6 de 10</td></tr><tr><th>3</th><td>R1 · R2 · R3</td><td>3</td><td>10–12 · 20 s</td><td>6–7 de 10</td></tr><tr><th>4</th><td>R1 · R2 · R3</td><td>3</td><td>12 · 25 s</td><td>7 de 10</td></tr></tbody></table>
+<h3>Tu semana tipo</h3>
+<table class="cal"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Semana</th><td><span class="chip c1">R1</span></td><td><span class="chip ca">A</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr></tbody></table>
+<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>
+<ul class="list"><li><b>Semana 1:</b> solo la rutina 1 y la 2.</li><li><b>Pausa entre ejercicios:</b> 60 a 90 s. En el gimnasio progresás subiendo el peso, no acortando la pausa.</li><li><b>Aeróbico (A):</b> cinta, bici o elíptica en el gimnasio, o caminar rápido al aire libre, 20 a 30 min, a un ritmo en el que podés hablar pero no cantar.</li><li>Dejá un día entre dos sesiones de fuerza. Los días se pueden mover: lo importante es el total de la semana.</li><li><b>Si perdés un día:</b> no pasa nada. Hacé esa rutina en tu próximo día libre y seguí; no hagas dos el mismo día ni compenses. Si perdés la semana entera, repetí la última semana que completaste.</li></ul>
+</div></section><section class="page " id="plan8w2"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>05 · Tu plan de 8 semanas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">PLAN DE 8 SEMANAS</span>
+<div class="box soft"><b>Semana 5: descarga.</b> R1 y R2, 2 vueltas y esfuerzo 6. Es más liviana a propósito: te recuperás para lo que viene.</div>
+<h1 class="h1">Ahora <span class="t">progresamos y aumentamos</span></h1>
+<p class="lead">Semanas 6 a 8: más peso, más tiempo y menos pausa.</p>
+<table class="grid-t plan4"><thead><tr><th>Semana</th><th>Rutinas</th><th>Vueltas</th><th>Repeticiones · planchas</th><th>Esfuerzo</th></tr></thead><tbody><tr><th>6</th><td>R1 · R2 · R3</td><td>3</td><td>12 con más peso · 30 s</td><td>7–8 de 10</td></tr><tr><th>7</th><td>R1 · R2 · R3</td><td>3</td><td>10–12 bajando en 3 s · 30 s</td><td>7–8 de 10</td></tr><tr><th>8</th><td>R1 · R2 · R3</td><td>3 (+1 opcional)</td><td>12 · 35–40 s</td><td>7–8 de 10</td></tr></tbody></table>
+<h3>Cómo aumentar</h3>
+<ul class="list"><li><b>Semana 6:</b> subí el peso en los ejercicios donde ya llegás cómoda a 12 repeticiones.</li><li><b>Semana 7:</b> bajá en 3 segundos en cada repetición y, si llegás cómoda a 12, subí el peso. La pausa sigue en 60 a 90 s.</li><li><b>Semana 8:</b> si te sentís bien, sumá una 4.ª vuelta al bloque 1.</li><li><b>Al terminar la semana 8:</b> <a href="#eval">medí tu progreso</a> (página <span class="pref" data-ref="eval"></span>).</li></ul>
+</div></section><section class="page " id="cap5e"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>06 · Semanas con poco tiempo</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">06</span><h1>Semanas con <span class="t">poco tiempo</span></h1><p class="lead">Si tu agenda no permite la semana completa, elegí una versión reducida. Hacer <b>menos, pero sostenido</b>, suma más que intentar todo y abandonar.</p></div>
+<table class="cal">
+<thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead>
+<tbody>
+<tr><th>2 días</th><td><span class="chip c1">R1</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr>
+<tr><th>3 días</th><td><span class="chip c1">R1</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c2">R2</span></td><td><span class="chip ce">Libre</span></td><td><span class="chip c3">R3</span></td><td><span class="chip ca">A</span></td><td><span class="chip cd">Descanso</span></td></tr>
+</tbody></table>
+<div class="legend"><span><span class="chip c1">R1</span> Rutina 1</span><span><span class="chip c2">R2</span> Rutina 2</span><span><span class="chip c3">R3</span> Rutina 3</span><span><span class="chip ca">A</span> Actividad aeróbica</span></div>
+<h3>Con 2 días de fuerza</h3>
+<p>Seguí las vueltas, repeticiones y esfuerzo de tu semana del plan, pero alterná las rutinas: R1 y R2 una semana, R3 y R1 la siguiente. El plan te va a llevar más de 8 semanas, y está bien.</p>
+<h2>Tu plan mínimo para semanas difíciles</h2>
+<div class="minplan">
+<div><span>Fuerza</span><p>1 o 2 sesiones express de 15 minutos.</p></div>
+<div><span>Movimiento</span><p>Caminatas de 10 minutos; 3 en el día también suman.</p></div>
+<div><span>Recuperación</span><p>Mismo horario para levantarte y 30 minutos sin pantallas.</p></div>
+<div><span>Registro</span><p>Un tilde por día en la planilla, aunque sea uno solo.</p></div>
+</div>
+<p class="small"><b>¿Tu rutina diaria es muy irregular o tenés dudas para adaptarla?</b> Escribile a Nacho para ver cómo personalizar tu caso.</p><a class="btn" href="https://wa.link/hewha8">ESCRIBILE A NACHO POR WHATSAPP <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div></section><section class="page " id="eval"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>07 · Medí tu progreso</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">07</span><h1>Medí tu <span class="t">progreso</span></h1><p class="lead">Medí tu cintura y, si querés, tu peso: <b>antes de la primera rutina, en la semana 4 y al terminar la 8</b>. La cintura muestra cambios que la balanza a veces no refleja.</p></div>
+<div class="meas">
+<figure><img src="img/medir_cintura.png" alt="Cómo medir el perímetro de cintura"></figure>
+<div>
+<h3>Cómo medir la cintura</h3>
+<ol class="steps-ol">
+<li>Usá una cinta métrica flexible, de costura.</li>
+<li>Parate relajada, con los pies juntos y sin meter la panza.</li>
+<li>Ubicá el punto medio entre la última costilla y el borde de arriba del hueso de la cadera. Suele quedar a la altura del ombligo.</li>
+<li>Pasá la cinta alrededor, derecha y paralela al piso, apoyada sobre la piel sin apretar.</li>
+<li>Leé la medida al final de una exhalación normal. Medí dos veces y anotá el promedio.</li>
+</ol>
+</div>
+</div>
+<h3>Cómo pesarte</h3>
+<ul class="list"><li>Siempre con la misma balanza y el mismo día de la semana.</li><li>A la mañana, en ayunas y después de ir al baño, con poca ropa.</li><li>Mirá la tendencia, no un número suelto: el peso cambia por los líquidos, la sal o el ciclo.</li></ul>
+<table class="grid-t meas-t"><thead><tr><th></th><th>Inicio</th><th>Semana 4</th><th>Semana 8</th></tr></thead><tbody>
+<tr><th>Fecha</th><td></td><td></td><td></td></tr><tr><th>Peso (kg)</th><td></td><td></td><td></td></tr><tr><th>Cintura (cm)</th><td></td><td></td><td></td></tr>
+</tbody></table>
+
+</div></section><section class="page " id="cargas"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>07 · Medí tu progreso</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">MEDÍ TU PROGRESO</span>
+<h1 class="h1">Tu <span class="t">registro</span></h1>
+<h3 class="wk">Mi semana · del ____ al ____</h3>
+<table class="grid-t wk8"><thead><tr><th></th><th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th></tr></thead><tbody><tr><th>Fuerza (R1, R2, R3)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Aeróbico (minutos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Elongación</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<p class="small">Marcá la rutina que hiciste (R1, R2 o R3), los minutos de aeróbico y si elongaste. Imprimí una por semana o copiala en tu agenda.</p>
+<h3 class="wk">Mis cargas y repeticiones</h3>
+<p>Una vez por semana, anotá el peso y las repeticiones de la última vuelta. Por ejemplo: <b>4 kg × 12</b>. Si usaste una variante, agregá F (fácil) o P (principal).</p>
+<table class="grid-t loads"><thead><tr><th>Ejercicio</th><th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th><th>S6</th><th>S7</th><th>S8</th></tr></thead>
+<tbody><tr><th>Prensa</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Press de pecho en máquina</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Remo en máquina</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Jalón al pecho</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Peso muerto con mancuernas</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Estocada split con mancuernas</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Sentadilla en copa</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Hip thrust</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Press de hombros en máquina</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><th>Plancha prona (segundos)</th><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+
+</div></section><section class="page " id="cap7e"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>08 · Después de las 8 semanas</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">08</span><h1>Después de las <span class="t">8 semanas</span></h1><p class="lead">Terminar el plan no es el final: es el punto de partida para seguir, ahora con más fuerza y experiencia.</p></div>
+<h2>Tres caminos para seguir</h2>
+<div class="pillars">
+  <div class="pillar"><span class="pn">01</span><h3>Subí la carga</h3><p>Repetí las semanas 6 a 8 con más peso o variantes más exigentes. Seguí midiendo tu cintura cada 4 semanas.</p></div>
+  <div class="pillar"><span class="pn">02</span><h3>Nuevo ciclo</h3><p>Volvé a la semana 1 con el peso que usás hoy. Vas a notar que todo te cuesta menos.</p></div>
+  <div class="pillar"><span class="pn">03</span><h3>Mantené</h3><p>Si tu agenda está cargada, 2 sesiones por semana alcanzan para sostener lo que ganaste.</p></div>
+</div>
+<div class="cols2 keep">
+<div>
+<h3>Cómo retomar</h3>
+<ul class="list"><li>Volvé en la próxima oportunidad, no “el lunes”.</li><li>Empezá con la mitad: 2 vueltas y un escalón menos.</li><li>No compenses con ejercicio extra ni comiendo menos.</li></ul>
+</div>
+<div>
+<h3>Cuándo pedir ayuda</h3>
+<p>Si no lográs sostener los cambios o tenés una lesión o condición médica, un plan personalizado te ayuda a ajustar el plan.</p>
+</div>
+</div>
+<div class="ctapanel cta-plan deco">
+  <img class="cp-face" src="img/nacho_full.jpg" alt="Nacho Portillo"><span class="cp-eye">PLAN INTEGRAL RENOVA</span>
+  <p class="ctatitle">Seguí avanzando con un plan a tu medida</p>
+  <p class="center">Escribime y armamos tu próximo paso de forma personalizada: rutinas de entrenamiento o el programa integral RENOVA (entrenamiento, nutrición y hábitos).</p>
+  <a class="btn btn-big" href="https://wa.link/hewha8">ESCRIBILE A NACHO POR WHATSAPP <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="cp-pills"><span>✓ Entrenamiento</span><span>✓ Nutrición</span><span>✓ Hábitos</span></div>
+  <p class="off">Por venir del ebook tenés <b>50% off</b> en el plan integral RENOVA de entrenamiento y nutrición.</p>
+</div>
+
+<div class="quote cp-quote">No necesitás hacerlo perfecto. <span class="t">Necesitás un sistema que puedas sostener.</span></div>
+
+</div></section><section class="page " id="claves"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>09 · 10 cuidados en el gimnasio</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="chead"><span class="cnum">09</span><h1>10 cuidados en el <span class="t">gimnasio</span></h1><p class="lead">Para entrenar seguro y sacarle el máximo a cada sesión.</p></div>
+<div class="tips10">
+<div><span>01</span><h3>Hacé siempre la entrada en calor</h3><p>Prepara músculos y articulaciones y baja el riesgo de lesiones.</p></div><div><span>02</span><h3>Regulá cada máquina</h3><p>Asiento, respaldo y apoyos a tu medida. Al principio, pedile ayuda al profe de sala.</p></div><div><span>03</span><h3>Arrancá con poco peso</h3><p>Subí de a poco, como indica tu plan.</p></div><div><span>04</span><h3>Técnica antes que carga</h3><p>Si perdés la postura, bajá el peso.</p></div><div><span>05</span><h3>Respirá</h3><p>Exhalá en el esfuerzo y no contengas el aire.</p></div><div><span>06</span><h3>Movimientos controlados</h3><p>Sin tirones, sin rebotes y sin balancear el cuerpo.</p></div><div><span>07</span><h3>Hidratate</h3><p>Llevá tu botella y tomá entre ejercicios.</p></div><div><span>08</span><h3>Calzado y toalla</h3><p>Zapatillas cerradas y cómodas, y una toalla para las máquinas.</p></div><div><span>09</span><h3>Escuchá a tu cuerpo</h3><p>Si sentís dolor articular, mareo o falta de aire, frená.</p></div><div><span>10</span><h3>Respetá los descansos</h3><p>Entre series y entre sesiones: el músculo crece cuando descansás.</p></div>
+</div>
+</div></section><section class="page p-cover" id="bonus-portada"><div class="body">
+<div class="divider">
+  <img class="dv-logo" src="img/logo_renova.png" alt="RENOVA">
+  <p class="dv-kick">TERMINASTE LA PARTE DE ENTRENAMIENTO</p>
+  <h1 class="dv-title">BONUS!</h1>
+  <p class="dv-sub">Talleres y comunidad</p>
+  <div class="dv-bar"></div>
+  <p class="dv-desc">Herramientas para acompañar tu plan fuera del entrenamiento.</p>
+  <div class="dv-list">
+    <a href="#talleres"><span>1</span><b>Más de 10 talleres incluidos</b><em>Página <span class="pref" data-ref="talleres"></span></em></a>
+    
+    <a href="#bonus" style="display:none"><span>2</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="bonus"></span></em></a>
+    <a href="#talleres"><span>2</span><b>Comunidad RENOVA</b><em>Página <span class="pref" data-ref="talleres"></span></em></a><a href="#talleres"><span>3</span><b>Pausa activa: 4 rutinas de 10 minutos</b><em>PDF aparte</em></a>
+  </div>
+  <a class="btn btn-big dv-btn" href="https://www.skool.com/renova-entrenamiento-y-salud-1617/about">ENTRÁ A LA COMUNIDAD RENOVA <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</div></section><section class="page p-spread" id="talleres"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>Bonus 1 · Talleres</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">BONUS 1 · INCLUIDO</span>
+<h1 class="h1 big">Talleres y <span class="t">comunidad</span></h1>
+<p class="lead">Más de 10 talleres y la comunidad RENOVA, todo en Skool. Entrás con un solo botón.</p>
+<div class="tk10"><div class="tk10-im"><img src="img/taller_super.png" alt=""><img src="img/taller_ansiedad.png" alt=""></div><div class="tk10-tx"><span class="wtag">+10 TALLERES</span><h3>Talleres de hábitos, mindfulness, nutrición inteligente y muchos más…</h3><p>Dictados por los profesionales del equipo RENOVA.</p></div></div><p><b>Con el mismo acceso entrás a la comunidad RENOVA:</b> mujeres con tus mismos objetivos, donde podés compartir tu proceso y ver cómo lo resuelven otras. Participar es opcional.</p>
+<div class="tk2" style="display:none">
+  <div><img src="img/taller_super.png" alt=""><span class="wtag">INCLUIDO</span><h3>Elecciones inteligentes en el súper</h3><p>Qué elegir, cómo leer las etiquetas y cómo armar un carrito que te rinda toda la semana.</p></div>
+  <div><img src="img/taller_ansiedad.png" alt=""><span class="wtag">INCLUIDO</span><h3>Gestión de la ansiedad</h3><p>Reconocer la ansiedad y manejarla sin que maneje tus comidas.</p></div>
+</div>
+<a class="skool" href="https://www.skool.com/renova-entrenamiento-y-salud-1617/about">
+  <img src="img/equipo_cover.jpg" alt="Equipo RENOVA">
+  <div class="skx"><span class="wtag">COMUNIDAD RENOVA · SKOOL</span><h3>Entrá a los talleres y a la comunidad</h3>
+  <p>Tocá el botón: se abre la comunidad RENOVA en Skool, con los cursos y talleres del equipo.</p>
+  <span class="btn btn-big"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> ENTRAR A SKOOL</span></div>
+</a>
+</div></section><section class="page " id="testimonios"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>Bienvenida</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<span class="pill">RESULTADOS REALES</span>
+<h1 class="h1">Conocé lo que lograron <span class="t">con nuestro abordaje</span></h1>
+<p class="lead">Mujeres reales que entrenaron con el método RENOVA. Los resultados dependen de cada persona.</p>
+<div class="res3">
+  <div class="rc"><div class="rc-img two"><div><img src="img/mari_a.jpg" alt="" style="object-position:52% 50%"><span>ANTES</span></div><div><img src="img/mari_d.jpg" alt="" style="object-position:58% 50%"><span class="d">DESPUÉS</span></div></div>
+    <p><b>Mari</b>Bajó 8 kg de grasa y 10 cm de cintura.</p></div>
+  <div class="rc"><div class="rc-img two"><div><img src="img/moni_d.jpg" alt="" style="object-position:43% 50%"><span>ANTES</span></div><div><img src="img/moni_a.jpg" alt="" style="object-position:52% 50%"><span class="d">DESPUÉS</span></div></div>
+    <p><b>Moni</b>Bajó 6 kg y logró el hábito de entrenar.</p></div>
+  <div class="rc"><div class="rc-img"><img src="img/ba_romi.jpg" alt="" style="object-position:50% 45%"><span class="d">RESULTADO</span></div>
+    <p><b>Romi</b>Ganó masa muscular y volvió a correr sin dolores.</p></div>
+</div>
+<h3>Testimonios en video</h3>
+<div class="res3">
+  <a class="vc" href="https://drive.google.com/file/d/148OfnqomkPfmFo5MJvyK83iUPBGzrpzh/view?usp=drive_link"><div class="vc-img"><span class="play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span><span class="vc-n">Mari</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> TOCÁ PARA VER</span></a>
+  <a class="vc" href="https://youtu.be/KfI35eFGagY"><div class="vc-img"><span class="play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span><span class="vc-n">Marina</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> TOCÁ PARA VER</span></a>
+  <a class="vc" href="https://drive.google.com/file/d/1pLl70FqmtkZ4GdpvcbpxJJ1E0wXcHBv6/view?usp=drive_link"><div class="vc-img"><span class="play"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span><span class="vc-n">Sussy</span><span class="vc-t">Testimonio en video</span></div><span class="vc-btn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg> TOCÁ PARA VER</span></a>
+</div>
+</div></section><section class="page " id="metodo"><div class="hdr"><span>ENTRENÁ EN EL GIMNASIO · <b>RENOVA</b></span><span>Método RENOVA</span></div><div class="ftr"><a class="toidx" href="#indice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 14a8 8 0 0 1-8 8"/><path d="M18 11v-1a2 2 0 0 0-4 0"/><path d="M14 10V9a2 2 0 0 0-4 0v1"/><path d="M10 9.5V4a2 2 0 0 0-4 0v10"/><path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.83L7 15"/></svg> Hacé clic y volvé al índice</a><span class="pgnum"></span></div><div class="body">
+<div class="bio metodo">
+  <span class="pill">MÉTODO RENOVA</span>
+  <h1 class="h1 big">Tu plan integral <span class="t">1 a 1 con Nacho</span></h1>
+  <div class="team-big"><img src="img/equipo2.jpg" alt="Equipo RENOVA" style="height:auto;max-height:120mm;object-fit:contain"></div>
+  <p>En RENOVA ayudamos a mujeres con poco tiempo a entrenar, comer mejor y sostener sus hábitos, con un enfoque en el ámbito hormonal: cambios hormonales, perimenopausia y menopausia.</p>
+  <p>Detrás del método hay un equipo completo: entrenadores, nutricionista, psicólogo y medicina deportiva a cargo de nuestro médico deportólogo.</p>
+  <div class="pills4"><span>Fuerza</span><span>Nutrición</span><span>Medicina deportiva</span><span>Hábitos</span><span>Salud hormonal</span></div>
+  
+  <p class="lead center"><b>Consultá por tu plan integral personalizado 1 a 1 con Nacho:</b> entrenamiento y nutrición armados para vos, con el equipo RENOVA.</p>
+  <div class="cta-center"><a class="btn btn-big" href="https://wa.link/1asjt1">CONSULTÁ POR TU PLAN <svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</div></section><script src="paginate.js"></script></body></html>

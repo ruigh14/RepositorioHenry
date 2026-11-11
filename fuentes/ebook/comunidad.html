@@ -1,0 +1,142 @@
+<!doctype html><html lang="es-AR"><meta charset="utf-8"><style>/* RENOVA · design system — tipografías locales.
+   ../design-system/fonts/ se reemplaza por la ruta a fuentes/design-system/fonts/ (lo hace design_system.css()). */
+@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("../design-system/fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("../design-system/fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("../design-system/fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("../design-system/fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("../design-system/fonts/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("../design-system/fonts/inter-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"InterTightW";font-weight:100 900;font-style:normal;src:url("../design-system/fonts/inter-tight-latin-var.woff2") format("woff2")}
+
+/* RENOVA · design system — tokens
+   Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
+   Paleta = la del ebook (medida en el PDF). Landings, creativos y videos usan exactamente estos colores.
+   Ver README.md para el uso de cada uno. */
+:root{
+  /* ---- Color: turquesa de marca (el de nachoportillo.com) */
+  --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
+  --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
+  --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
+  --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
+  --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
+  --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  --rnv-turquesa-claro:#6FD8E6;    /* acentos sobre fondo oscuro (portada de la landing) */
+  /* ---- Color: logo (solo portada y logo, no para texto corrido) */
+  --rnv-azul:#0033A0;
+  --rnv-rojo:#E63333;
+  /* ---- Color: sello de garantía (solo el sello dorado) */
+  --rnv-oro:#E2A928;
+  --rnv-oro-claro:#F9DE7E;
+  --rnv-oro-oscuro:#8A5A0B;
+  /* ---- Color: neutros */
+  --rnv-tinta:#141414;             /* títulos */
+  --rnv-texto:#2A2F33;             /* cuerpo */
+  --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
+  --rnv-linea:#E3ECEE;             /* separadores */
+  --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
+  --rnv-oscuro:#141414;            /* barras, pie y recuadros oscuros (el negro del ebook) */
+  --rnv-blanco:#FFFFFF;
+
+  /* ---- Degradés y sombras */
+  --rnv-degrade:linear-gradient(135deg,#14B1C7 0%,#0E9DB2 100%);   /* solo turquesas del ebook */
+  --rnv-sombra:0 10px 30px rgba(20,20,20,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(20,20,20,.16);
+  --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
+
+  /* ---- Tipografía */
+  --rnv-fuente:"InterW","Inter",system-ui,sans-serif;            /* todo el texto */
+  --rnv-fuente-display:"InterTightW","Inter Tight","InterW",sans-serif; /* titulares de web y redes */
+
+  /* Escala del ebook (A4, se lee en el celular: cuerpo mínimo 15 pt) */
+  --rnv-pdf-portada:37pt;
+  --rnv-pdf-h1:26pt;
+  --rnv-pdf-h2:18pt;
+  --rnv-pdf-h3:16pt;
+  --rnv-pdf-cuerpo:16pt;
+  --rnv-pdf-chico:13pt;
+  --rnv-pdf-etiqueta:7.6pt;
+
+  /* Escala web (landing) */
+  --rnv-web-h1:clamp(46px,7vw,80px);
+  --rnv-web-h2:clamp(28px,3.6vw,42px);
+  --rnv-web-cuerpo:17px;
+  --rnv-web-chico:14px;
+
+  /* Escala redes (lienzo de 1080 px de ancho: se ve a ~36% en el celular) */
+  --rnv-red-gancho:104px;   /* titular principal */
+  --rnv-red-titulo:72px;
+  --rnv-red-subtitulo:48px;
+  --rnv-red-cuerpo:40px;    /* mínimo para que se lea en el celular */
+  --rnv-red-etiqueta:28px;
+
+  /* ---- Espacios y radios */
+  --rnv-esp-1:8px; --rnv-esp-2:16px; --rnv-esp-3:24px; --rnv-esp-4:40px; --rnv-esp-5:64px;
+  --rnv-radio:14px;
+  --rnv-radio-grande:24px;
+  --rnv-radio-pill:999px;
+
+  /* ---- Página A4 del ebook */
+  --rnv-a4-margen:21mm 17mm 17mm;
+
+  /* ---- Zonas seguras de Instagram y Facebook en 1080×1920 (historias y reels) */
+  --rnv-zona-arriba:250px;
+  --rnv-zona-abajo:340px;
+}
+
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--rnv-fuente);color:var(--rnv-texto)}
+.pg{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always}
+/* PORTADA */
+.cov{background:linear-gradient(165deg,#06343b 0%,var(--rnv-turquesa-profundo) 55%,var(--rnv-turquesa-oscuro) 100%);color:#fff;text-align:center;padding:22mm 18mm 0}
+.cov .logo{height:15mm;filter:brightness(0) invert(1)}
+.cov .tag{display:inline-block;margin-top:12mm;border:2px solid var(--rnv-turquesa-claro);color:var(--rnv-turquesa-claro);border-radius:999px;padding:2.5mm 7mm;font:800 11pt var(--rnv-fuente-display);letter-spacing:.2em;text-transform:uppercase}
+.cov h1{font:900 46pt/0.98 var(--rnv-fuente-display);letter-spacing:-.02em;text-transform:uppercase;margin-top:9mm}
+.cov h1 b{color:var(--rnv-turquesa-claro)}
+.cov p{font-size:15pt;line-height:1.4;margin:8mm auto 0;max-width:150mm;color:rgba(255,255,255,.9)}
+.cov p b{color:var(--rnv-turquesa-claro)}
+.cov .ph{position:absolute;left:18mm;right:18mm;bottom:26mm;height:92mm;border-radius:8mm;overflow:hidden;border:2px solid rgba(111,216,230,.6);box-shadow:0 0 30px rgba(20,177,199,.35)}
+.cov .ph{background:#fff}
+.cov .ph img{width:100%;height:100%;object-fit:contain;object-position:50% 100%}
+.cov .ft{position:absolute;left:0;right:0;bottom:10mm;font:800 10.5pt var(--rnv-fuente-display);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+/* HOJA 2 */
+.in{padding:18mm 17mm}
+.in .eye{font:800 10pt var(--rnv-fuente-display);letter-spacing:.22em;text-transform:uppercase;color:var(--rnv-turquesa-oscuro)}
+.in h2{font:900 28pt/1.05 var(--rnv-fuente-display);color:var(--rnv-tinta);letter-spacing:-.02em;margin:2mm 0 4mm}
+.in h2 b{color:var(--rnv-turquesa-titulo)}
+.in .lead{font-size:14.5pt;line-height:1.45;margin-bottom:6mm}
+.st{display:flex;gap:5mm;align-items:flex-start;margin-bottom:5.5mm}
+.st i{flex:none;width:11mm;height:11mm;border-radius:50%;background:var(--rnv-degrade);color:#fff;font:900 15pt/11mm var(--rnv-fuente-display);text-align:center;font-style:normal}
+.st div{font-size:14pt;line-height:1.42;padding-top:1.5mm}
+.st b{color:var(--rnv-tinta)}
+.bar{display:flex;gap:2mm;flex-wrap:wrap;margin:3mm 0 0;background:#fff;border:1.5px solid var(--rnv-linea);border-radius:3mm;padding:2.5mm 3mm;box-shadow:0 3px 10px rgba(0,0,0,.06)}
+.bar span{font:600 11pt var(--rnv-fuente);padding:1.5mm 3.5mm;border-radius:2mm;color:var(--rnv-gris)}
+.bar span.on{background:var(--rnv-turquesa-fondo);color:var(--rnv-turquesa-profundo);font-weight:800;outline:2px solid var(--rnv-turquesa)}
+.btn{display:block;margin:7mm auto 0;width:150mm;text-align:center;background:var(--rnv-degrade);color:#fff;text-decoration:none;font:900 16pt var(--rnv-fuente-display);letter-spacing:.04em;text-transform:uppercase;padding:5.5mm;border-radius:4mm;box-shadow:0 8px 20px rgba(20,177,199,.35)}
+.url{text-align:center;font-size:10.5pt;color:var(--rnv-gris);margin-top:2.5mm;word-break:break-all}
+.note{margin-top:6mm;background:var(--rnv-turquesa-fondo);border-left:4px solid var(--rnv-turquesa);border-radius:2mm;padding:4mm 5mm;font-size:12.5pt;line-height:1.45}
+.foot{position:absolute;left:17mm;right:17mm;bottom:10mm;display:flex;justify-content:space-between;font:700 9pt var(--rnv-fuente-display);letter-spacing:.18em;text-transform:uppercase;color:var(--rnv-gris)}
+</style><body>
+<section class="pg cov">
+  <img class="logo" src="img/logo_renova.png" alt="RENOVA">
+  <div><a href="https://www.skool.com/renova-entrenamiento-y-salud-1617/about" style="text-decoration:none"><span class="tag">Bonus · Método RENOVA</span></a></div>
+  <h1>Acceso a la<br><b>comunidad</b><br>RENOVA</h1>
+  <p>Talleres <b>grabados y en vivo</b> con nuestro equipo, y una comunidad de mujeres en tu misma etapa. <b>Acceso de por vida.</b></p>
+  <div class="ph"><img src="../landing/img/comunidad.jpg" alt=""></div>
+  <div class="ft">Entrenamiento · Nutrición · Hábitos</div>
+</section>
+<section class="pg in">
+  <div class="eye">Cómo entrar</div>
+  <h2>Tu acceso a la <b>comunidad</b> y a los <b>talleres</b></h2>
+  <p class="lead">La comunidad RENOVA está en <b>Skool</b>, una plataforma simple que podés usar desde el celular o la computadora. Ahí vas a encontrar todos los talleres del equipo.</p>
+  <div class="st"><i>1</i><div><a href="https://www.skool.com/renova-entrenamiento-y-salud-1617/about" style="color:inherit;text-decoration:none"><b>Tocá el botón de abajo</b></a> para entrar a la comunidad RENOVA en Skool.</div></div>
+  <div class="st"><i>2</i><div><b>Creá tu cuenta o ingresá</b> con el mismo correo que usaste en la compra y pedí el acceso. Lo aprobamos a la brevedad.</div></div>
+  <div class="st"><i>3</i><div>Una vez adentro, mirá la <b>barra de arriba</b>. Ahí tenés varias opciones, y una de ellas es <b>Cursos</b>.
+    <div class="bar"><span>Comunidad</span><span class="on">Cursos</span><span>Calendario</span><span>Miembros</span><span>Ranking</span></div></div></div>
+  <div class="st"><i>4</i><div>Entrá a <b>Cursos</b> y vas a ver <b>todos los talleres</b> (hábitos, nutrición, mindfulness, sueño y más) para mirarlos cuando quieras.</div></div>
+  <a class="btn" href="https://www.skool.com/renova-entrenamiento-y-salud-1617/about">Entrar a la comunidad →</a>
+  <p class="url"><a href="https://www.skool.com/renova-entrenamiento-y-salud-1617/about" style="color:inherit">https://www.skool.com/renova-entrenamiento-y-salud-1617/about</a></p>
+  <div class="note">En <b>Calendario</b> vas a ver las fechas de los <b>talleres en vivo</b>. Participar en la comunidad es opcional: podés solo mirar los cursos a tu ritmo.</div>
+  <div class="foot"><span>Método RENOVA</span><span>Bonus · Comunidad</span></div>
+</section>
+</body></html>

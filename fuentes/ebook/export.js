@@ -1,0 +1,44 @@
+// Exporta el HTML de una edición a PDF A4 (la paginación la hace paginate.js dentro de la página).
+// Cada PDF se guarda en la carpeta de su producto, en la raíz del repositorio:
+//   node export.js            → ebook.html    → programa-renova-completo/Ebook_Programa_RENOVA.pdf
+//   node export.js entrena    → entrena.html  → entrena-desde-casa/Ebook_Entrena_desde_casa_RENOVA.pdf
+//   node export.js gimnasio   → gimnasio.html → entrena-en-el-gimnasio/Ebook_Entrena_en_el_gimnasio_RENOVA.pdf
+//   node export.js pausa      → pausa.html    → pausa-activa/Bonus_Pausa_activa_RENOVA.pdf
+//   node export.js mamas      → mamas.html    → entrena-siendo-mama/Ebook_Entrena_siendo_mama_RENOVA.pdf
+//   node export.js gluteos_casa → gluteos_casa.html → gluteos-fuertes/Ebook_Gluteos_Fuertes_Casa_RENOVA.pdf
+//   node export.js gluteos_gym  → gluteos_gym.html  → gluteos-fuertes/Ebook_Gluteos_Fuertes_Gimnasio_RENOVA.pdf
+const { chromium } = require('playwright');
+const path = require('path');
+const EDITIONS = {
+  completo: ['ebook.html', 'programa-renova-completo/Ebook_Programa_RENOVA.pdf'],
+  entrena: ['entrena.html', 'entrena-desde-casa/Ebook_Entrena_desde_casa_RENOVA.pdf'],
+  gimnasio: ['gimnasio.html', 'entrena-en-el-gimnasio/Ebook_Entrena_en_el_gimnasio_RENOVA.pdf'],
+  mamas: ['mamas.html', 'entrena-siendo-mama/Ebook_Entrena_siendo_mama_RENOVA.pdf'],
+  pausa: ['pausa.html', 'pausa-activa/Bonus_Pausa_activa_RENOVA.pdf'],
+  menopausia: ['menopausia.html', 'nutricion-menopausia/Ebook_Nutricion_Menopausia_RENOVA.pdf'],
+  nutricion: ['nutricion.html', 'alimentacion-inteligente/Ebook_Alimentacion_Inteligente_RENOVA.pdf'],
+  hombres_nutricion: ['nutricion_hombres.html', 'ebook-hombres/Ebook_Metodo40_Alimentacion_Inteligente.pdf'],
+  gluteos_casa: ['gluteos_casa.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_Casa_RENOVA.pdf'],
+  gluteos_gym: ['gluteos_gym.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_Gimnasio_RENOVA.pdf'],
+  hombres_casa: ['hombres_casa.html', 'ebook-hombres/Ebook_Metodo40_Casa.pdf'],
+  hombres_gym: ['hombres_gym.html', 'ebook-hombres/Ebook_Metodo40_Gimnasio.pdf'],
+  hombres_metricas: ['hombres_metricas.html', 'ebook-hombres/Ebook_Metodo40_Metricas.pdf'],
+  hombres_abdomen: ['hombres_abdomen.html', 'ebook-hombres/Ebook_Metodo40_Zona_Media.pdf'],
+};
+const [htmlFile, pdfFile] = EDITIONS[process.argv[2] || 'completo'] || EDITIONS.completo;
+(async () => {
+  const browser = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {});   // PW_CHANNEL=chrome usa el Chrome instalado
+  const page = await browser.newPage();
+  await page.goto('file://' + path.join(__dirname, htmlFile), { waitUntil: 'load' });
+  await page.waitForSelector('body[data-ready="1"]', { timeout: 30000 });
+  const info = await page.evaluate(() => {
+    const ps = [...document.querySelectorAll('section.page')];
+    const over = ps.map((p, i) => { const b = p.querySelector('.body'); return { n: i + 1, id: p.id, extra: Math.round(b.scrollHeight - b.clientHeight) }; }).filter(x => x.extra > 1);
+    const free = ps.map((p, i) => { const b = p.querySelector('.body'); const r = b.getBoundingClientRect(); let m = r.top; b.querySelectorAll('*').forEach(e => { const q = e.getBoundingClientRect(); if (q.height && q.bottom > m) m = q.bottom; }); return (i + 1) + ':' + Math.round((r.bottom - m) / 3.78); }).join(' ');
+    return { n: ps.length, over, free };
+  });
+  console.log(pdfFile, 'PAGINAS', info.n, 'OVERFLOW', JSON.stringify(info.over));
+  console.log('FREE', info.free);
+  await page.pdf({ path: path.join(__dirname, '..', '..', pdfFile), format: 'A4', printBackground: true, preferCSSPageSize: true });
+  await browser.close();
+})();

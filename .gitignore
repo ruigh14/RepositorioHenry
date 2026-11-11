@@ -12,3 +12,6 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# De main
+fuentes/design-system/creativos/html/

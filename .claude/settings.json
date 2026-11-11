@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Canva__get-generate-image-job",
+      "mcp__HZ__list_exercises",
+      "mcp__HZ__list_workouts",
+      "Bash(pdfinfo *)",
+      "Bash(ffprobe *)",
+      "mcp__vidIQ__vidiq_get_videos_by_ids",
+      "mcp__Canva__read-design",
+      "mcp__claude-code-remote__read_documentation",
+      "mcp__claude-code-remote__list_sessions"
+    ]
+  }
+}
