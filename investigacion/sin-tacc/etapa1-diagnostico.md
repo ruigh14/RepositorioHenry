@@ -14,8 +14,18 @@ testimonios con foto y sin nombre (las personas dieron permiso).
 | Zip (9 imágenes) | No son testimonios: son posteos de Eugenia (Huevos de Pascua sin azúcar, ¿Qué leche elegir? ×2, Pascuas sin culpa, leches proteicas ×4, foto de snacks) | Formato "elegí esto / evitá esto" con marcas reales: replicarlo para productos Sin TACC |
 | Imágenes sueltas | Índice cintura/talla, historia 80/20 de @euge_nut (croissant vs. huevos), fotos de platos y chat de WhatsApp con fotos de comidas | Índice cintura/talla como herramienta de seguimiento; la historia 80/20 como ejemplo; las fotos de comidas como testimonios (recortar nombre y foto de perfil del chat) |
 
+## Catálogo "Productos recomendados" (Lic. Eugenia Aldrey, 23 páginas, solo imágenes)
+Es la lista de compras sin azúcar que ya existe: productos por categoría con foto y marca (panes y galletas, harinas y
+granos, avena, fideos, texturizados, levadura nutricional, pastas de maní, stevia, crackers y snacks, hamburguesas veggie,
+hummus, premezclas, mermeladas, dulce de leche sin azúcar, barras, cacao y chocolate, budines y galletitas, lácteos,
+reemplazos sin lactosa, café, té y yerbas, congelados, semillas, proteínas, helados sin azúcar).
+Algunas secciones ya separan "sin gluten" (panes, harinas, avena, fideos, barras): punto de partida de la lista Sin TACC.
+Para el ebook hay que: (1) quedarse solo con productos que figuren en el listado oficial de ANMAT de alimentos libres de
+gluten, (2) sumar las categorías que faltan para celíacos (premezclas, rebozadores, harinas de legumbres, etc.),
+(3) revisar con Eugenia la "avena sin gluten": en Argentina la avena es TACC y no puede rotularse Sin TACC.
+
 ## Lo que falta
-1. La lista de compras sin azúcar que ya existe: no está en lo enviado ni en el repo.
+1. ~~Lista de compras sin azúcar~~: recibida (catálogo de productos recomendados).
 2. Testimonios de personas celíacas (los actuales son fotos de comidas en general).
 3. Recetas sin TACC: no hay. Revisar cuáles de las 38 de Alimentación Inteligente ya son sin TACC o se adaptan.
 
