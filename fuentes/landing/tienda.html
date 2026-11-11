@@ -214,6 +214,8 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
 .trio figure{margin:0}
 .trio figcaption{background:var(--br);color:#fff;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:4px;border-radius:6px 6px 0 0}
 .trio img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:0 0 8px 8px}
+.trio.duo{grid-template-columns:repeat(2,1fr);gap:10px}
+.trio.duo img{width:100%;max-width:none;height:auto;aspect-ratio:1}
 .duo{display:flex;justify-content:center;gap:14px;margin-top:16px}
 .duo img{width:42%;border-radius:3px 8px 8px 3px;box-shadow:12px 16px 30px rgba(20,20,20,.25)}
 .item .mock{width:100%;border-radius:14px}
@@ -455,6 +457,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
   .item{padding:18px;min-width:0}
   .item>*{min-width:0}
   .trio figcaption{font-size:10px;letter-spacing:.02em}
+  .trio.duo figcaption{font-size:12px;letter-spacing:.06em}
   .tm{flex-basis:72%}
   .hero .wrap{padding:30px 0 46px;gap:26px}
   .hero .cta{text-align:center}
@@ -680,7 +683,7 @@ h1,h2,h3,h4{font-family:"Inter Tight",Inter,sans-serif;color:var(--ink);font-wei
     <p class="lead rv">No importa si preferís entrenar en casa o en el gimnasio: con RENOVA tenés los dos programas completos y lo adaptás a tu agenda y a tu momento.</p>
     <div class="item rv">
       <div class="item-im">
-        <div class="trio"><figure><figcaption>Gimnasio</figcaption><img src="img/foto_remo.jpg" alt=""/></figure><figure><figcaption>Casa</figcaption><img src="img/foto_patada.jpg" alt=""/></figure><figure><figcaption>Mancuernas</figcaption><img src="img/foto_estocada.jpg" alt=""/></figure></div>
+        <div class="trio duo"><figure><figcaption>Gimnasio</figcaption><img src="img/foto_remo.jpg" alt=""/></figure><figure><figcaption>Casa</figcaption><img src="img/foto_patada.jpg" alt=""/></figure></div>
         <div class="duo"><img src="img/tapa_casa.jpg" alt="Ebook Entrená desde casa"/><img src="img/tapa_gym.jpg" alt="Ebook Entrená en el gimnasio"/></div>
       </div>
       <div class="item-tx">
