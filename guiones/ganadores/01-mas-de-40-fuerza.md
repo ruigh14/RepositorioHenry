@@ -30,3 +30,20 @@ Guardado el 11/11/2026 a pedido de Nacho: es el guion que mejor funcionó.
 6. **Escalón siguiente**: "en esta etapa el entrenamiento solo no alcanza" → nutrición sin dietas restrictivas.
 7. **Bonus con lista de temas** (hábitos, mindfulness, ansiedad, estrés) y "se va renovando".
 8. **CTA de recompensa**: "si llegaste hasta acá…" + "empezá hoy mismo".
+
+## Versión 2 (Drive, documento "guiones ganadores", 12/11/2026)
+> **Gancho:** Tenés más de 40, sabés que tenés que entrenar fuerza, pero no te enganchás con el gimnasio, nadie te explica nada y las rutinas de internet no son para vos.
+>
+> Y es lógico: en el gimnasio nadie te enseña a entrenar bien, y las rutinas de internet son tan intensas que te da miedo lastimarte. Te falta un plan pensado para tu etapa: la perimenopausia o la menopausia, con poco tiempo entre el trabajo y la familia.
+>
+> Soy Nacho Portillo, Licenciado en Alto Rendimiento Deportivo, y con nuestro equipo creamos RENOVA justamente para mujeres como vos: una guía práctica y detallada, con ebooks elaborados por profesionales de la salud y del entrenamiento.
+>
+> Tenés un ebook para entrenar en casa y otro para el gimnasio. Cada uno te dice qué hacer cada día: el ejercicio, las series y las repeticiones, con un video de cada movimiento y una versión más fácil para empezar desde tu nivel. Todo de bajo impacto, cuidando tus articulaciones.
+>
+> Y como en esta etapa el entrenamiento solo no alcanza, sumamos una guía de 8 semanas elaborada por nuestra nutricionista, con recetas y estrategias para comer bien sin dietas restrictivas.
+>
+> Además, te doy acceso gratuito a los talleres del equipo RENOVA, con nuestra psicóloga, sobre hábitos, mindfulness, manejo de la ansiedad y mucho más.
+>
+> Lo abrís en el celular y lo seguís, paso a paso.
+>
+> **CTA:** Tocá el link, conseguí tu pack RENOVA y empezá hoy mismo.
