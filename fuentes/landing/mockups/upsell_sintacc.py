@@ -20,6 +20,10 @@ EXTRA = """
 """
 inner = (book("tapa_sintacc.png", "SIN TACC INTELIGENTE", 110, 85, 550, -20)
          + '<div class="sello"><b>100%</b><i>SIN TACC</i><small>18 RECETAS</small></div>')
+inner_v = (book("tapa_sintacc.png", "SIN TACC INTELIGENTE", 190, 300, 680, -16)
+           + '<div class="sello" style="right:110px;top:80px">' + '<b>100%</b><i>SIN TACC</i><small>18 RECETAS</small></div>')
+Path("upsell_sintacc_v.html").write_text(
+    f'<!doctype html><meta charset="utf-8"><style>{CSS}{EXTRA}body{{--w:1080px;--h:1440px}}</style><div class="grid"></div><div class="st">{inner_v}</div>')
 Path("upsell_sintacc.html").write_text(
     f'<!doctype html><meta charset="utf-8"><style>{CSS}{EXTRA}body{{--w:1080px;--h:1080px}}</style><div class="grid"></div><div class="st">{inner}</div>')
 print("ok")
