@@ -22,6 +22,7 @@
   --rnv-turquesa-fondo:#E8F6F8;    
   --rnv-turquesa-borde:#CDEEF3;    
   --rnv-turquesa-claro:#6FD8E6;    
+  --rnv-petroleo:#06343B;         
   
   --rnv-azul:#0033A0;
   --rnv-rojo:#E63333;
@@ -517,6 +518,50 @@ html{scroll-behavior:smooth}
 #rnv .bmas li{display:flex;gap:10px;font-size:15px;line-height:1.4;color:var(--ink)}
 #rnv .bmas li .ic{color:var(--br);stroke-width:3;margin-top:3px;flex:none}
 @media (max-width:760px){#rnv .blist{grid-template-columns:1fr;gap:9px}#rnv .blist li{padding:8px 12px 8px 8px}#rnv .blist img{width:68px;height:68px}#rnv .blist img.tall{width:48px;height:68px;margin:0 10px}#rnv .blist b{font-size:16px}#rnv .blist span{font-size:14px}}
+
+
+#rnv .bdark{position:relative;background:linear-gradient(165deg,var(--rnv-petroleo) 0%,var(--rnv-turquesa-profundo) 100%);color:#fff;overflow:hidden}
+#rnv .bdark::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 0%,rgba(20,177,199,.26),transparent 55%),radial-gradient(circle at 0% 100%,rgba(20,177,199,.14),transparent 50%);pointer-events:none}
+#rnv .bdark .wrap{position:relative}
+#rnv .bdark .bhead{border-bottom-color:rgba(111,216,230,.22)}
+#rnv .bdark .bhead h2{color:#fff}
+#rnv .bx3,#rnv .bx2{max-width:980px;margin:0 auto;display:grid;gap:14px}
+#rnv .bx3{grid-template-columns:repeat(3,1fr)}
+#rnv .bx2{grid-template-columns:1fr 1fr;margin-top:14px}
+#rnv .bx{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(111,216,230,.22);border-radius:16px;box-shadow:0 14px 34px rgba(0,0,0,.22);padding:12px;display:flex;flex-direction:column;gap:12px}
+#rnv .bx-cv{position:relative;aspect-ratio:4/3;border-radius:11px;overflow:hidden;background:rgba(255,255,255,.08);flex:none}
+#rnv .bx-cv img{width:100%;height:100%;object-fit:cover;display:block}
+#rnv .bx-cv.tapa{background:radial-gradient(circle at 50% 40%,rgba(111,216,230,.3),transparent 70%)}
+#rnv .bx-cv.tapa img{position:absolute;left:50%;top:6%;transform:translateX(-50%);width:auto;height:88%;object-fit:contain;border-radius:3px;box-shadow:0 8px 18px rgba(0,0,0,.4)}
+#rnv .bx-cv i{position:absolute;left:8px;top:8px;width:26px;height:26px;border-radius:50%;background:var(--rnv-petroleo);color:var(--rnv-turquesa-claro);border:1px solid var(--rnv-turquesa-claro);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px}
+#rnv .bx-tx{display:flex;flex-direction:column;gap:3px;padding:0 4px 4px}
+#rnv .bx-tx em{align-self:flex-start;font-style:normal;font-weight:800;font-size:11px;letter-spacing:.08em;color:var(--rnv-turquesa-claro);border:1px solid rgba(111,216,230,.45);padding:2px 8px;border-radius:6px;margin-bottom:3px}
+#rnv .bx-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 3px}
+#rnv .bx-tags em{margin:0}
+#rnv .bx-tx em.alt{background:rgba(111,216,230,.14)}
+#rnv .bx-tx em.gold{color:var(--rnv-tinta);background:linear-gradient(135deg,var(--rnv-oro-claro),var(--rnv-oro));border-color:var(--rnv-oro)}
+#rnv .bx-tx b{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:18px;line-height:1.2;color:#fff}
+#rnv .bx-tx span{font-size:14.5px;line-height:1.38;color:rgba(255,255,255,.78)}
+
+#rnv .bx.bxf{flex-direction:row;align-items:center;gap:16px;padding:14px;background:linear-gradient(135deg,rgba(20,177,199,.2),rgba(255,255,255,.05));border-color:rgba(111,216,230,.6);box-shadow:0 0 0 1px rgba(111,216,230,.15),0 0 26px rgba(20,177,199,.25),0 16px 36px rgba(0,0,0,.25)}
+#rnv .bx.bxf .bx-cv{width:44%}
+#rnv .bx.bxf .bx-tx b{font-size:20px}
+#rnv .bdark .bmas{background:rgba(255,255,255,.06);border-color:rgba(111,216,230,.22)}
+#rnv .bdark .bmas summary,#rnv .bdark .bmas li{color:#fff}
+#rnv .bdark .bmas li .ic{color:var(--rnv-turquesa-claro)}
+@media (max-width:760px){
+  #rnv .bx3,#rnv .bx2{grid-template-columns:1fr;gap:9px}
+  #rnv .bx2{margin-top:9px}
+  #rnv .bx,#rnv .bx.bxf{flex-direction:row;align-items:center;gap:12px;padding:8px 10px 8px 8px}
+  #rnv .bx-cv{width:92px}
+  #rnv .bx.bxf{padding:10px 10px 10px 10px}
+  #rnv .bx.bxf .bx-cv{width:118px}
+  #rnv .bx-cv i{left:5px;top:5px;width:21px;height:21px;font-size:11px}
+  #rnv .bx-tx{padding:0}
+  #rnv .bx-tx em{font-size:10px;padding:1px 6px;margin-bottom:2px}
+  #rnv .bx-tx b,#rnv .bx.bxf .bx-tx b{font-size:16px}
+  #rnv .bx-tx span{font-size:14px;line-height:1.33}
+}
 
 
 #rnv.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
