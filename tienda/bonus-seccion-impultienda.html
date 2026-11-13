@@ -30,6 +30,23 @@
 #rnv .bdark .bmas{background:rgba(255,255,255,.06);border-color:rgba(111,216,230,.22)}
 #rnv .bdark .bmas summary,#rnv .bdark .bmas li{color:#fff}
 #rnv .bdark .bmas li .ic{color:var(--rnv-turquesa-claro)}
+
+#rnv .bx.b4 .bx-side{width:50%}
+#rnv .bx.bxf{align-items:flex-start}
+#rnv .bx-cv.wide{aspect-ratio:16/9;background:#0b0b0b}
+#rnv .bx-cv.wide img{object-fit:contain}
+#rnv .bx-cv.soft{padding:5px;background:rgba(255,255,255,.07);border:1px solid rgba(111,216,230,.28)}
+#rnv .bx-cv.soft img{border-radius:7px}
+#rnv .bx-cv.tapa.soft{padding:0}
+#rnv .bx-mas{margin-top:6px}
+#rnv .bx-mas summary{list-style:none;cursor:pointer;display:inline-flex;white-space:nowrap;align-items:center;gap:7px;font-weight:700;font-size:13.5px;color:var(--rnv-turquesa-claro)}
+#rnv .bx-mas summary::-webkit-details-marker{display:none}
+#rnv .bx-mas summary::after{content:"+";width:18px;height:18px;border-radius:50%;border:1px solid var(--rnv-turquesa-claro);display:grid;place-items:center;font-size:14px;line-height:1;transition:transform .25s}
+#rnv .bx-mas[open] summary::after{transform:rotate(45deg)}
+#rnv .bx-mas ul{list-style:none;display:grid;gap:5px;margin:8px 0 0;padding:0}
+#rnv .bx-mas li{display:flex;gap:7px;font-size:13.5px;line-height:1.35;color:#fff}
+#rnv .bx-mas li span{font-size:inherit;line-height:inherit}
+#rnv .bx-mas li .ic{color:var(--rnv-turquesa-claro);stroke-width:3;margin-top:2px;flex:none;width:14px;height:14px}
 @media (max-width:760px){
   #rnv .bdark .bhead{flex-direction:row;margin-bottom:14px;padding-bottom:10px}
   #rnv .bdark .bhead h2{font-size:26px}
@@ -42,6 +59,10 @@
   #rnv .bx-cv{border-radius:9px}
   #rnv .bx.bxf{padding:9px 9px 9px 8px}
   #rnv .bx.bxf .bx-side{width:100px}
+  #rnv .bx.b4 .bx-side{width:132px}
+  #rnv .bx-cv.soft{padding:3px}
+  #rnv .bx-mas summary{font-size:12.5px;gap:5px}
+  #rnv .bx.bxf{align-items:flex-start}
   #rnv .bx-n{font-size:9.5px;letter-spacing:.08em}
   #rnv .bx-tx{padding:0;gap:2px}
   #rnv .bx-tx em{font-size:9.5px;padding:1px 6px;margin-bottom:1px}
@@ -55,22 +76,21 @@
     <div class="bhead rv"><h2>Bonus gratuitos</h2><span class="val big"><b>TODO INCLUIDO</b></span></div>
     
     <div class="bx3 rv">
-      <div class="bx"><div class="bx-side"><span class="bx-n">BONUS 1</span><div class="bx-cv tapa"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/tapa_pausa.jpg" alt="Tapa de Pausa activa"/></div></div><div class="bx-tx"><em>DE REGALO</em><b>Pausa activa</b><span>4 rutinas de 10 minutos para relajar el cuerpo y mantenerte activa en el trabajo.</span></div></div>
-      <div class="bx"><div class="bx-side"><span class="bx-n">BONUS 2</span><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/foto_subidas.jpg" alt=""/></div></div><div class="bx-tx"><em>DE REGALO</em><b>Rutinas express de 15 minutos</b><span>Para no cortar el proceso cuando viajás o tenés poco tiempo.</span></div></div>
-      <div class="bx"><div class="bx-side"><span class="bx-n">BONUS 3</span><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/foto_abdominales.jpg" alt=""/></div></div><div class="bx-tx"><em>CONTENIDO EXCLUSIVO</em><b>Rutinas de abdominales</b><span>Cómo hacerlas bien y fortalecer tu zona media.</span></div></div>
+      <div class="bx"><div class="bx-side"><span class="bx-n">BONUS 1</span><div class="bx-cv tapa soft"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/tapa_pausa.jpg" alt="Tapa de Pausa activa"/></div></div><div class="bx-tx"><em>4 RUTINAS · 10 MIN</em><b>Pausa activa</b><span>4 rutinas de 10 minutos para relajar el cuerpo y mantenerte activa en el trabajo.</span></div></div>
+      <div class="bx"><div class="bx-side"><span class="bx-n">BONUS 2</span><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/foto_subidas.jpg" alt=""/></div></div><div class="bx-tx"><em>EXPRESS · 15 MIN</em><b>Rutinas express de 15 minutos</b><span>Para no cortar el proceso cuando viajás o tenés poco tiempo.</span></div></div>
+      <div class="bx"><div class="bx-side"><span class="bx-n">BONUS 3</span><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/foto_abdominales.jpg" alt=""/></div></div><div class="bx-tx"><em>CONTENIDO EXCLUSIVO</em><b>Rutinas de abdominales</b><span>Cómo hacerlas bien y fortalecer tu zona media.</span></div></div>
     </div>
     <div class="bx2 rv">
-      <div class="bx bxf"><div class="bx-side"><span class="bx-n">BONUS 4</span><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/taller_euge.jpg" alt="Eugenia, nutricionista de RENOVA, dando un taller"/></div></div><div class="bx-tx"><b>Talleres con profesionales</b><span>Con nuestra nutricionista y nuestra psicóloga Agostina: hábitos, nutrición, mindfulness y sueño.</span></div></div>
-      <div class="bx bxf"><div class="bx-side"><span class="bx-n">BONUS 5</span><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@82b57205725541748c6e7d15c3ea360491a3be04/fuentes/landing/img/comunidad.jpg" alt="Equipo RENOVA"/></div></div><div class="bx-tx"><p class="bx-tags"><em class="gold">ACCESO DE POR VIDA</em></p><b>Comunidad RENOVA de por vida</b><span>Mujeres en tu misma situación, en Skool. Participar es opcional.</span></div></div>
-    </div>
-    <details class="bmas rv"><summary>Ver qué incluyen los talleres</summary>
+      <div class="bx bxf b4"><div class="bx-side"><span class="bx-n">BONUS 4</span><div class="bx-cv wide"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/taller_euge.jpg" alt="Eugenia, nutricionista de RENOVA, dando un taller"/></div></div><div class="bx-tx"><p class="bx-tags"><em>TALLERES INCLUIDOS</em></p><b>Talleres con profesionales</b><span>Con nuestra nutricionista y nuestra psicóloga Agostina: hábitos, nutrición, mindfulness y sueño.</span><details class="bx-mas"><summary>Ver qué incluyen los talleres</summary>
       <ul>
         <li><svg class="ic"><use href="#i-check"/></svg><span><b>Hábitos:</b> con Agostina, apoyo para el estrés y para mejorar tus hábitos.</span></li>
         <li><svg class="ic"><use href="#i-check"/></svg><span><b>Nutrición:</b> ordenar tu heladera, elegir mejor en el súper y mucho más.</span></li>
         <li><svg class="ic"><use href="#i-check"/></svg><span><b>Mindfulness:</b> un curso completo para conectar con el presente y disfrutar el proceso.</span></li>
         <li><svg class="ic"><use href="#i-check"/></svg><span><b>Sueño:</b> hábitos que te ayudan a descansar mejor.</span></li>
       </ul>
-    </details>
+    </details></div></div>
+      <div class="bx bxf"><div class="bx-side"><span class="bx-n">BONUS 5</span><div class="bx-cv soft"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@f14fa3b8317dcda6d41e0f35f68903fcdd3a3a22/fuentes/landing/img/comunidad.jpg" alt="Equipo RENOVA"/></div></div><div class="bx-tx"><p class="bx-tags"><em class="gold">ACCESO DE POR VIDA</em></p><b>Comunidad RENOVA de por vida</b><span>Mujeres en tu misma situación, en Skool. Participar es opcional.</span></div></div>
+    </div>
     <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </div>
 </div>
