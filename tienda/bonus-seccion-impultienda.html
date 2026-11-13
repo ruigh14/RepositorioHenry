@@ -1,0 +1,74 @@
+<!-- Sección BONUS de la landing RENOVA (generada desde fuentes/landing/tienda.html). Va adentro de <div id="rnv">, en lugar de la sección de bonus anterior (desde <div class="sec ... id="bonus"> hasta su </div> de cierre). -->
+<style>
+#rnv .bdark{position:relative;background:linear-gradient(165deg,var(--rnv-petroleo,#06343B) 0%,var(--rnv-turquesa-profundo) 100%);color:#fff;overflow:hidden}
+#rnv .bdark::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 0%,rgba(20,177,199,.26),transparent 55%),radial-gradient(circle at 0% 100%,rgba(20,177,199,.14),transparent 50%);pointer-events:none}
+#rnv .bdark .wrap{position:relative}
+#rnv .bdark .bhead{border-bottom-color:rgba(111,216,230,.22)}
+#rnv .bdark .bhead h2{color:#fff}
+#rnv .bx3,#rnv .bx2{max-width:980px;margin:0 auto;display:grid;gap:14px}
+#rnv .bx3{grid-template-columns:repeat(3,1fr)}
+#rnv .bx2{grid-template-columns:1fr 1fr;margin-top:14px}
+#rnv .bx{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(111,216,230,.22);border-radius:16px;box-shadow:0 14px 34px rgba(0,0,0,.22);padding:12px;display:flex;flex-direction:column;gap:12px}
+#rnv .bx-cv{position:relative;aspect-ratio:4/3;border-radius:11px;overflow:hidden;background:rgba(255,255,255,.08);flex:none}
+#rnv .bx-cv img{width:100%;height:100%;object-fit:cover;display:block}
+#rnv .bx-cv.tapa{background:radial-gradient(circle at 50% 40%,rgba(111,216,230,.3),transparent 70%)}
+#rnv .bx-cv.tapa img{position:absolute;left:50%;top:6%;transform:translateX(-50%);width:auto;height:88%;object-fit:contain;border-radius:3px;box-shadow:0 8px 18px rgba(0,0,0,.4)}
+#rnv .bx-cv i{position:absolute;left:8px;top:8px;width:26px;height:26px;border-radius:50%;background:var(--rnv-petroleo,#06343B);color:var(--rnv-turquesa-claro);border:1px solid var(--rnv-turquesa-claro);display:grid;place-items:center;font-style:normal;font-weight:800;font-size:13px}
+#rnv .bx-tx{display:flex;flex-direction:column;gap:3px;padding:0 4px 4px}
+#rnv .bx-tx em{align-self:flex-start;font-style:normal;font-weight:800;font-size:11px;letter-spacing:.08em;color:#fff;background:rgba(20,177,199,.35);border:1px solid rgba(111,216,230,.7);padding:2px 8px;border-radius:6px;margin-bottom:3px}
+#rnv .bx-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 3px}
+#rnv .bx-tags em{margin:0}
+#rnv .bx-tx em.alt{background:rgba(20,177,199,.35)}
+#rnv .bx-tx em.gold{color:var(--rnv-tinta);background:linear-gradient(135deg,var(--rnv-oro-claro),var(--rnv-oro));border-color:var(--rnv-oro)}
+#rnv .bx-tx b{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:18px;line-height:1.2;color:#fff}
+#rnv .bx-tx span{font-size:14.5px;line-height:1.38;color:#fff}
+
+#rnv .bx.bxf{flex-direction:row;align-items:center;gap:16px;padding:14px;background:linear-gradient(135deg,rgba(20,177,199,.2),rgba(255,255,255,.05));border-color:rgba(111,216,230,.6);box-shadow:0 0 0 1px rgba(111,216,230,.15),0 0 26px rgba(20,177,199,.25),0 16px 36px rgba(0,0,0,.25)}
+#rnv .bx.bxf .bx-cv{width:44%}
+#rnv .bx.bxf .bx-tx b{font-size:20px}
+#rnv .bdark .bmas{background:rgba(255,255,255,.06);border-color:rgba(111,216,230,.22)}
+#rnv .bdark .bmas summary,#rnv .bdark .bmas li{color:#fff}
+#rnv .bdark .bmas li .ic{color:var(--rnv-turquesa-claro)}
+@media (max-width:760px){
+  #rnv .bdark .bhead{flex-direction:row;margin-bottom:14px;padding-bottom:10px}
+  #rnv .bdark .bhead h2{font-size:26px}
+  #rnv .bdark .bhead .val.big{padding:5px 12px}
+  #rnv .bdark .bhead .val.big b{font-size:14px}
+  #rnv .bx3,#rnv .bx2{grid-template-columns:1fr;gap:8px}
+  #rnv .bx2{margin-top:8px}
+  #rnv .bx,#rnv .bx.bxf{flex-direction:row;align-items:center;gap:11px;padding:7px 9px 7px 7px;border-radius:13px}
+  #rnv .bx-cv{width:78px;border-radius:9px}
+  #rnv .bx.bxf{padding:9px 9px 9px 8px}
+  #rnv .bx.bxf .bx-cv{width:100px}
+  #rnv .bx-cv i{left:4px;top:4px;width:19px;height:19px;font-size:10.5px}
+  #rnv .bx-tx{padding:0;gap:2px}
+  #rnv .bx-tx em{font-size:9.5px;padding:1px 6px;margin-bottom:1px}
+  #rnv .bx-tags{gap:4px;margin-bottom:1px}
+  #rnv .bx-tx b,#rnv .bx.bxf .bx-tx b{font-size:15.5px;line-height:1.18}
+  #rnv .bx-tx span{font-size:13.5px;line-height:1.3}
+}
+</style>
+<div class="sec bdark" id="bonus">
+  <div class="wrap">
+    <div class="bhead rv"><h2>Bonus gratuitos</h2><span class="val big"><b>TODO INCLUIDO</b></span></div>
+    
+    <div class="bx3 rv">
+      <div class="bx"><div class="bx-cv tapa"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/tapa_pausa.jpg" alt="Tapa de Pausa activa"/><i>1</i></div><div class="bx-tx"><em>DE REGALO</em><b>Pausa activa</b><span>4 rutinas de 10 minutos para relajar el cuerpo y mantenerte activa en el trabajo.</span></div></div>
+      <div class="bx"><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/foto_subidas.jpg" alt=""/><i>2</i></div><div class="bx-tx"><em>DE REGALO</em><b>Rutinas express de 15 minutos</b><span>Para no cortar el proceso cuando viajás o tenés poco tiempo.</span></div></div>
+      <div class="bx"><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/foto_abdominales.jpg" alt=""/><i>3</i></div><div class="bx-tx"><em>CONTENIDO EXCLUSIVO</em><b>Rutinas de abdominales</b><span>Cómo hacerlas bien y fortalecer tu zona media.</span></div></div>
+    </div>
+    <div class="bx2 rv">
+      <div class="bx bxf"><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/taller_super.jpg" alt=""/><i>4</i></div><div class="bx-tx"><p class="bx-tags"><em>TALLERES CON PROFESIONALES</em><em class="alt">GRABADOS Y EN VIVO</em></p><b>Talleres grabados y en vivo</b><span>Con nuestra nutricionista y nuestra psicóloga Agostina: hábitos, nutrición, mindfulness y sueño.</span></div></div>
+      <div class="bx bxf"><div class="bx-cv"><img onerror="this.onerror=null;this.src=this.src.replace('https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/','https://raw.githubusercontent.com/ruigh14/RepositorioHenry/48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/')" src="https://cdn.jsdelivr.net/gh/ruigh14/RepositorioHenry@48d6e21eb816f1f90adb2797d53d9a25b80616e7/fuentes/landing/img/comunidad.jpg" alt="Equipo RENOVA"/><i>5</i></div><div class="bx-tx"><p class="bx-tags"><em class="gold">ACCESO DE POR VIDA</em></p><b>Comunidad RENOVA de por vida</b><span>Mujeres en tu misma situación, en Skool. Participar es opcional.</span></div></div>
+    </div>
+    <details class="bmas rv"><summary>Ver qué incluyen los talleres</summary>
+      <ul>
+        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Hábitos:</b> con Agostina, apoyo para el estrés y para mejorar tus hábitos.</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Nutrición:</b> ordenar tu heladera, elegir mejor en el súper y mucho más.</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Mindfulness:</b> un curso completo para conectar con el presente y disfrutar el proceso.</span></li>
+        <li><svg class="ic"><use href="#i-check"/></svg><span><b>Sueño:</b> hábitos que te ayudan a descansar mejor.</span></li>
+      </ul>
+    </details>
+    <div class="cta rv"><a class="btn" href="/checkout">Lo quiero <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</div>
