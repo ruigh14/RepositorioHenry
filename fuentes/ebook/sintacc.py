@@ -77,7 +77,7 @@ RECETAS = [
            cambio="berenjena por zucchini o pechuga de pollo; acompañá con una proteína."),
 ]
 
-# Recetas argentinas de alta demanda: BORRADOR armado por RENOVA, a validar por la nutricionista. Foto pendiente.
+# Recetas argentinas de alta demanda: BORRADOR armado por RENOVA, a validar por la nutricionista. Fotos: img/food/st_*.jpg (Higgsfield).
 # Cuando estén aprobadas: sacar " · BORRADOR" de la categoría, el aviso de la página de recetas y poner la foto.
 B = " · BORRADOR"
 RECETAS_BORRADOR = [
@@ -87,7 +87,7 @@ RECETAS_BORRADOR = [
             ["Mezclá la harina, el agua, el aceite y la sal sin grumos y dejala reposar 30 minutos.",
              "Volcá en una pizzera aceitada y horneá 10 a 12 minutos en horno alto, hasta que se despegue.",
              "Cubrí con salsa, muzzarella y orégano, y horneá 6 a 8 minutos más."],
-            "muzzarella por queso port salut con logo; sumá vegetales asados arriba.", "1 día en heladera; recalentar en sartén.", foto="pendiente"),
+            "muzzarella por queso port salut con logo; sumá vegetales asados arriba.", "1 día en heladera; recalentar en sartén.", foto="st_pizza"),
     NUT.rec("Empanadas de carne al horno", "Para compartir" + B, "60 min", "12 unidades",
             ["Masa: 2 tazas de premezcla con logo oficial, ½ cdita de sal, 3 cdas de aceite y ½ taza de agua tibia (aprox.)",
              "Relleno: 400 g de carne picada magra, 1 cebolla, ½ morrón y 1 huevo duro",
@@ -96,14 +96,14 @@ RECETAS_BORRADOR = [
              "Rehogá la cebolla y el morrón, sumá la carne y los condimentos, cociná y dejá enfriar; agregá el huevo picado.",
              "Estirá la masa entre dos films, cortá discos, rellená, cerrá con repulgue y horneá 15 a 20 minutos en horno alto."],
             "carne por pollo desmenuzado o por verdura y queso. Si tu premezcla no trae goma xántica, sumá ½ cdita.",
-            "Congelalas crudas en una bandeja y después pasalas a una bolsa: se pueden freezar.", foto="pendiente"),
+            "Congelalas crudas en una bandeja y después pasalas a una bolsa: se pueden freezar.", foto="st_empanadas"),
     NUT.rec("Tarta de verduras con masa casera", "Almuerzo o vianda" + B, "50 min", "4 porciones",
             ["Masa: 1 taza de harina de garbanzos o premezcla con logo oficial, 2 cdas de semillas, 3 cdas de aceite, sal y agua",
              "Relleno: 1 atado de acelga o espinaca, 1 cebolla, 3 huevos y 3 cdas de ricota o queso untable con logo oficial"],
             ["Uní los ingredientes de la masa con agua de a poco hasta que se pueda estirar; forrá una tartera aceitada.",
              "Rehogá la cebolla, sumá la verdura picada y cociná hasta que pierda el agua; mezclá con los huevos y la ricota.",
              "Rellená y horneá 30 a 35 minutos en horno medio, hasta que el centro esté firme."],
-            "acelga por zapallo y choclo, o por calabaza y queso.", "3 días en heladera; se puede freezar en porciones.", foto="pendiente"),
+            "acelga por zapallo y choclo, o por calabaza y queso.", "3 días en heladera; se puede freezar en porciones.", foto="st_tarta"),
     NUT.rec("Pan casero de semillas", "Desayuno o merienda" + B, "1 h 30 min (con levado)", "1 pan (12 rodajas)",
             ["2 tazas de premezcla con logo oficial", "1 sobre de levadura seca con logo oficial", "1 cdita de sal y 2 cdas de aceite",
              "1 ¼ taza de agua tibia", "3 cdas de semillas (girasol, lino, chía)"],
@@ -111,14 +111,14 @@ RECETAS_BORRADOR = [
              "Pasala a un molde aceitado, cubrí con semillas y dejá levar 40 minutos en un lugar cálido.",
              "Horneá 35 a 40 minutos en horno alto; desmoldá y dejá enfriar sobre una rejilla antes de cortar."],
             "semillas por nueces picadas. Si tu premezcla no trae goma xántica, sumá 1 cdita.",
-            "Cortalo en rodajas y freezalo: tostás solo lo que vas a comer.", foto="pendiente"),
+            "Cortalo en rodajas y freezalo: tostás solo lo que vas a comer.", foto="st_pan"),
     NUT.rec("Ñoquis de papa", "Almuerzo" + B, "60 min", "4 porciones",
             ["1 kg de papas", "1 huevo", "1 taza de fécula de mandioca o premezcla con logo oficial (aprox.)", "Sal y nuez moscada con logo oficial"],
             ["Hervé las papas con cáscara, pelalas y pisalas en caliente.",
              "Sumá el huevo, la sal y la nuez moscada, y agregá la fécula de a poco hasta que la masa no se pegue.",
              "Hacé cilindros, cortá los ñoquis y hervilos en agua solo para ellos: están listos cuando suben."],
             "papa por batata o calabaza (necesitan algo más de fécula); salsa de tomate casera o filetto.",
-            "Congelalos crudos y separados en una bandeja: se pueden freezar.", foto="pendiente"),
+            "Congelalos crudos y separados en una bandeja: se pueden freezar.", foto="st_noquis"),
     NUT.rec("Budín de banana sin azúcar", "Desayuno o merienda" + B, "50 min", "1 budín (10 rodajas)",
             ["2 bananas bien maduras", "3 huevos", "1 ½ taza de harina de arroz o premezcla con logo oficial",
              "1 cdita de polvo de hornear con logo oficial, 3 cdas de aceite y canela", "Nueces picadas (opcional)"],
@@ -126,7 +126,7 @@ RECETAS_BORRADOR = [
              "Sumá la harina, el polvo de hornear y la canela, y mezclá sin batir de más; agregá las nueces.",
              "Horneá en un molde aceitado 35 a 40 minutos en horno medio, hasta que un palillo salga seco."],
             "banana por manzana rallada; nueces por chips de chocolate amargo con logo oficial.",
-            "4 días en heladera; en rodajas se puede freezar.", foto="pendiente"),
+            "4 días en heladera; en rodajas se puede freezar.", foto="st_budin"),
 ]
 
 # ================================================================== PORTADA
@@ -346,7 +346,7 @@ page(f'''
 page(f'''
 {chap_head("09", '18 recetas <span class="t">Sin TACC</span>', "Caseras, sin azúcar agregada y con proteína y fibra. Todos los envasados que uses, con logo oficial.")}
 {"".join(NUT.ficha(r, i + 1) for i, r in enumerate(RECETAS))}
-{box("<b>BORRADOR · Recetas 13 a 18:</b> pizza, empanadas, tarta, pan, ñoquis y budín. Pendientes de validación de la nutricionista y de foto.", "note") if RECETAS_BORRADOR else ""}
+{box("<b>BORRADOR · Recetas 13 a 18:</b> pizza, empanadas, tarta, pan, ñoquis y budín. Pendientes de validación de la nutricionista.", "note") if RECETAS_BORRADOR else ""}
 {"".join(NUT.ficha(r, len(RECETAS) + i + 1) for i, r in enumerate(RECETAS_BORRADOR))}
 ''', chapter="09 · Recetas", pid="recetas", toc="09 · 18 recetas Sin TACC")
 
