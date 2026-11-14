@@ -70,7 +70,7 @@
     if (!t || t.indexOf('{{') > -1) ups.style.display = 'none';
   }
 
-  // Carruseles (mensajes de clientas y equipo): pasan solos cada 4 s y se deslizan con el dedo
+  // Carruseles (testimonios, mensajes de clientas y equipo): pasan solos cada 4 s y se deslizan con el dedo
   function carrusel(tr, dw){
     if (!tr || !dw) return;
     var ms = tr.children, k = 0, timer;
@@ -94,6 +94,7 @@
     }, { passive: true });
   }
   carrusel(document.getElementById('msgs'), document.getElementById('msgs-dots'));
+  carrusel(document.getElementById('clientas'), document.getElementById('clientas-dots'));   // testimonios con foto
   carrusel(document.getElementById('team'), document.getElementById('team-dots'));
   carrusel(document.getElementById('entrenan'), document.getElementById('entrenan-dots'));   // landing MÉTODO 40
 
