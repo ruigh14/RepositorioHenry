@@ -47,6 +47,42 @@ def transcribir(video, destino, modelo):
     return palabras
 
 
+def silencios_audio(video, paso=0.02):
+    """RMS del audio cada 20 ms (para cortar solo donde de verdad hay silencio)."""
+    import numpy as np
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(video), "-f", "s16le", "-ac", "1", "-ar", "16000", "-"],
+                         capture_output=True, check=True).stdout
+    a = np.frombuffer(raw, np.int16).astype(np.float32)
+    n = int(16000 * paso)
+    rms = np.sqrt(np.add.reduceat(a[: len(a) // n * n] ** 2, np.arange(0, len(a) // n * n, n)) / n)
+    return rms, paso, 0.08 * np.percentile(rms, 95)
+
+
+def tramos_oraciones(palabras, video, pausa_max, margen, fin):
+    """Conversación fluida: solo se cortan silencios entre oraciones (palabra terminada en . ? !),
+    y solo la parte que el audio confirma como silencio, dejando `margen` a cada lado para no comer finales."""
+    rms, paso, umbral = silencios_audio(video)
+    out = [[max(palabras[0]["s"] - margen, 0), None]]
+    for p, q in zip(palabras, palabras[1:]):
+        if not re.search(r"[.?!]$", p["w"]):
+            continue
+        a, b = int(max(p["s"], p["e"] - 0.3) / paso), int(q["s"] / paso) + 5   # el audio manda: Whisper puede correr los tiempos
+        mejor, ini = (0, 0), None
+        for i in range(a, min(b, len(rms))):
+            if rms[i] < umbral:
+                ini = i if ini is None else ini
+                if i - ini > mejor[1] - mejor[0]:
+                    mejor = (ini, i + 1)
+            else:
+                ini = None
+        c0, c1 = mejor[0] * paso + margen, mejor[1] * paso - margen
+        if c1 - c0 > pausa_max:
+            out[-1][1] = c0
+            out.append([c1, None])
+    out[-1][1] = min(palabras[-1]["e"] + margen, fin)
+    return out
+
+
 def tramos(palabras, pausa_max, margen):
     """Intervalos del original que se conservan: el habla, con los silencios largos acortados."""
     out = []
@@ -163,7 +199,10 @@ def main():
     if not palabras:
         sys.exit("ERROR: no quedan palabras entre inicio y fin")
 
-    cortes = tramos(palabras, cfg.get("pausa_max", 0.3), cfg.get("margen", 0.1))
+    if cfg.get("cortar") == "oraciones":
+        cortes = tramos_oraciones(palabras, video, cfg.get("pausa_max", 0.3), cfg.get("margen", 0.15), fin)
+    else:
+        cortes = tramos(palabras, cfg.get("pausa_max", 0.3), cfg.get("margen", 0.1))
     if cfg.get("sin_cortes"):   # tramos que van enteros, con sus silencios (ej. una mueca al principio, el cierre)
         todo = sorted(cortes + [[max(a, ini), min(b, fin)] for a, b in cfg["sin_cortes"]])
         cortes = []

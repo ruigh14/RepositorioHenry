@@ -43,6 +43,7 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
 - Subtítulos: Inter Display Black, blanco con borde negro, palabras clave en turquesa #14B1C7, a 1440 px (encima de la zona segura de abajo de 340 px).
 
 **Casos extremos y aprendizajes**
+- `cortar: "oraciones"` (con `margen` 0,15 y `pausa_max` 0,25): para charla fluida. Solo corta silencios después de una palabra con . ? ! y solo la parte que el audio confirma como silencio (RMS), así no se come el final de una frase aunque Whisper corra los tiempos. Es el modo por defecto que pidió Nacho (15/11).
 - `sin_cortes`: lista de [desde, hasta] del original que van enteros con sus silencios (ej. la mueca del principio o el cierre "Y si llegaste hasta acá…", que Nacho quiere seguidos).
 - `tiempos`: {"palabra": [s, e]} corrige una palabra que Whisper corrió a un silencio (pasó con "localizada.": la puso 0,4 s tarde y el corte de silencios la borraba). Si Nacho dice que una frase quedó cortada, medir la energía del audio en ese tramo y comparar con la transcripción.
 - `destellos`: segundos del original con un destello fuerte (más marcado que el de `transiciones`), ej. después de cortar un silencio entre dos ideas.

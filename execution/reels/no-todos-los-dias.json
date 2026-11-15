@@ -1,0 +1,31 @@
+{
+  "video": "../../.tmp/no-todos-los-dias/original.mp4",
+  "salida": ".tmp/no-todos-los-dias.mp4",
+  "inicio": 0,
+  "fin": 64.4,
+  "cortar": "oraciones",
+  "pausa_max": 0.25,
+  "margen": 0.15,
+  "subtitulos_y": 1490,
+  "correcciones": {"e": "E-BOOKS", "books": "", "hace": "Hacé", "par": "pack"},
+  "destacar": ["todos", "días", "imposible", "tres", "fuerza", "fuerza,", "suficiente", "energía.", "RENOVA,", "RENOVA", "8", "semanas", "30", "minutos", "15", "nutrición", "inteligente", "bonus", "regalo.", "verdad."],
+  "carteles": [{"texto": "¿HAY QUE ENTRENAR\nTODOS LOS DÍAS?", "tamano": 92, "desde": null, "hasta": 5.3}],
+  "transiciones": [26.8, 59.8],
+  "destellos": [15.1],
+  "clips": [
+    {"archivo": "../../.tmp/no-todos-los-dias/c1.mp4", "inicio_clip": 1.0, "desde": 16.1, "hasta": 17.7, "sale": false},
+    {"archivo": "../../.tmp/no-todos-los-dias/c2.mp4", "inicio_clip": 0.5, "desde": 17.7, "hasta": 19.3, "entra": false, "sale": false},
+    {"archivo": "../../.tmp/no-todos-los-dias/c3.mp4", "inicio_clip": 6.0, "desde": 19.3, "hasta": 20.9, "entra": false, "sale": false},
+    {"archivo": "../../.tmp/no-todos-los-dias/c4.mp4", "inicio_clip": 4.5, "desde": 20.9, "hasta": 22.5, "entra": false}
+  ],
+  "imagenes": [
+    {"archivo": "../../pack-renova/pack_1.png", "desde": 29.6, "hasta": 34.5, "fondo": "#0d1416"},
+    {"archivo": "../../pack-renova/libro_1_casa.png", "desde": 37.3, "hasta": 38.3, "fondo": "#0b1416", "zoom": 1.15},
+    {"archivo": "../../pack-renova/libro_2_gimnasio.png", "desde": 38.3, "hasta": 39.3, "fondo": "#0b1416", "zoom": 1.15},
+    {"archivo": "../../pack-renova/bonus_express.png", "desde": 41.0, "hasta": 43.8, "fondo": "#0b1416"},
+    {"archivo": "../../pack-renova/libro_3_alimentacion.png", "desde": 49.2, "hasta": 51.6, "fondo": "#0b1416", "zoom": 1.15},
+    {"archivo": "../../pack-renova/pack_1.png", "desde": 57.9, "hasta": 59.6, "fondo": "#0d1416"}
+  ],
+  "cierre": {"archivo": "../../pack-renova/pack_1.png", "duracion": 2.5, "transicion": 0.4, "efecto": "fade"},
+  "notas": "Guion 'No hace falta entrenar todos los días'. Conversación fluida: solo se cortan silencios entre oraciones (cortar: oraciones). B-roll de clientas (carpeta Drive 1J2_w83crv0ZeotXJk-kIBzI6NnM8J6ut) en 'tres entrenamientos de fuerza... ganar fuerza'."
+}
