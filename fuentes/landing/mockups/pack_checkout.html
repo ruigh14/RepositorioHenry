@@ -93,22 +93,23 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-body{width:1080px;height:1440px;overflow:hidden;font-family:InterW,sans-serif;color:var(--rnv-tinta);
+body{width:1080px;height:1360px;overflow:hidden;font-family:InterW,sans-serif;color:var(--rnv-tinta);
  background:linear-gradient(180deg,#fff 0%,var(--rnv-turquesa-fondo) 100%)}
 .top{text-align:center;padding-top:56px}
 .top img{height:52px}
 h1{font:900 76px/1 InterTightW,sans-serif;letter-spacing:-.02em;text-transform:uppercase;margin-top:22px}
 h1 b{color:var(--rnv-turquesa-titulo)}
 .sub{font:600 34px InterW,sans-serif;color:var(--rnv-gris);margin-top:10px}
-.libros{display:flex;justify-content:center;align-items:flex-end;gap:34px;margin-top:40px;padding:0 50px}
-.lib{text-align:center;width:300px}
-.lib.c{width:330px}
+.libros{display:flex;justify-content:center;align-items:flex-start;gap:22px;margin-top:40px;padding:0 40px}
+.lib{text-align:center;flex:1;min-width:0}
 .tapa{border-radius:4px 12px 12px 4px;overflow:hidden;background:#fff;aspect-ratio:210/297;position:relative;
  box-shadow:18px 26px 44px rgba(6,52,59,.28),0 0 0 1px rgba(0,0,0,.05)}
 .tapa img{width:100%;height:100%;object-fit:cover;display:block}
 .tapa::after{content:"";position:absolute;inset:0 auto 0 0;width:5%;background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(255,255,255,.15) 60%,transparent)}
-.lib b{display:block;font:800 34px/1.08 InterTightW,sans-serif;margin-top:20px}
-.lib span{display:inline-block;margin-top:10px;font:800 22px InterTightW,sans-serif;letter-spacing:.12em;color:#fff;
+.lib b{display:block;font:800 29px/1.1 InterTightW,sans-serif;margin-top:14px}
+.lib.op span{background:var(--rnv-oro);color:var(--rnv-tinta);letter-spacing:.04em;font-size:19px}
+.lib.op .tapa{outline:4px dashed var(--rnv-oro);outline-offset:6px}
+.lib span{display:inline-block;margin-top:18px;font:800 21px InterTightW,sans-serif;letter-spacing:.12em;color:#fff;
  background:var(--rnv-turquesa);padding:5px 14px;border-radius:999px}
 .bh{display:flex;align-items:center;gap:22px;margin:46px 60px 22px}
 .bh i{flex:1;height:3px;background:var(--rnv-turquesa-borde)}
@@ -122,6 +123,6 @@ h1 b{color:var(--rnv-turquesa-titulo)}
 .bo:last-child{grid-column:1/-1}
 </style>
 <div class="top"><img src="../img/logo.png"><h1>Todo lo que <b>recibís</b></h1><p class="sub">Acceso inmediato en tu celular</p></div>
-<div class="libros"><div class="lib"><div class="tapa"><img src="pack/tapa_casa.jpg"></div><span>EBOOK</span><b>Entrená<br>desde casa</b></div><div class="lib c"><div class="tapa"><img src="pack/tapa_nutri.jpg"></div><span>EBOOK</span><b>Alimentación<br>Inteligente</b></div><div class="lib"><div class="tapa"><img src="pack/tapa_gym.jpg"></div><span>EBOOK</span><b>Entrená en<br>el gimnasio</b></div></div>
+<div class="libros"><div class="lib"><div class="tapa"><img src="pack/tapa_casa.jpg"></div><span>EBOOK</span><b>Entrená<br>desde casa</b></div><div class="lib"><div class="tapa"><img src="pack/tapa_gym.jpg"></div><span>EBOOK</span><b>Entrená en<br>el gimnasio</b></div><div class="lib"><div class="tapa"><img src="pack/tapa_nutri.jpg"></div><span>EBOOK</span><b>Alimentación<br>Inteligente</b></div><div class="lib op"><div class="tapa"><img src="../img/tapa_menopausia.jpg"></div><span>Complemento opcional</span><b>Guía de Nutrición en la Menopausia</b></div></div>
 <div class="bh"><i></i><b>+ 5 bonus de regalo</b><i></i></div>
-<div class="bon"><div class="bo"><img src="pack/tapa_pausa.jpg" style="object-position:50% 12%"><div><i>BONUS 1</i><b>Pausa activa</b></div></div><div class="bo"><img src="../img/foto_subidas.jpg" style=""><div><i>BONUS 2</i><b>Rutinas express de 15 minutos</b></div></div><div class="bo"><img src="../img/foto_abdominales.jpg" style=""><div><i>BONUS 3</i><b>Rutinas de abdominales</b></div></div><div class="bo"><img src="../img/taller_super.jpg" style=""><div><i>BONUS 4</i><b>Talleres con profesionales</b></div></div><div class="bo"><img src="../img/comunidad.jpg" style=""><div><i>BONUS 5</i><b>Acceso de por vida a la comunidad RENOVA</b></div></div></div>
+<div class="bon"><div class="bo"><img src="pack/tapa_pausa.jpg" style="object-position:50% 12%"><div><i>BONUS 1</i><b>Pausa activa</b></div></div><div class="bo"><img src="../img/foto_subidas.jpg" style=""><div><i>BONUS 2</i><b>Rutinas express de 15 minutos</b></div></div><div class="bo"><img src="../img/foto_abdominales.jpg" style=""><div><i>BONUS 3</i><b>Rutinas de abdominales</b></div></div><div class="bo"><img src="../img/taller_super.jpg" style=""><div><i>BONUS 4</i><b>Talleres con profesionales</b></div></div><div class="bo"><img src="../img/comunidad.jpg" style=""><div><i>BONUS 5</i><b>Acceso a la comunidad RENOVA</b></div></div></div>

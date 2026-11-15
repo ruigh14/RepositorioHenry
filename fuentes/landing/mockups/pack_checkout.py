@@ -1,4 +1,4 @@
-"""Imagen del pack para el checkout de Impultienda (va arriba del botón de compra), 1080x1440.
+"""Imagen del pack para el checkout de Impultienda (va arriba del botón de compra), 1080x1360.
 Fondo claro como el checkout, tapas reales y los 5 bonus con los nombres de la landing.
 Uso: cd fuentes/landing/mockups && python3 pack_checkout.py && node pack_checkout.js  →  ../../../pack-renova/pack_checkout.png"""
 import sys
@@ -7,32 +7,34 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "design-system"))
 from design_system import css
 
 I, P = "../img/", "pack/"
-LIBROS = [("tapa_casa.jpg", "Entrená<br>desde casa"), ("tapa_nutri.jpg", "Alimentación<br>Inteligente"),
-          ("tapa_gym.jpg", "Entrená en<br>el gimnasio")]
+LIBROS = [(P + "tapa_casa.jpg", "Entrená<br>desde casa", ""), (P + "tapa_gym.jpg", "Entrená en<br>el gimnasio", ""),
+          (P + "tapa_nutri.jpg", "Alimentación<br>Inteligente", ""),
+          (I + "tapa_menopausia.jpg", "Guía de Nutrición en la Menopausia", "Complemento opcional")]
 BONUS = [(P + "tapa_pausa.jpg", "Pausa activa", "object-position:50% 12%"),
          (I + "foto_subidas.jpg", "Rutinas express de 15 minutos", ""),
          (I + "foto_abdominales.jpg", "Rutinas de abdominales", ""),
          (I + "taller_super.jpg", "Talleres con profesionales", ""),
-         (I + "comunidad.jpg", "Acceso de por vida a la comunidad RENOVA", "")]
+         (I + "comunidad.jpg", "Acceso a la comunidad RENOVA", "")]
 
 CSS = css(str(Path(__file__).parent)) + """
 *{box-sizing:border-box;margin:0;padding:0}
-body{width:1080px;height:1440px;overflow:hidden;font-family:InterW,sans-serif;color:var(--rnv-tinta);
+body{width:1080px;height:1360px;overflow:hidden;font-family:InterW,sans-serif;color:var(--rnv-tinta);
  background:linear-gradient(180deg,#fff 0%,var(--rnv-turquesa-fondo) 100%)}
 .top{text-align:center;padding-top:56px}
 .top img{height:52px}
 h1{font:900 76px/1 InterTightW,sans-serif;letter-spacing:-.02em;text-transform:uppercase;margin-top:22px}
 h1 b{color:var(--rnv-turquesa-titulo)}
 .sub{font:600 34px InterW,sans-serif;color:var(--rnv-gris);margin-top:10px}
-.libros{display:flex;justify-content:center;align-items:flex-end;gap:34px;margin-top:40px;padding:0 50px}
-.lib{text-align:center;width:300px}
-.lib.c{width:330px}
+.libros{display:flex;justify-content:center;align-items:flex-start;gap:22px;margin-top:40px;padding:0 40px}
+.lib{text-align:center;flex:1;min-width:0}
 .tapa{border-radius:4px 12px 12px 4px;overflow:hidden;background:#fff;aspect-ratio:210/297;position:relative;
  box-shadow:18px 26px 44px rgba(6,52,59,.28),0 0 0 1px rgba(0,0,0,.05)}
 .tapa img{width:100%;height:100%;object-fit:cover;display:block}
 .tapa::after{content:"";position:absolute;inset:0 auto 0 0;width:5%;background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(255,255,255,.15) 60%,transparent)}
-.lib b{display:block;font:800 34px/1.08 InterTightW,sans-serif;margin-top:20px}
-.lib span{display:inline-block;margin-top:10px;font:800 22px InterTightW,sans-serif;letter-spacing:.12em;color:#fff;
+.lib b{display:block;font:800 29px/1.1 InterTightW,sans-serif;margin-top:14px}
+.lib.op span{background:var(--rnv-oro);color:var(--rnv-tinta);letter-spacing:.04em;font-size:19px}
+.lib.op .tapa{outline:4px dashed var(--rnv-oro);outline-offset:6px}
+.lib span{display:inline-block;margin-top:18px;font:800 21px InterTightW,sans-serif;letter-spacing:.12em;color:#fff;
  background:var(--rnv-turquesa);padding:5px 14px;border-radius:999px}
 .bh{display:flex;align-items:center;gap:22px;margin:46px 60px 22px}
 .bh i{flex:1;height:3px;background:var(--rnv-turquesa-borde)}
@@ -47,9 +49,9 @@ h1 b{color:var(--rnv-turquesa-titulo)}
 """
 
 
-def libro(i, f, t):
-    c = " c" if i == 1 else ""
-    return f'<div class="lib{c}"><div class="tapa"><img src="{P}{f}"></div><span>EBOOK</span><b>{t}</b></div>'
+def libro(i, f, t, op):
+    c, tag = (" op", op) if op else ("", "EBOOK")
+    return f'<div class="lib{c}"><div class="tapa"><img src="{f}"></div><span>{tag}</span><b>{t}</b></div>'
 
 
 def bono(i, src, t, pos):
@@ -58,7 +60,7 @@ def bono(i, src, t, pos):
 
 html = f"""<!doctype html><meta charset="utf-8"><style>{CSS}</style>
 <div class="top"><img src="{I}logo.png"><h1>Todo lo que <b>recibís</b></h1><p class="sub">Acceso inmediato en tu celular</p></div>
-<div class="libros">{''.join(libro(i, f, t) for i, (f, t) in enumerate(LIBROS))}</div>
+<div class="libros">{''.join(libro(i, f, t, o) for i, (f, t, o) in enumerate(LIBROS))}</div>
 <div class="bh"><i></i><b>+ 5 bonus de regalo</b><i></i></div>
 <div class="bon">{''.join(bono(i, s, t, p) for i, (s, t, p) in enumerate(BONUS))}</div>"""
 Path(__file__).with_name("pack_checkout.html").write_text(html, encoding="utf-8")
