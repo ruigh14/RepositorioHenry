@@ -73,13 +73,15 @@ Tocá el link y usá tus 15 minutos.
 ## 7 · Siempre lo dejás
 **PANTALLA:** ¿Arrancás y a las dos semanas lo dejás?
 
-Arrancás con todas las ganas, y a las dos semanas ya lo dejaste. Otra vez.
+Si empezás a entrenar y a la semana lo dejás, escuchame: no es falta de voluntad.
 
-Y te culpás pensando que no tenés voluntad. Pero no es eso. Arrancaste sin un plan: un video un día, otro distinto al siguiente, sin saber si estás avanzando. Y cuando no ves para dónde vas, lo dejás.
+Te entiendo. Entre mil responsabilidades, probás alguna rutina o vas al gimnasio, pero no terminás de ser constante. Y es porque empezás sin un plan, o con una rutina que no está pensada para vos.
 
-Lo que te sostiene es saber qué te toca hoy y ver que cada semana podés un poco más. Soy Nacho Portillo, y en RENOVA tenés el plan de 8 semanas ya armado, semana por semana, con una hoja para registrar tu progreso. Además, entrás a la comunidad RENOVA, con talleres de nuestra nutricionista y nuestra psicóloga sobre hábitos, estrés y sueño.
+Lo que te sostiene es un plan que se adapte a tu estado, al poco tiempo que tenés y a si entrenás en casa o en el gimnasio.
 
-Tocá el link y que esta vez sea distinto.
+Soy Nacho Portillo, y en RENOVA tenés un plan de 8 semanas diseñado para mujeres que quieren empezar a entrenar fuerza: rutinas de 30 minutos, de bajo impacto, que cuidan tus articulaciones. Además, entrás a la comunidad RENOVA, con talleres de nuestra nutricionista y nuestra psicóloga sobre hábitos, estrés y sueño.
+
+Tocá el link, accedé a tu pack RENOVA y esta vez vas a poder sostenerlo.
 
 ## 8 · La última dieta
 **PANTALLA:** Probaste todas las dietas y volviste al principio
