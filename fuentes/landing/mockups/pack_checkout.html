@@ -1,0 +1,127 @@
+<!doctype html><meta charset="utf-8"><style>/* RENOVA · design system — tipografías locales.
+   ../../design-system/fonts/ se reemplaza por la ruta a fuentes/design-system/fonts/ (lo hace design_system.css()). */
+@font-face{font-family:"InterW";font-weight:400;font-style:normal;src:url("../../design-system/fonts/inter-latin-400-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:500;font-style:normal;src:url("../../design-system/fonts/inter-latin-500-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:600;font-style:normal;src:url("../../design-system/fonts/inter-latin-600-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:700;font-style:normal;src:url("../../design-system/fonts/inter-latin-700-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:800;font-style:normal;src:url("../../design-system/fonts/inter-latin-800-normal.woff2") format("woff2")}
+@font-face{font-family:"InterW";font-weight:900;font-style:normal;src:url("../../design-system/fonts/inter-latin-900-normal.woff2") format("woff2")}
+@font-face{font-family:"InterTightW";font-weight:100 900;font-style:normal;src:url("../../design-system/fonts/inter-tight-latin-var.woff2") format("woff2")}
+
+/* RENOVA · design system — tokens
+   Fuente única de colores, tipografía, espacios, radios y sombras para ebooks, landings y creativos.
+   Paleta = la del ebook (medida en el PDF). Landings, creativos y videos usan exactamente estos colores.
+   Ver README.md para el uso de cada uno. */
+:root{
+  /* ---- Color: turquesa de marca (el de nachoportillo.com) */
+  --rnv-turquesa:#14B1C7;          /* rellenos, líneas, números grandes, botones */
+  --rnv-turquesa-titulo:#0E9DB2;   /* palabras destacadas en títulos, botón del ebook */
+  --rnv-turquesa-oscuro:#0A7F90;   /* texto chico en turquesa (pills, etiquetas, links) */
+  --rnv-turquesa-profundo:#075E6B; /* texto sobre fondo turquesa claro */
+  --rnv-turquesa-fondo:#E8F6F8;    /* fondo de recuadros y tarjetas */
+  --rnv-turquesa-borde:#CDEEF3;    /* bordes suaves */
+  --rnv-turquesa-claro:#6FD8E6;    /* acentos sobre fondo oscuro (portada de la landing) */
+  /* ---- Color: logo (solo portada y logo, no para texto corrido) */
+  --rnv-azul:#0033A0;
+  --rnv-rojo:#E63333;
+  --rnv-rojo-fondo:#FCEBEB;   /* fondo rojo claro (tapa de Glúteos Fuertes en el gimnasio) */
+  /* MÉTODO 40 (submarca para hombres 40+): negro, grises y rojo */
+  --m40-negro:#0E0F10;
+  --m40-grafito:#1C1E21;
+  --m40-gris:#5E6368;
+  --m40-gris-claro:#F2F3F4;
+  --m40-borde:#DADDE0;
+  --m40-rojo:#D62828;
+  --m40-rojo-oscuro:#A11D1D;
+  /* ---- Color: sello de garantía (solo el sello dorado) */
+  --rnv-oro:#E2A928;
+  --rnv-oro-claro:#F9DE7E;
+  --rnv-oro-oscuro:#8A5A0B;
+  /* ---- Color: neutros */
+  --rnv-tinta:#141414;             /* títulos */
+  --rnv-texto:#2A2F33;             /* cuerpo */
+  --rnv-gris:#555C62;              /* bajadas, notas, texto secundario */
+  --rnv-linea:#E3ECEE;             /* separadores */
+  --rnv-fondo:#F4FAFB;             /* fondo alternativo de secciones */
+  --rnv-oscuro:#141414;            /* barras, pie y recuadros oscuros (el negro del ebook) */
+  --rnv-blanco:#FFFFFF;
+
+  /* ---- Degradés y sombras */
+  --rnv-degrade:linear-gradient(135deg,#14B1C7 0%,#0E9DB2 100%);   /* solo turquesas del ebook */
+  --rnv-sombra:0 10px 30px rgba(20,20,20,.08);
+  --rnv-sombra-fuerte:0 24px 54px rgba(20,20,20,.16);
+  --rnv-sombra-boton:0 14px 30px rgba(20,177,199,.38),inset 0 -4px 0 rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.35);
+
+  /* ---- Tipografía */
+  --rnv-fuente:"InterW","Inter",system-ui,sans-serif;            /* todo el texto */
+  --rnv-fuente-display:"InterTightW","Inter Tight","InterW",sans-serif; /* titulares de web y redes */
+
+  /* Escala del ebook (A4, se lee en el celular: cuerpo mínimo 15 pt) */
+  --rnv-pdf-portada:37pt;
+  --rnv-pdf-h1:26pt;
+  --rnv-pdf-h2:18pt;
+  --rnv-pdf-h3:16pt;
+  --rnv-pdf-cuerpo:16pt;
+  --rnv-pdf-chico:13pt;
+  --rnv-pdf-etiqueta:7.6pt;
+
+  /* Escala web (landing) */
+  --rnv-web-h1:clamp(46px,7vw,80px);
+  --rnv-web-h2:clamp(28px,3.6vw,42px);
+  --rnv-web-cuerpo:17px;
+  --rnv-web-chico:14px;
+
+  /* Escala redes (lienzo de 1080 px de ancho: se ve a ~36% en el celular) */
+  --rnv-red-gancho:104px;   /* titular principal */
+  --rnv-red-titulo:72px;
+  --rnv-red-subtitulo:48px;
+  --rnv-red-cuerpo:40px;    /* mínimo para que se lea en el celular */
+  --rnv-red-etiqueta:28px;
+
+  /* ---- Espacios y radios */
+  --rnv-esp-1:8px; --rnv-esp-2:16px; --rnv-esp-3:24px; --rnv-esp-4:40px; --rnv-esp-5:64px;
+  --rnv-radio:14px;
+  --rnv-radio-grande:24px;
+  --rnv-radio-pill:999px;
+
+  /* ---- Página A4 del ebook */
+  --rnv-a4-margen:21mm 17mm 17mm;
+
+  /* ---- Zonas seguras de Instagram y Facebook en 1080×1920 (historias y reels) */
+  --rnv-zona-arriba:250px;
+  --rnv-zona-abajo:340px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1080px;height:1440px;overflow:hidden;font-family:InterW,sans-serif;color:var(--rnv-tinta);
+ background:linear-gradient(180deg,#fff 0%,var(--rnv-turquesa-fondo) 100%)}
+.top{text-align:center;padding-top:56px}
+.top img{height:52px}
+h1{font:900 76px/1 InterTightW,sans-serif;letter-spacing:-.02em;text-transform:uppercase;margin-top:22px}
+h1 b{color:var(--rnv-turquesa-titulo)}
+.sub{font:600 34px InterW,sans-serif;color:var(--rnv-gris);margin-top:10px}
+.libros{display:flex;justify-content:center;align-items:flex-end;gap:34px;margin-top:40px;padding:0 50px}
+.lib{text-align:center;width:300px}
+.lib.c{width:330px}
+.tapa{border-radius:4px 12px 12px 4px;overflow:hidden;background:#fff;aspect-ratio:210/297;position:relative;
+ box-shadow:18px 26px 44px rgba(6,52,59,.28),0 0 0 1px rgba(0,0,0,.05)}
+.tapa img{width:100%;height:100%;object-fit:cover;display:block}
+.tapa::after{content:"";position:absolute;inset:0 auto 0 0;width:5%;background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(255,255,255,.15) 60%,transparent)}
+.lib b{display:block;font:800 34px/1.08 InterTightW,sans-serif;margin-top:20px}
+.lib span{display:inline-block;margin-top:10px;font:800 22px InterTightW,sans-serif;letter-spacing:.12em;color:#fff;
+ background:var(--rnv-turquesa);padding:5px 14px;border-radius:999px}
+.bh{display:flex;align-items:center;gap:22px;margin:46px 60px 22px}
+.bh i{flex:1;height:3px;background:var(--rnv-turquesa-borde)}
+.bh b{font:900 40px InterTightW,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--rnv-turquesa-oscuro)}
+.bon{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 60px}
+.bo{display:flex;align-items:center;gap:18px;background:#fff;border:2px solid var(--rnv-turquesa-borde);border-radius:20px;padding:12px 18px 12px 12px;
+ box-shadow:0 8px 20px rgba(6,52,59,.08)}
+.bo img{width:92px;height:92px;border-radius:12px;object-fit:cover;flex:none}
+.bo i{display:block;font:800 19px InterTightW,sans-serif;letter-spacing:.12em;color:var(--rnv-turquesa-oscuro);font-style:normal}
+.bo b{display:block;font:800 30px/1.1 InterTightW,sans-serif}
+.bo:last-child{grid-column:1/-1}
+</style>
+<div class="top"><img src="../img/logo.png"><h1>Todo lo que <b>recibís</b></h1><p class="sub">Acceso inmediato en tu celular</p></div>
+<div class="libros"><div class="lib"><div class="tapa"><img src="pack/tapa_casa.jpg"></div><span>EBOOK</span><b>Entrená<br>desde casa</b></div><div class="lib c"><div class="tapa"><img src="pack/tapa_nutri.jpg"></div><span>EBOOK</span><b>Alimentación<br>Inteligente</b></div><div class="lib"><div class="tapa"><img src="pack/tapa_gym.jpg"></div><span>EBOOK</span><b>Entrená en<br>el gimnasio</b></div></div>
+<div class="bh"><i></i><b>+ 5 bonus de regalo</b><i></i></div>
+<div class="bon"><div class="bo"><img src="pack/tapa_pausa.jpg" style="object-position:50% 12%"><div><i>BONUS 1</i><b>Pausa activa</b></div></div><div class="bo"><img src="../img/foto_subidas.jpg" style=""><div><i>BONUS 2</i><b>Rutinas express de 15 minutos</b></div></div><div class="bo"><img src="../img/foto_abdominales.jpg" style=""><div><i>BONUS 3</i><b>Rutinas de abdominales</b></div></div><div class="bo"><img src="../img/taller_super.jpg" style=""><div><i>BONUS 4</i><b>Talleres con profesionales</b></div></div><div class="bo"><img src="../img/comunidad.jpg" style=""><div><i>BONUS 5</i><b>Acceso de por vida a la comunidad RENOVA</b></div></div></div>
