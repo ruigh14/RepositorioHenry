@@ -43,6 +43,7 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
 - Subtítulos: Inter Display Black, blanco con borde negro, palabras clave en turquesa #14B1C7, a 1440 px (encima de la zona segura de abajo de 340 px).
 
 **Casos extremos y aprendizajes**
+- Regla de Nacho (15/11): destellos, transiciones y cambios de toma (entrada al b-roll, cambio de clip, vuelta a cámara) van **en los silencios**: en la unión de dos tramos cortados o en una micro-pausa medida en el audio (`silencios_audio`), nunca en medio de una palabra. El primer clip de b-roll entra con corte seco (`entra` false) y el destello va encima. Las imágenes de productos van fijas (`fijo`: true, sin zoom).
 - `cortar: "oraciones"` (con `margen` 0,15 y `pausa_max` 0,25): para charla fluida. Solo corta silencios después de una palabra con . ? ! y solo la parte que el audio confirma como silencio (RMS), así no se come el final de una frase aunque Whisper corra los tiempos. Es el modo por defecto que pidió Nacho (15/11).
 - `sin_cortes`: lista de [desde, hasta] del original que van enteros con sus silencios (ej. la mueca del principio o el cierre "Y si llegaste hasta acá…", que Nacho quiere seguidos).
 - `tiempos`: {"palabra": [s, e]} corrige una palabra que Whisper corrió a un silencio (pasó con "localizada.": la puso 0,4 s tarde y el corte de silencios la borraba). Si Nacho dice que una frase quedó cortada, medir la energía del audio en ese tramo y comparar con la transcripción.

@@ -224,8 +224,7 @@ def main():
     # Transiciones sutiles en un cambio de tema: zoom que entra un 7% y se relaja, con un destello leve.
     marcas = [a_nuevo(t, cortes) for t in cfg.get("transiciones", [])]
     zoom = "+".join(f"0.07*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*4)" for m in marcas) or "0"
-    luz = "+".join([f"0.16*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*18)" for m in marcas] +
-                   [f"0.55*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*9)" for m in (a_nuevo(t, cortes) for t in cfg.get("destellos", []))]) or "0"   # max(): sin él, exp() se desborda antes de la marca y da NaN (imagen negra)
+    luz = "+".join(f"0.16*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*18)" for m in marcas) or "0"   # max(): sin él, exp() se desborda antes de la marca y da NaN (imagen negra)
     f.append(f"[vc]scale={W}:{H},fps={FPS},scale=w='trunc({W}*(1+{zoom})/2)*2':h=-2:eval=frame,crop={W}:{H},"
              f"eq=contrast=1.04:saturation=1.08:brightness='{luz}':eval=frame[vb]")
     entradas = ["-i", str(video)]
@@ -254,7 +253,7 @@ def main():
             ult = f"vo{k}"
             continue
         f.append(f"[{k}:v]scale={W}:-2,pad={W}:{H}:0:(oh-ih)/2:color={img.get('fondo', '#081416')},"
-                 f"zoompan=z='{img.get("zoom", 1)}+0.0016*on':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS},"
+                 f"zoompan=z='{img.get("zoom", 1)}{"" if img.get("fijo") else "+0.0016*on"}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={W}x{H}:fps={FPS},"
                  f"format=yuva420p,fade=in:st=0:d=0.12:alpha=1,fade=out:st={d - 0.12:.3f}:d=0.12:alpha=1,"
                  f"setpts=PTS-STARTPTS+{a:.3f}/TB[im{k}]")
         f.append(f"[{ult}][im{k}]overlay=0:0:eof_action=pass:enable='between(t,{a:.3f},{b:.3f})'[vo{k}]")
@@ -271,6 +270,10 @@ def main():
                  f"eq=contrast=1.04:saturation=1.08,format=yuva420p{fades},setpts=PTS-STARTPTS+{a:.3f}/TB[cl{j}]")
         f.append(f"[{ult}][cl{j}]overlay=0:0:eof_action=pass:enable='between(t,{a:.3f},{b:.3f})'[vcl{j}]")
         ult = f"vcl{j}"
+    if cfg.get("destellos"):   # destello fuerte sobre la imagen final (encima de clips e imágenes), en un silencio
+        flash = "+".join(f"0.55*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*9)" for m in (a_nuevo(t, cortes) for t in cfg["destellos"]))
+        f.append(f"[{ult}]eq=brightness='{flash}':eval=frame[vfl]")
+        ult = "vfl"
     ass_path = str(tmp / "subs.ass").replace(":", "\\:")
     total = dur
     cierre = cfg.get("cierre")
