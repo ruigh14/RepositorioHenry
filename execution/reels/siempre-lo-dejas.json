@@ -1,0 +1,24 @@
+{
+  "video": "../../.tmp/siempre-lo-dejas/sdr.mp4",
+  "salida": ".tmp/siempre-lo-dejas.mp4",
+  "inicio": 2.0,
+  "fin": 62.3,
+  "pausa_max": 0.2,
+  "margen": 0.1,
+  "subtitulos_y": 1490,
+  "correcciones": {
+    "haces": "hacés",
+    "Ser": "Hacer",
+    "Rútinas": "Rutinas",
+    "puedes": "podés",
+    "accedes": "accedés"
+  },
+  "destacar": ["abdominales", "mala", "noticia.", "localizada.", "fuerza", "8", "semanas", "RENOVA,", "RENOVA.", "comunidad"],
+  "carteles": [
+    {"texto": "¿ABDOMINALES PARA\nBAJAR LA PANZA?", "tamano": 92, "desde": null, "hasta": 8.6}
+  ],
+  "imagenes": [],
+  "transiciones": [24.1, 51.1],
+  "clips": [],
+  "notas": "B-roll de mujeres entrenando fuerza entre 15.9 (mira la notebook) y 24.1 (Soy Nacho Portillo). Video original HDR: sdr.mp4 = tonemap a SDR 1080x1920."
+}
