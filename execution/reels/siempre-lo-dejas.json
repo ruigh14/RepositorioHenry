@@ -13,12 +13,63 @@
     "puedes": "podés",
     "accedes": "accedés"
   },
-  "destacar": ["abdominales", "mala", "noticia.", "localizada.", "fuerza", "8", "semanas", "RENOVA,", "RENOVA.", "comunidad"],
+  "destacar": [
+    "abdominales",
+    "mala",
+    "noticia.",
+    "localizada.",
+    "fuerza",
+    "8",
+    "semanas",
+    "RENOVA,",
+    "RENOVA.",
+    "comunidad"
+  ],
   "carteles": [
-    {"texto": "¿ABDOMINALES PARA\nBAJAR LA PANZA?", "tamano": 92, "desde": null, "hasta": 8.6}
+    {
+      "texto": "¿ABDOMINALES PARA\nBAJAR LA PANZA?",
+      "tamano": 92,
+      "desde": null,
+      "hasta": 8.6
+    }
   ],
   "imagenes": [],
-  "transiciones": [24.1, 51.1],
-  "clips": [],
-  "notas": "B-roll de mujeres entrenando fuerza entre 15.9 (mira la notebook) y 24.1 (Soy Nacho Portillo). Video original HDR: sdr.mp4 = tonemap a SDR 1080x1920."
+  "transiciones": [
+    24.1,
+    51.1
+  ],
+  "clips": [
+    {
+      "archivo": "../../.tmp/siempre-lo-dejas/c1.mp4",
+      "inicio_clip": 1.0,
+      "desde": 15.9,
+      "hasta": 18.0,
+      "sale": false
+    },
+    {
+      "archivo": "../../.tmp/siempre-lo-dejas/c2.mp4",
+      "inicio_clip": 0.5,
+      "desde": 18.0,
+      "hasta": 20.0,
+      "entra": false,
+      "sale": false
+    },
+    {
+      "archivo": "../../.tmp/siempre-lo-dejas/c3.mp4",
+      "inicio_clip": 6.0,
+      "desde": 20.0,
+      "hasta": 22.1,
+      "entra": false,
+      "sale": false
+    },
+    {
+      "archivo": "../../.tmp/siempre-lo-dejas/c4.mp4",
+      "inicio_clip": 4.5,
+      "desde": 22.1,
+      "hasta": 24.1,
+      "entra": false,
+      "sale": false
+    }
+  ],
+  "notas": "B-roll de clientas (carpeta de Drive 1J2_w83crv0ZeotXJk-kIBzI6NnM8J6ut: 20190421_151852, 20190421_150532, WhatsApp 2026-03-30 1.55.54 y 1.55.49) entre 15.9 (mira la notebook) y 24.1 (Soy Nacho Portillo). Original HDR: sdr.mp4 = tonemap a SDR 1080x1920. Subtítulo 'ajusta tu estado' tal como lo dice."
 }

@@ -48,4 +48,6 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
 - Escribe "Hace clic", "conoce" sin tilde: corregir el voseo en `correcciones`.
 - Red: el modelo se baja de huggingface.co y us.aws.cdn.hf.co; con `HF_HUB_DISABLE_XET=1` evita cas-server.xethub.hf.co (bloqueado).
 - La versión de PyAV instalada falla con `decode_audio` de faster-whisper: el script le pasa el audio ya decodificado con ffmpeg.
-- No hay tono mapping: si el video es HDR (iPhone con `color_transfer=arib-std-b67`), grabar en SDR o agregar `zscale`/`tonemap`.
+- Video HDR (iPhone, `color_transfer=arib-std-b67`): pasarlo antes a SDR 1080×1920 y usar ese archivo como `video`:
+  `ffmpeg -i original.mp4 -vf "zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,scale=1080:1920" -c:v libx264 -crf 17 -preset fast -c:a copy sdr.mp4` (un video 4K de 1 min tarda ~3 min).
+- B-roll de clientas entrenando fuerza: carpeta de Drive `1J2_w83crv0ZeotXJk-kIBzI6NnM8J6ut` (verticales: `20190421_151852` sentadilla, `20190421_150532` estocadas; `WhatsApp Video 2026-03-30 1.55.54` press con mancuernas y `1.55.49` sentadilla con banda, baja resolución). Para volver a cámara sin ver el giro de cabeza, el último clip va con `sale` false (corte seco).
