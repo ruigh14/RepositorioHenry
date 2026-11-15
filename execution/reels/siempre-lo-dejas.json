@@ -1,7 +1,7 @@
 {
   "video": "../../.tmp/siempre-lo-dejas/sdr.mp4",
   "salida": ".tmp/siempre-lo-dejas.mp4",
-  "inicio": 2.0,
+  "inicio": 0,
   "fin": 62.3,
   "pausa_max": 0.2,
   "margen": 0.1,
@@ -33,7 +33,35 @@
       "hasta": 8.6
     }
   ],
-  "imagenes": [],
+  "imagenes": [
+    {
+      "archivo": "../../pack-renova/pack_1.png",
+      "desde": 26.0,
+      "hasta": 30.8,
+      "fondo": "#0d1416"
+    },
+    {
+      "archivo": "../../pack-renova/libro_1_casa.png",
+      "desde": 33.7,
+      "hasta": 35.2,
+      "fondo": "#0b1416",
+      "zoom": 1.15
+    },
+    {
+      "archivo": "../../pack-renova/libro_2_gimnasio.png",
+      "desde": 35.2,
+      "hasta": 35.95,
+      "fondo": "#0b1416",
+      "zoom": 1.15
+    },
+    {
+      "archivo": "../../pack-renova/libro_3_alimentacion.png",
+      "desde": 35.95,
+      "hasta": 38.0,
+      "fondo": "#0b1416",
+      "zoom": 1.15
+    }
+  ],
   "transiciones": [
     24.1,
     51.1
@@ -42,7 +70,7 @@
     {
       "archivo": "../../.tmp/siempre-lo-dejas/c1.mp4",
       "inicio_clip": 1.0,
-      "desde": 15.9,
+      "desde": 15.2,
       "hasta": 18.0,
       "sale": false
     },
@@ -69,7 +97,32 @@
       "hasta": 24.1,
       "entra": false,
       "sale": false
+    },
+    {
+      "archivo": "../../.tmp/siempre-lo-dejas/agostina.mp4",
+      "inicio_clip": 0,
+      "desde": 46.1,
+      "hasta": 48.1
     }
   ],
-  "notas": "B-roll de clientas (carpeta de Drive 1J2_w83crv0ZeotXJk-kIBzI6NnM8J6ut: 20190421_151852, 20190421_150532, WhatsApp 2026-03-30 1.55.54 y 1.55.49) entre 15.9 (mira la notebook) y 24.1 (Soy Nacho Portillo). Original HDR: sdr.mp4 = tonemap a SDR 1080x1920. Subtítulo 'ajusta tu estado' tal como lo dice."
+  "notas": "B-roll de clientas (carpeta de Drive 1J2_w83crv0ZeotXJk-kIBzI6NnM8J6ut: 20190421_151852, 20190421_150532, WhatsApp 2026-03-30 1.55.54 y 1.55.49) entre 15.9 (mira la notebook) y 24.1 (Soy Nacho Portillo). Original HDR: sdr.mp4 = tonemap a SDR 1080x1920. Subtítulo 'ajusta tu estado' tal como lo dice. Agostina: Drive 'Taller de hábitos 11-11-2025' (1Uid63Yq6lt3jqdnuAlrGo4AtHikXtZ-J), seg. 575, cámara arriba y diapositiva abajo.",
+  "sin_cortes": [
+    [
+      0,
+      2.3
+    ],
+    [
+      50.9,
+      62.3
+    ]
+  ],
+  "tiempos": {
+    "localizada.": [
+      14.5,
+      15.15
+    ]
+  },
+  "destellos": [
+    31.3
+  ]
 }

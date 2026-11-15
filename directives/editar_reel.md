@@ -43,6 +43,11 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
 - Subtítulos: Inter Display Black, blanco con borde negro, palabras clave en turquesa #14B1C7, a 1440 px (encima de la zona segura de abajo de 340 px).
 
 **Casos extremos y aprendizajes**
+- `sin_cortes`: lista de [desde, hasta] del original que van enteros con sus silencios (ej. la mueca del principio o el cierre "Y si llegaste hasta acá…", que Nacho quiere seguidos).
+- `tiempos`: {"palabra": [s, e]} corrige una palabra que Whisper corrió a un silencio (pasó con "localizada.": la puso 0,4 s tarde y el corte de silencios la borraba). Si Nacho dice que una frase quedó cortada, medir la energía del audio en ese tramo y comparar con la transcripción.
+- `destellos`: segundos del original con un destello fuerte (más marcado que el de `transiciones`), ej. después de cortar un silencio entre dos ideas.
+- Pedido frecuente de Nacho: cada producto que nombra, 2 s a pantalla completa (`pack-renova/libro_1_casa.png`, `libro_2_gimnasio.png`, `libro_3_alimentacion.png` con `fondo` #0b1416 y `zoom` 1.15; el pack con `pack_1.png`). Talleres: Agostina en el "Taller de hábitos" de Drive (`1Uid63Yq6lt3jqdnuAlrGo4AtHikXtZ-J`, seg. 575), armado vertical con la cámara arriba y la diapositiva abajo, como `clip`.
+- Nacho corrige de a una y pide esperar: responder "ok" a cada corrección sin editar hasta que diga que empiece.
 - Whisper a veces pega una toma anterior al principio (ej. "Más cinco bonos de regalo" + 2 s de silencio): mirar siempre la transcripción y mover `inicio`.
 - `correcciones` con valor vacío borra la palabra (Whisper separa "e-books" en "e" + "-books": `"e": "E-BOOKS", "books": ""`).
 - Escribe "Hace clic", "conoce" sin tilde: corregir el voseo en `correcciones`.

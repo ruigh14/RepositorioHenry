@@ -153,12 +153,25 @@ def main():
     trans = tmp / "palabras.json"
     palabras = json.loads(trans.read_text()) if trans.exists() and not args.retranscribir \
         else transcribir(video, trans, cfg.get("modelo", "medium"))
+    for w, (ts_, te_) in cfg.get("tiempos", {}).items():   # Whisper a veces corre una palabra a un silencio: se fija a mano
+        for p in palabras:
+            if p["w"] == w:
+                p["s"], p["e"] = ts_, te_
+                break
     ini, fin = cfg.get("inicio", 0), cfg.get("fin", 1e9)
     palabras = [p for p in palabras if p["s"] >= ini and p["e"] <= fin]
     if not palabras:
         sys.exit("ERROR: no quedan palabras entre inicio y fin")
 
     cortes = tramos(palabras, cfg.get("pausa_max", 0.3), cfg.get("margen", 0.1))
+    if cfg.get("sin_cortes"):   # tramos que van enteros, con sus silencios (ej. una mueca al principio, el cierre)
+        todo = sorted(cortes + [[max(a, ini), min(b, fin)] for a, b in cfg["sin_cortes"]])
+        cortes = []
+        for a, b in todo:
+            if cortes and a <= cortes[-1][1]:
+                cortes[-1][1] = max(cortes[-1][1], b)
+            else:
+                cortes.append([a, b])
     if cfg.get("cierre"):   # que la transición empiece cuando termina de hablar, no encima de la última frase
         cortes[-1][1] = min(cortes[-1][1] + cfg["cierre"].get("transicion", 0.4), fin)
     dur = sum(b - a for a, b in cortes)
@@ -172,7 +185,8 @@ def main():
     # Transiciones sutiles en un cambio de tema: zoom que entra un 7% y se relaja, con un destello leve.
     marcas = [a_nuevo(t, cortes) for t in cfg.get("transiciones", [])]
     zoom = "+".join(f"0.07*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*4)" for m in marcas) or "0"
-    luz = "+".join(f"0.16*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*18)" for m in marcas) or "0"   # max(): sin él, exp() se desborda antes de la marca y da NaN (imagen negra)
+    luz = "+".join([f"0.16*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*18)" for m in marcas] +
+                   [f"0.55*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*9)" for m in (a_nuevo(t, cortes) for t in cfg.get("destellos", []))]) or "0"   # max(): sin él, exp() se desborda antes de la marca y da NaN (imagen negra)
     f.append(f"[vc]scale={W}:{H},fps={FPS},scale=w='trunc({W}*(1+{zoom})/2)*2':h=-2:eval=frame,crop={W}:{H},"
              f"eq=contrast=1.04:saturation=1.08:brightness='{luz}':eval=frame[vb]")
     entradas = ["-i", str(video)]
