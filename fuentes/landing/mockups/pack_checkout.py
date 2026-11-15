@@ -1,4 +1,4 @@
-"""Imagen del pack para el checkout de Impultienda (va arriba del botón de compra), 1080x1360.
+"""Imagen del pack para el checkout de Impultienda (va arriba del botón de compra), 1080x1310.
 Fondo claro como el checkout, tapas reales y los 5 bonus con los nombres de la landing.
 Uso: cd fuentes/landing/mockups && python3 pack_checkout.py && node pack_checkout.js  →  ../../../pack-renova/pack_checkout.png"""
 import sys
@@ -9,7 +9,7 @@ from design_system import css
 I, P = "../img/", "pack/"
 LIBROS = [(P + "tapa_casa.jpg", "Entrená<br>desde casa", ""), (P + "tapa_gym.jpg", "Entrená en<br>el gimnasio", ""),
           (P + "tapa_nutri.jpg", "Alimentación<br>Inteligente", ""),
-          (I + "tapa_menopausia.jpg", "Guía de Nutrición en la Menopausia", "Complemento opcional")]
+          (I + "tapa_menopausia.jpg", "Nutrición en<br>la menopausia", "COMPLEMENTO")]
 BONUS = [(P + "tapa_pausa.jpg", "Pausa activa", "object-position:50% 12%"),
          (I + "foto_subidas.jpg", "Rutinas express de 15 minutos", ""),
          (I + "foto_abdominales.jpg", "Rutinas de abdominales", ""),
@@ -18,7 +18,7 @@ BONUS = [(P + "tapa_pausa.jpg", "Pausa activa", "object-position:50% 12%"),
 
 CSS = css(str(Path(__file__).parent)) + """
 *{box-sizing:border-box;margin:0;padding:0}
-body{width:1080px;height:1360px;overflow:hidden;font-family:InterW,sans-serif;color:var(--rnv-tinta);
+body{width:1080px;height:1310px;overflow:hidden;font-family:InterW,sans-serif;color:var(--rnv-tinta);
  background:linear-gradient(180deg,#fff 0%,var(--rnv-turquesa-fondo) 100%)}
 .top{text-align:center;padding-top:56px}
 .top img{height:52px}
@@ -32,7 +32,7 @@ h1 b{color:var(--rnv-turquesa-titulo)}
 .tapa img{width:100%;height:100%;object-fit:cover;display:block}
 .tapa::after{content:"";position:absolute;inset:0 auto 0 0;width:5%;background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(255,255,255,.15) 60%,transparent)}
 .lib b{display:block;font:800 29px/1.1 InterTightW,sans-serif;margin-top:14px}
-.lib.op span{background:var(--rnv-oro);color:var(--rnv-tinta);letter-spacing:.04em;font-size:19px}
+.lib.op span{background:var(--rnv-oro);color:var(--rnv-tinta);letter-spacing:.08em;font-size:21px}
 .lib.op .tapa{outline:4px dashed var(--rnv-oro);outline-offset:6px}
 .lib span{display:inline-block;margin-top:18px;font:800 21px InterTightW,sans-serif;letter-spacing:.12em;color:#fff;
  background:var(--rnv-turquesa);padding:5px 14px;border-radius:999px}
