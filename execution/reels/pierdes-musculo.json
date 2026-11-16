@@ -46,7 +46,7 @@
   "carteles": [
     {
       "texto": "¿CAMINÁS Y TU CUERPO\nNO CAMBIA?",
-      "tamano": 92,
+      "tamano": 86,
       "desde": null,
       "hasta": 6.3
     }
@@ -106,5 +106,6 @@
     18.5,
     36.66
   ],
-  "notas": "Guion 'Caminar no alcanza / perdés músculo'. B-roll: Drive 1VwMmY8OvTM4ddAhGdzEVCtKNDTtfk7j2 (CANSADA.mp4, DOLOR MUSCULAR.mp4) + clientas (carpeta 1J2_w83...). Tarjetas mus.png y rod.png (cards.html) arriba, en el techo, sin tapar la cabeza ni los subtítulos."
+  "notas": "Guion 'Caminar no alcanza / perdés músculo'. B-roll: Drive 1VwMmY8OvTM4ddAhGdzEVCtKNDTtfk7j2 (CANSADA.mp4, DOLOR MUSCULAR.mp4) + clientas (carpeta 1J2_w83...). Tarjetas mus.png y rod.png (cards.html) arriba, en el techo, sin tapar la cabeza ni los subtítulos.",
+  "cartel_y": 272
 }

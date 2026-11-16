@@ -143,7 +143,7 @@ def ass(cfg, palabras, cortes, dur):
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
         f"Style: Sub,{fuente},92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,0,0,1,7,3,2,60,60,{H - y_sub},1",
-        f"Style: Cartel,{fuente},76,&H00FFFFFF,&H00FFFFFF,&H00{TURQUESA[2:-1]},&H00000000,0,0,0,0,100,100,0,0,3,22,0,8,60,60,{ZONA_ARRIBA + 60},1",
+        f"Style: Cartel,{fuente},76,&H00FFFFFF,&H00FFFFFF,&H00{TURQUESA[2:-1]},&H00000000,0,0,0,0,100,100,0,0,3,22,0,8,60,60,{cfg.get("cartel_y", ZONA_ARRIBA + 60)},1",
         "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
     fix = {k.lower(): v for k, v in cfg.get("correcciones", {}).items()}
