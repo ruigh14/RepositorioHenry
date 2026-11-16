@@ -220,6 +220,13 @@ El ebook debe imprimir `OVERFLOW []` (sin páginas con texto cortado). Para revi
 - Se lee en el celular: letra grande (cuerpo 15 pt). Si algo no entra en la hoja, acortar texto o separar en hojas, no achicar la letra.
 - Casa, gimnasio y pausa llevan `<body class="grande">` (bloque `.grande` al final de `style.css`): desarrollo a 15,5–16,5 pt y dibujos de ejercicios de 40 mm; `paginate.js` reparte lo que no entra. Mamás todavía usa los tamaños anteriores.
 
+## Frases para editar reels: "EDICIÓN DIARIA" y "PROMO EBOOK"
+
+Cuando Nacho escriba **"EDICIÓN DIARIA"** o **"PROMO EBOOK"** seguido de un link de Drive (video o carpeta) y, si quiere, sus indicaciones:
+1. Leer el prompt que corresponde y seguirlo entero: `directives/prompt_edicion_diaria.md` (reels del día a día) o `directives/prompt_promo_ebook.md` (reels que venden el pack), más `directives/editar_reel.md`.
+2. Si el link es una carpeta, leer primero los documentos que tenga (indicaciones o guion) y revisar los videos cortos como b-roll.
+3. Editar, revisar cuadros y mandar el video con un resumen corto. Si da correcciones de a una, responder "ok" y esperar a que diga "comenzá".
+
 ## Frase para retomar: "RENOVA, seguimos"
 
 Cuando Nacho escriba **"RENOVA, seguimos"** (en esta conversación o en una nueva), antes de hacer nada:
