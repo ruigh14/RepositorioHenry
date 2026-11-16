@@ -1,4 +1,6 @@
-# EDICIÓN DIARIA · prompt para editar reels de RENOVA
+# EDICIÓN DIARIA · prompt para editar los reels del día a día de RENOVA
+
+> Para los reels que promocionan el ebook (venta del pack) se usa `directives/prompt_promo_ebook.md` (PROMO EBOOK).
 
 Copiar todo, completar lo que está entre [corchetes] y pegarlo en una conversación nueva.
 Referencias técnicas: `directives/editar_reel.md` y `execution/editar_reel.py`. Reels modelo: `execution/reels/no-todos-los-dias.json` y `execution/reels/pierdes-musculo.json`.

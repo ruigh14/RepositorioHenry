@@ -1,6 +1,6 @@
-# Prompt para editar un reel RENOVA (versión que quedó perfecta: "¿Hay que entrenar todos los días?", 15/11/2026)
+# PROMO EBOOK · prompt para editar reels que venden el pack RENOVA (modelo: "¿Hay que entrenar todos los días?", 15/11/2026)
 
-> **Reemplazado por `directives/prompt_edicion_diaria.md` (EDICIÓN DIARIA, 16/11/2026), que suma lectura de carpetas, tiempos y zonas seguras.**
+> Para los reels del día a día se usa `directives/prompt_edicion_diaria.md` (EDICIÓN DIARIA). Las reglas técnicas son las mismas en los dos: zonas seguras, gancho más arriba en modo selfie (`cartel_y` 272, `tamano` 86), tarjetas arriba y tiempos.
 
 Copiar, completar lo que está entre [corchetes] y pegar en una conversación nueva. Referencia técnica: `directives/editar_reel.md`; configuración modelo: `execution/reels/no-todos-los-dias.json`.
 
