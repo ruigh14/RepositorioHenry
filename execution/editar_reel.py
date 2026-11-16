@@ -189,6 +189,12 @@ def main():
     trans = tmp / "palabras.json"
     palabras = json.loads(trans.read_text()) if trans.exists() and not args.retranscribir \
         else transcribir(video, trans, cfg.get("modelo", "medium"))
+    for frase, nueva in cfg.get("unir", {}).items():   # Whisper parte una palabra en dos ("de Portólogo" → "deportólogo")
+        partes = [norm(x) for x in frase.split()]
+        for i in range(len(palabras) - len(partes) + 1):
+            if [norm(p["w"]) for p in palabras[i:i + len(partes)]] == partes:
+                palabras[i:i + len(partes)] = [{"w": nueva, "s": palabras[i]["s"], "e": palabras[i + len(partes) - 1]["e"]}]
+                break
     for w, (ts_, te_) in cfg.get("tiempos", {}).items():   # Whisper a veces corre una palabra a un silencio: se fija a mano
         for p in palabras:
             if p["w"] == w:

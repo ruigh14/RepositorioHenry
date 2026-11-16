@@ -1,0 +1,110 @@
+{
+  "video": "../../.tmp/pierdes-musculo/original.mp4",
+  "salida": ".tmp/pierdes-musculo.mp4",
+  "inicio": 0,
+  "fin": 45.5,
+  "cortar": "oraciones",
+  "pausa_max": 0.25,
+  "margen": 0.15,
+  "subtitulos_y": 1490,
+  "unir": {
+    "de Portólogo": "deportólogo"
+  },
+  "correcciones": {
+    "caminas": "caminás",
+    "cuidas": "cuidás",
+    "porque.": "por qué",
+    "entrenas": "entrenás",
+    "musculo": "músculo",
+    "cansas": "cansás",
+    "notas": "notás",
+    "puedes": "podés",
+    "déjame": "dejame",
+    "comenta": "Comentá"
+  },
+  "destacar": [
+    "cambios",
+    "40,",
+    "fuerza,",
+    "fuerza.",
+    "músculo",
+    "musculo",
+    "cansas",
+    "más,",
+    "escaleras",
+    "espejo.",
+    "lesión",
+    "rodilla,",
+    "bajo",
+    "impacto",
+    "segura.",
+    "fuerza",
+    "médico",
+    "deportólogo",
+    "resultados."
+  ],
+  "carteles": [
+    {
+      "texto": "¿CAMINÁS Y TU CUERPO\nNO CAMBIA?",
+      "tamano": 92,
+      "desde": null,
+      "hasta": 6.3
+    }
+  ],
+  "imagenes": [
+    {
+      "archivo": "../../.tmp/pierdes-musculo/mus.png",
+      "desde": 10.3,
+      "hasta": 12.8,
+      "ancho": 980,
+      "y": 255
+    },
+    {
+      "archivo": "../../.tmp/pierdes-musculo/rod.png",
+      "desde": 40.68,
+      "hasta": 42.68,
+      "ancho": 980,
+      "y": 255
+    }
+  ],
+  "clips": [
+    {
+      "archivo": "../../.tmp/pierdes-musculo/cansada.mp4",
+      "inicio_clip": 1.0,
+      "desde": 12.8,
+      "hasta": 15.3,
+      "entra": false,
+      "sale": false
+    },
+    {
+      "archivo": "../../.tmp/pierdes-musculo/dolor.mp4",
+      "inicio_clip": 1.0,
+      "desde": 15.3,
+      "hasta": 17.3,
+      "entra": false
+    },
+    {
+      "archivo": "../../.tmp/pierdes-musculo/c1.mp4",
+      "inicio_clip": 1.0,
+      "desde": 28.85,
+      "hasta": 30.76,
+      "entra": false,
+      "sale": false
+    },
+    {
+      "archivo": "../../.tmp/pierdes-musculo/c3.mp4",
+      "inicio_clip": 6.0,
+      "desde": 30.76,
+      "hasta": 31.72,
+      "entra": false
+    }
+  ],
+  "destellos": [
+    12.8
+  ],
+  "transiciones": [
+    18.5,
+    36.66
+  ],
+  "notas": "Guion 'Caminar no alcanza / perdés músculo'. B-roll: Drive 1VwMmY8OvTM4ddAhGdzEVCtKNDTtfk7j2 (CANSADA.mp4, DOLOR MUSCULAR.mp4) + clientas (carpeta 1J2_w83...). Tarjetas mus.png y rod.png (cards.html) arriba, en el techo, sin tapar la cabeza ni los subtítulos."
+}
