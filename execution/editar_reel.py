@@ -135,6 +135,33 @@ def bloques(palabras, max_pal, max_car):
         yield grupo
 
 
+def ass_color(hexa):
+    """#RRGGBB → &HBBGGRR& (formato de color de los subtítulos ASS)."""
+    h = hexa.lstrip("#")
+    return f"&H{h[4:6]}{h[2:4]}{h[0:2]}&".upper()
+
+
+def icono_png(emoji, destino, fondo="#FFD60A", lado=230):
+    """Dibujito para acompañar una palabra destacada: emoji sobre un círculo de color, con sombra."""
+    from PIL import Image, ImageDraw, ImageFont, ImageFilter
+    if destino.exists():
+        return destino
+    f = ImageFont.truetype("/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf", 109)   # Noto Color Emoji solo existe en 109 px
+    e = Image.new("RGBA", (180, 180))
+    ImageDraw.Draw(e).text((10, 10), emoji, font=f, embedded_color=True)
+    e = e.crop(e.getbbox()).resize((int(lado * 0.62),) * 2, Image.LANCZOS)
+    im = Image.new("RGBA", (lado + 40, lado + 40))
+    sombra = Image.new("RGBA", im.size)
+    ImageDraw.Draw(sombra).ellipse((24, 30, lado + 24, lado + 30), fill=(0, 0, 0, 120))
+    im = Image.alpha_composite(im, sombra.filter(ImageFilter.GaussianBlur(8)))
+    d = ImageDraw.Draw(im)
+    d.ellipse((20, 20, lado + 20, lado + 20), fill=fondo, outline="white", width=8)
+    im.alpha_composite(e, ((im.width - e.width) // 2, (im.height - e.height) // 2))
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    im.save(destino)
+    return destino
+
+
 def ass(cfg, palabras, cortes, dur):
     fuente = cfg.get("fuente", "Inter Display Black")
     y_sub = cfg.get("subtitulos_y", 1440)
@@ -143,11 +170,12 @@ def ass(cfg, palabras, cortes, dur):
         "[V4+ Styles]",
         "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding",
         f"Style: Sub,{fuente},92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,0,0,0,0,100,100,0,0,1,7,3,2,60,60,{H - y_sub},1",
-        f"Style: Cartel,{fuente},76,&H00FFFFFF,&H00FFFFFF,&H00{TURQUESA[2:-1]},&H00000000,0,0,0,0,100,100,0,0,3,22,0,8,60,60,{cfg.get("cartel_y", ZONA_ARRIBA + 60)},1",
+        f"Style: Cartel,{fuente},76,&H00{ass_color(cfg.get('texto_cartel', '#FFFFFF'))[2:-1]},&H00FFFFFF,&H00{ass_color(cfg.get('color_cartel', '#14B1C7'))[2:-1]},&H00000000,0,0,0,0,100,100,0,0,3,22,0,8,60,60,{cfg.get("cartel_y", ZONA_ARRIBA + 60)},1",
         "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
     fix = {k.lower(): v for k, v in cfg.get("correcciones", {}).items()}
     destacar = {norm(w) for w in cfg.get("destacar", [])}
+    color = ass_color(cfg.get("color_destacado", "#14B1C7"))
     lista = list(bloques(palabras, cfg.get("max_palabras", 3), cfg.get("max_caracteres", 16)))
     for i, g in enumerate(lista):
         ini = a_nuevo(g[0]["s"], cortes)
@@ -159,7 +187,7 @@ def ass(cfg, palabras, cortes, dur):
             w = re.sub(r"[.,]$", "", w).upper()
             if not w:   # corrección vacía = palabra que se borra (ej. "e" + "-books" → "E-BOOKS")
                 continue
-            partes.append(f"{{\\c{TURQUESA}}}{w}{{\\c&HFFFFFF&}}" if norm(p["w"]) in destacar else w)
+            partes.append(f"{{\\c{color}}}{w}{{\\c&HFFFFFF&}}" if norm(p["w"]) in destacar else w)
         pop = "{\\fscx82\\fscy82\\t(0,90,\\fscx100\\fscy100)}"
         lineas.append(f"Dialogue: 0,{ts(ini)},{ts(fin)},Sub,,0,0,0,,{pop}{' '.join(partes)}")
     for c in cfg.get("carteles", []):
@@ -280,6 +308,25 @@ def main():
         flash = "+".join(f"0.55*gte(t,{m:.3f})*exp(-max(t-{m:.3f},0)*9)" for m in (a_nuevo(t, cortes) for t in cfg["destellos"]))
         f.append(f"[{ult}]eq=brightness='{flash}':eval=frame[vfl]")
         ult = "vfl"
+    # Dibujitos que acompañan las palabras destacadas (cfg "iconos": {"palabra": "emoji"}): aparecen con un rebote sobre los subtítulos.
+    if cfg.get("iconos"):
+        mapa = {norm(k): v for k, v in cfg["iconos"].items()}
+        y_ic = cfg.get("iconos_y", cfg.get("subtitulos_y", 1440) - 360)
+        ultimo = -9
+        for p in palabras:
+            em = mapa.get(norm(p["w"]))
+            t = a_nuevo(p["s"], cortes)
+            if not em or t - ultimo < 1.2:
+                continue
+            ultimo = t
+            png = icono_png(em, tmp / "iconos" / (f"{ord(em[0]):x}" + ".png"), cfg.get("color_destacado", "#FFD60A"))
+            d = 1.1
+            n = sum(1 for x in entradas if x == "-i")
+            entradas += ["-loop", "1", "-t", f"{d:.3f}", "-i", str(png)]
+            f.append(f"[{n}:v]format=rgba,scale=w='trunc(270*min(1\\,0.55+t*5)/2)*2':h=-2:eval=frame,"
+                     f"fade=out:st={d - 0.18:.3f}:d=0.18:alpha=1,setpts=PTS-STARTPTS+{t:.3f}/TB[ic{n}]")
+            f.append(f"[{ult}][ic{n}]overlay=x=(W-w)/2:y={y_ic}+(270-h)/2:eval=frame:eof_action=pass:enable='between(t,{t:.3f},{t + d:.3f})'[vic{n}]")
+            ult = f"vic{n}"
     ass_path = str(tmp / "subs.ass").replace(":", "\\:")
     total = dur
     cierre = cfg.get("cierre")

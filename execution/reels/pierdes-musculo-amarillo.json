@@ -1,0 +1,96 @@
+{
+  "video": "../../.tmp/pierdes-musculo/original.mp4",
+  "salida": ".tmp/pierdes-musculo-amarillo.mp4",
+  "inicio": 0,
+  "fin": 45.5,
+  "cortar": "oraciones",
+  "pausa_max": 0.25,
+  "margen": 0.15,
+  "subtitulos_y": 1490,
+  "unir": {
+    "de Portólogo": "deportólogo"
+  },
+  "correcciones": {
+    "caminas": "caminás",
+    "cuidas": "cuidás",
+    "porque.": "por qué",
+    "entrenas": "entrenás",
+    "musculo": "músculo",
+    "cansas": "cansás",
+    "notas": "notás",
+    "puedes": "podés",
+    "déjame": "dejame",
+    "comenta": "Comentá"
+  },
+  "destacar": [
+    "cambios",
+    "40,",
+    "fuerza,",
+    "fuerza.",
+    "músculo",
+    "musculo",
+    "cansas",
+    "más,",
+    "escaleras",
+    "espejo.",
+    "lesión",
+    "rodilla,",
+    "bajo",
+    "impacto",
+    "segura.",
+    "fuerza",
+    "médico",
+    "deportólogo",
+    "resultados."
+  ],
+  "carteles": [
+    {
+      "texto": "¿CAMINÁS Y TU CUERPO\nNO CAMBIA?",
+      "tamano": 86,
+      "desde": null,
+      "hasta": 6.3
+    }
+  ],
+  "imagenes": [
+    {
+      "archivo": "../../.tmp/pierdes-musculo/mus.png",
+      "desde": 10.3,
+      "hasta": 12.8,
+      "ancho": 980,
+      "y": 255
+    },
+    {
+      "archivo": "../../.tmp/pierdes-musculo/rod.png",
+      "desde": 40.68,
+      "hasta": 42.68,
+      "ancho": 980,
+      "y": 255
+    }
+  ],
+  "clips": [],
+  "destellos": [],
+  "transiciones": [
+    18.5,
+    36.66
+  ],
+  "notas": "Versión de pierdes-musculo: resaltado amarillo, sin b-roll, dibujitos (emoji en círculo amarillo) sobre los subtítulos en las palabras destacadas. Tarjetas de músculo y Rodrigo se mantienen.",
+  "cartel_y": 272,
+  "color_destacado": "#FFD60A",
+  "iconos": {
+    "cambios": "🔄",
+    "40,": "⏳",
+    "fuerza,": "🏋",
+    "cansás": "😫",
+    "cansas": "😫",
+    "escaleras": "🪜",
+    "espejo.": "🪞",
+    "lesión": "🩹",
+    "rodilla,": "🦵",
+    "impacto": "🪶",
+    "segura.": "🛡",
+    "resultados.": "📈",
+    "comenta": "💬"
+  },
+  "color_cartel": "#FFD60A",
+  "texto_cartel": "#141414"
+}

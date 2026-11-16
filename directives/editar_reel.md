@@ -43,6 +43,7 @@ sin tomas falsas ni silencios largos, subtítulos dinámicos, gancho arriba, ima
 - Subtítulos: Inter Display Black, blanco con borde negro, palabras clave en turquesa #14B1C7, a 1440 px (encima de la zona segura de abajo de 340 px).
 
 **Casos extremos y aprendizajes**
+- Versión sin b-roll (16/11, Nacho): `color_destacado` cambia el color de las palabras resaltadas (ej. amarillo #FFD60A); `color_cartel` y `texto_cartel` el recuadro del gancho; `iconos` {"palabra": "emoji"} hace aparecer un dibujito (emoji en un círculo del color destacado, con rebote, 1,1 s) sobre el pecho, encima de los subtítulos (`iconos_y`, por defecto subtítulos − 360), sin tapar la cara. Revisar un cuadro en cada dibujito. Emojis sin variante (🏋, 🛡) se ven bien con Noto Color Emoji.
 - `cartel_y` (por defecto 310): altura del gancho. Si la cabeza queda alta en el cuadro (selfie), usar `cartel_y` 272 y `tamano` 86: el recuadro empieza justo en el límite de la zona segura (250 px) y no toca la cara.
 - `unir`: {"de Portólogo": "deportólogo"} junta palabras que Whisper partió (las `correcciones` son globales y no sirven para eso).
 - Tarjetas arriba (ej. "Perdés músculo" con 💪↓ y barras que bajan; foto de Rodrigo con nombre y especialidad): PNG transparente de 980×190 en `y` 255, sobre el techo, sin tapar cabeza ni subtítulos. Plantilla: `fuentes/landing/mockups/reels/tarjetas_pierdes_musculo.html` (foto de Rodrigo: `fuentes/landing/img/equipo_rodrigo.jpg`).
