@@ -222,6 +222,8 @@ El ebook debe imprimir `OVERFLOW []` (sin páginas con texto cortado). Para revi
 
 ## Frases para editar reels: "EDICIÓN DIARIA" y "PROMO EBOOK"
 
+En Claude Code también están como comandos: `/edicion-diaria <link> [indicaciones]` y `/promo-ebook <link> [indicaciones]` (`.claude/commands/`).
+
 Cuando Nacho escriba **"EDICIÓN DIARIA"** o **"PROMO EBOOK"** seguido de un link de Drive (video o carpeta) y, si quiere, sus indicaciones:
 1. Leer el prompt que corresponde y seguirlo entero: `directives/prompt_edicion_diaria.md` (reels del día a día) o `directives/prompt_promo_ebook.md` (reels que venden el pack), más `directives/editar_reel.md`.
 2. Si el link es una carpeta, leer primero los documentos que tenga (indicaciones o guion) y revisar los videos cortos como b-roll.
