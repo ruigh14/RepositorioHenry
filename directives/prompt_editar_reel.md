@@ -1,5 +1,7 @@
 # Prompt para editar un reel RENOVA (versión que quedó perfecta: "¿Hay que entrenar todos los días?", 15/11/2026)
 
+> **Reemplazado por `directives/prompt_edicion_diaria.md` (EDICIÓN DIARIA, 16/11/2026), que suma lectura de carpetas, tiempos y zonas seguras.**
+
 Copiar, completar lo que está entre [corchetes] y pegar en una conversación nueva. Referencia técnica: `directives/editar_reel.md`; configuración modelo: `execution/reels/no-todos-los-dias.json`.
 
 ---
