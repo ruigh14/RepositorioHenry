@@ -67,30 +67,32 @@
       "y": 255
     }
   ],
-  "clips": [],
+  "clips": [
+    {
+      "archivo": "../../.tmp/pierdes-musculo-amarillo/b1.mp4",
+      "inicio_clip": 1.0,
+      "desde": 35.15,
+      "hasta": 37.77,
+      "entra": false,
+      "sale": false
+    },
+    {
+      "archivo": "../../.tmp/pierdes-musculo-amarillo/b2.mp4",
+      "inicio_clip": 0.5,
+      "desde": 37.77,
+      "hasta": 40.68,
+      "entra": false,
+      "sale": false
+    }
+  ],
   "destellos": [],
   "transiciones": [
     18.5,
     36.66
   ],
-  "notas": "Versión de pierdes-musculo: resaltado amarillo, sin b-roll, dibujitos (emoji en círculo amarillo) sobre los subtítulos en las palabras destacadas. Tarjetas de músculo y Rodrigo se mantienen.",
+  "notas": "Versión de pierdes-musculo: resaltado y gancho amarillos, sin dibujitos (a Nacho no le gustaron). B-roll de Drive (1xKK9Voug6avwnxgM5OWFdAtqlRohqTku, 1vgWtWE1AT7gHkxxpi4_3hB-Axahwb2TC) en 'entrenar de manera segura', cortes en pausas; vuelve a cámara justo cuando entra la tarjeta de Rodrigo.",
   "cartel_y": 272,
   "color_destacado": "#FFD60A",
-  "iconos": {
-    "cambios": "🔄",
-    "40,": "⏳",
-    "fuerza,": "🏋",
-    "cansás": "😫",
-    "cansas": "😫",
-    "escaleras": "🪜",
-    "espejo.": "🪞",
-    "lesión": "🩹",
-    "rodilla,": "🦵",
-    "impacto": "🪶",
-    "segura.": "🛡",
-    "resultados.": "📈",
-    "comenta": "💬"
-  },
   "color_cartel": "#FFD60A",
   "texto_cartel": "#141414"
 }
