@@ -1,3 +1,8 @@
 fuentes/design-system/creativos/html/
 __pycache__/
 __pycache__/
+
+# Higgsfield: credenciales y entorno local
+.env.local
+.env
+.venv/
