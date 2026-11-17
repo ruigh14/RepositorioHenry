@@ -29,7 +29,7 @@ body{{font-family:I,sans-serif;color:var(--texto);background:#fff;position:relat
 .eye.d{{color:var(--tqc);background:rgba(20,177,199,.12);border-color:rgba(111,216,230,.35)}}
 .eye.w{{color:#fff;background:var(--tq);border-color:var(--tq)}}
 h1{{font:900 84px/1.0 T,sans-serif;letter-spacing:-.025em;color:var(--tinta);margin-top:26px}}
-h1 .t{{color:var(--tqt)}} h1 .hl{{background:var(--tq);color:#fff;padding:0 14px;border-radius:10px;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
+h1 .t{{color:var(--tqt)}} h1 .hl{{white-space:nowrap;display:inline-block;line-height:1.02;margin-top:10px;background:var(--tq);color:#fff;padding:0 14px;border-radius:10px;-webkit-box-decoration-break:clone;box-decoration-break:clone}}
 .d h1,h1.d{{color:#fff}} .d h1 .t{{color:var(--tqc)}}
 .sub{{font:600 38px/1.25 I;color:var(--gris);margin-top:18px}}
 .d .sub{{color:rgba(255,255,255,.82)}}
@@ -121,7 +121,7 @@ P_["02_testimonio_moni"] = page(f'''
 # 3 · Romi: WhatsApp textual (ganador 1) + foto real de su media maratón
 P_["03_testimonio_romi"] = page(f'''
 <img class="bg" src="{L}ba_romi.jpg" style="object-position:50% 42%">
-<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,94,107,1) 0%,rgba(7,94,107,.99) 21%,rgba(7,94,107,0) 34%,rgba(20,20,20,0) 50%,rgba(20,20,20,.9) 78%,rgba(20,20,20,.95) 100%)"></div>
+<div class="ov-romi" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,94,107,1) 0%,rgba(7,94,107,.99) 21%,rgba(7,94,107,0) 34%,rgba(20,20,20,0) 50%,rgba(20,20,20,.9) 78%,rgba(20,20,20,.95) 100%)"></div>
 <div class="c d">
   <span class="eye w">Fuerza para mujeres</span>
   <h1 style="font-size:78px">“Me siento <span class="t">bárbara</span> en todos los deportes”</h1>
@@ -275,6 +275,16 @@ P_["10_bonus"] = page(f'''
   <div style="margin-top:auto">{foot("QUIERO MIS BONUS", disc=False)}</div>
 </div>''')
 
+# Historias y Reels (1080×1920): mismo diseño, con las zonas seguras de Instagram
+# (arriba ~250 px y abajo ~340 px quedan tapados por el perfil y los botones).
+HISTORIA = """
+html,body{height:1920px}
+.c{padding:210px 64px 290px}
+h1{font-size:92px}
+.sub{font-size:40px}
+.ov-romi{background:linear-gradient(180deg,rgba(7,94,107,1) 0%,rgba(7,94,107,1) 25%,rgba(7,94,107,0) 33%,rgba(20,20,20,0) 50%,rgba(20,20,20,.9) 74%,rgba(20,20,20,.96) 100%)!important}
+"""
 for n, h in P_.items():
     (AQUI / f"{n}.html").write_text(h, encoding="utf-8")
-print(len(P_), "html")
+    (AQUI / f"h_{n}.html").write_text(h.replace("height:1350px", "height:1920px").replace("</style>", HISTORIA + "</style>", 1), encoding="utf-8")
+print(len(P_), "html × 2 formatos")
