@@ -14,16 +14,17 @@ TAPA = f"""<!doctype html><meta charset="utf-8"><style>
 @font-face{{font-family:I;src:url({F}inter-latin-700-normal.woff2);font-weight:700}}
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{width:1240px;height:1754px;overflow:hidden;background:#fff;font-family:IT,sans-serif;color:#141414;position:relative}}
-.top{{text-align:center;padding-top:70px}}
+.top{{text-align:center;padding-top:90px}}
 .top img{{height:64px}}
 .tag{{display:inline-block;margin-top:30px;background:#06343B;color:#fff;font:800 28px IT;letter-spacing:.14em;padding:12px 34px;border-radius:999px}}
 h1{{font:900 150px/0.92 IT;letter-spacing:-.03em;color:#14B1C7;margin-top:26px;text-transform:uppercase}}
 h2{{font:900 62px/1 IT;margin-top:22px;text-transform:uppercase;letter-spacing:-.01em}}
 h2 span{{background:#14B1C7;color:#fff;padding:0 16px;border-radius:10px}}
-.hero{{position:absolute;left:-30px;right:-30px;top:560px;height:1000px;z-index:0}}
+.hero{{position:absolute;left:50px;right:50px;top:560px;height:1000px;z-index:0;overflow:hidden}}
 .hero img{{width:100%;height:100%;object-fit:cover;object-position:45% 50%;-webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 52%,#000 45%,transparent 100%);mask-image:radial-gradient(ellipse 62% 58% at 50% 52%,#000 45%,transparent 100%)}}
-.top,.aut{{z-index:2}}.top{{position:relative}}
-.aut{{position:absolute;left:70px;right:70px;bottom:70px;display:flex;align-items:center;gap:30px;background:#E8F6F8;border-radius:30px;padding:26px 34px}}
+.top,.aut{{z-index:2}}
+.marco{{position:absolute;inset:26px;border:18px solid #14B1C7;border-radius:40px;z-index:3;pointer-events:none;box-shadow:0 0 0 6px #6FD8E6,inset 0 0 0 6px #6FD8E6}}.top{{position:relative}}
+.aut{{position:absolute;left:80px;right:80px;bottom:84px;display:flex;align-items:center;gap:30px;background:#E8F6F8;border-radius:30px;padding:26px 34px}}
 .aut img{{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:6px solid #14B1C7;flex:none}}
 .aut p{{font:700 30px/1.3 I;color:#2A2F33}}
 .aut p b{{display:block;font:900 40px/1.1 IT;color:#141414}}
@@ -32,6 +33,7 @@ h2 span{{background:#14B1C7;color:#fff;padding:0 16px;border-radius:10px}}
 <div class="top"><img src="../img/logo.png"><br><span class="tag">GUÍA PRÁCTICA · CELIAQUÍA</span>
 <h1>Sin TACC<br>Inteligente</h1><h2>Comé rico y <span>seguro</span></h2></div>
 <div class="hero"><img src="pack/sintacc_mesa.jpg"></div>
+<div class="marco"></div>
 <div class="aut"><img src="../img/equipo_eugenia.jpg"><p><b>Lic. María Eugenia Aldrey</b>Nutricionista · M.N. 11773 <span>· Equipo RENOVA</span></p></div>
 """
 Path("tapa_sintacc_comida.html").write_text(TAPA, encoding="utf-8")
