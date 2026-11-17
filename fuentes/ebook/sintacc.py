@@ -1,5 +1,5 @@
 """Ebook "Sin TACC Inteligente": lista de compras, cocina y organización semanal 80/20 para personas con celiaquía.
-Producto aparte (no upsell). Promesa: "Tu semana Sin TACC resuelta: qué comprar, qué cocinar y cómo organizarte".
+Upsell después de la compra del pack RENOVA. Promesa: "Tu semana Sin TACC resuelta: qué comprar, qué cocinar y cómo organizarte".
 Autores: Nacho Portillo y la nutricionista del equipo, + Equipo RENOVA. Estrategia y fuentes: investigacion/sin-tacc/.
 Las recetas salen de Alimentación Inteligente (nutricion.py): solo las que son sin TACC o se adaptan sin avena ni trigo.
 
@@ -77,9 +77,8 @@ RECETAS = [
            cambio="berenjena por zucchini o pechuga de pollo; acompañá con una proteína."),
 ]
 
-# Recetas argentinas de alta demanda: BORRADOR armado por RENOVA, a validar por la nutricionista. Fotos: img/food/st_*.jpg (Higgsfield).
-# Cuando estén aprobadas: sacar " · BORRADOR" de la categoría, el aviso de la página de recetas y poner la foto.
-B = " · BORRADOR"
+# Recetas argentinas de alta demanda (validadas el 17/11/2026). Fotos: img/food/st_*.jpg (Higgsfield).
+B = ""
 RECETAS_BORRADOR = [
     NUT.rec("Pizza de fainá", "Almuerzo o cena" + B, "45 min (con reposo)", "2 porciones",
             ["1 taza de harina de garbanzos con logo oficial", "1 taza de agua", "1 cda de aceite de oliva y sal",
@@ -127,6 +126,40 @@ RECETAS_BORRADOR = [
              "Horneá en un molde aceitado 35 a 40 minutos en horno medio, hasta que un palillo salga seco."],
             "banana por manzana rallada; nueces por chips de chocolate amargo con logo oficial.",
             "4 días en heladera; en rodajas se puede freezar.", foto="st_budin"),
+]
+
+# Desayunos express con proteína: 20 a 30 g por desayuno (la proteína repartida en el día, 25-30 g por comida,
+# ayuda a sostener el músculo en la perimenopausia y la menopausia). Gramos aproximados. Fotos: img/food/st_des1..5.jpg (Higgsfield).
+DESAYUNOS = [
+    NUT.rec("Bowl de yogur proteico", "Desayuno express", "5 min", "1 porción · ≈ 24 g de proteína",
+            ["1 pote (170 a 200 g) de yogur natural alto en proteína con logo oficial", "1 taza de frutillas u otra fruta",
+             "1 cda de semillas de chía", "1 cda de pasta de maní con logo oficial"],
+            ["Serví el yogur en un bowl.", "Sumá la fruta cortada, la chía y la pasta de maní."],
+            "frutillas por banana o arándanos; pasta de maní por nueces o granola de quinoa casera.", foto="st_des1"),
+    NUT.rec("Revuelto de espinaca y queso", "Desayuno express", "5 min", "1 porción · ≈ 23 g de proteína",
+            ["2 huevos + 1 clara", "1 puñado de espinaca", "30 g de queso port salut con logo oficial", "1 o 2 galletas de arroz con logo oficial"],
+            ["Salteá la espinaca 1 minuto en una sartén con unas gotas de aceite.",
+             "Sumá los huevos batidos y revolvé a fuego bajo; agregá el queso al final.", "Acompañá con las galletas de arroz."],
+            "espinaca por tomate o champiñones; galletas por 1 rodaja de pan Sin TACC.", foto="st_des2"),
+    NUT.rec("Tostadas con ricota y jamón", "Desayuno express", "5 min", "1 porción · ≈ 22 g de proteína",
+            ["2 rodajas de pan Sin TACC con semillas", "4 cdas (100 g) de ricota con logo oficial",
+             "2 fetas de jamón cocido con logo oficial", "Tomates cherry y orégano"],
+            ["Tostá el pan en una tostadora solo para Sin TACC o en una sartén limpia.",
+             "Untá la ricota y sumá el jamón, los tomates y el orégano."],
+            "jamón por huevo duro o atún al natural con logo oficial.", foto="st_des3"),
+    NUT.rec("Licuado de banana y maní", "Desayuno express", "3 min", "1 porción · ≈ 28 g de proteína",
+            ["1 vaso (250 ml) de leche con logo oficial", "1 pote (170 g) de yogur natural alto en proteína con logo oficial",
+             "1 banana", "1 cda de pasta de maní con logo oficial y canela"],
+            ["Poné todo en la licuadora y licuá 30 segundos.", "Tomalo en el momento."],
+            "banana por frutillas; si querés más proteína, sumá 1 medida de proteína en polvo con logo oficial.", foto="st_des4"),
+    NUT.rec("Mug cake de cacao en 2 minutos", "Desayuno express", "5 min", "1 porción · ≈ 23 g de proteína",
+            ["1 huevo + 1 clara", "2 cdas de harina de almendras o de garbanzos con logo oficial",
+             "1 cda de cacao amargo con logo oficial y ½ banana pisada", "½ cdita de polvo de hornear con logo oficial",
+             "100 g de yogur alto en proteína con logo oficial, para servir"],
+            ["Mezclá todo (menos el yogur) en una taza grande con un tenedor.",
+             "Cociná 90 segundos a 2 minutos en el microondas, hasta que esté firme.",
+             "Serví con el yogur y rodajas de banana."],
+            "banana por 2 dátiles picados; harina de almendras por coco rallado.", foto="st_des5"),
 ]
 
 # ================================================================== PORTADA
@@ -286,7 +319,8 @@ page(f'''
      "2 galletas de arroz + queso + tomate + 1 fruta.",
      "Omelette de 2 huevos + 1 fruta.",
      "Pancake de coco + yogur + frutillas.",
-     "Infusión con leche + 1 rodaja de pan Sin TACC con palta y huevo."])}
+     "Infusión con leche + 1 rodaja de pan Sin TACC con palta y huevo.",
+     "Y 5 desayunos express con 20 a 30 g de proteína en la página <span class=\"pref\" data-ref=\"desayunos\"></span>."])}
 ''', chapter="06 · El plato", pid="c6", toc="06 · El plato RENOVA Sin TACC")
 
 # ================================================================== 07 LISTA DE COMPRAS
@@ -346,9 +380,14 @@ page(f'''
 page(f'''
 {chap_head("09", '18 recetas <span class="t">Sin TACC</span>', "Caseras, sin azúcar agregada y con proteína y fibra. Todos los envasados que uses, con logo oficial.")}
 {"".join(NUT.ficha(r, i + 1) for i, r in enumerate(RECETAS))}
-{box("<b>BORRADOR · Recetas 13 a 18:</b> pizza, empanadas, tarta, pan, ñoquis y budín. Pendientes de validación de la nutricionista.", "note") if RECETAS_BORRADOR else ""}
 {"".join(NUT.ficha(r, len(RECETAS) + i + 1) for i, r in enumerate(RECETAS_BORRADOR))}
 ''', chapter="09 · Recetas", pid="recetas", toc="09 · 18 recetas Sin TACC")
+
+page(f'''
+<h2>5 desayunos express <span class="t">con proteína</span></h2>
+<p>Para sostener tu músculo en esta etapa, apuntá a <b>20 a 30 g de proteína en cada comida</b>, también en el desayuno, que suele ser la comida más floja. Estas 5 ideas se hacen en 5 minutos o menos y son Sin TACC. Los gramos de proteína son aproximados.</p>
+{"".join(NUT.ficha(r, i + 1) for i, r in enumerate(DESAYUNOS))}
+''', chapter="09 · Recetas", pid="desayunos", toc="5 desayunos express con proteína")
 
 # ================================================================== 10 COMER AFUERA
 page(f'''
