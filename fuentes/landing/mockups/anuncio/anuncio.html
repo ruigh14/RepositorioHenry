@@ -1,0 +1,57 @@
+<!doctype html><meta charset="utf-8">
+<!-- Anuncio animado de 15 s (1080x1920) del pack RENOVA, para poner voz en off. Fotos de mujer: Higgsfield z_image (IA).
+     Exportar: node anuncio.js  →  anuncio_15s.mp4 -->
+<style>
+@font-face{font-family:IT;src:url(../../../design-system/fonts/inter-tight-latin-var.woff2);font-weight:100 900}
+@font-face{font-family:I;src:url(../../../design-system/fonts/inter-latin-700-normal.woff2);font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1920px;overflow:hidden;background:#06343B;font-family:IT,sans-serif}
+.s{position:absolute;inset:0;opacity:0;overflow:hidden}
+.bg{position:absolute;inset:0;background-size:cover;background-position:center;transform-origin:50% 40%}
+.sh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,52,59,.0) 35%,rgba(6,52,59,.85) 100%)}
+.cap{position:absolute;left:70px;right:70px;bottom:420px;color:#fff;font:900 88px/1.02 IT;letter-spacing:-.02em;text-transform:uppercase;text-shadow:0 6px 24px rgba(0,0,0,.45)}
+.cap b{color:#6FD8E6}
+.cap small{display:block;margin-top:22px;font:800 40px/1.2 IT;text-transform:none;letter-spacing:0;color:#fff}
+.tag{display:inline-block;background:#14B1C7;color:#fff;font:900 34px IT;letter-spacing:.08em;padding:10px 26px;border-radius:999px;margin-bottom:22px;text-transform:uppercase}
+.book{position:absolute;border-radius:6px 14px 14px 6px;box-shadow:24px 34px 60px rgba(0,0,0,.55)}
+.logo{position:absolute;top:290px;left:50%;transform:translateX(-50%);height:70px;filter:brightness(0) invert(1)}
+.cta{position:absolute;left:50%;bottom:400px;transform:translateX(-50%);background:linear-gradient(135deg,#14B1C7,#0E9DB2);color:#fff;font:900 62px IT;letter-spacing:.02em;padding:30px 80px;border-radius:999px;box-shadow:0 0 0 8px rgba(255,255,255,.25),0 20px 50px rgba(0,0,0,.45);white-space:nowrap;text-transform:uppercase}
+
+/* tiempos: cada escena 3 s, con 0,35 s de cruce */
+@keyframes vis{0%{opacity:0}2%{opacity:1}98%{opacity:1}100%{opacity:0}}
+@keyframes zoom{from{transform:scale(1.04)}to{transform:scale(1.16)}}
+@keyframes pop{0%{opacity:0;transform:translateY(60px) scale(.94)}100%{opacity:1;transform:none}}
+@keyframes inR{0%{opacity:0;transform:translateX(420px) rotate(8deg)}100%{opacity:1;transform:rotate(6deg)}}
+@keyframes inL{0%{opacity:0;transform:translateX(-420px) rotate(-8deg)}100%{opacity:1;transform:rotate(-6deg)}}
+@keyframes pulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.07)}}
+.s1{animation:vis 3.35s linear 0s both}
+.s2{animation:vis 3.35s linear 2.82s both}
+.s3{animation:vis 3.35s linear 5.82s both}
+.s4{animation:vis 3.35s linear 8.82s both}
+.s5{animation:vis 6.2s linear 11.82s both}
+.s1 .bg{animation:zoom 3.35s linear 0s both}
+.s2 .bg{animation:zoom 3.35s linear 2.82s both}
+.s3 .bg{animation:zoom 3.35s linear 5.82s both}
+.s4 .bg{animation:zoom 3.35s linear 8.82s both}
+.s5 .bg{animation:zoom 3.4s linear 11.82s both}
+.s1 .cap{animation:pop .45s cubic-bezier(.2,.9,.3,1.2) .15s both}
+.s2 .cap{animation:pop .45s cubic-bezier(.2,.9,.3,1.2) 3.0s both}
+.s2 .b1{animation:inL .5s cubic-bezier(.2,.9,.3,1.1) 3.35s both}
+.s2 .b2{animation:inR .5s cubic-bezier(.2,.9,.3,1.1) 3.55s both}
+.s3 .cap{animation:pop .45s cubic-bezier(.2,.9,.3,1.2) 6.0s both}
+.s5 .cap{animation:pop .45s cubic-bezier(.2,.9,.3,1.2) 12.0s both}
+.s5 .cta{animation:pop .4s ease 12.6s both,pulse 1s ease-in-out 13.0s 2 both}
+</style>
+<div class="s s1"><div class="bg" style="background-image:url(mujer_1.jpg)"></div><div class="sh"></div>
+  <div class="cap">¿Tenés <b>más de 40</b> y no sabés por dónde empezar?</div></div>
+<div class="s s2"><div class="bg" style="background-image:url(mujer_2.jpg)"></div><div class="sh"></div>
+  <img class="book b1" src="../pack/tapa_casa.jpg" style="left:70px;top:330px;width:300px">
+  <img class="book b2" src="../pack/tapa_gym.jpg" style="right:70px;top:360px;width:300px">
+  <div class="cap"><span class="tag">Bajo impacto</span><br>Entrená en <b>casa</b> o en el <b>gimnasio</b></div></div>
+<div class="s s3"><div class="bg" style="background-image:url(../../../../pack-renova/libro_3_alimentacion.png);background-size:auto 72%;background-repeat:no-repeat;background-position:50% 32%;background-color:#0b1416"></div><div class="sh"></div>
+  <div class="cap">Organizá tus comidas<small>Guía de nutrición de <b>8 semanas</b>, sin dietas</small></div></div>
+<div class="s s4"><div class="bg" style="background-image:url(../../../../pack-renova/pack_1.png)"></div>
+</div>
+<div class="s s5"><div class="bg" style="background-image:url(mujer_3.jpg)"></div><div class="sh" style="background:linear-gradient(180deg,rgba(6,52,59,.55) 0%,rgba(6,52,59,0) 30%,rgba(6,52,59,0) 45%,rgba(6,52,59,.9) 100%)"></div>
+  <div class="cap" style="bottom:620px">Conseguí tu pack <b>RENOVA</b> hoy<small>+ 5 bonus de regalo</small></div>
+  <div class="cta">Comprar ahora</div></div>
