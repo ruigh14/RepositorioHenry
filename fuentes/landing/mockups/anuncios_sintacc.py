@@ -65,3 +65,10 @@ pg("anuncio_4_3d", "st_fondo4.jpg", LOGO.format(y=50) + TIT.format(y=130) +
    SELLO.format(p="left:30px;top:360px") +
    '<div class="pills" style="bottom:50px"><span>✓ Recetas caseras</span><span>✓ Guía de etiquetas</span><span>✓ Cocina sin contaminación</span></div>')
 print("ok")
+# Portada de Facebook 1640×624 (todo dentro del centro, que es lo que se ve en el celular)
+Path("portada_facebook.html").write_text(f'<!doctype html><meta charset="utf-8"><style>{CSS}{X}body{{--w:1640px;--h:624px}}'
+    '.t{left:250px;right:auto;width:640px;text-align:left}.t h1{font-size:84px}.t h2{font-size:42px}.bg::after{background:rgba(255,255,255,.75)}.shadow{display:none}.fr{box-shadow:0 0 0 3px #14B1C7,0 0 30px rgba(20,177,199,.45),12px 18px 30px rgba(0,0,0,.18)}</style>'
+    '<div class="bg" style="background-image:url(pack/st_fondo1.jpg);background-position:50% 70%"></div><div class="st">'
+    '<img class="logo" src="../img/logo.png" style="top:110px;left:250px;transform:none;height:50px">'
+    '<div class="t" style="top:185px"><h1>Sin TACC <span>Inteligente</span></h1><h2>Comé rico y seguro</h2></div>'
+    + book(*ST, 900, 100, 290, -14, 3) + book(*RP, 1240, 130, 265, 14, 2) + '</div>', encoding="utf-8")
