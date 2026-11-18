@@ -17,6 +17,7 @@ const EDITIONS = {
   pausa: ['pausa.html', 'pausa-activa/Bonus_Pausa_activa_RENOVA.pdf'],
   menopausia: ['menopausia.html', 'nutricion-menopausia/Ebook_Nutricion_Menopausia_RENOVA.pdf'],
   sintacc: ['sintacc.html', 'sin-tacc-inteligente/Ebook_Sin_TACC_Inteligente_RENOVA.pdf'],
+  reposteria: ['reposteria.html', 'sin-tacc-inteligente/Ebook_Reposteria_Sin_TACC_RENOVA.pdf'],
   nutricion: ['nutricion.html', 'alimentacion-inteligente/Ebook_Alimentacion_Inteligente_RENOVA.pdf'],
   hombres_nutricion: ['nutricion_hombres.html', 'ebook-hombres/Ebook_Metodo40_Alimentacion_Inteligente.pdf'],
   gluteos_casa: ['gluteos_casa.html', 'gluteos-fuertes/Ebook_Gluteos_Fuertes_Casa_RENOVA.pdf'],
