@@ -8,6 +8,10 @@ with contextlib.redirect_stdout(io.StringIO()):
 X = """
 body{background:#fff}
 .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.bg::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.6)}
+.msg{position:absolute;z-index:6;border-radius:28px;overflow:hidden;box-shadow:0 0 0 5px #14B1C7,0 25px 50px rgba(0,0,0,.3)}.msg img{display:block;width:100%}
+.lbl{position:absolute;z-index:7;font:800 30px InterTightW;color:#06343B;background:#fff;border:3px solid #14B1C7;padding:10px 24px;border-radius:999px}
+.stars{position:absolute;z-index:7;font:900 54px/1 InterTightW;color:#FFC400;letter-spacing:6px;text-shadow:0 3px 8px rgba(0,0,0,.2)}
 .logo{position:absolute;left:50%;transform:translateX(-50%);height:58px;z-index:5}
 .t{position:absolute;left:0;right:0;text-align:center;z-index:5;font-family:InterTightW,sans-serif}
 .t h1{font:900 92px/0.95 InterTightW;letter-spacing:-.03em;color:#06343B;text-transform:uppercase}
@@ -48,6 +52,13 @@ pg("anuncio_2_incluye", "st_fondo2.jpg", '<div style="position:absolute;left:0;r
    '<div class="card" style="left:200px;top:1000px;width:190px;transform:rotate(-5deg)"><img src="../../../sin-tacc-inteligente/creativos/bonus_comunidad.png"></div>'
    '<div class="card" style="left:445px;top:990px;width:190px"><img src="../../../sin-tacc-inteligente/creativos/bonus_pausa.png"></div>'
    '<div class="tag" style="left:680px;top:1080px;transform:rotate(-3deg);font-size:30px">+ 2 BONUS:<br>Comunidad RENOVA<br>y Pausa activa</div>')
+# 3 · testimonio real (msg_3: alumna de RENOVA, sin nombre; el programa en general, no el ebook Sin TACC)
+pg("anuncio_3_testimonio", "st_fondo1.jpg", LOGO.format(y=50) + TIT.format(y=130) +
+   '<div class="stars" style="left:60px;top:410px">★★★★★</div>' +
+   '<div class="msg" style="left:60px;top:490px;width:560px;transform:rotate(-2deg)"><img src="../img/msg_3.jpg"></div>' +
+   '<div class="lbl" style="left:90px;top:1010px">Alumna de RENOVA</div>' +
+   book(*ST, 660, 470, 330, -16, 3) + book(*RP, 780, 820, 230, -16, 4) +
+   '<div class="tag" style="left:800px;top:790px;font-size:28px;white-space:nowrap">DE REGALO</div>')
 # 4 · 3D en podio
 pg("anuncio_4_3d", "st_fondo4.jpg", LOGO.format(y=50) + TIT.format(y=130) +
    book(*RP, 580, 470, 330, 24, 2) + book(*ST, 210, 385, 400, -24, 3) +
