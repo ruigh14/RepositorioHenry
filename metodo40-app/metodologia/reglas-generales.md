@@ -31,5 +31,9 @@
   - **Hombro:** sin press por encima de la cabeza ni fondos → press inclinado con mancuernas agarre neutro, remos, flexiones inclinadas, rotación externa con banda.
   - Cadera, cuello, codo/muñeca: alternativas a definir.
 - Cuando el usuario saca la zona, vuelve a su rutina y nivel normales.
-- Siempre visible en "Dolores": botón **"Consultar con el equipo médico de RENOVA"** (WhatsApp).
+- Siempre visible en "Dolores": botón **"Consultar con el equipo médico de RENOVA"** → WhatsApp de Nacho (https://wa.me/5491133209619).
 - Regla de corte: dolor mayor a 3/10 durante el ejercicio o peor al día siguiente → usar la alternativa; dolor fuerte, lesión de menos de 3 meses o dolor que baja por pierna o brazo → aviso de consultar antes de seguir.
+
+## Estructura de cada sesión (siempre igual, 19/11)
+Entrada en calor → Central 1 → Central 2 → (los centrales que hagan falta) → Elongación.
+Central 1: básicos pesados · Central 2: complementarios · Central 3: accesorios y zona media. Básico hace 2 centrales; intermedio y avanzado, 3.
