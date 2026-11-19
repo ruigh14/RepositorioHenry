@@ -167,28 +167,33 @@ function onboarding() {
       <label style="margin-top:20px">Días por semana</label><div class="chips">${chips("dias", [["2", "2 días"], ["3", "3 días"]])}</div>
       <p class="muted" style="margin-top:14px">Si un día entrenás de más, seguís con la próxima rutina (A → B → C).</p>`,
     () => OBJ.map(([v, t, d]) => { const ok = !!D.planes[v]; return `<button class="obj ${P.objetivo === v ? "on" : ""} ${ok ? "" : "off"}" data-o="${v}" ${ok ? "" : "disabled"}><b>${t}</b><small>${ok ? d : "Próximamente"}</small></button>`; }).join(""),
-    () => `<p class="muted">Si marcás una zona, tu rutina se adapta sola: sin impacto, nivel básico y ejercicios que la cuidan. Si no te duele nada, seguí.</p>
-      <div class="chips" style="margin-top:12px">${ZONAS.map(([v, t]) => `<button class="chip ${P.dolores.includes(v) ? "on" : ""}" data-z="${v}">${t}</button>`).join("")}</div>
-      <label style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:14px;color:var(--m40-negro);margin-top:18px">
-      <input type="checkbox" id="apto" style="width:auto;margin-top:3px" ${P.apto ? "checked" : ""}> Tengo el apto médico para hacer actividad física y, si tengo una lesión reciente o un dolor fuerte, consulto antes de entrenar.</label>`,
+    () => `<button class="obj ${P.estado === "bien" ? "on" : ""}" data-e="bien"><b>Estoy bien</b><small>No me duele nada</small></button>
+      <button class="obj ${P.estado === "leve" ? "on" : ""}" data-e="leve"><b>Me duele levemente una zona</b><small>Una molestia, nada grave: adaptamos la rutina</small></button>
+      ${P.estado === "leve" ? `<label style="margin-top:14px">¿Dónde?</label>
+        <div class="chips">${ZONAS.map(([v, t]) => `<button class="chip ${P.dolores.includes(v) ? "on" : ""}" data-z="${v}">${t}</button>`).join("")}</div>
+        <p class="muted" style="margin-top:8px">Tu rutina se adapta sola: sin impacto, nivel básico y ejercicios que cuidan esa zona.</p>` : ""}
+      <label style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:14px;font-weight:500;color:var(--m40-gris);margin-top:18px">
+      <input type="checkbox" id="apto" style="width:auto;margin-top:3px" ${P.apto ? "checked" : ""}> Entiendo que el plan es una guía: entreno a mi ritmo y bajo mi responsabilidad, y consulto a un profesional si algo me molesta.</label>`,
   ];
   document.body.classList.add("wiz");
   $("#app").innerHTML = `<div class="pasos">${PASOS_ON.map((_, i) => `<i class="${i <= k ? "on" : ""}"></i>`).join("")}</div>
     <div class="paso-k">Paso ${k + 1} de ${PASOS_ON.length}</div><h1>${PASOS_ON[k].replace(/ (\S+)$/, " <span>$1</span>")}</h1>
     <div class="card">${cuerpo[k]()}</div><p class="err hide" id="e"></p>
+    ${k === PASOS_ON.length - 1 ? `<a class="btn sec" style="margin-top:4px" href="${D.wa}?text=${encodeURIComponent("Hola, soy " + (P.nombre || "") + " de MÉTODO 40. Quiero consultar con el médico del equipo RENOVA antes de empezar el plan.")}" target="_blank" rel="noopener">Quiero consultar con el médico del equipo antes de empezar</a>` : ""}
     <div class="navp solo">${k ? `<button class="btn ghost" id="ant">Atrás</button>` : ""}<button class="btn" id="sig">${k === PASOS_ON.length - 1 ? "Armar mi plan" : "Siguiente"}</button></div>`;
   const keep = () => { for (const f of ["nombre", "edad", "altura", "peso", "cintura"]) if ($("#" + f)) P[f] = $("#" + f).value; if ($("#apto")) P.apto = $("#apto").checked; S.borrador = P; };
   const err = t => { $("#e").textContent = t; $("#e").classList.remove("hide"); };
   document.querySelectorAll("[data-k]").forEach(b => b.onclick = () => { keep(); P[b.dataset.k] = b.dataset.v; onboarding(); });
   document.querySelectorAll("[data-o]").forEach(b => b.onclick = () => { keep(); P.objetivo = b.dataset.o; onboarding(); });
   document.querySelectorAll("[data-z]").forEach(b => b.onclick = () => { keep(); const z = b.dataset.z; P.dolores = P.dolores.includes(z) ? P.dolores.filter(x => x !== z) : [...P.dolores, z]; onboarding(); });
+  document.querySelectorAll("[data-e]").forEach(b => b.onclick = () => { keep(); P.estado = b.dataset.e; if (P.estado === "bien") P.dolores = []; onboarding(); });
   if ($("#ant")) $("#ant").onclick = () => { keep(); P.paso = k - 1; onboarding(); };
   $("#sig").onclick = () => {
     keep();
     const falta = [
       () => !P.nombre ? "tu nombre" : !P.edad ? "tu edad" : !P.altura ? "tu altura" : !P.peso ? "tu peso" : !P.cintura ? "tu cintura" : "",
       () => !P.exp ? "cuánto hace que entrenás" : !P.pausa ? "si estuviste sin entrenar" : "",
-      () => "", () => "", () => !P.apto ? "la confirmación del apto médico" : ""][k]();
+      () => "", () => "", () => !P.estado ? "si estás bien o te duele algo" : P.estado === "leve" && !P.dolores.length ? "dónde te duele" : !P.apto ? "tildar que entendés cómo funciona el plan" : ""][k]();
     if (falta) return err("Falta completar " + falta + ".");
     if (k < PASOS_ON.length - 1) { P.paso = k + 1; S.borrador = P; save(); return onboarding(); }
     delete P.paso; S.perfil = P; delete S.borrador; S.inicio = hoyISO(); S.sesiones = []; S.medidas = [{fecha: hoyISO(), peso: +P.peso, cintura: +P.cintura}];
