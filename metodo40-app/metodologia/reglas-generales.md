@@ -19,7 +19,7 @@
 
 - Ajuste: si en la evaluación inicial no puede hacer los ejercicios de su nivel con buena técnica, baja un nivel.
 
-## Duración (propuesta, a confirmar)
+## Duración (confirmado 19/11)
 - Básico 40-45 min · intermedio y avanzado 50-60 min · versión express 25-30 min (cuenta como sesión).
 - Si estuvo más de 6 meses sin entrenar, baja un nivel.
 
@@ -31,5 +31,5 @@
   - **Hombro:** sin press por encima de la cabeza ni fondos → press inclinado con mancuernas agarre neutro, remos, flexiones inclinadas, rotación externa con banda.
   - Cadera, cuello, codo/muñeca: alternativas a definir.
 - Cuando el usuario saca la zona, vuelve a su rutina y nivel normales.
-- Siempre visible: botón para consultar con Nacho y con el médico deportólogo.
+- Siempre visible en "Dolores": botón **"Consultar con el equipo médico de RENOVA"** (WhatsApp).
 - Regla de corte: dolor mayor a 3/10 durante el ejercicio o peor al día siguiente → usar la alternativa; dolor fuerte, lesión de menos de 3 meses o dolor que baja por pierna o brazo → aviso de consultar antes de seguir.
