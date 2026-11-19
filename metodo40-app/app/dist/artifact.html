@@ -19,15 +19,24 @@ h2{font-size:19px;font-weight:900;text-transform:uppercase;margin:22px 0 10px}
 label{display:block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--m40-gris);margin:12px 0 6px}
 input,select{width:100%;padding:12px;border:1px solid var(--m40-borde);border-radius:10px;background:#fff}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn{display:block;width:100%;padding:14px;border:0;border-radius:12px;background:var(--m40-rojo);color:#fff;font-weight:800;font-size:16px;margin-top:16px;cursor:pointer;text-align:center;text-decoration:none}
-.btn.sec{background:var(--m40-negro)}
-.btn.ghost{background:#fff;color:var(--m40-negro);border:2px solid var(--m40-negro)}
+.btn{display:block;width:100%;padding:15px;border:0;border-radius:14px;background:linear-gradient(135deg,var(--m40-rojo),var(--m40-rojo-oscuro));color:#fff;font-weight:900;font-size:16px;letter-spacing:.04em;text-transform:uppercase;margin-top:16px;cursor:pointer;text-align:center;text-decoration:none;
+ box-shadow:0 0 0 2px #fff,0 0 0 4px var(--m40-rojo),0 8px 22px rgba(214,40,40,.35);transition:transform .12s,box-shadow .12s}
+.btn:active{transform:translateY(2px);box-shadow:0 0 0 2px #fff,0 0 0 4px var(--m40-rojo),0 3px 10px rgba(214,40,40,.3)}
+.btn:focus-visible,.chip:focus-visible,.obj:focus-visible{outline:3px solid var(--m40-rojo);outline-offset:3px}
+.btn.sec{background:linear-gradient(135deg,var(--m40-grafito),var(--m40-negro));box-shadow:0 0 0 2px #fff,0 0 0 4px var(--m40-negro),0 8px 22px rgba(0,0,0,.25)}
+.btn.ghost{background:#fff;color:var(--m40-negro);box-shadow:inset 0 0 0 2px var(--m40-negro)}
+.pasos{display:flex;gap:6px;margin:4px 0 14px}.pasos i{flex:1;height:6px;border-radius:99px;background:var(--m40-borde)}.pasos i.on{background:linear-gradient(90deg,var(--m40-rojo),var(--m40-rojo-oscuro))}
+.paso-k{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--m40-gris);text-transform:uppercase}
+.navp{position:fixed;left:0;right:0;bottom:66px;padding:10px max(16px, env(safe-area-inset-left, 0px)) 10px max(16px, env(safe-area-inset-right, 0px));background:linear-gradient(transparent,var(--m40-gris-claro) 30%);display:flex;gap:10px;z-index:5}
+.navp.solo{bottom:0;padding-bottom:calc(14px + env(safe-area-inset-bottom, 0px))}
+.navp .btn{margin:0}.navp .btn.ghost{flex:0 0 34%}
+body.wiz{padding-bottom:170px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:10px 14px;border-radius:999px;border:2px solid var(--m40-borde);background:#fff;font-weight:700;cursor:pointer}
-.chip.on{border-color:var(--m40-rojo);background:var(--m40-rojo);color:#fff}
+.chip{padding:11px 16px;border-radius:999px;border:2px solid var(--m40-borde);background:#fff;font-weight:800;cursor:pointer;transition:.12s}
+.chip.on{border-color:transparent;background:linear-gradient(135deg,var(--m40-rojo),var(--m40-rojo-oscuro));color:#fff;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--m40-rojo)}
 .chip.off{opacity:.45;cursor:not-allowed}
 .obj{display:block;width:100%;text-align:left;padding:14px;border-radius:14px;border:2px solid var(--m40-borde);background:#fff;margin:8px 0;cursor:pointer}
-.obj b{display:block;font-size:17px}.obj.on{border-color:var(--m40-rojo);box-shadow:0 0 0 3px rgba(214,40,40,.15)}
+.obj b{display:block;font-size:17px}.obj.on{border-color:var(--m40-rojo);box-shadow:0 0 0 4px rgba(214,40,40,.18),0 8px 18px rgba(0,0,0,.08)}
 .obj.off{opacity:.5;cursor:not-allowed}.obj small{color:var(--m40-gris)}
 .hero{background:var(--m40-negro);color:#fff;border-radius:18px;padding:18px;margin:4px 0 12px}
 .hero .k{font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
@@ -56,7 +65,7 @@ nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid 
 nav button{flex:1;border:0;background:none;padding:8px 4px;border-radius:10px;font-weight:800;font-size:13px;color:var(--m40-gris);cursor:pointer}
 nav button.on{background:var(--m40-negro);color:#fff}
 .hide{display:none!important}
-.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:var(--m40-negro);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;opacity:0;transition:.3s;z-index:9}
+.toast{pointer-events:none;position:fixed;left:50%;bottom:150px;transform:translateX(-50%);background:var(--m40-negro);color:#fff;padding:10px 18px;border-radius:999px;font-weight:700;opacity:0;transition:.3s;z-index:9}
 .toast.on{opacity:1}
 .err{color:var(--m40-rojo);font-weight:700;font-size:14px;margin-top:8px}
 </style>
@@ -122,6 +131,7 @@ function render() {
   $("#who").textContent = S.perfil ? `${S.perfil.nombre} · ${S.perfil.lugar === "casa" ? "Casa" : "Gimnasio"}` : "";
   $("#nav").classList.toggle("hide", !S.perfil);
   document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.v === vista));
+  document.body.classList.remove("wiz");
   if (!S.ok) return gate();
   if (!S.perfil) return onboarding();
   ({hoy, dolores, progreso, perfil})[vista]();
@@ -138,49 +148,53 @@ function gate() {
   };
 }
 
+const PASOS_ON = ["Tus datos", "Tu experiencia", "Cómo entrenás", "Tu objetivo", "Dolores"];
 function onboarding() {
-  const P = S.borrador || {dolores: [], dias: "3", lugar: "casa", objetivo: "base"};
-  const chips = (k, ops) => ops.map(([v, t, off]) => `<button class="chip ${P[k] === v ? "on" : ""} ${off ? "off" : ""}" data-k="${k}" data-v="${v}" ${off ? "disabled" : ""}>${t}</button>`).join("");
-  $("#app").innerHTML = `<h1>Antes de <span>empezar</span></h1>
-  <p class="muted" style="margin-top:6px">Con estos datos armamos tu plan de 12 meses.</p>
-  <div class="card"><h2>Tus datos</h2>
-    <label>Nombre</label><input id="nombre" value="${esc(P.nombre)}">
-    <div class="row"><div><label>Edad</label><input id="edad" type="number" inputmode="numeric" value="${esc(P.edad)}"></div>
-    <div><label>Altura (cm)</label><input id="altura" type="number" inputmode="numeric" value="${esc(P.altura)}"></div></div>
-    <div class="row"><div><label>Peso (kg)</label><input id="peso" type="number" inputmode="decimal" value="${esc(P.peso)}"></div>
-    <div><label>Cintura (cm)</label><input id="cintura" type="number" inputmode="decimal" value="${esc(P.cintura)}"></div></div>
-  </div>
-  <div class="card"><h2>Tu experiencia</h2>
-    <label>¿Cuánto hace que entrenás fuerza sin cortar?</label>
-    <div class="chips">${chips("exp", [["menos1", "Menos de 1 año"], ["1a4", "De 1 a 4 años"], ["mas4", "Más de 4 años"]])}</div>
-    <label>¿Estuviste más de 6 meses sin entrenar hace poco?</label>
-    <div class="chips">${chips("pausa", [["no", "No"], ["si", "Sí"]])}</div>
-  </div>
-  <div class="card"><h2>Cómo entrenás</h2>
-    <label>Dónde</label><div class="chips">${chips("lugar", [["casa", "En casa"], ["gimnasio", "En el gimnasio"]])}</div>
-    <label>Días por semana</label><div class="chips">${chips("dias", [["2", "2 días"], ["3", "3 días"]])}</div>
-  </div>
-  <div class="card"><h2>Tu objetivo</h2>
-    ${OBJ.map(([v, t, d]) => { const ok = !!D.planes[v]; return `<button class="obj ${P.objetivo === v ? "on" : ""} ${ok ? "" : "off"}" data-o="${v}" ${ok ? "" : "disabled"}><b>${t}</b><small>${ok ? d : "Próximamente"}</small></button>`; }).join("")}
-  </div>
-  <div class="card"><h2>¿Te duele algo?</h2>
-    <p class="muted">Si marcás una zona, tu rutina se adapta sola: sin impacto, nivel básico y ejercicios que no cargan esa zona.</p>
-    <div class="chips" style="margin-top:10px">${ZONAS.map(([v, t]) => `<button class="chip ${P.dolores.includes(v) ? "on" : ""}" data-z="${v}">${t}</button>`).join("")}</div>
-    <label style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:14px;color:var(--m40-negro);margin-top:16px">
-      <input type="checkbox" id="apto" style="width:auto;margin-top:3px" ${P.apto ? "checked" : ""}> Tengo el apto médico para hacer actividad física y, si tengo una lesión reciente o un dolor fuerte, consulto antes de entrenar.</label>
-  </div>
-  <button class="btn" id="fin">Armar mi plan</button><p class="err hide" id="e"></p>`;
-  const keep = () => { for (const k of ["nombre", "edad", "altura", "peso", "cintura"]) P[k] = $("#" + k).value; P.apto = $("#apto").checked; S.borrador = P; };
+  const P = S.borrador || {dolores: [], dias: "3", lugar: "casa", objetivo: "base", paso: 0};
+  const k = P.paso || 0;
+  const chips = (key, ops) => ops.map(([v, t]) => `<button class="chip ${P[key] === v ? "on" : ""}" data-k="${key}" data-v="${v}">${t}</button>`).join("");
+  const cuerpo = [
+    () => `<label>Nombre</label><input id="nombre" value="${esc(P.nombre)}">
+      <div class="row"><div><label>Edad</label><input id="edad" type="number" inputmode="numeric" value="${esc(P.edad)}"></div>
+      <div><label>Altura (cm)</label><input id="altura" type="number" inputmode="numeric" value="${esc(P.altura)}"></div></div>
+      <div class="row"><div><label>Peso (kg)</label><input id="peso" type="number" inputmode="decimal" value="${esc(P.peso)}"></div>
+      <div><label>Cintura (cm)</label><input id="cintura" type="number" inputmode="decimal" value="${esc(P.cintura)}"></div></div>`,
+    () => `<label>¿Cuánto hace que entrenás fuerza sin cortar?</label>
+      <div class="chips">${chips("exp", [["menos1", "Menos de 1 año"], ["1a4", "De 1 a 4 años"], ["mas4", "Más de 4 años"]])}</div>
+      <label style="margin-top:20px">¿Estuviste más de 6 meses sin entrenar hace poco?</label>
+      <div class="chips">${chips("pausa", [["no", "No"], ["si", "Sí"]])}</div>`,
+    () => `<label>Dónde entrenás</label><div class="chips">${chips("lugar", [["casa", "En casa"], ["gimnasio", "En el gimnasio"]])}</div>
+      <label style="margin-top:20px">Días por semana</label><div class="chips">${chips("dias", [["2", "2 días"], ["3", "3 días"]])}</div>
+      <p class="muted" style="margin-top:14px">Si un día entrenás de más, seguís con la próxima rutina (A → B → C).</p>`,
+    () => OBJ.map(([v, t, d]) => { const ok = !!D.planes[v]; return `<button class="obj ${P.objetivo === v ? "on" : ""} ${ok ? "" : "off"}" data-o="${v}" ${ok ? "" : "disabled"}><b>${t}</b><small>${ok ? d : "Próximamente"}</small></button>`; }).join(""),
+    () => `<p class="muted">Si marcás una zona, tu rutina se adapta sola: sin impacto, nivel básico y ejercicios que la cuidan. Si no te duele nada, seguí.</p>
+      <div class="chips" style="margin-top:12px">${ZONAS.map(([v, t]) => `<button class="chip ${P.dolores.includes(v) ? "on" : ""}" data-z="${v}">${t}</button>`).join("")}</div>
+      <label style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:14px;color:var(--m40-negro);margin-top:18px">
+      <input type="checkbox" id="apto" style="width:auto;margin-top:3px" ${P.apto ? "checked" : ""}> Tengo el apto médico para hacer actividad física y, si tengo una lesión reciente o un dolor fuerte, consulto antes de entrenar.</label>`,
+  ];
+  document.body.classList.add("wiz");
+  $("#app").innerHTML = `<div class="pasos">${PASOS_ON.map((_, i) => `<i class="${i <= k ? "on" : ""}"></i>`).join("")}</div>
+    <div class="paso-k">Paso ${k + 1} de ${PASOS_ON.length}</div><h1>${PASOS_ON[k].replace(/ (\S+)$/, " <span>$1</span>")}</h1>
+    <div class="card">${cuerpo[k]()}</div><p class="err hide" id="e"></p>
+    <div class="navp solo">${k ? `<button class="btn ghost" id="ant">Atrás</button>` : ""}<button class="btn" id="sig">${k === PASOS_ON.length - 1 ? "Armar mi plan" : "Siguiente"}</button></div>`;
+  const keep = () => { for (const f of ["nombre", "edad", "altura", "peso", "cintura"]) if ($("#" + f)) P[f] = $("#" + f).value; if ($("#apto")) P.apto = $("#apto").checked; S.borrador = P; };
+  const err = t => { $("#e").textContent = t; $("#e").classList.remove("hide"); };
   document.querySelectorAll("[data-k]").forEach(b => b.onclick = () => { keep(); P[b.dataset.k] = b.dataset.v; onboarding(); });
   document.querySelectorAll("[data-o]").forEach(b => b.onclick = () => { keep(); P.objetivo = b.dataset.o; onboarding(); });
   document.querySelectorAll("[data-z]").forEach(b => b.onclick = () => { keep(); const z = b.dataset.z; P.dolores = P.dolores.includes(z) ? P.dolores.filter(x => x !== z) : [...P.dolores, z]; onboarding(); });
-  $("#fin").onclick = () => {
+  if ($("#ant")) $("#ant").onclick = () => { keep(); P.paso = k - 1; onboarding(); };
+  $("#sig").onclick = () => {
     keep();
-    const falta = !P.nombre ? "tu nombre" : !P.edad ? "tu edad" : !P.altura ? "tu altura" : !P.peso ? "tu peso" : !P.cintura ? "tu cintura" : !P.exp ? "cuánto hace que entrenás" : !P.pausa ? "si estuviste sin entrenar" : !P.apto ? "la confirmación del apto médico" : "";
-    if (falta) { $("#e").textContent = "Falta completar " + falta + "."; $("#e").classList.remove("hide"); return; }
-    S.perfil = P; delete S.borrador; S.inicio = hoyISO(); S.sesiones = []; S.medidas = [{fecha: hoyISO(), peso: +P.peso, cintura: +P.cintura}];
+    const falta = [
+      () => !P.nombre ? "tu nombre" : !P.edad ? "tu edad" : !P.altura ? "tu altura" : !P.peso ? "tu peso" : !P.cintura ? "tu cintura" : "",
+      () => !P.exp ? "cuánto hace que entrenás" : !P.pausa ? "si estuviste sin entrenar" : "",
+      () => "", () => "", () => !P.apto ? "la confirmación del apto médico" : ""][k]();
+    if (falta) return err("Falta completar " + falta + ".");
+    if (k < PASOS_ON.length - 1) { P.paso = k + 1; S.borrador = P; save(); return onboarding(); }
+    delete P.paso; S.perfil = P; delete S.borrador; S.inicio = hoyISO(); S.sesiones = []; S.medidas = [{fecha: hoyISO(), peso: +P.peso, cintura: +P.cintura}];
     save(); vista = "hoy"; render(); toast("¡Tu plan está listo!");
   };
+  scrollTo(0, 0);
 }
 
 function exCard(e, dosis, kg) {
@@ -190,7 +204,7 @@ function exCard(e, dosis, kg) {
     ${dosis ? `<span class="dosis">${dosis}</span><br>` : ""}${e.cambiado ? `<span class="cambio">Adaptado por tu dolor</span><br>` : ""}
     ${x.url ? `<a class="v" href="${esc(x.url)}" target="_blank" rel="noopener">▶ Ver video</a>` : ""}</div>
     ${x.how ? `<details><summary>Cómo se hace</summary><p>${esc(x.how)}</p>${x.evita ? `<p><b>Evitá:</b> ${esc(x.evita)}</p>` : ""}</details>` : ""}
-    ${kg ? `<div class="kg">${Array.from({length: e.series}, (_, i) => `<input placeholder="kg ${i + 1}" inputmode="decimal" data-ex="${e.id}" data-s="${i}">`).join("")}</div>` : ""}
+    ${kg ? `<div class="kg">${Array.from({length: e.series}, (_, i) => `<input placeholder="kg ${i + 1}" inputmode="decimal" data-ex="${e.id}" data-s="${i}" value="${esc(((S.tmp || {})[e.id] || [])[i] ?? "")}">`).join("")}</div>` : ""}
   </div>`;
 }
 
@@ -200,27 +214,38 @@ function hoy() {
   const s = sesion(), nombreObj = OBJ.find(o => o[0] === S.perfil.objetivo)[1];
   const semTxt = s.semana === 4 ? "Semana 4 · descarga" : s.semana === 3 ? "Semana 3 · la más intensa" : `Semana ${s.semana}`;
   const dol = (S.perfil.dolores || []).length;
-  $("#app").innerHTML = `
-  <div class="hero"><div class="k">${esc(nombreObj)} · Mes ${mes} de 12</div>
-    <div class="big">Rutina ${s.r}</div><div>${esc(s.m.fase)}: ${esc(s.m.objetivo)}</div>
-    <span class="pill">${semTxt}</span><span class="pill" style="background:#fff;color:var(--m40-negro)">Nivel ${NIV[s.niv]} · ${s.cfg.duracion}</span></div>
-  ${dol ? `<div class="alert"><b>Rutina adaptada por dolor.</b> Hoy entrenás sin impacto y en nivel básico. Si el dolor pasa de 3 sobre 10 o empeora al día siguiente, frená y consultá.
-    <a class="btn" href="${D.wa}?text=${encodeURIComponent("Hola, soy " + S.perfil.nombre + " de MÉTODO 40. Quiero consultar con el equipo médico de RENOVA por un dolor.")}" target="_blank" rel="noopener">Consultar con el equipo médico de RENOVA</a></div>` : ""}
-  ${s.semana === 4 ? `<div class="card"><b>Semana de descarga:</b> usá un 15 % menos de peso que en la semana 1. Es parte del plan: así seguís progresando.</div>` : ""}
-  <div class="sec-h"><h2>Entrada <span>en calor</span></h2><span>40 s cada uno</span></div>
-  ${s.calor.map(e => exCard(e, "40 segundos")).join("")}
-  ${s.centrales.map((b, k) => `<div class="sec-h"><h2>Central <span>${k + 1}</span></h2><span>Descanso ${k === 0 ? s.m.descanso.central_1 : s.m.descanso.resto}</span></div>
-    ${b.map(e => exCard(e, `${e.series} × ${e.reps} · RIR ${e.rir}`, true)).join("")}`).join("")}
-  ${s.m.extra ? `<div class="sec-h"><h2>Final: <span>cardio</span></h2></div><div class="card">${esc(s.m.extra)}</div>` : ""}
-  <div class="sec-h"><h2>Elongación</h2><span>30 s cada una</span></div>
-  ${s.elong.map(e => exCard(e, "30 segundos")).join("")}
-  <button class="btn" id="terminar">Terminar sesión</button>
-  <p class="muted" style="text-align:center;margin-top:8px">RIR = repeticiones que te quedan en reserva al terminar la serie.</p>`;
-  $("#terminar").onclick = () => {
+  const partes = [["Entrada en calor", "40 s cada uno", s.calor.map(e => exCard(e, "40 segundos")).join("")],
+    ...s.centrales.map((b, k) => [`Central ${k + 1}`, `Descanso ${k === 0 ? s.m.descanso.central_1 : s.m.descanso.resto}`, b.map(e => exCard(e, `${e.series} × ${e.reps} · RIR ${e.rir}`, true)).join("")]),
+    ...(s.m.extra ? [["Final: cardio", "", `<div class="card">${esc(s.m.extra)}</div>`]] : []),
+    ["Elongación", "30 s cada una", s.elong.map(e => exCard(e, "30 segundos")).join("")]];
+  const k = S.parte ?? -1;
+  document.body.classList.add("wiz");
+  if (k < 0) {
+    $("#app").innerHTML = `
+    <div class="hero"><div class="k">${esc(nombreObj)} · Mes ${mes} de 12</div>
+      <div class="big">Rutina ${s.r}</div><div>${esc(s.m.fase)}: ${esc(s.m.objetivo)}</div>
+      <span class="pill">${semTxt}</span><span class="pill" style="background:#fff;color:var(--m40-negro)">Nivel ${NIV[s.niv]} · ${s.cfg.duracion}</span></div>
+    ${dol ? `<div class="alert"><b>Rutina adaptada por dolor.</b> Hoy entrenás sin impacto y en nivel básico. Si el dolor pasa de 3 sobre 10 o empeora al día siguiente, frená y consultá.
+      <a class="btn" href="${D.wa}?text=${encodeURIComponent("Hola, soy " + S.perfil.nombre + " de MÉTODO 40. Quiero consultar con el equipo médico de RENOVA por un dolor.")}" target="_blank" rel="noopener">Consultar con el equipo médico de RENOVA</a></div>` : ""}
+    ${s.semana === 4 ? `<div class="card"><b>Semana de descarga:</b> usá un 15 % menos de peso que en la semana 1. Es parte del plan: así seguís progresando.</div>` : ""}
+    <div class="card"><b>Hoy hacés:</b><ul class="list">${partes.map(p => `<li><span>${p[0]}</span><span class="muted">${p[1]}</span></li>`).join("")}</ul></div>
+    <div class="navp"><button class="btn" id="sig">Empezar</button></div>`;
+  } else {
+    const [t, sub, html] = partes[k];
+    $("#app").innerHTML = `<div class="pasos">${partes.map((_, i) => `<i class="${i <= k ? "on" : ""}"></i>`).join("")}</div>
+      <div class="paso-k">Rutina ${s.r} · Parte ${k + 1} de ${partes.length}</div>
+      <div class="sec-h" style="margin-top:6px"><h2>${t.replace(/ (\S+)$/, " <span>$1</span>")}</h2><span>${sub}</span></div>${html}
+      ${k === partes.length - 1 ? `<p class="muted" style="text-align:center;margin-top:8px">RIR = repeticiones que te quedan en reserva al terminar la serie.</p>` : ""}
+      <div class="navp"><button class="btn ghost" id="ant">Atrás</button><button class="btn" id="sig">${k === partes.length - 1 ? "Terminar sesión" : "Siguiente"}</button></div>`;
+  }
+  document.querySelectorAll("[data-ex]").forEach(i => i.oninput = () => { ((S.tmp ||= {})[i.dataset.ex] ||= [])[+i.dataset.s] = i.value; save(); });
+  if ($("#ant")) $("#ant").onclick = () => { S.parte = k - 1; save(); hoy(); };
+  $("#sig").onclick = () => {
+    if (k < partes.length - 1) { S.parte = k + 1; save(); hoy(); scrollTo(0, 0); return; }
     const cargas = {};
-    document.querySelectorAll("[data-ex]").forEach(i => { if (i.value) (cargas[i.dataset.ex] ||= [])[+i.dataset.s] = +i.value.replace(",", "."); });
-    S.sesiones.push({fecha: hoyISO(), rutina: s.r, mes: s.mes, semana: s.semana, cargas}); save();
-    toast(`Sesión ${S.sesiones.length} guardada`); render();
+    for (const [id, arr] of Object.entries(S.tmp || {})) cargas[id] = arr.map(v => v ? +String(v).replace(",", ".") : null);
+    S.sesiones.push({fecha: hoyISO(), rutina: s.r, mes: s.mes, semana: s.semana, cargas}); S.parte = -1; S.tmp = {}; save();
+    toast(`¡Sesión ${S.sesiones.length} guardada!`); hoy(); scrollTo(0, 0);
   };
 }
 
