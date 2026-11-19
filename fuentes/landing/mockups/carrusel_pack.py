@@ -21,16 +21,16 @@ CSS = css(str(Path(__file__).parent)) + """
 body{width:1080px;height:1350px;overflow:hidden;font-family:InterW,sans-serif;color:var(--rnv-tinta);text-align:center;
  background:linear-gradient(180deg,#fff 0%,var(--rnv-turquesa-fondo) 100%)}
 .top{padding-top:80px}.top img{height:56px}
-.tag{display:inline-block;margin-top:30px;font:900 30px InterTightW,sans-serif;letter-spacing:.14em;color:#fff;background:var(--rnv-turquesa);padding:10px 30px;border-radius:999px}
+.tag{display:inline-block;margin-top:34px;font:900 60px InterTightW,sans-serif;letter-spacing:.1em;color:#fff;background:var(--rnv-turquesa);padding:14px 48px;border-radius:999px}
 .tag.b{background:var(--rnv-oro);color:var(--rnv-tinta)}
-.obj{margin:44px auto 0;display:flex;justify-content:center;align-items:center;height:760px}
+.obj{margin:40px auto 0;display:flex;justify-content:center;align-items:center;height:760px}
 .tapa{height:740px;aspect-ratio:210/297;border-radius:6px 16px 16px 6px;overflow:hidden;background:#fff;position:relative;
  box-shadow:26px 36px 60px rgba(6,52,59,.3),0 0 0 1px rgba(0,0,0,.05)}
 .tapa img{width:100%;height:100%;object-fit:cover;object-position:50% 0;display:block}
 .tapa::after{content:"";position:absolute;inset:0 auto 0 0;width:5%;background:linear-gradient(90deg,rgba(0,0,0,.25),rgba(255,255,255,.15) 60%,transparent)}
 .foto{width:900px;height:675px;border-radius:30px;overflow:hidden;box-shadow:0 0 0 8px #fff,0 0 0 11px var(--rnv-turquesa-borde),26px 36px 60px rgba(6,52,59,.25)}
 .foto img{width:100%;height:100%;object-fit:cover;display:block}
-h1{font:900 64px/1.02 InterTightW,sans-serif;letter-spacing:-.02em;text-transform:uppercase;margin-top:44px}
+h1{font:900 82px/1 InterTightW,sans-serif;letter-spacing:-.02em;text-transform:uppercase;margin-top:44px}
 p{font:600 42px/1.25 InterW,sans-serif;color:var(--rnv-gris);margin:18px 70px 0}
 """
 out = Path(".")
@@ -38,10 +38,10 @@ for n, (src, tipo, tag, tit, desc) in enumerate(ITEMS, 1):
     obj = f'<div class="tapa"><img src="{src}"></div>' if tipo == "libro" else f'<div class="foto"><img src="{src}"></div>'
     tit1 = tit.replace("<br>", " ")
     h = (f'<!doctype html><meta charset="utf-8"><style>{CSS}</style><div class="top"><img src="{I}logo.png"><br>'
-         f'<span class="tag{" b" if tag.startswith("BONUS") else ""}">{tag}</span></div><div class="obj">{obj}</div><h1>{tit1}</h1><p>{desc}</p>')
+         f'<span class="tag{" b" if tag.startswith("BONUS") else ""}">{tag}</span></div><div class="obj">{obj}</div><h1>{tit}</h1>')
     (out / f"carrusel_{n:02d}.html").write_text(h.replace('src="../../', 'src="../../').replace("../../img/", "../../img/"), encoding="utf-8")
 # Imagen única de los bonus (para usar sola)
 h = (f'<!doctype html><meta charset="utf-8"><style>{CSS}</style><div class="top"><img src="{I}logo.png"><br><span class="tag b">BONUS DE REGALO</span></div>'
-     f'<div class="obj"><div class="tapa"><img src="{P}tapa_bonus4.png"></div></div><h1>+4 bonus</h1><p>Adaptados a tu poco tiempo.</p>')
+     f'<div class="obj"><div class="tapa"><img src="{P}tapa_bonus4.png"></div></div><h1>+4 bonus</h1>')
 Path("carrusel_bonus.html").write_text(h, encoding="utf-8")
 print("ok")
