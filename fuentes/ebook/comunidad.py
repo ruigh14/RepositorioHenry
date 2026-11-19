@@ -48,7 +48,7 @@ html = f"""<!doctype html><html lang="es-AR"><meta charset="utf-8"><style>{CSS}<
   <img class="logo" src="img/logo_renova.png" alt="RENOVA">
   <div><a href="{SKOOL}" style="text-decoration:none"><span class="tag">Bonus · Método RENOVA</span></a></div>
   <h1>Acceso a la<br><b>comunidad</b><br>RENOVA</h1>
-  <p>Talleres <b>grabados y en vivo</b> con nuestro equipo, y una comunidad de mujeres en tu misma etapa. <b>Acceso de por vida.</b></p>
+  <p>Talleres <b>grabados y en vivo</b> con nuestro equipo, y una comunidad de mujeres en tu misma etapa.</p>
   <div class="ph"><img src="{L}comunidad.jpg" alt=""></div>
   <div class="ft">Entrenamiento · Nutrición · Hábitos</div>
 </section>
