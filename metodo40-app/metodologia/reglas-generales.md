@@ -4,9 +4,10 @@
 - 2 a 3 entrenamientos por semana.
 - Rutinas en rotación A → B → C. Si entrena más días, vuelve a la rutina A y sigue la rotación (A, B, C, A, B…). La app muestra siempre "la próxima rutina", no un día fijo de la semana.
 
-## Progresión (base: la del ebook MÉTODO 40)
-- Bloques de 4 semanas; plan ondulado controlado con RIR (repeticiones en reserva).
-- Semana de descarga al final de cada bloque (menos series, misma técnica).
+## Progresión: periodización ondulada (decidido 19/11)
+- Cada mes es un bloque de 4 semanas controlado con RIR (repeticiones en reserva).
+- Semanas 1, 2 y 3 aumentan (menos repeticiones y más carga); la 3 es la más intensa (+1 serie en el central 1).
+- Semana 4: descarga = carga y repeticiones 15 % por debajo de la semana 1.
 - Se sube carga cuando completa todas las series en el rango de repeticiones con el RIR pedido.
 
 ## Nivel (por tiempo de entrenamiento continuo)

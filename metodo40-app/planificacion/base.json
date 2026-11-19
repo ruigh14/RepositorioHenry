@@ -83,33 +83,43 @@
    "fase": "Adaptación",
    "objetivo": "Aprender la técnica y crear el hábito",
    "variante": 1,
-   "dosis": {
-    "series": 2,
-    "reps": "12-15",
-    "rir": "3-4",
-    "descanso_central_1": "60 s",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "60 s",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 2,
+     "reps": "15",
+     "rir": "4",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 2,
+     "reps": "12",
+     "rir": "3",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 2,
+     "series_central_1": 3,
+     "reps": "10",
+     "rir": "3",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 2,
+     "reps": "13",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -632,33 +642,43 @@
    "fase": "Adaptación",
    "objetivo": "Consolidar técnica y subir un poco la carga",
    "variante": 1,
-   "dosis": {
-    "series": 3,
-    "reps": "12",
-    "rir": "3",
-    "descanso_central_1": "75 s",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "75 s",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 3,
+     "reps": "12",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 3,
+     "reps": "10",
+     "rir": "3",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "8",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 3,
+     "reps": "10",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -1181,33 +1201,43 @@
    "fase": "Base de fuerza",
    "objetivo": "Más peso con buena técnica",
    "variante": 1,
-   "dosis": {
-    "series": 3,
-    "reps": "10",
-    "rir": "2-3",
-    "descanso_central_1": "90 s",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "90 s",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 3,
+     "reps": "10",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 3,
+     "reps": "8",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "6",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 3,
+     "reps": "8",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -1730,33 +1760,43 @@
    "fase": "Fuerza",
    "objetivo": "Primer bloque más pesado",
    "variante": 1,
-   "dosis": {
-    "series": 4,
-    "reps": "8",
-    "rir": "2",
-    "descanso_central_1": "2 min",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "2 min",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 4,
+     "reps": "8",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 4,
+     "reps": "6",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "5",
+     "rir": "1-2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 4,
+     "reps": "7",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -2279,33 +2319,43 @@
    "fase": "Músculo",
    "objetivo": "Volumen moderado para ganar o mantener músculo",
    "variante": 1,
-   "dosis": {
-    "series": 4,
-    "reps": "10-12",
-    "rir": "2",
-    "descanso_central_1": "90 s",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "90 s",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 4,
+     "reps": "12",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 4,
+     "reps": "10",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "8",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 4,
+     "reps": "10",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -2828,33 +2878,43 @@
    "fase": "Consolidación + evaluación",
    "objetivo": "Afianzar y medir progreso (semana 4: test)",
    "variante": 1,
-   "dosis": {
-    "series": 3,
-    "reps": "8-10",
-    "rir": "2-3",
-    "descanso_central_1": "2 min",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "2 min",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 3,
+     "reps": "10",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 3,
+     "reps": "8",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "6",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 3,
+     "reps": "8",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -3377,33 +3437,43 @@
    "fase": "Nuevo estímulo",
    "objetivo": "Cambian los ejercicios: adaptarse a la variante 2",
    "variante": 2,
-   "dosis": {
-    "series": 3,
-    "reps": "10-12",
-    "rir": "3",
-    "descanso_central_1": "75 s",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "75 s",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 3,
+     "reps": "12",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 3,
+     "reps": "10",
+     "rir": "3",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "8",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 3,
+     "reps": "10",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -3930,33 +4000,43 @@
    "fase": "Fuerza",
    "objetivo": "Segundo bloque pesado",
    "variante": 2,
-   "dosis": {
-    "series": 4,
-    "reps": "6-8",
-    "rir": "2",
-    "descanso_central_1": "2 min",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "2 min",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 4,
+     "reps": "8",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 4,
+     "reps": "6",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "5",
+     "rir": "1-2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 4,
+     "reps": "7",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -4483,33 +4563,43 @@
    "fase": "Densidad",
    "objetivo": "Mismo trabajo en menos tiempo (descansos cortos)",
    "variante": 2,
-   "dosis": {
-    "series": 3,
-    "reps": "12",
-    "rir": "2-3",
-    "descanso_central_1": "45 s",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "45 s",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 3,
+     "reps": "15",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 3,
+     "reps": "12",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "10",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 3,
+     "reps": "13",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -5036,33 +5126,43 @@
    "fase": "Músculo",
    "objetivo": "Segundo bloque de volumen",
    "variante": 2,
-   "dosis": {
-    "series": 4,
-    "reps": "10",
-    "rir": "2",
-    "descanso_central_1": "90 s",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "90 s",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 4,
+     "reps": "12",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 4,
+     "reps": "10",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "8",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 4,
+     "reps": "10",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -5589,33 +5689,43 @@
    "fase": "Fuerza",
    "objetivo": "El mes más exigente del año",
    "variante": 2,
-   "dosis": {
-    "series": 4,
-    "reps": "5-6",
-    "rir": "1-2",
-    "descanso_central_1": "2-3 min",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "2-3 min",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 4,
+     "reps": "6",
+     "rir": "2",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 4,
+     "reps": "5",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "4",
+     "rir": "1",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 4,
+     "reps": "5",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {
@@ -6142,33 +6252,43 @@
    "fase": "Mantenimiento + evaluación anual",
    "objetivo": "Bajar exigencia, test final y preparar el año 2",
    "variante": 2,
-   "dosis": {
-    "series": 3,
-    "reps": "8-10",
-    "rir": "3",
-    "descanso_central_1": "2 min",
-    "descanso_resto": "60 s"
+   "descanso": {
+    "central_1": "2 min",
+    "resto": "60 s"
    },
    "semanas": [
     {
-     "semana": "1",
-     "series_extra_central_1": 0,
+     "semana": 1,
+     "series": 3,
+     "reps": "10",
+     "rir": "3",
+     "carga": "base",
      "nota": "Base del mes"
     },
     {
-     "semana": "2",
-     "series_extra_central_1": 0,
-     "nota": "Misma serie, +1 repetición o un poco más de peso"
+     "semana": 2,
+     "series": 3,
+     "reps": "8",
+     "rir": "3",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
     },
     {
-     "semana": "3",
-     "series_extra_central_1": 1,
-     "nota": "Pico del mes: +1 serie en el central 1"
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "6",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
     },
     {
-     "semana": "4 · descarga",
-     "series_extra_central_1": -99,
-     "nota": "La mitad de las series, RIR 4: recuperar"
+     "semana": 4,
+     "series": 3,
+     "reps": "8",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
     }
    ],
    "rutinas": {

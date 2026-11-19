@@ -1,22 +1,23 @@
 # Base general y mantenimiento · planificación de 12 meses
 
 Cada sesión: **entrada en calor** (5 ejercicios × 40 s) → **central 1, 2, 3** → **elongación** (6 posturas × 30 s).
-Frecuencia 2 a 3 por semana, rotación A → B → C; si entrena más días vuelve a A. Semanas 1-3 progresan, la 4 es descarga.
+Frecuencia 2 a 3 por semana, rotación A → B → C; si entrena más días vuelve a A.
+**Periodización ondulada:** semanas 1 y 2 suben, la 3 es la más intensa (+1 serie en el central 1) y la 4 es descarga: carga y repeticiones 15 % por debajo de la semana 1.
 
-| Mes | Fase | Objetivo | Variante | Series × reps | RIR | Descanso central 1 |
-|---|---|---|---|---|---|---|
-| 1 | Adaptación | Aprender la técnica y crear el hábito | 1 | 2 × 12-15 | 3-4 | 60 s |
-| 2 | Adaptación | Consolidar técnica y subir un poco la carga | 1 | 3 × 12 | 3 | 75 s |
-| 3 | Base de fuerza | Más peso con buena técnica | 1 | 3 × 10 | 2-3 | 90 s |
-| 4 | Fuerza | Primer bloque más pesado | 1 | 4 × 8 | 2 | 2 min |
-| 5 | Músculo | Volumen moderado para ganar o mantener músculo | 1 | 4 × 10-12 | 2 | 90 s |
-| 6 | Consolidación + evaluación | Afianzar y medir progreso (semana 4: test) | 1 | 3 × 8-10 | 2-3 | 2 min |
-| 7 | Nuevo estímulo | Cambian los ejercicios: adaptarse a la variante 2 | 2 | 3 × 10-12 | 3 | 75 s |
-| 8 | Fuerza | Segundo bloque pesado | 2 | 4 × 6-8 | 2 | 2 min |
-| 9 | Densidad | Mismo trabajo en menos tiempo (descansos cortos) | 2 | 3 × 12 | 2-3 | 45 s |
-| 10 | Músculo | Segundo bloque de volumen | 2 | 4 × 10 | 2 | 90 s |
-| 11 | Fuerza | El mes más exigente del año | 2 | 4 × 5-6 | 1-2 | 2-3 min |
-| 12 | Mantenimiento + evaluación anual | Bajar exigencia, test final y preparar el año 2 | 2 | 3 × 8-10 | 3 | 2 min |
+| Mes | Fase | Variante | Semana 1 | Semana 2 | Semana 3 (pico) | Semana 4 (−15 %) | Descanso central 1 |
+|---|---|---|---|---|---|---|---|
+| 1 | Adaptación | 1 | 2 × 15 · RIR 4 | 2 × 12 · RIR 3 | 3 × 10 · RIR 3 | 2 × 13 · −15 % carga | 60 s |
+| 2 | Adaptación | 1 | 3 × 12 · RIR 3 | 3 × 10 · RIR 3 | 4 × 8 · RIR 2 | 3 × 10 · −15 % carga | 75 s |
+| 3 | Base de fuerza | 1 | 3 × 10 · RIR 3 | 3 × 8 · RIR 2 | 4 × 6 · RIR 2 | 3 × 8 · −15 % carga | 90 s |
+| 4 | Fuerza | 1 | 4 × 8 · RIR 3 | 4 × 6 · RIR 2 | 5 × 5 · RIR 1-2 | 4 × 7 · −15 % carga | 2 min |
+| 5 | Músculo | 1 | 4 × 12 · RIR 3 | 4 × 10 · RIR 2 | 5 × 8 · RIR 2 | 4 × 10 · −15 % carga | 90 s |
+| 6 | Consolidación + evaluación | 1 | 3 × 10 · RIR 3 | 3 × 8 · RIR 2 | 4 × 6 · RIR 2 | 3 × 8 · −15 % carga | 2 min |
+| 7 | Nuevo estímulo | 2 | 3 × 12 · RIR 3 | 3 × 10 · RIR 3 | 4 × 8 · RIR 2 | 3 × 10 · −15 % carga | 75 s |
+| 8 | Fuerza | 2 | 4 × 8 · RIR 3 | 4 × 6 · RIR 2 | 5 × 5 · RIR 1-2 | 4 × 7 · −15 % carga | 2 min |
+| 9 | Densidad | 2 | 3 × 15 · RIR 3 | 3 × 12 · RIR 2 | 4 × 10 · RIR 2 | 3 × 13 · −15 % carga | 45 s |
+| 10 | Músculo | 2 | 4 × 12 · RIR 3 | 4 × 10 · RIR 2 | 5 × 8 · RIR 2 | 4 × 10 · −15 % carga | 90 s |
+| 11 | Fuerza | 2 | 4 × 6 · RIR 2 | 4 × 5 · RIR 2 | 5 × 4 · RIR 1 | 4 × 5 · −15 % carga | 2-3 min |
+| 12 | Mantenimiento + evaluación anual | 2 | 3 × 10 · RIR 3 | 3 × 8 · RIR 3 | 4 × 6 · RIR 2 | 3 × 8 · −15 % carga | 2 min |
 
 **Niveles:** básico = 2 centrales, 1 serie menos y RIR +1 (40-45 min) · intermedio = 3 centrales (50-60 min) · avanzado = 3 centrales y 1 serie más.
 

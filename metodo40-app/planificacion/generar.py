@@ -31,25 +31,37 @@ RUT = {
  },
 }
 
-# 12 meses de BASE GENERAL Y MANTENIMIENTO. Cada mes: semanas 1-3 progresan, la 4 es descarga.
-# (mes, fase, objetivo del mes, variante, series, reps, RIR, descanso central 1)
+# 12 meses de BASE GENERAL Y MANTENIMIENTO con periodización ondulada semanal:
+# semanas 1, 2 y 3 aumentan (la 3 es la más intensa); la 4 es descarga: carga y volumen 15 % por debajo de la semana 1.
+# (mes, fase, objetivo, variante, series, reps sem 1-2-3, RIR sem 1-2-3, descanso central 1)
 MESES = [
- (1, "Adaptación", "Aprender la técnica y crear el hábito", 1, 2, "12-15", "3-4", "60 s"),
- (2, "Adaptación", "Consolidar técnica y subir un poco la carga", 1, 3, "12", "3", "75 s"),
- (3, "Base de fuerza", "Más peso con buena técnica", 1, 3, "10", "2-3", "90 s"),
- (4, "Fuerza", "Primer bloque más pesado", 1, 4, "8", "2", "2 min"),
- (5, "Músculo", "Volumen moderado para ganar o mantener músculo", 1, 4, "10-12", "2", "90 s"),
- (6, "Consolidación + evaluación", "Afianzar y medir progreso (semana 4: test)", 1, 3, "8-10", "2-3", "2 min"),
- (7, "Nuevo estímulo", "Cambian los ejercicios: adaptarse a la variante 2", 2, 3, "10-12", "3", "75 s"),
- (8, "Fuerza", "Segundo bloque pesado", 2, 4, "6-8", "2", "2 min"),
- (9, "Densidad", "Mismo trabajo en menos tiempo (descansos cortos)", 2, 3, "12", "2-3", "45 s"),
- (10, "Músculo", "Segundo bloque de volumen", 2, 4, "10", "2", "90 s"),
- (11, "Fuerza", "El mes más exigente del año", 2, 4, "5-6", "1-2", "2-3 min"),
- (12, "Mantenimiento + evaluación anual", "Bajar exigencia, test final y preparar el año 2", 2, 3, "8-10", "3", "2 min"),
+ (1, "Adaptación", "Aprender la técnica y crear el hábito", 1, 2, ("15", "12", "10"), ("4", "3", "3"), "60 s"),
+ (2, "Adaptación", "Consolidar técnica y subir un poco la carga", 1, 3, ("12", "10", "8"), ("3", "3", "2"), "75 s"),
+ (3, "Base de fuerza", "Más peso con buena técnica", 1, 3, ("10", "8", "6"), ("3", "2", "2"), "90 s"),
+ (4, "Fuerza", "Primer bloque más pesado", 1, 4, ("8", "6", "5"), ("3", "2", "1-2"), "2 min"),
+ (5, "Músculo", "Volumen moderado para ganar o mantener músculo", 1, 4, ("12", "10", "8"), ("3", "2", "2"), "90 s"),
+ (6, "Consolidación + evaluación", "Afianzar y medir progreso (semana 4: test)", 1, 3, ("10", "8", "6"), ("3", "2", "2"), "2 min"),
+ (7, "Nuevo estímulo", "Cambian los ejercicios: adaptarse a la variante 2", 2, 3, ("12", "10", "8"), ("3", "3", "2"), "75 s"),
+ (8, "Fuerza", "Segundo bloque pesado", 2, 4, ("8", "6", "5"), ("3", "2", "1-2"), "2 min"),
+ (9, "Densidad", "Mismo trabajo en menos tiempo (descansos cortos)", 2, 3, ("15", "12", "10"), ("3", "2", "2"), "45 s"),
+ (10, "Músculo", "Segundo bloque de volumen", 2, 4, ("12", "10", "8"), ("3", "2", "2"), "90 s"),
+ (11, "Fuerza", "El mes más exigente del año", 2, 4, ("6", "5", "4"), ("2", "2", "1"), "2-3 min"),
+ (12, "Mantenimiento + evaluación anual", "Bajar exigencia, test final y preparar el año 2", 2, 3, ("10", "8", "6"), ("3", "3", "2"), "2 min"),
 ]
 
-SEMANAS = [("1", 0, "Base del mes"), ("2", 0, "Misma serie, +1 repetición o un poco más de peso"),
-           ("3", 1, "Pico del mes: +1 serie en el central 1"), ("4 · descarga", -99, "La mitad de las series, RIR 4: recuperar")]
+
+def semanas(series, reps, rir):
+    """Ondulada: 1 y 2 suben, la 3 es la más intensa (+1 serie en el central 1), la 4 = semana 1 con 15 % menos de carga y volumen."""
+    r4 = max(1, round(int(reps[0]) * 0.85))   # repeticiones de la semana 1 −15 %
+    return [
+        {"semana": 1, "series": series, "reps": reps[0], "rir": rir[0], "carga": "base", "nota": "Base del mes"},
+        {"semana": 2, "series": series, "reps": reps[1], "rir": rir[1], "carga": "sube", "nota": "Menos repeticiones, más peso"},
+        {"semana": 3, "series": series, "series_central_1": series + 1, "reps": reps[2], "rir": rir[2], "carga": "la más alta",
+         "nota": "La semana más intensa: +1 serie en el central 1"},
+        {"semana": 4, "series": series, "reps": str(r4), "rir": "4", "carga": "15 % menos que la semana 1",
+         "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"},
+    ]
+
 
 NIVEL = {  # ajustes por nivel (por años de entrenamiento continuo)
  "basico": {"centrales": 2, "series": -1, "rir": "+1", "duracion": "40-45 min"},
@@ -94,8 +106,8 @@ def plan():
     meses = []
     for m, fase, obj, var, series, reps, rir, desc in MESES:
         meses.append({"mes": m, "fase": fase, "objetivo": obj, "variante": var,
-                      "dosis": {"series": series, "reps": reps, "rir": rir, "descanso_central_1": desc, "descanso_resto": "60 s"},
-                      "semanas": [{"semana": s, "series_extra_central_1": x, "nota": n} for s, x, n in SEMANAS],
+                      "descanso": {"central_1": desc, "resto": "60 s"},
+                      "semanas": semanas(series, reps, rir),
                       "rutinas": {lugar: {r: {"entrada_en_calor": [ej(i) for i in CALOR],
                                               "centrales": [[ej(i) for i in b] for b in bloques],
                                               "elongacion": [ej(i) for i in ELONG]}
@@ -107,11 +119,13 @@ def plan():
 def md(p):
     L = [f"# {p['nombre']} · planificación de 12 meses", "",
          "Cada sesión: **entrada en calor** (5 ejercicios × 40 s) → **central 1, 2, 3** → **elongación** (6 posturas × 30 s).",
-         f"Frecuencia {p['frecuencia']}, rotación {p['rotacion']}. Semanas 1-3 progresan, la 4 es descarga.", "",
-         "| Mes | Fase | Objetivo | Variante | Series × reps | RIR | Descanso central 1 |", "|---|---|---|---|---|---|---|"]
+         f"Frecuencia {p['frecuencia']}, rotación {p['rotacion']}.",
+         "**Periodización ondulada:** semanas 1 y 2 suben, la 3 es la más intensa (+1 serie en el central 1) y la 4 es descarga: carga y repeticiones 15 % por debajo de la semana 1.", "",
+         "| Mes | Fase | Variante | Semana 1 | Semana 2 | Semana 3 (pico) | Semana 4 (−15 %) | Descanso central 1 |", "|---|---|---|---|---|---|---|---|"]
     for m in p["meses"]:
-        d = m["dosis"]
-        L.append(f"| {m['mes']} | {m['fase']} | {m['objetivo']} | {m['variante']} | {d['series']} × {d['reps']} | {d['rir']} | {d['descanso_central_1']} |")
+        w = m["semanas"]
+        c = [f"{x['series']} × {x['reps']} · RIR {x['rir']}" for x in w[:2]] + [f"{w[2]['series_central_1']} × {w[2]['reps']} · RIR {w[2]['rir']}", f"{w[3]['series']} × {w[3]['reps']} · −15 % carga"]
+        L.append(f"| {m['mes']} | {m['fase']} | {m['variante']} | " + " | ".join(c) + f" | {m['descanso']['central_1']} |")
     L += ["", "**Niveles:** básico = 2 centrales, 1 serie menos y RIR +1 (40-45 min) · intermedio = 3 centrales (50-60 min) · avanzado = 3 centrales y 1 serie más.", ""]
     for lugar in RUT:
         for var in (1, 2):
