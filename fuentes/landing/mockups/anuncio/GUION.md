@@ -22,3 +22,8 @@ Conseguilo hoy, con 5 bonus de regalo por tiempo limitado.
 1. Generar la voz femenina con IA (Higgsfield `seed_audio`, ~2,2 créditos; quedan ~3,5; voces en español: Marisol, Ines, Elena: probar que suene rioplatense) o usar una grabación.
 2. Estirar las escenas a la voz (~22 s), sumar subtítulos y música suave.
 3. Si Meta frena "tu figura", cambiar por "y te sentís mejor con tu cuerpo". Marcar el anuncio como hecho con IA; la mujer no es alumna ni testimonio.
+
+## Versión con voz (19/11/2026)
+`ANUNCIO_IA_voz.mp4` (16 s): el video de Nacho (`ANUNCIO_IA.mp4`, 15 s) + voz de Elena (Higgsfield `seed_audio`, `voz_elena.wav`), 6 % más rápida y el último cuadro sostenido 1,2 s. Texto:
+"Después de los 40, si no entrenás fuerza, perdés músculo y te cansás cada vez más. Con el pack RENOVA, en 8 semanas recuperás tu fuerza y tu energía, en casa o en el gimnasio, y ordenás tus comidas sin dietas. ¡Conseguilo hoy, con 5 bonus de regalo!"
+Falta: subtítulos y música suave.
