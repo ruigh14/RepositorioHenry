@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0E0F10">
-<title>MÉTODO 40 · Tu entrenamiento</title>
+<title>MÉTODO 40 App</title>
 <style>
 /*TOKENS*/
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--m40-gris-claro);color:var(--m40-negro);font-size:16px;line-height:1.4;padding-bottom:90px}
 button,input,select{font:inherit}
-.top{background:var(--m40-negro);color:#fff;padding:14px 16px 12px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:5}
+.top{background:var(--m40-negro);color:#fff;padding:14px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));display:flex;align-items:center;justify-content:space-between;position:sticky;top:env(safe-area-inset-top, 0px);z-index:5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--m40-negro)}
 .top img{height:26px;filter:brightness(0) invert(1)}
 .top b{font-size:13px;letter-spacing:.14em;color:#fff;opacity:.85}
 .top .who{font-size:13px;opacity:.75}
@@ -283,7 +284,11 @@ function perfil() {
   <button class="btn ghost" id="reset">Borrar mis datos y empezar de nuevo</button>
   <p class="muted" style="text-align:center;margin-top:10px">Tus datos se guardan solo en este celular.</p>`;
   document.querySelectorAll("[data-l]").forEach(b => b.onclick = () => { P.lugar = b.dataset.l; save(); render(); });
-  $("#reset").onclick = () => { if (confirm("¿Seguro? Se borran tu plan, tus sesiones y tus medidas.")) { S = {ok: true}; save(); render(); } };
+  $("#reset").onclick = e => {
+    const b = e.currentTarget;
+    if (b.dataset.seguro) { S = {ok: true}; save(); render(); return; }
+    b.dataset.seguro = "1"; b.textContent = "Tocá de nuevo para borrar todo (plan, sesiones y medidas)"; b.style.background = "var(--m40-rojo)"; b.style.color = "#fff";
+  };
 }
 
 document.querySelectorAll("nav button").forEach(b => b.onclick = () => { vista = b.dataset.v; render(); });

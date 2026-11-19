@@ -44,5 +44,8 @@ DATOS = {"planes": planes, "ej": EJ, "hash": hashlib.sha256(g["CODIGO_APP"].stri
 html = ((HERE / "app.html").read_text(encoding="utf-8").replace("/*TOKENS*/", raiz)
         .replace("/*DATOS*/", json.dumps(DATOS, ensure_ascii=False)).replace("/*LOGO*/", logo))
 (dist / "index.html").write_text(html, encoding="utf-8")
+# Versión para publicar como Artifact de claude.ai (sin doctype/html/head/body: el visor los agrega)
+art = re.sub(r"<!doctype html>|</?html[^>]*>|</?head>|</?body>|<meta charset[^>]*>|<meta name=\"viewport\"[^>]*>", "", html)
+(dist / "artifact.html").write_text(art.strip() + "\n", encoding="utf-8")
 (dist / "_headers").write_text("/*\n  Referrer-Policy: strict-origin-when-cross-origin\n", encoding="utf-8")
 print("dist/index.html ·", len(html) // 1024, "KB ·", len(usados), "ejercicios")
