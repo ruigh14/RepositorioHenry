@@ -215,6 +215,7 @@ function hoy() {
   ${s.calor.map(e => exCard(e, "40 segundos")).join("")}
   ${s.centrales.map((b, k) => `<div class="sec-h"><h2>Central <span>${k + 1}</span></h2><span>Descanso ${k === 0 ? s.m.descanso.central_1 : s.m.descanso.resto}</span></div>
     ${b.map(e => exCard(e, `${e.series} × ${e.reps} · RIR ${e.rir}`, true)).join("")}`).join("")}
+  ${s.m.extra ? `<div class="sec-h"><h2>Final: <span>cardio</span></h2></div><div class="card">${esc(s.m.extra)}</div>` : ""}
   <div class="sec-h"><h2>Elongación</h2><span>30 s cada una</span></div>
   ${s.elong.map(e => exCard(e, "30 segundos")).join("")}
   <button class="btn" id="terminar">Terminar sesión</button>

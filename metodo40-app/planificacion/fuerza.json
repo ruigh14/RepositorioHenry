@@ -1,0 +1,6826 @@
+{
+ "objetivo": "fuerza",
+ "nombre": "Ganar fuerza",
+ "rotacion": "A → B → C; si entrena más días vuelve a A",
+ "frecuencia": "2 a 3 por semana",
+ "niveles": {
+  "basico": {
+   "centrales": 2,
+   "series": -1,
+   "rir": "+1",
+   "duracion": "40-45 min"
+  },
+  "intermedio": {
+   "centrales": 3,
+   "series": 0,
+   "rir": "0",
+   "duracion": "50-60 min"
+  },
+  "avanzado": {
+   "centrales": 3,
+   "series": 1,
+   "rir": "0",
+   "duracion": "50-60 min"
+  }
+ },
+ "dolores": {
+  "casa": {
+   "rodilla": {
+    "swing": "puente_peso",
+    "sentadilla_copa": "sentadilla_cajon",
+    "sentadilla_sumo": "sentadilla_cajon",
+    "push_press": "press_hombros_arrodillado",
+    "mountain": "plancha_frontal"
+   },
+   "lumbar": {
+    "swing": "puente_peso",
+    "renegade_row": "remo_unilateral",
+    "push_press": "press_hombros_arrodillado"
+   },
+   "hombro": {
+    "press_hombros_arrodillado": "vuelo_posterior",
+    "push_press": "vuelo_posterior",
+    "fondos_banco": "press_frances",
+    "flexiones": "flex_inclinadas",
+    "renegade_row": "remo_unilateral"
+   }
+  },
+  "gimnasio": {
+   "rodilla": {
+    "swing": "puente_peso",
+    "sentadilla_copa": "sentadilla_cajon",
+    "sentadilla_sumo": "sentadilla_cajon",
+    "sentadilla_barra": "prensa",
+    "hack": "prensa",
+    "ext_cuadriceps": "curl_isquio",
+    "push_press": "press_hombros_arrodillado",
+    "mountain": "plancha_frontal"
+   },
+   "lumbar": {
+    "peso_muerto_barra": "elevacion_cadera_cajon",
+    "swing": "puente_peso",
+    "remo_45_barra": "remo_polea_baja",
+    "renegade_row": "remo_unilateral",
+    "push_press": "press_militar_maquina",
+    "sentadilla_barra": "prensa",
+    "pm_rumano_maquina": "puente_peso"
+   },
+   "hombro": {
+    "press_hombros_arrodillado": "face_pull",
+    "push_press": "vuelo_posterior",
+    "press_militar_maquina": "face_pull",
+    "fondos_banco": "triceps_soga",
+    "press_plano": "flex_inclinadas",
+    "press_45_barra": "flex_inclinadas",
+    "flexiones": "flex_inclinadas",
+    "renegade_row": "remo_unilateral"
+   }
+  }
+ },
+ "meses": [
+  {
+   "mes": 1,
+   "fase": "Adaptación técnica",
+   "objetivo": "Dominar la técnica de los básicos",
+   "variante": 1,
+   "descanso": {
+    "central_1": "90 s",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 3,
+     "reps": "10",
+     "rir": "4",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 3,
+     "reps": "8",
+     "rir": "3",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "6",
+     "rir": "3",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 3,
+     "reps": "8",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "press_hombros_arrodillado",
+         "nombre": "Press de hombros arrodillado"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_botella",
+         "nombre": "Bicho muerto con peso"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_polea",
+         "nombre": "Curl de bíceps en polea"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 2,
+   "fase": "Base de fuerza",
+   "objetivo": "Primeras cargas pesadas",
+   "variante": 1,
+   "descanso": {
+    "central_1": "2 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 4,
+     "reps": "8",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 4,
+     "reps": "6",
+     "rir": "3",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "5",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 4,
+     "reps": "7",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "press_hombros_arrodillado",
+         "nombre": "Press de hombros arrodillado"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_botella",
+         "nombre": "Bicho muerto con peso"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_polea",
+         "nombre": "Curl de bíceps en polea"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 3,
+   "fase": "Fuerza",
+   "objetivo": "Menos repeticiones, más kilos",
+   "variante": 1,
+   "descanso": {
+    "central_1": "2-3 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 4,
+     "reps": "6",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 4,
+     "reps": "5",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "4",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 4,
+     "reps": "5",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "press_hombros_arrodillado",
+         "nombre": "Press de hombros arrodillado"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_botella",
+         "nombre": "Bicho muerto con peso"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_polea",
+         "nombre": "Curl de bíceps en polea"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 4,
+   "fase": "Hipertrofia de apoyo",
+   "objetivo": "Más músculo para levantar más",
+   "variante": 1,
+   "descanso": {
+    "central_1": "90 s",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 4,
+     "reps": "10",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 4,
+     "reps": "8",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "6",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 4,
+     "reps": "8",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "press_hombros_arrodillado",
+         "nombre": "Press de hombros arrodillado"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_botella",
+         "nombre": "Bicho muerto con peso"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_polea",
+         "nombre": "Curl de bíceps en polea"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 5,
+   "fase": "Fuerza",
+   "objetivo": "Bloque pesado",
+   "variante": 1,
+   "descanso": {
+    "central_1": "3 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 5,
+     "reps": "5",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 5,
+     "reps": "4",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 5,
+     "series_central_1": 6,
+     "reps": "3",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 5,
+     "reps": "4",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "press_hombros_arrodillado",
+         "nombre": "Press de hombros arrodillado"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_botella",
+         "nombre": "Bicho muerto con peso"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_polea",
+         "nombre": "Curl de bíceps en polea"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 6,
+   "fase": "Evaluación",
+   "objetivo": "Test de fuerza en la semana 4",
+   "variante": 1,
+   "descanso": {
+    "central_1": "3 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 3,
+     "reps": "5",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 3,
+     "reps": "3",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "2",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 3,
+     "reps": "4",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "press_hombros_arrodillado",
+         "nombre": "Press de hombros arrodillado"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_botella",
+         "nombre": "Bicho muerto con peso"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_polea",
+         "nombre": "Curl de bíceps en polea"
+        },
+        {
+         "id": "plancha_frontal",
+         "nombre": "Plancha frontal"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 7,
+   "fase": "Nuevo estímulo",
+   "objetivo": "Cambian los ejercicios: variante 2",
+   "variante": 2,
+   "descanso": {
+    "central_1": "2 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 3,
+     "reps": "8",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 3,
+     "reps": "6",
+     "rir": "3",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "5",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 3,
+     "reps": "7",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "flex_inclinadas",
+         "nombre": "Flexiones inclinadas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "bird_dog",
+         "nombre": "Bird dog"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        },
+        {
+         "id": "bicho_alt",
+         "nombre": "Bicho muerto alternado"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 8,
+   "fase": "Fuerza",
+   "objetivo": "Bloque pesado con los ejercicios nuevos",
+   "variante": 2,
+   "descanso": {
+    "central_1": "2-3 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 4,
+     "reps": "6",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 4,
+     "reps": "5",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "4",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 4,
+     "reps": "5",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "flex_inclinadas",
+         "nombre": "Flexiones inclinadas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "bird_dog",
+         "nombre": "Bird dog"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        },
+        {
+         "id": "bicho_alt",
+         "nombre": "Bicho muerto alternado"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 9,
+   "fase": "Hipertrofia de apoyo",
+   "objetivo": "Recargar músculo y articulaciones",
+   "variante": 2,
+   "descanso": {
+    "central_1": "90 s",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 4,
+     "reps": "10",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 4,
+     "reps": "8",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 4,
+     "series_central_1": 5,
+     "reps": "6",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 4,
+     "reps": "8",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "flex_inclinadas",
+         "nombre": "Flexiones inclinadas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "bird_dog",
+         "nombre": "Bird dog"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        },
+        {
+         "id": "bicho_alt",
+         "nombre": "Bicho muerto alternado"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 10,
+   "fase": "Fuerza",
+   "objetivo": "Bloque más pesado del año",
+   "variante": 2,
+   "descanso": {
+    "central_1": "3 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 5,
+     "reps": "5",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 5,
+     "reps": "4",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 5,
+     "series_central_1": 6,
+     "reps": "3",
+     "rir": "1-2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 5,
+     "reps": "4",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "flex_inclinadas",
+         "nombre": "Flexiones inclinadas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "bird_dog",
+         "nombre": "Bird dog"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        },
+        {
+         "id": "bicho_alt",
+         "nombre": "Bicho muerto alternado"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 11,
+   "fase": "Pico",
+   "objetivo": "Llegar al máximo con técnica perfecta",
+   "variante": 2,
+   "descanso": {
+    "central_1": "3 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 5,
+     "reps": "4",
+     "rir": "2",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 5,
+     "reps": "3",
+     "rir": "2",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 5,
+     "series_central_1": 6,
+     "reps": "2",
+     "rir": "1",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 5,
+     "reps": "3",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "flex_inclinadas",
+         "nombre": "Flexiones inclinadas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "bird_dog",
+         "nombre": "Bird dog"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        },
+        {
+         "id": "bicho_alt",
+         "nombre": "Bicho muerto alternado"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "mes": 12,
+   "fase": "Evaluación anual + mantenimiento",
+   "objetivo": "Test final y bajar exigencia",
+   "variante": 2,
+   "descanso": {
+    "central_1": "3 min",
+    "resto": "60 s"
+   },
+   "extra": null,
+   "semanas": [
+    {
+     "semana": 1,
+     "series": 3,
+     "reps": "5",
+     "rir": "3",
+     "carga": "base",
+     "nota": "Base del mes"
+    },
+    {
+     "semana": 2,
+     "series": 3,
+     "reps": "3",
+     "rir": "3",
+     "carga": "sube",
+     "nota": "Menos repeticiones, más peso"
+    },
+    {
+     "semana": 3,
+     "series": 3,
+     "series_central_1": 4,
+     "reps": "2",
+     "rir": "2",
+     "carga": "la más alta",
+     "nota": "La semana más intensa: +1 serie en el central 1"
+    },
+    {
+     "semana": 4,
+     "series": 3,
+     "reps": "4",
+     "rir": "4",
+     "carga": "15 % menos que la semana 1",
+     "nota": "Descarga: carga y volumen 15 % por debajo de la semana 1"
+    }
+   ],
+   "rutinas": {
+    "casa": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_cajon",
+         "nombre": "Sentadilla a cajón con pausa"
+        },
+        {
+         "id": "flex_inclinadas",
+         "nombre": "Flexiones inclinadas"
+        }
+       ],
+       [
+        {
+         "id": "puente_peso",
+         "nombre": "Puente de glúteos con peso"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "bird_dog",
+         "nombre": "Bird dog"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_sumo",
+         "nombre": "Sentadilla sumo"
+        },
+        {
+         "id": "renegade_row",
+         "nombre": "Remo en plancha (renegade row)"
+        }
+       ],
+       [
+        {
+         "id": "elevacion_cadera_cajon",
+         "nombre": "Elevación de cadera en banco"
+        },
+        {
+         "id": "flexiones",
+         "nombre": "Flexiones de brazos"
+        }
+       ],
+       [
+        {
+         "id": "vuelo_posterior",
+         "nombre": "Vuelo posterior con mancuernas"
+        },
+        {
+         "id": "curl_biceps",
+         "nombre": "Curl de bíceps con mancuernas"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_copa",
+         "nombre": "Sentadilla en copa"
+        },
+        {
+         "id": "push_press",
+         "nombre": "Push press con mancuernas"
+        }
+       ],
+       [
+        {
+         "id": "swing",
+         "nombre": "Swing con pesa rusa"
+        },
+        {
+         "id": "remo_unilateral",
+         "nombre": "Remo con mancuerna"
+        }
+       ],
+       [
+        {
+         "id": "fondos_banco",
+         "nombre": "Fondos de tríceps en banco"
+        },
+        {
+         "id": "bicho_alt",
+         "nombre": "Bicho muerto alternado"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    },
+    "gimnasio": {
+     "A": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "hack",
+         "nombre": "Sentadilla hack"
+        },
+        {
+         "id": "press_45_barra",
+         "nombre": "Press inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "jalones",
+         "nombre": "Jalón al pecho"
+        },
+        {
+         "id": "curl_isquio",
+         "nombre": "Curl de isquiotibiales sentado"
+        }
+       ],
+       [
+        {
+         "id": "face_pull",
+         "nombre": "Face pull"
+        },
+        {
+         "id": "triceps_soga",
+         "nombre": "Extensión de tríceps con soga"
+        },
+        {
+         "id": "press_pallof",
+         "nombre": "Press Pallof"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "B": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "pm_rumano_maquina",
+         "nombre": "Peso muerto rumano en máquina"
+        },
+        {
+         "id": "press_plano",
+         "nombre": "Press plano con barra"
+        }
+       ],
+       [
+        {
+         "id": "prensa",
+         "nombre": "Prensa"
+        },
+        {
+         "id": "remo_polea_baja",
+         "nombre": "Remo en polea baja"
+        }
+       ],
+       [
+        {
+         "id": "elevaciones_laterales",
+         "nombre": "Elevaciones laterales"
+        },
+        {
+         "id": "biceps_martillo",
+         "nombre": "Bíceps martillo"
+        },
+        {
+         "id": "plancha_lateral",
+         "nombre": "Plancha lateral"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     },
+     "C": {
+      "entrada_en_calor": [
+       {
+        "id": "mov_cadera",
+        "nombre": "Movilidad de cadera"
+       },
+       {
+        "id": "mov_escapular",
+        "nombre": "Movilidad escapular"
+       },
+       {
+        "id": "cat_cow",
+        "nombre": "Gato-vaca"
+       },
+       {
+        "id": "mov_baston",
+        "nombre": "Movilidad con bastón"
+       },
+       {
+        "id": "circ_cadera",
+        "nombre": "Circunducción de cadera"
+       }
+      ],
+      "centrales": [
+       [
+        {
+         "id": "sentadilla_barra",
+         "nombre": "Sentadilla con barra"
+        },
+        {
+         "id": "press_militar_maquina",
+         "nombre": "Press de hombros en máquina"
+        }
+       ],
+       [
+        {
+         "id": "peso_muerto_barra",
+         "nombre": "Peso muerto con barra"
+        },
+        {
+         "id": "remo_45_barra",
+         "nombre": "Remo inclinado con barra"
+        }
+       ],
+       [
+        {
+         "id": "ext_cuadriceps",
+         "nombre": "Extensión de cuádriceps"
+        },
+        {
+         "id": "press_frances",
+         "nombre": "Press francés con mancuernas"
+        },
+        {
+         "id": "bicho_muerto_disco",
+         "nombre": "Bicho muerto con disco"
+        }
+       ]
+      ],
+      "elongacion": [
+       {
+        "id": "el_gigante",
+        "nombre": "Estiramiento gigante"
+       },
+       {
+        "id": "el_isquios",
+        "nombre": "Isquiotibiales a una pierna"
+       },
+       {
+        "id": "el_espalda_baja",
+        "nombre": "Espalda baja"
+       },
+       {
+        "id": "el_pectoral",
+        "nombre": "Pectoral en pared"
+       },
+       {
+        "id": "el_hombro",
+        "nombre": "Hombro a un brazo"
+       },
+       {
+        "id": "el_abductores",
+        "nombre": "Aductores sentado"
+       }
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

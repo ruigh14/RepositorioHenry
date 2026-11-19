@@ -87,6 +87,7 @@
     "central_1": "60 s",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -646,6 +647,7 @@
     "central_1": "75 s",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -1205,6 +1207,7 @@
     "central_1": "90 s",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -1764,6 +1767,7 @@
     "central_1": "2 min",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -2323,6 +2327,7 @@
     "central_1": "90 s",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -2882,6 +2887,7 @@
     "central_1": "2 min",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -3441,6 +3447,7 @@
     "central_1": "75 s",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -4004,6 +4011,7 @@
     "central_1": "2 min",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -4567,6 +4575,7 @@
     "central_1": "45 s",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -5130,6 +5139,7 @@
     "central_1": "90 s",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -5693,6 +5703,7 @@
     "central_1": "2-3 min",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,
@@ -6256,6 +6267,7 @@
     "central_1": "2 min",
     "resto": "60 s"
    },
+   "extra": null,
    "semanas": [
     {
      "semana": 1,

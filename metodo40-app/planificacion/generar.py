@@ -31,23 +31,64 @@ RUT = {
  },
 }
 
-# 12 meses de BASE GENERAL Y MANTENIMIENTO con periodización ondulada semanal:
-# semanas 1, 2 y 3 aumentan (la 3 es la más intensa); la 4 es descarga: carga y volumen 15 % por debajo de la semana 1.
-# (mes, fase, objetivo, variante, series, reps sem 1-2-3, RIR sem 1-2-3, descanso central 1)
-MESES = [
- (1, "Adaptación", "Aprender la técnica y crear el hábito", 1, 2, ("15", "12", "10"), ("4", "3", "3"), "60 s"),
- (2, "Adaptación", "Consolidar técnica y subir un poco la carga", 1, 3, ("12", "10", "8"), ("3", "3", "2"), "75 s"),
- (3, "Base de fuerza", "Más peso con buena técnica", 1, 3, ("10", "8", "6"), ("3", "2", "2"), "90 s"),
- (4, "Fuerza", "Primer bloque más pesado", 1, 4, ("8", "6", "5"), ("3", "2", "1-2"), "2 min"),
- (5, "Músculo", "Volumen moderado para ganar o mantener músculo", 1, 4, ("12", "10", "8"), ("3", "2", "2"), "90 s"),
- (6, "Consolidación + evaluación", "Afianzar y medir progreso (semana 4: test)", 1, 3, ("10", "8", "6"), ("3", "2", "2"), "2 min"),
- (7, "Nuevo estímulo", "Cambian los ejercicios: adaptarse a la variante 2", 2, 3, ("12", "10", "8"), ("3", "3", "2"), "75 s"),
- (8, "Fuerza", "Segundo bloque pesado", 2, 4, ("8", "6", "5"), ("3", "2", "1-2"), "2 min"),
- (9, "Densidad", "Mismo trabajo en menos tiempo (descansos cortos)", 2, 3, ("15", "12", "10"), ("3", "2", "2"), "45 s"),
- (10, "Músculo", "Segundo bloque de volumen", 2, 4, ("12", "10", "8"), ("3", "2", "2"), "90 s"),
- (11, "Fuerza", "El mes más exigente del año", 2, 4, ("6", "5", "4"), ("2", "2", "1"), "2-3 min"),
- (12, "Mantenimiento + evaluación anual", "Bajar exigencia, test final y preparar el año 2", 2, 3, ("10", "8", "6"), ("3", "3", "2"), "2 min"),
-]
+# Periodización ondulada semanal en todos los objetivos: semanas 1, 2 y 3 aumentan (la 3 es la más intensa);
+# la 4 es descarga: carga y repeticiones 15 % por debajo de la semana 1.
+# Cada mes: (mes, fase, objetivo del mes, variante, series, reps sem 1-2-3, RIR sem 1-2-3, descanso central 1)
+OBJETIVOS = {
+ "base": ("Base general y mantenimiento", [
+  (1, "Adaptación", "Aprender la técnica y crear el hábito", 1, 2, ("15", "12", "10"), ("4", "3", "3"), "60 s"),
+  (2, "Adaptación", "Consolidar técnica y subir un poco la carga", 1, 3, ("12", "10", "8"), ("3", "3", "2"), "75 s"),
+  (3, "Base de fuerza", "Más peso con buena técnica", 1, 3, ("10", "8", "6"), ("3", "2", "2"), "90 s"),
+  (4, "Fuerza", "Primer bloque más pesado", 1, 4, ("8", "6", "5"), ("3", "2", "1-2"), "2 min"),
+  (5, "Músculo", "Volumen moderado para ganar o mantener músculo", 1, 4, ("12", "10", "8"), ("3", "2", "2"), "90 s"),
+  (6, "Consolidación + evaluación", "Afianzar y medir progreso (semana 4: test)", 1, 3, ("10", "8", "6"), ("3", "2", "2"), "2 min"),
+  (7, "Nuevo estímulo", "Cambian los ejercicios: adaptarse a la variante 2", 2, 3, ("12", "10", "8"), ("3", "3", "2"), "75 s"),
+  (8, "Fuerza", "Segundo bloque pesado", 2, 4, ("8", "6", "5"), ("3", "2", "1-2"), "2 min"),
+  (9, "Densidad", "Mismo trabajo en menos tiempo (descansos cortos)", 2, 3, ("15", "12", "10"), ("3", "2", "2"), "45 s"),
+  (10, "Músculo", "Segundo bloque de volumen", 2, 4, ("12", "10", "8"), ("3", "2", "2"), "90 s"),
+  (11, "Fuerza", "El mes más exigente del año", 2, 4, ("6", "5", "4"), ("2", "2", "1"), "2-3 min"),
+  (12, "Mantenimiento + evaluación anual", "Bajar exigencia, test final y preparar el año 2", 2, 3, ("10", "8", "6"), ("3", "3", "2"), "2 min")], None),
+ "hipertrofia": ("Hipertrofia", [
+  (1, "Adaptación", "Técnica y primeras cargas para crecer", 1, 3, ("15", "12", "10"), ("3", "3", "2"), "75 s"),
+  (2, "Acumulación", "Sumar volumen: más series de trabajo", 1, 4, ("12", "10", "8"), ("3", "2", "2"), "90 s"),
+  (3, "Acumulación", "Mismo volumen, más cerca del fallo", 1, 4, ("12", "10", "8"), ("2", "2", "1-2"), "90 s"),
+  (4, "Intensificación", "Más peso para sostener el crecimiento", 1, 4, ("10", "8", "6"), ("2", "2", "1"), "2 min"),
+  (5, "Acumulación", "Repeticiones altas y bombeo", 1, 4, ("15", "12", "10"), ("2", "2", "1"), "75 s"),
+  (6, "Intensificación + evaluación", "Medir progreso (semana 4: medidas y test)", 1, 4, ("10", "8", "6"), ("2", "1-2", "1"), "2 min"),
+  (7, "Nuevo estímulo", "Cambian los ejercicios: variante 2", 2, 3, ("12", "10", "8"), ("3", "2", "2"), "90 s"),
+  (8, "Acumulación", "Volumen alto con los ejercicios nuevos", 2, 4, ("12", "10", "8"), ("2", "2", "1-2"), "90 s"),
+  (9, "Metabólico", "Series largas y descansos cortos", 2, 4, ("15", "12", "10"), ("2", "1-2", "1"), "60 s"),
+  (10, "Intensificación", "Cargas altas para seguir creciendo", 2, 4, ("10", "8", "6"), ("2", "2", "1"), "2 min"),
+  (11, "Pico de volumen", "El mes con más series del año", 2, 5, ("12", "10", "8"), ("2", "1-2", "1"), "90 s"),
+  (12, "Consolidación + evaluación anual", "Afianzar lo ganado y medir el año", 2, 3, ("10", "8", "6"), ("3", "2", "2"), "2 min")], None),
+ "fuerza": ("Ganar fuerza", [
+  (1, "Adaptación técnica", "Dominar la técnica de los básicos", 1, 3, ("10", "8", "6"), ("4", "3", "3"), "90 s"),
+  (2, "Base de fuerza", "Primeras cargas pesadas", 1, 4, ("8", "6", "5"), ("3", "3", "2"), "2 min"),
+  (3, "Fuerza", "Menos repeticiones, más kilos", 1, 4, ("6", "5", "4"), ("3", "2", "2"), "2-3 min"),
+  (4, "Hipertrofia de apoyo", "Más músculo para levantar más", 1, 4, ("10", "8", "6"), ("3", "2", "2"), "90 s"),
+  (5, "Fuerza", "Bloque pesado", 1, 5, ("5", "4", "3"), ("3", "2", "2"), "3 min"),
+  (6, "Evaluación", "Test de fuerza en la semana 4", 1, 3, ("5", "3", "2"), ("3", "2", "2"), "3 min"),
+  (7, "Nuevo estímulo", "Cambian los ejercicios: variante 2", 2, 3, ("8", "6", "5"), ("3", "3", "2"), "2 min"),
+  (8, "Fuerza", "Bloque pesado con los ejercicios nuevos", 2, 4, ("6", "5", "4"), ("3", "2", "2"), "2-3 min"),
+  (9, "Hipertrofia de apoyo", "Recargar músculo y articulaciones", 2, 4, ("10", "8", "6"), ("3", "2", "2"), "90 s"),
+  (10, "Fuerza", "Bloque más pesado del año", 2, 5, ("5", "4", "3"), ("3", "2", "1-2"), "3 min"),
+  (11, "Pico", "Llegar al máximo con técnica perfecta", 2, 5, ("4", "3", "2"), ("2", "2", "1"), "3 min"),
+  (12, "Evaluación anual + mantenimiento", "Test final y bajar exigencia", 2, 3, ("5", "3", "2"), ("3", "3", "2"), "3 min")], None),
+ "bajar": ("Bajar de peso", [
+  (1, "Adaptación", "Crear el hábito y aprender la técnica", 1, 2, ("15", "12", "12"), ("4", "3", "3"), "45 s"),
+  (2, "Base", "Más trabajo con descansos cortos", 1, 3, ("15", "12", "10"), ("3", "3", "2"), "45 s"),
+  (3, "Densidad", "Mismo trabajo en menos tiempo", 1, 3, ("12", "12", "10"), ("3", "2", "2"), "45 s"),
+  (4, "Fuerza", "Cargas más altas para no perder músculo", 1, 3, ("10", "8", "6"), ("3", "2", "2"), "90 s"),
+  (5, "Circuito", "Encadenar ejercicios con poco descanso", 1, 3, ("15", "12", "12"), ("3", "2", "2"), "30 s"),
+  (6, "Evaluación", "Medir peso, cintura y fuerza (semana 4)", 1, 3, ("12", "10", "8"), ("3", "2", "2"), "60 s"),
+  (7, "Nuevo estímulo", "Cambian los ejercicios: variante 2", 2, 3, ("15", "12", "10"), ("3", "3", "2"), "45 s"),
+  (8, "Densidad", "Más trabajo por minuto", 2, 3, ("12", "12", "10"), ("3", "2", "2"), "45 s"),
+  (9, "Fuerza", "Cuidar el músculo con cargas altas", 2, 4, ("10", "8", "6"), ("3", "2", "2"), "90 s"),
+  (10, "Circuito", "El mes con más gasto del año", 2, 3, ("15", "15", "12"), ("3", "2", "2"), "30 s"),
+  (11, "Densidad", "Sostener el ritmo con más series", 2, 4, ("12", "10", "10"), ("2", "2", "2"), "45 s"),
+  (12, "Mantenimiento + evaluación anual", "Sostener lo logrado y medir el año", 2, 3, ("12", "10", "8"), ("3", "3", "2"), "60 s")],
+  lambda m: "Cardio al final: " + ("20" if m <= 3 else "25" if m <= 6 else "30") + " min de caminata rápida, bici o elíptico, a un ritmo que te deje hablar."),
+}
 
 
 def semanas(series, reps, rir):
@@ -102,17 +143,19 @@ def ej(i):
     return {"id": i, "nombre": NOMBRE[i]}
 
 
-def plan():
+def plan(oid):
+    nombre, MESES, extra = OBJETIVOS[oid]
     meses = []
     for m, fase, obj, var, series, reps, rir, desc in MESES:
         meses.append({"mes": m, "fase": fase, "objetivo": obj, "variante": var,
-                      "descanso": {"central_1": desc, "resto": "60 s"},
+                      "descanso": {"central_1": desc, "resto": "45 s" if oid == "bajar" else "60 s"},
+                      "extra": extra(m) if extra else None,
                       "semanas": semanas(series, reps, rir),
                       "rutinas": {lugar: {r: {"entrada_en_calor": [ej(i) for i in CALOR],
                                               "centrales": [[ej(i) for i in b] for b in bloques],
                                               "elongacion": [ej(i) for i in ELONG]}
                                           for r, bloques in RUT[lugar][var].items()} for lugar in RUT}})
-    return {"objetivo": "base", "nombre": "Base general y mantenimiento", "rotacion": "A → B → C; si entrena más días vuelve a A",
+    return {"objetivo": oid, "nombre": nombre, "rotacion": "A → B → C; si entrena más días vuelve a A",
             "frecuencia": "2 a 3 por semana", "niveles": NIVEL, "dolores": {l: dolores(l) for l in RUT}, "meses": meses}
 
 
@@ -126,6 +169,8 @@ def md(p):
         w = m["semanas"]
         c = [f"{x['series']} × {x['reps']} · RIR {x['rir']}" for x in w[:2]] + [f"{w[2]['series_central_1']} × {w[2]['reps']} · RIR {w[2]['rir']}", f"{w[3]['series']} × {w[3]['reps']} · −15 % carga"]
         L.append(f"| {m['mes']} | {m['fase']} | {m['variante']} | " + " | ".join(c) + f" | {m['descanso']['central_1']} |")
+    if p["meses"][0].get("extra"):
+        L += ["", "**Cardio al final de cada sesión:** meses 1-3: 20 min · meses 4-6: 25 min · meses 7-12: 30 min (caminata rápida, bici o elíptico, a un ritmo que te deje hablar)."]
     L += ["", "**Niveles:** básico = 2 centrales, 1 serie menos y RIR +1 (40-45 min) · intermedio = 3 centrales (50-60 min) · avanzado = 3 centrales y 1 serie más.", ""]
     for lugar in RUT:
         for var in (1, 2):
@@ -142,7 +187,8 @@ def md(p):
 
 
 if __name__ == "__main__":
-    p = plan()
-    Path("base.json").write_text(json.dumps(p, ensure_ascii=False, indent=1), encoding="utf-8")
-    Path("base.md").write_text(md(p), encoding="utf-8")
-    print("ok", len(p["meses"]), "meses")
+    for oid in OBJETIVOS:
+        p = plan(oid)
+        Path(f"{oid}.json").write_text(json.dumps(p, ensure_ascii=False, indent=1), encoding="utf-8")
+        Path(f"{oid}.md").write_text(md(p), encoding="utf-8")
+        print("ok", oid, len(p["meses"]), "meses")
