@@ -11,8 +11,8 @@ ITEMS = [
  (P + "tapa_gym.jpg", "libro", "EBOOK 2", "Entrená en<br>el gimnasio", "El plan de 8 semanas con máquinas y pesas, desde nivel inicial."),
  (P + "tapa_nutri.jpg", "libro", "EBOOK 3", "Alimentación<br>Inteligente", "Plan de 8 semanas con recetas, menús y lista de compras."),
  (P + "tapa_pausa.jpg", "libro", "BONUS 1", "Pausa<br>activa", "4 rutinas de 10 minutos para la oficina o tu casa."),
- (P + "express_casa.jpg", "libro", "BONUS 2", "Rutinas express<br>de 15 minutos", "Para las semanas con poco tiempo, sin cortar el plan."),
- (I + "foto_abdominales.jpg", "foto", "BONUS 3", "Rutinas de<br>abdominales", "Para fortalecer tu zona media."),
+ (P + "tapa_express.png", "libro", "BONUS 2", "Rutinas express<br>de 15 minutos", "Para las semanas con poco tiempo, sin cortar el plan."),
+ (P + "plancha.jpg", "foto", "BONUS 3", "Rutinas de<br>abdominales", "Para fortalecer tu zona media."),
  (I + "taller_super.jpg", "foto", "BONUS 4", "Talleres con<br>profesionales", "Nutrición, hábitos, estrés y sueño, con nuestro equipo."),
  (P + "tapa_comunidad.png", "libro", "BONUS 5", "Comunidad<br>RENOVA", "Acceso a la comunidad en Skool, con cursos y talleres."),
 ]
@@ -31,7 +31,7 @@ body{width:1080px;height:1350px;overflow:hidden;font-family:InterW,sans-serif;co
 .foto{width:900px;height:675px;border-radius:30px;overflow:hidden;box-shadow:0 0 0 8px #fff,0 0 0 11px var(--rnv-turquesa-borde),26px 36px 60px rgba(6,52,59,.25)}
 .foto img{width:100%;height:100%;object-fit:cover;display:block}
 h1{font:900 64px/1.02 InterTightW,sans-serif;letter-spacing:-.02em;text-transform:uppercase;margin-top:44px}
-p{font:600 33px/1.3 InterW,sans-serif;color:var(--rnv-gris);margin:16px 90px 0}
+p{font:600 42px/1.25 InterW,sans-serif;color:var(--rnv-gris);margin:18px 70px 0}
 """
 out = Path(".")
 for n, (src, tipo, tag, tit, desc) in enumerate(ITEMS, 1):
