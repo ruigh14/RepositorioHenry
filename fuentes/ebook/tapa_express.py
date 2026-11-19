@@ -15,7 +15,12 @@ body = '''<section class="page p-cover" id="portada"><div class="body">
   </div>
   <div class="c3-team"><img src="img/equipo_tapa.png" alt="Equipo RENOVA"></div>
 </div></div></section>'''
+body4 = body.replace("RUTINAS<br>EXPRESS", "+4<br>BONUS").replace('15 MINUTOS PARA <b><span>NO CORTAR.</span></b>', 'ADAPTADOS A TU <b><span>POCO TIEMPO.</span></b>').replace(
+    'Sesiones <b>cortas</b> de <em>cuerpo completo</em><br><span>para las <mark>semanas</mark> con <mark>poco tiempo</mark>.</span>',
+    '<b>Pausa activa</b>, <em>rutinas express</em> y <em>abdominales</em>,<br><span>más <mark>talleres</mark> y <mark>comunidad RENOVA</mark>.</span>')
 css = ds_css(HERE) + "\n" + open(os.path.join(HERE, "style.css"), encoding="utf-8").read()
 open(os.path.join(HERE, "tapa_express.html"), "w", encoding="utf-8").write(
     f'<!doctype html><html lang="es"><head><meta charset="utf-8"><style>{css}</style></head><body class="grande">{body}</body></html>')
+open(os.path.join(HERE, "tapa_bonus4.html"), "w", encoding="utf-8").write(
+    f'<!doctype html><html lang="es"><head><meta charset="utf-8"><style>{css}</style></head><body class="grande">{body4}</body></html>')
 print("ok")

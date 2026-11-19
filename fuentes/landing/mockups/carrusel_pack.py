@@ -40,4 +40,8 @@ for n, (src, tipo, tag, tit, desc) in enumerate(ITEMS, 1):
     h = (f'<!doctype html><meta charset="utf-8"><style>{CSS}</style><div class="top"><img src="{I}logo.png"><br>'
          f'<span class="tag{" b" if tag.startswith("BONUS") else ""}">{tag}</span></div><div class="obj">{obj}</div><h1>{tit1}</h1><p>{desc}</p>')
     (out / f"carrusel_{n:02d}.html").write_text(h.replace('src="../../', 'src="../../').replace("../../img/", "../../img/"), encoding="utf-8")
+# Imagen única de los bonus (para usar sola)
+h = (f'<!doctype html><meta charset="utf-8"><style>{CSS}</style><div class="top"><img src="{I}logo.png"><br><span class="tag b">BONUS DE REGALO</span></div>'
+     f'<div class="obj"><div class="tapa"><img src="{P}tapa_bonus4.png"></div></div><h1>+4 bonus</h1><p>Adaptados a tu poco tiempo.</p>')
+Path("carrusel_bonus.html").write_text(h, encoding="utf-8")
 print("ok")
