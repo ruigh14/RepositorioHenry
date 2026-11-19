@@ -27,3 +27,5 @@ Conseguilo hoy, con 5 bonus de regalo por tiempo limitado.
 La primera (Elena con seed_audio) sonaba a acento de EE. UU.: se descartó. Hay 3 versiones con ElevenLabs (`text2speech_v2`, variant elevenlabs) para elegir: `ANUNCIO_IA_voz_marisol.mp4`, `_elena2.mp4` (16 s) e `_ines.mp4` (20 s, más lenta), voz al 115 % y último cuadro sostenido. Las voces prearmadas no tienen acento rioplatense: si ninguna sirve, grabar la voz o clonar una voz argentina con permiso. Texto:
 "Después de los 40, si no entrenás fuerza, perdés músculo y te cansás cada vez más. Con el pack RENOVA, en 8 semanas recuperás tu fuerza y tu energía, en casa o en el gimnasio, y ordenás tus comidas sin dietas. ¡Conseguilo hoy, con 5 bonus de regalo!"
 Falta: subtítulos y música suave.
+
+**Elegida (19/11): Elena con ElevenLabs → `ANUNCIO_IA_voz_FINAL.mp4`.** Marisol e Ines descartadas. Voz de Elena para anuncios: Higgsfield `text2speech_v2`, variant `elevenlabs`, voice_id `ca83ca7f-c186-493d-bd69-0d765fa861b2`.
