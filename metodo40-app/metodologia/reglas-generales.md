@@ -19,6 +19,17 @@
 
 - Ajuste: si en la evaluación inicial no puede hacer los ejercicios de su nivel con buena técnica, baja un nivel.
 
-## Falta definir
-- Duración de cada sesión.
-- Ejercicios a excluir o adaptar con dolor de rodilla, lumbar y hombro.
+## Duración (propuesta, a confirmar)
+- Básico 40-45 min · intermedio y avanzado 50-60 min · versión express 25-30 min (cuenta como sesión).
+- Si estuvo más de 6 meses sin entrenar, baja un nivel.
+
+## Dolores (decidido 19/11)
+- La app tiene un apartado **"Dolores"**: el usuario marca dónde le duele (rodilla, lumbar, hombro, cadera, cuello, codo/muñeca) y lo puede cambiar cuando quiera.
+- Al marcar una zona, **la rutina se ajusta sola**: pasa a **sin impacto y nivel básico**, y cambia los ejercicios de esa zona por su alternativa:
+  - **Rodilla:** sin saltos, sentadilla profunda ni estocada larga → sentadilla a cajón, puente de glúteo, peso muerto rumano, prensa con poco recorrido.
+  - **Lumbar:** sin peso muerto desde el piso, buenos días ni giros con carga → hip thrust, peso muerto con kettlebell desde banco, ejercicios con apoyo de pecho, planchas.
+  - **Hombro:** sin press por encima de la cabeza ni fondos → press inclinado con mancuernas agarre neutro, remos, flexiones inclinadas, rotación externa con banda.
+  - Cadera, cuello, codo/muñeca: alternativas a definir.
+- Cuando el usuario saca la zona, vuelve a su rutina y nivel normales.
+- Siempre visible: botón para consultar con Nacho y con el médico deportólogo.
+- Regla de corte: dolor mayor a 3/10 durante el ejercicio o peor al día siguiente → usar la alternativa; dolor fuerte, lesión de menos de 3 meses o dolor que baja por pierna o brazo → aviso de consultar antes de seguir.
