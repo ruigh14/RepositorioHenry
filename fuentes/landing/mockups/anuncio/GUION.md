@@ -24,6 +24,6 @@ Conseguilo hoy, con 5 bonus de regalo por tiempo limitado.
 3. Si Meta frena "tu figura", cambiar por "y te sentís mejor con tu cuerpo". Marcar el anuncio como hecho con IA; la mujer no es alumna ni testimonio.
 
 ## Versión con voz (19/11/2026)
-`ANUNCIO_IA_voz.mp4` (16 s): el video de Nacho (`ANUNCIO_IA.mp4`, 15 s) + voz de Elena (Higgsfield `seed_audio`, `voz_elena.wav`), 6 % más rápida y el último cuadro sostenido 1,2 s. Texto:
+La primera (Elena con seed_audio) sonaba a acento de EE. UU.: se descartó. Hay 3 versiones con ElevenLabs (`text2speech_v2`, variant elevenlabs) para elegir: `ANUNCIO_IA_voz_marisol.mp4`, `_elena2.mp4` (16 s) e `_ines.mp4` (20 s, más lenta), voz al 115 % y último cuadro sostenido. Las voces prearmadas no tienen acento rioplatense: si ninguna sirve, grabar la voz o clonar una voz argentina con permiso. Texto:
 "Después de los 40, si no entrenás fuerza, perdés músculo y te cansás cada vez más. Con el pack RENOVA, en 8 semanas recuperás tu fuerza y tu energía, en casa o en el gimnasio, y ordenás tus comidas sin dietas. ¡Conseguilo hoy, con 5 bonus de regalo!"
 Falta: subtítulos y música suave.
