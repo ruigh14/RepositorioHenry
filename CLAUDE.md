@@ -21,6 +21,8 @@
 
 ### Registro de aprendizajes
 
+- **2026-11-19 — Recortar un reel ya editado:** si el video trae subtítulos quemados, estos se adelantan ~0,3 s a la voz y al cortar aparece un instante de la frase siguiente; congelar la franja de subtítulos desde el cambio hasta el corte (o unir tramos contiguos) y revisar cada unión cuadro a cuadro antes de entregar. Nacho exige transiciones en cada corte (zoom alternado + destello). **Por qué importa:** la primera versión corta salió "mal cortada"; ver `execution/reels/tenes-mas-de-40/corto.py`.
+
 - **2026-11-19 — App MÉTODO 40 publicada como Artifact:** el visor de claude.ai no muestra `confirm()`/`alert()` (devuelven false), bloquea iframes de YouTube y agrega él mismo doctype/head/body; `build.py` genera `dist/artifact.html` sin esas etiquetas y las fotos van con `root` = dist y `files` img/*. **Por qué importa:** para actualizarla, regenerar y publicar el mismo `artifact.html` (mantiene el link); confirmaciones siempre dentro de la página.
 
 - **2026-11-16 — Dos prompts de edición:** EDICIÓN DIARIA (`directives/prompt_edicion_diaria.md`) para los reels del día a día y PROMO EBOOK (`directives/prompt_promo_ebook.md`) para los que venden el pack; el de edición diaria reúne todo el método de edición de reels (leer la carpeta de Drive: doc → indicaciones, videos cortos → b-roll; cortes solo entre oraciones; transiciones en silencios; tiempos; zonas seguras; recursos por frase). **Por qué importa:** es el punto de partida de cada reel; actualizarlo cuando Nacho apruebe un cambio de estilo.
